@@ -22,17 +22,17 @@ In the Azure Machine Learning service, you can track your experiments and monito
 
 ## List of training metrics 
 
-The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://aka.ms/aml-sdk).
+The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Type| Python function | Example | Notes|
-|----|:----|:----|:----|
-|Scalar values | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
-|Lists| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Log a list of values to the run with the given name.|
-|Row| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
-|Table| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Log a dictionary object to the run with the given name. |
-|Images| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
-|Tag a run| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Tag the run with a string key and optional string value.|
-|Upload file or directory|`run.upload_file(name, path_or_stream)`| run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
+|Type| Python function | Notes|
+|----|:----|:----|
+|Scalar values |Function:<br>run.log(name, value, description='')<br>Example:<br>run.log("accuracy", 0.95) |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
+|Lists|Function:<br>run.log_list(name, value, description='')<br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
+|Row|Function:<br>run.log_row(name, description=None, **kwargs)<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
+|Table|Function:<br>run.log_table(name, value, description='')<br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
+|Images|Function:<br>run.log_image(name, path=None, plot=None)<br>Example:<br>run.log_image("ROC", plt) | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Tag a run|Function:<br>run.tag(key, value=None)<br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
+|Upload file or directory|Function:<br>run.upload_file(name, path_or_stream)<br> Example:<br>run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
 
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
@@ -114,7 +114,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
   run.complete()
   ```
 
-The script ends with ```run.complete()```, which marks the run as completed.  This is typically used in interactive notebook scenarios.
+The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
 
 ## Option 2: Use ScriptRunConfig
 
@@ -122,7 +122,7 @@ The script ends with ```run.complete()```, which marks the run as completed.  Th
 
 This example expands on the basic sklearn Ridge model from above. It does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
-1. Create a training script. This uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
+1. Create a training script. This code uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
 
   ```python
   %%writefile $project_folder/train.py
@@ -237,7 +237,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
    ```
 
 
-To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure Portal.
+To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure portal.
 
 ### Get log results upon completion
 
@@ -251,10 +251,10 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 
 ## View the experiment in the Azure portal
 
-When an experiment has finished running, you can browse to the recorded experiment run record. You can do this in two ways:
+When an experiment has finished running, you can browse to the recorded experiment run record. You can do access the history in two ways:
 
 * Get the URL to the run directly ```print(run.get_portal_url())```
-* View the run details by submitting the name of the run (in this case, ```run```). This points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
+* View the run details by submitting the name of the run (in this case, ```run```). This way points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
@@ -275,11 +275,13 @@ There are various ways to use the logging APIs to record different types of metr
 
 ## Understanding automated ML charts
 
-After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. To see them:
+After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. 
+
+To see them:
 
 1. Go to your workspace. 
 
-1. Select ‘Experiments’ in the leftmost panel of your workspace.
+1. Select **Experiments** in the leftmost panel of your workspace.
 
   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
 
@@ -295,51 +297,55 @@ After submitting an automated ML job in a notebook, a history of these runs can 
 
    ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
+Learn more about:
++ [Charts and curves for classification models](#classification)
++ [Charts and graphs for regression models](#regression)
++ [Model explain ability](#model-explain-ability-and-feature-importance)
 
 ### Classification
 
-For every classification model you build using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
-+ Confusion matrix
-+ Precision-Recall chart
-+ Receiver operating characteristics (or ROC)
-+ Lift curve
-+ Gains curve
-+ Calibration plot
+For every classification model, you build using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
++ [Confusion matrix](#confusion-matrix)
++ [Precision-Recall chart](#precision-recall-chart)
++ [Receiver operating characteristics (or ROC)](#ROC)
++ [Lift curve](#lift-curve)
++ [Gains curve](#gains-curve)
++ [Calibration plot](#calibration-plot)
 
 #### Confusion matrix
 
-A confusion matrix is used to describe the performance of a classification model. Each row displays the instances of the true class, and each column represents the instances of the predicted class. By doing this, the confusion matrix shows the correctly classified labels and the incorrectly classified labels for a given model.
+A confusion matrix is used to describe the performance of a classification model. Each row displays the instances of the true class, and each column represents the instances of the predicted class. The confusion matrix shows the correctly classified labels and the incorrectly classified labels for a given model.
 
 For classification problems, Azure Machine Learning automatically provides a confusion matrix for each model that is built. For each confusion matrix, automated ML will show the correctly classified labels as green, and incorrectly classified labels as red. The size of the circle represents the number of samples in that bin. In addition, the frequency count of each predicted label and each true label is provided in the adjacent bar charts. 
 
 Example 1: A classification model with poor accuracy
-  ![A classification model with poor accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+![A classification model with poor accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
 Example 2: A classification model with high accuracy (ideal)
-  ![A classification model with high accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+![A classification model with high accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### Precision-recall chart
 
-With this chart, you can compare the compare the precision-recall curves for each model to determine which model has an acceptable relationship between precision and recall for your particular business problem. This chart shows Macro Average Precision-Recall, Micro Average Precision-Recall, and the precision-recall associated with all classes for a model.
+With this chart, you can compare the precision-recall curves for each model to determine which model has an acceptable relationship between precision and recall for your particular business problem. This chart shows Macro Average Precision-Recall, Micro Average Precision-Recall, and the precision-recall associated with all classes for a model.
 
 The term Precision represents that ability for a classifier to label all instances correctly. Recall represents the ability for a classifier to find all instances of a particular label. The precision-recall curve shows the relationship between these two concepts. Ideally, the model would have 100% precision and 100% accuracy.
 
 Example 1: A classification model with low precision and low recall
-  ![A classification model with low precision and low recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+![A classification model with low precision and low recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
 Example 2: A classification model with ~100% precision and ~100% recall (ideal)
-![A Clasification model high precision and recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+![A classification model high precision and recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### ROC
 
-Receiver operating characteristics (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high bias, as it will not show the false positive labels.
+Receiver operating characteristic (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high bias, as it will not show the false positive labels.
 
 Example 1: A classification model with low true labels and high false labels
-  ![Classfication model with low true labels and high false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+![Classification model with low true labels and high false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
 Example 2: A classification model with high true labels and low false labels
-  ![a classification model with high true labels and low false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+![a classification model with high true labels and low false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### Lift curve
 
@@ -348,69 +354,71 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 Lift charts are used to evaluate the performance of a classification model. It shows how much better you can expect to do with a model compared to without a model. 
 
 Example 1: Model performs worse than a random selection model
-  ![A classification model that does worse than a random selection model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+![A classification model that does worse than a random selection model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
 Example 2: Model performs better than a random selection model
-  ![A classification model that performs better](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+![A classification model that performs better](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
 #### Gains curve
 
-A Gains chart evaluates the performance of a classification model by each portion of the data. It shows for each percentile of the dataset, how much better you can expect to do compared against a random selection model.
+A gains chart evaluates the performance of a classification model by each portion of the data. It shows for each percentile of the data set, how much better you can expect to perform compared against a random selection model.
 
-Use the cumulative gains chart to help you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This provides another way of looking at the information in the accompanying lift chart.
+Use the cumulative gains chart to help you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This information provides another way of looking at the results in the accompanying lift chart.
 
 Example 1: A classification model with minimal gain
-  ![a classification model with minimal gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+![a classification model with minimal gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
 Example 2: A classification model with significant gain
-  ![A classification model with significant gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+![A classification model with significant gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### Calibration plot
 
-For all classification problems, you can review the calibration line for micro-average, macro-average and each class in a given predictive model. 
+For all classification problems, you can review the calibration line for micro-average, macro-average, and each class in a given predictive model. 
 
-A calibration plot is used to display the confidence of a predictive model. It does this by showing the relationship between the predicted probability and the actual probability, where “probability” represents the likelihood that a particular instance belongs under some label. A well calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability.
+A calibration plot is used to display the confidence of a predictive model. It does this by showing the relationship between the predicted probability and the actual probability, where “probability” represents the likelihood that a particular instance belongs under some label. A well calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over-confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability.
 
 Example 1: A more well-calibrated model
-  ![ more well-calibrated model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+![ more well-calibrated model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
 Example 2: An over-confident model
-  ![An over-confident model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+![An over-confident model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### Regression
-For every regression model you build using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
-+ Predicted vs. True
-+ Histogram of residuals
+For every regression model, you build using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
++ [Predicted vs. True](#pvt)
++ [Histogram of residuals](#histo)
+
+<a name="pvt"></a>
 
 #### Predicted vs. True
 
-Predicted vs. True shows the relationship between a predicted value and its correlating true value for a regression problem. This can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the accuracy of a predictive model.
+Predicted vs. True shows the relationship between a predicted value and its correlating true value for a regression problem. This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the accuracy of a predictive model.
 
 After each run, you can see a predicted vs. true graph for each regression model. To protect data privacy, values are binned together and the size of each bin is shown as a bar graph on the bottom portion of the chart area. You can compare the predictive model, with the lighter shade area showing error margins, against the ideal value of where the model should be.
 
 Example 1: A regression model with low accuracy in predictions
-  ![A regression model with low accuracy in predictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+![A regression model with low accuracy in predictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
 
 Example 2: A regression model with high accuracy in its predictions
-  ![A regression model with high accuracy in its predictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+![A regression model with high accuracy in its predictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+
+<a name="histo"></a>
 
 #### Histogram of residuals
 
 A residual represents an observed y – the predicted y. To show a margin of error with low bias, the histogram of residuals should be shaped as a bell curve, centered around 0. 
 
 Example 1: A regression model with bias in its errors
- ![SA regression model with bias in its errors](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+![SA regression model with bias in its errors](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
 
 Example 2: A regression model with more even distribution of errors
- ![A regression model with more even distribution of errors](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+![A regression model with more even distribution of errors](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
 
 ### Model explain-ability and feature importance
 
-Feature importance gives a score that indicates how valuable each feature was in the construction of a model.
+Feature importance gives a score that indicates how valuable each feature was in the construction of a model. You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
 
-You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
-
- ![Feature Explainability](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+![Feature Explain ability](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
