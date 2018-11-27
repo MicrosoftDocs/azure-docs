@@ -22738,6 +22738,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-policies.md",
+            "redirect_url": "/azure/security-center/security-center-azure-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-platform-migration.md",
             "redirect_url": "/azure/security-center/security-center-enable-data-collection",
             "redirect_document_id": false
@@ -30871,6 +30876,56 @@
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
             "redirect_url": "/azure/media-services/video-indexer/video-indexer-view-edit",
             "redirect_document_id": true
-        }                                                        
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-data-sources",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-collectd.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-collectd",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-custom-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-custom-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-iis-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-iis-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-json.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-json",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-linux-applications.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-linux-applications",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-performance-counters.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-performance-counters",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-syslog.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-syslog",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-windows-events.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-windows-events",
+            "redirect_document_id":  true
+        }
     ]
 }
