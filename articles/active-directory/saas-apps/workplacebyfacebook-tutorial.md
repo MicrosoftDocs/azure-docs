@@ -137,7 +137,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    > [!NOTE] 
    > As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
-1. In the **Company Dashboard**, go to the **Authentication** tab.
+1. In the **Admin Panel**, go to the **Security** tab, then **Authentication**.
 
 1. Under **SAML Authentication**, select **SSO Only** from the drop-down list.
 
