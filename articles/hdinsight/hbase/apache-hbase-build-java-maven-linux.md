@@ -1,15 +1,19 @@
----
-title: Java HBase client - Azure HDInsight 
+﻿---
+title: Java HBase client - Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: cgronlun
+editor: ''
 
+ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
+ms.date: 01/25/2018
+ms.author: larryfr
 
 ---
 # Build Java applications for Apache HBase
@@ -26,7 +30,7 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 
 ## Requirements
 
-* [Java platform JDK](https://aka.ms/azure-jdks) 8 or later.
+* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 or later.
 
     > [!NOTE]
     > HDInsight 3.5 and greater requires Java 8. Earlier versions of HDInsight require Java 7.
@@ -34,6 +38,9 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 * [Maven](http://maven.apache.org/)
 
 * [A Linux-based Azure HDInsight cluster with HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+
+  > [!NOTE]
+  > The steps in this document have been tested with HDInsight cluster versions 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 ## Create the project
 
