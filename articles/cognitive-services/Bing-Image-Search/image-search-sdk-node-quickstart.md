@@ -19,6 +19,7 @@ Use this quickstart to make your first image search using the Bing Image Search 
 The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) with additional error handling and annotations.
 
 ## Prerequisites
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * The [Cognitive Services Image Search SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
     * Install using `npm install azure-cognitiveservices-imagesearch`

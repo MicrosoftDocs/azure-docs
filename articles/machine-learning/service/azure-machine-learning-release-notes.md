@@ -19,9 +19,11 @@ In this article, learn about the Azure Machine Learning service releases.
 ### Azure Machine Learning SDK for Python v0.1.80
 
 + **Breaking changes** 
-  * *azureml.train.widget* namespace has moved to *azureml.train*.
-  * *azureml.core.compute.AmlCompute* deprecates *azureml.core.compute.BatchAICompute*. The latter class will be removed in subsequent releases.
+  * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you examples on how to use this. We hope you like this simplification and lots of more exciting features to come in a later release!
+
 ### Azure Machine Learning Data Prep SDK v0.5.1 
+
 Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/data-prep-sdk).
 + **New Features**
    * Created a new DataPrep CLI to execute DataPrep packages and view the data profile for a dataset or dataflow
