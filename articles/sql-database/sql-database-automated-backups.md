@@ -57,12 +57,10 @@ The default retention period for a database created using the DTU-based purchasi
 
 #### vCore-based purchasing model
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled,and Managed Instance databases).
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled,and Managed Instance databases). For all Azure SQL databases (single, pooled, and Managed Imstance databases, you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period).
 
-- For single and pooled databases, you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period).
-- Changing backup retention period is not available in Managed Instance.
-
-If you reduce the current retention period, all existing backups older than the new retention period are no longer be available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.
+> [!WARNING]
+> If you reduce the current retention period, all existing backups older than the new retention period are no longer be available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.
 
 ## How often do backups happen
 
