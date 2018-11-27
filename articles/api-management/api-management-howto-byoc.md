@@ -20,7 +20,7 @@ ms.author: apimpm
 
 # Use an external Redis cache in Azure API Management
 
-Azure API Management allows for caching responses in an external Redis cache, aside from the built-in cache.
+In addition to utilizing the built-in cache, Azure API Management also allows for caching responses in an external Redis cache.
 
 Using an external cache allows to overcome a few limitations of the built-in cache. It is especially beneficial if you would like to:
 
@@ -58,14 +58,14 @@ This section explains how to create a Redis cache in Azure. If you already have 
 
 ## <a name="add-external-cache"> </a>Add an external cache in API Management
 
-Follow the steps below to add any external Redis cache in Azure API Management.
+Follow the steps below to add an external Redis cache in Azure API Management.
 
 ![Bring your own cache to APIM](media/api-management-howto-byoc/add-external-cache.png)
 
 > [!NOTE]
-> The **Used from** setting specifies which API Management regional deployment will communicate with the configured cache in case of a multi-regional deployment of API Management. The value **Default** will be overridden by a regional value.
+> The **Used from** setting specifies which API Management regional deployment will communicate with the configured cache in case of a multi-regional configuration of API Management. The caches specified as **Default** will be overridden by caches with a regional value.
 >
-> For example, if API Management is hosted in the East US, Southeast Asia and West Europe regions and there are two cache entries, one for **Default** and one for **Southeast Asia**, API Management in **Southeast Asia** will use its own cache, while the other two regions will use the **Default** cache entry.
+> For example, if API Management is hosted in the East US, Southeast Asia and West Europe regions and there are two caches configured, one for **Default** and one for **Southeast Asia**, API Management in **Southeast Asia** will use its own cache, while the other two regions will use the **Default** cache entry.
 
 ### Add an Azure Redis Cache from the same subscription
 
