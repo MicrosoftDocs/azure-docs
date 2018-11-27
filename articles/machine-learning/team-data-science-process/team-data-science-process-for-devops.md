@@ -2,14 +2,15 @@
 title: Team Data Science Process for DevOps | Microsoft Docs
 description: Provides guidance to understand an analytics workload using the Team Data Science Process and Azure Machine Learning.
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 # Team Data Science Process for Developer Operations

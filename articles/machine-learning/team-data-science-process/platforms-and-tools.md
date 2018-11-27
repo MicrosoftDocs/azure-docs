@@ -1,14 +1,15 @@
 ---
 title: Platforms and tools for data science team projects - Azure  | Microsoft Docs
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 

@@ -2,14 +2,15 @@
 title: "DevOps for Artificial Intelligence (AI) applications: Creating continous integration pipeline on Azure using Docker, Kubernetes & Python Flask application"
 description: "DevOps for Artificial Intelligence (AI) applications: Creating continous integration pipeline on Azure using Docker and Kubernetes"
 services: machine-learning
-author: jainr
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
+ms.author: tdsp
+ms.custom: "(previous author=jainr, ms.author=jainr)"
 ---
 # DevOps for Artificial Intelligence (AI) applications: Creating continuous integration pipeline on Azure using Docker and Kubernetes
 For an AI application, there are frequently two streams of work, Data Scientists building machine learning models and App developers building the application and exposing it to end users to consume. In this article, we demonstrate how to implement a Continuous Integration (CI)/Continous Delivery (CD) pipeline for an AI application. AI application is a combination of application code embedded with a pretrained machine learning (ML) model. For this article, we are fetching a pretrained model from a private Azure blob storage account, it could be an AWS S3 account as well. We will use a simple python flask web application for the article.

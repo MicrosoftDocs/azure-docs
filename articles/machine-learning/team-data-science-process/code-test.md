@@ -2,14 +2,15 @@
 title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Azure DevOps Services"
 description: Data science code testing with UCI adult income prediction data
 services: machine-learning
-author: weig
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
-ms.author: weig
+ms.author: tdsp
+ms.custom: "(previous author=weig, ms.author=weig)"
 ---
 # Data science code testing with the UCI adult income prediction dataset
 This article gives preliminary guidelines for testing code in a data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. We use a Team Data Science Process (TDSP) [project that uses the UCI Adult Income dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that we published earlier to show how code testing can be done. 

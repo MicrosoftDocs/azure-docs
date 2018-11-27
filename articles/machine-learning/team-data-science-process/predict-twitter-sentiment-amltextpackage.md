@@ -2,14 +2,15 @@
 title: Twitter sentiment classification with Azure Machine Learning (AML) package for text analytics (AMLPTA) and Team Data Science Process (TDSP) | Microsoft Docs
 description: Describes use of TDSP (Team Data Science Process) and AMLPTA for sentiment classification
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Twitter sentiment classification with Azure Machine Learning (AML) package for text analytics (AMLPTA) and Team Data Science Process (TDSP)
 

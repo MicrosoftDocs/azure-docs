@@ -2,14 +2,15 @@
 title: Feature selection in the Team Data Science Process | Microsoft Docs
 description: Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning.
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Feature selection in the Team Data Science Process (TDSP)
 This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 

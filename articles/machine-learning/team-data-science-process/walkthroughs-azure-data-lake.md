@@ -2,14 +2,15 @@
 title: Azure Data Lake data science walkthroughs using U-SQL  | Microsoft Docs
 description: Examples that walk through the use of U-SQL on Azure Data Lake to do predictive analytics.
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 # Azure Data Lake data science walkthroughs using U-SQL

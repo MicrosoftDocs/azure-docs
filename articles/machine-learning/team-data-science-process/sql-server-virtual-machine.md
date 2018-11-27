@@ -2,14 +2,15 @@
 title: Explore data in a SQL Server virtual machine on Azure | Microsoft Docs
 description: Explore data and generate features in a SQL Server virtual machine on Azure
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.

@@ -2,14 +2,15 @@
 title: Deployment stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
 description: The goals, tasks, and deliverables for the deployment stage of your data-science projects
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Deployment
 
