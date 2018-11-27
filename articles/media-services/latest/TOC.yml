@@ -67,10 +67,10 @@
   - name: Streaming live events
     href: live-streaming-overview.md
     items:
-    - name: States and billing
-      href: live-event-states-billing.md
     - name: Types comparison
       href: live-event-types-comparison.md
+    - name: States and billing
+      href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
 - name: How-to guides
