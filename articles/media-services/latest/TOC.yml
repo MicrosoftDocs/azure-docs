@@ -64,7 +64,7 @@
       href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Streaming live 
+  - name: Streaming live events
     href: live-streaming-overview.md
     items:
     - name: States and billing
