@@ -110,15 +110,16 @@ This view shows virtual network connections. 
 
 ### Diagnostics 
 
-Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues are listed here. 
+Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues that you can see are listed below.
 
-You can see the notification codes and set alerts on them via LogAnalytics
-In NPM Diagnostics page, you would see Descriptions for every diagnostics message triggered.
+**Notification codes**
+
+You can see the notification codes and set alerts on them via **LogAnalytics**. On the **NPM Diagnostics** page, you can see descriptions for every diagnostics message triggered.
 
 | Notification Code (Logs) | Description |
 | --- | --- |
-| 5101 | Microsoft Edge subinterface's shows high latency |
-| 5102 | Microsoft Edge subinterface's is dropping the package | 
+| 5101 | Microsoft Edge subinterfaces shows high latency |
+| 5102 | Microsoft Edge subinterfaces is dropping the package | 
 | 5103 | ExpressRoute gateway is unhealthy | 
 | 5201 | Service provider's link shows high latency |
 | 5202 | Packets are not flowing from intended ExpressRoute circuit |
