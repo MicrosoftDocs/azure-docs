@@ -100,7 +100,7 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 
 ### Caller ID
 
-**MFA caller ID number** This is the number your users will see on their phone. Only US based numbers are allowed.
+**MFA caller ID number** This is the number your users will see on their phone. Only US-based numbers are allowed.
 
 >[!NOTE]
 >When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
@@ -371,7 +371,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
+5. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
 6. Set the number of days to allow trusted devices to bypass two-step verification. The default is 14 days.
 7. Select **Save**.
 
