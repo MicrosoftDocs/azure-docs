@@ -19,7 +19,7 @@ ms.component:
 
 # Network Performance Monitor solution in Azure
 
-![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Network Performance Monitor symbol](./media/network-performance-monitor/npm-symbol.png)
 
 
 Network Performance Monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. 
@@ -28,13 +28,13 @@ Network Performance Monitor detects network issues like traffic blackholing, rou
 
 Network Performance Monitor offers three broad capabilities: 
 
-* [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md): You can monitor network connectivity across cloud deployments and on-premises locations, multiple data centers, and branch offices and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before users complain.
+* [Performance Monitor](network-performance-monitor-performance-monitor.md): You can monitor network connectivity across cloud deployments and on-premises locations, multiple data centers, and branch offices and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before users complain.
 
-* [Service Connectivity Monitor](log-analytics-network-performance-monitor-service-endpoint.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and identify where network bottlenecks occur. You can know about outages before your users, and see the exact location of the issues along your network path. 
+* [Service Connectivity Monitor](network-performance-monitor-service-endpoint.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and identify where network bottlenecks occur. You can know about outages before your users, and see the exact location of the issues along your network path. 
 
     This capability helps you perform tests based on HTTP, HTTPS, TCP, and ICMP to monitor in near real time or historically the availability and response time of your service. You also can monitor the contribution of the network in packet loss and latency. With a network topology map, you can isolate network slowdowns. You can identify problem spots that occur along the network path from the node to the service, with latency data on each hop. With built-in tests, you can monitor network connectivity to Office 365 and Dynamics CRM without any preconfiguration. With this capability, you can monitor network connectivity to any TCP-capable endpoint, such as websites, SaaS applications, PaaS applications, and SQL databases.
 
-* [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
+* [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
 
 More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
  
@@ -56,7 +56,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](log-analytics-windows-agents.md) and [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../log-analytics/log-analytics-om-agents.md) and [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
 
 ### Where to install the agents 
 
@@ -98,21 +98,21 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
 ### Configure the solution 
 
-1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md). 
+1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md). 
 2. Open your Log Analytics workspace, and select the **Overview** tile. 
 3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
-   ![Network Performance Monitor tile](media/log-analytics-network-performance-monitor/npm-config.png)
+   ![Network Performance Monitor tile](media/network-performance-monitor/npm-config.png)
 
 4. On the **Setup** page, you see the option to install Log Analytics agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Log Analytics agents, select the **Setup** view to configure the capability you want to use. 
 
    **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the rPerfomance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
 
-   ![Performance Monitor view](media/log-analytics-network-performance-monitor/npm-synthetic-transactions.png)
+   ![Performance Monitor view](media/network-performance-monitor/npm-synthetic-transactions.png)
     
    **Service Connectivity Monitor**: The capability provides built-in preconfigured tests to monitor network connectivity to Office 365 and Dynamics 365 from your agents. Choose the Office 365 and Dynamics 365 services that you want to monitor by selecting the check boxes beside them. To choose the agents from which you want to monitor, select **Add Agents**. If you don't want to use this capability or want to set it up later, don't choose anything and select **Save & Continue**.
 
-   ![Service Endpoint Monitor view](media/log-analytics-network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Service Endpoint Monitor view](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **ExpressRoute Monitor**: Select **Discover Now** to discover all the ExpressRoute private peerings that are connected to the virtual networks in the Azure subscription linked with this Log Analytics workspace. 
 
@@ -122,11 +122,11 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
    >[!NOTE] 
    > Only private peerings that are connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Use Network Performance Monitor to monitor those peerings.
 
-   ![ExpressRoute Monitor view](media/log-analytics-network-performance-monitor/npm-express-route.png)
+   ![ExpressRoute Monitor view](media/network-performance-monitor/npm-express-route.png)
 
    After the discovery is finished, the discovered private peerings are listed in a table. 
 
-   ![Network Performance Monitor Configuration page](media/log-analytics-network-performance-monitor/npm-private-peerings.png)
+   ![Network Performance Monitor Configuration page](media/network-performance-monitor/npm-private-peerings.png)
     
 The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
 
@@ -154,9 +154,9 @@ All the nodes that have an agent installed on them are listed on the **Nodes** t
 
 Configure the capabilities you want:
 
-- [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
-- [Service Endpoint Monitor](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
+- [Performance Monitor](network-performance-monitor-performance-monitor.md#configuration)
+- [Service Endpoint Monitor](network-performance-monitor-performance-monitor.md#configuration)
+- [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -184,7 +184,7 @@ The solution uses synthetic transactions to assess the health of the network. Lo
 
 After you enable the Network Performance Monitor solution, the solution tile on the **Overview** page provides a quick overview of the network health. 
 
- ![Network Performance Monitor Overview tile](media/log-analytics-network-performance-monitor/npm-overview-tile.png)
+ ![Network Performance Monitor Overview tile](media/network-performance-monitor/npm-overview-tile.png)
 
 ### Network Performance Monitor dashboard 
 
@@ -198,7 +198,7 @@ After you enable the Network Performance Monitor solution, the solution tile on 
 
 * **Common Queries**: This page contains a set of search queries that fetch raw network monitoring data directly. You can use these queries as a starting point to create your own queries for customized reporting. 
 
-   ![Network Performance Monitor dashboard](media/log-analytics-network-performance-monitor/npm-dashboard.png)
+   ![Network Performance Monitor dashboard](media/network-performance-monitor/npm-dashboard.png)
 
  
 
@@ -214,7 +214,7 @@ Select **View topology** to view the hop-by-hop topology of the routes betwe
 
 Each view displays a snapshot of your network health at a particular point in time. By default, the most recent state is shown. The bar at the top of the page shows the point in time for which the state is displayed. To view a snapshot of your network health at a previous time, select **Actions**. You also can enable or disable auto-refresh for any page while you view the latest state. 
 
- ![Network State Recorder](media/log-analytics-network-performance-monitor/network-state-recorder.png)
+ ![Network State Recorder](media/network-performance-monitor/network-state-recorder.png)
 
  
 
@@ -227,7 +227,7 @@ Trend charts show you a historical perspective of the performance of a performan
 You can easily detect these kinds of issues by looking at a trend chart. The issue appears as a sudden spike in network latency or packet loss. To investigate the issue, use the Network State Recorder control to view the network snapshot and topology for that point in time when the issue occurred.
 
  
-![Trend charts](media/log-analytics-network-performance-monitor/trend-charts.png)
+![Trend charts](media/network-performance-monitor/trend-charts.png)
  
 
 ### Topology map 
@@ -241,12 +241,12 @@ When you select a node or hover over it on the topology map, you see the node pr
 The topology shown in the map is layer 3 topology and doesn't contain layer 2 devices and connections. 
 
  
-![Topology map](media/log-analytics-network-performance-monitor/topology-map.png)
+![Topology map](media/network-performance-monitor/topology-map.png)
  
 
 ## Log Analytics search 
 
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](log-analytics-queries.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](../../log-analytics/log-analytics-queries.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
 ## Alerts
 
@@ -273,7 +273,7 @@ Notifications are charged separately as per [Notifications pricing in Azure Moni
 
 ## Pricing
 
-Information on pricing is available [online](log-analytics-network-performance-monitor-pricing-faq.md).
+Information on pricing is available [online](network-performance-monitor-pricing-faq.md).
 
 ## Provide feedback 
 
@@ -282,4 +282,4 @@ Information on pricing is available [online](log-analytics-network-performance-m
 * **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
 
 ## Next steps 
-Learn more about [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](log-analytics-network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md). 
+Learn more about [Performance Monitor](network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](network-performance-monitor-expressroute.md). 
