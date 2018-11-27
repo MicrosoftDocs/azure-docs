@@ -3,7 +3,7 @@ title: Handle mouse events with Azure Maps | Microsoft Docs
 description: How to make an interactive Javascript map with map events
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/26/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -24,7 +24,7 @@ Play with the map above, and see the corresponding mouse events highlighted on t
 
 ## Interact with map layers
 
-<iframe height='265' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 The code above highlights the name of the events that get fired up as you interact with the Symbol Layer. The Symbol, Bubble, Line, and Polygon layer all support the same set of events. The Tile Layer does not support any of these events.
