@@ -12,7 +12,7 @@ ms.author: garye
 
 # What's happening to Azure Batch AI?
 
-We recently released Azure Machine Learning for general availability. The service offers **Azure Machine Learning Compute**, which provides you with a cloud-based compute target for developing, training, and batch inferencing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on March 4, 2019.
+We recently released Azure Machine Learning for general availability. The service offers **[Azure Machine Learning Compute](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute)**, which provides you with a cloud-based compute target for developing, training, and batch inferencing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on March 4, 2019.
 
 ## How does this affect me?
 
@@ -32,6 +32,8 @@ Convert your scripts to use Azure Machine Learning Compute before June 28, 2019,
 
 
 ## For more information
+
+- To learn more about Azure Machine Learning service, see [What is Azure Machine Learning service?](../machine-learning/service/overview-what-is-azure-ml.md).
 
 - To learn how to configure various compute targets for your machine learning models, see [Set up compute targets for model training with Azure Machine Learning service](../machine-learning/service/how-to-set-up-training-targets.md).
 
