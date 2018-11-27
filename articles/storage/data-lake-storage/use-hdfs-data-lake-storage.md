@@ -93,5 +93,4 @@ For more information on Databricks CLI, see the [official documentation](https:/
 
 ## Next steps
 
-- [Create an HDInsight cluster with Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
 - [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./quickstart-create-databricks-account.md) 
