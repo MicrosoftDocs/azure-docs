@@ -1,0 +1,20 @@
+- name: Dedicated HSM
+  tocHref: /dedicated-hsm/
+  topicHref: /dedicated-hsm/index
+  items:
+  items:
+  - name: Overview
+    tocHref: /dedicated-hsm/overview/
+    topicHref: /dedicated-hsm/overview
+  - name: Tutorials
+    tocHref: /dedicated-hsm/Tutorials/
+    topicHref: /dedicated-hsm/tutorial-deploy-hsm-cli
+  - name: concepts
+    tocHref: /dedicated-hsm/concepts/
+    topicHref: /dedicated-hsm/index
+  - name: Ove
+    tocHref: /dedicated-hsm/How-to guides/
+    topicHref: /dedicated-hsm/index
+  - name: Overview
+    tocHref: /dedicated-hsm/Resources/
+    topicHref: /dedicated-hsm/index
