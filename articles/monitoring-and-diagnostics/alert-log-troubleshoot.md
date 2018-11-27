@@ -13,7 +13,7 @@ ms.component: alerts
 ## Overview
 This article shows you how to resolve common issues seen when setting up log alerts in Azure monitor. It also provides solutions to frequently asked questions regarding functionality or configuration of log alerts. 
 
-The term **Log Alerts** to describe alerts that fire based on a custom query in [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](monitor-alerts-unified-log.md).
+The term **Log Alerts** describes alerts that fire based on a custom query in [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](monitor-alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases when the Azure portal shows and alert rule triggered and a notification performed by an associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](monitoring-action-groups.md).
