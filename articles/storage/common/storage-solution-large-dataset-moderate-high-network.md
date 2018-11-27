@@ -1,5 +1,5 @@
 ---
-title: Data transfer for large datasets, moderate to high network bandwidth| Microsoft Docs
+title: Azure data transfer options for large datasets, moderate to high network bandwidth| Microsoft Docs
 description: Learn how to choose an Azure solution for data transfer when you have moderate to high network bandwidth in your environment and you are planning to transfer large datasets.
 services: storage
 author: alkohli
