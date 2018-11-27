@@ -1,6 +1,6 @@
 ---
-title: Data storage and ingress in The Azure Time Series Insights Update | Microsoft Docs
-description: Understanding data storage and ingress in The Azure Time Series Insights Update
+title: Data storage and ingress in the Azure Time Series Insights update | Microsoft Docs
+description: Understanding data storage and ingress in the Azure Time Series Insights update
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -13,7 +13,7 @@ ms.date: 11/27/2018
 
 # Time Series Model
 
-This document details the **Time Series Model** (TSM) part of The Azure Time Series Insights V2 Update. It describes the model itself, its capabilities, and how to get started building and updating your own model.
+This document details the **Time Series Model** (TSM) part of the Azure Time Series Insights (TSI) update. It describes the model itself, its capabilities, and how to get started building and updating your own model.
 
 Traditionally, the data collected from IoT devices lacks contextual information making it difficult to find and analyze sensors quickly. The main motivation for TSM is to simplify finding and analyzing IoT data by enabling curation, maintenance, and enrichment of time series data to help prepare consumer-ready data sets. **Time Series Models** play a vital role in queries and navigation since they contextualize device and non-device entities. Data persisted in TSM powers time series queries computations by leveraging the formulas stored in them.
 
@@ -169,27 +169,27 @@ The following variable kinds are supported:
 
 * Numeric – Continuous
 
-### Variable Filter
+### Variable filter
 
-Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions
+Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions.
 
 ### Variable Value
 
 Variable values are and should be used in computation. This is the column in the events that we should refer to.
 
-### Variable Interpolation
+### Variable interpolation
 
 The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
 
-The Azure Time Series Insights V2 Update supports the following variable interpolation: `linear`, `stepright`, and `none`.
+The Azure TSI update supports the following variable interpolation: `linear`, `stepright`, and `none`.
 
-### Variable Aggregation
+### Variable aggregation
 
 The aggregate function the variable enables part of computation. If variable interpolation is `null` or `none`, then TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**). If variable interpolation is `stepright` or `linear`, then TSI will support **twmin**, **twmax**, **twavg**, and **twsum**. Count cannot be specified in interpolation.
 
-### Time Series Model Hierarchies
+### Time Series Model hierarchies
 
-Hierarchies organize instances by specifying property names and their relationships. You might have a single hierarchy or multiple hierarchies. Additionally, these need not be a current part of your data, but each instance should map to a hierarchy. A Time Series Model instance can map to a single hierarchy or multiple hierarchies.
+Hierarchies organize instances by specifying property names and their relationships. You might have a single hierarchy or multiple hierarchies. Additionally, these need not be a current part of your data, but each instance should map to a hierarchy. A TSM instance can map to a single hierarchy or multiple hierarchies.
 
 Hierarchies are defined by **hierarchyID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
 
