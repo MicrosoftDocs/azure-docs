@@ -108,7 +108,7 @@ This view shows virtual network connections. 
 ![ExpressRoute virtual network connections](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
 
-### Diagnostics 
+## Diagnostics 
 
 Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues that you can see are listed below.
 
