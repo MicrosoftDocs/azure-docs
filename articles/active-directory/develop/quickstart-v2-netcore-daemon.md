@@ -123,7 +123,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
 > [!NOTE]
-> Because this application and the request does not have a redirect URI, you may see the error *AADSTS50011: No reply address is registered for the application* after granting consent to the app. Please ignore the error.
+> Because this application and the request does not have a redirect URI, you may see the error `AADSTS50011: No reply address is registered for the application` after granting consent to the app using the preceding URL. Please ignore the error.
 
 #### Step 5: Run the application
 
@@ -190,7 +190,7 @@ To request a token using app's identity, use `AcquireTokenForClientAsync` method
 result = await app.AcquireTokenForClientAsync(scopes);
 ```
 
-> |Where:|
+> |Where:| |
 > |---------|---------|
 > | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom Web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
