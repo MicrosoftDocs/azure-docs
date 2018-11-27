@@ -77,9 +77,9 @@ The runbook that you created is still in Draft mode. you need to publish it befo
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using a Run As connection that is automatically created when you create your automation account. You use the Run As connection with the **Connect-AzureRmAccount** cmdlet. If you are managing resources across multiple subscriptions you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
    ```powershell
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   $ServicePrincipalConnection = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $ServicePrincipalConnection.TenantID `
+-ApplicationID $ServicePrincipalConnection.ApplicationID -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
    $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
