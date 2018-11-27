@@ -38,7 +38,7 @@ The ability to switch between licensing models is a feature provided by the new 
 The following code first registers the new SQL resource provider with your subscription and then registers your legacy SQL VM with the new resource provider. 
 
 ```powershell
-# connect to Azure
+# Connect to Azure
 Connect-AzureRmAccount
 Account: <account_name>
 
@@ -48,7 +48,7 @@ Get-AzureRmContext
 # Set the correct Azure Subscription ID
 Set-AzureRmContext -SubscriptionId <Subscription_ID>
 
-# Register the new SQL resource provider with your subscription
+# Register the new SQL resource provider for your subscription
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 # Register your legacy SQL VM with the new resource provider
