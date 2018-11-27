@@ -39,7 +39,7 @@ To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems qu
 To get alerts when devices disconnect, configure alerts on the **connected devices** metric.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to your IoT Hub.
+1. Browse to your IoT hub.
 1. Select **Alerts (classic)**.
 1. Select **Add metric alert (classic)**.
 1. Fill in the form and select **OK**.
@@ -50,7 +50,7 @@ To learn more, see [What are classic alerts in Microsoft Azure?](../monitoring-a
 
 ## Resolve connectivity errors
 
-When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Log Analytics for your diagnostic logs.
+When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Log Analytics for your diagnostic logs.
 
 1. Go your workspace for **Log Analytics** in the Azure portal.
 1. Select **Log Search**.
@@ -81,7 +81,7 @@ When you turn on diagnostic logs and alerts for connected devices, you get alert
 If the previous steps didn't help, you can try:
 
 * If you have access to the problematic devices, either physically or remotely (like SSH), follow the [device-side troubleshooting guide](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) to continue troubleshooting.
-* Verify that your devices are **Enabled** in the Azure portal > your IoT Hub > IoT devices.
+* Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 * Get help from [Azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
 To help improve the documentation for everyone, leave a comment in the feedback section below if this guide didn't help you.
