@@ -14,7 +14,7 @@
       href: time-series-quickstart.md
   - name: Azure Time Series Insights update (preview)
     items:
-    - name: Explore the Azure Time Series Insights Update
+    - name: Explore the Azure Time Series Insights update
       href: time-series-insights-update-quickstart.md
 - name: Tutorials
   items:
@@ -56,7 +56,7 @@
       href: time-series-insights-update-tsm.md
     - name: Time Series Query
       href: time-series-insights-update-tsq.md
-    - name: Visualize data in the explorer update
+    - name: Visualize data in the Explorer update
       href: time-series-insights-update-explorer.md
   - name: Develop
     items:
