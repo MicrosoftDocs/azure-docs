@@ -38,7 +38,7 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 This update includes the following improvements for Azure Stack:
 
-- Enhanced Azure Stack operator experience for managing updates.
+- Enhanced Azure Stack operator experience for managing updates from the Update blade.
 
 - Support is added for the following Azure Storage Service API versions: 2017-07-29, 2017-11-09; and the following Azure Storage Resource Provider API versions: 2016-05-01, 2016-12-01, 2017-06-01, 2017-10-01. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
