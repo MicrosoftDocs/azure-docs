@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Unpack the device
-> * Rack the mount device
+> * Rack mount the device
 > * Cable the device
 
 > [!IMPORTANT]
@@ -70,14 +70,14 @@ This device is shipped in a single box. Complete the following steps to unpack y
 3. Unpack the box. After unpacking the box, make sure that you have:
     - One single enclosure Edge device
     - Two power cords
-    - One tool-less slide rackmount kit (two side rails and mounting hardware are included)
+    - One tool-less slide rack-mount kit (two side rails and mounting hardware are included)
 
-If you didn't receive all of the items listed here, contact Data Box Edge support. The next step is to rack-mount your device.
+If you didn't receive all of the items listed here, contact Data Box Edge support. The next step is to rack mount your device.
 
 
 ## Rack the device
 
-The device must be installed on a standard 19-inch rack. Use the following procedure to rackmount your device on a standard 19-inch rack with front and rear posts.
+The device must be installed on a standard 19-inch rack. Use the following procedure to rack mount your device on a standard 19-inch rack with front and rear posts.
 
 > [!IMPORTANT]
 > Data Box Edge devices must be rack-mounted for proper operation.
@@ -90,7 +90,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
 2. Install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure. 
     
-    1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack mounting holes.   
+    1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack-mounting holes.   
 
     2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes, and then release the trigger.
 
@@ -115,7 +115,7 @@ Before you start cabling your device, you need the following:
 - Your Edge physical device, unpacked, and rack mounted.
 - Two power cables. 
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
-- One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface: PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (connectivity to Azure).
+- One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
 - Access to two power distribution units (recommended).
 
 > [!NOTE]

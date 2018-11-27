@@ -59,7 +59,7 @@ Before you begin, make sure that:
 
 Before you deploy a physical device, make sure that:
 
-- You have a 1 U slot available in a standard 19” rack in your datacenter for rackmounting the device. 
+- You have a 1 U slot available in a standard 19” rack in your datacenter for rack mounting the device. 
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
