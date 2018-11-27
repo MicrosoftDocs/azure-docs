@@ -13,8 +13,8 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 # Resource Manager vCPU quota increase requests
 
 Resource Manager vCPU quotas are enforced at the region level and SKU family level.
-Learn more about how quotas are enforced on the [Azure subscription and service limits](http://aka.ms/quotalimits) page.
-To learn more about SKU Families, you may compare cost and performance on the [Virtual Machines Pricing](http://aka.ms/pricingcompute) page.
+Learn more about how quotas are enforced on the [Azure subscription and service limits](https://aka.ms/quotalimits) page.
+To learn more about SKU Families, you may compare cost and performance on the [Virtual Machines Pricing](https://aka.ms/pricingcompute) page.
 
 To request an increase, follow the instructions below using to create a support request via Azure's 'Usage + quota' blade available in the Azure Portal. 
 

@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Tutorial: 4. Extract exact text matches
+# Tutorial 4: Extract exact text matches
 In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. For the human resources app, an employee can be identified be several key pieces of information such as name, email, phone number, and U.S. federal tax ID. 
 
 The Human Resources app needs to determine which employee is moving from one building to a different building. For an utterance about an employee move, LUIS determines the intent, and extracts the employee so that a standard order to move the employee can be created by the client application.
@@ -37,7 +37,7 @@ A list entity is a good choice for this type of data when:
 > * Publish
 > * Get intents and entities from endpoint
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
 Continue with the app created in the last tutorial, named **HumanResources**. 
@@ -53,7 +53,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## MoveEmployee intent
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Create new intent**. 
 
@@ -80,7 +80,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
     Remember that number and datetimeV2 were added in a previous tutorial and will be automatically labeled when they are found in any example utterances.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Employee list entity
 Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 

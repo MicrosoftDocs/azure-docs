@@ -2,14 +2,16 @@
 title: Automate the replication of schema changes in Azure SQL Data Sync | Microsoft Docs
 description: Learn how to automate the replication of schema changes in Azure SQL Data Sync.
 services: sql-database
-ms.date: 09/20/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
+ms.date: 09/20/2018
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
@@ -209,3 +211,20 @@ If you want to clean up the records in the schema change tracking table, use DEL
 -   Don't reseed the identity column by using DBCC CHECKIDENT.
 
 -   Don't use TRUNCATE to clean up data in the schema change tracking table.
+
+## Next steps
+
+For more info about SQL Data Sync, see:
+
+-   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Set up Data Sync
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - With PowerShell
+        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Update the sync schema
+    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)

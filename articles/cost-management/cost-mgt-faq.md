@@ -5,16 +5,16 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 11/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom:
 ---
 
 # Frequently asked questions for Cloudyn
 
-This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
 
 ## How can I resolve common indirect enterprise setup problems?
 
@@ -30,7 +30,7 @@ Here's how to fix the problems:
 
 1. Your reseller needs to enable _markup_ for your account. For instructions, see the [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. You generate the Azure Enterprise Agreement key for use with Cloudyn. For instructions, see [Adding Your Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) or [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig).
+2. You generate the Azure Enterprise Agreement key for use with Cloudyn. For instructions, see [Adding Your Azure EA](quick-register-ea.md#register-with-cloudyn) or [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig).
 
 Only an Azure service administrator can enable Cloudyn. Co-administrator permissions are insufficient.
 
@@ -95,7 +95,7 @@ Avoid using the Cloudyn direct URL https://app.cloudyn.com.
 
 ## How do I activate unactivated accounts with Azure credentials?
 
-As soon as your Azure accounts are discovered by Cloudyn, cost data is immediately provided in cost-based reports. However, for Cloudyn to provide usage and performance data, you need to register your Azure credentials for the accounts. For instructions, see [Add Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
+As soon as your Azure accounts are discovered by Cloudyn, cost data is immediately provided in cost-based reports. However, for Cloudyn to provide usage and performance data, you need to register your Azure credentials for the accounts. For instructions, see [Add an account or update a subscription](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
 To add Azure credentials for an account, in the Cloudyn portal, select the edit symbol to the right of the account name, not the subscription.
 
@@ -103,10 +103,7 @@ Until your Azure credentials are added to Cloudyn, the account appears as _un-ac
 
 ## How do I add multiple accounts and entities to an existing subscription?
 
-Additional entities are used to add additional Enterprise Agreements to a Cloudyn subscription. The following links describe how to add additional entities:
-
-- [Adding an Entity](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) article
-- [Defining your hierarchy with Cost Entities](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
+Additional entities are used to add additional Enterprise Agreements to a Cloudyn subscription. For more information, see [Create and manage entities](tutorial-user-access.md#create-and-manage-entities).
 
 For CSPs:
 
@@ -140,7 +137,7 @@ Cost reports can show cost fluctuations whenever cloud service providers send up
 
 Throughout the month, all billing files sent by your cloud service provider are an estimation of your daily costs. Sometimes data is updated frequently — occasionally multiple times per day. Updates are more frequent with AWS than Azure. Cost totals should remain stable when the billing calculation for the previous month is complete and the final billing file is received. Usually, by the 10th of the month.
 
-Changes occur when you receive cost adjustments from your cloud service provider. Receiving credits is one example. Changes can occur months after the relevant month was closed. Changes are shown whenever a recalculation is made by your cloud service provider. Cloudyn updates its historical data to make sure that all adjustments are recalculated. It also verifies that that costs are shown accurately in it reports.
+Changes occur when you receive cost adjustments from your cloud service provider. Receiving credits is one example. Changes can occur months after the relevant month was closed. Changes are shown whenever a recalculation is made by your cloud service provider. Cloudyn updates its historical data to make sure that all adjustments are recalculated. It also verifies that the costs are shown accurately in it reports.
 
 ## How can a direct CSP configure Cloudyn access for indirect CSP customers or partners?
 

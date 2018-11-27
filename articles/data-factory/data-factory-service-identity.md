@@ -165,6 +165,6 @@ Type                  : ServicePrincipal
 See the following topics which introduce when and how to use data factory service identity:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copy data from/to Azure Data Lake Store using managed service identity authentication](connector-azure-data-lake-store.md)
+- [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md)
 
-See [MSI Overview](~/articles/active-directory/msi-overview.md) for more background on Managed Service Identity, which data factory service identity is based upon. 
+See [Managed Identities for Azure Resources Overview](~/articles/active-directory/msi-overview.md) for more background on managed identities for Azure resources, which data factory service identity is based upon. 

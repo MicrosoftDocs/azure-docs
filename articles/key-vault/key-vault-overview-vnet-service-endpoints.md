@@ -38,7 +38,7 @@ Here are the steps required to configure firewalls and virtual networks. These s
 Refer to [Configure Azure Key Vault Firewalls and Virtual Networks](key-vault-network-security.md) for detailed step-by-step instructions.
 
 > [!IMPORTANT]
-> Once firewall rules are in effect, all Key Vault [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) operations can ONLY be performed when caller  requests originate from allowed virtual network(s) or IPV4 address ranges. This also applies to accessing key vault from Azure portal. While a user can browser to a key vault from Azure portal, they may not be able to list keys/secrets/certificates if their client machine is not in the allowed list. This also affects the 'Key Vault Picker' by other Azure services. Users may be able to see list of key vaults but not list keys, if firewall rules prevent their client machine.
+> Once firewall rules are in effect, all Key Vault [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) operations can ONLY be performed when caller  requests originate from allowed virtual network(s) or IPV4 address ranges. (To learn more about management plane vs data plane please read [this](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control) This also applies to accessing key vault from Azure portal. While a user can browser to a key vault from Azure portal, they may not be able to list keys/secrets/certificates if their client machine is not in the allowed list. This also affects the 'Key Vault Picker' by other Azure services. Users may be able to see list of key vaults but not list keys, if firewall rules prevent their client machine.
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Here is a list of trusted services that are allowed to access a key vault if 'Al
 |Azure Resource Manager template deployment service|[Pass secure values during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Azure Disk Encryption volume encryption service|Allow access to BitLocker Key (Windows VM) or DM Passphrase (Linux VM) and Key Encryption Key during VM deployment to enable [Azure Disk Encryption](../security/azure-security-disk-encryption.md)|
 |Azure Backup|Allow backup and restore of relevant keys and secrets during Azure VM backup, using [Azure Backup](../backup/backup-introduction-to-azure-backup.md)|
-|Exchange Online & SharePoint Online|Allow access to customer key for Service Encryption with [Customer Key](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online & SharePoint Online|Allow access to customer key for Service Encryption with [Customer Key](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |App Services|[Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |Azure SQL|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|

@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 
@@ -60,7 +60,7 @@ To view detailed diagnostics, scroll down in the **Device Details** panel to vie
 
 ## Act on a device
 
-To test the simulated engine device responds correctly to actions initiated from the dashboard, run the **FirmwareUpdate** method. To act on a device by running a method, select the device in the list of devices, and then click **Jobs**. You can select more than one device if you want to act on multiple devices. In the **Jobs** panel, select **Run method**. The **Engine** device model specifies three methods: **FirmwareUpdate**, **FillTank**, and **EmptyTank**:
+To test the simulated engine device responds correctly to actions initiated from the dashboard, run the **FirmwareUpdate** method. To act on a device by running a method, select the device in the list of devices, and then click **Jobs**. You can select more than one device if you want to act on multiple devices. In the **Jobs** panel, select **Methods**. The **Engine** device model specifies three methods: **FirmwareUpdate**, **FillTank**, and **EmptyTank**:
 
 [![Engine methods](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -78,7 +78,7 @@ If you select multiple devices of different types on the **Devices** page, you c
 
 ## Reconfigure a device
 
-To test that you can update the engine's configuration properties, select it in the device list on the **Devices** page. Then click **Jobs**, and then choose **Reconfigure**. The jobs panel shows the updateable property values for the selected device:
+To test that you can update the engine's configuration properties, select it in the device list on the **Devices** page. Then click **Jobs**, and then choose **Properties**. The jobs panel shows the updateable property values for the selected device:
 
 [![Reconfigure a device](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -141,7 +141,7 @@ Now the Contoso operator can query for devices based on the operating team:
 
 ## Next steps
 
-This tutorial showed you how to configure and manage the devices connected to the Remote Monitoring solution accelerator. To learn how to use the solution accelerator to to perform a root-cause analysis on an unexpected alert, continue to the next tutorial.
+This tutorial showed you how to configure and manage the devices connected to the Remote Monitoring solution accelerator. To learn how to use the solution accelerator to perform a root-cause analysis on an unexpected alert, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Conduct a root cause analysis on an alert](iot-accelerators-remote-monitoring-root-cause-analysis.md)

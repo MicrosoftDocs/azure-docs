@@ -34,7 +34,7 @@ The following table and article explain what you can do with your existing asset
 |Registered images|No|Re-create the deployment Docker image under a new workspace.|
 |Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
-|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](http://aka.ms/aml-sdk) for new work.|
+|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](https://aka.ms/aml-sdk) for new work.|
 
 
 Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
@@ -48,17 +48,17 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning service. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
-Get started with the latest version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md). The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
+Get started with the latest version by creating an Azure Machine Learning service workspace in the [Azure portal](quickstart-get-started.md). The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
 
-This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
+This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. Learn more about this [workspace and architecture](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
 ## Projects
 
-Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
+Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. See a diagram of the [latest architecture](concept-azure-machine-learning-architecture.md). 
 
-To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
+To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
 
 For example:
 ```python

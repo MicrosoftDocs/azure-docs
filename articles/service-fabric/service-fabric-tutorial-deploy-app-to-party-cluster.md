@@ -53,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Publish to a Service Fabric cluster
 
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
 For this tutorial, you have two options for deployment of the voting application to a Service Fabric cluster by using Visual Studio:
 
@@ -83,7 +83,7 @@ For your Azure subscription, open this port by using a load-balancing rule in Az
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team. Anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for both node-to-node and client-to-node security.
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). To download the PFX certificate to your computer, select the **PFX** link. Select the **How to connect to a secure Party cluster?** link, and copy the certificate password. The certificate, certificate password, and **Connection endpoint** value are used in the following steps.
+Sign in and [join a Windows cluster](https://aka.ms/tryservicefabric). To download the PFX certificate to your computer, select the **PFX** link. Select the **How to connect to a secure Party cluster?** link, and copy the certificate password. The certificate, certificate password, and **Connection endpoint** value are used in the following steps.
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

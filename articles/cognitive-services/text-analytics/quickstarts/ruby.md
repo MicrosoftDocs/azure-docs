@@ -3,16 +3,15 @@ title: 'Quickstart: Using Ruby to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: ashmaka
+author: noellelacharite
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.author: ashmaka
+ms.date: 10/01/2018
+ms.author: nolachar
 ---
-
 # Quickstart: Using Ruby to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
@@ -22,7 +21,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. You can use the **free tier for 5,000 transactions/month** to complete this quickstart.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
 
@@ -48,7 +47,7 @@ require 'json'
 # **********************************************
 
 # Replace the accessKey string value with your valid access key.
-accessKey = 'ENTER KEY HERE'
+accessKey = 'enter key here'
 
 # Replace or verify the region.
 #
@@ -59,9 +58,9 @@ accessKey = 'ENTER KEY HERE'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/'
+path = '/text/analytics/v2.0/languages'
 
-uri = URI(uri + path + 'languages')
+uri = URI(uri + path)
 
 documents = { 'documents': [
 	{ 'id' => '1', 'text' => 'This is a document written in English.' },
@@ -135,10 +134,36 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-Add the following code to the code from the [previous section](#Detect).
+1. Create a new Ruby project in your favorite IDE.
+2. Add the code provided below.
+3. Replace the `accessKey` value with an access key valid for your subscription.
+4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
+5. Run the program.
 
 ```ruby
-uri = URI(uri + path + 'sentiment')
+require 'net/https'
+require 'uri'
+require 'json'
+
+# **********************************************
+# *** Update or verify the following values. ***
+# **********************************************
+
+# Replace the accessKey string value with your valid access key.
+accessKey = 'enter key here'
+
+# Replace or verify the region.
+#
+# You must use the same region in your REST API call as you used to obtain your access keys.
+# For example, if you obtained your access keys from the westus region, replace 
+# "westcentralus" in the URI below with "westus".
+#
+# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+# a free trial access key, you should not need to change this region.
+uri = 'https://westus.api.cognitive.microsoft.com'
+path = '/text/analytics/v2.0/sentiment'
+
+uri = URI(uri + path)
 
 documents = { 'documents': [
 	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -185,10 +210,37 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-Add the following code to the code from the [previous section](#SentimentAnalysis).
+1. Create a new Ruby project in your favorite IDE.
+2. Add the code provided below.
+3. Replace the `accessKey` value with an access key valid for your subscription.
+4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
+5. Run the program.
+
 
 ```ruby
-uri = URI(uri + path + 'keyPhrases')
+require 'net/https'
+require 'uri'
+require 'json'
+
+# **********************************************
+# *** Update or verify the following values. ***
+# **********************************************
+
+# Replace the accessKey string value with your valid access key.
+accessKey = 'enter key here'
+
+# Replace or verify the region.
+#
+# You must use the same region in your REST API call as you used to obtain your access keys.
+# For example, if you obtained your access keys from the westus region, replace 
+# "westcentralus" in the URI below with "westus".
+#
+# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+# a free trial access key, you should not need to change this region.
+uri = 'https://westus.api.cognitive.microsoft.com'
+path = '/text/analytics/v2.0/keyPhrases'
+
+uri = URI(uri + path)
 
 documents = { 'documents': [
 	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -251,18 +303,45 @@ A successful response is returned in JSON, as shown in the following example:
 ```
 <a name="Entities"></a>
 
-## Identify linked entities
+## Identify entities
 
-The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+The Entities API extracts entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-Add the following code to the code from the [previous section](#KeyPhraseExtraction).
+1. Create a new Ruby project in your favorite IDE.
+2. Add the code provided below.
+3. Replace the `accessKey` value with an access key valid for your subscription.
+4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
+5. Run the program.
+
 
 ```ruby
-uri = URI(uri + path + 'entities')
+require 'net/https'
+require 'uri'
+require 'json'
+
+# **********************************************
+# *** Update or verify the following values. ***
+# **********************************************
+
+# Replace the accessKey string value with your valid access key.
+accessKey = 'enter key here'
+
+# Replace or verify the region.
+#
+# You must use the same region in your REST API call as you used to obtain your access keys.
+# For example, if you obtained your access keys from the westus region, replace 
+# "westcentralus" in the URI below with "westus".
+#
+# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+# a free trial access key, you should not need to change this region.
+uri = 'https://westus.api.cognitive.microsoft.com'
+path = '/text/analytics/v2.1-preview/entities'
+
+uri = URI(uri + path)
 
 documents = { 'documents': [
-	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
-	{ 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' },
+	{ 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' },
+	{ 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' },
 ]}
 
 puts 'Please wait a moment for the results to appear.'
@@ -279,67 +358,163 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Entity linking response**
+**Entity extraction response**
 
 A successful response is returned in JSON, as shown in the following example: 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 

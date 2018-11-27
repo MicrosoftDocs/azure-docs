@@ -47,7 +47,6 @@ As part of the deployment architecture, secure storage provision, monitoring & l
 This solution uses the following Azure services. Details of the deployment architecture are in the [deployment architecture](#deployment-architecture) section.
 
 - Azure Active Directory
-- Managed Service Identity
 - App Service
 - Web App
 - API App
@@ -102,13 +101,13 @@ Azure Web Apps provides a fully managed web hosting environment for web applicat
 
 App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/) and can authenticate users with [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) or with social login ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), and [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 
-Basic, Standard, and Premium plans are for production workloads and run on dedicated Virtual Machine instances. Each instance can support multiple applications and domains. App services also support [IP address restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) to secure traffic to trusted IP addresses if required and also [Managed Service Identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) for secure connection to other PaaS services such as [Key Vault](https://azure.microsoft.com/services/key-vault/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Where additional security is required our Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale.
+Basic, Standard, and Premium plans are for production workloads and run on dedicated Virtual Machine instances. Each instance can support multiple applications and domains. App services also support [IP address restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) to secure traffic to trusted IP addresses if required and also [managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) for secure connection to other PaaS services such as [Key Vault](https://azure.microsoft.com/services/key-vault/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Where additional security is required our Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale.
 
 This template deploys the following App Service features:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service Plan Tier
 - Multiple Web App [deployment slots](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Dev, Preview, QA, UAT and of course Production (default slot).
-- [Managed Service Identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) to connect to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (this could also be used to provide access to [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- [Managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) to connect to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (this could also be used to provide access to [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integration with [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) to monitor performance
 - [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Metric [alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -159,7 +158,7 @@ Detailed information about securing Azure Storage can be found in the [security 
 
 #### Azure Key Vault in this blueprint
 
-- Holds the Storage access key, with read access granted to the [Managed Service Identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) of the Customer facing web app
+- Holds the Storage access key, with read access granted to the [managed identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) of the Customer facing web app
 - Holds the SQL Server DBA Password (in a separate vault)
 - Diagnostics logging
 

@@ -23,7 +23,8 @@ Azure API Management can be deployed inside the virtual network (VNET), so it ca
 
 > [!NOTE]
 > Azure API Management supports both classic and Azure Resource Manager VNets.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -34,7 +35,6 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ VNET connectivity is available in the Premium and Developer tiers only. Switch to one of these tiers by following the directions in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
 
@@ -103,18 +103,22 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
-| Source / Destination Port(s) | Direction | Transport protocol | Source / Destination | Purpose (*) | Virtual Network type |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Client communication to API Management|External |
-| * / 3443 |Inbound |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Management endpoint for Azure portal and Powershell |External & Internal |
-| * / 80, 443 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Dependency on Azure Storage**, Azure Service Bus, and Azure Active Directory (where applicable).|External & Internal |
-| * / 1433 |Outbound |TCP |VIRTUAL_NETWORK / SQL|**Access to Azure SQL endpoints** |External & Internal |
-| * / 5672 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency for Log to Event Hub policy and monitoring agent |External & Internal |
-| * / 445 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure File Share for GIT |External & Internal |
-| * / 1886 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Needed to publish Health status to Resource Health |External & Internal |
-| * / 25028 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Connect to SMTP Relay for sending Emails |External & Internal |
-| * / 6381 - 6383 |Inbound & Outbound |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Access Redis Cache Instances between RoleInstances |External & Internal |
-| * / * | Inbound |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |External & Internal |
+| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Purpose (*)                                                 | Virtual Network type |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
+| * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and Powershell         | External & Internal  |
+| * / 80, 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
+| * / 80, 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (where applicable)                   | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
+| * / 5672                     | Outbound           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependency for Log to Event Hub policy and monitoring agent | External & Internal  |
+| * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for GIT                      | External & Internal  |
+| * / 1886                     | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Needed to publish Health status to Resource Health          | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish Diagnostics Logs and Metrics                        | External & Internal  |
+| * / 25                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
+| * / 587                      | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
+| * / 25028                    | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
+| * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Cache Instances between RoleInstances          | External & Internal  |
+| * / *                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
 >[!IMPORTANT]
 > The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause degradation in the ability to use and monitor the running service.
@@ -125,11 +129,15 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 * **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains: 
 
-    | Azure Environment | Endpoints |
-    | --- | --- |
-    | Azure Public | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
-    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
-    | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Azure Environment | Endpoints                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com where `East US 2` is eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+
+* **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `ies.global.microsoft.com`.
+
+* **Azure portal Diagnostics**: To enable the flow of diagnostic logs from Azure portal when using the API Management extension from inside a Virtual Network, outbound access to `dc.services.visualstudio.com` on port 443 is required. This helps in troubleshooting issues you might face when using extension.
 
 * **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
   If possible, it is recommended to use the following configuration:
@@ -181,6 +189,7 @@ Given the calculation above the minimum size of the subnet, in which API Managem
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 * [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
+* [Service tags](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

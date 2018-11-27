@@ -140,6 +140,9 @@ Standard SSD disks are standard disks backed by solid-state media, optimized as 
 <a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks?**
 All Azure regions now support Standard SSD disks.
 
+**Is Azure Backup available when using Standard SSDs?**
+Yes, Azure Backup is now available.
+
 **How do I create Standard SSD disks?**
 You can create Standard SSD disks using Azure Resource Manager templates, SDK, PowerShell or CLI. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
 
@@ -163,7 +166,7 @@ The following example shows the *properties.storageProfile.osDisk* section for a
 For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Can I convert my existing disks to Standard SSD?**
-Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
+Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
     -AccountType StandardSSD_LRS
 
 **What is the benefit of using Standard SSD disks instead of HDD?**
@@ -284,7 +287,7 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](http://aka.ms/azure-large-disk-32TB-preview-blog).
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
@@ -292,7 +295,7 @@ The partition type that Azure supports for an operating system disk is the maste
 
 **What is the largest page blob size that's supported?**
 
-The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
+The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blob size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
 
 **Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TiB?**
 

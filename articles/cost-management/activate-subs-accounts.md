@@ -1,14 +1,14 @@
-﻿---
+---
 title: Activate Azure subscriptions and accounts | Microsoft Docs
 description: Enable access using Azure Resource Manager APIs for new and existing accounts and resolve common account problems.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2018
+ms.date: 09/27/2018
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom:
 ---
 
@@ -36,7 +36,7 @@ If your account is assigned the **Contributor** role, you do not have adequate p
 2. In the Azure portal, select **Azure Active Directory**.
 3. In Azure Active Directory, select **User settings**.
 4. Check the **App registrations** option.
-    - If it is set to **Yes**, then non-administrator users can register AD apps. This setting means any user in the Azure AD tenant can register an app. You can proceed to Required Azure subscription permissions.  
+    - If it is set to **Yes**, then non-administrator users can register AD apps. This setting means any user in the Azure AD tenant can register an app.  
     ![App registrations](./media/activate-subs-accounts/app-register.png)
     - If the **App registrations** option is set to **No**, then only tenant administrative users can register Azure Active Directory apps. Your tenant administrator must register the CloudynCollector application.
 
@@ -60,7 +60,7 @@ When you add an account update a subscription, you grant Cloudyn access to your 
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
-    For more information, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+    For more information, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 3. If necessary, select your Rate ID. If you don't know your rate ID, use the following steps to find it.
     1. In the upper-right of the Azure portal, click your user information and then click **View my bill**.
     2. Under **Billing Account**, click **Subscriptions**.
@@ -99,12 +99,8 @@ Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
 
-<<<<<<< HEAD
-Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient. However, you can work around the administrator requirement. You can request that your Azure Active Directory administrator grant permission to authorize the **CloudynAzureCollector** with a PowerShell script. The following script grants permission to register the Azure Active Directory Service Principal **CloudynAzureCollector**. When successfully run, the operation ends with the browser showing the URL http://localhost:8080/CloudynJava.
-=======
 Only an Azure service administrator can enable Cloudyn. Co-administrator permissions are insufficient. However, you can work around the administrator requirement. You can request that your Azure Active Directory administrator grant permission to authorize the **CloudynAzureCollector** with a PowerShell script. The following script grants permission to register the Azure Active Directory Service Principal **CloudynAzureCollector**.
 
->>>>>>> 9f3b4a46614ba7306c044dce8be6ee7cc3bf101d
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

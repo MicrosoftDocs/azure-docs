@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2018
+ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -35,7 +35,7 @@ The current state of automatic upgrade can be viewed with the PowerShell cmdlet 
 | State | Comment |
 | --- | --- |
 | Enabled |Automatic upgrade is enabled. |
-| Suspended |Set by the system only. The system is no longer eligible to receive automatic upgrades. |
+| Suspended |Set by the system only. The system is **not currently** eligible to receive automatic upgrades. |
 | Disabled |Automatic upgrade is disabled. |
 
 You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.

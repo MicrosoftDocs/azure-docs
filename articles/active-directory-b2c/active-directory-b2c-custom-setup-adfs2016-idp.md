@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -17,37 +17,36 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for an ADFS user account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
+This article shows you how to enable sign-in for an ADFS user account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C. You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
 
 ## Prerequisites
 
-Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
+- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Make sure that you have access to a certificate .pfx file with a private key. You can generate your own signed certificate and upload it to Azure AD B2C. Azure AD B2C uses this certificate to sign the SAML request sent to your SAML identity provider.
 
-## Add the ADFS account application key to Azure AD B2C
+## Create a policy key
 
-Federation with an ADFS account requires a client secret for the account to trust Azure AD B2C on behalf of the application. You need to store your ADFS certificate in your Azure AD B2C tenant. 
+You need to store your certificate in your Azure AD B2C tenant.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select **Switch Directory**, and then choose the directory that contains the tenant you created. In this tutorial, the *contoso* directory is used that contains the tenant named *contoso0522Tenant.onmicrosoft.com*.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+5. Select **Policy Keys** and then select **Add**.
+6. For **Options**, choose `Upload`.
+7. Enter a **Name** for the policy key. For example, `SamlCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
+8. Browse to and select your certificate .pfx file with the private key.
+9. Click **Create**.
 
-    ![Switch directories](./media/active-directory-b2c-custom-setup-adfs2016-idp/switch-directories.png)
+## Add a claims provider
 
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using your tenant.
-4. On the Overview page, select **Identity Experience Framework**.
-5. Select **Policy Keys** to view the keys available in your tenant, and then click **Add**.
-6. Choose **Upload** as the Option.
-7. Enter `ADFSSamlCert` for the name. The prefix `B2C_1A_` might be added automatically.
-8. Browse to and select your certificate .pfx file with the private key. This certificate with the private key should be the same one that was issued and used for the ADFS relying party.
-9. Click **Create** and confirm that you've created the `B2C_1A_ADFSSamlCert` key.
+If you want users to sign in using an ADFS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
 
-## Add a claims provider in your extension policy
+You can define an ADFS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
-If you want users to sign in by using an ADFS account, you need to define the account as a claims provider. You do this by specifying an endpoint that Azure AD B2C communicates with. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
-
-Define ADFS as a claims provider, by adding **ClaimsProvider** element in your extension policy file.
-
-1. Open the *TrustFrameworkExtensions.xml* policy file in your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), which is a lightweight cross-platform editor.
-2. Add the following XML under the **ClaimsProviders** element and replace **your-ADFS-domain** with your ADFS domain name and replace the value of the **identityProvider** output claim with your DNS (Arbitrary value that indicates your domain), and save the file. 
+1. Open the *TrustFrameworkExtensions.xml*.
+2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
+3. Add a new **ClaimsProvider** as follows:
 
     ```xml
     <ClaimsProvider>
@@ -56,12 +55,12 @@ Define ADFS as a claims provider, by adding **ClaimsProvider** element in your e
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
           <DisplayName>Contoso ADFS</DisplayName>
-          <Description>Login with your Contoso account</Description>
+          <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -88,78 +87,55 @@ Define ADFS as a claims provider, by adding **ClaimsProvider** element in your e
     </ClaimsProvider>
     ```
 
-## Register the claims provider for sign-up and sign-in
+4. Replace `your-ADFS-domain` with the name of your ADFS domain and replace the value of the **identityProvider** output claim with your DNS (Arbitrary value that indicates your domain).
+5. Save the file.
 
-To make the ADFS account identity provider available in the sign-up and sign-in pages, you need to add it to your **SignUpOrSignIn** user journey. 
+### Upload the extension file for verification
 
-Make a copy of an existing template user journey and then modify it so that it includes the ADFS identity provider:
+By now, you have configured your policy so that Azure AD B2C knows how to communicate with ADFS account. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
 
->[!NOTE]
->If you previously copied the **UserJourneys** element from the base file of your policy to the extension file (*TrustFrameworkExtensions.xml*) you can skip this section.
+1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
+2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
+3. Click **Upload**.
 
-1. Open the base file of your policy. For example, *TrustFrameworkBase.xml*.
-2. Copy the entire content of **UserJourneys** element.
-3. Open the extension file (*TrustFrameworkExtensions.xml*) and paste the entire content of **UserJourneys** element that you copied in the extension file.
+## Register the claims provider
+
+At this point, the identity provider has been set up, but it’s not available in any of the sign-up or sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the ADFS identity provider.
+
+1. Open the *TrustFrameworkBase.xml* file from the starter pack.
+2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
+3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
+4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
+5. Rename the ID of the user journey. For example, `SignUpSignInADFS`.
 
 ### Display the button
 
-The **ClaimsProviderSelections** element defines the list of claims provider selections and their order.  The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up and sign-in page. If you add a **ClaimsProviderSelection** element for an ADFS account, a new button is displayed when a user sees the page. To add this element:
+The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up or sign-in screen. If you add a **ClaimsProviderSelection** element for an ADFS account, a new button shows up when a user lands on the page.
 
-1. In the **UserJourney** element with an identifier of `SignUpOrSignIn` in the user journeys that you copied, locate the **OrchestrationStep** element of `Order="1"`.
-2. Add following **ClaimsProviderSelection** element under the **ClaimsProviderSelections** element:
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
+2. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
 
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
 ### Link the button to an action
 
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with ADFS account to receive a token. Link the button to an action by linking the technical profile for your ADFS account claims provider:
+Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with an ADFS account to receive a token.
 
-1. Find the **OrchestrationStep** of `Order="2"` under the **UserJourney** element.
-2. Add following **ClaimsExchange** element under the **ClaimsExchanges** element:
+1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
+2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
 
-    ```xml
+    ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
+    
+    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `Contoso-SAML2`.
 
-> [!NOTE]
-> * Make sure that the `Id` has the same value as `TargetClaimsExchangeId` in the preceding section.
-> * Make sure that the `TechnicalProfileReferenceId` is set to the technical profile you created earlier (Contoso-SAML2).
-
-
-## [Optional] Register the claims provider for profile edit
-
-You may also want to add the ADFS account identity provider to your profile edit user journey.
-
-### Display the button
-
-1. Open the extension file of your policy. For example, *TrustFrameworkExtensions.xml*.
-2. In the **UserJourney** element with an identifier `ProfileEdit` in the user journeys that you copied, locate the **OrchestrationStep** element of `Order="1"`.
-3. Add following **ClaimsProviderSelection** element under **ClaimsProviderSelections** element:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-    ```
-
-### Link the button to an action
-
-1. Find the **OrchestrationStep** of `Order="2"` under the **UserJourney** element.
-2. Add following **ClaimsExchange** element under the **ClaimsExchanges** element:
-
-    ```xml
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
-    ```
-
-## Upload the policy to your tenant
-
-1. In the Azure portal, select **All Policies**.
-2. Select **Upload Policy**.
-3. Enable **Overwrite the policy if it exists**.
-4. Browse to and select your *TrustFrameworkExtensions.xml* policy file, and then select **Upload**. Make sure that the validation is successful.
+3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
 
-## Configure an ADFS Relying Party Trust
+## Configure an ADFS relying party trust
 
 To use ADFS as an identity provider in Azure AD B2C, you need to create an ADFS Relying Party Trust with the Azure AD B2C SAML metadata. The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
@@ -170,12 +146,10 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 Replace the following values:
 
 - **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com.
-- **your-policy** with your policy name. Use the policy where you configure the SAML provider technical profile, or a policy that inherits from that policy.
-- **your-technical-profile** with tha name of your SAML identity provider technical profile.
+- **your-policy** with your policy name. For example, B2C_1A_signup_signin_adfs.
+- **your-technical-profile** with tha name of your SAML identity provider technical profile. For example, Contoso-SAML2.
  
-Open a browser and navigate to the URL. Make sure you type the correct URL and that you have access to the XML metadata file.
-
-To add a new relying party trust by using the ADFS Management snap-in and manually configure the settings, perform the following procedure on a federation server. Membership in **Administrators** or equivalent on the local computer is the minimum required to complete this procedure. Review details about using the appropriate accounts and group memberships at [Local and Domain Default Groups](http://go.microsoft.com/fwlink/?LinkId=83477).
+Open a browser and navigate to the URL. Make sure you type the correct URL and that you have access to the XML metadata file. To add a new relying party trust by using the ADFS Management snap-in and manually configure the settings, perform the following procedure on a federation server. Membership in **Administrators** or equivalent on the local computer is the minimum required to complete this procedure.
 
 1. In Server Manager, select **Tools**, and then select **ADFS Management**.
 2. Select **Add Relying Party Trust**.
@@ -189,22 +163,38 @@ To add a new relying party trust by using the ADFS Management snap-in and manual
 10. In **Claim rule template**, select **Send LDAP attributes as claims**.
 11. Provide a **Claim rule name**. For the **Attribute store**, select **Select Active Directory**, add the following claims, then click **Finish** and **OK**.
 
-    ![Set rule properties](./media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
+    | LDAP attrubute | Outgoing claim type |
+    | -------------- | ------------------- |
+    | User-Principal-Name | userPricipalName |
+    | Surname | family_name |
+    | Given-Name | given_name |
+    | E-Mail-Address | email |
+    | Display-Name | name |
+    
+12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-256`, and click **Ok**.  
+13. In Server Manager, select **Tools**, and then select **ADFS Management**.
+14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**. 
 
-12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-1` or `SHA-256`, and click **Ok**.  
+## Create an Azure AD B2C application
 
-### Update the relying party metadata
+Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
-Changing the SAML technical profile requires you to update ADFS with the updated metadata version. You don’t need to update the metadata when you create the relying party application, but when you make a change, you update the metadata in ADFS.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. Select **Applications**, and then select **Add**.
+5. Enter a name for the application, for example *testapp1*.
+6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
+7. Click **Create**.
 
-1. In Server Manager, select **Tools**, and then select **ADFS Management**.
-2. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**. 
+### Update and test the relying party file
 
-### Test the policy by using Run Now
+Update the relying party (RP) file that initiates the user journey that you created.
 
-1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
-2.  Open **B2C_1A_ProfileEdit**, the relying party (RP) custom policy that you uploaded. Select **Run now**. You should be able to sign in using ADFS account.
+1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInADFS.xml*.
+2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInADFS`.
+3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_adfs">
+4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInADFS).
+5. Save your changes, upload the file, and then select the new policy in the list.
+6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
 
-## Download the complete policy files
-
-Optional: You can build your scenario using your own custom policy files after completing the steps in [Getting Started with Custom Policies](active-directory-b2c-get-started-custom.md). For example files, see [Policy sample files for reference only](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app).

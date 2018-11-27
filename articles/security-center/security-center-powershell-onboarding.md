@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/20/2018
+ms.date: 10/2/2018
 ms.author: rkarlin
 
 ---
 # Automate onboarding of Azure Security Center using PowerShell
 
 You can secure your Azure workloads programmatically, using the Azure Security Center PowerShell module.
-Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
+Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
 
 Onboarding Azure Security Center using PowerShell enables you to programmatically automate onboarding and management of your Azure resources and add the necessary security controls.
 
@@ -48,7 +48,6 @@ These steps should be performed before you run the Security Center cmdlets:
         Install-Module -Name PowerShellGet -Force
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
         Import-Module PowerShellGet
-        Install-Module -Name AzureRM.profile -RequiredVersion 5.5.0
 6.	Restart PowerShell
 
 7. In PowerShell, run the following commands:
@@ -59,12 +58,12 @@ These steps should be performed before you run the Security Center cmdlets:
 
 1.	Register your subscriptions to the Security Center Resource Provider:
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
-        Register-AzureRmResourceProvider -ProviderNamespace ‘Microsoft.Security’ 
+        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
 2.	Optional: Set the coverage level (pricing tier) of the subscriptions (If not defined, the pricing tier is set to Free):
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
+        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
 
 3.	Configure a Log Analytics workspace to which the agents will report. You must have a Log Analytics workspace that you already created, that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
@@ -74,7 +73,7 @@ These steps should be performed before you run the Security Center cmdlets:
 
 4.	Auto-provision installation of the Microsoft Monitoring Agent on your Azure VMs:
     
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
+        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
         Set-AzureRmSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
@@ -90,11 +89,11 @@ These steps should be performed before you run the Security Center cmdlets:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
         $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
-        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope ‘/subscriptions/d07c0080-170c-4c24-861d-9c817742786c’
+        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 You now successfully onboarded Azure Security Center with PowerShell!
 
-You can now use these PowerShell cmdlets with automation scripts to programmatically iterate across subscriptions and resources. This saves time and reduces the the likelihood of human error. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
+You can now use these PowerShell cmdlets with automation scripts to programmatically iterate across subscriptions and resources. This saves time and reduces the likelihood of human error. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
 
 
 
@@ -104,10 +103,10 @@ You can now use these PowerShell cmdlets with automation scripts to programmatic
 ## See also
 To learn more about how you can use PowerShell to automate onboarding to Security Center, see the following article:
 
-* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.1.0-preview).
+* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.2.0-preview).
 
 To learn more about Security Center, see the following article:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

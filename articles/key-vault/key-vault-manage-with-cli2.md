@@ -19,7 +19,7 @@ ms.author: barclayn
 ---
 # Manage Key Vault using the Azure CLI 
 
-This article covers how to get started working with Azure Key Vault using the the Azure CLI.  You can see information on:
+This article covers how to get started working with Azure Key Vault using the Azure CLI.  You can see information on:
 
 - How to create a hardened container (a vault) in Azure
 - Adding a key, secret, or certificate to the key vault
@@ -46,7 +46,7 @@ To use the Azure CLI commands in this article, you must have the following items
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 * Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-* An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
+* An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
 
@@ -195,7 +195,7 @@ Applications that use a key vault must authenticate by using a token from Azure 
 
 The application must present both these values to Azure Active Directory, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 To register an application in Azure Active Directory:
 

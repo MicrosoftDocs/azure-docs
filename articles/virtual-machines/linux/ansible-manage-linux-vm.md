@@ -7,7 +7,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ---
 
 # Use Ansible to manage a Linux virtual machine in Azure
@@ -22,47 +22,47 @@ Ansible allows you to automate the deployment and configuration of resources in 
 ## Use Ansible to deallocate (stop) an Azure virtual machine
 This section illustrates how to use Ansible to deallocate (stop) an Azure virtual machine
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open [Cloud Shell](/azure/cloud-shell/overview).
+1.  Open [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Create a file (to contain your playbook) named `azure_vm_stop.yml`, and open it in the VI editor, as follows:
+1.  Create a file (to contain your playbook) named `azure-vm-stop.yml`, and open it in the VI editor, as follows:
 
-  ```azurecli-interactive
-  vi azure_vm_stop.yml
-  ```
+    ```azurecli-interactive
+    vi azure-vm-stop.yml
+    ```
 
-1. Enter insert mode by selecting the **I** key.
+1.  Enter insert mode by selecting the **I** key.
 
-1. Paste the following sample code into the editor:
+1.  Paste the following sample code into the editor:
 
     ```yaml
     - name: Stop Azure VM
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Deallocate the virtual machine
+      hosts: localhost
+      connection: local
+      tasks:
+      - name: Deallocate the virtual machine
         azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
-            allocated: no 
+          resource_group: myResourceGroup
+          name: myVM
+          allocated: no
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
+1.  Exit insert mode by selecting the **Esc** key.
 
-1. Save the file and exit the vi editor by entering the following command:
+1.  Save the file and exit the vi editor by entering the following command:
 
     ```bash
     :wq
     ```
 
-1. Run the sample Ansible playbook.
+1.  Run the sample Ansible playbook.
 
-  ```bash
-  ansible-playbook azure_vm_stop.yml
-  ```
+    ```bash
+    ansible-playbook azure-vm-stop.yml
+    ```
 
-1. The output looks similar to the following example that shows the virtual machine has been successfully deallocated (stopped):
+1.  The output looks similar to the following example that shows the virtual machine has been successfully deallocated (stopped):
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -80,51 +80,49 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 ## Use Ansible to start a deallocated (stopped) Azure virtual machine
 This section illustrates how to use Ansible to start a deallocated (stopped) Azure virtual machine
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open [Cloud Shell](/azure/cloud-shell/overview).
+1.  Open [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Create a file (to contain your playbook) named `azure_vm_start.yml`, and open it in the VI editor, as follows:
+1.  Create a file (to contain your playbook) named `azure-vm-start.yml`, and open it in the VI editor, as follows:
 
-  ```azurecli-interactive
-  vi azure_vm_start.yml
-  ```
+    ```azurecli-interactive
+    vi azure-vm-start.yml
+    ```
 
-1. Enter insert mode by selecting the **I** key.
+1.  Enter insert mode by selecting the **I** key.
 
-1. Paste the following sample code into the editor:
+1.  Paste the following sample code into the editor:
 
     ```yaml
     - name: Start Azure VM
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Start the virtual machine
+      hosts: localhost
+      connection: local
+      tasks:
+      - name: Start the virtual machine
         azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
+          resource_group: myResourceGroup
+          name: myVM
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
+1.  Exit insert mode by selecting the **Esc** key.
 
-1. Save the file and exit the vi editor by entering the following command:
+1.  Save the file and exit the vi editor by entering the following command:
 
     ```bash
     :wq
     ```
 
-1. Run the sample Ansible playbook.
-
-  ```bash
-  ansible-playbook azure_vm_start.yml
-  ```
-
-1. The output looks similar to the following example that shows the virtual machine has been successfully started:
-
-    The output looks similar to the following example that shows the virtual machine has been successfully started:
+1.  Run the sample Ansible playbook.
 
     ```bash
-    PLAY [Stop Azure VM] ********************************************************
+    ansible-playbook azure-vm-start.yml
+    ```
+
+1.  The output looks similar to the following example that shows the virtual machine has been successfully started:
+
+    ```bash
+    PLAY [Start Azure VM] ********************************************************
 
     TASK [Gathering Facts] ******************************************************
     ok: [localhost]
@@ -138,4 +136,4 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Use Ansible to manage your Azure dynamic inventories](../../ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Use Ansible to manage your Azure dynamic inventories](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

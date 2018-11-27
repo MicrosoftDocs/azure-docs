@@ -3,7 +3,7 @@ title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: terrylan
+ms.date: 11/26/2018
+ms.author: rkarlin
 
 ---
 # Integrate security solutions in Azure Security Center
@@ -43,14 +43,17 @@ Currently, integrated security solutions include:
 | Endpoint Protection               | Platforms                             | Security Center Installation | Security Center Discovery |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, Built in to OS           | Yes                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Via Extension                | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension                | Yes                       |
 | Trend Micro – All version         | Windows Server Family                 | No                           | Yes                       |
 | Symantec v12.1.1100+              | Windows Server Family                 | No                           | Yes                       |
 | McAfee v10+                       | Windows Server Family                 | No                           | Yes                       |
 | Kaspersky                         | Windows Server Family                 | No                           | No                        |
 | Sophos                            | Windows Server Family                 | No                           | No                        |
 
-
+> [!NOTE]
+> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+>
+>
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including:
@@ -113,4 +116,4 @@ In this article, you learned how to integrate partner solutions in Security Cent
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Monitor partner solutions with Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

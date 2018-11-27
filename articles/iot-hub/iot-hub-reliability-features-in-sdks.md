@@ -1,5 +1,5 @@
 ---
-title: How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs
+title: How to manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
 description: Learn how to improve your device connectivity and messaging when using the Azure IoT Hub device SDKs
 services: iot-hub
 keywords: 
@@ -15,56 +15,58 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs
+# Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
 
-This guide provides high-level guidance for designing resilient device applications, by taking advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this article is to help answer questions and handle these scenarios:
+This article provides high-level guidance to help you design device applications that are more resilient. It shows you how to take advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this guide is to help you manage the following scenarios:
 
-- Managing a dropped network connection
-- Managing switching between different network connections
-- Managing reconnection due to service transient connection errors
+- Fixing a dropped network connection
+- Switching between different network connections
+- Reconnecting because of service transient connection errors
 
-Implementation details may vary by language, see linked API documentation or specific SDK for more details.
+Implementation details may vary by language. For more information, see the API documentation or specific SDK:
 
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 - [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-
 ## Designing for resiliency
 
-IoT devices often rely on non-continuous and/or unstable network connections such as GSM or satellite. In addition, when interacting with cloud-based services, errors can occur due to temporary conditions such as intermittent service availability and infrastructure-level faults (commonly referred to as transient faults). An application running on a device need to manage the connection and reconnection mechanisms, as well as the retry logic for sending/receiving messages. Furthermore, the retry strategy requirements depend heavily on the IoT scenario the device participates in, and the device’s context and capabilities.
+IoT devices often rely on non-continuous or unstable network connections (for example, GSM or satellite). Errors can occur when devices interact with cloud-based services because of intermittent service availability and infrastructure-level or transient faults. An application that runs on a device has to manage the mechanisms for connection, reconnection, and the retry logic for sending and receiving messages. Also, the retry strategy requirements depend heavily on the device's IoT scenario, context, capabilities.
 
-The Azure IoT Hub device SDKs aim to simplify connecting and communicating from cloud-to-device and device-to-cloud by providing a robust and comprehensive way of connecting and sending/receiving messages to and from Azure IoT Hub. Developers can also modify existing implementation to develop the right retry strategy for a given scenario.
+The Azure IoT Hub device SDKs aim to simplify connecting and communicating from cloud-to-device and device-to-cloud. These SDKs provide a robust way to connect to Azure IoT Hub and a comprehensive set of options for sending and receiving messages. Developers can also modify existing implementation to customize a better retry strategy for a given scenario.
 
 The relevant SDK features that support connectivity and reliable messaging are covered in the following sections.
 
 ## Connection and retry
 
-This section provides an overview of the reconnection and retry patterns available when managing connections,  implementation guidance for using different retry policy in your device application, and relevant APIs for the device SDKs.
+This section gives an overview of the reconnection and retry patterns available when managing connections. It details implementation guidance for using a different retry policy in your device application and lists relevant APIs from the device SDKs.
 
 ### Error patterns
-Connection failures can happen in many levels:
+Connection failures can happen at many levels:
 
--  Network errors such as a disconnected socket and name resolution errors
-- Protocol-level errors for HTTP, AMQP, and MQTT transport such as links detached or sessions expired
-- Application-level errors that result from either local mistakes such as invalid credentials or service behavior such as exceeding quota or throttling
+- Network errors: disconnected socket and name resolution errors
+- Protocol-level errors for HTTP, AMQP, and MQTT transport: detached links or expired sessions
+- Application-level errors that result from either local mistakes: invalid credentials or service behavior (for example, exceeding the quota or throttling)
 
-The device SDKs detect errors in all three levels.  OS-related errors and hardware errors are not detected and handled by the device SDKs.  The design is based on [The Transient Fault Handling Guidance](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) from Azure Architecture Center.
+The device SDKs detect errors at all three levels. OS-related errors and hardware errors are not detected and handled by the device SDKs. The SDK design is based on [The Transient Fault Handling Guidance](/azure/architecture/best-practices/transient-faults#general-guidelines) from the Azure Architecture Center.
 
 ### Retry patterns
 
-The overall process for retry when connection errors are detected is: 
-1. The SDK detects the error and the associated error in network, protocol, or application.
-2. Based on the error type, the SDK uses the error filter to decide if retry needs to be performed.  If an **unrecoverable error** is identified by the SDK, operations (connection and send/receive) will be stopped and the SDK will notify the user. An unrecoverable error is an error that the SDK can identify and determine that it cannot be recovered, for example, an authentication or bad endpoint error.
-3. If a **recoverable error** is identified, the SDK begins to retry using the retry policy specified until a defined timeout expires.
-4. When the defined timeout expires, the SDK stops trying to connect or send, and notifies the user.
-5.	The SDK allows the user to attach a callback to receive connection status changes. 
+The following steps describe the retry process when connection errors are detected:
 
-Three retry policies are provided:
-- **Exponential back-off with jitter**: This is the default retry policy applied.  It tends to be aggressive at the start, slows down, and then hits a maximum delay that is not exceeded.  The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-- **Custom retry**: You can implement a custom retry policy and inject it in the RetryPolicy depending on the language you choose. You can design a retry policy that is suited for your scenario.  This is not available on the C SDK.
-- **No retry**: There is an option to set retry policy to "no retry," which disables the retry logic.  The SDK tries to connect once and send a message once, assuming the connection is established. This policy would typically be used in cases where there are bandwidth or cost concerns.   If this option is chosen, messages that fail to send are lost and cannot be recovered. 
+1. The SDK detects the error and the associated error in the network, protocol, or application.
+1. The SDK uses the error filter to determine the error type and decide if a retry is needed.
+1. If the SDK identifies an **unrecoverable error**, operations like connection, send, and receive are stopped. The SDK notifies the user. Examples of unrecoverable errors include an authentication error and a bad endpoint error.
+1. If the SDK identifies a **recoverable error**, it retries according to your specified retry policy until the defined timeout elapses.
+1. When the defined timeout expires, the SDK stops trying to connect or send. It notifies the user.
+1. The SDK allows the user to attach a callback to receive connection status changes.
+
+The SDKs provide three retry policies:
+
+- **Exponential back-off with jitter**: This default retry policy tends to be aggressive at the start and slow down over time until it reaches a maximum delay. The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Custom retry**: For some SDK languages, you can design a custom retry policy that is better suited for your scenario and then inject it into the RetryPolicy. Custom retry isn't available on the C SDK.
+- **No retry**: You can set retry policy to "no retry," which disables the retry logic. The SDK tries to connect once and send a message once, assuming the connection is established. This policy is typically used in scenarios with bandwidth or cost concerns. If you choose this option, messages that fail to send are lost and can't be recovered.
 
 ### Retry policy APIs
 
@@ -74,13 +76,12 @@ Three retry policies are provided:
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._device_client_config.setretrypolicy?view=azure-java-stable)        | **Default**: [ExponentialBackoffWithJitter class](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Custom:** implement [RetryPolicy interface](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**No retry:** [NoRetry class](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java implementation](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |[.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
    | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_SetRetryPolicy_Microsoft_Azure_Devices_Client_IRetryPolicy) | **Default**: [ExponentialBackoff class](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Custom:** implement [IRetryPolicy interface](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**No retry:** [NoRetry class](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C# implementation](https://github.com/Azure/azure-iot-sdk-csharp) |
    | Node| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest#azure_iot_device_Client_setRetryPolicy) | **Default**: [ExponentialBackoffWithJitter class](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Custom:** implement [RetryPolicy interface](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**No retry:** [NoRetry class](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Node implementation](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
-   
 
-Below are code samples that illustrate this flow. 
+The following code samples illustrate this flow:
 
 #### .NET implementation guidance
 
-The code sample below shows how to define and set the default retry policy:
+The following code sample shows how to define and set the default retry policy:
 
    ```csharp
    # define/set default retry policy
@@ -88,9 +89,9 @@ The code sample below shows how to define and set the default retry policy:
    SetRetryPolicy(retryPolicy);
    ```
 
-To avoid high CPU usage, the retries are throttled if the code fails immediately (for example, when there is no network or route to destination) so that the minimum time to execute the next retry is 1 second. 
+To avoid high CPU usage, the retries are throttled if the code fails immediately. For example, when there's no network or route to the destination. The minimum time to execute the next retry is 1 second.
 
-If the service is responding with a throttling error, the retry policy is different and cannot be changed via public API:
+If the service responds with a throttling error, the retry policy is different and can't be changed via public API:
 
    ```csharp
    # throttled retry policy
@@ -98,16 +99,19 @@ If the service is responding with a throttling error, the retry policy is differ
    SetRetryPolicy(retryPolicy);
    ```
 
-The retry mechanism will stop after `DefaultOperationTimeoutInMilliseconds`, which is currently set at 4 minutes.
+The retry mechanism stops after `DefaultOperationTimeoutInMilliseconds`, which is currently set at 4 minutes.
 
 #### Other languages implementation guidance
-For other languages, review the implementation documentation below.  Samples demonstrating the use of retry policy APIs are provided in the repository.
+
+For code samples in other languages, review the following implementation documents. The repository contains samples that demonstrate the use of retry policy APIs.
+
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 - [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## Next steps
+
 - [Use device and service SDKs](.\iot-hub-devguide-sdks.md)
 - [Use the IoT device SDK for C](.\iot-hub-device-sdk-c-intro.md)
 - [Develop for constrained devices](.\iot-hub-devguide-develop-for-constrained-devices.md)

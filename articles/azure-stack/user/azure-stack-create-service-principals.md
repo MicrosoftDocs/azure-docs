@@ -53,7 +53,7 @@ The steps for assigning a service principal to a role the same for Azure AD and 
 If your Azure Stack uses Azure AD as the identity store, you can create a service principal using the same steps as in Azure, using the Azure portal.
 
 >[!NOTE]
-Check to see that you have the [required Azure AD permissions](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before you start creating a service principal.
+Check to see that you have the [required Azure AD permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) before you start creating a service principal.
 
 ### Create service principal
 

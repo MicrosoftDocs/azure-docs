@@ -26,7 +26,7 @@ ms.author: spelluru
 
 You can create a custom image from a provisioned VM, and afterwards use that custom image to create identical VMs. The following steps illustrate how to create a custom image from a VM:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 
@@ -44,7 +44,7 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
 	![Create custom image pane](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.
+1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep to be run on the VM when the custom image is created.
 
 1. Select **OK** when finished to create the custom image.
 

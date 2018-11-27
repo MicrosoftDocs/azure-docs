@@ -2,15 +2,16 @@
 title: Intelligent Insights performance diagnostics log - Azure SQL Database | Microsoft Docs
 description: Intelligent Insights provides a diagnostics log of Azure SQL Database performance issues
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: danimir
 ms.author: v-daljep
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/04/2018
 ---
 
 # Use the Intelligent Insights Azure SQL Database performance diagnostics log
@@ -33,9 +34,7 @@ The header of the log is common and consists of the time stamp (TimeGenerated) t
 
 ## Issue ID and database affected
 
-The issue identification property (issueId_d) provides a way of uniquely tracking performance issues until they're resolved. Intelligent Insights observes each issue lifecycle as "Active", "Verifying", or "Complete". Through each of these status phases, Intelligent Insights can record multiple event records in the log. For each of these entries, the issue ID number remains unique. Intelligent Insights tracks the issue through its lifecycle and generates an insight in the diagnostics log every 15 minutes.
-
-After a performance issue is detected and for as long as it lasts, the issue is reported as "Active" under the status (status_s) property. After a detected issue is mitigated, it's verified and reported as "Verifying" under the status (status_s) property. If the issue is no longer present, the status (status_s) property reports this issue as "Complete".
+The issue identification property (issueId_d) provides a way of uniquely tracking performance issues until resolved. Multiple event records in the log reporting status of the same issue will share the same issue ID.
 
 Along with the issue ID, the diagnostics log reports the start (intervalStartTime_t) and end (intervalEndTme_t) time stamps of the particular event related to an issue that's reported in the diagnostics log.
 

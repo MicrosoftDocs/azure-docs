@@ -21,7 +21,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: quickstart-create-front-door.md
 - title: Step-by-Step Tutorials
@@ -32,6 +32,7 @@ sections:
     style: unordered
     items:
     - html: <a href="front-door-custom-domain.md">Add a custom domain to your Front Door</a>
+    - html: <a href="front-door-custom-domain-https.md">Enable HTTPS for a custom doman</a>
 - title: Reference
   items:
   - type: list
@@ -39,6 +40,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2020937">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
+      html: <p><a href="/cli/azure/ext/front-door">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
     - title: REST
-      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2020948">REST API</a></p>
+      html: <p><a href="/rest/api/frontdoor">REST API</a></p>

@@ -40,21 +40,24 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to set up an experiment and operationalize your models.'
+    text: '<b>Tutorials</b>: Learn how to set up an experiment and operationalize your models.'
   - type: list
     style: unordered
     items:
     - html: <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
     - html: <a href="tutorial-auto-train-models">Let us auto-generate and auto-tune a model for you</a>
     - html: <a href="tutorial-deploy-models-with-aml">Deploy a model as a web service</a>
+  - type: paragraph
+    text: '<b>Sample notebooks</b>: Explore Azure Machine Learning with <a href="https://aka.ms/aml-notebooks">these Jupyter notebooks</a>, available on GitHub.'
 
 - title: Reference
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
-    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Data Prep SDK</a>
+    - html: <a href="https://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
+    - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning Monitoring SDK</a>
 
 - title: Other Azure Machine Learning Technologies
   items:

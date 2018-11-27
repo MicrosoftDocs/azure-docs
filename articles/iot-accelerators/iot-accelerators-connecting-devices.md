@@ -24,15 +24,15 @@ To complete the steps in this how-to guide follow the steps in [set up your Wind
 
 ## View the code
 
-The [sample code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) used in this guide is available in the Azure IoT C SDKs GitHub repository.
+The [sample code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) used in this guide is available in the Azure IoT C SDKs GitHub repository.
 
 ### Download the source code and prepare the project
 
 To prepare the project, clone or download the [Azure IoT C SDKs repository](https://github.com/Azure/azure-iot-sdk-c) from GitHub.
 
-The sample is located in the **samples/solutions/remote_monitoring** folder.
+The sample is located in the **samples/solutions/remote_monitoring_client** folder.
 
-Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitoring** folder in a text editor.
+Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitoring_client** folder in a text editor.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -45,7 +45,7 @@ Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitori
 1. At the command-prompt you used to build the solution, run:
 
     ```cmd
-    samples\solutions\remote_monitoring\Release\remote_monitoring_client.exe
+    samples\solutions\remote_monitoring_client\Release\remote_monitoring_client.exe
     ```
 
     The console displays messages as:

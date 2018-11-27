@@ -2,23 +2,17 @@
 title: CLI example-move Azure SQL database-SQL elastic pool | Microsoft Docs
 description: Azure CLI example script to move a SQL database in a SQL elastic pool 
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-
-ms.assetid:
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer: 
+manager: craigg
+ms.date: 09/20/2018
 ---
-
 # Use CLI to move an Azure SQL database in a SQL elastic pool
 
 This Azure CLI script example creates two elastic pools and moves an Azure SQL database from one SQL elastic pool into another SQL elastic pool, and then moves the database out of elastic pool to a single Azure database compute size. 

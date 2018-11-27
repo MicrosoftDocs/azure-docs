@@ -37,7 +37,7 @@ According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n11
 
 ## Next steps
 - [Services and features in Microsoft Azure China 21Vianet](https://www.azure.cn/home/features/products-by-region)
-- [Azure Global Connection Center](http://aka.ms/azcc)
+- [Azure Global Connection Center](https://aka.ms/azcc)
 - [Azure case studies](https://www.azure.cn/partnerancasestudy/case-studies/) (in Chinese)
 - [Global Connection Toolkit on GitHub](https://github.com/Azure/AzureGlobalConnectionToolkit)
 - [Cloud services business model operated by 21Vianet](https://wacnppe.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_and_Office_365_cloud_services_business_model_operated_by_21Vianet12.pdf) (in Chinese)

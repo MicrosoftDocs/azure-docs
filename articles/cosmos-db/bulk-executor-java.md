@@ -1,7 +1,6 @@
 ---
-title: Using bulk executor Java library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s bulk executor Java library to bulk import and update documents to Azure Cosmos DB containers.
-keywords: Java bulk executor
+title: Using bulk executor Java library to perform bulk import and update operations in Azure Cosmos DB | Microsoft Docs
+description: Bulk import and update Azure Cosmos DB documents using bulk executor Java library.
 services: cosmos-db
 author: tknandu
 manager: kfile
@@ -9,7 +8,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
 
 ---
@@ -18,13 +17,15 @@ ms.author: ramkris
 
 This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos DB container. After importing, you will bulk update some properties of a document. 
 
+Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use bulk executor .Net library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 
 * You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` URI. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).  
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - On Ubuntu, run `apt-get install default-jdk` to install the JDK.  
 
   - Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.

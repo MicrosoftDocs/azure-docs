@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -52,20 +52,23 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 - Office 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. For OneDrive, you will have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
 - It can be enabled via Azure AD Connect.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
-- It is supported on web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga) on platforms and browsers capable of Kerberos authentication:
+- It is supported on web browser-based clients and Office clients that support [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes\*|No|Yes|Yes\*\*|N/A
-|Windows 8.1|Yes\*|N/A|Yes|Yes\*\*|N/A
-|Windows 8|Yes\*|N/A|Yes|Yes\*\*|N/A
-|Windows 7|Yes\*|N/A|Yes|Yes\*\*|N/A
-|Mac OS X|N/A|N/A|Yes\*\*|Yes\*\*|Yes\*
+|Windows 10|Yes\*|No|Yes|Yes\*\*\*|N/A
+|Windows 8.1|Yes\*|N/A|Yes|Yes\*\*\*|N/A
+|Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
+|Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
+|Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
+|Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
 
 \*Requires Internet Explorer versions 10 or above
 
-\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*Requires Internet Explorer versions 10 or above. Disable Enhanced Protected Mode
+
+\*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal single sign-on experience with Azure AD.

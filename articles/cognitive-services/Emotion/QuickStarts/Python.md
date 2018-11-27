@@ -10,17 +10,17 @@ ms.component: emotion-api
 ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
-> Video API Preview ended on October 30, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
-videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-This walkthrough provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Python to recognize the emotions expressed by one or more people in an image. 
+This walkthrough provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Python to recognize the emotions expressed by one or more people in an image.
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
 
@@ -43,7 +43,7 @@ Next, verify that the service URL corresponds to the region you used when settin
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-This walkthrough uses images that are stored on disk. You can also use images that are available via a publically accessible URL. For more information, see the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
+This walkthrough uses images that are stored on disk. You can also use images that are available via a publicly accessible URL. For more information, see the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
 
 Since the image data is passed as part of the request body, notice that you need to set the `Content-Type` header to `application/octet-stream`. If you are passing in an image via a URL, remember to set the header to:
 ```python
@@ -99,7 +99,7 @@ analysis
 
 
 
-The returned JSON object contains the bounding boxes of the faces that were recognized along with the detected emotions. Each emotion is associated with a score between 0 and 1 where a higher score is more indicative of an emotion than a lower score. 
+The returned JSON object contains the bounding boxes of the faces that were recognized along with the detected emotions. Each emotion is associated with a score between 0 and 1 where a higher score is more indicative of an emotion than a lower score.
 
 The following lines of code the detected emotions on the faces in the image using the `matplotlib` library. To reduce clutter, only the top three emotions are shown.
 

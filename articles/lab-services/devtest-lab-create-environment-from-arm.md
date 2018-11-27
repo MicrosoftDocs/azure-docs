@@ -19,14 +19,13 @@ ms.author: spelluru
 
 # Create multi-VM environments and PaaS resources with Azure Resource Manager templates
 
-The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [add one VM at a time to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). However, if the environment contains multiple VMs, each VM must be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
+The [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [add one VM at a time to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). However, if the environment contains multiple VMs, each VM must be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
 - Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Azure DevOps Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal, just as they do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaaS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
 - PaaS resources are created and will appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
-- Users have the same VM policy control for environments as they have for single-lab VMs.
 
 Learn more about the many [benefits of using Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) to deploy, update, or delete all of your lab resources in a single operation.
 
@@ -61,7 +60,7 @@ There are a couple of rules to follow to organize your Azure Resource Manager te
 
 The following steps guide you through adding a repository to your lab using the Azure portal. 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
 1. On the lab's **Overview** pane, select **Configuration and Policies**.
@@ -91,7 +90,7 @@ The next section will walk you through creating environments from an Azure Resou
 
 Once an Azure Resource Manager template repository has been configured in the lab, your lab users can create an environment using Azure portal with the following steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
 1. On the lab's pane, select **Add+**.

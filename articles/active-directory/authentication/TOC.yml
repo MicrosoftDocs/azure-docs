@@ -71,6 +71,8 @@
       href: howto-sspr-authenticationdata.md
     - name: Enable password writeback
       href: howto-sspr-writeback.md
+    - name: SSPR for Windows 7, 8, and 8.1
+      href: howto-sspr-windows-7-8.md
   - name: Cloud-based MFA
     items:
     - name: Deploy cloud-based MFA
@@ -99,21 +101,27 @@
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
-  - name: Banned password lists
+  - name: Azure AD password protection
     items:
     - name: Configure the banned password list
-      href: howto-password-ban-bad.md
-    - name: Deploy Azure AD password protection
-      href: howto-password-ban-bad-on-premises.md
-    - name: Configure Azure AD password protection
-      href: howto-password-ban-bad-on-premises-operations.md
-    - name: Monitor Azure AD password protection
-      href: howto-password-ban-bad-on-premises-troubleshoot.md
+      href: howto-password-ban-bad-configure.md
+    - name: On-premises integration
+      items:
+      - name: Deploy Azure AD password protection
+        href: howto-password-ban-bad-on-premises-deploy.md
+      - name: Configure Azure AD password protection
+        href: howto-password-ban-bad-on-premises-operations.md
+      - name: Monitor Azure AD password protection
+        href: howto-password-ban-bad-on-premises-troubleshoot.md
+      - name: Frequently asked questions
+        href: howto-password-ban-bad-on-premises-faq.md
+      - name: On-premises agent version history
+        href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Windows Hello for Business
     href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Passwordless phone sign-in
+  - name: Password-less phone sign-in
     href: howto-authentication-phone-sign-in.md
   - name: Certificate-based authentication
     items:
@@ -209,6 +217,6 @@
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

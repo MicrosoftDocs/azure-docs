@@ -4,13 +4,9 @@ description: Learn how to create an internal load balancer using PowerShell in t
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-tags: azure-service-management
-
-ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017

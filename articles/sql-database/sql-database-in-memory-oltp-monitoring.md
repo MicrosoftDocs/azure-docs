@@ -2,14 +2,16 @@
 title: Monitor XTP In-memory storage | Microsoft Docs
 description: Estimate and monitor XTP In-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: jodebrui
 ms.author: jodebrui
-
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Monitor In-Memory OLTP storage
 When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size. See [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).

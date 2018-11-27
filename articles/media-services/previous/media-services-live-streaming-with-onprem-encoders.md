@@ -50,7 +50,7 @@ The following diagram represents a live-streaming workflow that uses an on-premi
 ## <a id="scenario"></a>Common live-streaming scenario
 The following steps describe tasks involved in creating common live-streaming applications.
 
-1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     You can also perform this step after you create your channel.
 2. Create and start a channel.
@@ -101,7 +101,7 @@ Use the secondary URL if you want to improve the durability and fault tolerance 
 
     In this scenario, both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance, as well as data redundancy. This scenario can tolerate both encoder failures and disconnects, even if one encoder stops working. It assumes that encoders are time synced and provide exactly the same data.  
 
-For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### Ingest URLs (endpoints)
 A channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   

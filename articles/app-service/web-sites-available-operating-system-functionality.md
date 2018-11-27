@@ -13,12 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 10/30/2018
 ms.author: cephalin
 
 ---
 # Operating system functionality on Azure App Service
-This article describes the common baseline operating system functionality that is available to all apps running on [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+
+> [!NOTE] 
+> [Linux apps](containers/app-service-linux-intro.md) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](app-service-web-get-started-windows-container.md), you have administrative access to the container but no access to the host operating system. 
+>
 
 <a id="tiers"></a>
 

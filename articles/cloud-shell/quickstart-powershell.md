@@ -1,5 +1,5 @@
 ---
-title: PowerShell in Azure Cloud Shell (Preview) Quickstart | Microsoft Docs
+title: PowerShell in Azure Cloud Shell Quickstart | Microsoft Docs
 description: Quickstart for PowerShell in Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/18/2018
 ms.author: damaerte
 ---
 
-# Quickstart for PowerShell in Azure Cloud Shell (Preview)
+# Quickstart for PowerShell in Azure Cloud Shell
 
-This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
+This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://portal.azure.com/).
 
 > [!NOTE]
 > A [Bash in Azure Cloud Shell](quickstart.md) Quickstart is also available.
@@ -177,17 +177,17 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
-  Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell script block on the remote machine.
+  Assuming you have a VM, MyVM1, let's use `Invoke-AzVMCommand` to invoke a PowerShell script block on the remote machine.
 
   ```azurepowershell-interactive
-  Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
 
-  You can also navigate to the VirtualMachines directory first and run `Invoke-AzureRmVMCommand` as follows.
+  You can also navigate to the VirtualMachines directory first and run `Invoke-AzVMCommand` as follows.
 
   ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
 
   # You will see output similar to the following:
 
@@ -206,16 +206,16 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 #### Interactively log on to a remote VM
 
-You can use `Enter-AzureRmVM` to interactively log into a VM running in Azure.
+You can use `Enter-AzVM` to interactively log into a VM running in Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-You can also navigate to the `VirtualMachines` directory first and run `Enter-AzureRmVM` as follows
+You can also navigate to the `VirtualMachines` directory first and run `Enter-AzVM` as follows
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
  ```
 
 ### Discover WebApps
@@ -313,6 +313,9 @@ You can create a script, say `helloworld.ps1`, and save it to your `clouddrive` 
 
 ```azurepowershell-interactive
 cd $HOME\clouddrive
+# Create a new file in clouddrive directory
+New-Item helloworld.ps1
+# Open the new file for editing
 code .\helloworld.ps1
 # Add the content, such as 'Hello World!'
 .\helloworld.ps1

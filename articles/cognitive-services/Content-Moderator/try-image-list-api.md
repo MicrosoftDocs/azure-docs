@@ -1,12 +1,14 @@
 ---
-title: Moderate images by using custom lists in Azure Content Moderator | Microsoft Docs
+title: Moderate images by using custom lists with the API console - Content Moderator
+titlesuffix: Azure Content Moderator
 description: Test-drive custom image lists in the Content Moderator API console.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
 ---

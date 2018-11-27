@@ -142,9 +142,10 @@ You have now configured your notification hub with APNS, and you have the connec
 
     -(void)MessageBox:(NSString *) title message:(NSString *)messageText
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-            cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
     }
     ```
 

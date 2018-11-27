@@ -1,6 +1,6 @@
 ---
-title: Updating Azure Backup Central Reporting Content Pack 
-description: Information about updates to Azure Backup Content Pack in Power BI
+title: Update the Azure Backup central reporting content pack 
+description: Information about updates to the Azure Backup content pack in Power BI
 services: backup
 documentationcenter: ''
 author: adigan
@@ -17,25 +17,24 @@ ms.date: 07/24/2018
 ms.author: adigan;
 
 ---
-# Updating Azure Backup Central Reporting Content Pack 
+# Update the Azure Backup central reporting content pack 
 
-[Azure Backup Content Pack](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) can be used to view reports about backup centrally. The content pack is updated regularly to add more features, and for bug fixes. This article leads you through the steps to update the Content Pack, to delay the update, and the updates that are made over time.
+The [Azure Backup content pack](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) can be used to view reports about central backup. The content pack is updated regularly to add more features and fix bugs. This article tells you how to update the content pack. It also tells you how to postpone the update and see the updates made over time.
 
-## How to get updates to the content pack
+## Get updates to the content pack
 
-### To get the updated content pack
-Your copy of the content pack will get updated automatically if you have not made any changes to it. 
-In case the content pack has been changed, you will get a notification in PowerBI, and an email notification about the same. You can choose to get the updated content pack as per your convenience. 
+### Get the updated content pack
+If you haven't made any changes to your copy of the content pack, it updates automatically. When the content pack changes, you receive a notification in Power BI and an email notification. You can choose to get the updated content pack at your convenience. 
 
-### To delay the update
-The best practice is to import the content pack into a [custom workspace](https://youtu.be/26zyOtyHPJM?t=1m57s). You now have the ability to edit the reports.
-As mentioned above, if the content pack is changed, you see a notification in PowerBI. You can choose to get the content pack later. 
+### Postpone the update
+The best practice is to import the content pack into a [custom workspace](https://youtu.be/26zyOtyHPJM?t=1m57s). You can now edit the reports.
+As previously mentioned, if the content pack changes, you see a notification in Power BI. You can choose to get the content pack later. 
 
-## Coming Soon
+## Coming soon
    
-Azure Backup Content Pack is being updated to support more workloads, as SQL in IaaS VM backup, and SC DPM, in addition to the current support for MAB and Azure VM Backup. This means that you will soon be able to view and analyze data all your backup data at one central place. The [reports can also be customized](https://youtu.be/26zyOtyHPJM) to suit the needs of your organization.
+The Azure Backup content pack is updated to support more workloads. Workloads include Azure SQL Database for IaaS VM backup and System Center Data Protection Manager. This support adds to the current support for Azure backup and Azure VM backups. This support means that you can view and analyze all your backup data in one central place. [Reports also can be customized](https://youtu.be/26zyOtyHPJM) to suit the needs of your organization.
 
-To make the reports more meaningful across workloads, the set of reports pre-configured with Azure Backup Content Pack is being changed. A sneak peek into the upcoming set of reports is available here:
+The preconfigured reports that come with the Azure Backup content pack are changing. The changes make the reports more meaningful across workloads. A sneak peek at the upcoming set of reports is available here.
 
 ### Summary
    
@@ -53,8 +52,8 @@ To make the reports more meaningful across workloads, the set of reports pre-con
 
 ![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
 
-### Backup Items
-![BackupItems](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+### Backup items
+![Backup items](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
 
 ### Alerts
 
@@ -65,7 +64,7 @@ To make the reports more meaningful across workloads, the set of reports pre-con
 ![Jobs](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
     
 
-## Next Steps:
+## Next steps
 
-* [Share Reports across your organisation](https://youtu.be/26zyOtyHPJM)
+* [Share reports across your organization](https://youtu.be/26zyOtyHPJM)
 * [Azure Backup FAQ](backup-azure-backup-faq.md)

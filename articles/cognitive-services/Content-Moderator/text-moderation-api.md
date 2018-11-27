@@ -1,12 +1,13 @@
 ---
-title: Azure Content Moderator - Text Moderation | Microsoft Docs
+title: Text Moderation - Content Moderator
 description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
 ---

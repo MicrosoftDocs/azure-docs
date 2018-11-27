@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 10/26/2018
 ms.author: sethm
 
 ---
@@ -37,7 +37,7 @@ Depending on how you have deployed Azure Stack, you start by creating a service 
 
 ## Create service principal for Azure AD
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. This section shows you how to perform the steps through the portal. Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. This section shows you how to perform the steps through the portal. Check that you have the [required Azure AD permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) before beginning.
 
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that represents your application.
@@ -74,6 +74,13 @@ The script is run from the privileged endpoint on an ERCS virtual machine.
 Requirements:
 - A certificate is required.
 
+Certificate Requirements:
+ - The Cryptographic Service Provider (CSP) must be legacy key provider.
+ - The certificate format must be in PFX file, as both the public and private keys are required. Windows servers use .pfx files that contain the public key file (SSL certificate file) and the associated private key file.
+ - For production, the certificate must be issued from either an internal Certificate Authority or a Public Certificate Authority. If you use a public certificate authority, you must included the authority in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list at [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Your Azure Stack infrastructure must have network access to the certificate authority's Certificate Revocation List (CRL) location published in the certificate. This CRL must be an HTTP endpoint.
+
+
 #### Parameters
 
 The following information is required as input for the automation parameters:
@@ -90,7 +97,7 @@ The following information is required as input for the automation parameters:
 1. Open an elevated Windows PowerShell session, and run the following commands:
 
    > [!NOTE]
-   > This example creates a self-signed certificate. When you run these commands in a production deployment, use [Get-Certificate](/powershell/module/pkiclient/get-certificate) to retrieve the certificate object for the certificate you want to use.
+   > This example creates a self-signed certificate. When you run these commands in a production deployment, use [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) to retrieve the certificate object for the certificate you want to use.
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -99,7 +106,7 @@ The following information is required as input for the automation parameters:
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}

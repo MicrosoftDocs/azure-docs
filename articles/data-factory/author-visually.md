@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/7/2018
 ms.author: shlo
 
 ---
@@ -20,10 +20,10 @@ ms.author: shlo
 The Azure Data Factory user interface experience (UX) lets you visually author and deploy resources for your data factory without having to write any code. You can drag activities to a pipeline canvas, perform test runs, debug iteratively, and deploy and monitor your pipeline runs. There are two approaches for using the UX to perform visual authoring:
 
 - Author directly with the Data Factory service.
-- Author with Git integration with Azure Repos for collaboration, source control, or versioning.
+- Author with Azure Repos Git integration for collaboration, source control, and versioning.
 
 ## Author directly with the Data Factory service
-Visual authoring with the Data Factory service differs from visual authoring with Azure DevOps Services in two ways:
+Visual authoring with the Data Factory service differs from visual authoring with Git integration in two ways:
 
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes.
 - The Data Factory service isn't optimized for collaboration or version control.
@@ -34,8 +34,8 @@ When you use the UX **Authoring canvas** to author directly with the Data Factor
 
 ![Publish mode](media/author-visually/data-factory-publish.png)
 
-## Author with Git integration with Azure Repos
-Visual authoring with Git integration with Azure Repos supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
+## Author with Azure Repos Git integration
+Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
@@ -57,7 +57,7 @@ The pane shows the following Azure Repos code repository settings:
 
 | Setting | Description | Value |
 |:--- |:--- |:--- |
-| **Repository Type** | The type of the Azure Repos code repository.<br/>**Note**: GitHub is not currently supported. | Azure Dev Ops Git |
+| **Repository Type** | The type of the Azure Repos code repository.<br/>**Note**: GitHub is not currently supported. | Azure Repos Git |
 | **Azure Active Directory** | Your Azure AD tenant name. | <your tenant name> |
 | **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | <your organization name> |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -66,7 +66,7 @@ The pane shows the following Azure Repos code repository settings:
 | **Root folder** | Your root folder in your Azure Repos collaboration branch. | <your root folder name> |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into an Azure Repos Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 
-#### Configuration method 2  (Azure Repos Git repo): UX authoring canvas
+#### Configuration method 2 (Azure Repos Git repo): UX authoring canvas
 In the Azure Data Factory UX **Authoring canvas**, locate your data factory. Select the **Data Factory** drop-down menu, and then select **Configure Code Repository**.
 
 A configuration pane appears. For details about the configuration settings, see the descriptions in <a href="#method1">Configuration method 1</a>.
@@ -76,6 +76,20 @@ A configuration pane appears. For details about the configuration settings, see 
 ## Use a different Azure Active Directory tenant
 
 You can create an Azure Repos Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+
+## Use your personal Microsoft account
+
+To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
+
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md).
+
+2. Log in to the Azure Portal with your personal Microsoft account. Then switch to your organization's Active Directory.
+
+3. Go to the Azure DevOps section, where you now see your personal repo. Select the repo and connect with Active Directory.
+
+After these configuration steps, your personal repo is available when you set up Git integration in the Data Factory UI.
+
+For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Switch to a different Git repo
 
@@ -124,7 +138,9 @@ After you have merged changes to the collaboration branch (`master` is the defau
 
 ## Author with GitHub integration
 
-Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources. The GitHub integration with Data Factory supports both public GitHub as well as GitHub Enterprise.
+Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
+
+The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub.
 
 To configure a GitHub repo, you have to have administrator permissions for the Azure subscription that you're using.
 

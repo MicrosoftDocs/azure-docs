@@ -2,17 +2,18 @@
 title: Secure your Azure SQL database | Microsoft Docs
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
-author: DRediske
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,security
+ms.subservice: security
+ms.custom:
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 09/07/2018
+author: DRediske
 ms.author: daredis
-ms.reviewer: vanto
-
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 11/01/2018
 ---
-# Secure your Azure SQL Database
+# Tutorial: Secure your Azure SQL Database
 
 SQL Database secures your data by: 
 - Limiting access to your database using firewall rules 
@@ -52,7 +53,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 SQL databases are protected by a firewall in Azure. By default, all connections to the server and the databases inside the server are rejected except for connections from other Azure services. For more information, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
 
-The most secure configuration is to set 'Allow access to Azure services' to OFF. If you need to connect to the database from an Azure VM or cloud service, you should create a [Reserved IP](../virtual-network/virtual-networks-reserved-public-ip.md) and allow only the reserved IP address access through the firewall. 
+The most secure configuration is to set 'Allow access to Azure services' to OFF. If you need to connect to the database from an Azure VM or cloud service, you should create a [Reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) and allow only the reserved IP address access through the firewall. If you are using the [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated Public IP address is assigned to the resource, and you should allow this IP address through the firewall.
 
 Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your server to allow connections from a specific IP address. 
 
@@ -167,7 +168,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 
-2. In the Settings blade, select **Auditing & Threat Detection**. Notice that sever-level auditing is diabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
+2. In the Settings blade, select **Auditing & Threat Detection**. Notice that server-level auditing is disabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 

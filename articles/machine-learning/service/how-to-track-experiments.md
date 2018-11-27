@@ -16,19 +16,22 @@ ms.date: 09/24/2018
 
 In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, you'll learn about the different ways to add logging to your training script, how to submit the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run. 
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
+
 ## List of training metrics 
 
-The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://aka.ms/aml-sdk).
 
-|Type| Python function | Notes|
-|----|:----:|:----:|
-|Scalar values | `run.log(name, value, description='')`| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
-|Lists| `run.log_list(name, value, description='')`|Log a list metric value to the run with the given name.|
-|Row| `run.log_row(name, description=None, **kwargs)`|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
-|Table| `run.log_table(name, value, description='')`| Log a table metric to the run with the given name. |
-|Images| `run.log_image(name, path=None, plot=None)`|Log an image metric to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
-|Tag a run| `run.tag(key, value=None)`|Tag the run with a string key and optional string value.|
-|Upload file or directory|`run.upload_file(name, path_or_stream)`|Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
+|Type| Python function | Example | Notes|
+|----|:----|:----|:----|
+|Scalar values | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
+|Lists| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Log a list of values to the run with the given name.|
+|Row| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
+|Table| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Log a dictionary object to the run with the given name. |
+|Images| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Tag a run| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Tag the run with a string key and optional string value.|
+|Upload file or directory|`run.upload_file(name, path_or_stream)`| run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
 
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
@@ -60,7 +63,6 @@ Before adding logging and submitting an experiment, you must set up the workspac
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## Option 1: Use start_logging
@@ -96,7 +98,8 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -137,14 +140,14 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -202,8 +205,8 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## View run details
@@ -228,6 +231,7 @@ Model training and monitoring occur in the background so that you can run other 
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
+<a name='view-the-experiment-in-the-web-portal'/>
 ## View the experiment in the Azure portal
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can do this in two ways:
@@ -240,13 +244,25 @@ The link for the run brings you directly to the run details page in the Azure po
   ![Screenshot of run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
+### Viewing charts in run details
+
+There are various ways to use the logging APIs to record different types of metrics during a run and view them as charts in the Azure portal. 
+
+|Logged Value|Example code| View in portal|
+|----|----|----|
+|Log an array of numeric values| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|single-variable line chart|
+|Log a single numeric value with the same metric name repeatedly used (like from within a for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable line chart|
+|Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
+|Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 Get these notebooks:
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps

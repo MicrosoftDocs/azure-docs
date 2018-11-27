@@ -230,7 +230,7 @@ To compare the number of mentions among topics, you can use a [Tumbling window](
 
 1. Close the **Inputs** blade if you haven't already.
 
-2. In the job blade, click the **Query** box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
+2. In the **Overview** blade, click **Edit Query** near the top right of the Query box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
 
 3. Make sure that the TwitterWpfClient application is running. 
 

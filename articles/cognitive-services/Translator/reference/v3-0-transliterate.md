@@ -42,11 +42,11 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Required parameter*.<br/>Specifies the script used by the input text. Lookup [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
+    <td>*Required parameter*.<br/>Specifies the script used by the input text. Look up [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Required parameter*.<br/>Specifies the output script. Lookup [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
+    <td>*Required parameter*.<br/>Specifies the output script. Look up [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
   </tr>
 </table> 
 
@@ -167,7 +167,7 @@ The JSON payload for the request in this example:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-If you are using cUrl in a command-line window that does not support Unicode characters, take the following JSON payload and save it into a file named `request.txt`. Be sure to save the file with `UTF-8` encoding.
+If you are using cURL in a command-line window that does not support Unicode characters, take the following JSON payload and save it into a file named `request.txt`. Be sure to save the file with `UTF-8` encoding.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

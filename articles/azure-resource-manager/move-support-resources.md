@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
 
 ---
@@ -186,6 +186,7 @@ After finding the resource provider and resource type, use the tables in this ar
 | registries | Yes | Yes |
 | registries/buildtasks	| Yes | Yes |
 | registries/replications | No | No |
+| registries/tasks | Yes | Yes |
 | registries/webhooks | Yes | Yes |
 
 ## Microsoft.ContainerService
@@ -193,6 +194,7 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | containerservices | No | No |
 | managedclusters | No | No |
+| openshiftmanagedclusters | No | No |
 
 ## Microsoft.ContentModerator
 | Resource type | Resource group | Subscription |
@@ -272,6 +274,15 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | servergroups | No | No |
 | servers | Yes | Yes |
+
+## Microsoft.DeploymentManager
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
+| artifactsources | No | No |
+| rollouts | No | No |
+| servicetopologies | No | No |
+| servicetopologies/services | No | No |
+| servicetopologies/services/serviceunits | No | No |
 
 ## Microsoft.Devices
 | Resource type | Resource group | Subscription |
@@ -413,6 +424,11 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | accounts | Yes | Yes |
 
+## Microsoft.MachineLearningServices
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
+| workspaces | Yes | Yes |
+
 ## Microsoft.ManagedIdentity
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
@@ -445,15 +461,22 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | applicationgateways | No | No |
 | applicationsecuritygroups	| Yes | Yes |
+| azurefirewalls | Yes | Yes |
 | connections | Yes | Yes |
 | ddosprotectionplans | No | No |
 | dnszones | Yes | Yes |
 | expressroutecircuits | No | No |
+| expressroutecrossconnections | No | No |
+| expressroutegateways | No | No |
 | expressrouteports	| No | No |
+| frontdoors | Yes | Yes |
+| frontdoorwebapplicationfirewallpolicies | Yes | Yes |
+| interfaceendpoints | No | No |
 | loadbalancers	| Yes | Yes |
 | localnetworkgateways | Yes | Yes |
 | networkintentpolicies	| Yes | Yes |
 | networkinterfaces | Yes | Yes |
+| networkprofiles | No | No |
 | networksecuritygroups	| Yes | Yes |
 | networkwatchers | Yes | Yes |
 | networkwatchers/connectionmonitors | Yes | Yes |
@@ -463,9 +486,16 @@ After finding the resource provider and resource type, use the tables in this ar
 | publicipprefixes | Yes | Yes |
 | routefilters | No | No |
 | routetables | Yes | Yes |
+| serviceendpointpolicies | Yes | Yes |
 | trafficmanagerprofiles | Yes | Yes |
+| virtualhubs | Yes | Yes |
 | virtualnetworkgateways | Yes | Yes |
 | virtualnetworks | Yes | Yes |
+| virtualnetworktaps | No | No |
+| virtualwans | Yes | Yes |
+| vpngateways | Yes | Yes |
+| vpnsites | Yes | Yes |
+| webapplicationfirewallpolicies | Yes | Yes |
 
 ## Microsoft.NotificationHubs
 | Resource type | Resource group | Subscription |
@@ -564,6 +594,8 @@ After finding the resource provider and resource type, use the tables in this ar
 ## Microsoft.Sql
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
+| managedinstances | Yes | Yes |
+| managedinstances/databases | Yes | Yes |
 | servers | Yes | Yes |
 | servers/databases | Yes | Yes |
 | servers/elasticpools | Yes | Yes |

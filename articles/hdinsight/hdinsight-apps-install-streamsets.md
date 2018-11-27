@@ -1,6 +1,6 @@
 ---
 title: Install published application - StreamSets Data Collector - Azure HDInsight 
-description: Install and use the StreamSets Data Collector third-party Hadoop application.
+description: Install and use the StreamSets Data Collector third-party Apache Hadoop application.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -14,7 +14,7 @@ ms.author: ashish
 ---
 # Install published application - StreamSets Data Collector
 
-This article describes how to install and run the [StreamSets Data Collector for HDInsight](https://streamsets.com/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [StreamSets Data Collector for HDInsight](https://streamsets.com/) published Apache Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About StreamSets Data Collector
 

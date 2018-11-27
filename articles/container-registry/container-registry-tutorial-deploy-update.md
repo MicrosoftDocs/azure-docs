@@ -2,13 +2,12 @@
 title: Azure Container Registry tutorial - Push an updated image to regional deployments
 description: Push a modified Docker image to your geo-replicated Azure contain registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 ---
 

@@ -3,8 +3,8 @@ title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
 services: functions
 documentationcenter: na
-author: anthonychu
-manager: cfowler
+author: craigshoemaker
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
-ms.author: antchu
+ms.author: cshoe
 ---
 
 # SignalR Service bindings for Azure Functions
@@ -31,8 +31,7 @@ The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extens
 > [!NOTE]
 > Azure SignalR Service is generally available. However, SignalR Service bindings for Azure Functions are currently in preview.
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
-
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 ## SignalR connection info input binding
 

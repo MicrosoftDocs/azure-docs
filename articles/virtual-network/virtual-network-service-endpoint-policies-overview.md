@@ -181,7 +181,7 @@ Virtual networks and Azure service resources can be in the same or different sub
 
 ## Pricing and limits
 
-There is no additional charge for using service endpoint policies. THe current pricing model for Azure services (such as, Azure Storage) applies as is today, over service endpoints.
+There is no additional charge for using service endpoint policies. The current pricing model for Azure services (such as, Azure Storage) applies as is today, over service endpoints.
 
 Following limits are enforced on service endpoint policies: 
 

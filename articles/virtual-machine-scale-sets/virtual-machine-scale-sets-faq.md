@@ -3,7 +3,7 @@ title: Azure virtual machine scale sets FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: negat
+ms.author: manayar
 ms.custom: na
 
 ---
@@ -369,7 +369,7 @@ To emulate passing in a certificate as a base64 string, you can extract the late
 
 In virtual machine scale sets and VMs, certificates must be wrapped in JSON objects. 
 
-We also support the content type application/x-pkcs12. For instructions on using application/x-pkcs12, see [PFX certificates in Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/).
+We also support the content type application/x-pkcs12. 
  
 We currently do not support .cer files. To use .cer files, export them into .pfx containers.
 
@@ -385,7 +385,7 @@ From a compliance perspective, virtual machine scale sets are a fundamental part
 
 For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### Does [Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
+### Does [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
 
 Yes. You can see some example MSI templates in Azure Quickstart templates. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -703,7 +703,7 @@ Yes, you can by installing the Log Analytics extension on the scale set VMs. Her
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-You can find the required workspaceId and workspaceKey in the OMS portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
+You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
 
 Note: if your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
 

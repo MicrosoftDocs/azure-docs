@@ -1,27 +1,28 @@
 ---
-title: 'Quickstart: Recognize speech in JavaScript in a browser using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in JavaScript in a browser using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech in JavaScript in a browser using the Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in JavaScript in a browser using the Speech Service SDK
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 11/06/2018
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in JavaScript in a browser using the Cognitive Services Speech SDK
+# Quickstart: Recognize speech in JavaScript in a browser using the Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.0.0](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
 * A current version of Chrome or Microsoft Edge.
@@ -32,6 +33,8 @@ The application is based on the Microsoft Cognitive Services Speech SDK ([Downlo
 Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
 
 ## Unpack the Speech SDK for JavaScript into that folder
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 The latter file is optional and used to help debugging into SDK code, if necessary.

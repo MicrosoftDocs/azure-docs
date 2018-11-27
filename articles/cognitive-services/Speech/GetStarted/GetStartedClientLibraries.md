@@ -10,9 +10,10 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
 ---
 # Get started with Bing Speech Service client libraries
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Besides making direct HTTP requests via a REST API, Bing Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
 
@@ -27,9 +28,6 @@ Currently, the following Bing Speech client libraries are available:
 - [JavaScript library](GetStartedJSWebsockets.md)
 - [Java library for Android](GetStartedJavaAndroid.md)
 - [Objective-C library for iOS](Get-Started-ObjectiveC-iOS.md)
-
-> [!NOTE] 
-In May 2018, we also released the new [Speech Service](../../speech-service/index.yml) in public preview. We encourage you to [try it out for free](../../speech-service/get-started.md). 
 
 ## Additional resources
 

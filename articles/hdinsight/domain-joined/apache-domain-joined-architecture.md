@@ -3,9 +3,9 @@ title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan HDInsight security with Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
@@ -18,28 +18,22 @@ Many enterprises have moved toward a model in which clusters are managed by IT t
 
 HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), you can access the clusters by using your domain credentials. 
 
-The virtual machines (VMs) in HDInsight are domain joined to your provided domain. So, all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and others) work seamlessly for the authenticated user. Administrators can then create strong authorization policies by using Apache Ranger to provide role-based access control for resources in the cluster.
-
+The virtual machines (VMs) in HDInsight are domain joined to your provided domain. So, all the services running on HDInsight (Apache Ambari, Apache Hive server, Apache Ranger, Apache Spark thrift server, and others) work seamlessly for the authenticated user. Administrators can then create strong authorization policies by using Apache Ranger to provide role-based access control for resources in the cluster.
 
 ## Integrate HDInsight with Active Directory
 
-Open-source Hadoop relies on Kerberos for authentication and security. Therefore, HDInsight cluster nodes with Enterprise Security Package (ESP) are joined to a domain that's managed by Azure AD DS. Kerberos security is configured for the Hadoop components on the cluster. 
+Open-source Apache Hadoop relies on Kerberos for authentication and security. Therefore, HDInsight cluster nodes with Enterprise Security Package (ESP) are joined to a domain that's managed by Azure AD DS. Kerberos security is configured for the Hadoop components on the cluster. 
 
-For each Hadoop component, a service principal is created automatically. A corresponding machine principal is also created for each machine that's joined to the domain. To store these service and machine principals, you must provide an organizational unit (OU) within the domain controller (Azure AD DS), where these principals are placed. 
+The following things are created automatically:
+- a service principal for each Hadoop component 
+- a machine principal for each machine that's joined to the domain
+- an Organizational Unit (OU) for each cluster to store these service and machine principals 
 
 To summarize, you need to set up an environment with:
 
 - An Active Directory domain (managed by Azure AD DS).
 - Secure LDAP (LDAPS) enabled in Azure AD DS.
 - Proper networking connectivity from the HDInsight virtual network to the Azure AD DS virtual network, if you choose separate virtual networks for them. A VM inside the HDInsight virtual network should have a line of sight to Azure AD DS through virtual network peering. If HDInsight and Azure AD DS are deployed in the same virtual network, the connectivity is automatically provided and no further action is needed.
-- An OU [created on Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- A service account that has permissions to:
-    - Create service principals in the OU.
-    - Join machines to the domain and create machine principals in the OU.
-
-The following screenshot shows an OU created in contoso.com. It also shows some of the service principals and machine principals.
-
-![Organization unit for HDInsight clusters with ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## Set up different domain controllers
 HDInsight currently supports only Azure AD DS as the main domain controller that the cluster uses for Kerberos communication. But other complex Active Directory setups are possible, as long as such a setup leads to enabling Azure AD DS for HDInsight access.

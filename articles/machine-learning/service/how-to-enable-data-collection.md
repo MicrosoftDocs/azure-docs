@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ---
 # Collect data for models in production
 
@@ -38,30 +38,22 @@ The path to the output data in the blob follows this syntax:
 
 ```
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
-# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myResGrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
-- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+- An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
 - A trained machine learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
 - An [AKS cluster](how-to-deploy-to-aks.md).
 
-- The following dependencies and module installed [in your environment](how-to-configure-environment.md):
-  + On Linux:
-    ```shell
-    sudo apt-get install libxml++2.6-2v5
-    pip install azureml-monitoring
-    ```
-
-  + On Windows:
-    ```shell
-    pip install azureml-monitoring
-    ```
+- [Set up your environment](how-to-configure-environment.md) and install the [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## Enable data collection
 Data collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. 
@@ -70,7 +62,7 @@ To enable it, you need to:
 
 1. Open the scoring file. 
 
-1. Add the following code at the top of the file:
+1. Add the [following code](https://aka.ms/aml-monitoring-sdk) at the top of the file:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -118,11 +110,11 @@ If you already have a service with the dependencies installed in your **environm
 
 1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-   ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+   ![Edit Service](media/how-to-enable-data-collection/EditService.PNG)
 
 1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
-   ![Uncheck Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
+    [![check Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
 
@@ -139,11 +131,11 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-     ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+    [![Edit Service](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
-     ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
+    [![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Select **Update** to apply the change.
 
@@ -154,9 +146,87 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
   <service_name>.update(collect_model_data=False)
   ```
 
+## Validate your data and analyze it
+You can choose any tool of your preference to analyze the data collected into your Azure Blob. 
+
+To quickly access the data from your blob:
+1. Sign in to [Azure portal](https://portal.azure.com).
+
+1. Open your workspace.
+1. Click on **Storage**.
+
+    [![Storage](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+
+1. Follow the path to the output data in the blob with this syntax:
+
+```
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+```
+
+
+### Analyzing model data through Power BI
+
+1. Download and Open [PowerBi Desktop](http://www.powerbi.com)
+
+1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+
+    [![PBI Blob setup](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+
+
+1. Add your storage account name and enter your storage key. You can find this information in your blob's **Settings** >> Access keys. 
+
+1. Select the container **modeldata** and click on **Edit**. 
+
+    [![PBI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+
+1. In the query editor, click under “Name” column and add your Storage account 1. Model path into the filter. Note: if you want to only look into files from a specific year or month, just expand the filter path. For example, just look into March data: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
+
+1. Filter the data that is relevant to you based on **Name**. If you stored **predictions** and **inputs** you'll need to do create a query per each.
+
+1. Click on the double arrow aside the **Content** column to combine the files. 
+
+    [![PBI Content](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+
+1. Click OK and the data will preload.
+
+    [![pbiCombine](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
+
+1. You can now click **Close and Apply** .
+
+1.  If you added inputs and predictions your tables will automatically correlate by **RequestId**.
+
+1. Start building your custom reports on your model data.
+
+
+### Analyzing model data using Databricks
+
+1. Create a [Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
+
+1. Go to your Databricks workspace. 
+
+1. In your databricks workspace select **Upload Data**.
+
+    [![DB upload](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+
+1. Create New Table and select **Other Data Sources** -> Azure Blob Storage -> Create Table in Notebook.
+
+    [![DB table](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+
+1. Update the location of  your data. Here is an example:
+
+    ```
+    file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
+    file_type = "csv"
+    ```
+ 
+    [![DBsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
+
+1. Follow the steps on the template in order to view and analyze your data. 
+
 ## Example notebook
 
-The `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` notebook demonstrates concepts in this article.  
+The [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) notebook demonstrates concepts in this article.  
 
 Get this notebook:
  

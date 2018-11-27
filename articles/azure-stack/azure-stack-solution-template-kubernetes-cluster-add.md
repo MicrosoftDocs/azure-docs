@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,11 +23,11 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!note]  
-> Kubernetes on Azure Stack is in preview. To request access to the Kubernetes Cluster Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
+> Kubernetes on Azure Stack is in preview.
 
 You can offer Kubernetes as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
 
-The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace. The cluster depends on an Ubuntu server, custom script, and the Kubernetes items to be in the marketplace.
+The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. The Kubernetes Cluster Marketplace item 0.3.0 requires Azure Stack version 1808. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace. The cluster depends on an Ubuntu server, custom script, and the Kubernetes items to be in the marketplace.
 
 ## Create a plan, an offer, and a subscription
 
@@ -69,9 +69,10 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Enter `UbuntuServer`.
 
-1. Select the newest version of the server with the following profile:
+1. Select the newest version of the server. Check the full version and ensure that you have the newest version:
     - **Publisher**: Canonical
     - **Offer**: UbuntuServer
+    - **Version**: 16.04.201806120
     - **SKU**: 16.04-LTS
 
 1. Select **Download.**
@@ -103,7 +104,7 @@ Add the Kubernetes from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **ALL services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
+1. Select **All services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 
@@ -124,14 +125,20 @@ When updating the Kubernetes item, you will need to remove the item that is in t
 
 To remove the Kubernetes item:
 
-1. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.2.0`
+1. Connect to Azure Stack with PowerShell as an operator. For instruction, see [Connect to Azure Stack with PowerShell as an operator](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
-1. Connect to Azure Stack with PowerShell.
-
-1. Use the following PowerShell cmdlet to remove the item:
+2. Find the current Kubernetes Cluster item in the gallery.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.3.0`
+
+4. Use the following PowerShell cmdlet to remove the item:
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```

@@ -2,8 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure identity management
-    href: /azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Users, groups, licensing, and roles
+    href: directory-overview-user-model.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
@@ -40,8 +40,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage user profiles    
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Share accounts    
-      href: /azure/active-directory/active-directory-sharing-accounts?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Share user accounts  
+      href: users-sharing-accounts.md
     - name: Assign users to admin roles    
       href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Restore a deleted user    
@@ -56,6 +56,8 @@
     items:
     - name: Administer your directory    
       href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Manage domain names
+      href: domains-manage.md
     - name: Delete a directory    
       href: directory-delete-howto.md
     - name: Multiple directories    
@@ -124,10 +126,10 @@
     items: 
     - name: Roles and permissions reference 
       href: directory-assign-admin-roles.md
-    - name: View role members    
+    - name: View and assign roles   
       href: directory-manage-roles-portal.md
-    - name: Assign a role to a user    
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Least-privileged roles by task   
+      href: roles-delegate-by-task.md
     - name: Administrator role security    
       items:   
       - name: Role security planning    

@@ -2,8 +2,8 @@
 title: Azure Data Catalog release notes
 description: Release notes for Azure Data Catalog.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual

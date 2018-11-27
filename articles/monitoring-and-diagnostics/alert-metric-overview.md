@@ -13,7 +13,7 @@ ms.component: alerts
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, custom metrics (preview), popular logs from Log Analytics converted to metrics, Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, [custom metrics](metrics-custom-overview.md), [popular logs from Log Analytics converted to metrics](monitoring-metric-alerts-logs.md), Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 ## How do metric alerts work
 
@@ -72,11 +72,17 @@ Say, you have a web app that is seeing massive demand and you will need to add m
 
 This rule will automatically monitor all values for the instance i.e you can monitor your instances as they come up without needing to modify your metric alert rule again.
 
-### Monitoring multiple resource using metric alerts
+### Monitoring multiple resources using metric alerts
 
-As you have seen from the previous section, it is possible to have a single metric alert rule that monitors each individual dimension combination (i.e a metric time series). However, you are still limited to doing it one resource at a time. Metric alerts now also support monitoring multiple resources with one rule in preview. If you have 100s of VMs in your subscription, this new feature helps quickly set up monitoring for them. 
+As you have seen from the previous section, it is possible to have a single metric alert rule that monitors each individual dimension combination (i.e a metric time series). However, previously you were still limited to doing it one resource at a time. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently preview and supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
 
-This feature is currently in preview. Creating metric alert rules that monitor multiple resources is not currently supported through Azure portal. You can create these rules through Azure Resource Manager templates.
+You can specify the scope of monitoring by a single metric alert in one of three ways:
+
+- as a list of virtual machines in one Azure region within a subscription
+- all virtual machines (in one Azure region) in one or more resource groups in a subscription
+- all virtual machines (in one Azure region) in one subscription
+
+Creating metric alert rules that monitor multiple resources is not currently supported through Azure portal. You can create these rules through [Azure Resource Manager templates](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine. 
 
 ## Typical latency
 
@@ -84,7 +90,43 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 ## Supported resource types for metric alerts
 
-You can find the full list of supported resource types in this [article](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+You can find the full list of supported resource types in this [article](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+If you are using classic metric alerts today and are looking to see if metric alerts support the all the resource types you are using, the following table shows the resource types supported by classic metric alerts and if they are supported by metric alerts today or not.
+
+|Resource type supported by classic metric alerts | Supported by metric alerts |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Yes |
+| Microsoft.Batch/batchAccounts| Yes|
+|Microsoft.Cache/redis| Yes
+|Microsoft.ClassicCompute/virtualMachines | No |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No|
+|Microsoft.CognitiveServices/accounts | No |
+|Microsoft.Compute/virtualMachines | Yes|
+|Microsoft.Compute/virtualMachineScaleSets| Yes|
+|Microsoft.ClassicStorage/storageAccounts| No |
+|Microsoft.DataFactory/datafactories | Yes|
+|Microsoft.DBforMySQL/servers| Yes|
+|Microsoft.DBforPostgreSQL/servers| Yes|
+|Microsoft.Devices/IotHubs | No|
+|Microsoft.DocumentDB/databaseAccounts| No|
+|Microsoft.EventHub/namespaces | Yes|
+|Microsoft.Logic/workflows | Yes|
+|Microsoft.Network/loadBalancers |Yes|
+|Microsoft.Network/publicIPAddresses| Yes|
+|Microsoft.Network/applicationGateways| Yes|
+|Microsoft.Network/expressRouteCircuits| Yes|
+|Microsoft.Network/trafficManagerProfiles | Yes|
+|Microsoft.Search/searchServices | No|
+|Microsoft.ServiceBus/namespaces| No|
+|Microsoft.Storage/storageAccounts | Yes|
+|Microsoft.StreamAnalytics/streamingjobs| Yes|
+|Microsoft.TimeSeriesInsights/environments | Yes|
+|Microsoft. Web/serverfarms | Yes |
+|Microsoft. Web/sites (excluding functions) | Yes|
+|Microsoft. Web/hostingEnvironments/multiRolePools | No|
+|Microsoft. Web/hostingEnvironments/workerPools| No
+|Microsoft.SQL/Servers | No|
 
 ## Next steps
 

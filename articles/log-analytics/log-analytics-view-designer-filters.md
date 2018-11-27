@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Filters in Log Analytics views
@@ -24,12 +24,12 @@ A **filter** in a [Log Analytics view](log-analytics-view-designer.md) allows us
 ## Using a filter
 Click the data time range at the top of a view to open the drop down where you can change the data time range for the view.
 
-![Filter example](media/log-analytics-view-designer/filters-example-time.png)
+![Filter example](media/log-analytics-view-designer-filters/filters-example-time.png)
 
 Click the **+** to add a filter using custom filters that are defined for the view. Either select a value for the filter from the dropdown or type in a value. Continue to add filters by clicking the **+**. 
 
 
-![Filter example](media/log-analytics-view-designer/filters-example-custom.png)
+![Filter example](media/log-analytics-view-designer-filters/filters-example-custom.png)
 
 If you remove all of the values for a filter, then that filter will no longer be applied.
 
@@ -38,14 +38,14 @@ If you remove all of the values for a filter, then that filter will no longer be
 
 Create a filter from the **Filters** tab when [editing a view](log-analytics-view-designer.md).  The filter is global for the view and applies to all parts in the view.  
 
-![Filter settings](media/log-analytics-view-designer/filters-settings.png)
+![Filter settings](media/log-analytics-view-designer-filters/filters-settings.png)
 
 The following table describes the settings for a filter.
 
 | Setting | Description |
 |:---|:---|
 | Field Name | Name of the field used for filtering.  This must match the summarize field in **Query for Values**. |
-| Query for Values | Query to run to populate filter dropdown for the user.  This must use either [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) or [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) to provide unique values for a particular field, and it must match the **Field Name**.  You can use [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) to sort the values that are displayed to the user. |
+| Query for Values | Query to run to populate filter dropdown for the user.  This must use either [summarize](/azure/kusto/query/summarizeoperator) or [distinct](/azure/kusto/query/distinctoperator) to provide unique values for a particular field, and it must match the **Field Name**.  You can use [sort](/azure/kusto/query/sortoperator) to sort the values that are displayed to the user. |
 | Tag | Name for the field that's used in queries supporting the filter and is also displayed to the user. |
 
 ### Examples

@@ -13,8 +13,8 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: v-yijong
+ms.date: 10/05/2018
+ms.author: yijenj
 
 ---
 # Lead management for cloud marketplace
@@ -53,11 +53,47 @@ Once you have configured your lead destination properly and have hit Publish on 
 Once the technical set up is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you’re interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
 
 
+
+## Common lead configuration errors during publishing on cloud partner portal 
+
+**Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to Login to Dynamics CRM, LastCRMException:** 
+
+> If O365 authentication was selected, check if the user account and password is valid. If AAD was selected, check if the tenant ID, application ID and application secret key matches what was set up on AAD. Follow instructions [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
+
+ 
+**Could not save the lead to Dynamics CRM. User does not have create permissions for the leadsourcecode attribute in the lead entity** 
+
+> The application/user is missing security role(s) to Microsoft Marketplace lead writer. Follow steps 11-15 if using Azure Active Directory or Security Settings if using an Office user [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
+
+**Could not save the lead to Dynamics CRM using AAD. Exception:: Tenant not found. This instance may happen if there are no active subscriptions for the tenant.**  
+
+> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
+
+**Could not save the lead to Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser failed - no roles are assigned to user.**  
+
+> Resolution: Assign Security role to Microsoft Marketplace lead writer. Follow instructions [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) under Security settings 
+
+**Could not save the lead to Dynamics CRM using AAD. Exception:: Application with identifier was not found in the directory** 
+
+> The Application Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 8 (under Azure Active Directory, from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Could not save the lead to Dynamics CRM using AAD. Exception:: Requested tenant identifier is not valid and not valid external domain format** 
+
+> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Could not save the lead to Dynamics CRM using AAD. Exception:: Error validating credentials.: Invalid client secret is provided.** 
+
+> Resolution: Login to Azure Portal, check if the application key matches what’s in the Cloud Partner Portal. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
+
+> Resolution: Login to Cloud Partner Portal, check Storefront details >> Lead destination >> URL, check if it’s a valid Dynamic CRM instance
+
 ## Frequently asked questions
 
 **What are leads and why are they important to me as a publisher on Marketplace?** 
 
-Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) or [AppSource](http://appsource.microsoft.com/), you will be able to receive leads of customers who are interested in your product if you have setup the lead destination on your offer.  
+Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) or [AppSource](https://appsource.microsoft.com/), you will be able to receive leads of customers who are interested in your product if you have setup the lead destination on your offer.  
 
 
 **Where can I get help in setting up my lead destination?** 
@@ -174,7 +210,7 @@ It's possible that the end user's email domain is from .edu. For privacy reasons
 
  **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
-You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
+You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
 
 
 **I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?** 
@@ -197,41 +233,3 @@ Due to PII (Private Identifiable Information) policies, we cannot share lead inf
 **I have configured Azure Storage (BLOB/Table) as my lead destination, how much will it cost?** 
 
 Lead gen data is low (<1 GB for almost all publishers). The cost will depend on number of leads received, if 1,000 leads are received in a month, it costs around 50 cents. 
-
- 
-
-
-## Common lead configuration errors during publishing on cloud partner portal 
-
-**Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to Login to Dynamics CRM, LastCRMException:** 
-
-> If O365 authentication was selected, check if the user account and password is valid. If AAD was selected, check if the tenant ID, application ID and application secret key matches what was set up on AAD. Follow instructions [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
-
- 
-**Could not save the lead to Dynamics CRM. User does not have create permissions for the leadsourcecode attribute in the lead entity** 
-
-> The application/user is missing security role(s) to Microsoft Marketplace lead writer. Follow steps 11-15 if using Azure Active Directory or Security Settings if using an Office user [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
-
-**Could not save the lead to Dynamics CRM using AAD. Exception:: Tenant not found. This instance may happen if there are no active subscriptions for the tenant.**  
-
-> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
-
-**Could not save the lead to Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser failed - no roles are assigned to user.**  
-
-> Resolution: Assign Security role to Microsoft Marketplace lead writer. Follow instructions [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) under Security settings 
-
-**Could not save the lead to Dynamics CRM using AAD. Exception:: Application with identifier was not found in the directory** 
-
-> The Application Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 8 (under Azure Active Directory, from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Could not save the lead to Dynamics CRM using AAD. Exception:: Requested tenant identifier is not valid and not valid external domain format** 
-
-> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Could not save the lead to Dynamics CRM using AAD. Exception:: Error validating credentials.: Invalid client secret is provided.** 
-
-> Resolution: Login to Azure Portal, check if the application key matches what’s in the Cloud Partner Portal. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
-
-> Resolution: Login to Cloud Partner Portal, check Storefront details >> Lead destination >> URL, check if it’s a valid Dynamic CRM instance

@@ -14,17 +14,17 @@ ms.date: 09/24/2018
 ---
 # Train models with automated machine learning in the cloud
 
-In Azure Machine Learning you can train your model on different types of compute resources that you manage. The compute target could be a local computer or a computer in the cloud. 
+In Azure Machine Learning you can train your model on different types of compute resources that you manage. The compute target could be a local computer or a computer in the cloud.
 
 You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Batch AI. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
 
-In this article, you learn how to build a model using Automated ML on the DSVM.  
+In this article, you learn how to build a model using automated ML on the DSVM. You can find examples using Azure Batch AI in [these sample notebooks in GitHub](https://aka.ms/aml-notebooks).  
 
 ## How does remote differ from local?
 
-The tutorial "[Train a classification model with Automated ML](tutorial-auto-train-models.md)" teaches you how to use a local computer to train model with Automated ML.  The workflow when training locally also applies to  remote targets as well. With remote compute, Automated ML experiment iterations are executed Asynchronously. This allows you cancel a particular iteration, watch the status of the execution, continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as an Azure DSVM,  configure it, and submit your code there.
+The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train model with automated ML.  The workflow when training locally also applies to  remote targets as well. However, with remote compute, automated ML experiment iterations are executed asynchronously. This allows you to cancel a particular iteration, watch the status of the execution, or continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as an Azure DSVM.  Then you configure the remote resource and submit your code there.
 
-This article shows the extra steps needed to run Automated ML experiment on a remote DSVM.  The workspace object, `ws`, from the tutorial is used throughout the code here.
+This article shows the extra steps needed to run an automated ML experiment on a remote DSVM.  The workspace object, `ws`, from the tutorial is used throughout the code here.
 
 ```python
 ws = Workspace.from_config()
@@ -45,6 +45,7 @@ try:
     print('found existing dsvm.')
 except:
     print('creating new dsvm.')
+    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
     dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
     dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
     dsvm_compute.wait_for_completion(show_output = True)
@@ -65,10 +66,12 @@ DSVM name restrictions include:
 >    1. Exit without actually creating the VM
 >    1. Rerun the creation code
 
+This code doesn't create a user name or password for the DSVM that is provisioned. If you want to connect directly to the VM, go to the [Azure portal](https://portal.azure.com) to provision credentials.  
 
-## Access data using Get Data file
 
-Provide the remote resource access to your training data. For Automated ML experiments running on remote compute, the data needs to be fetched using a `get_data()` function.  
+## Access data using get_data file
+
+Provide the remote resource access to your training data. For automated machine learning experiments running on remote compute, the data needs to be fetched using a `get_data()` function.  
 
 To provide access, you must:
 + Create a get_data.py file containing a `get_data()` function 
@@ -77,7 +80,7 @@ To provide access, you must:
 You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
 
 >[!Warning]
->If you are using remote compute, then you must use `get_data()` to perform your data transformations.
+>If you are using remote compute, then you must use `get_data()` where your data transformations are performed. If you need to install additional libraries for data transformations as part of get_data(), there are additional steps to be followed. Refer to the [auto-ml-dataprep sample notebook](https://aka.ms/aml-auto-ml-data-prep ) for details.
 
 
 ```python
@@ -101,9 +104,9 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## Configure automated machine learning Experiment
+## Configure experiment
 
-Specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
+Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
 
 In the settings, `run_configuration` is set to the `run_config` object, which contains the settings and configuration for the DSVM.  
 
@@ -132,9 +135,9 @@ automl_config = AutoMLConfig(task='classification',
                             )
 ```
 
-## Submit automated machine learning training experiment
+## Submit training experiment
 
-Now submit the configuration to automatically select the algorithm, hyper parameters, and train the model. (Learn [more information about settings]() for the `submit` method.)
+Now submit the configuration to automatically select the algorithm, hyper parameters, and train the model.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -196,7 +199,7 @@ Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs.
 
 ## Example
 
-The `automl/03.auto-ml-remote-execution.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
+The [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article.  Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

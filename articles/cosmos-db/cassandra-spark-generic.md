@@ -24,11 +24,11 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
 * Provision your choice of Spark environment [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Others].
 
 ## Dependencies for connectivity
-* **Datastax Spark connector for Cassandra:**
-  Datastax Spark connector is used to connect to Azure Cosmos DB Cassandra API.  Identify and use the version of the connector located in [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that is compatible with the Spark and Scala versions of your Spark environment.
+* **Spark connector for Cassandra:**
+  Spark connector is used to connect to Azure Cosmos DB Cassandra API.  Identify and use the version of the connector located in [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that is compatible with the Spark and Scala versions of your Spark environment.
 
 * **Azure Cosmos DB helper library for Cassandra API:**
-  In addition to the Datastax connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) from Azure Cosmos DB. This library contains a connection factory and a custom retry policy classes.
+  In addition to the Spark connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) from Azure Cosmos DB. This library contains custom connection factory and retry policy classes.
 
   The retry policy in Azure Cosmos DB is configured to handle HTTP status code 429("Request Rate Large") exceptions. The Azure Cosmos DB Cassandra API translates these exceptions into overloaded errors on the Cassandra native protocol, and you can retry with back-offs. Because Azure Cosmos DB uses provisioned throughput model, request rate limiting exceptions occur when the ingress/egress rates increase. The retry policy protects your spark jobs against data spikes that momentarily exceed the throughput allocated for your collection.
 
@@ -39,7 +39,7 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
     
 ## Spark connector throughput configuration parameters
 
-The following table lists Azure Cosmos DB Cassandra API-specific throughput configuration parameters provided by the connector. For a detailed list of all configuration parameters, see [configuration reference](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) page of the DataStax Spark Cassandra Connector GitHub repository.
+The following table lists Azure Cosmos DB Cassandra API-specific throughput configuration parameters provided by the connector. For a detailed list of all configuration parameters, see [configuration reference](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) page of the Spark Cassandra Connector GitHub repository.
 
 | **Property Name** | **Default value** | **Description** |
 |---------|---------|---------|
@@ -63,7 +63,7 @@ The following commands detail how to connect to Azure CosmosDB Cassandra API fro
 ```bash
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
-cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
+cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
 ### 1.  Azure Databricks
@@ -79,14 +79,14 @@ While the sections above were specific to Azure Spark-based PaaS services, this 
 
 #### Connector dependencies:
 
-1. Add the maven coordinates for the [Datastax Cassandra connector for Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
+1. Add the maven coordinates to get the [Cassandra connector for Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
 2. Add the maven coordinates for the [Azure Cosmos DB helper library](cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
 
 #### Imports:
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

@@ -25,9 +25,32 @@ AKS supports four minor versions of Kubernetes:
 
 For example, if AKS introduces *1.11.x* today, support is also provided for *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f* (where the lettered patch releases are two latest stable builds).
 
-When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 15 days before the release of the new minor version and upcoming version retirement, an announcement is made through the Azure update channels. In the example above where *1.11.x* is released, the retired versions are *1.7.g* + *1.7.h*.
+When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 15 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.11.x* is released, the retired versions are *1.7.g* + *1.7.h*.
 
 When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the n-1 minor version and latest patch. For example, if AKS supports *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f*, the default version for new clusters is *1.10.b*.
+
+## List currently supported versions
+
+To find out what versions are currently available for your subscription and region, use the [az aks get-versions][az-aks-get-versions] command. The following example lists the available Kubernetes versions for the *EastUS* region:
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+The output is similar to the following example, which shows that Kubernetes version *1.11.3* is the most recent version available:
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## FAQ
 
@@ -58,6 +81,8 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 
 <!-- LINKS - External -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

@@ -3,14 +3,14 @@ title: What is the Computer Vision API?
 titlesuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services 
 ms.component: computer-vision 
 ms.topic: overview
 ms.date: 08/22/2018 
-ms.author: v-deken
+ms.author: pafarley
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
 # What is Computer Vision?
@@ -33,7 +33,7 @@ Computer Vision can do the following actions when analyzing an image:
 | ------ | ----------- |
 |**[Tag visual features](concept-tagging-images.md)**|Identify and tag visual features in an image, based on more than 2,000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the response provides 'hints' to clarify the meaning of the tag in the context of a known setting. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on.|
 |**[Categorize an image](concept-categorizing-images.md)**|Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images.|
-|**[Describe an image](concept-describing-images.md)**|Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.<br/>An example of a bot that uses this technology to generate image captions can be found [on GitHub](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).|
+|**[Describe an image](concept-describing-images.md)**|Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.|
 |**[Detect faces](concept-detecting-faces.md)** |Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.|
 |**[Detect image types](concept-detecting-image-types.md)**|Detect characteristics about an image, such as whether an image is a line drawing or the likelihood of whether an image is clip art.|
 |**[Detect domain-specific content](concept-detecting-domain-content.md)**|Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities included with the service to determine if the people detected in the image match known celebrities.|
@@ -50,6 +50,10 @@ You can also [recognize printed and handwritten text](concept-recognizing-text.m
 
 You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image, rating the likelihood that the image contains either adult or racy content and generating a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
 
+## Using containers
+
+[Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally, by installing a standardized Docker container closer to your data.
+
 ## Image requirements
 
 Computer Vision can analyze images that meet the following requirements:
@@ -57,12 +61,12 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels  
-  For OCR, the dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels, and the image can't be bigger than 10 megapixels.
+  For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
 
 ## Next steps
 
 Get started with Computer Vision with one of our quickstarts:
 
-- [Analyze an image](/quickstarts-sdk/csharp-analyze-sdk.md)
-- [Extract handwritten text](/quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Generate a thumbnail](/quickstarts-sdk/csharp-thumb-sdk.md)
+- [Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
+- [Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
+- [Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)

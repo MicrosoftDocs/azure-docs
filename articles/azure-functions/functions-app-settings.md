@@ -14,7 +14,7 @@ ms.author: glenga
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in environment variables. This article lists the app settings that are available in function apps.
+App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -77,11 +77,11 @@ The path to the root directory where the *host.json* file and function folders a
 
 ## AzureWebJobsSecretStorageType
 
-Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob ("Blob") and file system ("disabled"). The default is file system ("disabled").
+Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 1 and file system in version 2. Note that in version 1 file system will only work for functions running in an app service plan.
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsSecretStorageType|disabled|
+|AzureWebJobsSecretStorageType|Files|
 
 ## AzureWebJobsStorage
 
@@ -109,7 +109,7 @@ Valid values are "readwrite" and "readonly".
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Azure Functions runtime to use in this function app. A tilde with major version means use the latest version of that major version (for example, "~2"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "2.0.12345"). Default is "~2".
+The version of the Functions runtime to use in this function app. A tilde with major version means use the latest version of that major version (for example, "~2"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "2.0.12345"). Default is "~2". A value of `~1` pins your app to version 1.x of the runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -117,7 +117,7 @@ The version of the Azure Functions runtime to use in this function app. A tilde 
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet`, `node`, and `java`.
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript), and `java` (Java).
 
 |Key|Sample value|
 |---|------------|

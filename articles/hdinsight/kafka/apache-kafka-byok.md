@@ -30,17 +30,37 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
    ![Create user-assigned managed identity in Azure portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-2. Create or import Azure Key Vault.
+2. Import an existing key vault or create a new one.
 
    HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the keys must have "Soft Delete" and "Do Not Purge" enabled. The "Soft Delete" and "Do Not Purge" features are available through the REST, .NET/C#, PowerShell, and Azure CLI interfaces.
 
    To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-get-started.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
 
+   To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
+
+   ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+
+   Set **Options** to **Generate** and give the key a name.
+
+   ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+
+   Select the key you created from the list of keys.
+
+   ![Azure Key Vault key list](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+
+   When you use your own key for Kafka cluster encryption, you need to provide the key URI. Copy the **Key identifier** and save it somewhere until you're ready to create your cluster.
+
+   ![Copy key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+   
 3. Add managed identity to the key vault access policy.
 
    Create a new Azure Key Vault access policy.
 
    ![Create new Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+
+   Under **Select Principal**, choose the user-assigned managed identity you created.
+
+   ![Set Select Principal for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
    Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
 
@@ -50,19 +70,15 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
    ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
 
-   Under **Select Principal**, choose the user-assigned managed identity you created.
-
-   ![Set Select Principal for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
-
 4. Create HDInsight cluster
 
    You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
 
    ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   During cluster creation, provide the full key URL, including the key version. For example, `myakv.azure.com/KEK1/v1`. You also need to assign the managed identity to the cluster and provide the key URI.
+   During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
 
-## FAQ for BYOK to Kafka
+## FAQ for BYOK to Apache Kafka
 
 **How does the Kafka cluster access my key vault?**
 

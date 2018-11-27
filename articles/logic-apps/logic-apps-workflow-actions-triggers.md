@@ -71,7 +71,7 @@ Triggers have these top-level elements, although some are optional:
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
+| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow. Available only for triggers. | 
 | <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*splitOn-expression*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
@@ -703,9 +703,9 @@ a schema that validates input from the incoming request:
 
 ## Trigger conditions
 
-For any trigger, you can include an array that contains one or more 
-expressions for conditions that determine whether the workflow should run. 
-To add the `conditions` property to your logic app, 
+For any trigger, and only triggers, you can include an array that contains one 
+or more expressions for conditions that determine whether the workflow should run. 
+To add the `conditions` property to a trigger in your logic app, 
 open your logic app in the code view editor.
 
 For example, you can specify that a trigger fires only when 
@@ -1463,7 +1463,7 @@ based on a specified condition or filter.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. |
-| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, the action creates an empty array. |
+| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, then the action creates an empty array. |
 |||| 
 
 *Example*
@@ -2575,7 +2575,7 @@ in trigger or action definition.
 
 By default, logic app instances run at the same time, concurrently, or in parallel up to the 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-So, each trigger instance fires before the previously active logic app instance finishes running. 
+So, each trigger instance fires before the preceding logic app instance finishes running. 
 This limit helps control the number of requests that backend systems receive. 
 
 To change the default limit, you can use either the code view editor or Logic Apps Designer 
@@ -2666,7 +2666,7 @@ Here is an example that limits concurrent runs to 10 iterations:
 
 #### Edit in Logic Apps Designer
 
-1. In the **For each** action's upper-right corner, 
+1. In the **For each** action, from the upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
 2. Under **Concurrency Control**, set **Override Default** to **On**. 
@@ -2691,8 +2691,8 @@ the Logic Apps engine no longer accepts new runs. Request and webhook triggers r
 and recurring triggers start skipping polling attempts.
 
 To change the default limit on waiting runs, in the underlying trigger definition, 
-add and set the `runtimeConfiguration.concurency.maximumWaitingRuns` property 
-to a value between `0` and `100`. 
+add the `runtimeConfiguration.concurency.maximumWaitingRuns` property with 
+a value between `0` and `100`. 
 
 ```json
 "<trigger-name>": {

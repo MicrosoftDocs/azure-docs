@@ -54,8 +54,6 @@ Depending on how you answered the questions in [Determine data protection requir
 ## Define content management options
 
 One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user tries to access a shared resource, the resource requires authentication, the user has to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in the background, without user interaction. 
-=======
-One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user tries to access a shared resource, the resource requires authentication, the user has to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in the background, without user interaction. 
 
 Organizations that are concern about data privacy usually require data classification for their solution. If their current on-premises infrastructure is already using data classification, it is possible to use Azure AD as the main repository for the user’s identity. A common tool that it is used on-premises for data classification is called [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) for Windows Server 2012 R2. This tool can help to identify, classify, and protect data on file servers in your private cloud. It is also possible to use the [Automatic File Classification](https://technet.microsoft.com/library/hh831672.aspx) in Windows Server 2012 to accomplish this task.
 
@@ -71,7 +69,7 @@ A vital part of content management is to understand who is accessing which resou
 * Adding or removing licenses
 
 > [!NOTE]
-> Read [Microsoft Azure Security and Audit Log Management](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
+> Read [Microsoft Azure Security and Audit Log Management](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
 > Depending on how you answered the questions in [Determine content management requirements](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), you should be able to determine how you want the content to be managed in your hybrid identity solution. While all options exposed in Table 6 are capable of integrating with Azure AD, it is important to define which is more appropriate for your business needs.
 >
 >

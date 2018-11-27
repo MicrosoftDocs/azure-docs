@@ -1,18 +1,18 @@
 ---
 title: Manage multiple SQL databases with elastic pools- Azure | Microsoft Docs
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed.
-keywords: multiple databases, database resources, database performance
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.subservice: elastic-pool
-ms.custom: DBs & servers
-ms.date: 09/14/2018
-ms.author: ninarn
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
+ms.reviewer: ninarn, carlrab
+manager: craigg
+ms.date: 10/15/2018
 ---
-
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
 SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
@@ -103,18 +103,16 @@ The best size for a pool depends on the aggregate resources needed for all datab
 
 For available service tiers for each resource model, see the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](#monitor-an-elastic-pool-and-its-databases).
-
 In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
 
 1. Estimate the eDTUs or vCores needed for the pool as follows:
 
    For DTU-based purchasing model:
-   MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
+   MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>  
    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
 
    For vCore-based purchasing model:
-   MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>
+   MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>  
    <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*)
 
 2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.

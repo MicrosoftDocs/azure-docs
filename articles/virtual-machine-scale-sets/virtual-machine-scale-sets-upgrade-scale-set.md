@@ -3,7 +3,7 @@ title: Modify an Azure virtual machine scale set| Microsoft Docs
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
+ms.author: manayar
 
 ---
 # Modify a virtual machine scale set
@@ -122,7 +122,7 @@ These properties provide a summary of the current runtime state of the VMs in th
 
 
 ### The scale set VM model view
-Similar to how a scale set has a model view, each VM in the scale set has its own model view. To query the model view for a scale set, you can use:
+Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) as follows:
 
@@ -158,11 +158,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-These properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+These properties describe the configuration of a VM instance within a scale set, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM instance within a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VM instances in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### The scale set VM instance view
-Similar to how a scale set has an instance view, each VM in the scale set has its own instance view. To query the instance view for a scale set, you can use:
+Similar to how a scale set has an instance view, each VM instance in the scale set has its own instance view. To query the instance view for a particular VM instance within a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) as follows:
 
@@ -235,7 +235,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-These properties describe the current runtime state of the VM itself, that includes any extensions applied to the scale set.
+These properties describe the current runtime state of a VM instance within a scale set, which includes any extensions applied to the scale set.
 
 
 ## How to update global scale set properties
@@ -392,6 +392,26 @@ You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want 
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property is not part of a list, so you can directly modify this property with one of the following commands:
+
+- Azure PowerShell with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) as follows:
+
+    ```powershell
+    Update-AzureRmVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+
+    ```azurecli
+    az vmss update \
+        --resource-group myResourceGroup \
+        --name myScaleSet \
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
 

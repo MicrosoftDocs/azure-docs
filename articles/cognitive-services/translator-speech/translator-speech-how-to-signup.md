@@ -11,12 +11,13 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
 ---
 
 # How to sign up for the Translator Speech API
 
 Follow these steps to sign up for the Translator Speech API.
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 ## 1: Sign into Azure
 
@@ -41,7 +42,7 @@ Follow these steps to sign up for the Translator Speech API.
 ## 4: Learn, test, and get support
 
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
-- [Microsoft Translator Support Forum](http://www.aka.ms/TranslatorForum)
+- [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
 
 ## Pricing options
 

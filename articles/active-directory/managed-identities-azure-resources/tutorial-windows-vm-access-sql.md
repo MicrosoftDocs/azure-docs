@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/07/2018
 ms.author: daveba
 ---
 
@@ -26,93 +26,26 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 > [!div class="checklist"]
 > * Grant your VM access to an Azure SQL server
-> * Create a group in Azure AD and make the VM's system-assigned managed identity a member of the group
 > * Enable Azure AD authentication for the SQL server
-> * Create a contained user in the database that represents the Azure AD group
+> * Create a contained user in the database that represents the VM's system assigned identity
 > * Get an access token using the VM identity and use it to query an Azure SQL server
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a database in an Azure SQL server
 
-Now you can grant your VM access to a database in an Azure SQL server.  For this step, you can use an existing SQL server or create a new one.  To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
+To grant your VM access to a database in an Azure SQL Server, you can use an existing SQL server or create a new one.  To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
 
-There are three steps to granting your VM access to a database:
-1.  Create a group in Azure AD and make the VM's system-assigned managed identity a member of the group.
-2.  Enable Azure AD authentication for the SQL server.
-3.  Create a **contained user** in the database that represents the Azure AD group.
+There are two steps to granting your VM access to a database:
 
-> [!NOTE]
-> Normally you would create a contained user that maps directly to the VM's system-assigned managed identity.  Currently, Azure SQL does not allow the Azure AD Service Principal that represents the VM's system-assigned managed identity to be mapped to a contained user.  As a supported workaround, you make the VM's system-assigned managed identity a member of an Azure AD group, then create a contained user in the database that represents the group.
-
-
-## Create a group in Azure AD and make the VM's system-assigned managed identity a member of the group
-
-You can use an existing Azure AD group, or create a new one using Azure AD PowerShell.  
-
-First, install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Then sign in using `Connect-AzureAD`, and run the following command to create the group, and save it in a variable:
-
-```powershell
-$Group = New-AzureADGroup -DisplayName "VM managed identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-```
-
-The output looks like the following, which also examines the value of the variable:
-
-```powershell
-$Group = New-AzureADGroup -DisplayName "VM managed identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-$Group
-ObjectId                             DisplayName          Description
---------                             -----------          -----------
-6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM managed identity access to SQL
-```
-
-Next, add the VM's system-assigned managed identity to the group.  You need the system-assigned managed identity's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Connect-AzureRmAccount`, and run the following commands to:
-- Ensure your session context is set to the desired Azure subscription, if you have multiple ones.
-- List the available resources in your Azure subscription, in verify the correct resource group and VM names.
-- Get the VM's system-assigned managed identity properties, using the appropriate values for `<RESOURCE-GROUP>` and `<VM-NAME>`.
-
-```powershell
-Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
-Get-AzureRmResource
-$VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
-```
-
-The output looks like the following, which also examines the service principal Object ID of the VM's system-assigned managed identity:
-```powershell
-$VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
-$VM.Identity.PrincipalId
-b83305de-f496-49ca-9427-e77512f6cc64
-```
-
-Now add the VM's system-assigned managed identity to the group.  You can only add a service principal to a group using Azure AD PowerShell.  Run this command:
-```powershell
-Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-```
-
-If you also examine the group membership afterward, the output looks as follows:
-
-```powershell
-Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-Get-AzureAdGroupMember -ObjectId $Group.ObjectId
-
-ObjectId                             AppId                                DisplayName
---------                             -----                                -----------
-b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
-```
+1.  Enable Azure AD authentication for the SQL server.
+2.  Create a **contained user** in the database that represents the VM's system-assigned identity.
 
 ## Enable Azure AD authentication for the SQL server
 
-Now that you have created the group and added the VM's system-assigned managed identity to the membership, you can [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
+[Configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
 
 1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
 2.	Click the SQL server to be enabled for Azure AD authentication.
@@ -121,7 +54,7 @@ Now that you have created the group and added the VM's system-assigned managed i
 5.	Select an Azure AD user account to be made an administrator of the server, and click **Select.**
 6.	In the command bar, click **Save.**
 
-## Create a contained user in the database that represents the Azure AD group
+## Create a contained user in the database that represents the VM's system assigned identity
 
 For this next step, you will need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
@@ -137,17 +70,23 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 7.  Click **Connect**.  Complete the sign-in process.
 8.  In the **Object Explorer**, expand the **Databases** folder.
 9.  Right-click on a user database and click **New query**.
-10.  In the query window, enter the following line, and click **Execute** in the toolbar:
+10. In the query window, enter the following line, and click **Execute** in the toolbar:
+
+    > [!NOTE]
+    > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequsites section.
     
      ```
-     CREATE USER [VM managed identity access to SQL] FROM EXTERNAL PROVIDER
+     CREATE USER [VMName] FROM EXTERNAL PROVIDER
      ```
     
-     The command should complete successfully, creating the contained user for the group.
+     The command should complete successfully, creating the contained user for the VM's system-assigned identity.
 11.  Clear the query window, enter the following line, and click **Execute** in the toolbar:
+
+    > [!NOTE]
+    > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequsites section.
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM managed identity access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VMName]
      ```
 
      The command should complete successfully, granting the contained user the ability to read the entire database.

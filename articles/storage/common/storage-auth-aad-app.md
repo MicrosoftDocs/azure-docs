@@ -1,16 +1,17 @@
 ---
 title: Authenticate with Azure Active Directory to access blob and queue data from your applications (Preview) | Microsoft Docs
-description: Use Azure Active Directory to authenticate from within an application and then authorize requests to Azure Storage resources (Preview).
+description: Use Azure Active Directory to authenticate from within an application and then authorize requests to blobs and queues (Preview).
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
 ---
 
-# Authenticate with Azure Active Directory from an Azure Storage application (Preview)
+# Authenticate with Azure Active Directory from an application for access to blobs and queues (Preview)
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from Azure AD. Azure AD handles the authentication of the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Storage.
 
@@ -22,13 +23,17 @@ For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
+## Assign an RBAC role to an Azure AD security principal
+
+To authenticate a security principal from your Azure Storage application, first configure role-based access control (RBAC) settings for that security principal. Azure Storage defines RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](storage-auth-aad-rbac.md).
+
 ## Register your application with an Azure AD tenant
 
 The first step in using Azure AD to authorize access to storage resources is registering your client application in an Azure AD tenant. Registering your application enables you to call the Azure [Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) (ADAL) from your code. The ADAL provides an API for authenticating with Azure AD from your application. Registering your application also enables you to authorize calls from that application to Azure Storage APIs with an access token.
 
 When you register your application, you supply information about your application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. The value does not need to be a real endpoint.
+To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. The value does not need to be a real endpoint.
 
 ![Screen shot showing how to register your storage application with Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -160,10 +165,25 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using those credentials
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
+
+blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
 ```
 
 > [!NOTE]
 > Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
+
+In the example above, the .NET client library handles the authorization of the request to create the block blob. Other storage client libraries also handle the authorization of the request for you. However, if you are calling an Azure Storage operation with an OAuth token using the REST API, then you'll need to authorize the request using the OAuth token.   
+
+To call Blob and Queue service operations using OAuth access tokens, pass the access token in the **Authorization** header using the **Bearer** scheme, and specify a service version of 2017-11-09 or higher, as shown in the following example:
+
+```
+GET /container/file.txt HTTP/1.1
+Host: mystorageaccount.blob.core.windows.net
+x-ms-version: 2017-11-09
+Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
+```
+
+For more information about authorizing Azure Storage operations from REST, see [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## Next steps
 

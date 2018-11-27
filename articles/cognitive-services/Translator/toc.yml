@@ -1,175 +1,236 @@
-- name: Translator Text API Documentation
+- name: Translator Text Documentation
   href: index.yml
-- name: Overview
-  items: 
-  - name: What is the Translator Text API?
-    href: translator-info-overview.md
-- name: Quickstarts
-  expanded: true
+- name: Translator Text API
   items:
-    - name: C#
-      items:
-      - name: Translate text
-        href: quickstart-csharp-translate.md
-      - name: Convert text script
-        href: quickstart-csharp-transliterate.md
-      - name: Identify language from text
-        href: quickstart-csharp-detect.md
-      - name: Get alternate translations
-        href: quickstart-csharp-dictionary.md
-      - name: Get supported languages
-        href: quickstart-csharp-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-csharp-sentences.md
-    - name: Go
-      items:
-      - name: Translate text
-        href: quickstart-go-translate.md
-      - name: Convert text script
-        href: quickstart-go-transliterate.md
-      - name: Identify language from text
-        href: quickstart-go-detect.md
-      - name: Get alternate translations
-        href: quickstart-go-dictionary.md
-      - name: Get supported languages
-        href: quickstart-go-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-go-sentences.md
-    - name: Java
-      items:
-      - name: Translate text
-        href: quickstart-java-translate.md
-      - name: Convert text script
-        href: quickstart-java-transliterate.md
-      - name: Identify language from text
-        href: quickstart-java-detect.md
-      - name: Get alternate translations
-        href: quickstart-java-dictionary.md
-      - name: Get supported languages
-        href: quickstart-java-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-java-sentences.md
-    - name: Node.js
-      items:
-      - name: Translate text
-        href: quickstart-nodejs-translate.md
-      - name: Convert text script
-        href: quickstart-nodejs-transliterate.md
-      - name: Identify language from text
-        href: quickstart-nodejs-detect.md
-      - name: Get alternate translations
-        href: quickstart-nodejs-dictionary.md
-      - name: Get supported languages
-        href: quickstart-nodejs-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-nodejs-sentences.md
-    - name: PHP
-      items:
-      - name: Translate text
-        href: quickstart-php-translate.md
-      - name: Convert text script
-        href: quickstart-php-transliterate.md
-      - name: Identify language from text
-        href: quickstart-php-detect.md
-      - name: Get alternate translations
-        href: quickstart-php-dictionary.md
-      - name: Get supported languages
-        href: quickstart-php-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-php-sentences.md
-    - name: Python
-      items:
-      - name: Translate text
-        href: quickstart-python-translate.md
-      - name: Convert text script
-        href: quickstart-python-transliterate.md
-      - name: Identify language from text
-        href: quickstart-python-detect.md
-      - name: Get alternate translations
-        href: quickstart-python-dictionary.md
-      - name: Get supported languages
-        href: quickstart-python-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-python-sentences.md
-    - name: Ruby
-      items:
-      - name: Translate text
-        href: quickstart-ruby-translate.md
-      - name: Convert text script
-        href: quickstart-ruby-transliterate.md
-      - name: Identify language from text
-        href: quickstart-ruby-detect.md
-      - name: Get alternate translations
-        href: quickstart-ruby-dictionary.md
-      - name: Get supported languages
-        href: quickstart-ruby-languages.md
-      - name: Get sentence lengths in text
-        href: quickstart-ruby-sentences.md
-- name: Tutorials
-  items:
-  - name: Create a WPF app for Translator Text
-    href: tutorial-wpf-translation-csharp.md
-- name: Concepts
-  items:
-  - name: Supported languages
-    href: languages.md
-  - name: Customize and improve text translation
-    href: customization.md
-  - name: How the API counts characters
-    href: character-counts.md
-- name: How-to guides
-  items:
-  - name: Sign-up for Translator Text API
-    href: translator-text-how-to-signup.md
-  - name: Migrate to V3 Text API
-    href: migrate-to-v3.md
-  - name: Add profanity filtering
-    href: profanity-filtering.md
-  - name: Receive word alignment information
-    href: word-alignment.md
-  - name: Use the dynamic dictionary feature
-    href: dynamic-dictionary.md
-- name: Reference
-  items: 
-  - name: v3 Translator Text API reference
-    href: reference/v3-0-reference.md
+  - name: Overview
     items:
-    - name: Languages
-      href: reference/v3-0-languages.md
-    - name: Translate
-      href: reference/v3-0-translate.md
-    - name: Transliterate
-      href: reference/v3-0-transliterate.md
-    - name: Detect
-      href: reference/v3-0-detect.md
-    - name: BreakSentence
-      href: reference/v3-0-break-sentence.md
-    - name: Dictionary Lookup
-      href: reference/v3-0-dictionary-lookup.md
-    - name: Dictionary Examples
-      href: reference/v3-0-dictionary-examples.md
-  - name: v2 Translator Text API reference (Deprecated)
-    href: reference/v2-0-reference.md
+    - name: What is the Translator Text API?
+      href: translator-info-overview.md
+  - name: Quickstarts
     items:
-    - name: Transform text
-      href: transform-text.md
-    - name: How to use Collaborative Translation Framework (CTF) reporting
-      href: ctf-reporting.md
-    - name: Return N-Best translations
-      href: return-n-best-translations.md
-- name: Resources
+      - name: Translate text
+        items:
+        - name: C#, REST
+          href: quickstart-csharp-translate.md
+        - name: Go, REST
+          href: quickstart-go-translate.md
+        - name: Java, REST
+          href: quickstart-java-translate.md
+        - name: Node.js, REST
+          href: quickstart-nodejs-translate.md
+        - name: PHP, REST
+          href: quickstart-php-translate.md
+        - name: Python, REST
+          href: quickstart-python-translate.md
+        - name: Ruby, REST
+          href: quickstart-ruby-translate.md
+      - name: Transliterate text
+        items:
+        - name: C#, REST
+          href: quickstart-csharp-transliterate.md
+        - name: Go, REST
+          href: quickstart-go-transliterate.md
+        - name: Java, REST
+          href: quickstart-java-transliterate.md
+        - name: Node.js, REST
+          href: quickstart-nodejs-transliterate.md
+        - name: PHP, REST
+          href: quickstart-php-transliterate.md
+        - name: Python, REST
+          href: quickstart-python-transliterate.md
+        - name: Ruby, REST
+          href: quickstart-ruby-transliterate.md
+      - name: Identify language
+        items:
+        - name: C#, REST
+          href: quickstart-csharp-detect.md
+        - name: Go, REST
+          href: quickstart-go-detect.md
+        - name: Java, REST
+          href: quickstart-java-detect.md
+        - name: Node.js, REST
+          href: quickstart-nodejs-detect.md
+        - name: PHP, REST
+          href: quickstart-php-detect.md
+        - name: Python, REST
+          href: quickstart-python-detect.md
+        - name: Ruby, REST
+          href: quickstart-ruby-detect.md
+      - name: Get alternate translations
+        items:
+        - name: C#, REST
+          href: quickstart-csharp-dictionary.md
+        - name: Go, REST
+          href: quickstart-go-dictionary.md
+        - name: Java, REST
+          href: quickstart-java-dictionary.md
+        - name: Node.js, REST
+          href: quickstart-nodejs-dictionary.md
+        - name: PHP, REST
+          href: quickstart-php-dictionary.md
+        - name: Python, REST
+          href: quickstart-python-dictionary.md
+        - name: Ruby, REST
+          href: quickstart-ruby-dictionary.md
+      - name: Get supported languages
+        items:
+        - name: C#, REST
+          href: quickstart-csharp-languages.md
+        - name: Go, REST
+          href: quickstart-go-languages.md
+        - name: Java, REST
+          href: quickstart-java-languages.md
+        - name: Node.js, REST
+          href: quickstart-nodejs-languages.md
+        - name: PHP, REST
+          href: quickstart-php-languages.md
+        - name: Python, REST
+          href: quickstart-python-languages.md
+        - name: Ruby, REST
+          href: quickstart-ruby-languages.md
+      - name: Determine sentence length
+        items:
+        - name: C#, REST
+          href: quickstart-csharp-sentences.md
+        - name: Go, REST
+          href: quickstart-go-sentences.md
+        - name: Java, REST
+          href: quickstart-java-sentences.md
+        - name: Node.js, REST
+          href: quickstart-nodejs-sentences.md
+        - name: PHP, REST
+          href: quickstart-php-sentences.md
+        - name: Python, REST
+          href: quickstart-python-sentences.md
+        - name: Ruby, REST
+          href: quickstart-ruby-sentences.md
+  - name: Tutorials
+    items:
+    - name: Create a WPF app for Translator Text
+      href: tutorial-wpf-translation-csharp.md
+  - name: Concepts
+    items:
+    - name: Customize and improve text translation
+      href: customization.md
+    - name: How the API counts characters
+      href: character-counts.md
+  - name: How-to guides
+    items:
+    - name: Sign-up for Translator Text API
+      href: translator-text-how-to-signup.md
+    - name: Migrate to V3 Text API
+      href: migrate-to-v3.md
+    - name: Add profanity filtering
+      href: profanity-filtering.md
+    - name: Receive word alignment information
+      href: word-alignment.md
+    - name: Use the dynamic dictionary feature
+      href: dynamic-dictionary.md
+  - name: Reference
+    items:
+    - name: v3 Translator Text API reference
+      href: reference/v3-0-reference.md
+      items:
+      - name: Languages
+        href: reference/v3-0-languages.md
+      - name: Translate
+        href: reference/v3-0-translate.md
+      - name: Transliterate
+        href: reference/v3-0-transliterate.md
+      - name: Detect
+        href: reference/v3-0-detect.md
+      - name: BreakSentence
+        href: reference/v3-0-break-sentence.md
+      - name: Dictionary Lookup
+        href: reference/v3-0-dictionary-lookup.md
+      - name: Dictionary Examples
+        href: reference/v3-0-dictionary-examples.md
+    - name: v2 Translator Text API reference (Deprecated)
+      href: reference/v2-0-reference.md
+      items:
+      - name: Transform text
+        href: transform-text.md
+      - name: How to use Collaborative Translation Framework (CTF) reporting
+        href: ctf-reporting.md
+      - name: Return N-Best translations
+        href: return-n-best-translations.md
+  - name: Resources
+    items:
+    - name: Code samples on GitHub
+      href: https://aka.ms/TranslatorGitHub
+    - name: FAQ
+      href: https://www.microsoft.com/translator/faq.aspx
+    - name: Knowledge Base
+      href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+    - name: Language and region support
+      href: language-support.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+    - name: Regional availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Request limits
+      href: request-limits.md
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/microsoft-translator
+    - name: UserVoice
+      href: https://cognitive.uservoice.com/forums/558796-translator
+- name: Custom Translator
   items:
-  - name: Code samples on GitHub
-    href: https://aka.ms/TranslatorGitHub
-  - name: FAQ
-    href: https://www.microsoft.com/translator/faq.aspx 
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-translator
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/558796-translator
+  - name: Overview
+    items:
+    - name: What is the Custom Translator?
+      href: custom-translator/overview.md
+  - name: Quickstarts
+    items:
+    - name: Build a custom model
+      href: custom-translator/quickstart-build-deploy-custom-model.md
+  - name: Concepts
+    items:
+    - name: Workspaces and projects
+      href: custom-translator/workspace-and-project.md
+    - name: Parallel documents
+      href: custom-translator/what-are-parallel-documents.md
+    - name: Dictionary
+      href: custom-translator/what-is-dictionary.md
+    - name: Document formats
+      href: custom-translator/document-formats-naming-convention.md
+    - name: Sentence alignment
+      href: custom-translator/sentence-alignment.md
+    - name: Training and model
+      href: custom-translator/training-and-model.md
+    - name: BLEU Score
+      href: custom-translator/what-is-bleu-score.md
+  - name: How-to guides
+    items:
+    - name: Create a project
+      href: custom-translator/how-to-create-project.md
+    - name: Manage projects
+      href: custom-translator/how-to-search-edit-delete-projects.md
+    - name: Upload a document
+      href: custom-translator/how-to-upload-document.md
+    - name: View document details
+      href: custom-translator/how-to-view-document-details.md
+    - name: Train a model
+      href: custom-translator/how-to-train-model.md
+    - name: View model details
+      href: custom-translator/how-to-view-model-details.md
+    - name: View system test results
+      href: custom-translator/how-to-view-system-test-results.md
+    - name: Manage settings
+      href: custom-translator/how-to-manage-settings.md
+    - name: Migrate from Hub
+      href: custom-translator/how-to-migrate.md
+  - name: Resources
+    items:
+    - name: Language Support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+    - name: Glossary
+      href: custom-translator/glossary.md
+    - name: FAQ
+      href: custom-translator/faq.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/microsoft-translator
+    - name: UserVoice
+      href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide

@@ -43,4 +43,4 @@ The new outbound IP addresses are shown in the portal before they take effect. W
 
 ## Next steps
 
-This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [outbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
+This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).

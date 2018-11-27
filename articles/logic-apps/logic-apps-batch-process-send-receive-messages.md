@@ -91,7 +91,7 @@ Select this trigger: **Batch messages**
    |----------|-------------|
    | **Batch Mode** | - **Inline**: For defining release criteria inside the batch trigger <br>- **Integration Account**: For defining multiple release criteria configurations through an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). With an integration account, you can maintain these configurations all in one place rather than in separate logic apps. | 
    | **Batch Name** | The name for your batch, which is "TestBatch" in this example, and applies only to **Inline** batch mode |  
-   | **Release Criteria** | Applies only to **Inline** batch mode and specifies the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. You can also specify a start date and time. <br>- **Select all**: Use all the specified criteria. | 
+   | **Release Criteria** | Applies only to **Inline** batch mode and selects the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minute values are effectively rounded up to 1 minute. To specify a start date and time, choose **Show advanced options**. <br>- **Select all**: Use all the specified criteria. | 
    ||| 
    
    This example selects all the criteria:
@@ -147,11 +147,9 @@ Select this trigger: **Batch messages**
    * In the **Body** box, when the dynamic content list appears, 
    select the **Message Id** field. 
 
-     The Logic Apps Designer automatically adds a "For each" loop around 
-     the send email action because that action accepts an array as input. 
-     This loop sends an email for each message in the batch. 
-     So, when the batch trigger is set to 10 messages, 
-     you get 10 emails each time the trigger fires.
+     The Logic Apps Designer automatically adds a "For each" loop 
+     around the send email action because that action treats the output 
+     from the previous action as a collection, rather than a batch. 
 
      ![For "Body", select "Message Id"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -289,6 +287,7 @@ your batch receiver logic app fires and sends mail for each message.
 
 ## Next steps
 
+* [Batch and send EDI messages](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Build a serverless app in Visual Studio with Azure Logic Apps and Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Exception handling and error logging for logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

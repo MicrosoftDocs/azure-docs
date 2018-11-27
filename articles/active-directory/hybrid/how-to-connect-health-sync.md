@@ -3,7 +3,7 @@ title: Using Azure AD Connect Health with sync | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -30,7 +30,7 @@ By selecting an alert you will be provided with additional information as well a
 ### Limited Evaluation of Alerts
 If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect.
 
-This limits the evaluation of alerts by the service. You'd will see a banner that indicates this condition in the Azure Portal under your service.
+This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure Portal under your service.
 
 ![Azure AD Connect Health for Sync](./media/how-to-connect-health-sync/banner.png)
 

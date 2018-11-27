@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
 
@@ -247,7 +247,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
                 <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
                 <Add name = "SamplingPercentage" value = "50" />
             </Processor>
-        </BuilrInProcessors>
+        </BuiltInProcessors>
     <TelemetryProcessors/>
 ```
 

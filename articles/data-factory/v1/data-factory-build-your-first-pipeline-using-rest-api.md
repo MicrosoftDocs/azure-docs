@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
@@ -46,7 +46,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory.
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to:
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to:
   1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.

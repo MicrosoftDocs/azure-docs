@@ -1,6 +1,6 @@
 ---
-title: Monitor a test with Azure Stack validation as a service | Microsoft Docs
-description: Monitor a test with Azure Stack validation as a service.
+title: Monitor and manage tests in the Azure Stack VaaS portal | Microsoft Docs
+description: Monitor and manage tests in the Azure Stack VaaS portal.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,120 +11,136 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
 ---
 
-# Monitor a test with Azure Stack validation as a service
+# Monitor and manage tests in the VaaS portal
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-The execution of a test can be monitored by viewing the **Operations** page for test suites that are in progress or completed. This page details the status of the test and its operations.
+After scheduling tests against your Azure Stack solution, Validation as a Service (VaaS) will begin reporting test execution status. This information is available in the VaaS portal along with actions like rescheduling and cancelling tests.
 
-## Monitor a test
+## Navigate to the workflow tests summary page
 
-1. Select a solution.
+1. On the solutions dashboard, select an existing solution that has at least one workflow.
 
-2. Select **Manage** on any workflow tile.
+    ![Workflow tiles](media/tile_all-workflows.png)
 
-3. Click a workflow to open its test summary page.
+1. Select **Manage** on the workflow tile. The next page lists the workflows created for the selected solution.
 
-4. Expand the context menu **[...]** for any test suite instance.
+1. Select the workflow name to open its test summary.
 
-5. Select **View Operations**
+## Change workflow parameters
 
-![Alt text](media\image4.png)
+Each workflow type lets you to edit the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) specified during workflow creation.
 
-For tests that have finished running, logs can be downloaded from the test summary page by clicking on **Download logs** in a test's context menu **[...]**. Azure Stack partners can use these logs to debug issues for failed tests.
+1. On the tests summary page, select the **Edit** button.
 
-## Open the test pass summary
+1. Provide new values according to [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md).
 
-1. Open the portal. 
-2. Select the name of an existing solution that contains previously run or scheduled tests.
+1. Select **Submit** to save the values.
 
-    ![Manage test passes](media/managetestpasses.png)
+> [!NOTE]
+> In the **Test Pass** workflow, you will need to finish the test selection and go to the review page before you can save the new parameter values.
 
-3. Select **Manage** in the **Test Passes** panel.
-4. Select the test pass to open the Test pass summary. You can review the test name, date created, run, how long the test took, and the result (succeeded or failed).
-5. Select [ **. .  .** ].
+### Add tests (Test Pass only)
 
-### Test pass summary
+In **Test Pass** workflows, both the **Add tests** and **Edit** buttons allow you to schedule new tests in the workflow.
+
+> [!TIP]
+> Select **Add tests** if you only want to schedule new tests and don't need to edit parameters for a **Test Pass** workflow.
+
+## Managing test instances
+
+For unofficial runs (i.e., the **Test Pass** workflow), the tests summary page lists the tests scheduled against the Azure Stack solution.
+
+For official runs (i.e., the **validation** workflows), the tests summary page lists the tests required for completing validation of the Azure Stack solution. Validation tests are scheduled from this page.
+
+Each scheduled test instance shows the following information:
 
 | Column | Description |
 | --- | --- |
-| Test name | The name of the test. References the validation number. |
-| Created | Time the test pass was created. |
-| Started | Time the test past ran. |
-| Duration | Length of time the time it took the test pass to run. |
-| Status | The result (Succeeded or Failed) for the rest pass. |
-| Agent Name | The fully qualified domain name of the agent. |
-| Total operations | The total number of operations attempted in the test pass. |
-| Passed operations | The number of operations that passed in the test pass. |
-|  Failed Operations | The number of operations that failed. |
+| Test name | The name and version of the test. |
+| Category | The purpose of the test. |
+| Created | The time at which the test was scheduled. |
+| Started | The time at which the test started execution. |
+| Duration | The length of time the test ran. |
+| Status | The state or result of the test. Pre-execution or in-progress statuses are: `Pending`, `Running`. Terminal statuses are: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Agent name | The name of the agent that ran the test. |
+| Total operations | The total number of operations attempted during the test. |
+| Passed operations | The number of operations that succeeded during the test. |
+|  Failed Operations | The number of operations that failed during the test. |
 
-### Group columns in the test pass summary
+### Actions
 
-You can select and drag a column into the header to create a group on the column value.
+Each test instance lists available actions you can take when you click on its context menu **[...]** in the test instances table.
 
-## Reschedule a test
+#### View information about the test definition
 
-1. [Open the test pass summary](#open-the-test-pass-summary).
-2. Select **Reschedule** to reschedule the test pass.
-3. Enter the Cloud Admin password for your Azure Stack instance.
-4. Enter the Diagnostics Storage Connection string you defined when you set up your account.
-5. Reschedule the test.
+Select **View information** from the context menu to view general information about the test definition. This is shared by each test instance with the same name and version.
 
-## Cancel a test
-
-1. [Open the test pass summary](#open-the-test-pass-summary).
-2. Select **Cancel**.
-
-## Get test information
-
-1. [Open the test pass summary](#open-the-test-pass-summary).
-2. Select **View information** to reschedule the test pass.
-
-**Test information**
-
-| Name | Description |
+| Test property | Description |
 | -- | -- |
-| Test name | The name of the test, for example, OEM Update on Azure Stack 1806 RC Validation. |
-| Test version | The version of the test, for example, 5.1.4.0. |
-| Publisher | The test publisher, such as Microsoft. |
-| Category | The category of test, such as **Functional** or **Reliability**. |
-| Target services | The services being tested, such as VirtualMachines |
+| Test name | The name of the test. |
+| Test version | The version of the test. |
+| Publisher | The publisher of the test. |
+| Category |  The purpose of the test. |
+| Target services | The Azure Stack services being tested. |
 | Description | The description of the test. |
-| Estimated duration (minutes) | The length of time in minutes the test took to run. |
-| Links | A link to GitHub Issue Tracker. |
+| Estimated duration (minutes) | The expected runtime of the test. |
+| Links | Any relevant information about the test or points of contact. |
 
-## Get test parameters
+#### View test instance parameters
 
-1. [Open the test pass summary](#open-the-test-pass-summary).
-2. Select **View parameters** to reschedule the test pass.
+Select **View parameters** from the context menu to view the parameters provided to the test instance at schedule time. Sensitive strings like passwords are not displayed. This action is available only for tests that have been scheduled.
 
-**Parameters**
+This window includes the following metadata for all test instances:
 
-| Name | Description |
+| Test instance property | Description |
 | -- | -- |
-| Test name | The name of the test, for example, oemupdate1806test. |
-| Test version | The version of the rest, for example, 5.1.4.0. |
-| Test instance ID | A GUID identifying the specific instance of the test, for example, 20b20645-b400-4f0d-bf6f-1264d866ada9. |
-| cloudAdminUser | The name of the account used as the cloud administrator, for example, **cloudadmin**. |
-| DiagnosticsContainerName | The ID of the diagnostic container, for example, 04dd3815-5f35-4158-92ea-698027693080. |
+| Test name | The name of the test. |
+| Test version | The version of the test. |
+| Test instance ID | A GUID identifying the specific instance of the test. |
 
-## Get test operations
+#### View test instance operations
 
-1. [Open the test pass summary](#open-the-test-pass-summary).
-2. Select **View operations** to reschedule the test pass. The operations summary pane opens.
+Select **View operations** from the context menu to view a detailed status of operations performed during the test. This action is available only for tests that have been scheduled.
 
-## Get test logs
+![View operations](media/manage-test_context-menu-operations.png)
 
-1. [Open the test pass summary](#open-the-test-pass-summary).
-2. Select **Download logs** to reschedule the test pass.  
-    A zip file named ReleaseYYYY-MM-DD.zip containing the logs downloads.
+#### Download logs for a completed test instance
+
+Select **Download logs** from the context menu to download a `.zip` file of the logs output during test execution. This action is available only for tests that have completed, i.e., a test with a status of either `Cancelled`, `Failed`, `Aborted`, or `Succeeded`.
+
+#### Reschedule a test instance or schedule a test
+
+Scheduling tests from the management page depends on the type of workflow the test runs under.
+
+##### Test Pass workflow
+
+In the Test Pass workflow, **rescheduling** a test instance reuses the same set of parameters as the original test instance and *replaces* the original result, including its logs. You will need to reenter sensitive strings like passwords when you reschedule.
+
+1. Select **Reschedule** from the context menu to open a prompt for rescheduling the test instance.
+
+1. Enter any applicable parameters.
+
+1. Select **Submit** to reschedule the test instance and replace the existing instance.
+
+##### Validation workflows
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### Cancel a test instance
+
+A scheduled test may be cancelled if its status is `Pending` or `Running`.  
+
+1. Select **Cancel** from the context menu to open a prompt for cancelling the test instance.
+
+1. Select **Submit** to cancel the test instance.
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md)

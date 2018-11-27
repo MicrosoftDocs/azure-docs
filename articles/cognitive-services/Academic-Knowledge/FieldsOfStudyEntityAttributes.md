@@ -1,12 +1,14 @@
 ---
-title: Field of Study entity attributes in the Academic Knowledge API | Microsoft Docs
-description: Learn the attributes you can use with the Field of Study entity in the Academic Knowledge API in Cognitive Services.
+title: Field of Study entity attributes - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Learn the attributes you can use with the Field of Study entity in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ---

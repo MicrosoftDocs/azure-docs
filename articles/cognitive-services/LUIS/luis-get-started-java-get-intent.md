@@ -20,7 +20,7 @@ ms.author: diberry
 
 ## Prerequisites
 
-* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  (Java Development Kit, Standard Edition)
+* [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 

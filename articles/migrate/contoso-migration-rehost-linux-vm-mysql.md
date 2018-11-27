@@ -2,9 +2,10 @@
 title: Rehost a Contoso Linux service desk app to Azure and Azure MySQL | Microsoft Docs
 description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure MySQL.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ---
 
@@ -29,6 +30,7 @@ Article 8: Rehost a Linux app on Azure VMs and Azure MySQL | Contoso migrates th
 [Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | Available
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available
+[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 
 In this article, Contoso migrates a two-tier Linux Apache MySQL PHP (LAMP) service desk app (osTicket) to Azure. If you'd like to use this open-source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
@@ -48,7 +50,7 @@ The IT Leadership team has worked closely with business partners to understand w
 
 The Contoso cloud team has pinned down goals for this migration, in order to determine the best migration method:
 
-- After migration, the app in Azure should have the same performance capabilities as it does today in their on-premises VMWare environment.  The app will remain as critical in the cloud as it is on-premises. 
+- After migration, the app in Azure should have the same performance capabilities as it does today in their on-premises VMware environment.  The app will remain as critical in the cloud as it is on-premises. 
 - Contoso doesn’t want to invest in this app.  It's important to the business, but in its current form Contoso simply want to move it safely to the cloud.
 - Having completed a couple of Windows app migrations, Contoso wants to learn how to use a Linux-based infrastructure in Azure.
 - Contoso wants to minimize database admin tasks after the application is moved to the cloud.
@@ -192,7 +194,7 @@ After failover to Azure, Contoso wants to be able to connect to the Azure VMs. T
 
 - To access over the internet, they enable SSH on the on-premises Linux VM before the migration.  For Ubuntu this can be completed using the following command: **Sudo apt-get ssh install -y**.
 - After the failover, they should check **Boot diagnostics** to view a screenshot of the VM.
-- If this doesn't work, they need to verify that the VM is running, and review these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- If this doesn't work, they need to verify that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 **Need more help?**
 
@@ -392,7 +394,7 @@ Running a test failover helps verify that everything's working as expected, befo
 
 ### Migrate the VM
 
-To migrate the VM, Contoso admins creats a recovery plan that includes the VM, and fail over the plan to Azure.
+To migrate the VM, Contoso admins creates a recovery plan that includes the VM, and fail over the plan to Azure.
 
 1. They create a plan, and add **OSTICKETWEB** to it.
 

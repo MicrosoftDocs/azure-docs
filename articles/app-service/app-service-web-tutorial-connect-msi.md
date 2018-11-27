@@ -12,13 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
 [App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to the sample ASP.NET web app you built in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
+
+> [!NOTE]
+> This scenario is currently supported by .NET Framework 4.6 and above, but not by [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) does support the scenario, but is not yet included in the default images in App Service. 
+>
 
 What you learn how to:
 
@@ -29,7 +33,7 @@ What you learn how to:
 > * Grant minimal privileges to the managed identity in SQL Database
 
 > [!NOTE]
-> Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure Active Directory use completely different authentication protocols. For more information, see [The difference between Windows Server AD DS and Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+>Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure Active Directory use completely different authentication protocols. For more information, see [Azure AD Domain Services documentation](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,6 +94,7 @@ In your **DotNetAppSqlDb** project in Visual Studio, open _packages.config_ and 
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 Open _Models\MyDatabaseContext.cs_ and add the following `using` statements to the top of the file:
@@ -117,7 +122,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 This constructor configures a custom SqlConnection object to use an access token for Azure SQL Database from App Service. With the access token, your App Service app authenticates with Azure SQL Database with its managed identity. For more information, see [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). The `if` statement lets you continue to test your app locally with LocalDB.
 
 > [!NOTE]
-> `SqlConnection.AccessToken` is currently supported only in .NET Framework 4.6 and above, not in [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
+> `SqlConnection.AccessToken` is currently supported only in .NET Framework 4.6 and above, as well as [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), not in [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
 >
 
 To use this new constructor, open `Controllers\TodosController.cs` and find the line `private MyDatabaseContext db = new MyDatabaseContext();`. The existing code uses the default `MyDatabaseContext` controller to create a database using the standard connection string, which had username and password in clear text before [you changed it](#modify-connection-string).
@@ -125,7 +130,7 @@ To use this new constructor, open `Controllers\TodosController.cs` and find the 
 Replace the entire line with the following code:
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### Publish your changes
@@ -167,32 +172,23 @@ Previously, you assigned the managed identity as the Azure AD administrator for 
 
 ### Grant permissions to Azure Active Directory group
 
-In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<servername>_ with your SQL Database server name, and replace _\<AADusername>_ and _\<AADpassword>_ with your Azure AD user's credentials.
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-In the SQL prompt, run the following commands, which add the Azure Active Directory group you created earlier as a user.
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-Type `EXIT` to return to the Cloud Shell prompt. Next, run SQLCMD again, but specify the database name in _\<dbname>_.
+In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server\_name>_ with your SQL Database server name, _\<db\_name>_ with the database name your app uses, and _\<AADuser\_name>_ and _\<AADpassword>_ with your Azure AD user's credentials.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-In the SQL prompt for the database you want, run the following commands to grant read and write permissions to the Azure Active Directory group.
+In the SQL prompt for the database you want, run the following commands to add the Azure Active Directory group you created earlier and grant the permissions your app needs. For example, 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+Type `EXIT` to return to the Cloud Shell prompt. 
 
 ## Next steps
 

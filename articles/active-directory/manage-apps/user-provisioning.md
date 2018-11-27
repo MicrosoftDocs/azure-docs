@@ -17,6 +17,7 @@ ms.reviewer: asmalser
 
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
+
 ## What is automated user provisioning for SaaS apps?
 Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more.
 
@@ -37,6 +38,7 @@ Azure Active Directory (Azure AD) allows you to automate the creation, maintenan
 * Reporting and activity logs to help with monitoring and troubleshooting.
 
 ## Why use automated provisioning?
+
 Some common motivations for using this feature include:
 
 * Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
@@ -64,6 +66,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the SCIM 2.0 standard.
 
 ### Pre-integrated applications
+
 For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md).
 
 To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -72,6 +75,7 @@ To contact the Azure AD engineering team to request provisioning support for add
 > In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
 
 ### Connecting applications that support SCIM 2.0
+
 For information on how to generically connect applications that implement SCIM 2.0 -based user management APIs, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md).
 
 	
@@ -119,26 +123,28 @@ In the application management screen, provisioning is configured in the **Provis
 When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial sync against the source system and target system, followed by periodic incremental syncs. 
 
 ### Initial sync
+
 When the provisioning service is started, the first sync ever performed will:
 
 1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](customize-application-attributes.md).
 2. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 3. When a user is found to be assigned or in scope for provisioning, the service queries the target system for a matching user using the designated [matching attributes](customize-application-attributes.md#understanding-attribute-mapping-properties). Example: If the userPrincipal name in the source system is the matching attribute and maps to userName in the target system, then the provisioning service queries the target system for userNames that match the userPrincipal name values in the source system.
-4. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
-5. If a matching user is found, it is updated using the attributes provided by the source system.
+4. If a matching user is not found in the target system, it is created using the attributes returned from the source system. After the user account is created, the provisioning service detects and caches the target system's ID for the new user, which is used to perform all future operations on that user.
+5. If a matching user is found, it is updated using the attributes provided by the source system. After the user account is matched, the provisioning service detects and caches the target system's ID for the new user, which is used to perform all future operations on that user.
 6. If the attribute mappings contain "reference" attributes, the service performs additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
 7. Persist a watermark at the end of the initial sync, which provides the starting point for the subsequent incremental syncs.
 
 Some applications such as ServiceNow, Google Apps, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](customize-application-attributes.md), the provisioning service synchronizes the users and the groups, and then subsequently synchronizes the group memberships. 
 
 ### Incremental syncs
+
 After the initial sync, all subsequent syncs will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
 2. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 3. When a user is found to be assigned or in scope for provisioning, the service queries the target system for a matching user using the designated [matching attributes](customize-application-attributes.md#understanding-attribute-mapping-properties).
-4. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
-5. If a matching user is found, it is updated using the attributes provided by the source system.
+4. If a matching user is not found in the target system, it is created using the attributes returned from the source system. After the user account is created, the provisioning service detects and caches the target system's ID for the new user, which is used to perform all future operations on that user.
+5. If a matching user is found, it is updated using the attributes provided by the source system. If it is a newly-assigned account that is matched, the provisioning service detects and caches the target system's ID for the new user, which is used to perform all future operations on that user.
 6. If the attribute mappings contain "reference" attributes, the service performs additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
 7. If a user that was previously in scope for provisioning is removed from scope (including being unassigned), the service disables the user in the target system via an update.
 8. If a user that was previously in scope for provisioning is disabled or soft-deleted in the source system, the service disables the user in the target system via an update.
@@ -155,7 +161,8 @@ The provisioning service will continue to run back-to-back incremental syncs ind
 * A new initial sync is triggered due to a change in attribute mappings or scoping filters. This also clears any stored watermark and causes all source objects to be evaluated again.
 * The provisioning process goes into quarantine (see below) due to a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
-### Errors and retries 
+### Errors and retries
+
 If an individual user can't be added, updated, or deleted in the target system due to an error in the target system, then the operation will be retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators will need to check the [audit logs](check-status-user-account-provisioning.md) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
 
 * Users not having an attribute populated in the source system that is required in the target system
@@ -164,6 +171,7 @@ If an individual user can't be added, updated, or deleted in the target system d
 These failures can be resolved by adjusting the attribute values for the affected user in the source system, or by adjusting the attribute mappings to not cause conflicts.   
 
 ### Quarantine
+
 If most or all of the calls made against the target system consistently fail due to an error (such as in the case of invalid admin credentials), then the provisioning job goes into a "quarantine" state. This is indicated in the [provisioning summary report](check-status-user-account-provisioning.md), and via email if email notifications were configured in the Azure portal. 
 
 When in quarantine, the frequency of incremental syncs is gradually reduced to once per day. 
@@ -214,26 +222,52 @@ Summary of factors that influence the time it takes to complete an **initial syn
 * The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
 
 
-##How can I tell if users are being provisioned properly?
+## How can I tell if users are being provisioned properly?
 
 All operations performed by the user provisioning service are recorded in the Azure AD audit logs. This includes all read and write operations made to the source and target systems, as well as what user data was read or written during each operation.
 
 For information on how the read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 
-##How do I troubleshoot issues with user provisioning?
+## How do I troubleshoot issues with user provisioning?
 
 For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
 
 
-##What are the best practices for rolling out automatic user provisioning?
+## What are the best practices for rolling out automatic user provisioning?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan).
 
+## More frequently asked questions
+
+### Does automatic user provisioning to SaaS apps work with B2B users in Azure AD?
+
+Yes, it is possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications.
+
+However, for B2B users to be able to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+### Does automatic user provisioning to SaaS apps work with dynamic groups in Azure AD?
+
+Yes. When configured to "sync only assigned users and groups", the Azure AD user provisioning service can provision or de-provision users in a SaaS application based on whether or not they are members of a [dynamic group](../users-groups-roles/groups-create-rule.md). Dynamic groups also work with the "sync all users and groups" option.
+
+However, usage of dynamic groups can impact the overall performance of end-to-end user provisioning from the Azure AD to SaaS applications. When using dynamic groups, please keep these caveats and recommendations in mind:
+
+* How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* When using dynamic groups, the rules must be carefully considered with user provisioning and de-provisioning in mind, as a loss of membership will result in a deprovisioning event.
+
+### Does automatic user provisioning to SaaS apps work with nested groups in Azure AD?
+
+No. When configured to "sync only assigned users and groups", the Azure AD user provisioning service is not able to read or provision users that are in nested groups. It is only able to read and provision users that are immediate members of the explicitly-assigned group.
+
+This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+As a workaround, you should explicitly-assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
 
 ## Related articles
+
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
 * [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
 * [Writing Expressions for Attribute Mappings](functions-for-customizing-application-data.md)

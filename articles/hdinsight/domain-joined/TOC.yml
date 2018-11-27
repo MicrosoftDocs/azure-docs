@@ -11,9 +11,9 @@
   - name: Synchronize Azure AD users to an HDInsight cluster
     href: ../hdinsight-sync-aad-users-to-cluster.md
     maintainContext: true
-  - name: Configure Hive policies
+  - name: Configure Apache Hive policies
     href: apache-domain-joined-run-hive.md
-  - name: Configure Kafka policies
+  - name: Apache Kafka RBAC with Apache Ranger
     href: apache-domain-joined-run-kafka.md
     maintainContext: true
   - name: Use VSCode to link to ESP cluster
@@ -58,7 +58,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
   - name: .NET SDK

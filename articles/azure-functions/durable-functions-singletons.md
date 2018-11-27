@@ -27,7 +27,7 @@ public static async Task<HttpResponseMessage> RunSingle(
     [OrchestrationClient] DurableOrchestrationClient starter,
     string functionName,
     string instanceId,
-    TraceWriter log)
+    ILogger log)
 {
     // Check if an instance with the specified ID already exists.
     var existingInstance = await starter.GetStatusAsync(instanceId);
@@ -36,7 +36,7 @@ public static async Task<HttpResponseMessage> RunSingle(
         // An instance with the specified ID doesn't exist, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
-        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
         return starter.CreateCheckStatusResponse(req, instanceId);
     }
     else

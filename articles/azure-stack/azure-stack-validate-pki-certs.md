@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -70,7 +70,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
     
     $destination = 'c:\certificates'
     
@@ -90,45 +90,54 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. Check the output and all certificates pass all tests. For example:
 
-    ```PowerShell  
-    AzsReadinessChecker v1.1803.405.3 started
-    Starting Certificate Validation
+````PowerShell
+Invoke-AzsCertificateValidation v1.1809.1005.1 started.
+Testing: ARM Public\ssl.pfx
+Thumbprint: 7F6B27****************************E9C35A
+	PFX Encryption: OK
+	Signature Algorithm: OK
+	DNS Names: OK
+	Key Usage: OK
+	Key Size: OK
+	Parse PFX: OK
+	Private Key: OK
+	Cert Chain: OK
+	Chain Order: OK
+	Other Certificates: OK
+Testing: Admin Extension Host\ssl.pfx
+Thumbprint: A631A5****************************35390A
+	PFX Encryption: OK
+	Signature Algorithm: OK
+	DNS Names: OK
+	Key Usage: OK
+	Key Size: OK
+	Parse PFX: OK
+	Private Key: OK
+	Cert Chain: OK
+	Chain Order: OK
+	Other Certificates: OK
+Testing: Public Extension Host\ssl.pfx
+Thumbprint: 4DBEB2****************************C5E7E6
+	PFX Encryption: OK
+	Signature Algorithm: OK
+	DNS Names: OK
+	Key Usage: OK
+	Key Size: OK
+	Parse PFX: OK
+	Private Key: OK
+	Cert Chain: OK
+	Chain Order: OK
+	Other Certificates: OK
 
-    Starting Azure Stack Certificate Validation 1.1803.405.3
-    Testing: ARM Public\ssl.pfx
-        Read PFX: OK
-        Signature Algorithm: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Testing: ACSBlob\ssl.pfx
-        Read PFX: OK
-        Signature Algorithm: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
-
-    Finished Certificate Validation
-
-    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location: 
-    C:\AzsReadinessChecker\AzsReadinessReport.json
-    AzsReadinessChecker Completed
-    ```
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsCertificateValidation Completed
+````
 
 ### Known issues
 
@@ -154,11 +163,9 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
     Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-    Finished Certificate Validation
-
-    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Completed
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsCertificateValidation Completed
     ```
 
 **Resolution**: Follow the tool's guidance in the details section under each set of tests for each certificate.
@@ -188,18 +195,15 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
 3.  Change the values of **RegionName** and **FQDN** to match your Azure Stack environment to start the validation. Then run:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
+    Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  Check that the output and that all certificates pass all tests.
 
     ```PowerShell
-    AzsReadinessChecker v1.1805.425.2 started
-    Starting PaaS Certificate Validation
-    
-    Starting Azure Stack Certificate Validation 1.0 
-    Testing: PaaSCerts\wildcard.appservice.pfx
-        Read PFX: OK
+    Invoke-AzsCertificateValidation v1.0 started.
+    Thumbprint: 95A50B****************************FA6DDA
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -207,9 +211,9 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\api.appservice.pfx
-        Read PFX: OK
+    Thumbprint: EBB011****************************59BE9A
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -217,9 +221,9 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\wildcard.dbadapter.pfx
-        Read PFX: OK
+    Thumbprint: 76AEBA****************************C1265E
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -227,15 +231,31 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\sso.appservice.pfx
-        Read PFX: OK
+    Thumbprint: 8D6CCD****************************DB6AE9
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
         Key Usage: OK
         Key Size: OK
     ```
+
+## Certificates
+
+| Directory | Certificate |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
+| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
+| ACSTable  |  wildcard_table\< region>\< externalFQDN> |
+| Admin Extension Host  |  wildcard_adminhosting\< region>\< externalFQDN> |
+| Admin Portal  |  adminportal\< region>\< externalFQDN> |
+| ARM Admin  |  adminmanagement\< region>\< externalFQDN> |
+| ARM Public  |  management\< region>\< externalFQDN> |
+| KeyVault  |  wildcard_vault\< region>\< externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
+| Public Extension Host  |  wildcard_hosting\< region>\< externalFQDN> |
+| Public Portal  |  portal\< region>_\< externalFQDN> |
 
 ## Using validated certificates
 

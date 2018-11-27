@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/23/2018
 ms.author: tomfitz
 
 ---
@@ -24,9 +24,10 @@ When moving resources, both the source group and the target group are locked dur
 You can't change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that doesn't change the location of the resource.
 
 > [!NOTE]
-> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md).
->
->
+> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from free to pay-as-you-go) you need to convert your subscription.
+> * To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md).
+> * To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
+> * If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 ## Checklist before moving resources
 
@@ -36,7 +37,7 @@ There are some important steps to perform before moving a resource. By verifying
 
   For Azure PowerShell, use:
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -57,14 +58,14 @@ There are some important steps to perform before moving a resource. By verifying
 
   For PowerShell, use the following commands to get the registration status:
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   To register a resource provider, use:
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -181,7 +182,7 @@ The following list provides a general summary of Azure services that can be move
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Container Registry - A container registry can't be moved when geo-replication is enabled.
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -192,6 +193,7 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -203,7 +205,6 @@ The following list provides a general summary of Azure services that can be move
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -223,7 +224,7 @@ The following list provides a general summary of Azure services that can be move
 * SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines - VMs with managed disks can't be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
+* Virtual Machines - for VMs with managed disks, see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
@@ -263,28 +264,54 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks are supported for move as of September 24th, 2018. You'll have to register to enable this feature
+Managed disks are supported for move as of September 24, 2018. 
 
-#### PowerShell
-`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
-#### CLI
-`az feature register Microsoft.Compute ManagedResourcesMove`
+1. In the source subscription, register this feature.
 
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-This means you can also move:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. The registration request initially returns a state of `Registering`. You can check the current status with:
+
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. Wait several minutes for the status to change to `Registered`.
+
+1. After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
+
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
+
+This support means you can also move:
 
 * Virtual machines with the managed disks
 * Managed Images
 * Managed Snapshots
 * Availability sets with virtual machines with managed disks
 
-Here are the constraints that are not yet supported
+Here are the constraints that are not yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machines configured with Azure Backup. Use the below workaround to move these Virtual Machines
   * Locate the location of your Virtual Machine.
-  * Locate a resource group with the following naming pattern: "AzureBackupRG_<location of your VM>_1" e.g. AzureBackupRG_westus2_1
-  * If in Azure Portal, then check "Show hidden types"
+  * Locate a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` for example, AzureBackupRG_westus2_1
+  * If in Azure portal, then check "Show hidden types"
   * If in PowerShell, use the `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
   * Now locate the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
@@ -292,7 +319,6 @@ Here are the constraints that are not yet supported
   * After Delete is complete, you will be able to move your Virtual Machine
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP cannot be moved
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
-
 
 ## Virtual Networks limitations
 
@@ -314,9 +340,9 @@ When moving a Web App _within the same subscription_, you can't move the uploade
 
 If you want to move the SSL certificate with the Web App, follow these steps:
 
-1.	Delete the uploaded certificate from the Web App.
-2.	Move the Web App.
-3.	Upload the certificate to the moved Web App.
+1. Delete the uploaded certificate from the Web App.
+2. Move the Web App.
+3. Upload the certificate to the moved Web App.
 
 ### Moving across subscriptions
 
@@ -472,7 +498,7 @@ When it has completed, you're notified of the result.
 
 To move existing resources to another resource group or subscription, use the [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) command. The following example shows how to move multiple resources to a new resource group.
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

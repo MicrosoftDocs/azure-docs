@@ -27,37 +27,52 @@ Azure AD Identity Protection helps you manage the roll-out of multi-factor authe
 ## What is the multi-factor authentication registration policy?
 
 Azure multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.  
+
 We recommend that you require Azure multi-factor authentication for user sign-ins because it:
 
-* Delivers strong authentication with a range of easy verification options
-* Plays a key role in preparing your organization to protect and recover from account compromises
+- Delivers strong authentication with a range of easy verification options
 
-![User risk policy](./media/howto-mfa-policy/1019.png "User risk policy")
+- Plays a key role in preparing your organization to protect and recover from account compromises
+
 
 For more details, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
-## Configuration
 
-**To open the related configuration dialog**:
+## How do I access the MFA registration policy?
+   
+The MFA registration policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
+![MFA policy](./media/howto-mfa-policy/1014.png)
 
-- On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Multi-factor authentication registration**.
 
-    ![MFA policy](./media/howto-mfa-policy/1019.png "MFA policy")
 
-### Settings
 
-* Set the users and groups the policy applies to:
+## Policy settings
 
-    ![MFA policy](./media/howto-mfa-policy/1020.png "MFA policy")
-* Set the controls to be enforced when the policy triggers::  
+When you configure the sign-in risk policy, you need to set:
 
-    ![MFA policy](./media/howto-mfa-policy/1021.png "MFA policy")
-* Switch the state of your policy:
+- The users and groups the policy applies to:
 
-    ![MFA policy](./media/howto-mfa-policy/403.png "MFA policy")
-* View the current registration status:
+    ![Users and groups](./media/howto-mfa-policy/11.png)
 
-    ![MFA policy](./media/howto-mfa-policy/1022.png "MFA policy")
+- The type of access you want to be enforced:  
+
+    ![Users and groups](./media/howto-mfa-policy/12.png)
+
+- The state of your policy:
+
+    ![Enforce policy](./media/howto-mfa-policy/14.png)
+
+
+The policy configuration dialog provides you with an option to estimate the impact of your configuration.
+
+![Estimated impact](./media/howto-mfa-policy/15.png)
+
+
+
+
+## User experience
+
 
 For an overview of the related user experience, see:
 

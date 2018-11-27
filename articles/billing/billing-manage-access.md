@@ -4,7 +4,7 @@ description:
 services: ''
 documentationcenter: ''
 author: vikramdesai01
-manager: vikdesai
+manager: amberb
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
+ms.author: cwatson
 
 ---
 # Manage access to billing information for Azure using role-based access control
@@ -63,7 +63,7 @@ The Billing Reader role has read-only access to subscription billing information
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> The Billing Reader feature is in preview, and does not yet support enterprise (EA) subscriptions or non-global clouds.
+> The Billing Reader feature is in preview, and does not yet support non-global clouds. Enterprise subscriptions can view costs if the enterprise administrator has enabled view charges.
 
 ## Adding users to other roles
 

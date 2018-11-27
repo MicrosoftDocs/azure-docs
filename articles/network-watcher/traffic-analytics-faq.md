@@ -74,9 +74,9 @@ Yes.
 
 Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## Can my Azure Storage Account be in one subscription and my Operations Management Suite workspace be in a different subscription?
+## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
-Yes, your Azure Storage account can be in one subscription, and your Operations Management Suite workspace can be in a different subscription.
+Yes, your Azure Storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
 
 ## Can I store raw logs in a different subscription?
 
@@ -112,7 +112,7 @@ If problems persist, raise concerns in the [User voice forum](https://feedback.a
 
 You might see this message because:
 - Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
-- You are using the free version of the Operations Management Suite workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
+- You are using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

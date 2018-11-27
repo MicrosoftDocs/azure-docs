@@ -4,7 +4,7 @@ description: Provides the solution for a problem in which No subscriptions found
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ---
 
 # No subscriptions found error in Azure portal or Azure account center
@@ -51,4 +51,4 @@ Check whether the account that you used is the Account Administrator. To verify 
 
 ## Need help? Contact support.
 
-If you still need help, [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 
+If you still need help, [contact support](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 

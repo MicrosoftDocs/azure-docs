@@ -1,18 +1,19 @@
 ---
 title: 'Azure portal: Create a SQL database | Microsoft Docs'
 description: Create a SQL Database logical server, server-level firewall rule, and database in the Azure portal, and query it.
-keywords: sql database tutorial, create a sql database
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 09/07/2018
+author: sachinpMSFT
 ms.author: sachinp
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/01/2018
 ---
-# Create an Azure SQL database in the Azure portal
+# Quickstart: Create an Azure SQL database in the Azure portal
 
 This quickstart walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating and then querying a SQL database using the Azure portal.
 

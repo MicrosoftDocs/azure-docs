@@ -2,12 +2,12 @@
 title: Deploy the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
+ms.date: 11/18/2018
+ms.author: ramamill
 ---
 
 # Deploy a configuration server
@@ -112,6 +112,14 @@ If you want to add an additional NIC to the configuration server, add it before 
 8. Select **Finalize configuration** to complete registration.
 9. After registration finishes, open Azure portal, verify that the configuration server and VMware server are listed on **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 
+## Upgrade the configuration server
+
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## Manage the configuration server
+
+To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
+
 ## FAQ
 
 1. Can I use the VM, where the configuration server is installed, for different purposes?
@@ -135,14 +143,6 @@ If you want to add an additional NIC to the configuration server, add it before 
 7. Where can I download vault registration keys?
 
     In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
-
-## Upgrade the configuration server
-
-To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## Manage the configuration server
-
-To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ## Troubleshoot deployment issues
 

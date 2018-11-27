@@ -3,14 +3,14 @@ title: Categorizing images - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to categorizing images using the Computer Vision API.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
+ms.author: pafarley
 ---
 
 # Categorizing images
@@ -21,7 +21,7 @@ In addition to tagging and descriptions, Computer Vision returns the taxonomy-ba
 
 Based on a list of 86 concepts seen in the following diagram, an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 
-![Analyze Categories](./Images/analyze_categories.png)
+![grouped lists of all the categories in the category taxonomy](./Images/analyze_categories-v2.png)
 
 ## Image categorization examples
 

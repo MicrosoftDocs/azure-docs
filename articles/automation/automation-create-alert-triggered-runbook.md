@@ -205,7 +205,7 @@ To create a notification action in the action group:
    ![Add action group page](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. To create the action group, select **OK**.
 
-You can use this action group in the [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) and [near real-time alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal) that you create.
+You can use this action group in the [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) and [near real-time alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) that you create.
 
 ## Classic alert
 
@@ -225,4 +225,4 @@ To create a classic alert:
 * For more information about starting an Automation runbook by using a webhook, see [Start a runbook from a webhook](automation-webhooks.md).
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To learn how to create an activity log alert, see [Create activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
-* To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal).
+* To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json).

@@ -204,7 +204,7 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
   chmod +x NVIDIA-Linux-x86_64-grid.run
 
@@ -269,7 +269,7 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
   chmod +x NVIDIA-Linux-x86_64-grid.run
 

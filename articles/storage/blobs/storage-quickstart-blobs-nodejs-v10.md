@@ -2,21 +2,22 @@
 title: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript (preview)
 description: Create, upload, and delete blobs and containers in Node.js with Azure Storage
 services: storage
-author: craigshoemaker
+author: tamram
+
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/19/2018
-ms.author: cshoe
+ms.date: 11/14/2018
+ms.author: tamram
 ---
 
 # Quickstart: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript (preview)
 
 In this quickstart, you learn to use the [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-storage-js) in Node.js to upload, download, list, and delete blobs and manage containers.
 
-To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Prerequisites
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## Download the sample application
 
@@ -123,7 +124,7 @@ The next set of constants helps to reveal the intent of file size calculations d
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-Requests made by the API can be set to time-out after a given interval. The *Aborter* class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
+Requests made by the API can be set to time-out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -158,13 +159,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 The following classes are used in this block of code:
 
-- The *SharedKeyCredential* class is responsible for wrapping storage account credentials to provide them to a request pipeline.
+- The [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) class is responsible for wrapping storage account credentials to provide them to a request pipeline.
 
-- The *StorageURL* class is responsible for creating a new pipeline.
+- The [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) class is responsible for creating a new pipeline.
 
-- The *ServiceURL* models a URL used in the REST API. Instances of this class allow you to perform actions like list containers and provide context information to generate container URLs.
+- The [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) models a URL used in the REST API. Instances of this class allow you to perform actions like list containers and provide context information to generate container URLs.
 
-The instance of *ServiceURL* is used with the *ContainerURL* and *BlockBlobURL* instances to manage containers and blobs in your storage account.
+The instance of *ServiceURL* is used with the [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) and [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) instances to manage containers and blobs in your storage account.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -197,7 +198,7 @@ Aborters give you control over requests by allowing you to:
 - designate the amount of time given for a batch of requests
 - designate how long an individual request has to execute in the batch
 - allow you to cancel requests
-- use the *Aborter.None* static member to stop your requests from timing out all together
+- use the *Aborter.none* static member to stop your requests from timing out all together
 
 ### Show container names
 Accounts can store a vast number of containers. The following code demonstrates how to list containers in a segmented fashion, which allows you to cycle through a large number of containers. The *showContainerNames* function is passed instances of *ServiceURL* and *Aborter*.
@@ -344,3 +345,4 @@ This quickstart demonstrates how to manage blobs and containers in Azure Blob st
 
 > [!div class="nextstepaction"]
 > [Azure Storage v10 SDK for JavaScript repository](https://github.com/Azure/azure-storage-js)
+> [JavaScript API Reference](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)

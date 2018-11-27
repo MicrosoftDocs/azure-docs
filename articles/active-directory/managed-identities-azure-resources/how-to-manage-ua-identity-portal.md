@@ -23,17 +23,16 @@ ms.author: daveba
 
 Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list, delete or assign a role to a a user-assigned managed identity using the Azure Portal.
+In this article, you learn how to create, list, delete or assign a role to a user-assigned managed identity using the Azure Portal.
 
 ## Prerequisites
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following role assignments:
-    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create, read (list), update, and delete a user-assigned managed identity.
-    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to read (list) the properties of a user-assigned managed identity.
 
 ## Create a user-assigned managed identity
+
+To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to create the user-assigned managed identity.
 2. In the search box, type *Managed Identities*, and under **Services**, click **Managed Identities**.
@@ -48,6 +47,8 @@ In this article, you learn how to create, list, delete or assign a role to a a u
 
 ## List user-assigned managed identities
 
+To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) or [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
 3. A list of the user-assigned managed identities for your subscription is returned.  To see the details of a user-assigned managed identity click its name.
@@ -56,13 +57,17 @@ In this article, you learn how to create, list, delete or assign a role to a a u
 
 ## Delete a user-assigned managed identity
 
+To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to delete a user-assigned managed identity.
 2. Select the user-assigned managed identity and click **Delete**.
 3. Under the confirmation box choose, **Yes**.
 
 ![Delete user-assigned managed identity](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## Assign a role to a user-assigned managed identity 
+## Assign a role to a user-assigned managed identity
+
+To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.

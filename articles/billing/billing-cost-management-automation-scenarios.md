@@ -92,7 +92,7 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 ### What is the difference between the Enterprise Reporting APIs and the Consumption APIs? When should I use each?
 These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. However, each API targets different audiences: 
 
-- **Enterprise Reporting APIs**: These APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated monetary commitments and custom pricing. The APIs require a key to use that can be obtained through the [Enterprise Portal](https://ea.azure.com). For for a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](billing-enterprise-api.md).
+- **Enterprise Reporting APIs**: These APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated monetary commitments and custom pricing. The APIs require a key to use that can be obtained through the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](billing-enterprise-api.md).
 
 - **Consumption APIs**: These APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](billing-consumption-api-overview.md) and the [Azure Consumption API reference](https://docs.microsoft.com/rest/api/consumption/). The provided APIs are the recommended solution for the latest development scenarios. 
 

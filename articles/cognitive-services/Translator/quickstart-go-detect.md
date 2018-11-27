@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Identify language from text - Translator Text, Go"
+title: "Quickstart: Identify language from text, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you identify the language of the source text using the Translator Text API with Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Identify language from text with Go
+# Quickstart: Identify language from text with the Translator Text REST API (Go)
 
 In this quickstart, you identify the language of the source text using the Translator Text API.
 

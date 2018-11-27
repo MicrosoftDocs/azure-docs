@@ -1,14 +1,14 @@
 ---
-title: Bing Visual Search upload image tutorial | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title:  "Tutorial: How to upload image - Bing Visual Search"
+titleSuffix: Azure Cognitive Services
 description: Breaks down the process of uploading an image to Bing to get insights about it and then parsing and displaying the response.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
 ---
@@ -19,6 +19,15 @@ This tutorial breaks down the process of uploading an image to Bing and getting 
 
 This tutorial is provided for the developer that wants to explore the contents of the Bing Visual Search response. It does not apply all use and display requirements (for example, it does not provide a link to Microsoft's privacy policy). For all usage requirements, see [Bing Use and Display Requirements](./use-and-display-requirements.md).
 
+For this tutorial, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure Portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
 
 ## Where to start?
 

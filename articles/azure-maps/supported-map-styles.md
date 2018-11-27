@@ -3,7 +3,7 @@ title: Supported map styles in Azure Maps| Microsoft Docs
 description: Map styles supported by Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/28/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -11,10 +11,10 @@ manager: timlt
 ---
 
 # Azure Maps supported map styles
-Azure maps support four different built-in map styles. The styles along with their descriptions are listed below.
+Azure maps support four different built-in map styles. The styles with their descriptions are listed below.
 
-## Road
-A **road** map is a standard map that displays roads, natural and man-made features along with the labels for those features.
+## road
+A **road** map is a standard map that displays roads, natural and artificial features along with the labels for those features.
 
 ![road](./media/supported-map-styles/road.png)
 
@@ -23,7 +23,7 @@ A **road** map is a standard map that displays roads, natural and man-made featu
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * JS map control
 
-## Satellite 
+## satellite 
 The **satellite** style is a combination of satellite and aerial imagery.
 
 ![satellite](./media/supported-map-styles/satellite.png)
@@ -32,7 +32,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 * [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * JS map control
 
-## Satellite_Road_Labels
+## satellite_road_labels
 This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
@@ -40,8 +40,8 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 * JS map control
 
-## Grayscale_Dark
-**Grayscale dark** is a dark version of the road map style.
+## grayscale_dark
+**grayscale dark** is a dark version of the road map style.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 

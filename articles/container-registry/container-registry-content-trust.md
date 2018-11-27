@@ -2,12 +2,12 @@
 title: Content trust in Azure Container Registry
 description: Learn how enable content trust for your Azure container registry, and push and pull signed images.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
-ms.author: marsma
+ms.author: danlep
 ---
 # Content trust in Azure Container Registry
 

@@ -1,21 +1,22 @@
 ---
-title: Use Text to Speech using Speech services
+title: Use Text to Speech in the Speech Service
+titleSuffix: Azure Cognitive Services
 description: Learn how to use Text to Speech in the Speech service.
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
-# Use "Text to Speech" in Speech service
+# Use "Text to Speech" in Speech Service
 
 The Speech service provides Text to Speech functionality through a straightforward HTTP request. You `POST` the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 
-The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an [authorization](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an [authorization](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token.
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 
@@ -33,11 +34,11 @@ To specify a voice, use the `<voice>` [SSML](speech-synthesis-markup.md) tag. Fo
 </speak>
 ```
 
-See [Text to Speech voices](supported-languages.md#text-to-speech) for a list of the available voices and their names.
+See [Text to Speech voices](language-support.md#text-to-speech) for a list of the available voices and their names.
 
 ## Make a request
 
-A Text to Speech HTTP request is made in POST mode with the text to be spoken in the body of the request. The maximum length of the HTTP request body is 1024 characters. The request must have the following headers: 
+A Text to Speech HTTP request is made in POST mode with the text to be spoken in the body of the request. The maximum length of the HTTP request body is 1024 characters. The request must have the following headers:
 
 Header|Values|Comments
 -|-|-
@@ -86,7 +87,7 @@ If an error occurs, the status codes below are used. The response body for the e
 429|Too Many Requests|You have exceeded the quota or rate of requests allowed for your subscription.
 |502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
-For more information on the Text to Speech REST API, see [REST APIs](rest-apis.md#text-to-speech).
+For more information on the Text to Speech REST API, see [REST APIs](rest-apis.md#text-to-speech-api).
 
 ## Next steps
 

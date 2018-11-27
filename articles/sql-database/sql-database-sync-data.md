@@ -2,15 +2,16 @@
 title: Azure SQL Data Sync | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.custom: data-sync
+manager: craigg
+ms.date: 08/09/2018
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync
 
@@ -75,6 +76,7 @@ Data Sync is not the preferred solution for the following scenarios:
 ### Set up Data Sync in the Azure portal
 
 -   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### Set up Data Sync with PowerShell
 
@@ -120,6 +122,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 -   Azure Active Directory authentication is not supported.
 
+-   Tables with same name but different schema (for example, dbo.customers and sales.customers) are not supported.
+
 #### Unsupported data types
 
 -   FileStream
@@ -143,7 +147,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | **Dimensions**                                                      | **Limit**              | **Workaround**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximum number of sync groups any database can belong to.       | 5                      |                             |
-| Maximum number of endpoints in a single sync group              | 30                     | Create multiple sync groups |
+| Maximum number of endpoints in a single sync group              | 30                     |                             |
 | Maximum number of on-premises endpoints in a single sync group. | 5                      | Create multiple sync groups |
 | Database, table, schema, and column names                       | 50 characters per name |                             |
 | Tables in a sync group                                          | 500                    | Create multiple sync groups |
@@ -151,6 +155,8 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
 |||
+> [!NOTE]
+> There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
 
 ## FAQ about SQL Data Sync
 

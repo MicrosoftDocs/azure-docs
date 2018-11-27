@@ -24,7 +24,7 @@ To run this sample, you must have an Azure Search service, which you can sign up
 We used the following software to build and test this sample:
 
 * [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Be sure to download the EE version. One of the verification steps requires a feature that is found only in this edition.
-* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 8u181](https://aka.ms/azure-jdks)
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## About the data

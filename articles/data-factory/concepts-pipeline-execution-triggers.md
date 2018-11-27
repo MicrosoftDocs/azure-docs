@@ -33,43 +33,43 @@ For example, say you have a basic pipeline named **copyPipeline** that you want 
 
 ```json
 {
-  "name": "copyPipeline",
-  "properties": {
-    "activities": [
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-        "name": "CopyBlobtoBlob",
-        "inputs": [
-          {
-            "referenceName": "sourceBlobDataset",
-            "type": "DatasetReference"
-          }
+    "name": "copyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "name": "CopyBlobtoBlob",
+                "inputs": [
+                    {
+                        "referenceName": "sourceBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "sinkBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
         ],
-        "outputs": [
-          {
-            "referenceName": "sinkBlobDataset",
-            "type": "DatasetReference"
-          }
-        ]
-      }
-    ],
-    "parameters": {
-      "sourceBlobContainer": {
-        "type": "String"
-      },
-      "sinkBlobContainer": {
-        "type": "String"
-      }
+        "parameters": {
+            "sourceBlobContainer": {
+                "type": "String"
+            },
+            "sinkBlobContainer": {
+                "type": "String"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -103,7 +103,7 @@ You pass parameters in the body of the request payload. In the .NET SDK, Azure P
 ```json
 {
   "sourceBlobContainer": "MySourceFolder",
-  "sinkBlobCountainer": "MySinkFolder"
+  "sinkBlobContainer": "MySinkFolder"
 }
 ```
 
@@ -143,12 +143,11 @@ Pipelines and triggers have a many-to-many relationship. Multiple triggers can k
 ### Basic trigger definition
 
 ```json
+{
     "properties": {
         "name": "MyTrigger",
         "type": "<type of trigger>",
-        "typeProperties": {
-            …
-        },
+        "typeProperties": {...},
         "pipelines": [
             {
                 "pipelineReference": {
@@ -158,13 +157,14 @@ Pipelines and triggers have a many-to-many relationship. Multiple triggers can k
                 "parameters": {
                     "<parameter 1 Name>": {
                         "type": "Expression",
-                          "value": "<parameter 1 Value>"
+                        "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
+                    "<parameter 2 Name>": "<parameter 2 Value>"
                 }
             }
         ]
     }
+}
 ```
 
 ## Schedule trigger
@@ -184,40 +184,39 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // How often to fire
+        "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": "UTC"
-        "schedule": {                    // Optional (advanced scheduling specifics)
+        "timeZone": "UTC",
+        "schedule": { // Optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
-          "weekDays": ": [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurences": [
-               {
-                    "day": <<Monday-Sunday>>,
-                    "occurrence": <<1-5>>
-               }
-           ] 
+            {
+              "day": <<Monday-Sunday>>,
+              "occurrence": <<1-5>>
+            }
+          ]
         }
       }
     },
-   "pipelines": [
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "<Name of your pipeline>"
-                },
-                "parameters": {
-                    "<parameter 1 Name>": {
-                        "type": "Expression",
-                        "value": "<parameter 1 Value>"
-                    },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
-                }
-           }
-      ]
-  }
+  "pipelines": [
+    {
+      "pipelineReference": {
+        "type": "PipelineReference",
+        "referenceName": "<Name of your pipeline>"
+      },
+      "parameters": {
+        "<parameter 1 Name>": {
+          "type": "Expression",
+          "value": "<parameter 1 Value>"
+        },
+        "<parameter 2 Name>": "<parameter 2 Value>"
+      }
+    }
+  ]}
 }
 ```
 

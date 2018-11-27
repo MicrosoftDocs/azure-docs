@@ -8,7 +8,7 @@ editor: jasonwhowell
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 09/26/2018
 ---
 
 # Connect an existing Azure App Service to Azure Database for MySQL server
@@ -19,24 +19,15 @@ Log in to the [Azure portal](https://portal.azure.com). Create an Azure Database
 
 Currently there are two solutions to enable access from an Azure App Service to an Azure Database for MySQL. Both solutions involve setting up server-level firewall rules.
 
-## Solution 1 - Create a firewall rule to allow all IPs
-Azure Database for MySQL provides access security using a firewall to protect your data. When connecting from an Azure App Service to Azure Database for MySQL server, keep in mind that the outbound IPs of App Service are dynamic in nature. 
-
-To ensure the availability of your Azure App Service, we recommend using this solution to allow ALL IPs.
-
-> [!NOTE]
-> Microsoft is working on a long-term solution to avoid allowing all IPs for Azure services to connect to Azure Database for MySQL.
+## Solution 1 - Allow Azure services
+Azure Database for MySQL provides access security using a firewall to protect your data. When connecting from an Azure App Service to Azure Database for MySQL server, keep in mind that the outbound IPs of App Service are dynamic in nature. Choosing the "Allow access to Azure services" option will allow the app service to connect to the MySQL server.
 
 1. On the MySQL server blade, under the Settings heading, click **Connection Security** to open the Connection Security blade for Azure Database for MySQL.
 
-   ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   ![Azure portal - click Connection Security](./media/howto-connect-webapp/1-connection-security.png)
 
-2. Enter **RULE NAME**, **START IP**, and **END IP**, and then click **Save**.
-   - Rule name: Allow-All-IPs
-   - Start IP: 0.0.0.0
-   - End IP: 255.255.255.255
-
-   ![Azure portal - Add all IPs](./media/howto-connect-webapp/1_2-add-all-ips.png)
+2. Select **ON** in **Allow access to Azure services**, then **Save**.
+   ![Azure portal - Allow Azure access](./media/howto-connect-webapp/allow-azure.png)
 
 ## Solution 2 - Create a firewall rule to explicitly allow outbound IPs
 You can explicitly add all the outbound IPs of your Azure App Service.

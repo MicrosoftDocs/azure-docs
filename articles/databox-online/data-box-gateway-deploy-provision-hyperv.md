@@ -1,21 +1,14 @@
 ---
 title: Tutorial on provision Azure Data Box Gateway in Hyper-V | Microsoft Docs
 description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in Hyper-V.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
-ms.custom:
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Provision Azure Data Box Gateway in Hyper-V (Preview)
@@ -70,7 +63,7 @@ Before you deploy a device, make sure that:
 Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
-- Make sure that the the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 
 ## Check the host system
@@ -83,7 +76,7 @@ To create a virtual device, you need:
 
     * A minimum of 4 cores.
     * At least 8 GB of RAM.
-    * One network interface connected to the network capable of routing traffic to Internet. .
+    * One network interface connected to the network capable of routing traffic to Internet. 
     * A 250 GB OS disk.
     * A 2 TB virtual disk for system data.
 
@@ -167,7 +160,7 @@ Perform the following steps to start your virtual device and connect to it.
    
 6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps. If you booted up your device in non-DHCP environment, you will see a message to the effect.
     
-7. To configure the network, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `DATA1`.
+7. To configure the network, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 8. Use the `Set-HcsIpAddress` cmdlet to configure the network. See the following example:
 
@@ -178,7 +171,7 @@ Perform the following steps to start your virtual device and connect to it.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-If your device does not meet the minimum configuration requirements, you see an error in the banner text. Modify the device configuration so that the machine has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+If your device does not meet the minimum configuration requirements, you see an error in the banner text. Modify the device configuration so that the machine has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Check the host system meets minimum virtual device requirements](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

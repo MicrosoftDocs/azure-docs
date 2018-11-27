@@ -3,7 +3,7 @@ title: Create a secure LDAP certificate for an Azure AD Domain Services manage d
 description: Create a secure LDAP certificate for an Azure AD Domain Services manage domain
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Create a .PFX file with the secure LDAP (LDAPS) certificate for a managed domain

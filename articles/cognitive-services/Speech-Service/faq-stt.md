@@ -1,12 +1,14 @@
 ---
 title: Frequently asked questions about the Speech to Text service in Azure
+titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about the Speech to Text service.
-titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
 ---
@@ -52,6 +54,12 @@ You can deploy baseline and customized models in the portal and then run accurac
 **A**: You can't update an existing model. As a solution, combine the old dataset with the new dataset and readapt.
 
 The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be redeployed to obtain a new endpoint
+
+**Q: When a new version of a baseline is available is my deployment automatically updated?**
+
+**A**: Deployments will NOT be automatically updated. 
+
+If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommision the deployed model, re-adapt using the newer version of the baseline and re-deploy.
 
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?** 
 

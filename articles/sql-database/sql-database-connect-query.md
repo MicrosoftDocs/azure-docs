@@ -2,17 +2,18 @@
 title: Azure SQL Database Connect and Query quickstarts | Microsoft Docs
 description: Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc
+ms.subservice: operations
+ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 04/24/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer: 
+manager: craigg
+ms.date: 11/01/2018
 ---
-
-# Azure SQL Database Connect and Query Quickstarts
+# Quickstarts: Azure SQL Database Connect and Query
 
 The following document includes links to Azure examples showing how to connect and query an Azure SQL database. It also provides some recommendations for Transport Level Security.
 

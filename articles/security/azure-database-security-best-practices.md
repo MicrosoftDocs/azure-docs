@@ -1,5 +1,4 @@
-﻿---
-
+---
 title: Azure database security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure database security.
 services: security
@@ -16,11 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-
 ---
 
 # Azure database security best practices
-Security is a top concern for managing databases, and it has always been a priority for [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
+Security is a top concern for managing databases, and it has always been a priority for [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
 
 In this article, we discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
@@ -70,22 +68,18 @@ Benefits include the following:
 
 > [!NOTE]
 > SQL Server authentication cannot use the Kerberos security protocol.
->
->
 
 If you use SQL Server authentication, you must:
 
 - Manage the strong credentials yourself.
 - Protect the credentials in the connection string.
-- (Potentially) protect the credentials passed over the network from the web server to the database. For more information, see [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+- (Potentially) protect the credentials passed over the network from the web server to the database. For more information, see [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### *Azure Active Directory (AD) authentication*
 Azure AD authentication is a mechanism of connecting to Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD. With Azure AD authentication, you can manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.
 
 > [!NOTE]
 > We recommend the use of Azure AD authentication over the use of SQL Server authentication.
->
->
 
 Benefits include the following:
 
@@ -110,12 +104,12 @@ The configuration steps include the following procedures to configure and use Az
 
 You can find detailed information in [Use Azure Active Directory authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## Protect your data by using encryption
-[Azure SQL Database transparent data encryption](https://msdn.microsoft.com/library/dn948096.aspx) helps protect data on disk and protects against unauthorized access to hardware. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. Transparent data encryption encrypts the storage of an entire database by using a symmetric key called the database encryption key.
+## Protect your data by using encryption and row-level security
+[Azure SQL Database transparent data encryption](../sql-database/transparent-data-encryption-azure-sql.md) helps protect data on disk and protects against unauthorized access to hardware. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. Transparent data encryption encrypts the storage of an entire database by using a symmetric key called the database encryption key.
 
 Even when the entire storage is encrypted, it’s important to also encrypt the database itself. This is an implementation of the defense-in-depth approach for data protection. If you’re using Azure SQL Database and want to protect sensitive data (such as credit card or social security numbers), you can encrypt databases with FIPS 140-2 validated 256-bit AES encryption. This encryption meets the requirements of many industry standards (for example, HIPAA and PCI).
 
-Files related to [buffer pool extension (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) are not encrypted when you encrypt a database by using transparent data encryption. You must use file-system-level encryption tools like [BitLocker](https://technet.microsoft.com/library/cc732774) or the [Encrypting File System (EFS)]() for BPE-related files.
+Files related to [buffer pool extension (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) are not encrypted when you encrypt a database by using transparent data encryption. You must use file-system-level encryption tools like [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) or the [Encrypting File System (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) for BPE-related files.
 
 Because an authorized user like a security administrator or a database administrator can access the data even if the database is encrypted with transparent data encryption, you should also follow these recommendations:
 
@@ -124,11 +118,11 @@ Because an authorized user like a security administrator or a database administr
 - Make sure that users and applications use separate accounts to authenticate. This way, you can limit the permissions granted to users and applications and reduce the risk of malicious activity.
 - Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter). Or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
-For other ways to encrypt your data, consider:
+For other ways to secure your data, consider:
 
-- [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
-- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), which allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access).
-- [Row-Level Security](https://msdn.microsoft.com/library/dn765131), which enables customers to control access to rows in a database table based on the characteristics of the user who is executing a query. (Example characteristics are group membership and execution context.)
+- [Cell-level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) to encrypt specific columns or even cells of data with different encryption keys.
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), which allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access).
+- [Row-Level Security](/sql/relational-databases/security/row-level-security), which enables customers to control access to rows in a database table based on the characteristics of the user who is executing a query. (Example characteristics are group membership and execution context.)
 
 Organizations that are not using database-level encryption might be more susceptible to attacks that compromise data located in SQL databases.
 

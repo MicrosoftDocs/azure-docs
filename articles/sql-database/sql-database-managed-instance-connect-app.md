@@ -1,15 +1,17 @@
 ---
 title: Azure SQL Database Managed Instance connect application | Microsoft Docs
 description: This article discusses how to connect your application to Azure SQL Database Managed Instance.
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
+manager: craigg
+ms.date: 09/14/2018
 ---
 
 # Connect your application to Azure SQL Database Managed Instance
@@ -53,7 +55,7 @@ If you've established on-premises to Azure connection successfully and you can't
 Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the Managed Instance VNet. To do so, configure a Point-to-Site connection to a VNet using native Azure certificate authentication. For more information, see  [Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer](sql-database-managed-instance-configure-p2s.md).
 
 ## Connect from on-premises with VNet peering
-Another scenario implemented by customers is where VPN gateway is installed in a separate virtual network and a subscription from the one hosting Managed Instance. The two virtual etworks are then peered. The following sample architecture diagram shows how this can be be implemented.
+Another scenario implemented by customers is where VPN gateway is installed in a separate virtual network and a subscription from the one hosting Managed Instance. The two virtual networks are then peered. The following sample architecture diagram shows how this can be implemented.
 
 ![VNet peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -76,6 +78,10 @@ A special case of connecting Azure App Service to Managed Instance is when you i
 This scenario is illustrated in the following diagram:
 
 ![integrated app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>The VNet Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in coexistence mode the VNet Integration does not work. If you need to access resources through an ExpressRoute connection, then you can use an App Service Environment, which runs in your VNet.
+>
  
 ## Troubleshooting connectivity issues
 
@@ -86,7 +92,7 @@ For troubleshooting connectivity issues, review the following:
 
    ![ingress/egress numbers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
 
-- Check that the client machine (that is running the VPN client) has route entries for all the Vnets that you need to access. The routes are stored in 
+- Check that the client machine (that is running the VPN client) has route entries for all the VNets that you need to access. The routes are stored in 
 `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
 

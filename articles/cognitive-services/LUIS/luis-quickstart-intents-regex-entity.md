@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Tutorial: 3. Extract well-formatted data
+# Tutorial 3: Extract well-formatted data
 In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
 
 The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
@@ -45,7 +45,7 @@ A regular expression is a good choice for this type of data when:
 > * Publish
 > * Get intents and entities from endpoint
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
 Continue with the app created in the last tutorial, named **HumanResources**. 
@@ -60,7 +60,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## FindForm intent
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Create new intent**. 
 
@@ -87,7 +87,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
     The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled with the type of number. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Regular expression entity 
 The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.

@@ -4,11 +4,6 @@ description: Learn how to use High Availability Ports for load balancing interna
 services: load-balancer
 documentationcenter: na
 author: rdhillon
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

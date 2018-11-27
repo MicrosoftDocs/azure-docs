@@ -2,12 +2,12 @@
 title: Tutorial - Build container images in the cloud with Azure Container Registry Tasks
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
 # container images in Azure, without having to install dependencies like Docker

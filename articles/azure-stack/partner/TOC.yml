@@ -4,48 +4,44 @@
   href: index.yml
   expanded: true
   items:
-  - name: Validation as a service for Azure Stack
+  - name: Validation as a Service for Azure Stack
     href: azure-stack-vaas-overview.md
   - name: Release notes
     href: azure-stack-vaas-release-notes.md
-    items:
-    - name: 2018-04-02 update 
-      href: azure-stack-partner-update-1803.md
-    - name: 2018-01-30 update 
-      href: azure-stack-partner-update-1802.md
-  - name: Known issues
-    href: azure-stack-vaas-known-issues.md
-- name: Quickstart
-  items:
-    - name: Schedule your first test pass
-      href: azure-stack-vaas-schedule-your-first-test.md
 - name: Tutorial
   items:
-  - name: Set up your account with Azure Stack Validation
-    href: azure-stack-vaas-set-up-account.md
-  - name: Automate Azure Stack validation with PowerShell
+  - name: Set up your resources
+    href: azure-stack-vaas-set-up-resources.md
+  - name: Automate Azure Stack Validation with PowerShell
     href: azure-stack-vaas-automate-with-powershell.md
-  - name: Validate a new Azure Stack solution
-    href: azure-stack-vaas-validate-solution-new.md
-  - name: Validate OEM packages
-    href: azure-stack-vaas-validate-oem-package.md
-  - name: Validate software updates from Microsoft
-    href: azure-stack-vaas-validate-microsoft-updates.md
-  - name: Test VMs
-    href: azure-stack-vaas-test-vm.md
+- name: How to guide
+  items:
+    - name: Schedule your first test
+      href: azure-stack-vaas-schedule-test-pass.md
+    - name: Deploy the local agent
+      href: azure-stack-vaas-local-agent.md
+    - name: Validate a new Azure Stack solution
+      href: azure-stack-vaas-validate-solution-new.md
+    - name: Create an OEM package
+      href: azure-stack-vaas-create-oem-package.md
+    - name: Validate OEM packages
+      href: azure-stack-vaas-validate-oem-package.md
+    - name: Validate software updates from Microsoft
+      href: azure-stack-vaas-validate-microsoft-updates.md
+    - name: Interactive feature verification testing
+      href: azure-stack-vaas-interactive-feature-verification.md
 - name: Concepts
   items:
-  - name: Monitor a test
+  - name: Key concepts
+    href: azure-stack-vaas-key-concepts.md
+  - name: Best practices
+    href: azure-stack-vaas-best-practice.md
+  - name: Monitor and manage tests in the VaaS portal
     href: azure-stack-vaas-monitor-test.md
-  - name: Validation configuration file
+  - name: Workflow common parameters
     href: azure-stack-vaas-parameters.md
-  - name: Test pass parameters
-    href: azure-stack-vaas-parameters-test.md
-  - name: Troubleshoot validation as a service
+  - name: Troubleshoot Validation as a Service
     href: azure-stack-vaas-troubleshoot.md
-- name: Reference
-  items:
-  - name: (Item coming from JH)
 - name: Related
   items:
   - name: Azure Stack Documentation

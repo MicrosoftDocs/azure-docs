@@ -1,5 +1,5 @@
 ---
-title: Passwordless Azure AD sign-in with the Microsoft Authenticator app (public preview)
+title: Password-less Azure AD sign-in with the Microsoft Authenticator app (public preview)
 description: Sign-in to Azure AD using the Microsoft Authenticator app without using your password (public preview)
 
 services: active-directory
@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: librown
 
 ---
-# Passwordless phone sign-in with the Microsoft Authenticator app (public preview)
+# Password-less phone sign-in with the Microsoft Authenticator app (public preview)
 
 The Microsoft Authenticator app can be used to sign in to any Azure AD account without using a password. Similar to the technology of [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device and uses a biometric or PIN.
 
@@ -34,15 +34,20 @@ For public preview, an admin must first add a policy via powershell to allow use
 
 ### Steps to enable
 
-1. Install the [public preview release of the Azure Active Directory V2 PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114).  
-2. In PowerShell, run two commands:
-   1. `Connect-AzureAD`
-      1. In the authentication dialog, sign in with an account in the tenant. The account must either be a Security Administrator or Global Administrator.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Ensure you have the latest version of the Public Preview release of Azure Active Directory V2 PowerShell Module. You may wish to uninstall and reinstall to confirm this by executing the following commands:
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+You can enable the password-less phone sign-in preview using the following PowerShell commands:
+
+1. `Connect-AzureAD`
+   1. In the authentication dialog, sign in with an account in the tenant. The account must either be a Security Administrator or Global Administrator.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## How do my end users enable phone sign-in?
 
-For public preview, there is no way to enforce users to create or use this new credential. An end user will only encounter passwordless sign-in once an admin as enabled their tenant and the user has updated their Microsoft Authenticator app to enable phone sign-in.
+For public preview, there is no way to enforce users to create or use this new credential. An end user will only encounter password-less sign-in once an admin as enabled their tenant and the user has updated their Microsoft Authenticator app to enable phone sign-in.
 
 > [!NOTE]
 > This capability has been in the app since March of 2017, so there is a possibility that when the policy is enabled for a tenant, users may encounter this flow immediately. Be aware and prepare your users for this change.
@@ -58,11 +63,11 @@ Once the user has the MFA account with push notifications set up in the Microsof
 
 ### AD FS Integration
 
-When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this process is if a login_hint is specified, a user will be auto-forwarded to AD FS, and bypass the option to use the passwordless credential.
+When a user has enabled the Microsoft Authenticator password-less credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this process is if a login_hint is specified, a user will be autoforwarded to AD FS, and bypass the option to use the password-less credential.
 
 ### Azure MFA server
 
-End users who are enabled for MFA through an organization’s on-premises Azure MFA server can still create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator with the credential, this change may result in an error.  
+End users who are enabled for MFA through an organization’s on-premises Azure MFA server can still create and use a single password-less phone sign-in credential. If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator with the credential, this change may result in an error.  
 
 ### Device Registration
 

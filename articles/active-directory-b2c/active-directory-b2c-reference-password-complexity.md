@@ -34,11 +34,10 @@ Here are the types of policies where password complexity can be configured:
 
 ## How to configure password complexity
 
-1. Follow these steps to [navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Open **Sign-up or sign-in polices**.
-1. Select a policy, and click **Edit**.
-1. Open **Password complexity**.
-1. Change the password complexity for this policy to **Simple**, **Strong**, or **Custom**.
+2. Select a policy, and click **Edit**.
+3. Open **Password complexity**.
+4. Change the password complexity for this policy to **Simple**, **Strong**, or **Custom**.
 
 ### Comparison Chart
 

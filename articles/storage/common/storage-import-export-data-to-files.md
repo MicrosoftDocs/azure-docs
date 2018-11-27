@@ -133,7 +133,7 @@ Perform the following steps to create an import job in the Azure portal.
     
     - Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). 
     - Select the storage account that the data will be imported into. 
-    - The drop-off location is automatically populated based on the region of the storage account selected.
+    - The dropoff location is automatically populated based on the region of the storage account selected.
    
        ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
@@ -144,7 +144,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you recieve notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
        ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 

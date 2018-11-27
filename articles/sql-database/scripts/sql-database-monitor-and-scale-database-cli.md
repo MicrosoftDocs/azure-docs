@@ -2,22 +2,17 @@
 title: CLI example-monitor-scale-single Azure SQL database | Microsoft Docs
 description: Azure CLI example script to monitor and scale a single Azure SQL database
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid:
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: performance
+ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer: 
+manager: craigg
+ms.date: 10/02/2018
 ---
-
 # Use CLI to monitor and scale a single SQL database
 
 This Azure CLI script example scales a single Azure SQL database to a different compute size after querying the size information of the database. 

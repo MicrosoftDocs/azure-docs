@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -15,7 +15,7 @@ Run Command uses the VM agent to run PowerShell scripts within an Azure Windows 
 
 ## Benefits
 
-There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines remotely using the VM agent. Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines remotely using the VM agent. Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) for Windows VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machines, and is one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open due to improper network or administrative user configuration.
 
@@ -27,9 +27,13 @@ The following restrictions apply when using Run Command:
 * The minimum time to run a script is about 20 seconds
 * Scripts run as System on Windows
 * One script at a time may run
+* Scripts that prompt for information (interactive mode) are not supported.
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
 * Outbound connectivity from the VM is required to return the results of the script.
+
+> [!NOTE]
+> To function correctly, the Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts may run successfully but not return the results. If you are blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
 
 ## Run a command
 

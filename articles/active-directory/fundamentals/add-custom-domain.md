@@ -24,12 +24,12 @@ Before you can add a custom domain name, you must create your domain name with a
 ## Create your directory in Azure AD
 After you get your domain name, you can create your first Azure AD directory.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Subscription owner account for the directory, and then select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) for your directory, using an account with the **Owner** role for the subscription, and then select **Azure Active Directory**. For more information about subscription roles, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
     ![Azure portal screen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
-    > If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox when you run the Azure AD Connect tool to synchronize your directories. You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
+    > If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox when you run the Azure AD Connect tool to synchronize your directories. You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 2. Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
@@ -80,7 +80,7 @@ After you register your custom domain name, you need to make sure it's valid in 
 
     ![Contoso page with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### Common verification issues
+## Common verification issues
 - If Azure AD can't verify a custom domain name, try the following suggestions:
     - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
 
@@ -88,7 +88,9 @@ After you register your custom domain name, you need to make sure it's valid in 
 
     If you can't update the record on the registrar site, you must share the entry with someone that has the right permissions to add the entry and verify it's accurate.
 
-- **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory, which means that if your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md). 
+- **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory, which means that if your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md).
+
+- **Make sure you don't have any unmanaged Power BI tenants.** If your users have activated Power BI through self-service sign-up and created an unmanaged tenant for your organization, you must take over management as an internal or external admin, using PowerShell. To learn more about how to take over an unmanaged directory, see [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Understand the Azure IoT Edge runtime | Microsoft Docs 
 description: Learn about the Azure IoT Edge runtime and how it empowers your edge devices
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/13/2018
 ms.topic: conceptual
@@ -18,17 +18,17 @@ The IoT Edge runtime performs the following functions on IoT Edge devices:
 
 * Installs and updates workloads on the device.
 * Maintains Azure IoT Edge security standards on the device.
-* Ensures that [IoT Edge modules][lnk-modules] are always running.
+* Ensures that [IoT Edge modules](iot-edge-modules.md) are always running.
 * Reports module health to the cloud for remote monitoring.
 * Facilitates communication between downstream leaf devices and IoT Edge devices.
 * Facilitates communication between modules on the IoT Edge device.
 * Facilitates communication between the IoT Edge device and the cloud.
 
-![IoT Edge runtime communicates insights and module health to IoT Hub][1]
+![IoT Edge runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-The responsibilities of the IoT Edge runtime fall into two categories: module management and communication. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
+The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
 
-Both the Edge agent and the Edge hub are modules, just like any other module running on an IoT Edge device. 
+Both the Edge hub and the Edge agent are modules, just like any other module running on an IoT Edge device. 
 
 ## IoT Edge hub
 
@@ -44,7 +44,7 @@ The Edge hub is not a full version of IoT Hub running locally. There are some th
 
 To reduce the bandwidth your IoT Edge solution uses, the Edge hub optimizes how many actual connections are made to the cloud. Edge hub takes logical connections from clients like modules or leaf devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. 
 
-![Edge hub acts as a gateway between multiple physical devices and the cloud][2]
+![Edge hub acts as a gateway between multiple physical devices and the cloud](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the Edge hub’s module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. 
 
@@ -52,7 +52,7 @@ Edge hub can determine whether it's connected to IoT Hub. If the connection is l
 
 Edge Hub facilitates module to module communication. Using Edge Hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages. A solution developer then stitches these inputs and outputs together so that the modules process data in the order specific to that solution. 
 
-![Edge Hub facilitates module-to-module communication][3]
+![Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 To send data to the Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on output1:
 
@@ -65,14 +65,16 @@ To send data to the Edge hub, a module calls the SendEventAsync method. The firs
 To receive a message, register a callback that processes messages coming in on a specific input. The following pseudocode registers the function messageProcessor to be used for processing all messages received on input1:
 
    ```csharp
-   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
+
+For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C and Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), or [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 The solution developer is responsible for specifying the rules that determine how Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to Edge hub in its device twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Routes between modules][4]
+![Routes between modules](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## IoT Edge agent
 
@@ -112,13 +114,4 @@ For more information about the Azure IoT Edge security framework, read about the
 
 ## Next steps
 
-[Understand Azure IoT Edge Certificates][lnk-certs]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-certs]: iot-edge-certs.md
+[Understand Azure IoT Edge Certificates](iot-edge-certs.md)

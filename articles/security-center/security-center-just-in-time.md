@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
 
 ---
@@ -107,6 +107,33 @@ Under **JIT VM access configuration**, you can also add and configure a new port
 > [!NOTE]
 >When JIT VM Access is enabled for a VM, Azure Security Center creates deny all inbound traffic rules for the selected ports in the network security groups associated with it. The rules will either be the top priority of your Network Security Groups, or lower priority than existing rules that are already there. This depends on an analysis performed by Azure Security Center that determines whether a rule is secure or not.
 >
+
+
+## Set just-in-time within a VM
+
+To make it easy to roll out just-in-time access across your VMs, you can set a VM to allow only just-in-time access directly from within the VM.
+
+1. In the Azure portal, select **Virtual machines**.
+2. Click on the virtual machine you want to limit to just-in-time access.
+3. In the menu, click **Configuration**.
+4. Under **Just-in-time-access** click **Enable just-in-time policy**. 
+
+This enables just-in-time access for the VM using the following settings:
+
+- Windows servers:
+    - RDP port 3389
+    - 3 hours of access
+    - Allowed source IP addresses is set to Per request
+- Linux servers:
+    - SSH port 22
+    - 3 hours of access
+    - Allowed source IP addresses is set to Per request
+     
+If a VM already has just-in-time enabled, when you go to its configuration page you will be able to see that just-in-time is enabled and you can use the link to open the policy in Azure Security Center to view and change the settings.
+
+![jit config in vm](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## Requesting access to a VM
 
 To request access to a VM:
@@ -231,7 +258,7 @@ In this article, you learned how just in time VM access in Security Center helps
 
 To learn more about Security Center, see the following:
 
-- [Setting security policies](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Setting security policies](security-center-azure-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.

@@ -12,7 +12,6 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-
 ---
 # How to get Azure Multi-Factor Authentication
 
@@ -20,6 +19,7 @@ When it comes to protecting your accounts, two-step verification should be stand
 
 > [!IMPORTANT]
 > This article is meant to be a guide to help you understand the different ways to buy Azure Multi-Factor Authentication. For specific details about pricing and billing, you should always refer to the [Multi-Factor Authentication pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>
 
 ## Available versions of Azure Multi-Factor Authentication
 
@@ -40,6 +40,7 @@ The following table provides a list of the features that are available in the va
 
 > [!NOTE]
 > This comparison table discusses the features that are part of each version of Multi-Factor Authentication. If you have the full Azure Multi-Factor Authentication service, some features may not be available depending on whether you use [MFA in the cloud or MFA on-premises](concept-mfa-whichversion.md).
+>
 
 | Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure AD Administrators | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
@@ -92,12 +93,14 @@ When using an Azure Multi-Factor Authentication Provider, there are two usage mo
   >
   > Billing example 2:
   > You have a mixture of users with licenses and users without, so you have a per-user Azure MFA Provider to make up the difference. There are 4,500 Enterprise Mobility + Security licenses on your tenant, but 5,000 users enabled for MFA. Your Azure subscription is billed for 500 users, prorated and reported daily as 16.13 users.
+  >
 
-2. **Per Authentication** - For enterprises that want to enable two-step verification for a large group of users who infrequently need authentication. Billing is based on the number of two-step verification requests, regardless of whether those verifications succeed or are denied. This billing appears on your Azure usage statement in packs of 10 authentications, and is reported daily.
+1. **Per Authentication** - For enterprises that want to enable two-step verification for a large group of users who infrequently need authentication. Billing is based on the number of two-step verification requests, regardless of whether those verifications succeed or are denied. This billing appears on your Azure usage statement in packs of 10 authentications, and is reported daily.
 
   > [!NOTE]
   > Billing example 3:
   > Today, the Azure MFA service received 3,105 two-step verification requests. Your Azure subscription is billed for 310.5 authentication packs.
+  >
 
 It's important to note that you can have licenses, but still get billed for consumption-based configuration. If you set up a per-authentication Azure MFA Provider, you are billed for every two-step verification request, even those done by users who have licenses. If you set up a per-user Azure MFA Provider on a domain that isn't linked to your Azure AD tenant, you are billed per enabled user even if your users have licenses on Azure AD.
 

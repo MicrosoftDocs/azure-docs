@@ -18,6 +18,8 @@
     href: quickstart-send-telemetry-java.md
   - name: Send telemetry (Python)
     href: quickstart-send-telemetry-python.md
+  - name: Send telemetry (Android)
+    href: quickstart-send-telemetry-android.md
   - name: Send telemetry (iOS)
     href: quickstart-send-telemetry-ios.md
   - name: Control a device (Node.js)
@@ -28,6 +30,8 @@
     href: quickstart-control-device-java.md
   - name: Control a device (Python)
     href: quickstart-control-device-python.md
+  - name: Control a device (Android)
+    href: quickstart-control-device-android.md
 - name: Tutorials
   items:
   - name: Routing messages
@@ -275,24 +279,14 @@
     - name: Use a physical device
       href: iot-hub-get-started-physical.md
       items:
-      - name: Raspberry Pi with Python
-        href: iot-hub-raspberry-pi-kit-python-get-started.md
       - name: Raspberry Pi with Node.js
         href: iot-hub-raspberry-pi-kit-node-get-started.md
       - name: Raspberry Pi with C
         href: iot-hub-raspberry-pi-kit-c-get-started.md
       - name: MXChip IoT DevKit with Arduino
         href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-      - name: Intel Edison with Node.js
-        href: iot-hub-intel-edison-kit-node-get-started.md
-      - name: Intel Edison with C
-        href: iot-hub-intel-edison-kit-c-get-started.md
       - name: Adafruit Feather HUZZAH ESP8266 with Arduino
         href: iot-hub-arduino-huzzah-esp8266-get-started.md
-      - name: Sparkfun ESP8266 Thing Dev with Arduino
-        href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-      - name: Adafruit Feather M0 with Arduino
-        href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
     - name: Use MXChip IoT DevKit
       items:
       - name: Translate voice message with Azure Cognitive Services
@@ -307,8 +301,6 @@
       items:
       - name: Manage cloud device messaging with Azure IoT Toolkit for VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-      - name: Save IoT Hub messages to Azure Blob storage
-        href: iot-hub-store-data-in-azure-table-storage.md
       - name: Data Visualization in Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Data Visualization with Web Apps
@@ -342,7 +334,7 @@
   - name: Node.js (Service)
     href: https://docs.microsoft.com/javascript/api/azure-iothub/
   - name: C device SDK
-    href: https://azure.github.io/azure-iot-sdk-c/index.html
+    href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
   - name: Azure IoT Edge
     href: http://azure.github.io/iot-edge/
   - name: REST (Device)
@@ -405,8 +397,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
   - name: Pricing

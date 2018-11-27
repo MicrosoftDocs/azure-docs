@@ -3,11 +3,10 @@ title: Azure Container Instances and container orchestration
 description: Understand how Azure container instances interact with container orchestrators.
 services: container-instances
 author: seanmck
-manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 10/05/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -51,16 +50,13 @@ For long-running, stable workloads, orchestrating containers in a cluster of ded
 
 Rather than scaling out the number of virtual machines in your cluster, then deploying additional containers onto those machines, the orchestrator can simply schedule the additional containers in Azure Container Instances, and delete them when they're no longer needed.
 
-## Sample implementation: Azure Container Instances Connector for Kubernetes
+## Sample implementation: Virtual Kubelet for Kubernetes
 
-To demonstrate how container orchestration platforms can integrate with Azure Container Instances, we have started building a [sample connector for Kubernetes][aci-connector-k8s].
+The [Virtual Kubelet][aci-connector-k8s] project demonstrates how container orchestration platforms can integrate with Azure Container Instances.
 
-The connector for Kubernetes mimics the [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances.
+Virtual Kubelet mimics the Kubernetes [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances.
 
 Connectors for other orchestrators could be built that similarly integrate with platform primitives to combine the power of the orchestrator API with the speed and simplicity of managing containers in Azure Container Instances.
-
-> [!WARNING]
-> The ACI connector for Kubernetes is *experimental* and should not be used in production.
 
 ## Next steps
 

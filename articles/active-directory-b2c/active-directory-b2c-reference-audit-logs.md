@@ -20,7 +20,7 @@ Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity i
 > [!IMPORTANT]
 > Audit logs are only retained for seven days. Plan to download and store your logs using one of the methods shown below if you require a longer retention period. 
 
-##Overview of activities available in the B2C category of audit logs
+## Overview of activities available in the B2C category of audit logs
 The **B2C** category in audit logs contains the following types of activities:
 |Activity type |Description  |
 |---------|---------|
@@ -34,11 +34,11 @@ The **B2C** category in audit logs contains the following types of activities:
 > [!NOTE]
 > For user object CRUD activities, refer to the **Core Directory** category.
 
-##Example activity
+## Example activity
 The example below shows the data captured when a user signs in with an external identity provider:
     ![Audit Logs - Example](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##Accessing audit logs through the Azure Portal
+## Accessing audit logs through the Azure Portal
 1. Go to the [Azure portal](https://portal.azure.com). Make sure you are in your B2C directory.
 2. Click on **Azure Active Directory** in the favorites bar on the left 
     
@@ -59,18 +59,18 @@ You will see a list of activities logged over the last seven days.
 - If you click on a specific row in the list, a contextual box on the right will show you additional attributes associated with the activity
 - Click on **Download** to download the activities as a csv file
 
-##Accessing audit logs through the Azure AD reporting API
+## Accessing audit logs through the Azure AD reporting API
 Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###Prerequisites
+### Prerequisites
 To authenticate to the Azure AD reporting API you first need to register an application. Make sure to follow the steps in [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###Accesing the API
+### Accesing the API
 To download the Azure AD B2C audit logs via the API, you'll want to filter the logs to the **B2C** category. To filter by category, use the query string parameter when calling the Azure AD reporting API endpoint, as shown below:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###PowerShell script
+### PowerShell script
 The following script provides an example of using PowerShell to query the Azure AD reporting API and store the results as a JSON file:
 
 ```powershell

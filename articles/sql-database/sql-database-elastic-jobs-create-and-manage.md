@@ -2,14 +2,16 @@
 title: Manage groups of Azure SQL databases | Microsoft Docs
 description: Walk through creation and management of an elastic job.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 07/16/2018
 ---
 # Create and manage scaled out Azure SQL databases using elastic jobs (preview)
 

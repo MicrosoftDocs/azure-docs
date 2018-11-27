@@ -1,18 +1,19 @@
 ---
-title: Custom Search SDK C# quickstart | Microsoft Docs
-titleSuffix: Cognitive Services
+title: "Quickstart: Custom Search SDK, C#"
+titleSuffix: Azure Cognitive Services
 description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
 ---
 
-# C# SDK quickstart
+# Quickstart: Using the Bing Custom Search SDK with C#
 
 The Bing Custom Search SDK provides an easier programming model than the Bing Custom Search REST API. This section walks you through making your first Custom Search calls using the C# SDK.
 
@@ -22,7 +23,7 @@ To complete this quickstart, you need:
 
 - A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).  
   
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
   
 - Visual Studio 2017 installed. If you don’t already have it, you can download the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
   
@@ -37,6 +38,9 @@ Installing the NuGet Custom Search package also installs the following assemblie
 
 
 ## Run the code
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 To run this example, follow these steps:
 

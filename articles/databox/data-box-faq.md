@@ -2,19 +2,12 @@
 title: Microsoft Azure Data Box FAQ | Microsoft Docs in data 
 description: Contains frquently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -112,18 +105,18 @@ A.
 A.-->
 
 ### Q. The system fault indicator LED on the front operating panel is on. What should I do?
-A. If the system fault indicator LED is on, it indicates that your system is not healthy. Contact Microsoft Support for next steps.
+A. If the system fault indicator LED is on, it indicates that your system is not healthy. [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md) for next steps.
 
 ### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
-A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
+A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have at least Data Box Operator role permission to see the access credentials.
 
 ## Track status
 
 ### Q. How do I track the Data Box from when I placed the order to shipping the device back? 
 A.  You can track the status of the Data Box order in the Azure portal. When you create the order, you are also prompted to provide a notification email. If you have provided one, then you are notified via email on all status changes of the order. More information on how to [Configure notification emails](data-box-portal-ui-admin.md#edit-notification-details).
 
-### Q. How do I return the disks? 
-A.  Microsoft displays a shipping label on the E Ink display. Affix the label to the shipping box and drop off the sealed package at your shipping carrier location. If the label is damaged or lost, go to **Overview > Download shipping label** and download a new return shipping label.
+### Q. How do I return the device? 
+A.  Microsoft displays a shipping label on the E-ink display. If the shipping label does not show up on the E-ink display, go to **Overview > Download shipping label**. Download and print the label, insert the label in the clear plastic tag on the device and drop off the device at your shipping carrier location. 
 
 ### Q. I received an email notification that my device has reached the Azure datacenter. How do I find out if the data upload is in progress?
 A. You can go to your Data Box order in the Azure portal and go to **Overview**. If the data upload to Azure has started, you will see the copy progress in the right pane. 
@@ -176,11 +169,11 @@ A. If your device has arrived damaged or there is evidence of tampering, do not 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
 
-### Q. E Ink display is not showing the return shipment label. What should I do?
-A. If the E-ink display is not showing the return shipment label, perform the following steps:
+### Q. E-ink display is not showing the return shipment label. What should I do?
+A. If the E-ink display doesn't show the return shipment label, perform the following steps:
 - Remove the old shipping label and any sticker from the previous shipping.
-- Go to your order in Azure portal. Go to Overview and download shipping label. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
-- Print the shipping label and insert it into the clear sleeve attached to the device. 
+- Go to your order in Azure portal. Go to **Overview** and **Download shipping label**. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
+- Print the shipping label and insert it into the clear plastic sleeve attached to the device. 
 - Ensure that the shipping label is clearly visible. 
 
 ### Q. How is my data protected during transit? 
@@ -199,12 +192,11 @@ A. Yes. You can turn on the device and add more data. You will need to run **Pre
 A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
-A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of these paths in your Azure Storage account:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
+A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following path in your Azure Storage account.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -	`https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
 A.  If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more information on best practices for naming shares, containers, files, go to: 
@@ -220,7 +212,7 @@ A.  Once the data copy to Azure is complete, the data from the disks on the Data
 ## Audit report
 
 ### How does Azure Data Box service help support customers chain of custody procedure?
-A.  Azure Data Box service natively provides reports that you can use for your chain of custody documentation. The audit and copy logs are available in your storage account in Azure and the order history can be downloaded in your order in the Azure portal after the order is complete.
+A.  Azure Data Box service natively provides reports that you can use for your chain of custody documentation. The audit and copy logs are available in your storage account in Azure and you can [download the order history](data-box-portal-admin.md#download-order-history) in the Azure portal after the order is complete.
 
 
 ### What type of reporting is available to support chain of custody?
@@ -233,7 +225,7 @@ A.  Following reporting is available to support chain of custody:
 - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
 ### Are the carrier tracking logs ( from UPS/DHL) available? 
-A.  Carrier tracking logs are captured in the Data Box audit log report. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
+A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
 A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS/DHL.

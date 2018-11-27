@@ -21,7 +21,7 @@ When communicating with the support team, it is important to include the build n
 
 ## Machine Learning MSDN Forum
 We have an MSDN Forum that you can post questions. The product team monitors the forum actively. 
-The forum URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+The forum URL is [https://aka.ms/aml-forum-service](https://aka.ms/aml-forum-service). 
 
 ## Gather diagnostics information
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. Here is where the log files live:

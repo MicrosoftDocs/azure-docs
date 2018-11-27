@@ -11,9 +11,9 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Query data from an Azure Cosmos DB Cassandra API account
+# Tutorial: Query data from an Azure Cosmos DB Cassandra API account
 
-This tutorial shows how to query user data from Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, user city. 
+This tutorial shows how to query user data from Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, user city. 
 
 This tutorial covers the following tasks:
 
@@ -23,59 +23,65 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md) and [load sample data into the table](cassandra-api-load-data.md). 
+* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table, and [load sample data into the table](cassandra-api-load-data.md). 
 
 ## Query data
 
-Open the `UserRepository.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. Append the following code block. This code provides three functions: to query all users in the database, to query a specific user filtered by user ID, and to delete a table. 
+Use the following steps to query data from your Cassandra API account:
 
-```java
-/**
-* Select all rows from user table
-*/
-public void selectAllUsers() {
+1. Open the `UserRepository.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. Append the following code block. This code provides three methods: 
 
-    final String query = "SELECT * FROM uprofile.user";
-    List<Row> rows = session.execute(query).all();
+   * To query all users in the database
+   * To query a specific user filtered by user ID
+   * To delete a table.
 
-    for (Row row : rows) {
-       LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-}
+   ```java
+   /**
+   * Select all rows from user table
+   */
+   public void selectAllUsers() {
 
-/**
-* Select a row from user table
-*
-* @param id user_id
-*/
-public void selectUser(int id) {
-    final String query = "SELECT * FROM uprofile.user where user_id = 3";
-    Row row = session.execute(query).one();
+     final String query = "SELECT * FROM uprofile.user";
+     List<Row> rows = session.execute(query).all();
 
-    LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-}
+     for (Row row : rows) {
+        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+     }
+   }
 
-/**
-* Delete user table.
-*/
-public void deleteTable() {
-   final String query = "DROP TABLE IF EXISTS uprofile.user";
-   session.execute(query);
-}
-```
+   /**
+   * Select a row from user table
+   *
+   * @param id user_id
+   */
+   public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-Open the `UserProfile.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. This class contains the main method that calls the createKeyspace and createTable, insert data methods you defined earlier. Now append the following code that queries all users or a specific user:
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+   }
 
-```java
-LOGGER.info("Select all users");
-repository.selectAllUsers();
+   /**
+   * Delete user table.
+   */
+   public void deleteTable() {
+     final String query = "DROP TABLE IF EXISTS uprofile.user";
+     session.execute(query);
+   }
+   ```
 
-LOGGER.info("Select a user by id (3)");
-repository.selectUser(3);
+2. Open the `UserProfile.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. This class contains the main method that calls the createKeyspace and createTable, insert data methods you defined earlier. Now append the following code that queries all users or a specific user:
 
-LOGGER.info("Delete the users profile table");
-repository.deleteTable();
-```
+   ```java
+   LOGGER.info("Select all users");
+   repository.selectAllUsers();
+
+   LOGGER.info("Select a user by id (3)");
+   repository.selectUser(3);
+
+   LOGGER.info("Delete the users profile table");
+   repository.deleteTable();
+   ```
 
 ## Run the Java app
 1. Open a command prompt or terminal window. Paste the following code block. 

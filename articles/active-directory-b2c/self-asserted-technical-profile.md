@@ -132,6 +132,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. | 
 | setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
+| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile . For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
 | SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
 
 ## Cryptographic keys

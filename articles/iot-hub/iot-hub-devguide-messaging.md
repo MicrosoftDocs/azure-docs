@@ -12,13 +12,13 @@ ms.author: dobett
 
 # Send device-to-cloud and cloud-to-device messages with IoT Hub
 
-IoT Hub allows for bi-directional communication with your devices. Use IoT Hub messaging to communicate with your devices by sending messages from your devices to your solutions back end and sending commands from the your IoT solutions back end to your devices. Learn more about the [IoT Hub message format](../iot-hub/iot-hub-devguide-messages-construct.md).
+IoT Hub allows for bi-directional communication with your devices. Use IoT Hub messaging to communicate with your devices by sending messages from your devices to your solutions back end and sending commands from your IoT solutions back end to your devices. Learn more about the [IoT Hub message format](iot-hub-devguide-messages-construct.md).
 
 ## Sending device-to-cloud messages to IoT Hub
 
-IoT Hub has a built-in service endpoint that can be used by back-end services to read telemetry messages from your devices. This endpoint is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) and you can use standard IoT Hub SDKs to [read from this built-in endpoint]((https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin)).
+IoT Hub has a built-in service endpoint that can be used by back-end services to read telemetry messages from your devices. This endpoint is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) and you can use standard IoT Hub SDKs to [read from this built-in endpoint](iot-hub-devguide-messages-read-builtin.md).
 
-IoT Hub also supports [custom endpoints](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) that can be defined by users to send device telemetry data and events to Azure services using [message routing](iot-hub-devguide-messages-d2c.md).
+IoT Hub also supports [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) that can be defined by users to send device telemetry data and events to Azure services using [message routing](iot-hub-devguide-messages-d2c.md).
 
 ## Sending cloud-to-device messages from IoT Hub
 
@@ -33,9 +33,11 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to your device app.
 
 * Refer to [Device-to-cloud communication guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance) to choose between device-to-cloud messages, reported properties, or file upload.
+
 * Refer to [Cloud-to-device communication guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) to choose between cloud-to-device messages, desired properties, or direct methods.
 
 ## Next steps
 
 * Learn about IoT Hub [message routing](iot-hub-devguide-messages-d2c.md).
+
 * Learn about IoT Hub [cloud-to-device messaging](iot-hub-devguide-messages-c2d.md).

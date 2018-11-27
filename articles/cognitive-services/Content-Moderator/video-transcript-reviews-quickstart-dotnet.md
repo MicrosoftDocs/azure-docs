@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - Create video transcript reviews using .NET | Microsoft Docs
-description: How to create video transcript reviews using Azure Content Moderator SDK for .NET
+title: Create video transcript reviews using .NET - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Create video transcript reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: sajagtap
 ---
@@ -111,9 +113,9 @@ Where indicated, replace the example values for these properties.
 	        /// </summary>
 	        /// <remarks>This must be the team name you used to create your 
 	        /// Content Moderator account. You can retrieve your team name from
-	        /// the Conent Moderator web site. Your team name is the Id associated 
+	        /// the Content Moderator web site. Your team name is the Id associated 
 	        /// with your subscription.</remarks>
-	        public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+	        private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
 	        /// <summary>
 	        /// The base URL fragment for Content Moderator calls.
@@ -143,7 +145,7 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
     {
     	return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-        	BaseUrl = AzureBaseURL
+        	Endpoint = AzureBaseURL
         };
     }
 
@@ -352,7 +354,7 @@ Add the **Main** method definition to namespace VideoTranscriptReviews, class Pr
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
 		}
 	}
 

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/26/2018
 ms.author: douglasl
 
 ---
@@ -101,7 +101,7 @@ The following table describes names and descriptions of properties that are spec
 | linkedServiceName     | Linked Service to Azure Batch. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  | Yes      |
 | command               | Command of the custom application to be executed. If the application is already available on the Azure Batch Pool Node, the resourceLinkedService and folderPath can be skipped. For example, you can specify the command to be `cmd /c dir`, which is natively supported by the Windows Batch Pool node. | Yes      |
 | resourceLinkedService | Azure Storage Linked Service to the Storage account where the custom application is stored | No       |
-| folderPath            | Path to the folder of the custom application and all its dependencies | No       |
+| folderPath            | Path to the folder of the custom application and all its dependencies<br/><br/>If you have dependencies stored in subfolders - that is, in a hierarchical folder structure under *folderPath* - the folder structure is currently flattened when the files are copied to Azure Batch. That is, all files are copied into a single folder with no subfolders. To work around this behavior, consider compressing the files, copying the compressed file, and then unzipping it with custom code in the desired location. | No       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
 
@@ -274,8 +274,8 @@ namespace SampleApp
   Activity Output section:
   "exitcode": 0
   "outputs": [
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
   ]
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
   Activity Error section:
@@ -288,7 +288,28 @@ If you would like to consume the content of stdout.txt in downstream activities,
 
   > [!IMPORTANT]
   > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. If needed, you need to clean them up separately. 
-  > - For Linked Services uses Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
+  > - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
+
+## Pass outputs to another activity
+
+You can send custom values from your code in a Custom Activity back to Azure Data Factory. You can do so by writing them into `outputs.json` from your application. Data Factory copies the content of `outputs.json` and appends it into the Activity Output as the value of the `customOutput` property. (The size limit is 2MB.) If you want to consume the content of `outputs.json` in downstream activities, you can get the value by using the expression `@activity('<MyCustomActivity>').output.customOutput`.
+
+## Retrieve SecureString outputs
+
+Sensitive property values designated as type *SecureString*, as shown in some of the examples in this article, are masked out in the Monitoring tab in the Data Factory user interface.  In actual pipeline execution, however, a *SecureString* property is serialized as JSON within the `activity.json` file as plain text. For example:
+
+```json
+"extendedProperties": {
+	"connectionString": {
+		"type": "SecureString",
+		"value": "aSampleSecureString"
+	}
+}
+```
+
+This serialization is not truly secure, and is not intended to be secure. The intent is to hint to Data Factory to mask the value in the Monitoring tab.
+
+To access properties of type *SecureString* from a custom activity, read the `activity.json` file, which is placed in the same folder as your .EXE, deserialize the JSON, and then access the JSON property (extendedProperties => [propertyName] => value).
 
 ## <a name="compare-v2-v1"></a> Compare v2 Custom Activity and version 1 (Custom) DotNet Activity
 

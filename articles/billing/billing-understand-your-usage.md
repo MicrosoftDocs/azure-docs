@@ -4,7 +4,7 @@ description: Learn how to read and understand the sections of your detailed usag
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 
@@ -83,7 +83,7 @@ shown in this section.
 |Consumed Service |The Azure platform service that you used |
 |Resource Group |The resource group in which the deployed meter is running in. <br/><br/>For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |Instance ID | The identifier for the meter. <br/><br/> The identifier contains the name you specify for the meter when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tags | Tag you assign to the meter. Use tags to group billing records.<br/><br/>For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Tags | Tag you assign to the meter. Use tags to group billing records.<br/><br/>For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
 |Service Info 1 |The project name that the service belongs to on your subscription |
 |Service Info 2 |Legacy field that captures optional service-specific metadata |

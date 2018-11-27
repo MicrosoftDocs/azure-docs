@@ -2,23 +2,17 @@
 title: PowerShell example-move Azure SQL database-SQL elastic pool | Microsoft Docs
 description: Azure PowerShell example script to move a SQL database between elastic pools using PowerShell
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-
-ms.assetid:
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/14/2018
+author: CarlRabeler
+ms.reviewer: 
 ms.author: carlrab
+manager: craigg
+ms.date: 09/14/2018
 ---
-
 # Use PowerShell to create elastic pools and move databases between elastic pools
 
 This PowerShell script example creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database compute size. 

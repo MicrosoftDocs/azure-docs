@@ -39,6 +39,8 @@
     href: container-registry-skus.md
   - name: Image storage
     href: container-registry-storage.md
+  - name: Content formats
+    href: container-registry-image-formats.md
   - name: Geo-replication
     href: container-registry-geo-replication.md
   - name: Registry best practices

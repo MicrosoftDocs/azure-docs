@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -25,7 +25,7 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 
 In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And with Azure Resource Manager [templates](../azure-resource-manager/resource-manager-create-first-template.md) and PowerShell, you can create servers using a declarative template. With a single template, you can deploy server resources along with other Azure components such as storage accounts and Azure Functions. 
 
-**Video:** Check out [Automating deployent](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) to learn more about how you can use Azure Automation to speed server creation.
+**Video:** Check out [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) to learn more about how you can use Azure Automation to speed server creation.
 
 Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) provides secure, role-based access to your critical data. Integrate with [Azure Data Factory](../data-factory/introduction.md) pipelines by including an activity that loads data into the model. [Azure Automation](../automation/automation-intro.md) and [Azure Functions](../azure-functions/functions-overview.md) can be used for lightweight orchestration of models using custom code. 
 
@@ -77,28 +77,34 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|East US 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|East US 2     |     S8, S9   |    1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|West US     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
-|West US2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
+|West US     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|West US     |    S8, S9   |    2  |
+|West US2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|West US2    |    S8, S9  |    1     |
 
 ### Europe
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West Europe     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
+|UK South     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|West Europe    |   S8, S9  |  1  |
 
 ### Asia Pacific 
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
+|Australia East     |    B1, B2, S0, S1, S2, S4     |    3     |
+|Australia East     |    S8, S9    |    1     |
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
@@ -124,7 +130,7 @@ Total cost depends on a number of factors; for example, your chosen region, tier
 
 Azure Analysis Services is compatible with many great features already in SQL Server Analysis Services Enterprise Edition. Azure Analysis Services supports tabular models at the 1200 and higher [compatibility levels](analysis-services-compat-level.md). Tabular models are relational modeling constructs (model, tables, columns), articulated in tabular metadata object definitions in Tabular Model Scripting Language (TMSL) and Tabular Object Model (TOM) code. Partitions, perspectives, row-level security, bi-directional relationships, and translations are all supported*. Multidimensional models and PowerPivot for Sharepoint *are not* supported in Azure Analysis Services.
 
-Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principle support, unattended refresh operations using PowerShell, TOM, TMSL and REST offer flexibilty in making sure your model data is always up to date. 
+Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principle support, unattended refresh operations using PowerShell, TOM, TMSL and REST offer flexibility in making sure your model data is always up to date. 
 
 DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited datasource types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
@@ -179,10 +185,11 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### SQL Server Data Tools (SSDT) for Visual Studio
+### Visual Studio
 
 Develop and deploy models with the free [SQL Server Data Tools (SSDT) for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT includes Analysis Services project templates that get you up and going quickly. SSDT now includes the modern Get Data datasource query and mashup functionality for tabular 1400 models. If you're familiar with Get Data in Power BI Desktop and Excel 2016, you already know how easy it is to create highly customized data source queries. 
-Microsoft Analysis Services Projects are also available for Visual Studio as an installable package VSIX. [Download from Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+
+If you're using Visual Studio 2017, Microsoft Analysis Services Projects are available as a free installable VSIX package. [Download from Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### Sql Server Management Studio
 

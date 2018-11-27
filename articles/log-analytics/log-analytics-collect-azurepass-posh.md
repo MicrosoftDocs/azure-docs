@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 10/23/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Configure collection of Azure PaaS resource metrics with Log Analytics
@@ -37,7 +37,7 @@ Verify you have the following Azure Resource Manager modules installed on your c
 To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## Enable Azure Diagnostics  
-Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  The script supports the following scenarios:
+Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  The script supports the following scenarios:
   
 * Specifying a resource related to one or more resource groups in a subscription  
 * Specifying a resource related to a specific resource group in a subscription  
@@ -76,7 +76,7 @@ You will be prompted to answer the same information as when you ran the script t
 
 ## Next steps
 
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 
 * Use [Custom Fields](log-analytics-custom-fields.md)( to parse the event records into individual fields.
 

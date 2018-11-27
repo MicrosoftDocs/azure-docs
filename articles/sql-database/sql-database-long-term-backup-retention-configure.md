@@ -2,22 +2,25 @@
 title: 'Manage Azure SQL Database long-term backup retention | Microsoft Docs' 
 description: "Learn how to store automated backups in the SQL Azure storage and then restore them"
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/18/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 10/24/2018
 ---
 # Manage Azure SQL Database long-term backup retention
 
-You can configure Azure SQL database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in Azure blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
+In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in Azure blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
+
+> [!IMPORTANT]
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
 
 ## Use the Azure portal to configure long-term retention policies and restore backups
-
 The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
 ### Configure long-term retention policies
@@ -71,6 +74,26 @@ The following sections show you how to use PowerShell to configure the long-term
 - [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) or newer
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) or newer
 > 
+
+### RBAC roles to manage long-term retention
+
+In order to manage LTR backups, you will need to be 
+- Subscription Owner or
+- SQL Server Contributor role in **Subscription** scope or
+- SQL Database Contributor role in **Subscription** scope
+
+If more granular control is required, you can create custom RBAC roles and assign them in **Subscription** scope. 
+
+For **Get-AzureRmSqlDatabaseLongTermRetentionBackup** and **Restore-AzureRmSqlDatabase** the role needs to have following permissions:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+For **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** the role need to have following permissions:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### Create an LTR policy
 
@@ -145,6 +168,9 @@ This example shows how to delete an LTR backup from the list of backups.
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> Deleting LTR backup is non-reversible. You can set up notifications about each delete in Azure Monitor by filtering for operation ‘Deletes a long term retention backup’. The activity log contains information on who and when made the request. See [Create activity log alerts](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) for detailed instructions.
+>
 
 ### Restore from LTR backups
 This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id. 

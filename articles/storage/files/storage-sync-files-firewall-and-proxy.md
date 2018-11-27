@@ -5,7 +5,7 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
 ---
@@ -41,7 +41,7 @@ Azure File Sync will work through any means available that allow reach into Azur
 ## Proxy
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 3.0.12.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
 ```PowerShell
@@ -95,6 +95,7 @@ The following table describes the required domains for communication:
 | **Azure Active Directory** | https://graph.windows.net/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
 | **Azure Storage** | &ast;.core.windows.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
+| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
 
 > [!Important]
 > When allowing traffic to &ast;.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.

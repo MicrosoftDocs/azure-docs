@@ -8,8 +8,8 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: 
+manager: benshy
 ---
 
 # Tutorial: Forecast future spending
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 
 Cloudyn includes cost projection reports to help you forecast spending based on your usage over time. Their primary purpose is to help you ensure that your cost trends do not exceed your organization's expectations. The reports you use are Current Month Projected Cost and Annual Projected Cost. Both show projected future spending if your usage remains relatively consistent with your last 30 days of usage.
 
-The Current Month Projected Cost report shows the costs of your services. It uses costs from the beginning of the month and the previous month to show the projected cost. On the reports menu at the top of the portal, click **Cost** > **Projection and Budget** > **Current Month Projected Cost**. The following image shows an example.
+The Current Month Projected Cost report shows the costs of your services. It uses costs from the beginning of the month and the previous month to show the projected cost. On the reports menu at the top of the portal, click **Costs** > **Projection and Budget** > **Current Month Projected Cost**. The following image shows an example.
 
 ![Current month projected cost](./media/tutorial-forecast-spending/project-month01.png)
 
@@ -42,7 +42,7 @@ Follow the same basic preceding steps to look at monthly cost projections for ot
 
 The Annual Projected Cost report shows the extrapolated cost of your services over the next 12 months.
 
-On the reports menu at the top of the portal, click **Cost** > **Projection and Budget** > **Annual Projected Cost**. The following image shows an example.
+On the reports menu at the top of the portal, click **Costs** > **Projection and Budget** > **Annual Projected Cost**. The following image shows an example.
 
 ![Annual projected cost report](./media/tutorial-forecast-spending/project-annual01.png)
 

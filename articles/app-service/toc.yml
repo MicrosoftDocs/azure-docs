@@ -94,12 +94,8 @@
     items:
     - name: Use app settings
       href: web-sites-configure.md
-    - name: Upload existing Java app
-      href: web-sites-java-add-app.md
     - name: Configure PHP
       href: web-sites-php-configure.md
-    - name: Python
-      href: web-sites-python-configure.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure
@@ -148,12 +144,14 @@
         href: app-service-mobile-how-to-configure-microsoft-authentication.md
       - name: Authenticate with Twitter
         href: app-service-mobile-how-to-configure-twitter-authentication.md
-    - name: Customize auth
+    - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict IPs
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
       href: app-service-managed-service-identity.md
+    - name: Reference secrets from Key Vault
+      href: app-service-key-vault-references.md
     - name: Use SSL cert in application code
       href: app-service-web-ssl-cert-load.md
     - name: Configure TLS mutual authentication

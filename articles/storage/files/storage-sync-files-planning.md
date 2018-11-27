@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
 ---
@@ -57,10 +57,7 @@ A cloud endpoint is an Azure file share that is part of a sync group. The entire
 > Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
 
 ### Cloud tiering 
-Cloud tiering is an optional feature of Azure File Sync in which infrequently used or accessed files greater than 64 KiB in size can be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point. The reparse point represents a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS so third-party applications can identify tiered files. When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
-
-> [!Important]  
-> Cloud tiering is not supported for server endpoints on the Windows system volumes.
+Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. For more information, see [Understanding Cloud Tiering](storage-sync-cloud-tiering.md).
 
 ## Azure File Sync system requirements and interoperability 
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
@@ -107,10 +104,11 @@ To display the results in CSV:
 ```
 
 ### System Requirements
-- A server running Windows Server 2012 R2 or Windows Server 2016:
+- A server running Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter and Standard | Full (server with a UI) |
     | Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
     | Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
 
@@ -189,27 +187,17 @@ Using sysprep on a server which has the Azure File Sync agent installed is not s
 If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
 
 ### Antivirus solutions
-Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
+Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically).
 
-The following solutions are known to support skipping offline files:
-
-- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender automatically skips reading files that have the offline attribute set. We have tested Defender and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
-- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - SCEP works the same as Defender; see above
-- [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
-- [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (see "Scan only what you need to" on page 90 of the PDF)
-- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
-- [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
-- [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
+Microsoft's in-house antivirus solutions, Windows Defender and System Center Endpoint Protection (SCEP), both automatically skip reading files that have this attribute set. We have tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
 
 ### Backup solutions
 Like antivirus solutions, backup solutions might cause the recall of tiered files. We recommend using a cloud backup solution to back up the Azure file share instead of an on-premises backup product.
 
-If you are using an on-premises backup solution, backups should be performed on a server in the sync group which has cloud tiering disabled. When restoring files within the server endpoint location, use the file level restore option. Files restored will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.
+If you are using an on-premises backup solution, backups should be performed on a server in the sync group which has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
 > [!Note]  
-> Application-aware, volume-level and bare-metal (BMR) restore options can cause unexpected results and are not currently supported. These restore options will be supported in a future release.
+> Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
@@ -240,7 +228,9 @@ Azure File Sync is available only in the following regions:
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
+| North Central US | Illinois |
 | North Europe | Ireland |
+| South Central US | Texas |
 | South India | Chennai |
 | Southeast Asia | Singapore |
 | UK South | London |
@@ -267,6 +257,7 @@ To support the failover integration between geo-redundant storage and Azure File
 | East US             | West US            |
 | East US 2           | Central US         |
 | North Europe        | West Europe        |
+| North Central US    | South Central US   |
 | South India         | Central India      |
 | Southeast Asia      | East Asia          |
 | UK South            | UK West            |

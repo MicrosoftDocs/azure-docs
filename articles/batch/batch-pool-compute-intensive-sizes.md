@@ -102,7 +102,7 @@ To configure a specialized VM size for your Batch pool, the Batch APIs and tools
 
 To run Windows MPI applications on a pool of Azure A8 nodes, you need to install a supported MPI implementation. Here are sample steps to install [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) on a Windows pool using a Batch application package.
 
-1. Download the [setup package](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) for the latest version of Microsoft MPI.
+1. Download the [setup package](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) for the latest version of Microsoft MPI.
 2. Create a zip file of the package.
 3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *MSMPI*, and a version such as *8.1*. 
 4. Using the Batch APIs or Azure portal, create a pool in the cloud services configuration with the desired number of nodes and scale. The following table shows sample settings to set up MPI in unattended mode using a start task:

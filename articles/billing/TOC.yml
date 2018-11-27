@@ -29,20 +29,20 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Set up billing alerts
-    href: billing-set-up-alerts.md
   - name: Save with Azure Reservations
     items:
     - name: What are Azure Reservations?
       href: billing-save-compute-costs-reservations.md
     - name: Buy a reservation
       items:
-      - name: Virtual machine
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux software
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: Virtual machine
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
       items:
       - name: Reserved VM Instances
@@ -61,6 +61,8 @@
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
+    - name: View Reservations
+      href: billing-view-reservations.md  
 - name: Manage account
   items:
   - name: Free account

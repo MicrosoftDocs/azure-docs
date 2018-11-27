@@ -26,7 +26,9 @@ ms.author: nachandr
 >
 >
 
-The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
+[Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating systems patched in Azure, and the Patch Orchestration Application (POA) is a wrapper around Service Fabrics RepairManager Systems service that enables configuration based OS patch scheduling for non-Azure hosted clusters. POA is not required for non-Azure hosted clusters, but scheduling patch installation by Upgrade Domains, is required to patch Service Fabric clusters hosts without downtime.
+
+POA is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
 
 The patch orchestration app provides the following features:
 
@@ -162,7 +164,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 1. Finish all the prerequisite steps to prepare the cluster.
 2. Deploy the patch orchestration app like any other Service Fabric app. You can deploy the app by using PowerShell. Follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. To configure the application at the time of deployment, pass the `ApplicationParamater` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
+3. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
 
     - Connect to a Service Fabric cluster by using `Connect-ServiceFabricCluster`.
     - Execute the PowerShell script Deploy.ps1 with the appropriate `ApplicationParameter` value.

@@ -84,7 +84,7 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, omits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
  
 ```JSON
 {
@@ -105,11 +105,11 @@ The **Mask** element contains the following attributes:
 | Type | Yes | The type of the claim mask. Possible values: `Simple` or `Regex`. The `Simple` value indicates that a simple text mask is applied to the leading portion of a string claim. The `Regex` value indicates that a regular expression is applied to the string claim as whole.  If the `Regex` value is specified, an optional attribute must also be defined with the regular expression to use. |
 | Regex | No | If **Type** is set to `Regex`, specify the regular expression to use.
 
-The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
+The following example configures a **PhoneNumber** claim with the `Simple` mask:
 
 ```XML
 <ClaimType Id="PhoneNumber">
-  <DisplayName>Phone</DisplayName>
+  <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
   <Mask Type="Simple">XXX-XXX-</Mask>  
   <UserHelpText>Your telephone number.</UserHelpText>
@@ -120,7 +120,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 ![Using claim type with mask](./media/claimsschema/mask.png)
 
-The follwing example configures a **AlternateEmail** claim with the `Regex` mask:
+The following example configures a **AlternateEmail** claim with the `Regex` mask:
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -264,7 +264,7 @@ The **Password** user input type is used to record a password entered by the use
 
 ### DateTimeDropdown
 
-The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year.
+The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year. You can use Predicates and PredicateValidations elements to control the minimum and maximum date values. For more information, see the **Configure a date range** section of [Predicates and PredicateValidations](predicates.md).
 
 ![Using claim type with datetimedropdown](./media/claimsschema/datetimedropdown.png)
 

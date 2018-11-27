@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ---
 
@@ -27,12 +27,18 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
     ![Associate Log Analytics workspace](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-- The associated workspace is tagged with the key **Migration Project**, and value **project name, which you can use to search in the Azure portal.
+- The associated workspace is tagged with the key **Migration Project**, and value **project name**, which you can use to search in the Azure portal.
 - To navigate to the workspace associated with the project, you can go to **Essentials** section of the project **Overview** page and access the workspace
 
     ![Navigate Log Analytics workspace](./media/concepts-dependency-visualization/oms-workspace.png)
 
 To use dependency visualization, you need to download and install agents on each on-premises machine that you want to analyze.  
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine.
+- The [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) needs to be installed on each machine.
+- In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
+
+You don't need these agents on machines you want to assess unless you're using dependency visualization.
 
 ## Do I need to pay for it?
 
@@ -57,5 +63,5 @@ You can use the Log Analytics workspace outside Azure Migrate. It's not deleted 
 Don't delete the workspace created by Azure Migrate, unless you delete the migration project. If you do, the dependency visualization functionality will not work as expected.
 
 ## Next steps
-
-[Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
+- [Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.

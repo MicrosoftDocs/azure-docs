@@ -13,22 +13,22 @@ ms.date: 09/24/2018
 
 # Configure your automated machine learning experiment
 
-Automated machine learning picks an algorithm for you and generates a model ready for deployment. The model can be downloaded to be further customized as well. There are several options that you can use to configure automated machine learning experiments. In this guide, you will learn how to define various configuration settings.
+Automated machine learning (automated ML) picks an algorithm and hyperparameters for you and generates a model ready for deployment. The model can be downloaded to be further customized as well. There are several options that you can use to configure Automated ML experiments. In this guide, you will learn how to define various configuration settings.
 
-To view examples of an automated machine learning, see [Tutorial: Automatically train a classification model](tutorial-auto-train-models.md) or [Train models automatically in the cloud](how-to-auto-train-remote.md).
+To view examples of an automated ML, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
 
 Configuration options available in automated machine learning:
 
 * Select your experiment type, e.g.,  Classification, Regression 
 * Data source, formats, and fetch data
 * Choose your compute target (local or remote)
-* `AutoML` experiment settings
-* Run `AutoML` experiment
+* Automated ML experiment settings
+* Run an automated ML experiment
 * Explore model metrics
 * Register and deploy model
 
 ## Select your experiment type
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports two categories of supervised learning: Classification and Regression. Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated ML supports two categories of supervised learning: Classification and Regression. Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 Classification | Regression
 --|--
 sklearn.linear_model.LogisticRegression	| sklearn.linear_model.ElasticNet
@@ -46,8 +46,8 @@ sklearn.ensemble.GradientBoostingClassifier	|
 lightgbm.LGBMClassifier	|
 
 
-## Data source and format for `AutoML` experiment
-`AutoML` supports data that resides on your local desktop or in the cloud in Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into 1) Numpy arrays X (features) and y (target variable or also known as label) or 2) Pandas dataframe. 
+## Data source and format
+Automated ML supports data that resides on your local desktop or in the cloud in Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into 1) Numpy arrays X (features) and y (target variable or also known as label) or 2) Pandas dataframe. 
 
 Examples:
 
@@ -74,9 +74,9 @@ Examples:
 
 ## Fetch data for running experiment on remote compute
 
-If you are using a remote compute to run your AutoML experiment, the data fetch must be wrapped in a separate python script `GetData()`. This script is run on the remote compute where the AutoML experiment is run. `GetData` eliminates the need to fetch the data over the wire for each iteration. Without `GetData`, your experiment will fail when you run on remote compute.
+If you are using a remote compute to run your experiment, the data fetch must be wrapped in a separate python script `get_data()`. This script is run on the remote compute where the automated ML experiment is run. `get_data` eliminates the need to fetch the data over the wire for each iteration. Without `get_data`, your experiment will fail when you run on remote compute.
 
-Here is an example of `GetData`:
+Here is an example of `get_data`:
 
 ```python
 %%writefile $project_folder/get_data.py 
@@ -95,13 +95,13 @@ def get_data(): # Burning man 2016 data
     return { "X" : df, "y" : y }
 ```
 
-In your `AutoMLConfig` object, you specify the `data_script` parameter and provide the path to the `GetData` script file similar to below:
+In your `AutoMLConfig` object, you specify the `data_script` parameter and provide the path to the `get_data` script file similar to below:
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "./get_data.py", **** )
+automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`GetData` script can return the following:
+`get_data` script can return the following:
 Key	| Type |	Mutually Exclusive with	| Description
 ---|---|---|---
 X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
@@ -135,17 +135,17 @@ Use custom validation dataset if random split is not acceptable (usually time se
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated machine learning training experiment runs on a compute target that you own and manage. 
+Next determine where the model will be trained. An automated ML training experiment runs on a compute target that you own and manage. 
 
 Compute options supported are:
 1.	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
 2.	A remote machine in the cloud – [Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) running Linux – You have a large dataset and want to scale up to a large machine that is available in the Azure Cloud. 
-3.	Azure Batch AI cluster –  A managed cluster that you can set up to scale out and run AutoML iterations in parallel. 
+3.	Azure Batch AI cluster –  A managed cluster that you can set up to scale out and run Automated ML iterations in parallel. 
 
-
+<a name='configure-experiment'/>
 ## Configure your experiment settings
 
-There are several knobs that you can use to configure your AutoML experiment. These parameters are set by instantiating an `AutoMLConfig` object.
+There are several knobs that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object.
 
 Some examples include:
 
@@ -187,7 +187,7 @@ Property |	Description	| Default Value
 `max_time_sec` |	Limits the amount of time (seconds) a particular iteration takes. If an iteration exceeds the specified amount, that iteration gets canceled. If not set, then the iteration continues to run until it is finished. |	None
 `n_cross_validations`	|Number of cross validation splits|	None
 `validation_size`	|Size of validation set as percentage of all training sample.|	None
-`preprocess` | True/False <br/>True enables experiment to perform preprocessing on the input. Following is a subset of preprocessing<li>Missing Data: Imputes the missing data- Numberical with Average, Text with most occurance </li><li>Categorical Values: If data type is numeric and number of unique values is less than 5 percent, Converts into one-hot encoding </li><li>Etc. for complete list check [the GitHub repository](https://aka.ms/aml-notebooks)</li><br/>Note : if data is sparse you cannot use preprocess = true |	False |	
+`preprocess` | True/False <br/>True enables experiment to perform preprocessing on the input. Following is a subset of preprocessing<li>Missing Data: Imputes the missing data- Numerical with Average, Text with most occurrence </li><li>Categorical Values: If data type is numeric and number of unique values is less than 5 percent, Converts into one-hot encoding </li><li>Etc. for complete list check [the GitHub repository](https://aka.ms/aml-notebooks)</li><br/>Note : if data is sparse you cannot use preprocess = true |	False |	
 `blacklist_algos`	| Automated ML experiment has many different algorithms that it tries. Configure Automated ML to exclude certain algorithms from the experiment. Useful if you are aware that algorithm(s) do not work well for your dataset. Excluding algorithms can save you compute resources and training time.<br/>Allowed values for Classification<br/><li>logistic regression</li><li>SGD classifier</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra trees</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>Allowed values for Regression<br/><li>Elastic net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso lars</li><li>SGD regressor</li><li>RF regressor</li><li>extra trees regressor</li>|	None
 `verbosity`	|Controls the level of logging with INFO being the most verbose and CRITICAL being the least.<br/>Allowed values are:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>	| logging.INFO</li> 
 `X`	| All features to train with |	None
@@ -200,7 +200,7 @@ Property |	Description	| Default Value
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
 
 
-## Run `AutoML` experiment
+## Run experiment
 
 Next, we can initiate the experiment to run and generate a model for us. Pass the `AutoMLConfig` to the `submit` method to generate the model.
 
@@ -214,13 +214,12 @@ run = experiment.submit(automl_config, show_output=True)
 
 
 ## Explore model metrics
-You can view your results in a widget or inline if you are in a notebook. See details to “Track and evaluate models”. (ensure AML content contains relevant information to AutoML)
+You can view your results in a widget or inline if you are in a notebook. See details to “Track and evaluate models”. (ensure AML content contains relevant information to automated ML)
 
 The following metrics are saved in each iteration
 * AUC_macro
 * AUC_micro
 * AUC_weighted
-* AUC_weighted_max
 * accuracy
 * average_precision_score_macro
 * average_precision_score_micro
@@ -242,3 +241,5 @@ The following metrics are saved in each iteration
 ## Next steps
 
 Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+
+Learn more about [how to train a classification model with Automated ML](tutorial-auto-train-models.md) or [how to train using Automated ML on a remote resource](how-to-auto-train-remote.md). 

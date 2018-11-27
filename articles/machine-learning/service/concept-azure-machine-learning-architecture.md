@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
 
-# Architecture and concepts: How does Azure Machine Learning service work? 
+# How the Azure Machine Learning service works: architecture and concepts
 
 This document describes the architecture and concepts for the Azure Machine Learning service. The following diagram shows the major components of the service, and illustrates the general workflow when using the service: 
 
-[![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning Service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 The workflow generally follows these steps:
 
@@ -37,7 +37,7 @@ The workflow generally follows these steps:
 
 ## Workspace
 
-The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning.
+The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning Service.
 
 The workspace keeps a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. This information is used to determine which training run produces the best model.
 
@@ -67,15 +67,15 @@ The following diagram is a taxonomy of the workspace:
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning workspace.
+A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning service workspace.
 
-Azure Machine Learning is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
+Azure Machine Learning Service is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
-For an example of training a model, see the [Quickstart: Create a machine learning workspace](quickstart-get-started.md) document.
+For an example of training a model, see the [Quickstart: Create a machine learning Service workspace](quickstart-get-started.md) document.
 
 ### Model registry
 
-The model registry keeps track of all the models in your Azure Machine Learning workspace. 
+The model registry keeps track of all the models in your Azure Machine Learning service workspace. 
 
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it is a new version. The version is incremented and the new model is registered under the name.
 
@@ -139,7 +139,7 @@ A run is a record that contains the following information:
 
 * Metadata about the run (timestamp, duration etc.)
 * Metrics logged by your script
-* Output files auto-collected by the experiment, or explicitly uploaded by you.
+* Output files autocollected by the experiment, or explicitly uploaded by you.
 * A snapshot of the directory that contains your scripts, prior to the run
 
 A run is produced when you submit a script to train a model. A run can have zero or more child runs. So the top-level run might have two child runs, each of which may have their own child runs.
@@ -152,16 +152,28 @@ An experiment is a grouping of many runs from a given script. It always belongs 
 
 For an example of using an experiment, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
+## Pipeline
+
+Machine learning pipelines are used to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inferencing phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets.
+
+For more information on machine learning pipelines with this service, see the article [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
+
 ## Compute target
 
-A compute target is the compute resource used to run your training script or host your web service deployment. The supported compute targets are: 
+A compute target is the compute resource used to run your training script or host your service deployment. The supported compute targets are: 
 
-* Your local computer
-* A Linux VM in Azure (such as the Data Science Virtual Machine)
-* Azure Batch AI Cluster
-* Apache Spark for HDInsight
-* Azure Container Instance
-* Azure Kubernetes Service
+| Compute target | Training | Deployment |
+| ---- |:----:|:----:|
+| Your local computer | ✓ | &nbsp; |
+| A Linux VM in Azure</br>(such as the Data Science Virtual Machine) | ✓ | &nbsp; |
+| Azure Batch AI Cluster | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Apache Spark for HDInsight | ✓ | &nbsp; |
+| Azure Container Instance | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
 
 Compute targets are attached to a workspace. Compute targets other than the local machine are shared by users of the workspace.
 
@@ -183,7 +195,7 @@ For example run configurations, see the [Select and use a compute target to trai
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example of using scripts to train a model, see [Create a workspace with Python](quickstart-get-started.md)
+For an example, see [Create a workspace with Python](quickstart-get-started.md)
 
 ## Logging
 

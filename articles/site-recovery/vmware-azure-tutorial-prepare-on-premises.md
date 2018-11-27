@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -16,7 +16,10 @@ ms.custom: MVC
 [Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
 - This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
-- Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. 
+
+
+> [!NOTE]
+> Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions , refer to **How To's** section for the corresponding scenario.
 
 In this article, we show you how to prepare your on-premises VMware environment when you want to replicate VMware VMs to Azure using Azure Site Recovery. You learn how to:
 
@@ -94,7 +97,7 @@ To connect to Windows VMs using RDP after failover, do the following:
 - There should be no Windows updates pending on the VM when you trigger a failover. If there are, you won't be able to log in to the virtual
    machine until the update completes.
 - On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review these
-   [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+   [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 To connect to Linux VMs using SSH after failover, do the following:
 
@@ -105,11 +108,13 @@ To connect to Linux VMs using SSH after failover, do the following:
 - [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md) for the VM.
 - You can check **Boot diagnostics** to view a screenshot of the VM.
 
+
+## Failback requirements
+If you plan to fail back to you onr-premises, you also need to ensure that certain [prerequisites are met](vmware-azure-reprotect.md##before-you-begin). These are however **not required to get started with enabling disaster recovery** for your VMs, and can be done after failover to Azure as well.
+
 ## Useful links
 
 If you're  replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).
-
-
 
 ## Next steps
 

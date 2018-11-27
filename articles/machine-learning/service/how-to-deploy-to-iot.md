@@ -22,7 +22,7 @@ Before deploying a model to an edge device, use the steps in this document to pr
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 * An Azure Machine Learning service workspace. To create one, use the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
@@ -30,7 +30,7 @@ Before deploying a model to an edge device, use the steps in this document to pr
 
 * An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
 
-* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document.
+* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ## Prepare the IoT device
 
@@ -38,21 +38,21 @@ To learn how to register your device and install the IoT runtime, follow the ste
 
 ## Register the model
 
-Azure IoT Edge modules are based on container images. To deploy your model to an IoT Edge device, use the following steps to register your model on an Azure Machine Learning workspace and create a Docker image. 
-
-> [!IMPORTANT]
-> If you used Azure Machine Learning to train your model it may already be registered in your workspace, in this case skip step 3.
+Azure IoT Edge modules are based on container images. To deploy your model to an IoT Edge device, use the following steps to register your model on an Azure Machine Learning service workspace and create a Docker image. 
 
 1. Initialize the workspace and load the config.json file:
 
     ```python
     from azureml.core  import Workspace
 
-    #Load existing workspace from the the config file info.
+    #Load existing workspace from the config file info.
     ws  = Workspace.from_config()
     ```    
 
 1. Register the model into your workspace. Replace the default text with your model path, name, tags, and description:
+
+    > [!IMPORTANT]
+    > If you used Azure Machine Learning to train the model, it may already be registered in the workspace. If so, skip this step. To see a list of models registered with this workspace, use `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
@@ -117,7 +117,7 @@ Azure IoT needs the credentials for the container registry that Azure Machine Le
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
-1. Go to your Azure Machine Learning workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
+1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
 
     ![An image of the container registry entry](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

@@ -26,11 +26,11 @@
        href: concept-azure-ad-connect-sync-declarative-provisioning.md
      - name: Understanding Declarative Provisioning Expressions
        href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-     - name: Understanding the defualt configuration
+     - name: Understanding the default configuration
        href: concept-azure-ad-connect-sync-default-configuration.md
      - name: Understanding users and contacts
        href: concept-azure-ad-connect-sync-user-and-contacts.md
-     - name: Understandingr shadow attributes
+     - name: Understanding shadow attributes
        href: how-to-connect-syncservice-shadow-attributes.md
    - name: Identity synchronization and duplicate attribute resiliency
      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
@@ -78,8 +78,12 @@
       href: plan-connect-design-concepts.md
     - name: Topologies for Azure AD Connect
       href: plan-connect-topologies.md
+    - name: Factors influencing the performance of Azure AD Connect
+      href: plan-connect-performance-factors.md
     - name: How will users sign-in
       href: plan-connect-user-signin.md
+    - name: Azure AD UserPrincipalName population
+      href: plan-connect-userprincipalname.md
     - name: Special considerations for instances
       href: reference-connect-instances.md
     - name: Hybrid Identity Design Considerations
@@ -126,12 +130,16 @@
       href: how-to-connect-sync-feature-prevent-accidental-deletes.md
     - name: Enable AD recycle bin
       href: how-to-connect-sync-recycle-bin.md
+    - name: Configure the AD DS Connector account
+      href: how-to-connect-configure-ad-ds-connector-account.md
     - name: Change the Azure ADSync service account password
       href: how-to-connect-sync-change-serviceacct-pass.md
     - name: Change the Azure AD Connector account
       href: how-to-connect-azureadaccount.md
-    - name: Change the AD DS account password
+    - name: Change the AD DS Connector account password
       href: how-to-connect-sync-change-addsacct-pass.md
+    - name: What is the ADConnectivityTools PowerShell module?
+      href: how-to-connect-adconnectivitytools.md
   - name: Manage Federation Services
     items:
     - name: What is federation with Azure AD Connect?
@@ -144,10 +152,12 @@
       href: how-to-connect-fed-single-adfs-multitenant-federation.md
     - name: Renew federation certificates for O365 and Azure AD 
       href: how-to-connect-fed-o365-certs.md
-    - name: Update the SSL cerfictate for AD FS
+    - name: Update the SSL certificate for AD FS
       href: how-to-connect-fed-ssl-update.md
     - name: Manage the AD FS trust with Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Change hash algorithm for O365 RP
+      href: how-to-connect-fed-sha256-guidance.md
     - name: Azure AD federation compatibility list
       href: how-to-connect-fed-compatibility.md
     - name: Use a SAML 2.0 server as your Idp
@@ -162,6 +172,8 @@
       href: how-to-connect-pta-quick-start.md
     - name: How pass-through authentication works
       href: how-to-connect-pta-how-it-works.md
+    - name: Pass-through authentication current limitations
+      href: how-to-connect-pta-current-limitations.md
     - name: Security deep dive on pass-through authentication
       href: how-to-connect-pta-security-deep-dive.md
     - name: Pass-through authentication and user privacy
@@ -192,7 +204,7 @@
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
       href: how-to-connect-health-adds.md
-    - name: Health sevice data out-of-date
+    - name: Health service data out-of-date
       href: how-to-connect-health-data-freshness.md
     - name: Diagnose duplicate attribute sync errors
       href: how-to-connect-health-diagnose-sync-errors.md
@@ -282,3 +294,11 @@
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD federation compatibility list
     href: how-to-connect-fed-compatibility.md
+  - name: TLS 1.2 enforcement
+    href: reference-connect-tls-enforcement.md
+  - name: ADSyncConfig Reference
+    href: reference-connect-adsyncconfig.md
+  - name: ADSyncTools Reference
+    href: reference-connect-adsynctools.md
+  - name: ADConnectivityTools Reference
+    href: reference-connect-adconnectivitytools.md

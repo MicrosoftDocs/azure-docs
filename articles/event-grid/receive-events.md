@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/01/2018
 ms.author: babanisa
 ---
 
@@ -313,16 +313,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-var t = require('tcomb');
-
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function begun');
     var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
     var storageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
     var customEventType = "Contoso.Items.ItemReceived";
-    var ContosoItemReceivedEventData = t.struct({
-        itemSku: t.Str
-    })
 
     for (var events in req.body) {
         var body = req.body[events];
@@ -341,14 +336,12 @@ module.exports = function (context, req) {
         }
 
         else if (body.data && body.eventType == customEventType) {
-            var payload = new ContosoItemReceivedEventData(body.data);
+            var payload = body.data;
             context.log("Relaying received custom payload:" + JSON.stringify(payload));
-            context.log(payload instanceof ContosoItemReceivedEventData);
         }
     }
     context.done();
 };
-
 ```
 
 ### Test custom event handling

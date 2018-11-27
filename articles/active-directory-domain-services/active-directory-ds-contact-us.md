@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Contact Us | Microsoft Docs'
 description: Contact the Azure AD Domain Services product team
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/23/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Azure AD Domain Services - Contact Us

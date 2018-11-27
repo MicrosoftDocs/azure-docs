@@ -1,5 +1,5 @@
 ---
-title: Load Balancer TCP Reset on idle timeout | Microsoft Docs
+title: Load Balancer TCP Reset on Idle | Microsoft Docs
 description: Load Balancer with bidirectional TCP RST packets on idle timeout
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 10/08/2018
 ms.author: kumud
 ---
 
-# Load Balancer with TCP Reset on idle timeout (Public Preview)
+# Load Balancer with TCP Reset on Idle (Public Preview)
 
 You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios with bidirectional TCP Resets (TCP RST packet) for each configurable idle timeout.  Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.
 
@@ -71,6 +71,8 @@ This parameter is currently effective in the following regions.  In regions not 
 
 | Region |
 |---|
+| Asia Southeast |
+| Europe West |
 | US East 2 |
 | US North |
 | US West |
@@ -85,4 +87,4 @@ This table will be updated as the preview is expanded to other regions.
 ## Next steps
 
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn about [outbound rules](https://aka.ms/lboutboundrules).
+- Learn about [outbound rules](load-balancer-outbound-rules-overview.md).

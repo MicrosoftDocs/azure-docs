@@ -3,9 +3,10 @@ title: Rebuild a Contoso on-premises app to Azure | Microsoft Docs
 description: Learn how Contoso rebuilds an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
 ---
 
@@ -30,7 +31,8 @@ This document is one in a series of articles that show how the fictitious compan
 [Article 10: Refactor a Linux app to Azure Web Apps and Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the Linux osTicket app to Azure Web Apps in multiple sites, integrated with GitHub for continuous delivery. They migrate the app database to an Azure MySQL instance. | Available
 [Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates the on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app to Azure containers and SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
-Article 13: Rebuild an app to Azure | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | This article.
+Article 13: Rebuild an app to Azure | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | This article
+[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -132,7 +134,7 @@ Here's how Contoso will run the migration:
 > * **Step 1: Provision AKS and ACR**: Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
 > * **Step 2: Build Docker containers**: They set up CI for Docker containers using Azure DevOps, and push them to the ACR.
 > * **Step 3: Deploy back-end microservices**: They deploy the rest of the infrastructure that will be leveraged by back-end microservices.
-> * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, inlcuding blob storage for the pet phones, the Cosmos DB, and Vision API.
+> * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, including blob storage for the pet phones, the Cosmos DB, and Vision API.
 > * **Step 5: Migrate the back end**: They deploy microservices and run on AKS, to migrate the back end.
 > * **Step 6: Publish the front end**: They publish the SmartHotel360 app to the Azure App service, and the Function App that will be called by the pet service.
 
@@ -488,7 +490,7 @@ Now Contoso admins configure the Web App to use Contoso resources.
 
     ![Json settings](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the storage blog they created earlier.
+5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the blob storage they created earlier.
 
     ![Rename and upload](./media/contoso-migration-rebuild/configure-webapp3.png)
 
@@ -538,7 +540,7 @@ Contoso admins can now publish the website.
 
     ![New environment](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-14. They select **Azure App Service deployment with slot**, and name the enviroment **Prod**.
+14. They select **Azure App Service deployment with slot**, and name the environment **Prod**.
 15. They click on **1 job, 2 tasks**, and select the subscription, app service name, and the **staging** slot.
 
     ![Environment name](./media/contoso-migration-rebuild/vsts-publishfront10.png)

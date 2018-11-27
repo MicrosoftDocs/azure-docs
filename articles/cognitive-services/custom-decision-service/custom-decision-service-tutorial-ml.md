@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
+ms.author: slivkins
 ---
 
 # Tutorial: Featurization and feature specification

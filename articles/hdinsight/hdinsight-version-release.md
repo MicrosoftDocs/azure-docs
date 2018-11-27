@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ---
 
 # HDInsight 4.0 overview (Preview)
@@ -88,6 +88,12 @@ There is no supported upgrade path from previous versions of HDI to HDI 4.0. Bec
 * HDI 4.0 does not support MapReduce. Use Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 
 * Hive View is no longer available in HDI 4.0. 
+
+* Shell interpreter in Apache Zeppelin is not supported in Spark and Interactive Query clusters.
+
+* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
+
+* Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
 
 ## Next steps
 

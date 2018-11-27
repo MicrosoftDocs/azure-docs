@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
 
 ---
@@ -25,7 +25,7 @@ ms.author: anwestg
 Before you deploy Azure App Service on Azure Stack, you must complete the prerequisite steps in this article.
 
 > [!IMPORTANT]
-> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.3.
+> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.4.
 
 ## Download the installer and helper scripts
 
@@ -41,6 +41,10 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
    - Remove-AppService.ps1
    - Modules folder
      - GraphAPI.psm1
+
+## Syndicate the Custom Script Extension from the Marketplace
+
+Azure App Service on Azure Stack requires Custom Script Extension v1.9.0.  The extension must be [syndicated from the Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) before starting the deployment or upgrade of Azure App Service on Azure Stack
 
 ## High availability
 
@@ -58,7 +62,7 @@ Open an elevated PowerShell session on a computer that can reach the privileged 
 
 Run the *Get-AzureStackRootCert.ps1* script from the folder where you extracted the helper scripts. The script creates a root certificate in the same folder as the script that App Service needs for creating certificates.
 
-When you run the following PowerShell command you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
+When you run the following PowerShell command, you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -148,6 +152,9 @@ The certificate for identity must contain a subject that matches the following f
 
 ## Virtual network
 
+> [!NOTE]
+> The pre-creation of a custom virtual network is optional as the Azure App Service on Azure Stack can create the required virtual network but will then need to communicate with SQL and File Server via Public IP Addresses.
+
 Azure App Service on Azure Stack lets you deploy the resource provider to an existing virtual network or lets you create a virtual network as part of the deployment. Using an existing virtual network enables the use of internal IPs to connect to the file server and SQL server required by Azure App Service on Azure Stack. The virtual network must be configured with the following address range and subnets before installing Azure App Service on Azure Stack:
 
 Virtual Network - /16
@@ -164,12 +171,20 @@ Subnets
 
 Azure App Service requires the use of a file server. For production deployments, the file server must be configured to be highly available and capable of handling failures.
 
+### Quickstart template for File Server for deployments of Azure App Service on ASDK.
+
 For Azure Stack Development Kit deployments only, you can use the [example Azure Resource Manager deployment template](https://aka.ms/appsvconmasdkfstemplate) to deploy a configured single-node file server. The single-node file server will be in a workgroup.
 
->[!IMPORTANT]
-> If you choose to deploy App Service in an existing Virtual Network the File Server should be deployed into a separate Subnet from App Service.
+### Quickstart template for Highly Available File Server and SQL Server
 
-### Provision groups and accounts in Active Directory
+A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available, which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.  
+
+### Steps to deploy a Custom File Server
+
+>[!IMPORTANT]
+> If you choose to deploy App Service in an existing Virtual Network, the File Server should be deployed into a separate Subnet from App Service.
+
+#### Provision groups and accounts in Active Directory
 
 1. Create the following Active Directory global security groups:
 
@@ -192,7 +207,7 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
    - Add **FileShareOwner** to the **FileShareOwners** group.
    - Add **FileShareUser** to the **FileShareUsers** group.
 
-### Provision groups and accounts in a workgroup
+#### Provision groups and accounts in a workgroup
 
 >[!NOTE]
 > When you're configuring a file server, run all the following commands from an **Administrator Command Prompt**. <br>***Don't use PowerShell.***
@@ -222,7 +237,7 @@ When you use the Azure Resource Manager template, the users are already created.
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### Provision the content share
+#### Provision the content share
 
 The content share contains tenant website content. The procedure to provision the content share on a single file server is the same for both Active Directory and Workgroup environments. But it's different for a failover cluster in Active Directory.
 
@@ -307,7 +322,7 @@ Follow these steps:
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted, enter the Azure AD tenant ID that you're using for your Azure Stack deployment. For example, enter **myazurestack.onmicrosoft.com**.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Select **OK**.
-6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 7. The script creates a new application in the tenant Azure AD instance. Make note of the application ID that's returned in the PowerShell output. You need this information during installation.
 8. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com) as the Azure Active Directory service admin.
 9. Open the Azure AD resource provider.
@@ -347,11 +362,11 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-ADFSIdentityApp.ps1** script.
 5. In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
-6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

@@ -1,14 +1,14 @@
 ---
-title: Default insights tag | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Provides details about the default insights that Visual Search returns about an image.
+title: Default insights tag - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Provides details about the default insights that Bing Visual Search returns about an image.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
 ---

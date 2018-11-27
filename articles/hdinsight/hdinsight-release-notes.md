@@ -3,13 +3,13 @@ title: Release notes for Azure HDInsight
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Release notes for Azure HDInsight
