@@ -53,7 +53,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
    * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
    * **src**: The directory that contains the **main/java/com/microsoft/examples** directory, where you author the application.
 
-3. Delete the `src/test/java/com/microsoft/examples/apptest.java` file. It is not used in this example.
+3. Delete the `src/test/java/com/microsoft/examples/apptest.java` file. It isn't used in this example.
 
 ## Update the Project Object Model
 
