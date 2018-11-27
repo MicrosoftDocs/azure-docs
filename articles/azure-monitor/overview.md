@@ -44,7 +44,7 @@ The Log Analytics query language is suitable for simple log queries but also inc
 ![Logs](media/overview/logs.png)
 
 ## What data does Azure Monitor collect?
-Azure Monitor can collect data from a variety of sources. You can think of monitoring data for your applications in tiers ranging from your application, any operating and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
+Azure Monitor can collect data from a variety of sources. You can think of monitoring data for your applications in tiers ranging from your application, any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
 - **Application monitoring data**: Data about the performance and functionality of the code you have written, regardless of its platform.
 - **Guest OS monitoring data**: Data about the operating system on which your application is running. This could be running in Azure, another cloud, or on-premises. 
@@ -54,7 +54,7 @@ Azure Monitor can collect data from a variety of sources. You can think of monit
 
 As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) record when resources are created or modified. [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) tell you how the resource is performing and the resources that it's consuming. 
 
-Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and [adding an agent](../log-analytics/log-analytics-agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](../log-analytics/log-analytics-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
+Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and [adding an agent](../log-analytics/log-analytics-agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](../azure-monitor/platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
