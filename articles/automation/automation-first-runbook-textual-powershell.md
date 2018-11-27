@@ -77,11 +77,11 @@ The runbook that you created is still in Draft mode. you need to publish it befo
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using a Run As connection that is automatically created when you create your automation account. You use the Run As connection with the **Connect-AzureRmAccount** cmdlet. If you are managing resources across multiple subscriptions you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
    ```powershell
-   $ServicePrincipalConnection = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $ServicePrincipalConnection.TenantID `
--ApplicationID $ServicePrincipalConnection.ApplicationID -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+   $connection = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $connection.SubscriptionID
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
    ```
@@ -91,16 +91,16 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 3. Type or copy and paste the following code that handles the authentication with your Automation Run As account:
 
    ```powershell
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
-   -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   $connection = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+   -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
    ```
 
    > [!IMPORTANT]
    > **Add-AzureRmAccount** and **Login-AzureRmAccount** are now  aliases for **Connect-AzureRMAccount**. If the **Connect-AzureRMAccount** cmdlet does not exist, you can use **Add-AzureRmAccount** or **Login-AzureRmAccount**, or you can update your modules in your Automation Account to the latest versions.
 
 4. Click **Test pane** so that you can test the runbook.
-5. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br><br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+5. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the Run As Account is valid.<br><br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Step 6 - Add code to start a virtual machine
 Now that your runbook is authenticating to your Azure subscription, you can manage resources. You add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now you hardcode that name in the runbook.
@@ -108,9 +108,9 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
 1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
    
    ```powershell
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
-   -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   $connection = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+   -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
    <br>
@@ -127,9 +127,9 @@ Your runbook currently starts the virtual machine that you hardcoded in the runb
     [string]$VMName,
     [string]$ResourceGroupName
    )
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
-   -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   $connection = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+   -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    ```
    <br>
