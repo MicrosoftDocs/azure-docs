@@ -23,7 +23,7 @@ The term **Log Alerts** describes alerts that fire based on a custom query in [L
 
 Here are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
 
-## Data Ingestion time for Logs
+### Data Ingestion time for Logs
 Log alert periodically runs your query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
 To mitigate data ingestion delay, the system waits and retries the alert query multiple times if it finds the needed data is not yet ingested. The system has an exponentially increasing wait time set. The log alert only triggers after the data is available so they delay could be due to slow log data ingestion. 
