@@ -21,18 +21,18 @@
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
-  - name: Image classification with MNIST data
+  - name: Image classification (MNIST data)
     items:
-    - name: 1. Train models
+    - name: 1. Train a model
       href: tutorial-train-models-with-aml.md
-    - name: 2. Deploy models
+    - name: 2. Deploy a model
       href: tutorial-deploy-models-with-aml.md
-  - name: Regression with NYC Taxi data
+  - name: Regression (NYC Taxi data)
     items:
-    - name: 1. Data prep
+    - name: 1. Prep data for modeling
       href: tutorial-data-prep.md
-    - name: 2. Train automated ML models 
-      displayName: automl
+    - name: 2. Auto-train an ML model
+      displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
 - name: Samples
   items:

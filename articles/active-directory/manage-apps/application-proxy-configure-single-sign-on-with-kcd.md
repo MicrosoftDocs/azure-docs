@@ -141,5 +141,5 @@ But, in some cases, the request is successfully sent to the backend application 
 * [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+For the latest news and updates, check out the [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
 
