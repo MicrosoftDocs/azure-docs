@@ -1,11 +1,10 @@
 # Overview
 ## [About Windows SQL Server VMs](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Release notes](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Quickstarts
 ## [Create SQL VM - Portal](quickstart-sql-vm-create-portal.md)
 ## [Create SQL VM - PowerShell](quickstart-sql-vm-create-powershell.md)
-
-# [Release notes](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 # Concepts
 ## Best practices
