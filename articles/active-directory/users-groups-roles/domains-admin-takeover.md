@@ -104,7 +104,11 @@ For [RMS for individuals](/azure/information-protection/rms-for-individuals), wh
 
 The key and templates are not moved over when the unmanaged tenant is in a different region. For example, the unmanaged tenant is in Europe and the tenant you own is in North American. 
 
-Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content will not be accessible after the domain takeover.    
+Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content will not be accessible after the domain takeover.
+
+## More information about Power BI
+
+When you perform an external takeover, Power BI content that was created before the takeover is placed in a [Power BI Archived Workspace](service-admin-power-bi-archived-workspace.md). You must manually migrate any content that you want to use in the new tenant.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
 You can see these cmdlets used in [PowerShell example](#powershell-example).
