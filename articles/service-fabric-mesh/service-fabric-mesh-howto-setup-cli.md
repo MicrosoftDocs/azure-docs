@@ -58,25 +58,7 @@ In order to use the Maven CLI, the following needs to be installed on your machi
 
 The Maven CLI for Service Fabric is still in preview. 
 
-1. Clone the following repository on your machine
-
-```bash
-git clone https://github.com/rapatchi/servicefabric-mvn-cli.git 
-```
-
-2. Change to the following working directory
-
-```bash
-cd servicefabric-mvn-cli/sf-mesh-maven-plugin/
-```
-
-3. Run the Maven install command to install the plugin 
-
-```bash
-mvn install 
-```
-
-4. To use the Maven plugin in your Maven Java app, add the following snippet to your pom.xml file:
+1. To use the Maven plugin in your Maven Java app, add the following snippet to your pom.xml file:
 
 ```XML
 <project>
@@ -88,7 +70,7 @@ mvn install
       <plugin>
         <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-sf-maven-plugin</artifactId>
-          <version>1.0.0-beta</version>
+          <version>0.1.0</version>
           <configuration>
             ...
           </configuration>
@@ -98,7 +80,7 @@ mvn install
 </project>
 ```
 
-Read the Maven CLI reference section to learn about detailed usage.
+Read the [Maven CLI reference](service-fabric-mesh-reference-maven.md) section to learn about detailed usage.
 
 ## Next steps
 
