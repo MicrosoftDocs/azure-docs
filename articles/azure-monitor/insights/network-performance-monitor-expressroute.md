@@ -112,6 +112,29 @@ This view shows virtual network connections. 
 
 Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues are listed here. 
 
+You can see the notification codes and set alerts on them via LogAnalytics
+In NPM Diagnostics page, you would see Descriptions for every diagnostics message triggered.
+
+| Notification Code (Logs) | Description |
+| --- | --- |
+| 5101 | Microsoft Edge subinterface's shows high latency |
+| 5102 | Microsoft Edge subinterface's is dropping the package | 
+| 5103 | ExpressRoute gateway is unhealthy | 
+| 5201 | Service provider's link shows high latency |
+| 5202 | Packets are not flowing from intended ExpressRoute circuit |
+| 5301 | Customer edge router shows high latency | 
+| 5302 | The latency is caused due to device/link in customer's environment. The issue doesn't seem to be in ExpressRoute circuit | 
+| 5501 | Unable to traverse through secondary connection of ExpressRoute circuit |
+| 5502 | Unable to traverse through primary connection of ExpressRoute circuit |
+| 5503 | No circuit is found for subscription linked to the workspace | 
+| 5506 | Utilization is reaching its maximum capacity | 
+| 5507 | Utilization is low |
+| 5508 | Not able to determine whether traffic is passing through any circuit(s) for path |
+| 5510 | The traffic is not passing through the intended circuit | 
+| 5511 | The traffic is not passing through the intended virtual network | 
+| 5512 | Unable to determine whether the traffic is passing through the intended circuit |
+
+
 **Circuit is down.** Network Performance Monitor notifies you as soon as the connectivity between your on-premises resources and Azure virtual networks is lost. This notification helps you take proactive action before you receive user escalations and reduce downtime.
 
 ![ExpressRoute circuit is down](media/network-performance-monitor-expressroute/expressroute-circuit-down.png)
