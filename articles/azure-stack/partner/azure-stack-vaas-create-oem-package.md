@@ -19,7 +19,7 @@ ms.reviewer: John.Haskin
 
 # Create an OEM package
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 The Azure Stack OEM Extension Package is the mechanism by which OEM specific content is added to Azure Stack infrastructure, for use in deployment as well as operational processes like update, expansion, and field replacement.
 
