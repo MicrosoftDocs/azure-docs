@@ -28,9 +28,7 @@ The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Py
 The SDK streams data rather than loading it into memory, which allows you to avoid performance bottlenecks as your data set size increases. Most importantly, the **exact same code** you write to process data on a small-scale can be used to work with data at a large-scale. For small data sets, the SDK offers you practicality and convenience with small data sets. And for big data applications, the SDK enables you to scale easily.  
 
 The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more
-flexibility. 
-
-Other tools are typically either:
+flexibility. _Other tools_ are typically either:
 * Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point
 * Strength in processing large data sets, but carry an overhead that slows work with small data sets
 
