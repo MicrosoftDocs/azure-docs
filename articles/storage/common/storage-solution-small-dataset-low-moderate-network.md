@@ -45,25 +45,20 @@ The options recommended in this scenario are:
 
 The following table summarizes the differences in key capabilities.
 
-| Feature                                                            | Azure Storage Explorer                    | Azure portal (Blob storage or <br> Data Lake Storage Gen1) | AzCopy<br>PowerShell<br>Azure CLI            | Azure Storage REST APIs/SDKs/Azure client libraries |
+| Feature                                                            | Azure Storage Explorer                    | Azure portal  | AzCopy            | Azure Storage REST APIs/SDKs |
 |----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Availability                                                       | Download and install <br>Standalone tool | Web-based exploration tools in Azure portal           | Command line tool |                                                         |
+| Availability                                                       | Download and install <br>Standalone tool | Web-based exploration tools in Azure portal           | Command line tool |Programmable interfaces in .NET, Java, Python, JavaScript, C++, Go, Ruby and PHP                                                         |
 | Graphical   interface                                              | Yes                                       | Yes                                                     | No                | No                                                      |
-| Supported   platforms                                              | Windows, Mac, Linux                       | Web-based     |<li> AzCopy, Azure CLI - Windows, Mac, Linux </li><li> Windows PowerShell - Windows     |                                                         |
-| Allowed Blob storage operations<br>for blobs and folders            | Copy<br>Upload<br>Download<br>Manage    | Copy<br>Upload<br>Download<br>Manage  | Copy              |                                                         |
-| Allowed Data Lake Gen1 storage<br>operations for files and folders  | Upload                                    | Upload                                                  |                   |                                                         |
-| Allowed File storage operations<br>for files and directories        | Copy                                      | No                                                      | Copy              |                                                         |
-| Allowed Table storage operations<br>for tables                      | Upload                                    | No            |||
-| Allowed Azure Cosmos DB storage                                    | Upload                                    | No  |||
-| Allowed Queue storage                                              | Upload                                    | No  |||
-| Pricing                                                            | Free, data egress charges may apply    |  Free, data egress charges may apply  |  ||
+| Supported   platforms                                              | Windows, Mac, Linux                       | Web-based     |Windows, Mac, Linux     |All platforms                                                         |
+| Allowed Blob storage operations<br>for blobs and folders            | Upload<br>Download<br>Manage    | Upload<br>Download<br>Manage  |Upload<br>Download<br>Manage             | Yes, customizable                                                        |
+| Allowed Data Lake Gen1 storage<br>operations for files and folders  | Upload<br>Download<br>Manage                | No |Upload<br>Download<br>Manage                   |      No                                                   |
+| Allowed File storage operations<br>for files and directories        | Upload<br>Download<br>Manage       | Upload<br>Download<br>Manage   |Upload<br>Download<br>Manage |                                                         |Yes, customizable
+| Allowed Table storage operations<br>for tables                      |Manage                            | No            |Table support in AzCopy v7 |Yes, customizable|
+| Allowed Queue storage                                              | Manage                                    | No  |No | Yes, is customizable|
 
 
 ## Next steps
 
-- [Learn how to transfer data with Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
-- Understand how to
+- Learn how to [transfer data with Azure Storage Explorer](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
+- [Transfer data with AzCopy](storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 
-    - [Transfer data with Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Transfer data with Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
- 
