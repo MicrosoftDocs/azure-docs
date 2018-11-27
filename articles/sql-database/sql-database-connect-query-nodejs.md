@@ -43,11 +43,11 @@ To complete this sample, make sure you have the following prerequisites:
 
 Open a command prompt and create a folder named *sqltest*. Navigate to the folder you created and run the following command:
 
-```bash
-npm init -y
-npm install tedious
-npm install async
-```
+  ```bash
+  npm init -y
+  npm install tedious
+  npm install async
+  ```
 
 ## Add code to query database
 
