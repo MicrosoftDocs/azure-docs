@@ -4,7 +4,7 @@ description: Provides the solution for a problem in which No subscriptions found
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 

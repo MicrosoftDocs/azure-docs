@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -55,24 +55,17 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 #### Option 1: Generating an account SAS URL
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. In the [Azure portal](https://portal.azure.com/), go to your storage account, and navigate to the .zip containing your package
 
-1. Select **Blob** from **Allowed Services options**. Deselect any remaining options.
+2. Select **Generate SAS** from the context menu
 
-1. Select **Container** and **Object** from **Allowed resource types**. Deselect any remaining options.
+3. Select **Read** from **Permissions**
 
-1. Select **Read** and **List** from **Allowed permissions**. Deselect any remaining options.
+4. Set **Start time** to the current time, and **End time** to at least 48 hours from **Start time**. If you will be running other tests with the same package, consider increasing **End time** for the length of your testing. Any tests scheduled through VaaS after **End time** will fail and a new SAS will need to be generated.
 
-1. Set **Start time** to the current time, and **End time** to 1 hour from the current time.
+5. Select **Generate blob SAS token and URL**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Here is how the format should appear:
-    `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Modify the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
-    `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Use this value when starting a new **Package Validation** workflow in the VaaS portal.
+Use **Blob SAS URL** when starting a new **Package Validation** workflow in the VaaS portal.
 
 #### Option 2: Using public read container
 
