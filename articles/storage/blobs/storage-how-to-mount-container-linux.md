@@ -13,7 +13,7 @@ ms.author: seguler
 # How to mount Blob storage as a file system with blobfuse
 
 ## Overview
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage. Blobfuse allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and doesn't have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the forward-slash '/' as a delimiter.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system. Azure Blob storage is an object storage service and doesn't have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the forward-slash '/' as a delimiter.  
 
 This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
@@ -38,16 +38,16 @@ As an example, on an Enterprise Linux 6 distribution:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the url to `.../rhel/7/...` to point to an Enterprise Linux 7 distribution.
+Similarly, change the URL to `.../rhel/7/...` to point to an Enterprise Linux 7 distribution.
 
-Another example on an Ubuntu 14.04:
+Another example on an Ubuntu 14.04 distribution:
 ```bash
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Similarly, change the url to `.../ubuntu/16.04/...` to point to an Ubuntu 16.04 distribution.
+Similarly, change the URL to `.../ubuntu/16.04/...` to point to an Ubuntu 16.04 distribution.
 
 ### Install blobfuse
 
@@ -76,7 +76,7 @@ sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
-### Use an SSD for temporary path
+### Use an SSD as a temporary path
 In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt'. In Red Hat and CentOS distributions, the disk is mounted on '/mnt/resource/'.
 
 Make sure your user has access to the temporary path:
@@ -85,7 +85,7 @@ sudo mkdir /mnt/resource/blobfusetmp
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
-### Configure your Storage account credentials
+### Configure your storage account credentials
 Blobfuse requires your credentials to be stored in a text file in the following format: 
 
 ```
@@ -100,7 +100,7 @@ chmod 700 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> If you have created the configuration file on Windows, make sure to run `dos2unix` to sanitize and convert to Unix format. 
+> If you have created the configuration file on Windows, make sure to run `dos2unix` to sanitize and convert the file to Unix format. 
 >
 
 ### Create an empty directory for mounting
