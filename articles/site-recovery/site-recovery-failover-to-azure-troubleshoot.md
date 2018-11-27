@@ -45,7 +45,7 @@ Site Recovery was not able to create a failed over Classic virtual machine in Az
 
 Site Recovery was not able to create a failed over virtual machine in Azure. It could happen because an internal activity of hydration failed for the on-premises virtual machine.
 
-To bring up any machine in Azure, the Azure environment requires some of the drivers to be in boot start state and services like DHCP to be in auto-start state. Thus, hydration activity, at the time of failover, converts the startup type of **atapi, intelide, storflt, vmbus and storvsc drivers** to boot start and also converts the startup type of a few services like DHCP to auto-start. This activity can fail due to environment specific issues. To manually change the startup type of drivers, follow the below steps:
+To bring up any machine in Azure, the Azure environment requires some of the drivers to be in boot start state and services like DHCP to be in autostart state. Thus, hydration activity, at the time of failover, converts the startup type of **atapi, intelide, storflt, vmbus, and storvsc drivers** to boot start. It also converts the startup type of a few services like DHCP to autostart. This activity can fail due to environment specific issues. To manually change the startup type of drivers, follow the below steps:
 
 1. [Download](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) the no-hydration script and run it as follows. This script checks if VM requires hydration.
 
