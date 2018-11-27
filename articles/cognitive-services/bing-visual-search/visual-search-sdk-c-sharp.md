@@ -31,8 +31,8 @@ Code scenarios are documented under the following headings:
 * Visual Studio 2017. If necessary, you can download free community version from here: https://www.visualstudio.com/vs/community/.
 * For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
-To start a subscription in Azure Portal:
-1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+To start a subscription in Azure portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
 2. Under Marketplace in the drop-down list, select `Bing Search v7`.
 3. Enter `Name` for the new resource.
 4. Select `Pay-As-You-Go` subscription.
