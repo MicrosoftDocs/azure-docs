@@ -529,18 +529,27 @@ The getEvents API enables query and retrieval of TSI data from events as they ar
 
 The getEvents API takes the following parameters:
 
-* timeSeriesId: Time Series ID is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
-* searchSpan: the timespan and bucket size for this aggregate expression.
-* filter: Allows you to specify predicate values to filter your queries however you desire.
-* projectedProperties (optional): Allows column/properties filtering.
+* *timeSeriesId*: The **Time Series ID** is the unique key for the data within the event stream and model. This key is what TSI uses to partition the data.
+* *searchSpan*: the timespan and bucket size for this aggregate expression.
+* *filter*: Allows you to specify predicate values to filter your queries however you desire.
+* *projectedProperties (optional)*: Allows column/properties filtering.
 
-The getEvents API returns raw values from captured events as stored in Time Series Insights for a given Time Series ID and time range. It does not require variable definitions (neither TSM nor variable definitions are used).
+The getEvents API returns raw values from captured events as stored in TSI for a given **Time Series ID** and time range. It does not require variable definitions (neither TSM nor variable definitions are used).
 
 ### getEvents JSON request and response example
 
-Request
-POST 'https://environment123.env.timeseries.azure.com/timeseries/query?api-version=2018-11-01-preview'
-Input
+Given a POST HTTP request:
+
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/query?api-version=API_VERSION
+```
+
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
+
+With JSON body:
 
 ```JSON
 {
@@ -584,7 +593,7 @@ Response:
 }
 ```
 
-### Supported Operators
+### Supported query operators
 
 Filtering:
 
@@ -620,7 +629,7 @@ Aggregation/Transformation:
 * `ORDER BY ASC, DSC` (relative to timestamp)
 * `DateHistogram` (bucket size)
 
-## TSQ API Limits
+## TSQ API limits
 
 > [!NOTE]
 > The table below specifies the limits as of **11/20/18**.
@@ -639,9 +648,9 @@ Aggregation/Transformation:
 | Min | Interval limit 1 ms |
 | Max | 50 projected variables |
 
-## Time Series Query Tutorial
+## Time Series Query tutorial
 
-This will be created at a future time
+A full TSQ tutorial will be provided in the future.
 
 [!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
 
