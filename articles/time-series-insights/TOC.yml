@@ -7,7 +7,7 @@
   - name: About Time Series Insights
     href: time-series-insights-overview.md
 - name: Quickstarts
-  ieems:
+  items:
   - name: Azure Time Series Insights (GA)
     items:
     - name: Explore Time Series Insights
