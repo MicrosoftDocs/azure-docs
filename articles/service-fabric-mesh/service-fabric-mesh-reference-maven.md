@@ -180,7 +180,7 @@ With the help of goal `azure-sfmesh:deploytocluster`, you can run the applicatio
 mvn azure-sfmesh:deploytocluster
 ```
 
-By default this goal deploys resources to local cluster. If you are deploying to local cluster, it assumes you have a local Service Fabric cluster up and running. Local Service Fabric cluster for resources is currently supported only on [Windows](service-fabric-mesh-howto-setup-developer-environment-sdk).
+By default this goal deploys resources to local cluster. If you are deploying to local cluster, it assumes you have a local Service Fabric cluster up and running. Local Service Fabric cluster for resources is currently supported only on [Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 
 - Creates JSONs from yamls which are applicable for Service Fabric clusters
 - Deploys then to the Cluster endpoint
