@@ -71,9 +71,9 @@
           href: try-review-api-review.md
         - name: Workflows - API console
           href: try-review-api-workflow.md
-    - name: Human in the loop
+    - name: Review tool overview
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Use settings
+    - name: Review tool settings
       href: Review-Tool-User-Guide/Configure.md
     - name: Manage team
       href: Review-Tool-User-Guide/SubTeams.md
@@ -99,12 +99,10 @@
       href: ecommerce-retail-catalog-moderation.md
     - name: Video and trancript moderation
       href: video-transcript-moderation-review-tutorial-dotnet.md
-- name: Samples
-  items:
-  - name: .NET SDK samples
-    href: samples-dotnet.md
-  - name: REST API samples in C#
-    href: samples-rest.md
+  - name: Export or delete account data
+    href: ./export-delete-data.md
+  - name: Azure webinar series
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: Reference
   items:
   - name: Content Moderator API
@@ -121,23 +119,27 @@
       href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator
 - name: Resources
   items:
+  - name: Samples
+    items:
+    - name: .NET SDK samples
+      href: samples-dotnet.md
+    - name: REST API samples in C#
+      href: samples-rest.md
+    - name: Other Azure samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
   - name: FAQ
     href: FAQs.md
-  - name: Language and region support
-    href: language-support.md
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
-  - name: Export or delete account data
-    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/559960-content-moderator
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
+  - name: Language support
+    href: language-support.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: On-demand webinar
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services

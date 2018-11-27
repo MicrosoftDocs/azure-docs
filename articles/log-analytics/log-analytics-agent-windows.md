@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/19/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -30,7 +30,7 @@ The agent may be installed by using one of the following methods. Most installat
 * PowerShell script.
 * Resource Manager template for virtual machines running Windows on-premises in Azure Stack.  
 
-To understand the supported configuration, review [supported Windows operating systems](log-analytics-concept-hybrid.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-concept-hybrid.md#network-firewall-requirements).
+To understand the supported configuration, review [supported Windows operating systems](log-analytics-agent-overview.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ## Obtain workspace ID and key
 Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics in Azure commercial and US Government cloud.  
@@ -41,10 +41,29 @@ Before installing the Microsoft Monitoring Agent for Windows, you need the works
 4. Select **Connected Sources**, and then select **Windows Servers**.   
 5. Copy and paste into your favorite editor, the **Workspace ID** and **Primary Key**.    
    
-## Install the agent using setup wizard
-The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud by using the setup wizard for the Microsoft Monitoring Agent on your computer.  
+## Configure Agent to use TLS 1.2
+To configure use of the [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocol for communication between the Windows agent and the Log Analytics service, you can follow the steps below to enable before the agent is installed on the virtual machine or afterwards.   
 
-1. In your Log Analyics workspace, from the **Windows Servers** page you navigated to earlier, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.   
+1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
+2. Create a subkey under **Protocols** for TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Create a **Client** subkey under the TLS 1.2 protocol version subkey you created earlier. For example, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Create the following DWORD values under **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
+
+    * **Enabled** [Value = 1]
+    * **DisabledByDefault** [Value = 0]  
+
+Configure .NET Framework 4.6 or later to support secure cryptography, as by default it is disabled. The [strong cryptography](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) uses more secure network protocols like TLS 1.2, and blocks protocols that are not secure. 
+
+1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319**.  
+2. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**.  
+3. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319**.  
+4. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**. 
+5. Restart the system for the settings to take effect. 
+
+## Install the agent using setup wizard
+The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud by using the setup wizard for the Microsoft Monitoring Agent on your computer. If you want to learn how to configure the agent to also report to a System Center Operations Manager management group, see [deploy the Operations Manager agent with the Agent Setup Wizard](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+
+1. In your Log Analytics workspace, from the **Windows Servers** page you navigated to earlier, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.   
 2. Run Setup to install the agent on your computer.
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license and then click **I Agree**.
@@ -71,7 +90,7 @@ The following table highlights the specific Log Analytics parameters supported b
 |---------------------------------------|--------------|
 | NOAPM=1                               | Optional parameter. Installs the agent without .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configure the agent to report to a workspace                |
-|OPINSIGHTS_WORKSPACE_ID                | Workspace Id (guid) for the workspace to add                    |
+|OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located <br> 0 = Azure commercial cloud (default) <br> 1 = Azure Government |
 |OPINSIGHTS_PROXY_URL               | URI for the proxy to use |
@@ -82,18 +101,18 @@ The following table highlights the specific Log Analytics parameters supported b
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    or to configure the agent to report to Azure US Government cloud, type: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## Install the agent using DSC in Azure Automation
 
-You can use the following script example to install the agent using Azure Automation DSC.   If you do not have an Automation account, see [Get started with Azure Automation](../automation/automation-offering-get-started.md) to understand requirements and steps for creating an Automation account required before using Automation DSC.  If you are not familiar with Automation DSC, review [Getting started with Automation DSC](../automation/automation-dsc-getting-started.md).
+You can use the following script example to install the agent using Azure Automation DSC.   If you do not have an Automation account, see [Get started with Azure Automation](/azure/automation/) to understand requirements and steps for creating an Automation account required before using Automation DSC.  If you are not familiar with Automation DSC, review [Getting started with Automation DSC](../automation/automation-dsc-getting-started.md).
 
 The following example installs the 64-bit agent, identified by the `URI` value. You can also use the 32-bit version by replacing the URI value. The URIs for both versions are:
 

@@ -86,7 +86,7 @@ function acquireTokenRedirectCallBack(errorDesc, token, error, tokenType)
 {
  if(tokenType === "access_token")
  {
-     callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
+     callMSGraph(applicationConfig.graphEndpoint, token, graphAPICallback);
  } else {
      console.log("token type is:"+tokenType);
  }

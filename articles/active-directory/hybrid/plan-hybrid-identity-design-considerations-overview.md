@@ -58,6 +58,6 @@ You will arrive at the design that best meets your requirements only after itera
 | Plan for enhancing data security through strong identity solution |[Determine data protection requirements](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Determine content management requirements](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Determine access control requirements](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Determine incident response requirements](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Define data protection strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | Plan for hybrid identity lifecycle |[Determine hybrid identity management tasks](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Synchronization Management](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Determine hybrid identity management adoption strategy](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## Download this guide
-You can download a pdf version of the Hybrid Identity Design Considerations guide from the [Technet gallery](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## Next Steps
+[Determine identity requirements](plan-hybrid-identity-design-considerations-business-needs.md)
 

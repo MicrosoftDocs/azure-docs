@@ -327,7 +327,7 @@ ORDER BY start_time ASC;
 
 ## Identify memory grant wait performance issues
 
-If your top wait type is `RESOURCE_SEMAHPORE` and you don't have high a CPU issue, you may have a memory grant waiting issue.
+If your top wait type is `RESOURCE_SEMAHPORE` and you don't have a high CPU usage issue, you may have a memory grant waiting issue.
 
 ### Determine if a `RESOURCE_SEMAHPORE` wait is a top wait
 

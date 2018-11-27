@@ -132,9 +132,11 @@ Let's add alternate inputs to the first dialog:
 	3. Click Submit Changes.
 4. Click to select 'denver' in the left pane:
 	1. In Add alternative input, enter 'for denver'.
-	2. Enter 'forecast for austin'.
-		- The full phrase is highlighted. Click on the phrase, then red x. Then select austin, and click on city.
-		- Click Submit Changes
+	1. Enter 'forecast for austin'.
+		- An error message appears: 'Text Variations must contain the same detected Entities as the original input text.'
+		- Click the word 'austin'.
+		- A pop-up appears that lets you select the entity for 'austin'. Click **city**.
+		- Click Submit Changes.
 	1. Click Done which will cause the model to retrain.
 
 ![](../media/tutorial8_altcities.png)

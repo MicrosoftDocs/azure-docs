@@ -19,11 +19,11 @@ ms.author: deguhath
 
 ---
 # Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution
-This menu links to the sections of this playbook: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+This article drills down into each of the stages depicted in the solution architecture. Instructions and pointers for customization are included. 
 
-This document drills down into each of the stages depicted in the solution architecture. Instructions and pointers for customization are included. 
+To review the summary description of this solution, see [Vehicle Telemetry Analytics Solution playbook](cortana-analytics-playbook-vehicle-telemetry.md).
+
 
 ## Data sources
 The solution uses two different data sources:
@@ -666,8 +666,12 @@ This document contains a detailed drill-down of the Vehicle Telemetry Analytics 
 ### References
 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://docs.microsoft.com/rest/api/datafactory/)
 * [Azure Event Hubs SDK for stream ingestion](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory data movement capabilities](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET activity](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure Data Factory .NET activity Visual Studio solution used to prepare sample data](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## Next Steps
+
+To learn how to configure the Power BI reports and dashboards for this solution, see [Vehicle Telemetry Analytics Solution Template Power BI dashboard setup instructions](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

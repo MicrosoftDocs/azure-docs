@@ -83,4 +83,4 @@ To remove a tile, navigate to the My Dashboard view and click **Customize** to e
 ![Remove a Tile](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## Next steps
-* Create [alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) in Log Analytics to generate notifications and to remediate problems.
+* Create [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics to generate notifications and to remediate problems.

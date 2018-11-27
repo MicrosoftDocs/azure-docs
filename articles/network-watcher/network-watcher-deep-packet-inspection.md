@@ -81,7 +81,7 @@ Using the same capture in the previous scenario click **Statistics** > **Protoco
 
 The protocol hierarchy window appears. This view provides a list of all the protocols that were in use during the capture session and the number of packets transmitted and received using the protocols. This view can be useful for finding unwanted network traffic on your virtual machines or network.
 
-![protocol hierachy opened][3]
+![protocol hierarchy opened][3]
 
 As you can see in the following screen capture, there was traffic using the BitTorrent protocol, which is used for peer to peer file sharing. As an administrator you do not expect to see BitTorrent traffic on this particular virtual machines. Now you aware of this traffic, you can remove the peer to peer software that installed on this virtual machine, or block the traffic using Network Security Groups or a Firewall. Additionally, you may elect to run packet captures on a schedule, so you can review the protocol use on your virtual machines regularly. For an example on how to automate network tasks in azure visit [Monitor network resources with azure automation](network-watcher-monitor-with-azure-automation.md)
 

@@ -32,13 +32,13 @@ Before migrating data to MongoDB API account, make sure that you have some sampl
 
 1. Pre-create and scale your collections:
         
-    * By default, Azure Cosmos DB provisions a new MongoDB collection with 1,000 request units per second (RU/sec). Before you start the migration by using mongoimport, mongorestore, pre-create all your collections from the [Azure portal](https://portal.azure.com) or from MongoDB drivers and tools. If the data size is greater than 10 GB, make sure to create a [partitioned collection](partition-data.md) with an appropriate shard key.
+   * By default, Azure Cosmos DB provisions a new MongoDB collection with 1,000 request units per second (RU/sec). Before you start the migration by using mongoimport, mongorestore, pre-create all your collections from the [Azure portal](https://portal.azure.com) or from MongoDB drivers and tools. If the data size is greater than 10 GB, make sure to create a [partitioned collection](partition-data.md) with an appropriate shard key. MongoDB recommends to store entity data in collections. You can co-locate entites of comparable size and provision throughput at the Azure Cosmos database level.
 
-    * From the [Azure portal](https://portal.azure.com), increase your collections throughput from 1000 RUs/sec for a single partition collection and 2,500 RUs/sec for a sharded collection just for the migration. With the higher throughput, you can avoid rate limiting and migrate in less time. You can reduce the throughput immediately after the migration to save costs.
+   * From the [Azure portal](https://portal.azure.com), increase your collections throughput from 1000 RUs/sec for a single partition collection and 2,500 RUs/sec for a sharded collection just for the duration of migration. With the higher throughput, you can avoid rate limiting and migrate in less time. You can reduce the throughput immediately after the migration to save costs.
 
-    * In addition to provisioning RUs/sec at the collection level, you may also provision RU/sec for a set of collections at the parent database level. This requires pre-creating the database and collections, as well as defining a shard key for each collection.
+   * In addition to provisioning RUs/sec at the collection level, you may also provision RU/sec for a set of collections at the parent database level. This requires pre-creating the database and collections, as well as defining a shard key for each collection.
 
-    * You can create sharded collections through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell to create a sharded collection:
+   * You can create sharded collections through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell to create a sharded collection:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

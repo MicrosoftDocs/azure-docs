@@ -394,7 +394,7 @@ Running a test failover helps verify that everything's working as expected, befo
 
 ### Migrate the VM
 
-To migrate the VM, Contoso admins creats a recovery plan that includes the VM, and fail over the plan to Azure.
+To migrate the VM, Contoso admins creates a recovery plan that includes the VM, and fail over the plan to Azure.
 
 1. They create a plan, and add **OSTICKETWEB** to it.
 

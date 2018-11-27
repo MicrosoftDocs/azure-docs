@@ -23,7 +23,7 @@ This article shows three different ways to deploy a model on ACI. They differ in
 * Deploy from registered model using `Webservice.deploy_from_model()`
 * Deploy registered model from image using `Webservice.deploy_from_image()`
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 
 ## Prerequisites
@@ -43,9 +43,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Configure an image
 
 Configure the Docker image that is used to store all the model files.
-1. Create a scoring script (score.py) [using these instructions](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Create a scoring script (score.py) [using these instructions](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Create an environment file (myenv.yml) [using these instructions](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > The scoring script receives data submitted from clients and passes it to the model for scoring. Document the data structure that the script and model expect. Having this documentation makes things easier when building a client to consume the web service.
+
+1. Create an environment file (myenv.yml) [using these instructions](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Use these two files to configure the Docker image in Python using the SDK as follows:
 
@@ -212,8 +215,7 @@ This method gives you the most control over creating and naming the components i
 
 You can now test the web service.
 
-<a name='test-web-service'/>
-## Test the web service
+## <a name='test-web-service'/>Test the web service
 
 The web service is the same no matter which method was used.  To get predictions, use the `run` method of the service.  
 
@@ -256,4 +258,5 @@ service.delete()
 
 ## Next steps
 
-Learn how to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) for a larger scale deployment. 
+* Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
+* Learn how to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) for a larger scale deployment. 

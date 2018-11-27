@@ -19,13 +19,10 @@ ms.author: deguhath
 
 ---
 # Move data to an Azure SQL Database for Azure Machine Learning
-This topic outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premises SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Team Data Science Process.
+
+This article outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premises SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Team Data Science Process.
 
 For a topic that outlines the options for moving data to an on-premises SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](move-sql-server-virtual-machine.md).
-
-The following **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 The following table summarizes the options for moving data to an Azure SQL Database.
 

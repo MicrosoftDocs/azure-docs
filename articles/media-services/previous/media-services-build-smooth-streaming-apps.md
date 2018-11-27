@@ -92,7 +92,7 @@ After adding the references, you must select the targeted platform (x64 or x86),
 
 1. From Solution Explorer, double click **MainPage.xaml** to open it in the design view.
 2. Locate the **&lt;Grid&gt;** and **&lt;/Grid&gt;**  tags the XAML file, and paste the following code between the two tags:
-
+```xml
          <Grid.RowDefinitions>
 
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -135,7 +135,7 @@ After adding the references, you must select the targeted platform (x64 or x86),
                FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
-   
+```
    The MediaElement control is used to playback media. The slider control named sliderProgress will be used in the next lesson to control the media progress.
 3. Press **CTRL+S** to save the file.
 
@@ -157,7 +157,7 @@ In this XAML file, some event handlers are associated with the controls.  You mu
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. At the end of the **MainPage** class, paste the following code:
-   
+```csharp
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
          {
@@ -199,7 +199,7 @@ In this XAML file, some event handlers are associated with the controls.  You mu
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
-
+```
 The sliderProgress_PointerPressed event handler is defined here.  There are more works to do to get it working, which will be covered in the next lesson of this tutorial.
 6. Press **CTRL+S** to save the file.
 
@@ -239,22 +239,25 @@ This lesson contains the following procedures:
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. At the beginning of the file, add the following using statement:
-
+```csharp
         using Microsoft.Media.AdaptiveStreaming;
+```
 3. At the beginning of the MainPage class, add the following data members:
-
+```csharp
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
+```
 4. Inside the **MainPage** constructor, add the following code after the **this.Initialize Components();** line and the registration code lines written in the previous lesson:
-
+```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
+```
 5. Inside the **MainPage** constructor, modify the two RegisterByteStreamHandler methods to add the forth parameters:
-
+```csharp
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
@@ -270,16 +273,18 @@ This lesson contains the following procedures:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
+```
 6. Press **CTRL+S** to save the file.
 
 **To add the adaptive source manager level event handler**
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. Inside the **MainPage** class, add the following data member:
-   
+```csharp
      private AdaptiveSource adaptiveSource = null;
+```
 3. At the end of the **MainPage** class, add the following event handler:
-   
+```csharp
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
          {
@@ -288,21 +293,24 @@ This lesson contains the following procedures:
          }
 
          # endregion Adaptive Source Manager Level Events
+```
 4. At the end of the **MainPage** constructor, add the following line to subscribe to the adaptive source open event:
-   
+```csharp
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+```
 5. Press **CTRL+S** to save the file.
 
 **To add adaptive source level event handlers**
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. Inside the **MainPage** class, add the following data member:
-   
+```csharp
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
      private Manifest manifestObject;
+```
 3. At the end of the **MainPage** class, add the following event handlers:
-
+```csharp
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
          {
@@ -335,6 +343,7 @@ This lesson contains the following procedures:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
+```
 5. Press **CTRL+S** to save the file.
 
 The same events are available on Adaptive Source manger level as well, which can be used for handling functionality common to all media elements in the app. Each AdaptiveSource includes its own events and all AdaptiveSource events will be cascaded under AdaptiveSourceManager.
@@ -343,7 +352,7 @@ The same events are available on Adaptive Source manger level as well, which can
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. At the end of the **MainPage** class, add the following event handlers:
-
+```csharp
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
          {
@@ -364,30 +373,35 @@ The same events are available on Adaptive Source manger level as well, which can
          }
 
          # endregion Media Element Event Handlers
+```
 3. At the end of the **MainPage** constructor, add the following code to subscript to the events:
-
+```csharp
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
+```
 4. Press **CTRL+S** to save the file.
 
 **To add slider bar related code**
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. At the beginning of the file, add the following using statement:
-      
+```csharp
         using Windows.UI.Core;
+```
 3. Inside the **MainPage** class, add the following data members:
-   
+```csharp
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
+```
 4. At the end of the **MainPage** constructor, add the following code:
-   
+```csharp
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
+```
 5. At the end of the **MainPage** class, add the following code:
-
+```csharp
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
          {
@@ -469,25 +483,30 @@ The same events are available on Adaptive Source manger level as well, which can
          }
 
          # endregion sliderMediaPlayer
-      
+```
+
 >[!NOTE]
 >CoreDispatcher is used to make changes to the UI thread from non UI Thread. In case of bottleneck on dispatcher thread, developer can choose to use dispatcher provided by UI-element he/she intends to update.  For example:
-   
+
+```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
          timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
+```
 6. At the end of the **mediaElement_AdaptiveSourceStatusUpdated** method, add the following code:
-
+```csharp
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
+```
 7. At the end of the **MediaOpened** method, add the following code:
-
+```csharp
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
+```
 8. Press **CTRL+S** to save the file.
 
 **To compile and test the application**
@@ -504,14 +523,14 @@ You have completed lesson 2.  In this lesson you added a slider to application.
 Smooth Streaming is capable to stream content with multiple language audio tracks that are selectable by the viewers.  In this lesson, you will enable viewers to select streams. This lesson contains the following procedures:
 
 1. Modify the XAML file
-2. Modify the code behand file
+2. Modify the code behind file
 3. Compile and test the application
 
 **To modify the XAML file**
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Designer**.
 2. Locate &lt;Grid.RowDefinitions&gt;, and modify the RowDefinitions so they looks like:
-   
+```xml
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
@@ -519,8 +538,9 @@ Smooth Streaming is capable to stream content with multiple language audio track
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
+```
 3. Inside the &lt;Grid&gt;&lt;/Grid&gt; tags, add the following code to define a listbox control, so users can see the list of available streams, and select streams:
-
+```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
@@ -544,13 +564,14 @@ Smooth Streaming is capable to stream content with multiple language audio track
                 </ListBox>
             </StackPanel>
          </Grid>
+```
 4. Press **CTRL+S** to save the changes.
 
 **To modify the code behind file**
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Code**.
 2. Inside the SSPlayer namespace, add a new class:
-   
+```csharp
         #region class Stream
    
         public class Stream
@@ -595,14 +616,16 @@ Smooth Streaming is capable to stream content with multiple language audio track
             }
         }
         #endregion class Stream
+```
 3. At the beginning of the MainPage class, add the following variable definitions:
-   
+```csharp
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
+```
 4. Inside the MainPage class, add the following region:
-   
+```csharp
         #region stream selection
         ///<summary>
         ///Functionality to select streams from IManifestStream available streams
@@ -689,7 +712,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
                 }
             }
    
-            // Select the frist video stream from the list if no video stream is selected
+            // Select the first video stream from the list if no video stream is selected
             if (!isOneVideoSelected)
             {
                 availableVideoStreams[0].isChecked = true;
@@ -707,7 +730,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
                 }
             }
    
-            // Select the frist audio stream from the list if no audio steam is selected.
+            // Select the first audio stream from the list if no audio steam is selected.
             if (!isOneAudioSelected)
             {
                 availableAudioStreams[0].isChecked = true;
@@ -738,14 +761,15 @@ Smooth Streaming is capable to stream content with multiple language audio track
             }
         }
         #endregion stream selection
+```
 5. Locate the mediaElement_ManifestReady method, append the following code at the end of the function:
-   
+```csharp
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
-   
+```
     So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.
 6. Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
-   
+```csharp
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -756,14 +780,14 @@ Smooth Streaming is capable to stream content with multiple language audio track
             // Change streams on the presentation
             changeStreams(selectedStreams);
         }
-
+```
 **To compile and test the application**
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
 3. At the top of the application, you can either use the default Smooth Streaming URL or enter a different one. 
 4. Click **Set Source**. 
-5. The default language is audio_eng. Try to switch between audio_eng and audio_es. Everytime, you select a new stream, you must click the Submit button.
+5. The default language is audio_eng. Try to switch between audio_eng and audio_es. Every time, you select a new stream, you must click the Submit button.
 
 You have completed lesson 3.  In this lesson, you add the functionality to choose streams.
 
@@ -778,7 +802,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Designer**.
 2. Locate the &lt;Grid&gt; tag with the name **gridStreamAndBitrateSelection**, append the following code at the end of the tag:
-   
+```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
@@ -793,13 +817,14 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
+```
 3. Press **CTRL+S** to save he changes
 
 **To modify the code behind file**
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Code**.
 2. Inside the SSPlayer namespace, add a new class:
-   
+```csharp
         #region class Track
         public class Track
         {
@@ -836,11 +861,13 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
             //public Track() { }
         }
         #endregion class Track
+```
 3. At the beginning of the MainPage class, add the following variable definitions:
-   
+```csharp
         private List<Track> availableTracks;
+```
 4. Inside the MainPage class, add the following region:
-   
+```csharp
         #region track selection
         /// <summary>
         /// Functionality to select video streams
@@ -937,12 +964,14 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
             }
         }
         #endregion track selection
+```
 5. Locate the mediaElement_ManifestReady method, append the following code at the end of the function:
-   
+```csharp
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
+```
 6. Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
-   
+```csharp
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -953,7 +982,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
             // Change streams on the presentation
             changeStreams(selectedStreams);
          }
-
+```
 **To compile and test the application**
 
 1. Press **F6** to compile the project. 

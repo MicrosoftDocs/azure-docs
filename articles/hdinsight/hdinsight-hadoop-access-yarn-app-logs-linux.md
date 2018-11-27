@@ -17,16 +17,13 @@ ms.author: hrasheed
 Learn how to access the logs for Apache YARN (Yet Another Resource Negotiator) applications on a Apache Hadoop cluster in Azure HDInsight.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.6 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-The [Apache YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) provides generic information on completed applications and framework-specific application information through two different interfaces. Specifically:
+The [Apache YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) provides generic information on completed applications
 
-* Storage and retrieval of generic application information on HDInsight clusters has been enabled with version 3.1.1.374 or higher.
-* The framework-specific application information component of the Timeline Server is not currently available on HDInsight clusters.
-
-Generic information on applications includes the following type of data:
+YARN Timeline Server includes the following type of data:
 
 * The application ID, a unique identifier of an application
 * The user who started the application

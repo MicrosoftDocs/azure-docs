@@ -3,7 +3,7 @@ title: Deploy and monitor modules for Azure IoT Edge (CLI) | Microsoft Docs
 description: Manage the modules that run on edge devices
 keywords: 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual

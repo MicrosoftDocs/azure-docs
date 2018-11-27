@@ -155,7 +155,7 @@ Steps:
     
           @Override
           @Timed(value = "hello.world")
-          protected void doGet(HttpServletRequest reqest, HttpServletResponse response)
+          protected void doGet(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {
     
             response.getWriter().println("Hello World!");

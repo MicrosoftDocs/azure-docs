@@ -38,7 +38,7 @@ In a pattern's template utterance, roles are used within the utterance:
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
 
 
-[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+[!INCLUDE[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## Roles with prebuilt entities
 

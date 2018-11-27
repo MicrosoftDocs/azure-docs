@@ -19,7 +19,8 @@ ms.author: deguhath
 
 ---
 # Move data from an on-premises SQL server to SQL Azure with Azure Data Factory
-This topic shows how to move data from an on-premises SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF).
+
+This article shows how to move data from an on-premises SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF).
 
 For a table that summarizes various options for moving data to an Azure SQL Database, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md).
 

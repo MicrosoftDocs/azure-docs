@@ -236,6 +236,13 @@ az functionapp config appsettings set --name <function_app> \
 AzureWebJobsStorage=$storageConnectionString
 ```
 
+> [!NOTE]
+> If your container is private, you would have to set the following application settings as well  
+> - DOCKER_REGISTRY_SERVER_USERNAME  
+> - DOCKER_REGISTRY_SERVER_PASSWORD  
+>
+> You will have to stop and then start your function app for these values to be picked up
+
 You can now test your functions running on Linux in Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]

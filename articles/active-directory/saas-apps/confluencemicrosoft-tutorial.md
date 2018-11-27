@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ms.author: jeedes
 
 ---
@@ -61,9 +61,17 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1
+- Confluence: 6.1.1
 - Confluence: 6.2.1
+- Confluence: 6.3.4
+- Confluence: 6.4.0
+- Confluence: 6.5.0
 - Confluence: 6.6.2
+- Confluence: 6.7.0
 - Confluence: 6.8.1
+- Confluence: 6.9.0
+- Confluence: 6.10.0
+- Confluence: 6.11.0
 - Confluence: 6.12.0
 
 ## Scenario description
@@ -141,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Confluence plugin, which is explained later in the tutorial.
 
-5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
 
 	![The Certificate download link](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
 

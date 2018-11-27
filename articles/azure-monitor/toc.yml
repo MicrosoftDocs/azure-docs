@@ -64,9 +64,9 @@
   - name: Monitoring data
     items: 
     - name: Metrics and logs
-      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-collection.md
     - name: Data sources
-      href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-sources.md
     - name: Azure data sources
       href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
@@ -98,11 +98,11 @@
       - name: Log-based & pre-aggregated metrics
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
-      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      href: insights/container-insights-overview.md
     - name: Virtual Machines
-      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
+      href: insights/vminsights-overview.md
     - name: Monitoring solutions
-      href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
+      href: insights/solutions-inventory.md
   - name: Analyze data
     items: 
     - name: Log Analytics
@@ -116,7 +116,6 @@
         - name: Common questions
           href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Respond to incidents
-    href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
     items:
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
@@ -186,12 +185,12 @@
     items:
     - name: Install and configure agents
       items:
-      - name: Agent comparison
-        href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
+      - name: Monitoring agents overview
+        href: platform/agents-overview.md
       - name: Log Analytics agents  
         items:
-        - name: Monitor hybrid environments
-          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
+        - name: Overview
+          href: ../log-analytics/log-analytics-agent-overview.md?toc=/azure/azure-monitor/toc.json
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Windows
@@ -237,25 +236,25 @@
     - name: Agent data sources
       items:
       - name: Overview
-        href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
+        href: platform/agent-data-sources.md
       - name: Windows events
-        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-windows-events.md
       - name: Custom JSON data
-        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-json.md
       - name: CollectD performance data
-        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-collectd.md
       - name: Nagios and Zabbix alerts
-        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-alerts-nagios-zabbix.md
       - name: Syslog
-        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-syslog.md
       - name: Performance counters
-        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-performance-counters.md
       - name: Linux application performance
-        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-linux-applications.md
       - name: IIS logs
-        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-iis-logs.md
       - name: Custom logs
-        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-custom-logs.md
       - name: Custom fields
         href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
     - name: Configure applications
@@ -341,7 +340,7 @@
           href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
         - name: Filter telemetry
           href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
-        - name: Micrometer
+        - name: Micrometer Metrics
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
       - name: Node.js apps
         items:
@@ -520,15 +519,17 @@
       - name: Azure Monitor for containers 
         items:
         - name: Overview
-          href: ../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-overview.md
         - name: Onboard 
-          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-onboard.md
         - name: Analyze 
-          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-analyze.md
         - name: Disable monitoring
-          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-optout.md
+        - name: Upgrade agent
+          href: insights/container-insights-agent-upgrade.md
         - name: Troubleshooting
-          href: ../monitoring/monitoring-container-insights-troubleshoot.md
+          href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Docker applications
@@ -538,9 +539,9 @@
     - name: Monitor databases
       items:
       - name: Azure SQL
-        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/monitoring/toc.json
+        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/azure-monitor/toc.json
       - name: SQL Server
-        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/monitoring/toc.json
+        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor networks
       items:
       - name: Networking Analytics
@@ -564,25 +565,25 @@
       - name: Azure Monitor for VMs
         items:
         - name: Overview
-          href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-overview.md
         - name: Known issues
-          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-known-issues.md
         - name: FAQ
-          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-faq.md
         - name: Onboard
-          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-onboard.md
         - name: Monitor health
-          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-health.md
         - name: Map dependencies
-          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-maps.md
         - name: Monitor performance
-          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-performance.md
         - name: Query data with Log Analytics
-          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-log-search.md
         - name: Disable monitoring
-          href: ../monitoring/monitoring-vminsights-optout.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-optout.md
       - name: Agent Health
-        href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solution-agenthealth.md
       - name: Capacity and performance
         href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
       - name: VMware Analytics
@@ -592,11 +593,11 @@
       - name: Service Map
         items:
         - name: Use
-          href: ../monitoring/monitoring-service-map.md?toc=/azure/azure-monitor/toc.json
+          href: insights/service-map.md
         - name: Configure
-          href: ../monitoring/monitoring-service-map-configure.md?toc=/azure/azure-monitor/toc.json
+          href: insights/service-map-configure.md
         - name: Integration with Operations Manager
-          href: ../monitoring/monitoring-service-map-scom.md?toc=/azure/azure-monitor/toc.json
+          href: insights/service-map-scom.md
     - name: Monitor Azure resources
       items:
       - name: Key Vault Analytics
@@ -612,7 +613,7 @@
       - name: DNS
         href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
       - name: Office 365
-        href: ../monitoring/monitoring-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solution-office-365.md
       - name: Assess Operations Manager
         href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: Surface Hub
@@ -620,9 +621,9 @@
     - name: Use monitoring solutions
       items:
       - name: Overview
-        href: ../monitoring/monitoring-solutions.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions.md
       - name: Target solutions
-        href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solution-targeting.md
   - name: Visualize data
     items:
     - name: Views
@@ -646,7 +647,7 @@
         href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
       - name: Export application data
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
-    - name: Send metrics to Grafana
+    - name: Send data to Grafana
       href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
     items:
@@ -690,6 +691,8 @@
           href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
         - name: Charts and diagrams
           href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+        - name: Functions
+          href: ../log-analytics/query-language/functions.md?toc=/azure/azure-monitor/toc.json
       - name: Cheatsheets
         items:
         - name: SQL
@@ -885,19 +888,19 @@
     - name: Monitoring solutions
       items:
       - name: Design and build
-        href: ../monitoring/monitoring-solutions-creating.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-creating.md
       - name: Solution file
-        href: ../monitoring/monitoring-solutions-solution-file.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-solution-file.md
       - name: Automation resources
-        href: ../monitoring/monitoring-solutions-resources-automation.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-resources-automation.md
       - name: Log searches and alerts
-        href: ../monitoring/monitoring-solutions-resources-searches-alerts.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-resources-searches-alerts.md
       - name: Views
-        href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-resources-views.md
       - name: Best practices
-        href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-best-practices.md
       - name: Collect monitoring data from a runbook
-        href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
+        href: platform/runbook-datacollect.md
 - name: Reference
   items:
   - name: Application Insights
