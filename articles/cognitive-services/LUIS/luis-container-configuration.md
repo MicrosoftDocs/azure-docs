@@ -97,8 +97,6 @@ The following table describes the configuration settings supported under the `Fl
 
 The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application. 
 
-TBD: what is the default setting? 
-
 The following logging providers are supported by the LUIS container:
 
 |Provider|Purpose|
@@ -210,10 +208,6 @@ Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY}
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
-
-### Fluentd example
-
-TBD: Who can I get this example from? 
 
 ### Logging example with command-line arguments
 

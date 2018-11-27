@@ -289,20 +289,14 @@ Query operations from an SDK are available for published apps. Trained app can't
 > [!IMPORTANT]
 > You must have Azure Cognitive Services LUIS Client Library version 2.0.0 or later.
 
-TBD: Example or link? 
-
 ## Upload logs for active learning
 
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
-
-TBD: if more than one app is running in container, like stage and production, is there more than 1 log?
 
 The following location shows the nested directory structure for the container's log files.
 `
 /output/luis/{INSTANCE_ID}/
 `
-
-TBD: UI version
 
 <!--
 ```http
