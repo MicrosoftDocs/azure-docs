@@ -294,37 +294,12 @@ The following location shows the nested directory structure for the container's 
 `
 /output/luis/{INSTANCE_ID}/
 `
+ 
+From the LUIS portal, select your app, then select **Import endpoint logs** to upload these logs. 
 
-<!--
-```http
-POST /webapi/v2.0/apps/{APPLICATION_ID}/unlabeled HTTP/1.1
-Host: {AZURE_REGION}.api.cognitive.microsoft.com
-OCP-APIM-SUBSCRIPTION-KEY: {AUTHORING_KEY}
-Content-Type: multipart/form-data
-Content-Disposition: form-data; name=""; filename="{QUERY_LOG_FILE}"
-```
+![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Upload the app query log to the Language Understanding (LUIS) service by using the following REST API method, substituting the appropriate values for your own values:
-
-| Placeholder | Value |
-|-------------|-------|
-|{APPLICATION_ID} | The application ID of the trained or published LUIS app. |
-|{AUTHORING_KEY} | The authoring key of your LUIS account.<br/>You can get your authoring key from the **User Settings** page for your LUIS account on the LUIS portal. |
-|{AZURE_REGION} | One of the following values for the appropriate Azure region:<br><br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
-|{QUERY_LOG_FILE} | The full path and file name of the application query log file. |
-
-
-An example CURL command for uploading the query log is:
-
-```bash
-curl -X POST \
-"http://westus.api.cognive.microsoft.com/luis/webapi/v2.0/apps/{APPLICATION_ID}/unlabeled" \
--H "APIM-SUBSCRIPTION-ID: {AUTHORING_KEY}" \
--H "Content-Type: multipart/form-data"
--H "Content-Disposition: form-data; name=""; filename="{QUERY_LOG_FILE}""
-```
-
-If successful, the method responds with an HTTP 200 status code.--> After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
+After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
 
 ## Stop the container
 
