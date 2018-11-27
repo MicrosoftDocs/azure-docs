@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -48,9 +48,9 @@ This update includes the following improvements for Azure Stack:
 
 - Support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update & remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update and remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
 
-- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a scale unit node. [@Matt add link to updated node actions doc]
+- New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. [@Matt add link to updated node actions doc]
 
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
 
@@ -78,10 +78,10 @@ This update includes the following improvements for Azure Stack:
 - Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.
 
 <!--1236441 – IS  ASDK --> 
-- Fixed an issue that did prevent applying RBAC policies to a User Group when using ADFS
+- Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, 1811 update will not make any further modifications.  
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
 
 ### Changes
 
@@ -157,7 +157,7 @@ For more information about these vulnerabilities, click on the preceding links, 
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
   ``` 
 
-- The Azure Stack 1811 Update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
+- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
 
    ```shell
    Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
@@ -168,13 +168,13 @@ For more information about these vulnerabilities, click on the preceding links, 
  
    `Missing SSL certificates. SSL certificates for Extension Host not detected.` 
  
-   The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update will fail to apply. 
+   The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails. 
 
    Once you have properly imported the mandatory extension host certificates, you can simply resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
 ### Known issues with the update process
 
-- When you run [Test-AzureStack](azure-stack-diagnostic-test.md) after the 1809 update, a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
+- When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 - <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.
 
