@@ -70,7 +70,7 @@ _Note_: Currently, confidence score as a concept is not supported. It will be su
             ]
         }
         ```
-        _ (After) EntityRecognition skill definition_
+        _(After) EntityRecognition skill definition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -93,7 +93,7 @@ _Note_: Currently, confidence score as a concept is not supported. It will be su
     
     * Slightly complicated migration
 
-        _ (Before) NamedEntityRecognition skill definition_
+        _(Before) NamedEntityRecognition skill definition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
@@ -116,7 +116,7 @@ _Note_: Currently, confidence score as a concept is not supported. It will be su
             ]
         }
         ```
-        _ (After) EntityRecognition skill definition_
+        _(After) EntityRecognition skill definition_
         ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
