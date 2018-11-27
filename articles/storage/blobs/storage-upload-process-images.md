@@ -1,6 +1,6 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
-description: Use Azure Blob storage with a web app to store application data
+description: Use Azure Blob storage with a web app to store app data
 services: storage
 documentationcenter: 
 author: tamram
@@ -9,14 +9,14 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
 ---
 
 # Upload image data in the cloud with Azure Storage
 
-This tutorial is part one of a series. This tutorial shows you how to deploy a web application that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you have a web app storing and displaying images from Azure storage.
+This tutorial is part one of a series. This tutorial shows you how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you have a web app that stores and displays images from Azure storage.
 
 # [\.NET](#tab/net)
 ![Images container view](media/storage-upload-process-images/figure2.png)
@@ -32,9 +32,9 @@ In part one of the series, you learn how to:
 > * Create a storage account
 > * Create a container and set permissions
 > * Retrieve an access key
-> * Configure application settings
-> * Deploy a Web App to Azure
-> * Interact with the web application
+> * Deploy a web app to Azure
+> * Configure app settings
+> * Interact with the web app
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group 
 
-You can deploy and manage Azure resources in logical containers called Azure resource groups. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.  
 
 The following example creates a resource group named `myResourceGroup`.
 
@@ -55,7 +55,7 @@ az group create --name myResourceGroup --location southeastasia
 The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 > [!IMPORTANT]
-> In part 2 of the tutorial you use Event subscriptions for Blob storage. Event subscriptions are currently only supported for Blob storage accounts in the following locations: Asia Southeast, Asia East, Australia East, Australia Southeast, Central US, East US, East US 2, Europe West, Europe North, Japan East, Japan West, West Central US, West US, and West US 2. Because of this restriction, you must create a Blob storage account that's used by the sample app to store images and thumbnails.
+> In part 2 of the tutorial, you use Event subscriptions for Blob storage. Event subscriptions are currently supported for Blob storage accounts only in the following locations: Asia Southeast, Asia East, Australia East, Australia Southeast, Central US, East US, East US 2, Europe West, Europe North, Japan East, Japan West, West Central US, West US, and West US 2. Because of this restriction, you must create a Blob storage account that's used by the sample app to store images and thumbnails.
 
 In the following command, replace your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
 
@@ -119,7 +119,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
-The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web application uses the [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), and the [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namespaces from the Azure storage Client Library to interact with Azure storage.
+The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), and the [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namespaces from the Azure storage Client Library to interact with Azure storage.
 
 # [Node.js](#tab/nodejs)
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
@@ -134,7 +134,7 @@ az webapp deployment source config --name <web_app> \
 
 ## Configure web app settings
 
-The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 In the following command, replace `<blob_storage_account>` with the name of your Blob storage account and `<blob_storage_key>` with the associated key. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
@@ -206,7 +206,7 @@ In the sample code, the `post` route is responsible for uploading the image into
 As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
 
 > [!IMPORTANT]
-> Loading large files into memory may have a negative effect on your web application's performance. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into Blob storage. Once the files are in Blob storage, you can remove them from the server file system.
+> Loading large files into memory may have a negative effect on your web app's performance. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into Blob storage. Once the files are in Blob storage, you can remove them from the server file system.
 
 ```javascript
 const
@@ -267,7 +267,7 @@ Verify the image is shown in the container.
 
 ## Test thumbnail viewing
 
-To test thumbnail viewing, you'll upload an image to the thumbnail container to check if the application can read the thumbnail container.
+To test thumbnail viewing, you'll upload an image to the thumbnail container to check if the app can read the thumbnail container.
 
 Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
 
@@ -289,15 +289,7 @@ You can enable CDN to cache content from your Azure storage account. For more in
 
 ## Next steps
 
-In part one of the series, you learned about configuring a web app interacting with storage, For example, how to:
-
-> [!div class="checklist"]
-> * Create a storage account
-> * Create a container and set permissions
-> * Retrieve an access key
-> * Configure application settings
-> * Deploy a Web App to Azure
-> * Interact with the web application
+In part one of the series, you learned how to configure a web app to interact with storage.
 
 Go on to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
 
