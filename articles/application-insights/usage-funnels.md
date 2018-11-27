@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Funnels
 description: Learn how you can use Funnels to discover how customers are interacting with your application.
 services: application-insights
@@ -35,7 +35,7 @@ Here are the steps they take to create their funnel.
 The following screenshot shows an example of the kind of data the Funnels tool generates. The Fabrikam owners can see that during the last 90 days, 54.3 percent of their customers who visited the home page created a customer ticket. They can also see that 2,700 of their customers came to the index from the home page. This might indicate a refresh issue.
 
 
-![Screenshot of Funnels tool with data](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Screenshot of Funnels tool with data](media/usage-funnels/funnel1.png)
 
 ### Funnels features
 The preceding screenshot includes five highlighted areas. These are features of Funnels. The following list explains more about each corresponding area in the screenshot:

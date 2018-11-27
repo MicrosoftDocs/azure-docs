@@ -17,7 +17,7 @@ In this quickstart, you get a list of languages supported for translation, trans
 
 ## Prerequisites
 
-You'll need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will also work.
+You'll need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will also work.
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 

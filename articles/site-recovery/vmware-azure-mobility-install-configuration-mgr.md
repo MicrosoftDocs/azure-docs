@@ -3,7 +3,7 @@ title: Automate installation of the Azure Site Recovery Mobility Service for dis
 description: This article helps you automate installation of the Mobility Service with System Center Configuration Manager, for disaster recovery of VMware VMs and physical servers to Azure using Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
 ---

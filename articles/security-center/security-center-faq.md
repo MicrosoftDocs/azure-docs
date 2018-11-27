@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
 
 ---
@@ -246,7 +246,7 @@ The security policies enabled in Azure Security Center drive security recommenda
 ### Who can modify a security policy?
 To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
 
-To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-policies.md).
+To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-azure-policy.md).
 
 ### What is a security recommendation?
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
@@ -304,7 +304,7 @@ The latency in Security Center scans for vulnerabilities, updates, and issues is
 - System updates – data is updated within 24 hours
 - Endpoint Protection issues – data is updated within 8 hours
 
-Security Center typically scans for new data every hour. The latency values above are a worst case scenario where there is not a recent scan or a scan failed.
+Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

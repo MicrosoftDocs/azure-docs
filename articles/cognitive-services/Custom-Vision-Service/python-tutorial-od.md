@@ -1,63 +1,60 @@
 ---
-title: "Tutorial: Create an object detection project with the Custom Vision SDK for Python - Custom Vision Service"
+title: "Quickstart: Create an object detection project with the Custom Vision SDK for Python"
 titlesuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
+description: Create a project, add tags, upload images, train your project, and detect objects using the Python SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 05/03/2018
+ms.topic: quickstart
+ms.date: 11/5/2018
 ms.author: areddish
 ---
 
-# Tutorial: Create an object detection project with the Custom Vision SDK for Python
+# Quickstart: Create an object detection project with the Custom Vision Python SDK
 
-Explore a basic Python script that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+This article provides information and sample code to help you get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
 
 ## Prerequisites
 
-To use the tutorial, you need to do the following:
+- [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) tool
 
-- Install either Python 2.7+ or Python 3.5+.
-- Install pip.
+## Install the Custom Vision SDK
 
-### Platform requirements
-This example has been developed for Python.
+To install the Custom Vision service SDK for Python, run the following command in PowerShell:
 
-### Get the Custom Vision SDK
-
-To build this example, you need to install the Python SDK for the Custom Vision API:
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
 You can download the images with the [Python Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## Step 1: Get the training and prediction keys
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-To get the keys used in this example, visit the [Custom Vision site](https://customvision.ai) and select the __gear icon__ in the upper right. In the __Accounts__ section, copy the values from the __Training Key__ and __Prediction Key__ fields.
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-![Image of the keys UI](./media/python-tutorial/training-prediction-keys.png)
+## Add the code
 
-This example uses the images from [this location](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
+Create a new file called *sample.py* in your preferred project directory.
 
-## Step 2: Create a Custom Vision Service project
+### Create the Custom Vision service project
 
-To create a new Custom Vision Service project, create a sample.py script file and add the following contents. Note the difference between creating an object detection and image classification project is the domain that is specified to the create_project call.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
+
+ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Find the object detection domain
 obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
@@ -67,9 +64,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-## Step 3: Add tags to your project
+### Create tags in the project
 
-To add tags to your project, insert the following code to create two tags:
+To create classification tags to your project, add the following code to the end of *sample.py*:
 
 ```Python
 # Make two tags in the new project
@@ -77,14 +74,13 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-## Step 4: Upload images to the project
+### Upload and tag images
 
-For object detection project you need to upload image, regions, and tags. The region is in normalized coordiantes and specifies the location of the tagged object.
+When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
 
-To add the images, region, and tags to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates.
+To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
 ```Python
-
 fork_image_regions = {
     "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
     "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
@@ -130,7 +126,10 @@ scissors_image_regions = {
     "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
+```
+Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
 
+```Python
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -153,12 +152,9 @@ for file_name in scissors_image_regions.keys():
 trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 ```
 
-## Step 5: Train the project
+### Train the project
 
-Now that you've added tags and images to the project, you can train it: 
-
-1. Insert the following code. This creates the first iteration in the project. 
-2. Mark this iteration as the default iteration.
+This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
 
 ```Python
 import time
@@ -175,20 +171,17 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## Step 6: Get and use the default prediction endpoint
+### Get and use the default prediction endpoint
 
-You're now ready to use the model for prediction: 
-
-1. Obtain the endpoint associated with the default iteration. 
-2. Send a test image to the project using that endpoint.
+To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
 ```Python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
 with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
@@ -199,10 +192,21 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## Step 7: Run the example
+## Run the application
 
-Run the solution. The prediction results appear on the console.
+Run *sample.py*.
 
-```
+```PowerShell
 python sample.py
 ```
+
+The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
+
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+
+## Next steps
+
+Now you have seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
+
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)

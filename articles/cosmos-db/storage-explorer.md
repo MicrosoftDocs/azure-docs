@@ -127,7 +127,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
-    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
+    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection.
 
     ![Partition key](./media/storage-explorer/partitionkey.png)
 
@@ -149,7 +149,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 - Click the **Delete** button to delete the selected document.
 
 #### Query for documents
-- Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
+- Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
     ![Document Filter](./media/storage-explorer/document-filter.png)
 

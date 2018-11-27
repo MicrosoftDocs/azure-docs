@@ -155,7 +155,7 @@ These steps only apply if you don't already have a SendGrid account configured.
 
 ## Next steps
 
-* Learn more about creating [Analytics queries](app-insights-analytics-using.md).
+* Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
 * Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
 * Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).

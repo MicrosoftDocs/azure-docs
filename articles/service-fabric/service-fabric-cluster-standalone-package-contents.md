@@ -18,7 +18,7 @@ ms.author: maburlik
 ---
 
 # Contents of Service Fabric Standalone package for Windows Server
-In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric Standalone package, you will find the following files:
+In the [downloaded](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric Standalone package, you will find the following files:
 
 | **File name** | **Short description** |
 | --- | --- |
@@ -30,7 +30,7 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | TestConfiguration.ps1 |A PowerShell script for analyzing the infrastructure as specified in the Cluster.json. |
 | DownloadServiceFabricRuntimePackage.ps1 |A PowerShell script used for downloading the latest runtime package out of band, for scenarios where the deploying machine is not connected to the internet. |
 | DeploymentComponentsAutoextractor.exe |Self-extracting archive containing Deployment Components used by the Standalone package scripts. |
-| EULA_ENU.txt |The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now. |
+| EULA_ENU.txt |The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now. |
 | Readme.txt |A link to the release notes and basic installation instructions. It is a subset of the instructions in this document. |
 | ThirdPartyNotice.rtf |Notice of third-party software that is in the package. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe which is run on demand to collect and upload trace logs to Microsoft for support purpose. |

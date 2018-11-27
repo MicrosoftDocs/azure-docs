@@ -1,12 +1,20 @@
 ---
-title: Troubleshoot failovers to Azure | Microsoft Docs
-description: This article describes how to troubleshoot common issues during failover to Azure with Azure Site Recovery.
+title: Troubleshoot failover to Azure failures | Microsoft Docs
+description: This article describes ways to troubleshoot common errors in failing over to Azure
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+
+ms.assetid:
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
 
 ---
 # Troubleshoot errors when failing over a virtual machine to Azure
@@ -33,7 +41,37 @@ Site Recovery was not able to create a failed over Classic virtual machine in Az
 
 * One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
-## Unable to connect/RDP/SSH - VM Connect button grayed out
+## Failover failed with Error ID 170010
+
+Site Recovery was not able to create a failed over virtual machine in Azure. It could happen because an internal activity of hydration failed for the on-premises virtual machine.
+
+To bring up any machine in Azure, the Azure environment requires some of the drivers to be in boot start state and services like DHCP to be in autostart state. Thus, hydration activity, at the time of failover, converts the startup type of **atapi, intelide, storflt, vmbus, and storvsc drivers** to boot start. It also converts the startup type of a few services like DHCP to autostart. This activity can fail due to environment specific issues. To manually change the startup type of drivers, follow the below steps:
+
+1. [Download](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) the no-hydration script and run it as follows. This script checks if VM requires hydration.
+
+    `.\Script-no-hydration.ps1`
+
+    It gives the following result if hydration is required:
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    In case the VM meets no-hydration requirement, the script will give the result "This system meets no-hydration requirement". In this case, all drivers and services are in the state as required by Azure and hydration on the VM is not required.
+
+2. Run the no-hydration-set script as follows if the VM does not meet no-hydration requirement.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    This will convert the startup type of drivers and will give the result like below:
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
 
 If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 

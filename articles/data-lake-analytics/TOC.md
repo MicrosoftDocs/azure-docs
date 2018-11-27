@@ -64,6 +64,7 @@
 
 ## Continuous integration and continuous deployment
 ### [Overview](data-lake-analytics-cicd-overview.md)
+### [Assembly registration](data-lake-analytics-cicd-manage-assemblies.md)
 ### [Set up tests](data-lake-analytics-cicd-test.md)
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 

@@ -9,7 +9,7 @@ ms.date: 08/07/2018
 ms.topic: quickstart
 ms.custom:
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ---
 
 

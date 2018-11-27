@@ -2,8 +2,8 @@
 title: Regional disaster recovery for Azure Databricks
 description: This article describes an approach to doing disaster recovery in Azure Databricks. 
 services: azure-databricks
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual

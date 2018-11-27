@@ -288,16 +288,16 @@
         href: logic-apps-create-deploy-template.md
   - name: Monitor
     items: 
-      - name: Monitor logic app status
+      - name: Monitor logic apps
         href: logic-apps-monitor-your-logic-apps.md
-      - name: Monitor logic app status with Azure Log Analytics
+      - name: Monitor logic apps with Log Analytics
         href: logic-apps-monitor-your-logic-apps-oms.md
-      - name: Monitor B2B messages
+      - name: Monitor B2B messages with Log Analytics
         href: logic-apps-monitor-b2b-message.md
         items:
-        - name: Track B2B messages in Azure Log Analytics
+        - name: Track B2B messages with Log Analytics
           href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Query Azure Log Analytics for B2B messages
+        - name: Create queries for B2B messages with Log Analytics
           href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
@@ -314,12 +314,12 @@
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
-  - name: Architectural Patterns
+  - name: Architecture patterns
     href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
-    - name: Simple Enterprise Integration
+    - name: Simple enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
-    - name: Enterprise Integration with Queues & Events
+    - name: Enterprise integration with queues and events
       href: logic-apps-architectures-enterprise-integration-with-queues-events.md
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/

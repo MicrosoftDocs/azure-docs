@@ -28,7 +28,7 @@ When an organization is designing their hybrid identity solution, they can also 
 The sections that follow will cover authentication and authorization in more details, administration, and auditing are part of the hybrid identity lifecycle. Read [Determine hybrid identity management tasks](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) for more information about these capabilities.
 
 > [!NOTE]
-> Read [The Four Pillars of Identity - Identity Management in the Age of Hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) for more information about each one of those pillars.
+> Read [The Four Pillars of Identity - Identity Management in the Age of Hybrid IT](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) for more information about each one of those pillars.
 > 
 > 
 

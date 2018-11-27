@@ -27,7 +27,7 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: Virtual network gateways for ExpressRoute
+  - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
@@ -88,7 +88,11 @@
     - name: Configure IPsec transport mode for Windows hosts
       href: expressroute-howto-ipsec-transport-private-windows.md
   - name: Configure ExpressRoute Global Reach
-    href: expressroute-howto-set-global-reach.md
+    items:
+    - name: Azure PowerShell
+      href: expressroute-howto-set-global-reach.md
+    - name: Azure CLI
+      href: expressroute-howto-set-global-reach-cli.md
   - name: Configure a virtual network gateway for ExpressRoute
     items:
     - name: Azure portal

@@ -17,6 +17,7 @@ Installation of Mobility service is a key step during Enable Replication. The su
 * Credential/Privilege errors
 * Connectivity errors
 * Unsupported Operating systems
+* VSS installation failures
 
 When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below.
 
@@ -36,13 +37,10 @@ If you wish to modify the credentials of chosen user account, follow the instruc
 ## **Connectivity check (ErrorID: 95117 & 97118)**
 
 * Ensure you are able to ping your Source machine from the Configuration server. If you have chosen scale-out process server during enable replication, ensure you are able to ping your Source machine from process server.
-  * From Source Server machine command line, use Telnet to ping the configuration server/ scale-out process server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
+  * From Source Server machine command line, use Telnet to ping the configuration server/ scale-out process server with https port (135) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * If you are unable to connect, allow inbound port 9443 on the configuration server/ scale-out process server.
+     `telnet <CS/ scale-out PS IP address> <135>`
   * Check the status of service **InMage Scout VX Agent – Sentinel/Outpost**. Start the service, if it is not running.
-
 * Additionally, for **Linux VM**,
   * Check if latest openssh, openssh-server, and openssl packages are installed.
   * Check and ensure that Secure Shell (SSH) is enabled and is running on port 22.
@@ -69,7 +67,7 @@ For **windows 2008 R2 and prior versions**,
   * In the navigation pane, open the following folders: Local Computer Policy, User Configuration, Administrative Templates, Windows Components, and Network Sharing.
   * In the details pane, double-click **Prevent users from sharing files within their profile**. To disable the Group Policy setting, and enable the user's ability to share files, click Disabled. Click OK to save your changes. To learn more, click [here](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to enable file and printer sharing
+For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md) to enable file and printer sharing.
 
 ## Windows Management Instrumentation (WMI) configuration check
 
@@ -92,6 +90,43 @@ Other WMI troubleshooting articles could be found at the following articles.
 Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service.
 
 To learn about which operating systems are supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## VSS Installation failures
+
+VSS installation is a part of Mobility agent installation. This service is used in the process of generating application consistent recovery points. Failures during VSS installation can occur due to multiple reasons. To identify the exact errors, refer to **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**. Few common errors and the resolution steps are highlighted in the following section.
+
+### VSS error -2147023170 [0x800706BE] - exit code 511
+
+This issue is mostly seen when an anti-virus software is blocking the operations of Azure Site Recovery services. To resolve this,
+
+1. Exclude all folders mentioned [here](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
+2. Follow the guidelines published by your anti-virus provider to unblock the registration of DLL in Windows.
+
+### VSS error 7 [0x7] - exit code 511
+
+This is a runtime error and is caused due to insufficient memory to install VSS. Ensure to increase the disk space for successful completion of this operation.
+
+### VSS error -2147023824 [0x80070430] - exit code 517
+
+This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### VSS error -2147023841 [0x8007041F] - exit code 512
+
+This error occurs when Azure Site Recovery VSS Provider service database is [locked](https://msdn.microsoft.com/en-us/library/ms833798.aspx).Try to install VSS manually on the source machine by running the following command line
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### VSS exit code 806
+
+This error occurs when the user account used for installation does not have permissions to execute the CSScript command. Provide necessary permissions to the user account to execute the script and retry the operation.
+
+### Other VSS errors
+
+Try to install VSS provider service manually on the source machine by running the following command line
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## Next steps
 

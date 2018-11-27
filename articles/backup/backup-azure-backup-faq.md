@@ -39,7 +39,7 @@ No. Backup data stored in a vault can't be moved to a different vault.
 No. A Recovery Services vault can only change storage options before any backups have been stored.
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
-No, ILR isn't supported. 
+No, ILR isn't supported.
 
 
 ## Azure Backup agent
@@ -70,7 +70,7 @@ You don't need separate licensing for VMware/Hyper-V protection.
 
 ### Which DPM versions are supported?
 
-Supported DPM versions are summarized in the [support matrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). We recommend that you install the latest DPM updates, and run the [latest version](http://aka.ms/azurebackup_agent) of the Azure Backup agent on the DPM server.
+Supported DPM versions are summarized in the [support matrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). We recommend that you install the latest DPM updates, and run the [latest version](https://aka.ms/azurebackup_agent) of the Azure Backup agent on the DPM server.
 
 ### Can I register the server to multiple vaults?
 
@@ -94,7 +94,7 @@ Yes. But you should set up DPM first, and then install the Azure Backup agent.  
 ## General backup
 
 ### Are there limits on backup scheduling?
-Yes. 
+Yes.
 - You can back up Windows Server or Windows machines up to three times a day. You can set the scheduling policy to daily or weekly schedules.
 - You can back up DPM up to twice a day. You can set the scheduling policy to daily, weekly, monthly, and yearly.
 - You back up Azure VMs once a day.
@@ -105,12 +105,12 @@ Azure Backup supports these operating systems for backing up files and folders, 
 
 **OS**| **SKU** |**Details**
 --- | --- | ---
-Workstation | | 
+Workstation | |
 Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
 Windows 8.1 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
 Windows 8 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Machines should be running the latest services packs and updates.
-Server | | 
+Server | |
 Windows Server 2016 64 bit | Standard, Datacenter, Essentials | Wit the latest service packs/updates.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
@@ -120,7 +120,7 @@ Windows Storage Server 2012 64 bit | Standard, Workgroup | With the latest servi
 Windows Server 2008 R2 SP1 64 bit | Standard, Enterprise, Datacenter, Foundation | With the latest updates.
 Windows Server 2008 64 bit | Standard, Enterprise, Datacenter | With latest updates.
 
-For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux.  Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
+For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
 
 
 ## Are there size limits for data backup?
@@ -128,20 +128,20 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 
-OS/machine | Size limit of data source 
---- | --- | --- 
-Windows 8 or later | 54,400 GB 
-Windows 7 |1700 GB 
-Windows Server 2012 or later | 54,400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700 GB 
-Azure VM | 32 data disks<br/><br/> Data disk up to 4095 GB
+OS/machine | Size limit of data source
+--- | --- | ---
+Windows 8 or later | 54,400 GB
+Windows 7 |1700 GB
+Windows Server 2012 or later | 54,400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1700 GB
+Azure VM | 16 data disks<br/><br/> Data disk up to 4095 GB
 
 ## How is the data source size determined?
 
 The following table explains how each data source size is determined.
 
 **Data source** | **Details**
---- | --- 
+--- | ---
 Volume |The amount of data being backed up from single volume VM being backed up.
 SQL Server database |Size of single SQL database size being backed up.
 SharePoint | Sum of the content and configuration databases within a SharePoint farm being backed up.
@@ -153,7 +153,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 
 There is no limit on the amount of data you can back up using a Recovery Services vault.
 
-### If I cancel a backup job once it has started, is the transferred backup data deleted? 
+### If I cancel a backup job once it has started, is the transferred backup data deleted?
 No. All data transferred into the vault, before the backup job was canceled, stays in the vault. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
 
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
@@ -181,7 +181,7 @@ No. All data that was transferred into the vault before the backup job was cance
 ### Are the retention policies for DPM and Windows machines without DPM the same?
 Yes, they both have daily, weekly, monthly, and yearly retention policies.
 
-### Can I customize retention policies? 
+### Can I customize retention policies?
 Yes, you have customize policies. For example, you can configure weekly and daily retention requirements, but not yearly and monthly.
 
 ### Can I use different times for backup scheduling and retention policies?
@@ -203,7 +203,7 @@ Azure Backup storage architecture gives you the best of both worlds by optimally
 
 ### Is there a limit on the number of recovery points that can be created?
 
-You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure. 
+You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 
 - Learn more about [backup and retention](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Learn about [protected instances](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
@@ -233,7 +233,7 @@ Yes. The data in Azure is encrypted-at-rest.
 - For on-premises backup, encryption-at-reset is provided using the passphrase you provide when backing up to Azure.
 - For Azure VMs, data is encrypted-at-reset using Storage Service Encryption (SSE).
 
-Microsoft does not decrypt the backup data at any point. 
+Microsoft does not decrypt the backup data at any point.
 
 
 ### What is the minimum length of encryption the key used to encrypt backup data?

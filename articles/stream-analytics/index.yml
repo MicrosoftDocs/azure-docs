@@ -6,7 +6,7 @@ metadata:
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
   author: jasonwhowell
-  ms.author: jasonh
+  ms.author: mamccrea
   manager: kfile
   ms.service: stream-analytics
   ms.topic: landing-page
@@ -19,8 +19,8 @@ abstract:
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250  
-    title: Streaming Analytics on Microsoft Azure. (8:48)
-    href: https://channel9.msdn.com/Events/Connect/2016/161
+    title: Enable real-time analytics and ML models in the Cloud and on IoT Edge with Azure Stream Analytics. (1:15:05)
+    href: https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor
     width: 250
 sections:
 - title: 5-Minute Quickstarts

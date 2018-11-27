@@ -123,6 +123,17 @@ sections:
         - href:
         - href:
         - href:
+      - title: Android (x86/x64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-java-android
+        - href:
+        - href:
+        - href:
+        - href:
       - title: Devices SDK (ARM64)
         values:
         - href:

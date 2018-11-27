@@ -11,17 +11,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
 
 ---
 
-# Tutorial: Create an Azure Resource Manager template for deploying an encrypted storage account
+# Tutorial: Deploy an encrypted Azure Storage account with Resource Manager template
 
 Learn how to find the template schema information, and use the information to create Azure Resource Manager templates.
 
-In this tutorial, you use a base template from Azure Quickstart templates to create an Azure Storage account. Using template reference documentation, you customize the base template to create an encrypted Storage account.
+In this tutorial, you use a base template from Azure Quickstart templates. Using template reference documentation, you customize the template to create an encrypted Storage account.
 
 This tutorial covers the following tasks:
 
@@ -42,7 +42,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
+[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -58,15 +58,15 @@ The template used in this quickstart is called [Create a standard storage accoun
 1. From VS Code, collapse the template to the root level. You have the simplest structure with the following elements:
 
     ![Resource Manager template simplest structure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
-    
+
     * **$schema**: specify the location of the JSON schema file that describes the version of the template language.
     * **contentVersion**: specify any value for this element to document significant changes in your template.
     * **parameters**: specify the values that are provided when deployment is executed to customize resource deployment.
     * **variables**: specify the values that are used as JSON fragments in the template to simplify template language expressions.
     * **resources**: specify the resource types that are deployed or updated in a resource group.
     * **outputs**: specify the values that are returned after deployment.
-    
-2. Expand **resources**. There is only one resource defined. The type is `Microsoft.Storage/storageAccounts`. In the definition, there is no encryption-related information. You can use the template reference to find out the information.
+
+2. Expand **resources**. There is a `Microsoft.Storage/storageAccounts` resource defined. The template creates a non-encrypted Storage account.
 
     ![Resource Manager template storage account definition](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
@@ -99,14 +99,13 @@ The template used in this quickstart is called [Create a standard storage accoun
     },
     ```
 
-    There are other two pieces of helpful information on the same page:
+    On the same web page, the following description confirms the `encryption` object is used to create an encrypted storage account.
+
     ![Resource Manager template reference storage account encryption](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
 
-    This piece confirms the `encryption` object is what you need to create an encrypted storage account.
+    And there are two ways for managing the encryption key. You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. To keep this tutorial simple, you use the `Microsoft.Storage` option, so you don't have to create an Azure Key Vault.
 
     ![Resource Manager template reference storage account encryption object](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
-
-    This piece tells you that there are two ways for managing the encryption key. You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. To keep this tutorial simple, you use the `Microsoft.Storage` option, so you don't have to create an Azure Key Vault.
 
     Your encryption object shall look like:
 
@@ -126,8 +125,8 @@ The template used in this quickstart is called [Create a standard storage accoun
 
 ## Edit the template
 
-From Visual Studio Code, modify the template so that the final resources element looks like:
-    
+From Visual Studio Code, modify the template so that the resources element looks like:
+
 ![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## Deploy the template

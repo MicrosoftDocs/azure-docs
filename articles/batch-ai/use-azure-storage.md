@@ -94,7 +94,7 @@ If your training script requires knowledge of a path, you should pass it as a co
 
 ### Abbreviate input paths
 
-To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParamters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
+To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParameters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
 
 ```json
 {
@@ -111,7 +111,7 @@ For more information, see [here](https://github.com/Azure/BatchAI/blob/master/do
 
 ### Abbreviate output paths
 
-To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParamters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
+To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParameters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
 
 ```json
 {

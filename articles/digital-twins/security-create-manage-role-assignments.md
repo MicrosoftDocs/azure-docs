@@ -1,12 +1,12 @@
 ---
-title: Understanding Azure Digital Twins device connectivity and authentication | Microsoft Docs
-description: Using Azure Digital Twins to connect and authenticate devices
+title: Understand Azure Digital Twins device connectivity and authentication | Microsoft Docs
+description: Use Azure Digital Twins to connect and authenticate devices
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
 ---
 
@@ -16,15 +16,17 @@ Azure Digital Twins uses role-based access control ([RBAC](./security-role-based
 
 Each role assignment includes:
 
-* An **object identifier** (an Azure Active Directory ID, service principal object ID, or domain name).
-* An **object identifier type**.
-* A **role definition ID**.
-* A **space path**.
-* (In most cases) an Azure Active Directory **tenant ID**.
+* **Object identifier**: An Azure Active Directory ID, service principal object ID, or domain name
+* **Object identifier type**
+* **Role definition ID**
+* **Space path**
+* **Tenant ID**: In most cases, an Azure Active Directory tenant ID
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## Role definition identifiers
 
-The table below shows what can be obtained by querying the System/Roles API:
+The following table shows what can be obtained by querying the system/roles API.
 
 | **Role** | **Identifier** |
 | --- | --- |
@@ -36,11 +38,11 @@ The table below shows what can be obtained by querying the System/Roles API:
 | User | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Support Specialist | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Device Installer | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+| Gateway Device | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
 
 ## Supported ObjectIdTypes
 
-The supported `ObjectIdTypes` are:
+The supported `ObjectIdTypes`:
 
 * `UserId`
 * `DeviceId`
@@ -52,20 +54,20 @@ The supported `ObjectIdTypes` are:
 ## Create a role assignment
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Name** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- |
-| roleId| Yes |string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
-| objectId | Yes |string | The object ID for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
-| objectIdType | Yes |string | The type of the role assignment. Must be one of the following rows in this table. |
-| tenantId | Varies | string |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
-| path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire graph, specify `"/"` (which designates the root). However, using that is discouraged and **you should always follow the Principle of Least Privilege**. |
+| roleId| Yes |String | The role definition identifier. Find role definitions and their identifiers by querying the system API. |
+| objectId | Yes |String | The object ID for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
+| objectIdType | Yes |String | The type of the role assignment. Must be one of the following rows in this table. |
+| tenantId | Varies | String |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
+| path* | Yes | String |The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
 
 ## Sample configuration
 
-A user needs administrative access to a floor of a tenant space:
+In this example, a user needs administrative access to a floor of a tenant space.
 
   ```JSON
     {
@@ -77,7 +79,7 @@ A user needs administrative access to a floor of a tenant space:
     }
   ```
 
-An application that runs test scenarios mocking devices and sensors:
+In this example, an application runs test scenarios mocking devices and sensors.
 
   ```JSON
     {
@@ -89,7 +91,7 @@ An application that runs test scenarios mocking devices and sensors:
     }
   ```
 
-All users part of a domain will receive read access for spaces, sensors, and users, including their corresponding related objects:
+All users who are part of a domain receive read access for spaces, sensors, and users. This access includes their corresponding related objects.
 
   ```JSON
     {
@@ -100,25 +102,25 @@ All users part of a domain will receive read access for spaces, sensors, and use
     }
   ```
 
-To GET a Role Assignment:
+Use GET to get a role assignment.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Name** | **In** | **Required** |	**Type** |	**Description** |
 | --- | --- | --- | --- | --- |
-| Path | Path | True | String |	The full path to the space |
+| YOUR_PATH | Path | True | String |	The full path to the space |
 
-To DELETE a Role Assignment:
+Use DELETE to delete a role assignment.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Name** | **In** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| ID | Path | True | String |	Role Assignment ID |
+| YOUR_ROLE_ID | Path | True | String |	Role Assignment ID |
 
 ## Next steps
 

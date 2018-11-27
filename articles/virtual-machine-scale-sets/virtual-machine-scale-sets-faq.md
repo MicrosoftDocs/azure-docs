@@ -3,7 +3,7 @@ title: Azure virtual machine scale sets FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: negat
+ms.author: manayar
 ms.custom: na
 
 ---
@@ -369,7 +369,7 @@ To emulate passing in a certificate as a base64 string, you can extract the late
 
 In virtual machine scale sets and VMs, certificates must be wrapped in JSON objects. 
 
-We also support the content type application/x-pkcs12. For instructions on using application/x-pkcs12, see [PFX certificates in Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/).
+We also support the content type application/x-pkcs12. 
  
 We currently do not support .cer files. To use .cer files, export them into .pfx containers.
 

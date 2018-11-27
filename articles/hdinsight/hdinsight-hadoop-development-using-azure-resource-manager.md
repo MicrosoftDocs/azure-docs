@@ -3,13 +3,13 @@ title: Migrate to Azure Resource Manager tools for HDInsight
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters

@@ -20,7 +20,7 @@ ms.author: yurid
 # Azure Security Center detection capabilities
 This document discusses Azure Security Center’s advanced detection capabilities, which helps identify active threats targeting your Microsoft Azure resources and provides you with the insights needed to respond quickly.
 
-Advanced detections are available in the Standard Tier of Azure Security Center. A free 60-day trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-policies.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
+Advanced detections are available in the Standard Tier of Azure Security Center. A free 60-day trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-azure-policy.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
 
 > [!NOTE]
 > Security Center has released to limited preview a new set of detections that leverage audited records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
@@ -85,5 +85,5 @@ In this document, you learned how to Azure Security Center detection capabilitie
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
 

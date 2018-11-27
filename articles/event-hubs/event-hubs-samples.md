@@ -57,7 +57,8 @@ You can find Azure CLI samples for Azure Event Hubs in the [azure-event-hubs](ht
 ## Azure PowerShell samples
 You can find Azure PowerShell samples for Azure Event Hubs in the [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub repository.
  
-
+## Apache Kafka samples
+You can find samples for the Event Hubs for Apache Kafka feature in the [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub repository.
 
 ## Next steps
 You can learn more about Event Hubs in the following articles:

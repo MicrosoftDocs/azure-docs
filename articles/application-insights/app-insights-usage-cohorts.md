@@ -44,9 +44,9 @@ Your team defines an engaged user as anyone who uses your app five or more times
     There are three parameters for this cohort:
     * **Activities**, where you choose which events and page views count as “usage.”
     * **Period**, the definition of a month.
-    * **UsedAtleastCustom**, the number of times users need to use something within a period to count as engaged.
+    * **UsedAtLeastCustom**, the number of times users need to use something within a period to count as engaged.
 
-4. Change **UsedAtleastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
+4. Change **UsedAtLeastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
 
     ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
 

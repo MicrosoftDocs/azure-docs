@@ -20,7 +20,7 @@ ms.author: diberry
 ## Prerequisites
 
 [!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
-* [JDK SE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  (Java Development Kit, Standard Edition)
+* [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
 * [Google's GSON JSON library](https://github.com/google/gson).
 
 [!INCLUDE [Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]

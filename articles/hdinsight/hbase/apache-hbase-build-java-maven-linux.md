@@ -2,21 +2,19 @@
 title: Java HBase client - Azure HDInsight 
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: jasonh
-
+ms.date: 11/27/2018
 ---
 # Build Java applications for Apache HBase
 
 Learn how to create an [Apache HBase](http://hbase.apache.org/) application in Java. Then use the application with HBase on Azure HDInsight.
 
-The steps in this document use [Maven](http://maven.apache.org/) to create and build the project. Maven is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects.
+The steps in this document use [Apache Maven](https://maven.apache.org/) to create and build the project. Maven is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects.
 
 > [!NOTE]
 > The steps in this document were most recently tested with HDInsight 3.6.
@@ -26,14 +24,14 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 
 ## Requirements
 
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 or later.
+* [Java platform JDK](https://aka.ms/azure-jdks) 8 or later.
 
     > [!NOTE]
     > HDInsight 3.5 and greater requires Java 8. Earlier versions of HDInsight require Java 7.
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [A Linux-based Azure HDInsight cluster with HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [A Linux-based Azure HDInsight cluster with Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## Create the project
 
@@ -55,7 +53,7 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
    * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
    * **src**: The directory that contains the **main/java/com/microsoft/examples** directory, where you author the application.
 
-3. Delete the `src/test/java/com/microsoft/examples/apptest.java` file. It is not be used in this example.
+3. Delete the `src/test/java/com/microsoft/examples/apptest.java` file. It isn't used in this example.
 
 ## Update the Project Object Model
 
@@ -77,9 +75,9 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
     This section indicates that the project needs **hbase-client** and **phoenix-core** components. At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
 
    > [!IMPORTANT]
-   > The version number of the hbase-client must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
+   > The version number of the hbase-client must match the version of Apache HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
 
-   | HDInsight cluster version | HBase version to use |
+   | HDInsight cluster version | Apache HBase version to use |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5, and 3.6 |1.1.2 |
@@ -359,7 +357,7 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 
 ## Upload the JAR and run jobs (SSH)
 
-The following steps use `scp` to copy the JAR to the primary head node of your HBase on HDInsight cluster. The `ssh` command is then used to connect to the cluster and run the example directly on the head node.
+The following steps use `scp` to copy the JAR to the primary head node of your Apache HBase on HDInsight cluster. The `ssh` command is then used to connect to the cluster and run the example directly on the head node.
 
 1. To upload the jar to the cluster, use the following command:
 
@@ -408,7 +406,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
 ## Upload the JAR and run jobs (PowerShell)
 
-The following steps use Azure PowerShell to upload the JAR to the default storage for your HBase cluster. HDInsight cmdlets are then used to run the examples remotely.
+The following steps use Azure PowerShell to upload the JAR to the default storage for your Apache HBase cluster. HDInsight cmdlets are then used to run the examples remotely.
 
 1. After installing and configuring Azure PowerShell, create a file named `hbase-runner.psm1`. Use the following text as the contents of this file:
 
@@ -640,7 +638,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
 
     Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password.
 
-    This command creates a table named **people** in HBase on your HDInsight cluster. This command does not show any output in the console window.
+    This command creates a table named **people** in HBase on your HDInsight cluster. This command doesn't show any output in the console window.
 
 6. To search for entries in the table, use the following command:
 
@@ -667,7 +665,7 @@ Use the `-showErr` parameter to view the standard error (STDERR) that is produce
 
 ## Delete the table
 
-When you are done with the example, use the following to delete the **people** table used in this example:
+When you're done with the example, use the following to delete the **people** table used in this example:
 
 __From an `ssh` session__:
 
@@ -679,4 +677,4 @@ __From Azure PowerShell__:
 
 ## Next steps
 
-[Learn how to use SQuirreL SQL with HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Learn how to use SQuirreL SQL with Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

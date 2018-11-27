@@ -206,9 +206,14 @@
       - name: Publish to Azure AD App Gallery
         href: howto-app-gallery-listing.md
       - name: Publish to the Office 365 Seller Dashboard
-        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store   
-    - name: Migrate from the Azure Access Control Service
-      href: active-directory-acs-migration.md
+        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+    - name: Azure Access Control Service
+      displayName: ACS
+      items:
+      - name: Migrate from the Azure Access Control Service
+        href: active-directory-acs-migration.md
+      - name: Reactivate disabled Access Control Service namespaces
+        href: howto-reactivate-disabled-acs-namespaces.md
     - name: Use the Azure AD Graph API
       href: active-directory-graph-api-quickstart.md
     - name: AD FS for developers

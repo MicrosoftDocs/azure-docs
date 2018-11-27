@@ -24,12 +24,12 @@ A **filter** in a [Log Analytics view](log-analytics-view-designer.md) allows us
 ## Using a filter
 Click the data time range at the top of a view to open the drop down where you can change the data time range for the view.
 
-![Filter example](media/log-analytics-view-designer/filters-example-time.png)
+![Filter example](media/log-analytics-view-designer-filters/filters-example-time.png)
 
 Click the **+** to add a filter using custom filters that are defined for the view. Either select a value for the filter from the dropdown or type in a value. Continue to add filters by clicking the **+**. 
 
 
-![Filter example](media/log-analytics-view-designer/filters-example-custom.png)
+![Filter example](media/log-analytics-view-designer-filters/filters-example-custom.png)
 
 If you remove all of the values for a filter, then that filter will no longer be applied.
 
@@ -38,7 +38,7 @@ If you remove all of the values for a filter, then that filter will no longer be
 
 Create a filter from the **Filters** tab when [editing a view](log-analytics-view-designer.md).  The filter is global for the view and applies to all parts in the view.  
 
-![Filter settings](media/log-analytics-view-designer/filters-settings.png)
+![Filter settings](media/log-analytics-view-designer-filters/filters-settings.png)
 
 The following table describes the settings for a filter.
 

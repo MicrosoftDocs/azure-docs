@@ -39,6 +39,8 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Access Git configuration in your service
 
 To view and configure your Git configuration settings, you can click the **Security** menu and navigate to the **Configuration repository** tab.
@@ -185,7 +187,8 @@ The root `api-management` folder contains a `configuration.json` file that conta
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -195,10 +198,11 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 
 | Identity setting | Maps to |
 | --- | --- |
-| RegistrationEnabled |**Redirect anonymous users to sign-in page** checkbox |
+| RegistrationEnabled |Presence of **Username and password** identity provider |
 | UserRegistrationTerms |**Terms of use on user signup** textbox |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** checkbox |
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
+| RequireUserSigninEnabled |**Redirect anonymous users to sign-in page** checkbox |
 
 The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
 

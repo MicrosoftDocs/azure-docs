@@ -1,18 +1,18 @@
 ---
-title: Use Tez UI with Windows-based HDInsight - Azure 
-description: Learn how to use the Tez UI to debug Tez jobs on Windows-based HDInsight HDInsight.
+title: Use Apache Tez UI with Windows-based HDInsight - Azure 
+description: Learn how to use the Apache Tez UI to debug Tez jobs on Windows-based HDInsight HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Use the Tez UI to debug Tez Jobs on Windows-based HDInsight
+# Use the Apache Tez UI to debug Tez Jobs on Windows-based HDInsight
 The Tez UI can be used to debug Hive jobs that use Tez as the execution engine. The Tez UI visualizes the job as a graph of connected items, can drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
@@ -22,13 +22,13 @@ The Tez UI can be used to debug Hive jobs that use Tez as the execution engine. 
 * A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
-  > The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
+  > The Apache Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
   >
   >
 * A Windows-based Remote Desktop client.
 
-## Understanding Tez
-Tez is an extensible framework for data processing in Hadoop, and provides greater speeds than traditional MapReduce processing. You can enable Tez by including the following text as part of a Hive query:
+## Understanding Apache Tez
+Tez is an extensible framework for data processing in Apache Hadoop, and provides greater speeds than traditional MapReduce processing. You can enable Tez by including the following text as part of a Hive query:
 
     set hive.execution.engine=tez;
 

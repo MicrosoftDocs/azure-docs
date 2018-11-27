@@ -1,6 +1,6 @@
 ---
-title: Consulting Services | Microsoft Docs
-description: Guide for defining and publishing a consulting service offer.
+title: Azure and Dynamcis 365 Consulting Service offer | Microsoft Docs
+description: Guide for defining and publishing a Azure or Dynamcis 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: dan-wesley
@@ -13,16 +13,24 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
 ---
 
+# Azure and Dynamics 365 Consulting Service offer
 
-Defining and Publishing your Consulting Services Offer
-======================================================
+<table> <tr> <td>This section explains how to publish a consulting service to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or the <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Solutions based upon Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> are eligible to be listed on AppSource. Other offers based upon other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> are eligible for listing on Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
-This guide is designed to help you define and publish your consulting
-services offer in the Cloud Partner Portal.
+
+# Publishing benefits
+
+Publishing to either of the Microsoft marketplaces has substantial benefits:
+
+- Promote your company by leveraging the Microsoft brand.
+- Potentially reach over 100 million Office 365 and Dynamics 365 users on AppSource; reach over 200 thousand organizations through Azure Marketplace.
+- Get high quality leads from these marketplaces.
+- Get your services promoted by the Microsoft field and telesales teams.
+
 
 Define your Consulting Services Offer
 -------------------------------------
@@ -56,58 +64,51 @@ To create a new offer, complete the following steps:
 
 ### Define Offer Settings
 
-On the New Offer screen, the first step is to create the offer identity.
-The offer identity consists of three parts:
-
-1.  Offer ID
-2.  Publisher ID
-3.  Name
-
-Each of these parts are covered in the following sections.
+On the New Offer screen, the first step is to create the offer identity.  The offer identity consists of three parts: **Offer ID**, **Publisher ID**, and **Name**.  Each of these parts are covered in the following sections.
 
 #### Offer ID
 
-This is a unique name you create when you first submit the offer. It
+This identifier is a unique name you create when you first submit the offer. It
 must consist only of lowercase alphanumeric characters, dashes, or
-underscores. The ID will be visible in the URL and impacts search engine
+underscores. The Offer ID will be visible in the URL and impacts search engine
 results. For example, *yourcompanyname\_exampleservice*
 
-As shown in the example, the offer ID gets appended to the your
+As shown in the example, the offer ID gets appended to your
 publisher ID to create a unique identifier. This is exposed as a
-permanent link that can be booked and is indexed by the search engines.
+permanent link that can be booked and is indexed by the search engines. 
 
-**After an offer is live it can\'t be updated**
+*After an offer is live, it's identifier can't be updated*
 
 #### Publisher ID
 
-This is related to your account. When you are logged in with your
+This identifier is related to your account. When you are logged in with your
 organizational account, your Publisher ID will show up in the dropdown
 menu.
 
 #### Name
 
-This is what will show as the offer name on AppSource or Azure
+This string is what will display as the offer name on AppSource or Azure
 Marketplace.
 
 **Important:** Only enter the name of the actual service here. Do not
 include duration and type of service.
 
 The following example by Edgewater Fullscope shows how the offer name is
-assembled. The offer name appears like this:
+assembled. The offer name appears as:
 
 ![Creating a new Consulting Services offer](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 The Offer name is comprised of four parts:
 
--   **Duration:**You define this in the Storefront Details tab of the
-    editor. Duration can be expressed in Hours, Days, or Weeks.
--   **Type of service:** You define this in the Storefront Details tab
-    of the editor. Types of services are Assessment, Briefing,
-    Implementation, Proof of concept and Workshop.
--   **Preposition:** Inserted by the reviewer
--   **Name:** This is what you defined in the Offer Settings page.
+-   **Duration:** - defined in the **Storefront Details** tab of the
+    editor. Duration can be expressed in hours, days, or weeks.
+-   **Type of service:** - defined in the **Storefront Details** tab
+    of the editor. Types of services are `Assessment`, `Briefing`,
+    `Implementation`, `Proof of concept`, and `Workshop`.
+-   **Preposition:** - inserted by the reviewer
+-   **Name:** - defined in the **Offer Settings** page.
 
-The following list provides several well-named Offer names:
+The following list provides several well-named offer names:
 
 -   Essentials for Professional Services: 1-Hr Briefing
 -   Cloud Migration Platform: 1-Hr Briefing
@@ -145,7 +146,7 @@ The offer details section contains the following fields:
 ##### Offer summary
 
 The Offer summary is a brief description of your offer that appears just
-below the offer name. You should use plain text when entering the offer
+below the offer name. Use plain text when entering the offer
 summary, and it should not have line breaks. The following are good
 examples of offer summaries together with their corresponding offer
 names:
@@ -185,7 +186,7 @@ names:
 
 ##### Offer description
 
-This is a description of the Consulting Service offer. A good offer
+Description of the Consulting Service offer. A good offer
 description covers exact details of what the engagement will look like
 and what will be the end deliverable to the customer. It should clearly
 help the customer understand what they get.
@@ -203,7 +204,7 @@ Using these formats will ensure your offer has maximum readability for
 customers.
 
 Keep your Offer description brief and adhere to the character limit as
-users do not like to read a lot of text. You still have the option to
+users do not like to read long text. You still have the option to
 upload marketing brochures, fact sheets, and other documents that
 describe your offer in deeper detail.
 
@@ -278,7 +279,7 @@ New Partner Center ID, if you have one.
 **MPN ID**
 
 Enter a secret key to preview your offer on AppSource before going live.
-This is not a password.
+This identifier is not a password.
 
 #### Listing Details
 
@@ -382,6 +383,6 @@ goes live. You can return to the portal to check the status of your
 offer at any point in time.
 
 Offers might appear in a "Publish canceled" or "Publish failed" status
-during the publishing process. This is a normal part of the process, and
-allows Microsoft to make edits to your Offer. If you see your offer in
+during the publishing process. This status is a normal part of the process, and
+allows Microsoft to make edits to your offer. If you see your offer in
 "Publish canceled", leave it in that status.

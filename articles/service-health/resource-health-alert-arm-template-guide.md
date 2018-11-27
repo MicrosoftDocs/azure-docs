@@ -54,7 +54,7 @@ To follow the instructions on this page, you'll need to set up a few things in a
         Supply values for the following parameters:
         (Type !? for Help.)
         activityLogAlertName: <Alert Name>
-        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resouceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
 
 6. If everything worked successfully, you'll get a confirmation in PowerShell
 

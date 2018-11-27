@@ -2,7 +2,7 @@
 title: Azure IoT Edge module composition | Microsoft Docs 
 description: Learn how a deployment manifest declares which modules to deploy, how to deploy them, and how to create message routes between them. 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/06/2018
 ms.topic: conceptual
@@ -10,9 +10,9 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Learn how to use deployment manifests to deploy modules and establish routes
+# Learn how to deploy modules and establish routes in IoT Edge
 
-Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which make up the IoT Edge runtime. In addition to those standard two, any IoT Edge device can run multiple modules to perform any number of processes. When you deploy all these modules to a device at once, you need a way to declare which modules are included and how they interact with each other. 
+Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which make up the IoT Edge runtime. Additionally, any IoT Edge device can run multiple modules to perform any number of processes. When you deploy all these modules to a device at once, you need a way to declare which modules are included and how they interact with each other. 
 
 The *deployment manifest* is a JSON document that describes:
 
@@ -22,7 +22,7 @@ The *deployment manifest* is a JSON document that describes:
 
 All IoT Edge devices need to be configured with a deployment manifest. A newly installed IoT Edge runtime reports an error code until configured with a valid manifest. 
 
-In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. For more information, see [Understand IoT Edge deployments][lnk-deploy].
+In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. For more information, see [Understand IoT Edge deployments](module-deployment-monitoring.md).
 
 ## Create a deployment manifest
 
@@ -133,7 +133,7 @@ The source specifies where the messages come from. It can be any of the followin
 | `/messages/modules/{moduleId}/outputs/{output}` | Any device-to-cloud message sent by {moduleId} using {output} |
 
 ### Condition
-The condition is optional in a route declaration. If you want to pass all messages from the sink to the source, just leave out the **WHERE** clause entirely. Or you can use the [IoT Hub query language][lnk-iothub-query] to filter for certain messages or message types that satisfy the condition.
+The condition is optional in a route declaration. If you want to pass all messages from the sink to the source, just leave out the **WHERE** clause entirely. Or you can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-routing-query-syntax.md) to filter for certain messages or message types that satisfy the condition.
 
 The messages that pass between modules in IoT Edge are formatted the same as the messages that pass between your devices and Azure IoT Hub. All messages are formatted as JSON and have **systemProperties**, **appProperties**, and **body** parameters. 
 
@@ -169,7 +169,7 @@ The deployment manifest can specify desired properties for the module twin of ea
 
 If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
 
-The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [device twin developer guide](../iot-hub/iot-hub-devguide-device-twins.md).   
+The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [module twin developer guide](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## Deployment manifest example
 
@@ -257,10 +257,4 @@ This an example of a deployment manifest JSON document.
 
 * For a complete list of properties that can or must be included in $edgeAgent and $edgeHub, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
 
-* Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules](module-development.md).

@@ -31,7 +31,7 @@ This article covers how to access Azure Cosmos DB Cassandra API from Spark on YA
 
 * **Cassandra API configuration in Spark2** - The Spark connector for Cassandra requires that the Cassandra connection details to be initialized as part of the Spark context. When you launch a Jupyter notebook, the spark session and context are already initialized and it is not advisable to stop and reinitialize the Spark context unless it's complete with every configuration set as part of the HDInsight default Jupyter notebook start-up. One workaround is to add the Cassandra instance details to Ambari, Spark2 service configuration directly. This is a one-time activity per cluster that requires a Spark2 service restart.
  
-  1. Go to Ambari, Spark2 service and click on configs
+  1. Go to Ambari, Spark2 service and select configs
 
   2. Then go to custom spark2-defaults and add a new property with the following, and restart Spark2 service:
 

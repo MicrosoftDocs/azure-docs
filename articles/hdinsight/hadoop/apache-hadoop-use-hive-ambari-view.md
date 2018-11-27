@@ -1,26 +1,26 @@
 ---
-title: Use Ambari Views to work with Hive on HDInsight (Hadoop) - Azure 
+title: Use Apache Ambari Views to work with Hive on HDInsight (Apache Hadoop) - Azure 
 description: Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Use Ambari Hive View with Hadoop in HDInsight
+# Use Apache Ambari Hive View with Apache Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Learn how to run Hive queries by using Ambari Hive View. The Hive View allows you to author, optimize, and run Hive queries from your web browser.
+Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View allows you to author, optimize, and run Hive queries from your web browser.
 
 ## Prerequisites
 
-* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
+* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -162,7 +162,7 @@ You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) 
 For more information on using UDFs with Hive on HDInsight, see the following articles:
 
 * [Using Python with Hive and Pig in HDInsight](python-udf-hdinsight.md)
-* [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [How to add a custom Hive UDF to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## Hive settings
 

@@ -11,9 +11,9 @@ author: DRediske
 ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/07/2018
+ms.date: 11/01/2018
 ---
-# Secure your Azure SQL Database
+# Tutorial: Secure your Azure SQL Database
 
 SQL Database secures your data by: 
 - Limiting access to your database using firewall rules 

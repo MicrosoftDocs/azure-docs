@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Visual Studio Code to create Azure Resource Manager template | Microsoft Docs
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
 services: azure-resource-manager
@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 11/13/2018
 ms.topic: quickstart
 ms.author: jgao
 
@@ -80,9 +80,9 @@ To learn how to edit a template using Visual Studio Code, you add one more eleme
     }
     ```
 
-    If you copied and pasted the code inside Visual Studio Code, try to retype the **value** element to experience the intellisense capability of the Resource Manager Tools extension.
+    If you copied and pasted the code inside Visual Studio Code, try to retype the **value** element to experience the IntelliSense capability of the Resource Manager Tools extension.
 
-    ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Resource Manager template visual studio code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Select **File**>**Save** to save the file.
 

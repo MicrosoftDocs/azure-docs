@@ -2,21 +2,15 @@
 title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution technical guide | Microsoft Docs
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
-documentationcenter: ''
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: fboylu
-
+ms.author: tdsp
+ms.custom: "(previous author=fboylu, ms.author=fboylu)"
 ---
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 
@@ -36,7 +30,7 @@ The goals of this article are to:
 - Show how to modify the solution template.  
 
 > [!TIP]
-> You can download and print a [PDF version of this article](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> You can download and print a [PDF version of this article](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
@@ -47,7 +41,7 @@ When you deploy the solution, it activates Azure services within the Cortana Ana
 HDInsight, Data Factory, and Machine Learning). The architecture
 diagram shows how the Predictive Maintenance for
 Aerospace Solution Template is constructed. You can investigate these services in the Azure portal by clicking  them in the solution template diagram created with the solution deployment (except for HDInsight, which is provisioned on demand when the related pipeline activities are required to run and are deleted afterwards).
-Download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Download a [full-size version of the diagram](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe the solution parts.
 
@@ -83,7 +77,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
 ### HDInsight custom aggregation
-Run [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+Run [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts (orchestrated by Azure Data Factory) using HDInsight to provide aggregations on
 the raw events archived using the Azure Stream Analytics
 service.
@@ -192,7 +186,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/). Here
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
 Two of the pipelines of this factory contain
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts used to partition and aggregate the data. When noted,
 the scripts are located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
@@ -202,7 +196,7 @@ name].blob.core.windows.net/maintenancesascript).
 
 Similar to [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format and must be altered based on your data format.
 
 #### *AggregateFlightInfoPipeline*
@@ -213,7 +207,7 @@ contains a single activity - an
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 script to partition the data put in [Azure
 Storage](https://azure.microsoft.com/services/storage/) during the
 [Azure Stream
@@ -221,7 +215,7 @@ Analytics](https://azure.microsoft.com/services/stream-analytics/)
 job.
 
 The
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 script for this partitioning task is ***AggregateFlightInfo.hql***
 
 #### *MLScoringPipeline*
@@ -238,12 +232,12 @@ Activities included are:
   activity using an
   [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
   that runs a
-  [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
   script to perform aggregations and feature engineering necessary for
   the [Azure Machine
   Learning](https://azure.microsoft.com/services/machine-learning/) experiment.
   The
-  [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
   script for this partitioning task is ***PrepareMLInput.hql***.
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
   activity that moves the results from the
@@ -446,5 +440,5 @@ Solution Template in your subscription:
 * [Microsoft Azure Cost Estimator
   Tool (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator
-  Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+  Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/29/2018
+ms.date: 10/30/2018
 ms.author: jgao
 ms.custom: include file 
 ---
@@ -40,6 +40,7 @@ Use the following quickstarts and tutorials to learn how to develop resource man
     |[Integrate key vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Retrieve secrets/passwords from Azure Key Vault. In the tutorial, you create a virtual machine.  The virtual machine administrator password is retrieved from a Key Vault.|
     |[Create linked templates](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|Modularize templates, and call other templates from a template. In the tutorial, you create a virtual network, a virtual machine, and the dependent resources.  The dependent storage account is defined in a linked template. |
     |[Deploy virtual machine extensions](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Perform post-deployment tasks by using extensions. In the tutorial, you deploy a customer script extension to install web server on the virtual machine. |
+    |[Deploy SQL extensions](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Perform post-deployment tasks by using extensions. In the tutorial, you deploy a customer script extension to install web server on the virtual machine. |
     |[Use safe deployment practices](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Use Azure Deployment manager. |
 
 These tutorials can be used individually, or as a series to learn the major Resource Manager template development concepts.

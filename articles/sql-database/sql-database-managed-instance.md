@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 10/30/2018
 ---
 # Use SQL Database Managed Instance with virtual networks and near 100% compatibility
 

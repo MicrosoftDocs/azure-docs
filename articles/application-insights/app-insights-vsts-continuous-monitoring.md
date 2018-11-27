@@ -23,13 +23,13 @@ Azure DevOps Services now supports continuous monitoring whereby release pipelin
 
 2. Hover over **Build and Release** > Select **Releases** > Click the **plus sign** > **Create release definition** > Search for **Monitoring** > **Azure App Service Deployment with Continuous Monitoring.**
 
-   ![New Azure DevOps Services Release Pipeline](.\media\app-insights-continuous-monitoring\001.png)
+   ![New Azure DevOps Services Release Pipeline](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. Click **Apply.**
 
 4. Next to the red exclamation point select the text in blue to **View environment tasks.**
 
-   ![View environment tasks](.\media\app-insights-continuous-monitoring\002.png)
+   ![View environment tasks](media/app-insights-vsts-continuous-monitoring/002.png)
 
    A configuration box will appear, use the following table to fill out the input fields.
 
@@ -55,7 +55,7 @@ Azure DevOps Services now supports continuous monitoring whereby release pipelin
 
 3. Modify the availability **Threshold** to meet your service level requirements.
 
-   ![Modify Alert](.\media\app-insights-continuous-monitoring\003.png)
+   ![Modify Alert](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. Select **OK** > **Save** > Enter a descriptive comment > Click **OK.**
 
@@ -63,13 +63,13 @@ Azure DevOps Services now supports continuous monitoring whereby release pipelin
 
 1. Click **Pipeline** > Select the **Pre** or **Post-deployment conditions** symbol depending on the stage that requires a continuous monitoring gate.
 
-   ![Pre-Deployment Conditions](.\media\app-insights-continuous-monitoring\004.png)
+   ![Pre-Deployment Conditions](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. Set **Gates** to  **Enabled** > **Approval gates**>  Click **Add.**
 
 3. Select **Azure Monitor** (This option gives you the ability to access alerts both from Azure Monitor and Application Insights)
 
-    ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure Monitor](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. Enter a **Gates timeout** value.
 
@@ -81,7 +81,7 @@ Once you add deployment gates, an alert in Application Insights which exceeds yo
 
 To observe this behavior, Select **Releases** > Right-click Release name **open** > **Logs.**
 
-![Logs](.\media\app-insights-continuous-monitoring\006.png)
+![Logs](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## Next steps
 

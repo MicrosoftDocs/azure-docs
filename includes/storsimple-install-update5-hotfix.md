@@ -11,7 +11,7 @@ ms.author: alkohli
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
     ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)

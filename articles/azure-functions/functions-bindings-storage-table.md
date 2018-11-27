@@ -3,7 +3,7 @@ title: Azure Table storage bindings for Azure Functions
 description: Understand how to use Azure Table storage bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
+ms.author: cshoe
 ---
 # Azure Table storage bindings for Azure Functions
 
