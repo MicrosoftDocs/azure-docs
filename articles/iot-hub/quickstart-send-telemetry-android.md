@@ -82,7 +82,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 3. In Android Studio, click **File** > **Sync Project with Gradle Files**. Verify the build completes.
 
-4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a physical device or emulator. For more information on running an app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
+4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a physical Android device or an Android emulator. For more information on running an Android app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Once the app loads, click the **Start** button to start sending telemetry to your IoT Hub:
 
@@ -116,5 +116,5 @@ In this quickstart, you've setup an IoT hub, registered a device, sent simulated
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-java.md)
+> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-android.md)
 
