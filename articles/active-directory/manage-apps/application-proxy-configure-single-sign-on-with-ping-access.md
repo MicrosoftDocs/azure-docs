@@ -148,7 +148,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-This example uses the [Azure portal](https://portal.azure.com) to udpate the *acceptedMappedClaims* field:
+This example uses the [Azure portal](https://portal.azure.com) to update the *acceptedMappedClaims* field:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **App registrations**.
 3. Select your application > **Manifest**.

@@ -1,6 +1,6 @@
 ---
-title: Consume a Machine Learning Web Service from Excel | Microsoft Docs
-description: Consume an Azure Machine Learning Web Service from Excel
+title: Consume a Machine Learning Studio web service from Excel - Azure Machine Learning Studio | Microsoft Docs
+description: Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding

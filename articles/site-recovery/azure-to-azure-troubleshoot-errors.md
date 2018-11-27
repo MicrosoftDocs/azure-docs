@@ -145,28 +145,36 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-### Issue 1: Failed to register Azure virtual machine with Site Recovery (151037) </br>
+### Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
-  - You're using NSG to control outbound access on the VM and the required IP ranges aren't whitelisted for outbound access.
-  - You're using third-party firewall tools and the required IP ranges/URLs are not whitelisted.
+  - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
+  - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
+  
+- **Resolution**
+   - If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
+  
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### Issue 2: Site Recovery configuration failed (151196)
+- **Possible cause** </br>
+  - Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
 
 - **Resolution**
-   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
-   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](azure-to-azure-about-networking.md).
-   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](azure-to-azure-about-networking.md).
+  - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
+    If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
 
-### Issue 2: Site Recovery configuration failed (151072)
+
+### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
-  - Connection cannot be established to Site Recovery service endpoints
-
+  - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
-   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
-   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
-   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+    
 
-### Issue 3: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
+### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
  - **Possible cause** </br>
    - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
 

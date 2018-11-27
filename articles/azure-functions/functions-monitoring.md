@@ -339,6 +339,9 @@ Application Insights has a [sampling](../application-insights/app-insights-sampl
 }
 ```
 
+> [!NOTE]
+> [Sampling](../application-insights/app-insights-sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
+
 ## Write logs in C# functions
 
 You can write logs in your function code that appear as traces in Application Insights.

@@ -389,5 +389,5 @@ Now that you have learned how to get started with geospatial support in Azure Co
 * Start coding with the [Geospatial .NET code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 * Learn more about [Azure Cosmos DB Query](how-to-sql-query.md)
-* Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)
+* Learn more about [Azure Cosmos DB Indexing Policies](index-policy.md)
 
