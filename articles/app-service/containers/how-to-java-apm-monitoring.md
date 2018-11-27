@@ -11,7 +11,7 @@ ms.date: 11/27/2018
 ms.author: astay;routlaw
 ---
 
-# Use application performance monitoring tools with Java apps on Azure App Service on Linux
+# How-to: Application performance monitoring tools with Java apps on Azure App Service on Linux
 
 This article shows how to connect Java applications deployed on Azure App Service on Linux with the NewRelic and AppDynamics application performance monitoring (APM) platforms.
 
