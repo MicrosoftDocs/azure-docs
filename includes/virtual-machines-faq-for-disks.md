@@ -295,7 +295,7 @@ The partition type that Azure supports for an operating system disk is the maste
 
 **What is the largest page blob size that's supported?**
 
-The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
+The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blob size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
 
 **Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TiB?**
 

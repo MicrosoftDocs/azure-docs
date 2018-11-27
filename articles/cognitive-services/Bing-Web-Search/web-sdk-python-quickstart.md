@@ -20,8 +20,9 @@ Want to see the code right now? The [Bing Web Search SDK for Python samples](htt
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Prerequisites
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## Prerequisites
 The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.
 
 * Python 2.7, 3.3, 3.4, 3.5 or 3.6
