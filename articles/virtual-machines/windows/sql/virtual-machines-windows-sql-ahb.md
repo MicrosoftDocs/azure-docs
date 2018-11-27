@@ -24,9 +24,16 @@ The **Pay-per-usage** model means that the per-second cost of running the Azure 
 
 The **Bring-your-own-license** model is also known as the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
+Switching between the two license models incurs no downtime, does not restart the VM, adds no additional cost (in fact, activating AHB reduces cost) and is effective immediately. 
+
 
 ## Register legacy SQL VM with new resource provider
 The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your legacy VM with the new SQL VM resource provider. 
+
+  >[!IMPORTANT]
+  > If you drop your SQL VM resource, you will go back to the hard coded license setting of the image. 
+
+### Powershell
 
 The following code registers the new SQL resource provider and registers your legacy SQL VM with the new resource provider. 
 
@@ -40,8 +47,19 @@ $vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>​
 New-AzureRmResource -ResourceName $vm.Name ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
-  >[!IMPORTANT]
-  > If you drop your SQL VM resource, you will go back to the hard coded license setting of the image. 
+### Portal
+You can also use the portal to switch between the PAYG and BYOL licensing model. To do so follow these steps:
+1. Open the Azure portal and navigate to **All Services**. 
+1. Navigate to **Subscriptions** and select the subscription you're interested. 
+
+  ![Select your subscription](media/virtual-machines-windows-sql-ahb/open-subscriptions.png)
+
+1. In the **Subscriptions** blade, navigate to **Resource Provider**. 
+1. Type **SQL** in the filter to bring up the SQL related resource providers. 
+1. Select *Register*, *Re-register*,  or *Unregister* the **Microsoft.SqlVirtualMachine** provider depending on your desired action. 
+
+  ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
+
 
 ## Use Powershell 
 The following code examples show how to use Powershell to change your licensing model. Make sure that you first registered your VM with the SQL VM resource provider. 
@@ -63,7 +81,7 @@ $SqlVm | Set-AzureRmResource -Force
 ```
 
   >[!NOTE]
-  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` If you see this error, please [register your SQL VM with the new resource provider](#register-legacy-SQL-vm-with-new-SQL-VM-resource-provider). 
+  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` If you see this error, please [register your SQL VM with the new resource provider](#register-legacy-SQL-vm-with-new-resource-provider). 
  
 
 ## Use Azure CLI
@@ -97,18 +115,11 @@ $SqlVm.Properties.sqlServerLicenseType
 
 ## Next steps
 
-**Windows VMs**:
+For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
-* [Provision a SQL Server Windows VM](virtual-machines-windows-portal-sql-server-provision.md)
-* [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
-* [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
-* [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-* [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [SQL Server on a Windows VM FAQ](virtual-machines-sql-server-iaas-faq.md)
+* [SQL Server on a windows VM pricing guidance](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [SQL Server on a Windows VM release notes](virtual-machines-sql-server-iaas-release-notes.md)
 
-**Linux VMs**:
 
-* [Overview of SQL Server on a Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
-* [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
