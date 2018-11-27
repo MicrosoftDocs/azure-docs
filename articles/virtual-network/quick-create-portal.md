@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Quickstart: Create a virtual network using the Azure portal
 
-A virtual network enables Azure resources, like virtual machines (VM), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately between the two VMs.
+A virtual network enables Azure resources, like virtual machines (VM), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately between the two VMs.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Create a virtual network
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
-2. In **Create virtual network**, enter, or select this information:
+1. In **Create virtual network**, enter, or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -44,8 +44,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Location | Select **East US**.|
     | Subnet - Name | Enter *myVirtualSubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
-    <!-- ![Enter basic information about your virtual network](./media/quick-create-portal/create-virtual-network.png) -->
-3. Accept the defaults for the remaining settings and select **Create**.
+
+1. Accept the defaults for the remaining settings and select **Create**.
 
 ## Create virtual machines
 
@@ -54,7 +54,7 @@ Create two VMs in the virtual network:
 ### Create the first VM
 
 1. On the upper-left side of the screen, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
-2. In **Create a virtual machine - Basics**, enter, or select this information:
+1. In **Create a virtual machine - Basics**, enter, or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -76,13 +76,21 @@ Create two VMs in the virtual network:
     | **Save MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
 
+1. Select **Next : Disks**.
+1. In **Create a virtual machine - Disks**, leave the defaults and select **Next : Networking**.
+1. In **Create a virtual machine - Networking**, select this information:
 
-    <!-- ![Virtual machine basics](./media/quick-create-portal/virtual-machine-basics.png) -->
+    | Setting | Value |
+    | ------- | ----- |
+    | Virtual network | Leave the default **myVirtualNetwork**. |
+    | Subnet | Leave the default **myVirtualSubnet (10.1.0.0/24)** |
+    | Public IP | Leave the default **(new) myVm-ip** |
+    | Network security ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **HTTP** and **RDP**.
 
-3. Scroll back to the top of the page.
-4. Under **Create a virtual machine** click **Management**
-5. For **Diagnostics storage account**, select **Create New**.
-6. In **Create storage account** enter or select this information:
+1. Select **Next : Management**.
+1. In **Create a virtual machine - Management**, for **Diagnostics storage account**, select **Create New**.
+1. In **Create storage account** enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -91,66 +99,107 @@ Create two VMs in the virtual network:
     | Performance | Leave the default **Standard**. |
     | Replication | Leave the default **Locally-redundant storage (LRS)**. |
 
-7. Select **OK**
-8. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
-9. When you see that **Validation passed**, select **Create**.
-
-    <!-- ![Virtual machine settings](./media/quick-create-portal/virtual-machine-settings.png) -->
+1. Select **OK**
+1. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+1. When you see that **Validation passed**, select **Create**.
 
 ### Create the second VM
 
-1. Complete steps 1 and 2 from above.
+1. Complete steps 1 and 9 from above.
 
     > [!NOTE]
-    > In step 2, enter *myVm2* for the **Virtual machine name**.
+    > In step 2, for the **Virtual machine name**, enter *myVm2*.
+    >
+    > In step 7, for **Diagnosis storage account**, make sure **myvmstorageaccount** is selected.
 
-2. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
-3. When you see that **Validation passed**, select **Create**.
+1. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+1. When you see that **Validation passed**, select **Create**.
 
 ## Connect to vm1 from the internet
 
 After *myVm1* is created, you can connect to it over the internet.
 
-1. In the portal's search bar, enter *myVm1* and select it when it appears in the search results, select it
-2. Select the **Connect** button.
+1. In the portal's search bar, enter *myVm1* and select it when it appears in the search results, select it.
+1. Select the **Connect** button.
 
     ![Connect to a virtual machine](./media/quick-create-portal/connect-to-virtual-machine.png)
 
     After selecting the **Connect** button, **Connect to virtual machine** opens.
 
-3. Select **Download RDP File**. A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.
+1. Select **Download RDP File**. A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.
 
-3. Open the downloaded .rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM.
-4. Select **OK**.
-5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
+1. Open the downloaded .rdp file.
+    1. If prompted, select **Connect**. 
+    1. Enter the user name and password you specified when creating the VM. 
+        > [!NOTE]
+        > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
+1. Select **OK**.
+1. You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
+1. Once the VM desktop appears, minimize it to go back to your local desktop.
 
 ## Communicate between VMs
 
-1. From PowerShell, enter `ping myvm2`. Ping fails, because ping uses the Internet Control Message Protocol (ICMP), and ICMP is not allowed through the Windows firewall, by default.
-2. To allow *myVm2* to ping *myVm1* in a later step, enter the following command from PowerShell, which allows ICMP inbound through the Windows firewall:
+1. In the Remote Desktop of myVm1, open PowerShell.
+1. Enter `ping myVm2`.
+
+    You'll get back something like this:
+
+    ```powershell
+    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
+    Request timed out.
+    Request timed out.
+    Request timed out.
+    Request timed out.
+
+    Ping statistics for 10.1.0.5:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+    ```
+
+    The `ping` fails, because `ping` uses the Internet Control Message Protocol (ICMP), and ICMP is not allowed through the Windows firewall, by default.
+
+1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-3. Close the remote desktop connection to *myVm1*.
+    That command allows ICMP inbound through the Windows firewall:
 
-4. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*. From a command prompt, enter `ping myvm1`.
+1. Close the remote desktop connection to *myVm1*.
+
+1. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*.
+1. From a command prompt, enter `ping myvm1`.
+
+    You'll get back something like this:
+
+    ```powershell
+    Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+
+    Ping statistics for 10.1.0.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+    ```
 
     You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
 
-5. Close the remote desktop connection to *myVm2*.
+1. Close the remote desktop connection to *myVm2*.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all of the resources it contains:
+When your done with the virtual network and the VMs, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal.
+1. When you see **myResourceGroup** in the search results, select it.
+1. Select **Delete resource group**.
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
-In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the VM and another VM. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet, and communicated privately between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
 
-By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
+By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the internet. To learn how to allow or restrict different types of network communication to and from VMs, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
