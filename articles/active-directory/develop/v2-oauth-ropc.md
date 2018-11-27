@@ -1,6 +1,6 @@
 ---
 title: Use Azure AD v2.0 to sign in users using ROPC | Microsoft Docs
-description: Build embedded and browser-less authentication flows using the device code grant.
+description: Support browser-less authentication flows using the resource owner password credential grant.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -24,7 +24,7 @@ ms.custom: aaddev
 Azure Active Directory (Azure AD) supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and developers should only be used when the other, more secure, flows can't be used.
 
 > [!Important]
-> The v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenanted endpoint or the organization's endpoint.
+> The v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenanted endpoint or the `organizations` endpoint.
 >
 > Personal accounts that are invited to an Azure AD tenant can't use ROPC.
 >
@@ -87,7 +87,7 @@ A successful token response will look like:
 | `id_token` | JWT | Issued if the original `scope` parameter included the `openid` scope. |
 | `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`. |
 
-You can use the refresh to acquire new access tokens and refresh tokens using the same flow described in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+You can use the refresh token to acquire new access tokens and refresh tokens using the same flow described in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
 ### Error response
 
@@ -95,8 +95,11 @@ If the user hasn't provided the correct username or password, or the client hasn
 
 | Error | Description | Client action |
 |------ | ----------- | -------------|
-| `invalid_grant` | The authentication failed. | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` suberror will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser.|
+| `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` suberror will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser.|
+| `invalid_request` | The request was improperly constructed | The grant type is not supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` instead. |
+| `invalid_client` | The app is improperly setup | This can happen if the `allowPublicClient` property is not set to truein the application manifest.  This is needed as this grant does not have a redirect URI, and therefore AAD cannot determine if the app is a public client application or confidential client application. ROPC is only supported for public client apps. |
 
 ## Learn more
 
+* Try out ROPC for yourself using the [sample console application](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
 * To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
