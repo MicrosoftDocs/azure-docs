@@ -118,54 +118,23 @@ An Edge device requires the Edge runtime to be installed. In this tutorial, you 
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Make a note of the public IP address, you need it in the next step when connect using SSH.
-
-1. To connect to the VM using SSH, run the following command in the cloud shell:
+1. To configure the Edge runtime with the device connection string, run the following command using the device connection string you made a note of previously:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. When you're connected to the VM, run the following commands to set up the repository in the VM:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. To install the container and Edge runtimes in the VM, run the following commands:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. To configure the Edge runtime with the device connection string, edit the configuration file:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Assign you device connection string to the **device_connection_string** variable, save your changes, and exit the editor.
-
-1. Restart the Edge runtime to use the new configuration:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. You can now exit the SSH session and close the cloud shell.
+    Be sure to include your connection string inside double-quotation marks.
 
 You've now installed and configured the IoT Edge runtime on a Linux device. Later in this tutorial, you use the Remote Monitoring solution to deploy IoT Edge modules to this device.
 
