@@ -47,7 +47,7 @@ The TSI update uses instances to add contextual data to incoming telemetry data.
 ### Create Time Series Insights event source
 
 1. If you haven't created an event source, follow these instructions to create an event source.
-1. Specify **TimeSeriesId** – refer to [Time Series Models](./time-series-insights-update-tsm.md) to learn more about **TimeSeriesId**.
+1. Specify the `timeSeriesId` – refer to [Time Series Models](./time-series-insights-update-tsm.md) to learn more about **Time Series IDs**.
 
 ### Push events (sample windmills)
 

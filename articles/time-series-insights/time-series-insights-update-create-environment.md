@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Time Series environment | Microsoft Docs
-description: Learn how to create an Azure Time Series environment
+title: Create an Azure Time Series update environment | Microsoft Docs
+description: Learn how to create an Azure Time Series update environment
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -20,7 +20,7 @@ This document describes how to provision and manage a new Azure Time Series Insi
 A brief description about provisioning following the TSI update:
 
 * Provision an Azure TSI update environment.
-* As part of the creation process you will need to provide a **Time Series ID**. It can be up to **three** (3) keys. Learn more about [Time Series ID](./time-series-insights-update-tsm.md).
+* As part of the creation process you will need to provide a **Time Series ID**. It can be up to **three** (3) keys. Learn more about [Time Series IDs](./time-series-insights-update-tsm.md).
 * When you provision an Azure TSI update environment you create two Azure resources, a TSI update environment and an Azure Storage general-purpose V1 account.  
 * In the future, new Azure customers will by default only be allowed to provision an Azure Storage general-purpose V2 account, therefore we will support it when that change occurs.  
 * Do not enable cold/archival properties on the storage account you will be using.
