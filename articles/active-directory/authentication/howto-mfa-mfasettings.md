@@ -1,12 +1,12 @@
 ---
-title: Configure Azure Multi-Factor Authentication | Microsoft Docs
+title: Configure Azure Multi-Factor Authentication
 description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/26/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -100,7 +100,7 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 
 ### Caller ID
 
-**MFA caller ID number** This is the number your users will see on their phone. Only US-based numbers are allowed.
+**MFA caller ID number** - This is the number your users will see on their phone. Only US-based numbers are allowed.
 
 >[!NOTE]
 >When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
@@ -182,9 +182,12 @@ Settings for app passwords, trusted IPs, verification options, and remember mult
 
 ## App passwords
 
-Some applications, like Office 2010 or earlier and Apple Mail, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
+Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
 
 Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
+
+>[!NOTE]
+>App passwords do not work with conditional access based multi-factor authentication policies and modern authentication.
 
 ### Considerations about app passwords
 
