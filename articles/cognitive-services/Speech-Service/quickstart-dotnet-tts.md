@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Convert text-to-speech using .NET Core
 
-In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The sample text included in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response. Plain text (ASCII or UTF-8) is supported, however, the response uses the Speech Service's default voice and language.
+In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The request body is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -37,29 +37,16 @@ cd tts-sample
 
 The first command does two things. It creates a new .NET console application, and creates a directory named `tts-sample`. The second command changes to the directory for your project.
 
-## Select the C# language version
-
-This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `tts-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
-
-Open your project, then open `tts-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
-
-```csharp
-<PropertyGroup>
-   <LangVersion>7.1</LangVersion>
-</PropertyGroup>
-```
-
-Make sure to save your changes.
-
 ## Add required namespaces to your project
 
 The `dotnet new console` command that you ran earlier created a project, including `Program.cs`. This file is where you'll put your application code. Open `Program.cs`, and replace the existing using statements. These statements ensure that you have access to all the types required to build and run the sample app.
 
 ```csharp
 using System;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 ```
 
@@ -104,7 +91,7 @@ public class Authentication
 > [!NOTE]
 > For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
 
-## Set the access token, host, and route
+## Get a token and set the host
 
 Locate `static void Main(string[] args)` and replace it with `static async Task Main(string[] args)`. Next, copy this code into the main method. It does a few things, but most importantly, it takes text as an input, and calls the `Authentication` function to exchange your subscription key for an access token. If something goes wrong, the error is printed to the console.
 
@@ -133,17 +120,17 @@ catch (Exception ex)
 }
 ```
 
-Then set the host and route for text-to-speech:
+This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `host`. For more information, see [Speech Service regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 ```csharp
 string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 ```
 
-## Build the SSML request
+## Construct the SSML
 
 Text is sent as the body of a `POST` request. Plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) are accepted. Plain text requests use the Speech Service's default voice and language. With SSML, you can specify the voice and language.
 
-In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `Guy24kRUS`. Let's construct the SSML for your request (feel free to get creative):
+In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `Guy24kRUS`. Let's construct the SSML for your request:
 
 ```csharp
 string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
@@ -151,7 +138,12 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
               text + "</voice></speak>";
 ```
 
-## Instantiate the client, make a request, and save the speech to file
+## Instantiate the client, make a request, and save the response
+
+Here you're going to build the request and save the speech response. Make sure that you update `User-Agent` with the name of your resource (located in the Azure portal), and set `X-Microsoft-OutputFormat` to your preferred audio output. For a full list of output formats, see [Audio outputs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+
+> [!NOTE]
+> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
 
 There's a lot going on in this code sample. Let's quickly review what's happening:
 
@@ -161,49 +153,38 @@ There's a lot going on in this code sample. Let's quickly review what's happenin
 * The request is sent and the status code is checked.
 * The response is read asynchronously, and written to a file named sample.wav.
 
-Copy this code into your project. Make sure to replace the value of the `User-Agent` header with the name of your resource from the Azure portal.
+Copy this code into your project:
 
 ```csharp
-using (var client = new HttpClient())
+var webRequest = WebRequest.Create(host);
+webRequest.Method = "POST";
+webRequest.ContentType = "application/ssml+xml";
+webRequest.Headers.Add("X-MICROSOFT-OutputFormat", "riff-16khz-16bit-mono-pcm");
+webRequest.Headers["Authorization"] = "Bearer " + accessToken;
+((HttpWebRequest)webRequest).UserAgent = "YOUR_RESOURCE_NAME";
+
+// Encode the request body
+byte[] encodedBody = Encoding.UTF8.GetBytes(body);
+webRequest.ContentLength = encodedBody.Length;
+webRequest.GetRequestStream().Write(encodedBody, 0, encodedBody.Length);
+webRequest.Timeout = 6000;
+
+// Make the request and write the response to file
+using (var httpWebResponse = webRequest.GetResponse() as HttpWebResponse)
+using (var dataStream = httpWebResponse.GetResponseStream())
 {
-    using (var request = new HttpRequestMessage())
+    if (httpWebResponse.StatusCode == HttpStatusCode.OK)
     {
-        // Set the HTTP method
-        request.Method = HttpMethod.Post;
-
-        // Construct the URI
-        request.RequestUri = new Uri(host);
-
-        // Set the content type header
-        request.Content = new StringContent(body, Encoding.UTF8, "application/ssml+xml");
-
-        // Set additional header, such as Authorization and User-Agent
-        request.Headers.Add("Authorization", "Bearer " + accessToken);
-        request.Headers.Add("Connection", "Keep-Alive");
-        request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
-        request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
-
-        // Create a request
-        Console.WriteLine("Calling the TTS service. Please wait... \n");
-        using (var response = await client.SendAsync(request))
+        Console.WriteLine("Your speech file is being written to file...");
+        using (var fileStream = new FileStream(@"sample.wav", FileMode.Create, FileAccess.Write, FileShare.Write))
         {
-            response.EnsureSuccessStatusCode();
-            // Asynchronously read the response
-            using (var dataStream = await response.Content.ReadAsStreamAsync())
-            {
-                Console.WriteLine("Your speech file is being written to file...");
-                using (var fileStream = new FileStream(@"sample.wav", FileMode.Create, FileAccess.Write, FileShare.Write))
-                {
-                    await dataStream.CopyToAsync(fileStream);
-                    fileStream.Close();
-                }
-                Console.WriteLine("\nYour file is ready. Press any key to exit.");
-                Console.ReadLine();
-            }
+            dataStream.CopyTo(fileStream);
+            fileStream.Close();
         }
+        Console.WriteLine("\nYour file is ready. Press any key to exit.");
+        Console.ReadLine();
     }
-}    
+}
 ```
 
 ## Run the sample app
@@ -227,4 +208,5 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-* [Tutorial: Recognize Speech Intents](how-to-recognize-intents-from-speech-csharp.md)
+* [Creating custom voice fonts](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font)
+* [Record voice samples to create a custom voice](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples)
