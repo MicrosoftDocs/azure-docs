@@ -22,8 +22,8 @@ ms.reviewer: guanghu
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
->  Note  
->  zure Cognitive Services on Azure Stack is in preview.
+> [!Note]  
+> Aure Cognitive Services on Azure Stack is in preview.
 
 You can use Azure Cognitive Services on Azure Stack. Available services include [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/), [Face](https://docs.microsoft.com/azure/cognitive-services/face/), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) services. You can now deploy Azure Cognitive Services on-premises and on the edge with container support. Cognitive Services containers allow you to use the same intelligent APIs that are available in Azure, but with the flexibility that comes with [Docker containers](https://www.docker.com/what-container). For more details, please go to [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
 
