@@ -116,7 +116,7 @@ For more information about your daily usage, see [Understand your bill for Micro
 
 ### Download usage for EA customers
 
-To view and download usage data as a EA customer, you must be an Enterprise Administrator.
+To view and download usage data as a EA customer, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled.
 
 1. Sign in to the [Azure portal]( http://portal.azure.com).
 1. Search on **Cost Management + Billing**.
@@ -128,4 +128,3 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 
 ## Need help? Contact support.
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-

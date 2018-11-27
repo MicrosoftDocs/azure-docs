@@ -117,7 +117,7 @@
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Move Azure resources
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Create subscription
+  - name: Create additional subscription
     href: billing-create-subscription.md
   - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
