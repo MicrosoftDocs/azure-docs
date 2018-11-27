@@ -60,7 +60,38 @@ If you are not seeing any output, contact the respective subscription admin to g
 
 ## In which Azure regions are traffic analytics available?
 
-You can use traffic analytics for NSGs in any of the following supported regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
+You can use traffic analytics for NSGs in any of the following supported regions:
+- Canada Central
+- West Central US
+- East US
+- East US 2
+- North Central US
+- South Central US
+- Central US
+- West US
+- West US 2
+- West Europe
+- North Europe
+- Brazil South
+- UK West
+- UK South
+- Australia East
+- Australia Southeast 
+- Southeast Asia
+- Central India
+- South India
+- Japan East
+
+The Log Analytics workspace must exist in the following regions:
+- Canada Central
+- West Central US
+- East US
+- West Europe
+- UK South
+- Australia Southeast
+- Southeast Asia 
+- Central India
+- Japan East
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
