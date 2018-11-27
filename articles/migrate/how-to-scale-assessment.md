@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ---
 
@@ -49,7 +49,7 @@ If you're deploying in a tenant environment, here's one way to set this up:
 
 A single Azure Migrate collector supports discovery from multiple vCenter Servers (one after another) and also supports discovery to multiple migration projects (one after another).
 
-The collector, in case of one-time discovery, works in a fire and forget model, once a discovery is done, you can use the same collector to collect data from a different vCenter Server or send it to a different migration project. In case of continuous discovery, one appliance is connected to a single project only, so you cannot use the same collector to trigger a second discovery.
+Since the collector is continuously connected to the project, one appliance is connected to a single project only, so you cannot use the same collector to trigger a second discovery unless you stop the first one. In case of one-time discovery (deprecated now), the discovery works in a fire and forget model, once a discovery is done, you can use the same collector to collect data from a different vCenter Server or send it to a different migration project.
 
 Plan your discoveries and assessments based on the following limits:
 
@@ -70,25 +70,26 @@ Depending on your scenario, you can split your discoveries as prescribed below:
 ### Multiple vCenter Servers with less than 1500 VMs
 If you have multiple vCenter Servers in your environment, and the total number of virtual machines is less than 1500, you can use the following approach based on your scenario:
 
-**One-time discovery:** You can use a single collector and a single migration project to discover all the virtual machines across all vCenter Servers. Since the one-time discovery collector discovers one vCenter Server at a time, you can run the same collector against all the vCenter Servers, one after another, and point the collector to the same migration project. Once all the discoveries are complete, you can then create assessments for the machines.
-
 **Continuous discovery:** In case of continuous discovery, one appliance can be connected to only a single project. So you need to deploy one appliance for each of your vCenter Servers and then create one project for each appliance and trigger discoveries accordingly.
+
+**One-time discovery (deprecated now):** You can use a single collector and a single migration project to discover all the virtual machines across all vCenter Servers. Since the one-time discovery collector discovers one vCenter Server at a time, you can run the same collector against all the vCenter Servers, one after another, and point the collector to the same migration project. Once all the discoveries are complete, you can then create assessments for the machines.
+
 
 ### Multiple vCenter Servers with more than 1500 VMs
 
 If you have multiple vCenter Servers with less than 1500 virtual machines per vCenter Server, but more than 1500 VMs across all vCenter Servers, you need to create multiple migration projects (one migration project can hold only 1500 VMs). You can achieve this by creating a migration project per vCenter Server and splitting the discoveries.
 
-**One-time discovery:** You can use a single collector to discover each vCenter Server (one after another). If you want the discoveries to start at the same time, you can also deploy multiple appliances and run the discoveries in parallel.
-
 **Continuous discovery:** You need to create multiple collector appliances (one for each vCenter Server) and connect each appliance to a project and trigger discovery accordingly.
+
+**One-time discovery (deprecated now):** You can use a single collector to discover each vCenter Server (one after another). If you want the discoveries to start at the same time, you can also deploy multiple appliances and run the discoveries in parallel.
 
 ### More than 1500 machines in a single vCenter Server
 
 If you have more than 1500 virtual machines in a single vCenter Server, you need to split the discovery into multiple migration projects. To split discoveries, you can leverage the Scope field in the appliance and specify the host, cluster, folder, or datacenter that you want to discover. For example, if you have two folders in vCenter Server, one with 1000 VMs (Folder1) and other with 800 VMs (Folder2), you can use the scope field to split the discoveries between these folders.
 
-**One-time discovery:** You can use the same collector to trigger both the discoveries. In the first discovery, you can specify Folder1 as the scope and point it to the first migration project, once the first discovery is complete, you can use the same collector, change its scope to Folder2 and migration project details to the second migration project and do the second discovery.
-
 **Continuous discovery:** In this case, you need to create two collector appliances, for the first collector, specify the scope as Folder1 and connect it to the first migration project. You can in parallel start the discovery of Folder2 using the second collector appliance and connect it to the second migration project.
+
+**One-time discovery (deprecated now):** You can use the same collector to trigger both the discoveries. In the first discovery, you can specify Folder1 as the scope and point it to the first migration project, once the first discovery is complete, you can use the same collector, change its scope to Folder2 and migration project details to the second migration project and do the second discovery.
 
 ### Multi-tenant environment
 
@@ -117,14 +118,20 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 If you have multiple projects, you need to download the collector appliance only once to vCenter Server. After you download and set up the appliance, you run it for each project, and you specify the unique project ID and key.
 
 1. In the Azure Migrate project, click **Getting Started** > **Discover & Assess** > **Discover Machines**.
-2. In **Discover machines**, there are two options available for the appliance, click **Download** to download the appropriate appliance based on your preference.
+2. In **Discover machines**, click **Download** to download the appliance.
 
-    a. **One-time discovery:** The appliance for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Since its a one-time discovery, changes in the on-premises environment are not reflected once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
+    The Azure Migrate appliance communicates with vCenter Server and continuously profiles the on-premises environment to gather real-time utilization data for each VM. It collects peak counters for each metric (CPU utilization, memory utilization etc.). This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
 
-    b. **Continuous discovery:** The appliance for this model, continuously profiles the on-premises environment to gather real-time utilization data for each VM. In this model, peak counters are collected for each metric (CPU utilization, memory utilization etc.). This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
+        > [!NOTE]
+        > The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
-    > [!NOTE]
-    > The continuous discovery functionality is in preview.
+    **Instant gratification:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
+
+    Note that the appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+
+    - Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
+
+    - Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
 
 3. In **Copy project credentials**, copy the ID and key for the project. You need these when you configure the collector.
 
@@ -143,7 +150,17 @@ Check that the OVA file is secure before you deploy it:
 
 3. Make sure that the generated hash matches the following settings.
 
-#### One-time discovery
+#### Continuous discovery
+
+For OVA version 1.0.10.4
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+#### One-time discovery (deprecated now)
 
 For OVA version 1.0.9.15 (Released on 10/23/2018)
 
@@ -185,16 +202,6 @@ MD5 | d5b6a03701203ff556fa78694d6d7c35
 SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
 SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-#### Continuous discovery
-
-For OVA version 1.0.10.4
-
-**Algorithm** | **Hash value**
---- | ---
-MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
-
 ### Create the collector VM
 
 Import the downloaded file to vCenter Server:
@@ -219,37 +226,6 @@ If you have multiple projects, be sure to identify the ID and key for each one. 
 1. In the project, select **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Copy project credentials**, copy the ID and key for the project.
     ![Copy project credentials](./media/how-to-scale-assessment/copy-project-credentials.png)
-
-### Set the vCenter statistics level
-
-The collector appliance discovers the following static metadata about the selected virtual machines.
-
-1. VM Display name (on vCenter)
-2. VM’s inventory path (host/folder in vCenter)
-3. IP address
-4. MAC address
-5. Operating system
-5. Number of cores, disks, NICs
-6. Memory size, Disk sizes
-7. And performance counters of the VM, disk and network as listed in the table below.
-
-For one-time discovery, the following table lists the exact performance counters that are collected, and also lists the assessment results that are impacted if a particular counter is not collected.
-
-For continuous discovery, the same counters are collected at real time (20-seconds interval), so there is no dependency on vCenter statistics level. The appliance then rolls-up the 20-second samples to create a single data point for every 15 minutes by selecting the peak value from the 20-second samples and sends it to Azure.
-
-|Counter                                  |Level    |Per-device level  |Assessment impact                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |NA                |Recommended VM size and cost                    |
-|mem.usage.average                        | 1       |NA                |Recommended VM size and cost                    |
-|virtualDisk.read.average                 | 2       |2                 |Disk size, storage cost, and VM size         |
-|virtualDisk.write.average                | 2       |2                 |Disk size, storage cost, and VM size         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk size, storage cost, and VM size         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Disk size, storage cost, and VM size         |
-|net.received.average                     | 2       |3                 |VM size and network cost                        |
-|net.transmitted.average                  | 2       |3                 |VM size and network cost                        |
-
-> [!WARNING]
-> For one-time discovery, if you have just set a higher statistics level, it will take up to a day to generate the performance counters. So, we recommend that you run the discovery after one day. For the continuous discovery model, wait for at least a day after starting discovery for the appliance to profile the environment and then create assessments.
 
 ### Run the collector to discover VMs
 
@@ -278,16 +254,41 @@ For each discovery that you need to perform, you run the collector to discover V
 6.  In **Specify migration project**, specify the ID and key for the project. If you didn't copy them, open the Azure portal from the collector VM. On the project's **Overview** page, select **Discover Machines** and copy the values.  
 7.  In **View collection progress**, monitor the discovery process and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
-
 #### Verify VMs in the portal
 
-For one-time discovery, the discovery time depends on how many VMs you are discovering. Typically, for 100 VMs, after the collector finishes running it takes around an hour for configuration and performance data collection to complete. You can create assessments (both performance-based and as on-premises assessments) immediately after the discovery is done.
-
-For continuous discovery (in preview), the collector will continuously profile the on-premises environment and will keep sending the performance data at an hour interval. You can review the machines in the portal after an hour of kicking off the discovery. It is strongly recommended to wait for at least a day before creating any performance-based assessments for the VMs.
+The collector will continuously profile the on-premises environment and will keep sending the performance data at an hour interval. You can review the machines in the portal after an hour of kicking off the discovery. It is strongly recommended to wait for at least a day before creating any performance-based assessments for the VMs.
 
 1. In the migration project, click **Manage** > **Machines**.
 2. Check that the VMs you want to discover appear in the portal.
 
+### Data collected from on-premises environment
+
+The collector appliance discovers the following configuration data about the selected virtual machines.
+
+1. VM Display name (on vCenter)
+2. VM’s inventory path (host/folder in vCenter)
+3. IP address
+4. MAC address
+5. Operating system
+5. Number of cores, disks, NICs
+6. Memory size, Disk sizes
+7. And performance counters of the VM, disk and network as listed in the table below.
+
+The collector appliance collects the following performance counters for each VM from the ESXi host at an interval of 20 seconds. These counters are vCenter counters and although the terminology says average, the 20-second samples are real time counters. The appliance then rolls-up the 20-second samples to create a single data point for every 15 minutes by selecting the peak value from the 20-second samples and sends it to Azure. The performance data for the VMs starts becoming available in the portal two hours after you have kicked off the discovery. It is strongly recommended to wait for at least a day before creating performance-based assessments to get accurate right-sizing recommendations. If you are looking for instant gratification, you can create assessments with sizing criterion as *as on-premises* which will not consider the performance data for right-sizing.
+
+**Counter** |  **Impact on assessment**
+--- | ---
+cpu.usage.average | Recommended VM size and cost  
+mem.usage.average | Recommended VM size and cost  
+virtualDisk.read.average | Calculates disk size, storage cost, VM size
+virtualDisk.write.average | Calculates disk size, storage cost, VM size
+virtualDisk.numberReadAveraged.average | Calculates disk size, storage cost, VM size
+virtualDisk.numberWriteAveraged.average | Calculates disk size, storage cost, VM size
+net.received.average | Calculates VM size                          
+net.transmitted.average | Calculates VM size     
+
+> [!WARNING]
+> The one-time discovery method that relied on vCenter Server's statistic settings for performance data collection is now deprecated.
 
 ## Next steps
 

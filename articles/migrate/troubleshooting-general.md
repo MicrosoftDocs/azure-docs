@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ---
 
@@ -14,9 +14,9 @@ ms.author: raynew
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
 
-### I am using the continuous discovery OVA, but VMs that are deleted in my on-premises environment are still being shown in the portal.
+### I am using the OVA that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
 
-The appliance for continuous discovery appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+The continuous discovery appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 
 - Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
 
@@ -69,10 +69,6 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
 
 To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it.
-
-### I installed agents and used the dependency visualization to create groups. Now post failover, the machines show "Install agent" action instead of "View dependencies"
-* Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
-* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
 ### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
 
@@ -157,7 +153,7 @@ If the issue still happens in the latest version, it could be because the collec
 3. Identify the correct port number to connect to the vCenter.
 4. Finally check if the vCenter server is up and running.
 
-## Troubleshoot dependency visualization issues
+## Dependency visualization issues
 
 ### I installed the Microsoft Monitoring Agent (MMA) and the dependency agent on my on-premises VMs, but the dependencies are now showing up in the Azure Migrate portal.
 
@@ -188,7 +184,11 @@ Azure Migrate lets you visualize dependencies for up to one hour duration. Altho
 ### I am unable to visualize dependencies for groups with more than 10 VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
 
-## Troubleshoot readiness issues
+### I installed agents and used the dependency visualization to create groups. Now post failover, the machines show "Install agent" action instead of "View dependencies"
+* Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
+* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
+
+## Troubleshoot Azure readiness issues
 
 **Issue** | **Fix**
 --- | ---
@@ -202,7 +202,6 @@ Unsupported OS bitness | VMs with 32-bit OS may boot in Azure, but it is recomme
 Requires Visual Studio subscription. | The machines has a Windows client OS running inside it which is supported only in Visual Studio subscription.
 VM not found for the required storage performance. | The storage performance (IOPS/throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance. | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
-VM not found in specified pricing tier. | If the pricing tier is set to Standard, consider downsizing the VM before migrating to Azure. If the sizing tier is Basic, consider changing the pricing tier of the assessment to Standard.
 VM not found in the specified location. | Use a different target location before migration.
 One or more unsuitable disks. | One or more disks attached to the VM do not meet the Azure requirements. For each disk attached to the VM, ensure that the size of the disk is < 4 TB, if not, shrink the disk size before migrating to Azure. Ensure that the performance (IOPS/throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
 One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
