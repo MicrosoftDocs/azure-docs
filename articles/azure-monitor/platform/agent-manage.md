@@ -96,7 +96,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 The agent service does not need to be restarted in order for the changes to take effect.
 
 ## Update proxy settings 
-To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](log-analytics-oms-gateway.md) after deployment, use one of the following methods to complete this task.
+To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](gateway.md) after deployment, use one of the following methods to complete this task.
 
 ### Windows agent
 
@@ -182,7 +182,7 @@ To remove the agent, run the following command on the Linux computer.  The *--pu
 ### Windows agent
 Perform the following steps to configure the Log Analytics agent for Windows to report to a System Center Operations Manager management group.
 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)] 
 
 1. Sign on to the computer with an account that has administrative rights.
 2. Open **Control Panel**. 
@@ -198,7 +198,7 @@ Perform the following steps to configure the Log Analytics agent for Windows to 
 ### Linux agent
 Perform the following steps to configure the Log Analytics agent for Linux to report to a System Center Operations Manager management group. 
 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
 
 1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
 2. Ensure that the line beginning with `httpsport=` defines the port 1270. Such as: `httpsport=1270`
@@ -206,4 +206,4 @@ Perform the following steps to configure the Log Analytics agent for Linux to re
 
 ## Next steps
 
-Review [Troubleshooting the Linux agent](log-analytics-agent-linux-support.md) if you encounter issues while installing or managing the agent.  
+Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.  

@@ -31006,6 +31006,76 @@
             "source_path":  "articles/log-analytics/log-analytics-wire-data.md",
             "redirect_url":  "/azure/azure-monitor/insights/wire-data",
             "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-linux-support.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-linux-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-manage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-manage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-windows.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-windows",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-api-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/api-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-vmext-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/platform/vmext-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-analytics-agent",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/platform/dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-connections.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-connections",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-gateway.md",
+            "redirect_url":  "/azure/azure-monitor/platform/gateway",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-solution-alert-management.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alert-management-solution",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer-filters.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer-filters",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer-parts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer-parts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer-tiles.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer-tiles",
+            "redirect_document_id":  true
         }
     ]
 }

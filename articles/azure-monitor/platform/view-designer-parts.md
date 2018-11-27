@@ -23,8 +23,8 @@ By using View Designer in Azure Log Analytics, you can create custom views in th
 
 For more information about View Designer, see:
 
-* [View Designer](log-analytics-view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
-* [Tile reference](log-analytics-view-designer-tiles.md): Provides a reference to the settings for each available tile in your custom views.
+* [View Designer](view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
+* [Tile reference](view-designer-tiles.md): Provides a reference to the settings for each available tile in your custom views.
 
 
 The available View Designer tile types are described in the following table:
@@ -46,7 +46,7 @@ The next sections describe the tile types and their properties in detail.
 ## List of queries part
 The list of queries part displays a list of log search queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
 
-![List of queries view](media/log-analytics-view-designer-parts/view-list-queries.png)
+![List of queries view](media/view-designer-parts/view-list-queries.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -62,7 +62,7 @@ The list of queries part displays a list of log search queries. You can select e
 ## Number and list part
 The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![List of queries view](media/log-analytics-view-designer-parts/view-number-list.png)
+![List of queries view](media/view-designer-parts/view-number-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -91,7 +91,7 @@ The header displays a single number that shows a count of records from a log sea
 ## Two numbers and list part
 The header has two numbers that display a count of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Two Numbers & list view](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
+![Two Numbers & list view](media/view-designer-parts/view-two-numbers-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -122,7 +122,7 @@ The header has two numbers that display a count of records from separate log sea
 ## Donut and list part
 The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records.
 
-![Donut and list view](media/log-analytics-view-designer-parts/view-donut-list.png)
+![Donut and list view](media/view-designer-parts/view-donut-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -163,7 +163,7 @@ The header displays a single number that summarizes a value column in a log quer
 ## Two timelines and list part
 The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Two timelines and list view](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
+![Two timelines and list view](media/view-designer-parts/view-two-timelines-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -195,7 +195,7 @@ The header displays the results of two log queries over time as column charts, w
 ## Information part
 The header displays static text and an optional link. The list displays one or more items with a static title and text.
 
-![Information view](media/log-analytics-view-designer-parts/view-information.png)
+![Information view](media/view-designer-parts/view-information.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -216,7 +216,7 @@ The header displays static text and an optional link. The list displays one or m
 ## Line chart, callout, and list part
 The header displays a line chart with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Line chart, callout, and list view](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
+![Line chart, callout, and list view](media/view-designer-parts/view-line-chart-callout-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -256,7 +256,7 @@ The header displays a line chart with multiple series from a log query over time
 ## Line chart and list part
 The header displays a line chart with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Line chart and list view](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
+![Line chart and list view](media/view-designer-parts/view-line-chart-callout-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -292,7 +292,7 @@ The header displays a line chart with multiple series from a log query over time
 ## Stack of line charts part
 The stack of line chart displays three separate line charts, with multiple series from a log query over time, as shown here:
 
-![Stack of line charts](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
+![Stack of line charts](media/view-designer-parts/view-stack-line-charts.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -320,7 +320,7 @@ The name and value separator is the single-character delimiter to use to parse t
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="click-through-navigation"></a>Click-Through Navigation
-Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](log-analytics-log-search-portals.md) or launch another view.
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](../../log-analytics/log-analytics-log-search-portals.md) or launch another view.
 
 The following table describes the settings for click-through navigation.
 
@@ -359,4 +359,4 @@ The following table describes the settings for thresholds:
 | Color |The color that indicates the threshold value. |
 
 ## Next steps
-* Learn about [log searches](log-analytics-queries.md) to support the queries in visualization parts.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to support the queries in visualization parts.
