@@ -175,43 +175,43 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
 #### Steps
 1.	In PowerShell, **register your logical SQL Server** with Azure Active Directory (AAD):
 
-```powershell
-Add-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
-```
+    ```powershell
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    ```
  
-2.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-> [!NOTE]
-> If you have a general-purpose v1 storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > [!NOTE]
+    > If you have a general-purpose v1 storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
  
-3.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your logical SQL Server.
+1.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your logical SQL Server.
 
-> [!NOTE] 
-> Only members with right privileges can perform this step.
+    > [!NOTE] 
+    > Only members with right privileges can perform this step.
   
-4.	**Polybase connectivity to the Azure Storage account:**
+1.	**Polybase connectivity to the Azure Storage account:**
 
--	Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
+    1. Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
 
-```
-CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-```
-> [!NOTE] 
-> - Please note that there is no need to specify Azure Storage key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
-> - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
+    ```
+    CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+    ```
+    > [!NOTE] 
+    > - Please note that there is no need to specify Azure Storage key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+    > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
 
-- Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
+    1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
-```
-CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-```
-> [!NOTE] 
-> For more information on abfs scheme, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-> For more information on CREATE EXTERNAL DATA SOURCE, please refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+    ```
+    CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+    ```
+    > [!NOTE] 
+    > For more information on abfs scheme, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+    > For more information on CREATE EXTERNAL DATA SOURCE, please refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-- Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
