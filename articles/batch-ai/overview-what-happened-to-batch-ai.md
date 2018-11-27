@@ -12,30 +12,24 @@ ms.author: garye
 
 # What's happening to Azure Batch AI?
 
-We recently released **Azure Machine Learning Compute** which provides you with a cloud-based compute target for developing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
+We recently released Azure Machine Learning for general availability. The service offers **Azure Machine Learning Compute**, which provides you with a cloud-based compute target for developing, training, and batch inferencing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on March 4, 2019.
 
 ## How does this affect me?
 
-Beginning December 4, 2018, we will no longer make updates to Batch AI. After this date, you will no longer be able to create new subscriptions. Existing subscriptions will continue to run through March 4, 2019.
-
-By the end of March 2019, we expect to have full feature parity between Batch AI and Azure Machine Learning.
-
-On June 28, 2019, the Azure Batch AI service will be retired and no longer be available. <!-- Existing subscriptions will... ***[what happens?]*** -->
+Beginning December 4, 2018, we will no longer accept new subscriptions to the Batch AI service. Existing customers of the service can continue to use the service as they do today with no foreseeable difference. We will not make any new product investments to the service, but will instead support our existing customers as we work with them to successfully migrate to the larger Azure Machine Learning product. Existing subscriptions will continue to run through March 4, 2019, at which point we should have full feature parity between the two services.
 
 ## What do I need to do to prepare for this change?
 
-Convert your scripts to use Azure Machine Learning Compute before June 28, 2019, to avoid disruptions to your applications and enjoy quality and feature updates.
-
-<!-- For guidance in updating your code, see **"migration" article** *(link)*. -->
+Convert your scripts to use Azure Machine Learning Compute before June 28, 2019, to avoid disruptions to your applications and enjoy quality and feature updates. Azure Machine Learning service is exposed to users through a Python SDK, the portal, and the CLI. 
 
 ## Support timeline
 
 | Date | Support details |
 | ---- |-----------------|
 | December 4, 2018 | After this date, you will no longer be able to create new subscriptions to Azure Batch AI. You can continue to use existing subscriptions. |
-| March 4, 2019 | After this date, existing subscriptions to Azure Batch AI will no longer run. |
-| End of March, 2019 | Azure Machine Learning will be at full parity with Azure Batch AI. |
-| June 28, 2019 | Azure Batch AI will be retired and no longer available. Documentation will be removed from docs.microsoft.com. |
+| Between Dec 4, 2018 and March 4, 2019 | If Azure Machine Learning service does not meet your need, and a supported functionality exists in the BatchAI service, you can raise a support request against the BatchAI service and request that your subscription be whitelisted to use the service. |
+| March 4, 2019 | After this date, existing subscriptions to Azure Batch AI will no longer run. We expect to have migrated all our customers to Azure Machine Learning by then. |
+
 
 ## For more information
 
