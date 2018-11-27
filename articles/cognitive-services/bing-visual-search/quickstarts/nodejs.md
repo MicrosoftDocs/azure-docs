@@ -31,7 +31,15 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 This article includes a simple console application that sends a Bing Visual Search API request and displays the JSON search results. While this application is written in JavaScript, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
 ## Prerequisites
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure Portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
 
 You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 

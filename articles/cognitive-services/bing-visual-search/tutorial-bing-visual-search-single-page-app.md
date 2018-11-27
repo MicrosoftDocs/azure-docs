@@ -16,6 +16,16 @@ ms.author: aahi
 
 Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can specify an image and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. 
 
+For this tutorial, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure Portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
+
 This tutorial extends the single page web app from the Bing Image Search tutorial (see [Single-page Web app](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). For full source code to start this tutorial, see [Single-page Web app (source code)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). For the final source code of this tutorial, see [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app-source.md).
 
 The tasks covered are:
