@@ -26,7 +26,7 @@ ms.author: sngun
 > 
 > 
 
-Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
+Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
 
 * Links to the tasks in each of the Python example project files. 
 * Links to the related API reference content.
@@ -47,7 +47,7 @@ You also need the [Python SDK](sql-api-sdk-python.md).
    > 
 
 ## Database examples
-The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) file of the [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) project shows how to perform the following tasks:
+The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) file of the [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) project shows how to do the following tasks:
 
 | Task | API reference |
 | --- | --- |
@@ -57,7 +57,7 @@ The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/sa
 | [Delete a database](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py#L113-L126) |[CosmosClient.DeleteDatabase](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletedatabase-database-link--options-none-) |
 
 ## Collection examples
-The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) file of the [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) project shows how to perform the following tasks:
+The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) file of the [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) project shows how to do the following tasks:
 
 | Task | API reference |
 | --- | --- |
@@ -68,7 +68,7 @@ The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/sa
 | [Delete a collection](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py#L224-L238) |[CosmosClient.DeleteContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletecontainer-collection-link--options-none-) |
 
 ## Document examples
-The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) file of the [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) project shows how to perform the following tasks:
+The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) file of the [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) project shows how to do the following tasks:
 
 | Task | API reference |
 | --- | --- |
@@ -78,7 +78,7 @@ The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/sa
 | [Read all the documents in a collection](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py#L81-L92) |[CosmosClient.ReadItems](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#readitems-collection-link--feed-options-none-) |
 
 ## Indexing examples
-The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) file of the [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) project shows how to perform the following tasks:
+The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) file of the [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) project shows how to do the following tasks:
 
 | Task | API reference |
 | --- | --- |
@@ -90,7 +90,7 @@ The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/sa
 | [Perform an index transformation](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replacecontainer-collection-link--collection--options-none-) |
 
 ## Query examples
-The sample projects also show how to perform the following query tasks:
+The sample projects also show how to do the following query tasks:
 
 | Task | API reference |
 | --- | --- |
