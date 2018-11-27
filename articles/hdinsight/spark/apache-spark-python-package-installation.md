@@ -41,7 +41,7 @@ You must have the following:
    > 
    > 
    
-   ## Support for open-source software used on HDInsight clusters
+## Support for open-source software used on HDInsight clusters
 
 The Microsoft Azure HDInsight service uses an ecosystem of open-source technologies formed around Apache Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for built-in components.
 
