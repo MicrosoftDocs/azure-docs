@@ -23,7 +23,7 @@ The term **Log Alerts** describes alerts that fire based on a custom query in [L
 
 Here are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
 
-### Data Ingestion time for Logs
+## Data Ingestion time for Logs
 Log alert periodically runs your query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
 To mitigate data ingestion delay, the system waits and retries the alert query multiple times if it finds the needed data is not yet ingested. The system has an exponentially increasing wait time set. The log alert only triggers after the data is available so they delay could be due to slow log data ingestion. 
@@ -70,13 +70,15 @@ Detailed next are some common reasons why a configured [log alert rule in Azure 
 ### Alert triggered by partial data
 Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Depending on how the alert rule is configured, there may be mis-firing in case there is no or partial data in Logs at the time of alert execution. In such cases, it is advised that alert query or config is changed. *For example, if the log alert rule is configured to trigger when number of results from analytics query is less than (say) 5; then when there is no data (zero record) or partial results (one record) the alert rule will get triggered. Where-as after ingestion delay, when same query is run in Analytics the query with full data might provide result as 10 records.*
+Depending on how the alert rule is configured, there may be mis-firing if there is no or partial data in logs at the time of alert execution. In such cases, we advise you to change the alert query or config. 
+
+For example, if the log alert rule is configured to trigger when number of results from an analytics query is less than 5, then the alert triggers when there is no data (zero record) or partial results (one record). However, after the data ingestion delay, the same query with full data might provide a result of 10 records.
 
 ### Alert query output misunderstood
-For log alerts the logic for alerting is provided by user via analytics query. The analytics query provided can employ various Big Data and Mathematical functions to create specific constructs. The alerting service will execute the customer provided query at intervals specified with data for time period specified; alerting service makes subtle changes to query provided - based on the alert type chosen and the same can be witnessed in the "Query to be executed" section in Configure signal logic screen, as illustrated below:
+You provide the logic for log alerts in an analytics query. The analytics query may use various big data and mathematical functions.  The alerting service executes your query at intervals specified with data for time period specified. The alerting service makes subtle changes to query provided based on the alert type chosen. This can be seen in the "Query to be executed" section in *Configure signal logic* screen, as shown below:
     ![Query to be executed](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-What is shown in **query to be executed** section is what log alert service will run; user can run the stated query as well as timespan via [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) or [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) - if they want to understand before alert creation, what alert query output may be.
+What is shown in the **query to be executed** box is what the log alert service runs. You can run the stated query as well as timespan via [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) or the [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) if you want to understand what the alert query output may be before you actually create the alert.
  
 ## Next steps
 
