@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
@@ -133,7 +133,7 @@ For each app that you want to integrate with the v2.0 endpoint, you can create a
 App registrations that support work and school accounts and personal accounts have the following caveats:
 
 * Only two app secrets are allowed per application ID.
-* An app registration registered by a user with a personal Microsoft account in the App Registration Portal can be viewed and managed only by a single developer account. It can't be shared between multiple developers. If you'd like to share your app registration with multiple developers, you can create the application using the App Registrations (Preview) section of the Azure portal.
+* An application that wasn't registered in a tenant can only be managed by the account that registered it. It can’t be shared with other developers. This is the case for most apps that were registered using a personal Microsoft account in the App Registration Portal. If you’d like to share your app registration with multiple developers, register the application in a tenant using the **App registrations (Preview)** section of the Azure portal.
 * There are several restrictions on the format of the redirect URL that is allowed. For more information about redirect URL, see the next section.
 
 ### Restrictions on redirect URLs
