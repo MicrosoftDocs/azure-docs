@@ -270,8 +270,8 @@ Create the pipeline step using the script, environment configuration, and parame
 inception_model_name = "inception_v3.ckpt"
 
 batch_score_step = PythonScriptStep(
-    name="batch_ai_scoring",
-    script_name="batchai_score.py",
+    name="batch_scoring",
+    script_name="batch_score.py",
     arguments=["--dataset_path", input_images, 
                "--model_name", "inception",
                "--label_dir", label_dir, 
