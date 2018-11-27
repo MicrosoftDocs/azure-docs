@@ -20,7 +20,7 @@ ms.author: yurid
 # Understanding security alerts in Azure Security Center
 This article helps you to understand the different types of security alerts and related insights that are available in Azure Security Center. For more information on how to manage alerts and incidents, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-To set up advanced detections, upgrade to Azure Security Center Standard. A free 60-day trial is available. To upgrade, select **Pricing Tier** in the [security policy](security-center-policies.md). To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+To set up advanced detections, upgrade to Azure Security Center Standard. A free 60-day trial is available. To upgrade, select **Pricing Tier** in the [security policy](security-center-azure-policy.md). To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Send an email with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
@@ -130,7 +130,7 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Suspicious command line arguments**: This alert indicates suspicious command line arguments that have been used in conjunction with a reverse shell used by activity group HYDROGEN.
 * **Suspicious document credentials**: This alert indicates a suspicious, common precomputed password hash used by malware being used to execute a file.
 * **Dynamic PS script construction**: This alert indicates a PowerShell script being constructed dynamically. Attackers use this technique to progressively build a script in order to evade IDS systems.
-* **Metaploit indicators**: This alert indicates activity associated with the Metasploit framework, which provides a range of attacker capabilities and tools.
+* **Metasploit indicators**: This alert indicates activity associated with the Metasploit framework, which provides a range of attacker capabilities and tools.
 * **Suspicious account activity**: This alert indicates an attempt to connect to a machine using an account that was recently compromised.
 * **Account creation**: This alert indicates a creation of a new account on the machine.
 

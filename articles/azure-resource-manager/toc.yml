@@ -54,6 +54,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Resource deletion
+    href: resource-group-delete.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
 - name: How to

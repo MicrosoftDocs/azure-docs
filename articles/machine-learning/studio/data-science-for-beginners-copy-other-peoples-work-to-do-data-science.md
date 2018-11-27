@@ -1,5 +1,5 @@
 ---
-title: Copy others' data science examples – Azure Machine Learning  | Microsoft Docs
+title: Copy others' data science examples – Azure Machine Learning Studio | Microsoft Docs
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example
 services: machine-learning
