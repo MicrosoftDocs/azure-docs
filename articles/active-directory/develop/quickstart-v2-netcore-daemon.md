@@ -165,7 +165,12 @@ result = await app.AcquireTokenForClientAsync(scopes);
 
 ## Next steps
 
+Learn more about permissions and consent:
+
+> [!div class="nextstepaction"]
+> [Permissions and Consent](v2-permissions-and-consent.md)
+
 To know more about the auth flow for this scenario, please see the Oauth 2.0 client credentials flow:
 
 > [!div class="nextstepaction"]
-> [Client Credentials Oauth Flow](v2-oauth2-client-creds-grant-flow.md)
+> [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)
