@@ -22,7 +22,6 @@ This tutorial provides instructions on how to migrate data stored in MongoDB to 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Review and complete the prerequisites for migration.
 > * Prepare a migration plan.
 > * Migrate data by using mongoimport.
 > * Migrate data by using mongorestore.
@@ -34,13 +33,16 @@ Before you migrate data to a MongoDB API account, make sure you have some sample
 <!-- Include a link to add a free Azure account here. -->
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-<!-- Relocate the Prerequistes section to here. Prerequisites must be the first H2 section in the tutorial. -->
+<!-- Prerequisites must be the first H2 section in the tutorial. -->
 
-## Plan for the migration
+## Prerequisites
 <!-- Add an introduction for this section. -->
 
-**Pre-create and scale your collections**
-<!-- Note that external links aren't permitted outside the Prerequisites section. -->        
+### Plan for the migration
+<!-- Add an introduction for this section. -->
+
+#### Pre-create and scale your collections
+
 By default, Azure Cosmos DB provisions a new MongoDB collection with 1,000 request units per second (RU/sec). Before you migrate with mongoimport or mongorestore, pre-create all your collections from the [Azure portal](https://portal.azure.com) or from MongoDB drivers and tools. If the data size is greater than 10 GB, create a [partitioned collection](partition-data.md) with an appropriate shard key.
 
 From the [Azure portal](https://portal.azure.com), increase your collections throughput for the migration from 1,000 RUs/sec for a single partition collection and 2,500 RUs/sec for a sharded collection. With the higher throughput, you can avoid rate limiting and migrate in less time. You can reduce the throughput immediately after the migration to save costs.
@@ -63,7 +65,7 @@ The command returns the following results:
 }
 ```
 
-**Calculate the approximate RU charge for a single document write**
+#### Calculate the approximate RU charge for a single document write
 
 From the MongoDB Shell, connect to your Azure Cosmos DB MongoDB API account. <!-- No external links outside the Prerequisites section. "You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md)." -->
 
@@ -90,7 +92,7 @@ globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
         
 Take note of the request charge.
     
-**Determine the latency from your machine to the Azure Cosmos DB cloud service**
+#### Determine the latency from your machine to the Azure Cosmos DB cloud service
     
 Enable verbose logging from the MongoDB Shell with the command ```setVerboseShell(true)```.
     
@@ -104,9 +106,9 @@ Fetched 1 record(s) in 100(ms)
         
 Before you run the migration, remove the inserted document to ensure there are no duplicate documents. You can remove documents with the command ```db.coll.remove({})```.
 
-**Calculate the approximate values for the *batchSize* and *numInsertionWorkers* properties**
+#### Calculate the approximate values for the batchSize and numInsertionWorkers properties
 
-For the *batchSize* property, divide the total provisioned RUs by the RUs consumed from your single document write, as completed in the step: **Determine the latency from your machine to the Azure Cosmos DB cloud service**. If the calculated value is less than or equal to 24, use that number as the property value. If the calculated value is greater than 24, set the property value to 24.
+For the *batchSize* property, divide the total provisioned RUs by the RUs consumed from your single document write, as completed in the section "Determine the latency from your machine to the Azure Cosmos DB cloud service." If the calculated value is less than or equal to 24, use that number as the property value. If the calculated value is greater than 24, set the property value to 24.
     
 For the value of the *numInsertionWorkers* property, use this equation:
 
@@ -114,19 +116,19 @@ For the value of the *numInsertionWorkers* property, use this equation:
 
 We can use the following values to calculate a value for the *numInsertionWorkers* property:
 
-|Property|Value|
+| Property | Value |
 |--------|-----|
-|*batchSize*| 24 |
-|Provisioned RUs | 10,000 |
-|Latency | 0.100 s |
-|Consumed RUs | 10 RUs |
-|*numInsertionWorkers* | (10,000 RUs x 0.100 s) / (24 x 10 RUs) = **4.1666** |
+| *batchSize* | 24 |
+| Provisioned RUs | 10,000 |
+| Latency | 0.100 s |
+| Consumed RUs | 10 RUs |
+| *numInsertionWorkers* | (10,000 RUs x 0.100 s) / (24 x 10 RUs) = **4.1666** |
 
 Run the **monogoimport** migration command. The command parameters are described later in this article.
 
 ```bash
 mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
- ```
+```
 
 You can also use the **monogorestore** command. Make sure all collections have the throughput set at or above the number of RUs used in the previous calculations.
    
@@ -134,7 +136,8 @@ You can also use the **monogorestore** command. Make sure all collections have t
 mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
 ```
 
-## Prerequisites
+### Complete the prerequisites
+<!-- Add an introduction for this section. -->
 
 <!-- Content relocated from top of article -->
 * **Before you migrate**: Make sure you have some sample MongoDB data before you start the migration. If you don't have a sample MongoDB database, you can download and install the [MongoDB community server](https://www.mongodb.com/download-center), create a sample database, and use the mongoimport.exe or mongorestore.exe to upload sample data. 
