@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 08/08/2018
+ms.date: 11/27/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
@@ -82,7 +82,7 @@ After you install the runtime, SDKs, and Visual Studio tools, create a developme
 3. Run the following PowerShell command to create a development cluster:
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster -UseMachineName
     ```
 
 4. To start the local cluster manager tool, run the following PowerShell command:
