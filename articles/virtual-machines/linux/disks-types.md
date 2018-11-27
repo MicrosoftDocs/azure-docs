@@ -17,7 +17,7 @@ Azure Managed Disks currently offers three disk types which are generally availa
 
 |Disk Type  |Scenario  |
 |---------|---------|
-|Ultra SSD (Preview)     |         |
+|Ultra SSD (Preview)     |IO-intensive workloads such as SAP HANA, top tier databases (e.g. SQL, Oracle), and other transaction-heavy workloads.         |
 |Premium SSD     |Production and performance sensitive workloads         |
 |Standard SSD     |Web servers, lightly used enterprise applications and Dev/Test         |
 |Standard HDD     |Backup, Non-critical, Infrequent access         |
