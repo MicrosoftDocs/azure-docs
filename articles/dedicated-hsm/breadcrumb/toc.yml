@@ -5,10 +5,10 @@
   items:
   - name: Overview
     tocHref: /dedicated-hsm/overview/
-    topicHref: /dedicated-hsm/overview
+    topicHref: /dedicated-hsm/index
   - name: Tutorials
     tocHref: /dedicated-hsm/Tutorials/
-    topicHref: /dedicated-hsm/tutorial-deploy-hsm-cli
+    topicHref: /dedicated-hsm/index
   - name: concepts
     tocHref: /dedicated-hsm/concepts/
     topicHref: /dedicated-hsm/index
