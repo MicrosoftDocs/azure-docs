@@ -46,6 +46,8 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 ## Pattern (regular expression) feature 
 **This feature is deprecated**. New pattern features cannot be added to LUIS. Any existing pattern features are supported until May 2018. Contribute to standard LUIS regular expression matching with a PR to the [Recognizers-Text Github repository](https://github.com/Microsoft/Recognizers-Text). 
 
+This is not the same thing as the existing [Patterns](luis-how-to-model-intent-pattern.md) feature with a template utterance. 
+
 ## Next steps
 
 After adding, editing, deleting, or deactivating a phrase list, [train and test the app](luis-interactive-test.md) again to see if performance improves.
