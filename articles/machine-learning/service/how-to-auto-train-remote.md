@@ -18,7 +18,7 @@ In Azure Machine Learning, you train your model on different types of compute re
 
 You can easily scale up or scale out your machine learning experiment by adding additional compute targets. Compute target options include Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Machine Learning Compute. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
 
-In this article, you learn how to build a model using automated ML on the DSVM. You can find examples using Azure Batch AI in [these sample notebooks in GitHub](https://aka.ms/aml-notebooks).  
+In this article, you learn how to build a model using automated ML on the DSVM.   
 
 ## How does remote differ from local?
 
