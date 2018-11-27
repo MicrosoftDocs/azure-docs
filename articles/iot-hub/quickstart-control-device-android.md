@@ -82,7 +82,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Retrieve the service connection string
 
-You also need a _service connection string_ to enable the back-end service applications to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+You also need a _service connection string_ to enable the back-end service applications to connect to your IoT hub in order to execute methods and retrieve messages. The following command retrieves the service connection string for your IoT hub:
    
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
