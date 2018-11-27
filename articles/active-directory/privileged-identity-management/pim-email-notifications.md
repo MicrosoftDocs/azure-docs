@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/23/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
@@ -47,6 +47,23 @@ Starting at the end of July 2018, the PIM email notifications for Azure AD roles
 Previously, when a user activated a privileged role, the email looked like the following.
 
 ![Old PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-old.png)
+
+### Weekly PIM digest email for Azure AD roles
+
+A weekly PIM summary email for Azure AD roles is sent to customers with PIM configured. This weekly email provides a snapshot of PIM activities for the week as well as privileged role assignments. Here's an example email:
+
+![Weekly PIM digest email for Azure AD roles](./media/pim-email-notifications/email-directory-weekly.png)
+
+The email includes four tiles:
+
+| Tile | Description |
+| --- | --- |
+| **Users activated** | Number of times users activated their eligible role inside the tenant. |
+| **Users made permanent** | Number of times users with an eligible assignment is made permanent. |
+| **Role assignments in PIM** | Number of times users are assigned an eligible role inside PIM. |
+| **Role assignments outside of PIM** | Number of times users are assigned a permanent role outside of PIM (inside Azure AD). |
+
+The **Overview of your top roles** section lists your top five roles based on total number of permanent and eligible administrators for each role. The **Take action** link opens the [PIM wizard](pim-security-wizard.md) where you can convert their permanent administrators to eligible administrators in batches.
 
 ## PIM emails for Azure resource roles
 
