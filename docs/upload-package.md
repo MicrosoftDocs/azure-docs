@@ -15,7 +15,7 @@ Select the tile under **App package**, and upload the manifest file for your add
 When you upload your manifest file, you might get one of the following messages:
 
 - **Manifest errors**. If your manifest contains errors, the Seller Dashboard reports those errors and you have to resolve them before you can submit your add-in.
-- **Applications and platforms supported**. Office add-ins, platforms, and operating systems are specified in the **Requirements** element in your manifest. For more information, see [Office Add-in host and platform availability](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-availability).
+- **Applications and platforms supported**. Office add-ins, platforms, and operating systems are specified in the **Requirements** element in your manifest. For more information, see [Office Add-in host and platform availability](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-in-availability).
 
 ## Upload your SharePoint Add-in manifest
 
@@ -34,7 +34,7 @@ For more information, see [Submit apps for Office 365 operated by 21Vianet in Ch
 
 ## Upload an Office 365 web app
 
-Office 365 web apps are no longer accpeted via the Seller Dashboard. We reccomend that you submit Office 365 web apps via the [Cloud Partner Portal](https://appsource.microsoft.com/en-us/partners/signup) instead.
+Office 365 web apps are no longer accepted via the Seller Dashboard. We recommend that you submit Office 365 web apps via the [Cloud Partner Portal](https://appsource.microsoft.com/partners/signup) instead.
 
 
 ## Upload a Power BI custom visual    
@@ -49,7 +49,7 @@ The Power BI team will reply back with instructions and a manifest XML file to u
 > [!NOTE]
 > To help ensure quality and make sure that existing reports do not break, updates to existing custom visuals take approximately two weeks to reach the general public after approval. 
 
-For more details about submitting Power BI custom visuals, see [Publish custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store).
+For more details about submitting Power BI custom visuals, see [Publish custom visuals to AppSource](https://docs.microsoft.com/power-bi/developer/office-store).
 
 ## Upload a Microsoft Teams app
 
@@ -59,7 +59,7 @@ When you upload your manifest file, you might get the following message:
 
 - **Errors exist**. If your package contains errors, the Seller Dashboard reports those errors and you have to resolve them before you can submit your add-in. 
 
-For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/apps/apps-package). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Use the Seller Dashboard to submit your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/publishing/office-store-guidance).
+For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/apps/apps-package). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Use the Seller Dashboard to submit your Microsoft Teams app](https://docs.microsoft.com/microsoftteams/platform/publishing/office-store-guidance).
 
 ## See also
 
