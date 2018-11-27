@@ -211,7 +211,7 @@ CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfil
 > For more information on abfs scheme, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
 > For more information on CREATE EXTERNAL DATA SOURCE, please refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-- Query as normal using external table(s).
+- Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
