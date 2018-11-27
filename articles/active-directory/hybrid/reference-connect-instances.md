@@ -22,7 +22,7 @@ ms.author: billmath
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
 ## Microsoft Cloud Germany
-The [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by a German data trustee.
+The [Microsoft Cloud Germany](https://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by a German data trustee.
 
 | URLs to open in proxy server |
 | --- |
