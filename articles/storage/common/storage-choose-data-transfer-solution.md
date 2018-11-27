@@ -42,8 +42,8 @@ The following visual illustrates how the various Azure data transfer tools can b
 Answer the following questions to help select a data transfer solution:
 
 - Is your available network bandwidth limited or non-existent, and you want to transfer large datasets? If yes, see: [Scenario 1: Transfer large datasets with no or low network bandwidth](storage-solution-large-dataset-low-network.md).
-- Do you want to transfer large datasets over network and you have a moderate to high network bandwidth? If yes, see: [Scenario 2: Transfer large datasets with moderate to high network bandwidth](storage-solution-large-dataset-med-high-network.md).
-- Do you want to occasionally transfer just a few files over the network? If yes, see [Scenario 3: Transfer small datasets with limited to moderate network bandwidth](storage-solution-small-dataset-low-med-network.md).
+- Do you want to transfer large datasets over network and you have a moderate to high network bandwidth? If yes, see: [Scenario 2: Transfer large datasets with moderate to high network bandwidth](storage-solution-large-dataset-moderate-high-network.md).
+- Do you want to occasionally transfer just a few files over the network? If yes, see [Scenario 3: Transfer small datasets with limited to moderate network bandwidth](storage-solution-small-dataset-low-moderate-network.md).
 - Are you looking for point-in-time data transfer at regular intervals? If yes, use the scripted/programmatic options outlined in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
 - Are you looking for on-going, continuous data transfer? If yes, use the options in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
 

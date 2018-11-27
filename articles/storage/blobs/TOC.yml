@@ -226,9 +226,9 @@
     - name: Large datasets, low network bandwidth
       href: ../common/storage-solution-large-dataset-low-network.md
     - name: Large dataset, moderate to high network bandwidth
-      href: ../common/storage-solution-large-dataset-med-high-network.md
+      href: ../common/storage-solution-large-dataset-moderate-high-network.md
     - name: Small dataset, low to moderate network bandwidth
-      href: ../common/storage-solution-small-dataset-low-med-network.md
+      href: ../common/storage-solution-small-dataset-low-moderate-network.md
     - name: Periodic data transfer
       href: ../common/storage-solution-periodic-data-transfer.md
   - name: Import/Export data
