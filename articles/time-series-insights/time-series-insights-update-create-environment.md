@@ -13,7 +13,7 @@ ms.date: 11/21/2018
 
 # Provisioning and managing Azure Time Series Insights update
 
-This document describes how to provision and manage a new Azure Time Series Insights (TSI) update environment in the Azure portal.
+This document describes how to provision and manage a new Azure Time Series Insights (TSI) update environment in the Azure Portal.
 
 ## Overview
 
@@ -59,21 +59,28 @@ A brief description about provisioning following the TSI update:
 
 ## Management
 
-You have the ability to manage your TSI updated environment using the Azure portal. If you’re familiar with the generally available TSI experience, not much is changing.
+You have the ability to manage your TSI updated environment using the Azure Portal. Users familiar with TSI will feel immediately comfortable with the TSI update since much is carried over between versions.
 
-Here are the major differences in managing an L1 TSI environment versus an S1 or S2 environment using the Azure portal:
+Major differences in managing an L1 TSI environment versus an S1 or S2 environment using the Azure Portal are provided below:
 
-* TSI Azure portal Overview blade:
-* Using the overview blade remains the same except for:
-* Capacity is removed as this concept is not relevant to L1 environments.
-* The **Time Series ID** property has been added. This is an immutable property you added at provisioning time and defines how your data is partitioned.
-* Reference data sets are removed.
-* Time Series Insights Azure Portal Configure blade:
-* Retention is removed as retention will be set to unlimited.
-* We expect to add more controls to this in the future, but for now you cannot set a limit on this.
-* Capacity, calculator, and storage limit exceeded behavior all removed.
-* Time Series Insights Azure Portal Reference data blade:
-* This entire blade has been removed as reference data is not a component of L1 environments.
+* TSI Azure Portal *Overview* blade:
+
+  * Using the overview blade remains the same except for:
+
+    * Capacity is removed as this concept is not relevant to L1 environments.
+    * The **Time Series ID** property has been added. This is an immutable property you added at provisioning time and defines how your data is partitioned.
+    * Reference data sets are removed.
+
+* TSI Azure Portal *Configure* blade:
+  
+  * Retention is removed as retention will be set to unlimited.
+
+    * We expect to add more controls to this in the future, but for now you cannot set a limit on this.
+    * Capacity, calculator, and storage limit exceeded behavior all removed.
+
+* TSI Azure Portal *Reference* data blade:
+
+  * This entire blade has been removed as reference data is not a component of L1 environments.
 
 [!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
 
