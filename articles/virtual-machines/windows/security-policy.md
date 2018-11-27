@@ -14,6 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
+
 ---
 
 # Secure and use policies on virtual machines in Azure

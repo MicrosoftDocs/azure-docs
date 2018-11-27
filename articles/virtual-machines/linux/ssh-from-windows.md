@@ -100,7 +100,7 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-If you configured a passphrase when you created your key pair, enter the passphrase when prompted during the login process.
+If you configured a passphrase when you created your key pair, enter the passphrase when prompted during the sign-in process.
 
 If the VM is using the just-in-time access policy, you need to request access before you can connect to the VM. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
 
