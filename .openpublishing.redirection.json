@@ -30876,6 +30876,136 @@
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
             "redirect_url": "/azure/media-services/video-indexer/video-indexer-view-edit",
             "redirect_document_id": true
-        }                                                        
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-data-sources",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-collectd.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-collectd",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-custom-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-custom-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-iis-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-iis-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-json.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-json",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-linux-applications.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-linux-applications",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-performance-counters.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-performance-counters",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-syslog.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-syslog",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-sources-windows-events.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-windows-events",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-ad-assessment.md",
+            "redirect_url":  "/azure/azure-monitor/insights/ad-assessment",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-ad-replication-status.md",
+            "redirect_url":  "/azure/azure-monitor/insights/ad-replication-status",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-key-vault.md",
+            "redirect_url":  "/azure/azure-monitor/insights/azure-key-vault",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-networking-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/insights/azure-networking-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-capacity.md",
+            "redirect_url":  "/azure/azure-monitor/insights/capacity-performance",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-dns.md",
+            "redirect_url":  "/azure/azure-monitor/insights/dns-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-expressroute.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-expressroute",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-performance-monitor.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-performance-monitor",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-pricing-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-pricing-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-service-endpoint.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-service-endpoint",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-scom-assessment.md",
+            "redirect_url":  "/azure/azure-monitor/insights/scom-assessment",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-sql-assessment.md",
+            "redirect_url":  "/azure/azure-monitor/insights/sql-assessment",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-surface-hubs.md",
+            "redirect_url":  "/azure/azure-monitor/insights/surface-hubs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-vmware.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vmware",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-wire-data.md",
+            "redirect_url":  "/azure/azure-monitor/insights/wire-data",
+            "redirect_document_id":  true
+        }
     ]
 }
