@@ -34,7 +34,7 @@ To use the solution, you need to enable logging of Azure Key Vault diagnostics a
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
 
-1. Enable the Azure Key Vault solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+1. Enable the Azure Key Vault solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 2. Enable diagnostics logging for the Key Vault resources to monitor, using either the [portal](#enable-key-vault-diagnostics-in-the-portal) or [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### Enable Key Vault diagnostics in the portal
@@ -132,7 +132,7 @@ In January 2017, the supported way of sending logs from Key Vault to Log Analyti
 To use the updated solution:
 
 1. [Configure diagnostics to be sent directly to Log Analytics from Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
-2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md)
+2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md)
 3. Update any saved queries, dashboards, or alerts to use the new data type
   + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
   - Instead of: `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`

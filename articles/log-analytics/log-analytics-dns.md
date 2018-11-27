@@ -53,7 +53,7 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 Use the following information to configure the solution:
 
 - You must have a [Windows](log-analytics-agent-windows.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
-- You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+- You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
 

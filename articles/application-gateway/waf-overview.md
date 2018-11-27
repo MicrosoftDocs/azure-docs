@@ -4,21 +4,25 @@ description: This article provides an overview of web application firewall (WAF)
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 11/16/2018
 ms.author: amsriva
 ---
 
 # Web application firewall (WAF)
 
-Web application firewall (WAF) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities. 
+Web application firewall (WAF) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
-Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
+Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, and cross site scripting attacks to name a few. 
+
+Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location, instead of securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
 WAF is based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9. It automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
-Application Gateway operates as an application delivery controller (ADC) and offers SSL termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites and security enhancements. Security enhancements offered by Application Gateway include SSL policy management, end to end SSL support. Application security is now strengthened by WAF (web application firewall) being directly integrated into the ADC offering. This provides an easy to configure central location to manage and protect your web applications against common web vulnerabilities.
+Application Gateway operates as an application delivery controller (ADC) and offers SSL termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites, and security enhancements.
+
+Security enhancements offered by Application Gateway include SSL policy management, and end to end SSL support. Application security is now strengthened by WAF (web application firewall) being directly integrated into the ADC offering. This provides an easy to configure central location to manage and protect your web applications against common web vulnerabilities.
 
 ## Benefits
 
@@ -48,11 +52,11 @@ The following are the core benefits that Application Gateway and web application
 - Protection against HTTP protocol violations
 - Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 - Prevention against bots, crawlers, and scanners
-- Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+- Detection of common application misconfigurations (for example, Apache, IIS, and so on)
 
 ### Public preview features
 
-The current WAF public preview SKU incudes the following features:
+The current WAF public preview SKU includes the following features:
 
 - **Request size limits** - Web Application Firewall allows users to configure request size limits within lower and upper bounds.
 - **Exclusion lists** - WAF exclusion lists allow users to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields.
@@ -75,9 +79,9 @@ Web application firewall comes preconfigured with CRS 3.0 by default or you can 
 - Protection against HTTP protocol violations
 - Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 - Prevention against bots, crawlers, and scanners
-- Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
+- Detection of common application misconfigurations (for example, Apache, IIS, etc.)
 
-For a more detailed list of rules and their protections see [Core rule sets](#core-rule-sets).
+For a more detailed list of rules and their protections, see [Core rule sets](#core-rule-sets).
 
 
 #### OWASP_3.0
@@ -86,7 +90,7 @@ The 3.0 core rule set provided has 13 rule groups as shown in the following tabl
 
 |RuleGroup|Description|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contains rules to lock down methods (PUT, PATCH< ..)|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contains rules to lock down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contains rules to protect against port and environment scanners.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Contains rules to protect against protocol and encoding issues.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Contains rules to protect against header injection, request smuggling, and response splitting|
@@ -119,18 +123,18 @@ The 2.2.9 core rule set provided has 10 rule groups as shown in the following ta
 
 Application Gateway WAF can be configured to run in the following two modes:
 
-* **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs in all threat alerts to a log file. Logging diagnostics for Application Gateway should be turned on using the **Diagnostics** section. You also need to ensure that the WAF log is selected and turned on. When running in detection mode web application firewall does not block incoming requests.
+* **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts to a log file. Logging diagnostics for Application Gateway should be turned on using the **Diagnostics** section. You also need to ensure that the WAF log is selected and turned on. When running in detection mode web application firewall does not block incoming requests.
 * **Prevention mode** – When configured to run in prevention mode, Application Gateway actively blocks intrusions and attacks detected by its rules. The attacker receives a 403 unauthorized access exception and the connection is terminated. Prevention mode continues to log such attacks in the WAF logs.
 
 ### <a name="application-gateway-waf-reports"></a>WAF Monitoring
 
-Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center (coming soon), and Log Analytics.
+Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Log Analytics.
 
 ![diagnostics](./media/waf-overview/diagnostics.png)
 
 #### Azure Monitor
 
-Each application gateway log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  This allows you to track diagnostic information including WAF alerts and logs.  This capability is provided within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly. To learn more about enabling diagnostic logs for application gateway see [Application Gateway diagnostics](application-gateway-diagnostics.md)
+Each application gateway log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  This allows you to track diagnostic information including WAF alerts and logs.  This capability is provided within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly. To learn more about enabling diagnostic logs for application gateway, see [Application Gateway diagnostics](application-gateway-diagnostics.md)
 
 #### Azure Security Center
 
@@ -174,7 +178,9 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
 
 ## Application Gateway WAF SKU pricing
 
-Web application firewall is available under a new a WAF SKU. This SKU is available only in Azure Resource Manager provisioning model and not under the classic deployment model. Additionally WAF SKU comes only in medium and large application gateway instance sizes. All the limits for application gateway also apply to the WAF SKU. Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same. There is no per rule or rule group charges. You can protect multiple web applications behind the same web application firewall and there are no additional charges for supporting multiple applications. 
+Web application firewall is available under a new a WAF SKU. This SKU is available only in Azure Resource Manager provisioning model and not under the classic deployment model. Additionally, the WAF SKU comes only in medium and large application gateway instance sizes. All the limits for application gateway also apply to the WAF SKU.
+
+Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same. There's no per rule or rule group charges. You can protect multiple web applications behind the same web application firewall and you are not charged for supporting multiple applications.
 
 ## Next steps
 

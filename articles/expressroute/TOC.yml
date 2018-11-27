@@ -88,7 +88,11 @@
     - name: Configure IPsec transport mode for Windows hosts
       href: expressroute-howto-ipsec-transport-private-windows.md
   - name: Configure ExpressRoute Global Reach
-    href: expressroute-howto-set-global-reach.md
+    items:
+    - name: Azure PowerShell
+      href: expressroute-howto-set-global-reach.md
+    - name: Azure CLI
+      href: expressroute-howto-set-global-reach-cli.md
   - name: Configure a virtual network gateway for ExpressRoute
     items:
     - name: Azure portal

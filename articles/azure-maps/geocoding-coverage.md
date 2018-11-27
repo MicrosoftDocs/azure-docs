@@ -14,6 +14,14 @@ manager: timlt
 
 When you search for a location with Azure Maps, the search service takes your search terms and returns the latitude and longitude coordinates, a process called geocoding. However, Maps does not have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region. 
 
+The ability to geocode in a country is dependent upon the road data coverage and the geocoding precision of the geocoding service. The following categorizations are used specify the level of geocoding support in each country.
+* **Address points** - Addresses data can be resolved to a latitude/longitude coordinate within the address parcel (property boundary). Sometimes referred to as 'Rooftop' accurate. This is the highest level of accuracy available for addresses. 
+* **House numbers** - Addresses are interpolated to a latitude/longitude coordinate on the street.
+* **Street level** - Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed.
+* **City level** - City place names are supported.
+
+![Geocoding Coverage Map](media/coverage/GeocodeCoverage.png)
+
 ## Americas
 
 | Region             | Address points | House numbers | Street level | City level | Points of interest |
@@ -47,6 +55,7 @@ When you search for a location with Azure Maps, the search service takes your se
 | Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guyana        |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -96,6 +105,7 @@ When you search for a location with Azure Maps, the search service takes your se
 | Heard Island and McDonald Islands                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| India       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
@@ -147,7 +157,7 @@ When you search for a location with Azure Maps, the search service takes your se
 | Belgium                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia And Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croatia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cyprus                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Czech Republic                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

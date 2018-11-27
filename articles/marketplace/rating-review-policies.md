@@ -49,12 +49,3 @@ The rating and review policies for Azure AppSource and Marketplace are listed he
 * Ensure that viewpoints expressed in your review are balanced and neutral.
 * Remember that you are posting in a public forum and act accordingly.
 
-## Review guidelines for publishers
-
-* Do not post any content that could be in violation of the [AppSource and Azure Marketplace review policy](./rating-review-policies.md).
-* Do not include any marketing content or advertisements in your comment.
-* Do not promote other apps or services in your comment.
-* Your response should be directly related to the specific app and review.
-* Do not use canned responses, and do not post canned comments across multiple reviews.
-* Do not manipulate reviews in any way, such as offering compensation or incentives to reviewers to change ratings or reviews.
-* Always be polite and consider that satisfied customers are the best promoters of your app.

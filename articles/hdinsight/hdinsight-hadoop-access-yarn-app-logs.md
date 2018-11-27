@@ -24,7 +24,7 @@ This document explains how to access the logs for Apache YARN applications that 
 * A Windows-based HDInsight cluster.  See [Create Windows-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## YARN Timeline Server
-The <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> provides generic information on completed applications as well as framework-specific application information through two different interfaces. Specifically:
+The <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> provides generic information on completed applications as well as framework-specific application information through two different interfaces. Specifically:
 
 * Storage and retrieval of generic application information on HDInsight clusters has been enabled with version 3.1.1.374 or higher.
 * The framework-specific application information component of the Timeline Server is not currently available on HDInsight clusters.

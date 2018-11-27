@@ -3,7 +3,7 @@ title: Define Custom Autosuggest suggestions - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Describes how to configure Custom Autosuggest with custom suggestions
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services

@@ -49,7 +49,7 @@ For ExpressRoute Monitor capability, the Azure nodes should be connected as Dire
 ### Which protocol among TCP and ICMP should be chosen for monitoring?
 If you are monitoring your network using Windows server-based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
 
-ICMP is recommended for Windows desktops/client operating system-based nodes. This platform does not allow TCP data to be sent over raw sockets, which NPM to discover network topology.
+ICMP is recommended for Windows desktops/client operating system-based nodes. This platform does not allow TCP data to be sent over raw sockets, which NPM uses to discover network topology.
 
 You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

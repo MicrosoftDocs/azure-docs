@@ -12,7 +12,7 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps Services and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with [Azure IoT Edge For Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge). This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution.
@@ -37,28 +37,28 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
 3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub.
 
-4. Save these projects, then check it into your Azure DevOps or TFS repository.
+4. Save these projects, then check it into your Azure Repos or TFS repository.
     
 > [!NOTE]
 > For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## Configure Azure Pipeline for continuous integration
-In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will show build logs in Azure Pipeline.
+## Configure Azure Pipelines for continuous integration
+In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will show build logs in Azure Pipelines.
 
-1. Sign into your Azure DevOps organization (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
+1. Sign into your Azure DevOps organization (**https://dev.azure.com/{your organization}/**) and open the project where you checked in the sample app.
 
     ![Check-in code](./media/how-to-ci-cd/init-project.png)
 
-1. Visit [Azure IoT Edge For Azure Pipeline](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on Azure DevOps Marketplace. Click **Get it free** and follow the wizard to install this extension to your Azure DevOps organization or download to your TFS.
+1. Visit [Azure IoT Edge For Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on Azure DevOps Marketplace. Click **Get it free** and follow the wizard to install this extension to your Azure DevOps organization or download to your TFS.
 
     ![Install extension](./media/how-to-ci-cd/install-extension.png)
 
-1. In your Azure DevOps, open the **Build & Release** hub and, in the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button.
+1. In your Azure Pipelines, open the **Build & Release** hub and, in the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button.
 
     ![New pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select the **Azure DevOps Git** source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
+1. If prompted, select **Git** the source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
 
     ![Select git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -93,8 +93,8 @@ In this section, you will create a build pipeline that is configured to run auto
     Save the new build pipeline. Click the **Save** button.
 
 
-## Configure Azure Pipeline for continuous deployment
-In this section, you will create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipeline.
+## Configure Azure Pipelines for continuous deployment
+In this section, you will create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
 
 1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button.  
 
@@ -160,7 +160,7 @@ In this section, you will create a release pipeline that is configured to run au
     
 ## Verify IoT Edge CI/CD with the build and release pipelines
 
-In this section, you will trigger a build to make the CI/CD pipeline work. Then verify the result with Azure DevOps portal. 
+In this section, you will trigger a build to make the CI/CD pipeline work. Then verify the deployment succeeds.
 
 1. To trigger a build job, you can either push a commit to source code repository or manually trigger it. You can trigger a build job in your build pipeline by clicking the **Queue** button as in following screenshot.
 

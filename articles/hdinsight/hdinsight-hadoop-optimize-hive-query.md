@@ -66,7 +66,7 @@ Some partitioning considerations:
 
 * **Do not under partition** - Partitioning on columns with only a few values can cause few partitions. For example, partitioning on gender only creates two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
 * **Do not over partition** - On the other extreme, creating a partition on a column with a unique value (for example, userid) causes multiple partitions. Over partition causes much stress on the cluster namenode as it has to handle the large number of directories.
-* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the parition size is potentially skewed and performance may vary tremendously.
+* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the partition size is potentially skewed and performance may vary tremendously.
 
 To create a partition table, use the *Partitioned By* clause:
 
