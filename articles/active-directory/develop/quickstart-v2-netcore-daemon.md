@@ -102,14 +102,17 @@ Any *app-only permission* requires Admin consent - which means that it needs an 
 1. If you are a global administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 1. If you are not a global administrator, then you need to ask a tenant administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
-```url
-https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
-```
+    ```url
+    https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
+    ```
 
-> [!div renderon="docs"]
->>  Where:
->> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+    > [!div renderon="docs"]
+    >>  Where:
+    >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+    >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+
+    > [!NOTE]
+    > Because this application and the request does not have a redirect URI, you may see the error *AADSTS50011: No reply address is registered for the application* after giving consent to the app. Please ignore the error.
 
 #### Step 5: Run the application
 
@@ -147,6 +150,7 @@ Then, initialize MSAL using the following code:
 
 ```csharp
 ClientCredential clientCredentials = new ClientCredential(secret: config.ClientSecret);
+
 var app = new ConfidentialClientApplication(
     clientId: config.ClientId, 
     authority: config.Authority, 
@@ -177,7 +181,7 @@ result = await app.AcquireTokenForClientAsync(scopes);
 
 > |Where:|
 > |---------|---------|
-> | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `<Application ID URI>/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `<Application ID URI>` points to `https://graph.microsoft.com`). For custom Web APIs, `<Application ID URI>` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
+> | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom Web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
