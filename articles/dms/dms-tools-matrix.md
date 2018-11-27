@@ -17,6 +17,25 @@ ms.date: 11/013/2018
 
 This article provides a matrix of the Microsoft and third-party services and tools available to assist you with various database and data migration scenarios and specialty tasks.
 
+## 4 tables option, part 1 of 4 - Business justification (partial)
+
+| **Source** | **Target** | **Discover/ Inventory** | **Target and SKU recommendation** | **TCO/ROI and Business case** |
+|------------|------------|-------------------------|-----------------------------------|-------------------------------|--------------------------------------|-------------------------|----------------------------|------------|--------------------|-------------------|--------------|
+| SQL Server| Azure SQL DB  | [MAP Toolkit](https://msdn.microsoft.com/en-us/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) |
+| SQL Server| Azure SQL DB MI  | [MAP Toolkit](https://msdn.microsoft.com/en-us/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) |
+| SQL Server| Azure SQL VM  | [MAP Toolkit](https://msdn.microsoft.com/en-us/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) |
+| SQL Server| SQL DW | |  | [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) |
+| | | | | |
+
+## 4 tables option, part 2 of 4 - Pre-migration (partial)
+
+| **Source** | **Target** | **App Data Access Layer Assessment** | **Database Assessment** | **Performance Assessment** |
+|------------|------------|-------------------------|-----------------------------------|-------------------------------|--------------------------------------|-------------------------|----------------------------|------------|--------------------|-------------------|--------------|
+| SQL Server| Azure SQL DB  | | [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/en-us/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| SQL Server| Azure SQL DB MI  | | [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/en-us/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| SQL Server| Azure SQL VM  | | [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/en-us/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| SQL Server| SQL DW | |  | | | | |  |
+
 ## (layout option #1) From SQL Server to Azure SQL Database
 
 ### Business justification
