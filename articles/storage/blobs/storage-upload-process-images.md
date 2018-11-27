@@ -71,7 +71,7 @@ The app uses two containers in the Blob storage account. Containers are similar 
 
 Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command. Then, use this key to create two containers with the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
 
-In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ container's public access is set to `off`. The _thumbnails_ container's public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
+In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The *images* container's public access is set to `off`. The *thumbnails* container's public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
 
 ```azurecli-interactive
 blobStorageAccount=<blob_storage_account>
@@ -151,13 +151,13 @@ After you deploy and configure the web app, you can test the image upload functi
 ## Upload an image
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
-Select the **Upload photos** region to select and upload a file, or drag and drop a file on the region. The image disappears if successfully uploaded.
+Select the **Upload photos** region to select and upload a file, or drag a file onto the region. The image disappears if successfully uploaded.
 
 # [\.NET](#tab/net)
 
 ![ImageResizer app](media/storage-upload-process-images/figure1.png)
 
-In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the `images` container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method. The following code sample contains the `UploadFiletoStorage` task.
+In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the *images* container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method. The following code sample contains the `UploadFiletoStorage` task.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -200,8 +200,8 @@ The following classes and methods are used in the preceding task:
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
-- [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler
-- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
+- [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
+- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream].(http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
 
 As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
 
@@ -267,7 +267,7 @@ Verify the image is shown in the container.
 
 ## Test thumbnail viewing
 
-To test thumbnail viewing, you'll upload an image to the thumbnail container to check if the app can read the thumbnail container.
+To test thumbnail viewing, you'll upload an image to the **thumbnails** container to check if the app can read the **thumbnails** container.
 
 Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
 
