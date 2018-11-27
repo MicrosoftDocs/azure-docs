@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Customize the Developer portal
 

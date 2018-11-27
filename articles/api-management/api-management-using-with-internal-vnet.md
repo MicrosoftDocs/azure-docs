@@ -31,7 +31,7 @@ Using API Management in internal mode, you can achieve the following scenarios:
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations by using a single gateway endpoint. 
 
-[!INCLUDE [premium-dev.md](availability/premium-dev.md)]
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

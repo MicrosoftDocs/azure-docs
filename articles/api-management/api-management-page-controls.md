@@ -29,7 +29,7 @@ To use a control, place it in the desired location in the developer portal templ
   
  For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## Developer portal template page controls  
   

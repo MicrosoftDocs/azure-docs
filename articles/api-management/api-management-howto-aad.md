@@ -28,7 +28,7 @@ This article shows you how to enable access to the developer portal for users fr
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 - Import and publish an Azure API Management instance. For more information, see [Import and publish](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Authorize developer accounts by using Azure AD
 

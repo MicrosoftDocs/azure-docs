@@ -24,7 +24,7 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 
 ![Manage protocols and ciphers in APIM](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 

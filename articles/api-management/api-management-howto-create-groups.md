@@ -31,7 +31,7 @@ This guide shows how administrators of an API Management instance can add new gr
 
 In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 

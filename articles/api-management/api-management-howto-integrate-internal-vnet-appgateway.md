@@ -29,7 +29,7 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turn-key way to switch access to API Management from the public Internet on and off.
 
-[!INCLUDE [premium-dev.md](availability/premium-dev.md)]
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

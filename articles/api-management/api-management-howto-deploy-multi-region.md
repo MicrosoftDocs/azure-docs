@@ -25,7 +25,7 @@ A new Azure API Management service initially contains only one [unit][unit] in a
 > [!NOTE]
 > Azure API Management replicates only the API gateway component across regions. The service management component is hosted only in the Primary Region. In case of an outage in the Primary Region, applying configuration changes to an Azure API Management service instance is not possible - including settings or policies updates.
 
-[!INCLUDE [premium.md](availability/premium.md)]
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 

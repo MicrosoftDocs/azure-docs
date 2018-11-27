@@ -23,7 +23,7 @@ Azure API Management provides you the ability to customize the content of develo
   
 For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).  
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ##  <a name="DeveloperPortalTemplates"></a> Developer portal templates  
   

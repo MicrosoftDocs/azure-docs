@@ -27,7 +27,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 > [!NOTE]
 > To complete the steps in this guide, you must first have an Azure Active Directory B2C tenant to create an application in. Also, you need to have signup and signin policies ready. For more information, see [Azure Active Directory B2C overview].
 
-[!INCLUDE [premium-dev-standard-basic.md](availability/premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Authorize developer accounts by using Azure Active Directory B2C
 
