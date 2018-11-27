@@ -23,14 +23,15 @@ With Azure Virtual Networks, Azure API Management can manage APIs not accessible
 * External
 * Internal
 
-
 When API Management deploys in internal virtual network mode, all the service endpoints (gateway, the Developer portal, the Azure portal, direct management, and Git) are only visible inside a virtual network that you control the access to. None of the service endpoints are registered on the public DNS server.
 
 Using API Management in internal mode, you can achieve the following scenarios:
+
 * Make APIs hosted in your private datacenter securely accessible by third parties outside of it by using site-to-site or Azure ExpressRoute VPN connections.
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations by using a single gateway endpoint. 
 
+[!INCLUDE [premium-dev.md](availability/premium-dev.md)]
 
 ## Prerequisites
 
