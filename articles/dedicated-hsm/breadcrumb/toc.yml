@@ -4,17 +4,17 @@
   items:
   items:
   - name: Overview
-    tocHref: /dedicated-hsm/overview/
+    tocHref: /dedicated-hsm/Overview/
     topicHref: /dedicated-hsm/index
   - name: Tutorials
     tocHref: /dedicated-hsm/Tutorials/
     topicHref: /dedicated-hsm/index
-  - name: concepts
-    tocHref: /dedicated-hsm/concepts/
+  - name: Concepts
+    tocHref: /dedicated-hsm/Concepts/
     topicHref: /dedicated-hsm/index
-  - name: Ove
+  - name: How-to guides
     tocHref: /dedicated-hsm/How-to guides/
     topicHref: /dedicated-hsm/index
-  - name: Overview
+  - name: Resources
     tocHref: /dedicated-hsm/Resources/
     topicHref: /dedicated-hsm/index
