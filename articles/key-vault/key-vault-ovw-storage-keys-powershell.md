@@ -77,7 +77,8 @@ You can also verify and manage access to your storage account, using the storage
 
 ## Update your Key Vault's access policy permissions
 
->[!TIP] Just as Azure AD provides a service principal for an application's identity, a user principal is provided for a user's identity. The user principal can then be given authorization to access Key Vault, through Key Vault access policy permissions.
+>[!TIP] 
+> Just as Azure AD provides a service principal for an application's identity, a user principal is provided for a user's identity. The user principal can then be given authorization to access Key Vault, through Key Vault access policy permissions.
 
 Using the same PowerShell session, update the Key Vault access policy for your user account. This will endure that you can manage all storage permissions in the Key Vault: 
 
