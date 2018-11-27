@@ -145,7 +145,7 @@ You can also attach blobs to spaces. The following image lists all space API end
 
 ![Space blobs][3]
 
-For example, to return a blob attached to a space, make a GET request to:
+For example, to return a blob attached to a space, make a **GET** request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -170,7 +170,7 @@ You can attach blobs to user models (for example, to associate a profile picture
 
 ![User blobs][4]
 
-For example, to fetch a blob attached to a user, make a GET request with any required form data to:
+For example, to fetch a blob attached to a user, make a **GET** request with any required form data to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
