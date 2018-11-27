@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 11/27/2018
 ---
 
 # Time Series Query
@@ -17,13 +17,13 @@ ms.date: 11/21/2018
 
 TSQ retrieves data in two different ways. TSQ can retrieve data as it is recorded from source provider, or can reduce data, or can reconstruct the signals leveraging the specified method to enable customers perform operations to transform, combine, and perform computations on time series data.
 
-Time Series Insights Data can be accessed via the native Time Series Insight update explorer or the Public Surface API. TSQ also offers an expression language so that you can author you own more advanced Time Series Insights queries. Below are our goals with TSQ:
+Time Series Insights Data can be accessed via the native TSI update Explorer or the Public Surface API. TSQ also offers an expression language so that you can author you own more advanced TSI queries. Below are our goals with TSQ:
 
 ![goal][1]
 
 ## Core APIs
 
-Below are the core APIs we support in our modelled world.
+Below are the core APIs we support.
 
 ![tsq][2]
 
@@ -33,20 +33,26 @@ The getModelSettings API is used to return the automatically created model for t
 
 The getModelSettings API takes the following parameters:
 
-* name – The name of the model you wish to retrieve.
-* timeSeriesIdProperties
+* *name*: The name of the model you wish to retrieve.
+* *timeSeriesIdProperties*
 
-    * name
-    * type
+  * *name*
+  * *type*
 
-* defaultTypeID
+* *defaultTypeID*
 
-### getModelSettings API Sample JSON
+#### getModelSettings JSON request and response example
 
-### getModelSettings JSON request and response example
+Given a GET HTTP request:
 
-Request: 
-GET 'https://environment123.env.timeseries.azure.com/timeseries/modelSettings?api-version=2018-11-01-preview'
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/modelSettings?api-version=API_VERSION
+```
+
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
 
 Response:
 
@@ -71,20 +77,36 @@ The getTypes API returns all the Time Series types and their associated variable
 
 The getTypes API takes the following parameters:
 
-* typeId – The immutable unique identifier for the type.
-* timeSeriesId: **Time Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
-* description: the description for the type.
-* hierarchyIds: an array of associated hierarchyIds for the type.
-* instanceFields:
+* *typeId*: The immutable unique identifier for the type.
+* *timeSeriesId*: The **Time Series ID** is the unique key for the data within the event stream and model. This key is what TSI uses to partition the data.
+* *description*: the description for the type.
+* *hierarchyIds*: an array of associated hierarchyIds for the type.
+* *instanceFields*:
+  * *state*
+  * *city*
 
-    * state
-    * city
+#### getTypes JSON request and response example
 
-### getTypes JSON request and response example
+Given a POST HTTP request:
 
-Request:
-POST 'https://environment123.env.timeseries.azure.com/timeseries/types/$batch?api-version=2018-11-01-preview'
-Input
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/types/$batch?api-version=API_VERSION
+```
+
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
+
+With the following JSON body and variable attributes:
+
+| Attribute | Required or Optional |
+| --- | --- |
+| **kind**  |  Required  |
+| **filter**  |  Optional |
+| **value**  | Null or not specified  |
+| **interpolation**  |  Optional |
+| **aggregation**  |  Required |
 
 ```JSON
 {
@@ -95,25 +117,25 @@ Input
             "description": "This is type 2",
             "variables": {
                 "Avg Temperature": {
-                    "kind": "numeric", //Required
-                    "filter": null, //Optional
-                    "value": { "tsx": "$event.temperature.Double" }, //Required
-                    "interpolation": "None", //Optional
-                    "aggregation": {"tsx": "avg($value)"} //Required
+                    "kind": "numeric",
+                    "filter": null,
+                    "value": { "tsx": "$event.temperature.Double" },
+                    "interpolation": "None",
+                    "aggregation": {"tsx": "avg($value)"}
                 },
                 "Count Temperature": {
-                    "kind": "aggregate", //Required
-                    "filter": null, //Optional
-                    "value": null, //Null or not specified
-                    "interpolation": "None", //Optional
-                    "aggregation": {"tsx": "count()"} //Required
+                    "kind": "aggregate",
+                    "filter": null,
+                    "value": null,
+                    "interpolation": "None",
+                    "aggregation": {"tsx": "count()"}
                 },
                 "Min Temperature": {
-                    "kind": "aggregate", //Required
-                    "filter": null, //Optional
-                    "value": null, //Null or not specified
-                    "interpolation": "None", //Optional
-                    "aggregation": {"tsx": "min($event.temperature)"} //Required
+                    "kind": "aggregate",
+                    "filter": null,
+                    "value": null,
+                    "interpolation": "None",
+                    "aggregation": {"tsx": "min($event.temperature)"}
                 },
             }
         }
@@ -137,22 +159,22 @@ Response:
                         "kind": "numeric",
                         "filter": null,
                         "value": { "tsx": "$event.temperature.Double" },
-                        "interpolation": "None", //Optional
-                        "aggregation": {"tsx": "avg($value)"} //Required
+                        "interpolation": "None",
+                        "aggregation": {"tsx": "avg($value)"}
                     },
                     "Count Temperature": {
-                        "kind": "aggregate", //Required
-                        "filter": null, //Optional
-                        "value": null, //Null or not specified
-                        "interpolation": "None", //Optional
-                        "aggregation": {"tsx": "count()"} //Required
+                        "kind": "aggregate",
+                        "filter": null,
+                        "value": null,
+                        "interpolation": "None",
+                        "aggregation": {"tsx": "count()"}
                     },
                     "Min Temperature": {
-                        "kind": "aggregate", //Required
-                        "filter": null, //Optional
-                        "value": null, //Null or not specified
-                        "interpolation": "None", //Optional
-                        "aggregation": {"tsx": "min($event.temperature)"} //Required
+                        "kind": "aggregate",
+                        "filter": null,
+                        "value": null,
+                        "interpolation": "None",
+                        "aggregation": {"tsx": "min($event.temperature)"}
                     }
                 }
             },
@@ -162,24 +184,33 @@ Response:
 }
 ```
 
-getHierarchies API
+### getHierarchies API
 
 The getHierarchies API returns all of the Time Series hierarchies and all of their associated field paths.
 
 The getHierarchies API takes the following parameters:
 
-* **id**: the uniquely identifying key for the hierarchy.
-* **name**: the name of the hierarchy
-* **source**
-    * instanceFields
-        * year
-        * month
+* *id*: the uniquely identifying key for the hierarchy.
+* *name*: the name of the hierarchy
+* *source*
+* *instanceFields*
+  * *year*
+  * *month*
 
-getHierarchies JSON request and response example
-Request:
-POST 'https://environment123.env.timeseries.azure.com/timeseries/hierarchies/$batch?api-version=2018-11-01-preview'
+#### getHierarchies JSON request and response example
 
-Input
+Given a POST HTTP request:
+
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/hierarchies/$batch?api-version=API_VERSION
+```
+
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
+
+With JSON body:
 
 ```JSON
 {
@@ -228,22 +259,29 @@ The getInstances API is used to return all the Time Series Instances and all the
 
 The getInstances API takes the following parameters:
 
-* name: the name associated with the instance, used for Query as well as substitute in UX
-* typeId: the uniquely identifying key for the type.
-* timeSeriesId: **Time Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
-* description: the description of the instance.
-* hierarchyIds: an array of one or more of hierarchyIds that uniquely define each hierarchy.
-* instanceFields:
+* *name*: the name associated with the instance, used for querying as well as substituting in UX.
+* *typeId*: the uniquely identifying key for the type.
+* *timeSeriesId*: The **Time Series ID** is the unique key for the data within the event stream and model. This key is what TSI uses to partition the data.
+* *description*: the description of the instance.
+* *hierarchyIds*: an array of one or more of hierarchyIds that uniquely define each hierarchy.
+* *instanceFields*:
+  * *state*
+  * *city*
 
-    * state
-    * city
+#### getInstances JSON request and response example
 
-### getInstances JSON request and response example
+Given a POST HTTP request:
 
-Request:
-POST 'https://environment123.env.timeseries.azure.com/timeseries/instances/$batch?api-version=2018-11-01-preview'
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/instances/$batch?api-version=API_VERSION
+```
 
-Input
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
+
+With JSON body:
 
 ```JSON
 {
@@ -288,22 +326,23 @@ Response:
 
 ### aggregateSeries API
 
-The aggregateSeries API enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data using the aggregate or sample functions.
+The aggregateSeries API enables query and retrieval of TSI data from captured events by sampling and aggregating recorded data using the aggregate or sample functions.
 
 The aggregateSeries API takes the following parameters:
 
-* timeSeriesId: **Time Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
-* searchSpan: The timespan and bucket size for this aggregate expression.
-* Filter: Optional predicate clause.
-* Interval: Interval at which data should be computed.
-* ProjectedVariables: Variables that are in scope to be computed.
-* InlineVariables(optional): Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
+* *timeSeriesId*: The **Time Series ID** is the unique key for the data within the event stream and model. This key is what TSI uses to partition the data.
+* *searchSpan*: The timespan and bucket size for this aggregate expression.
+* *Filter*: Optional predicate clause.
+* *Interval*: Interval at which data should be computed.
+* *ProjectedVariables*: Variables that are in scope to be computed.
+* *InlineVariables(optional)*: Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
 
-The getSeries API returns a TSV for each variable for each interval, based on the provided Time Series ID and the set of provided variables. The getSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
+The getSeries API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The getSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
 
-Currently interpolation in variables is not supported.
+> [!NOTE]
+> Variable interpolation is not currently supported.
 
-Supported Aggregate types:
+Supported aggregate types:
 
 * `Min`
 * `Max`
@@ -311,11 +350,20 @@ Supported Aggregate types:
 * `Count`
 * `Average`
 
-### aggregateSeries JSON request and response example
+#### aggregateSeries JSON request and response example
 
-Request
-POST 'https://environment123.env.timeseries.azure.com/timeseries/query?api-version=2018-11-01-preview'
-Input
+Given a POST HTTP request:
+
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/query?api-version=API_VERSION
+```
+
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
+
+With JSON body:
 
 ```JSON
 {
@@ -390,26 +438,35 @@ Response:
 
 ### getSeries API
 
-The getSeries API enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline. 
+The getSeries API enables query and retrieval of TSI data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline.
 
 > [!Note]
 > If interpolation and aggregation clause is provided in variable, or interval is specified, it will be ignored.
 
 The getSeries API takes the following parameters:
 
-* timeSeriesId: Time Series ID is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
-* searchSpan: The timespan and bucket size for this aggregate expression.
-* Filter: Optional predicate clause.
-* ProjectedVariables: Variables that are in scope to be computed.
-* InlineVariables(optional): Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
+* *timeSeriesId*: The **Time Series ID** is the unique key for the data within the event stream and model. This key is what TSI uses to partition the data.
+* *searchSpan*: The timespan and bucket size for this aggregate expression.
+* *Filter*: Optional predicate clause.
+* *ProjectedVariables*: Variables that are in scope to be computed.
+* *InlineVariables(optional)*: Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
 
-The getSeries API returns a TSV for each variable, based on the provided Time Series ID and the set of provided variables. The getSeries API achieves does not support intervals or variable reduction/interpolation.  
+The getSeries API returns a TSV for each variable, based on the provided **Time Series ID** and the set of provided variables. The getSeries API achieves does not support intervals or variable reduction/interpolation.  
 
-### getSeries JSON request and response example
+#### getSeries JSON request and response example
 
-Request
-POST 'https://environment123.env.timeseries.azure.com/timeseries/query?api-version=2018-11-01-preview'
-Input
+Given a POST HTTP request:
+
+```plaintext
+https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/query?api-version=API_VERSION
+```
+
+| Name | Description | Example |
+| --- | --- | --- |
+| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
+| API_VERSION  |  The API specification | `2018-11-01-preview` |
+
+With JSON body:
 
 ```JSON
 {
@@ -468,7 +525,7 @@ Response:
 
 ### getEvents API
 
-The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider.
+The getEvents API enables query and retrieval of TSI data from events as they are recorded in Time Series Insights from the source provider.
 
 The getEvents API takes the following parameters:
 

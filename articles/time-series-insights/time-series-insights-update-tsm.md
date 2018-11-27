@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ---
 
 # Time Series Model
