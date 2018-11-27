@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/26/2018
 ms.author: juliako
 
 ---
@@ -41,8 +41,6 @@ With Media Services you can take advantage of **Dynamic Packaging**, which allow
 Media Services enables you to deliver your content encrypted dynamically (**Dynamic Encryption**) with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information on how to encrypt your content with Media Services, see [Protecting content overview](content-protection-overview.md)
 
 If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. 
-
-Media Services also supports ad-insertion.
 
 ### New capabilities for live streaming in v3
 
@@ -75,7 +73,7 @@ See a live example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-se
 
 ![live encoding](./media/live-streaming/live-encoding.png)
 
-When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the LiveEvent (using RTMP or Fragmented-Mp4 protocol). The LiveEvent encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to playback devices via protocols like MPEG-DASH, HLS and Smooth Streaming. When creating this type of LiveEvent, specify Standard (Basic) (LiveEventEncodingType.Basic).
+When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the LiveEvent (using RTMP or Fragmented-Mp4 protocol). The LiveEvent encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to playback devices via protocols like MPEG-DASH, HLS and Smooth Streaming. When creating this type of LiveEvent, specify the encoding type as **Basic** (LiveEventEncodingType.Basic).
 
 You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [LiveEvent types comparison and limitations](live-event-types-comparison.md) article for more details.
 
