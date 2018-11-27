@@ -13,27 +13,7 @@ ms.custom: mvc
 ---
 # (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
 
-> [!WARNING]
->  **The Azure Container Service (ACS) is being deprecated. No new features or functionality are being added to ACS. All of the APIs, portal experience, CLI commands and documentation are marked as deprecated.**
->
-> In 2017, we introduced Azure Kubernetes Service (AKS) to simplify Kubernetes management, deployment, and operations. As AKS fully replaces Azure Container Service (ACS) capabilities for Kubernetes, ACS will be retired as a standalone service on January 31, 2020.
->
-> If you use the Kubernetes orchestrator, please migrate to AKS by January 31, 2020. We encourage you to make the switch sooner to take advantage of these feature enhancements:
->
-> * Simplified deployment of managed Kubernetes clusters in Azure.
-> * Reduced complexity and operational overhead of managing Kubernetes.
-> * Critical tasks like health monitoring and maintenance are handled by AKS.
->  
-> Beginning January 31, 2020:
->  
-> * All ACS APIs will be blocked. Any code you have written will no longer execute.
-> * You will not be able to create new clusters, update, or scale existing clusters using the portal, CLI or Azure Resource Manager templates.
->  
-> Existing ACS clusters won't be deleted. You can continue to list and delete existing clusters using the portal, CLI and ARM templates. Between now and January 31, 2020, you can continue to perform all operations; including create, update, scale, delete and list. All these operations are available through the portal, CLI and Azure Resource Manager templates.
->
-> We recommend that you use Kubernetes, see [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).
->
-> These docs are deprecated, with no additional updates scheduled or support provided through GitHub issues.
+[!INCLUDE [ACS deprecation](../../includes/container-service-kubernetes-deprecation.md)]
 
 [Draft](https://aka.ms/draft) is a new open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes -- or even installing them. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
 
