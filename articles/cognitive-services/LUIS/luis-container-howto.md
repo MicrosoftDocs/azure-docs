@@ -64,11 +64,8 @@ For a full description of available tags, such as `latest` used in the preceding
 
 Once the container is on the host computer, use the following process to work with the container.
 
-![Conceptual architecture of LUIS service, container, and portal](./media/luis-container-how-to/luis-container-architecture.png)
-
 1. [Get LUIS app package](#get-packaged-app) from Azure.
-1. Save package file (*.gz) to the local file system. 
-1. Move package file into the required input directory on the host computer. Do not rename, alter, or decompress LUIS package file.
+1. Move package file into the required **input** directory on the host computer. Do not rename, alter, or decompress LUIS package file.
 1. [Run the container](#run-the-container) from the host, with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. Use container, [querying the container's prediction endpoint](#query-the-container). 
 1. When you are done with the container, [upload the query log](#upload-logs-for-active-learning) to the LUIS portal and [stop](#stop-the-container) the container.
