@@ -90,8 +90,6 @@
       href: how-to-shape-query-json.md
   - name: Azure Time Series Insights update (preview)
     items:
-    - name: Create an environment
-      href: time-series-insights-update-create-environment.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-update-how-to-troubleshoot.md
     - name: Data modeling
