@@ -203,6 +203,8 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
+    - name: Use Azure Database for PostgreSQL
+      href: ../postgresql/concepts-aks.md
   - name: DevOps
     items:
     - name: Use Ansible to create AKS clusters
