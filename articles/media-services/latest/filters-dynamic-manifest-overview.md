@@ -30,7 +30,7 @@ Filters are server-side rules that allow your customers to do things like:
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
-This topic describes [Concepts](#concepts) and [How to define filters](#definitions). It also gives details about [common scenarios](#common-scenarios).
+This topic describes [Concepts](#concepts) and [shows filters definitions](#definitions). It then gives details about [common scenarios](#common-scenarios). At the end of the aricle, you find links that show how to create filters programmatically.  
 
 ## Concepts
 
@@ -262,6 +262,13 @@ For more information, see [this](https://azure.microsoft.com/blog/azure-media-se
     - The formula to set the asset filter timestamp properties: <br/>startTimestamp = &lt;start time in the manifest&gt; +  &lt;expected filter start time in seconds&gt;*timescale
     - To compose the manifest path for an asset with AMS V3: Get the Streaming Endpoint host and the Streaming Locator path.<br/>The manifest path has the following format: `https://<streamingendpointhost>/<streaminglocatorpath>`
 
+## Next steps
+
+The following articles show how to create filters programmatically.  
+
+- [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
+- [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
 
 [renditions1]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter2.png
