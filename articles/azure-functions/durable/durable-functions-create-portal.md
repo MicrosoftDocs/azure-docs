@@ -2,14 +2,14 @@
 title: Create Durable Functions using the Azure portal  
 description: Learn how to install the Durable Functions extension for Azure Functions for portal development.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf
+ms.author: azfuncdf, glenga
 ---
 
 # Create Durable Functions using the Azure portal

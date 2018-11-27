@@ -171,4 +171,4 @@ an Azure Storage account and sufficiently high loads may result in storage accou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install the Durable Functions extension and samples](durable-functions-install.md)
+> [Create your first durable function in C#](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)

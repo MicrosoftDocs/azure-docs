@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # Overview of function types and features for Durable Functions (Azure Functions)
 
-Azure Durable Functions provides stateful orchestration of function execution.  A durable function is a solution made up of different Azure Functions.  Each of these functions can play different roles as part of an orchestration.  The following document provides an overview of the types of functions involved in a durable function orchestration.  It also includes some common patterns in connecting functions together.  
+Azure Durable Functions provides stateful orchestration of function execution. A durable function is a solution made up of different Azure Functions. Each of these functions can play different roles as part of an orchestration. The following document provides an overview of the types of functions involved in a durable function orchestration. It also includes some common patterns in connecting functions together.  To get started right now, see [Create your first durable function in C#](durable-functions-create-first-csharp.md).
 
 ![Types of durable functions][1]  
 
@@ -129,9 +129,6 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
 
 > [!div class="nextstepaction"]
 > [Continue reading Durable Functions documentation](durable-functions-bindings.md)
-
-> [!div class="nextstepaction"]
-> [Install the Durable Functions extension and samples](durable-functions-install.md)
 
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png
