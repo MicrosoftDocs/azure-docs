@@ -37,9 +37,9 @@ You can use multipart requests to upload blobs to specific endpoints and their r
 
 Multipart requests made to the Azure Digital Twins Management APIs have two parts:
 
-1. Blob metadata such as an associated MIME type, as shown in the **Content-Type** and **Content-Disposition** information
+* Blob metadata such as an associated MIME type, as shown in the **Content-Type** and **Content-Disposition** information
 
-1. Blob contents (the unstructured contents of the file)  
+* Blob contents (the unstructured contents of the file)  
 
 Neither of the two parts is required for **PATCH** requests. Both are required for **POST** or create operations.
 
@@ -61,7 +61,7 @@ Learn about using the reference documentation by reading [How to use Swagger](./
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-To make a POST request that uploads a text file as a blob and associates it with a space:
+To make a **POST** request that uploads a text file as a blob and associates it with a space:
 
 ```plaintext
 POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
@@ -115,11 +115,11 @@ The following sections walk you through core endpoints and their functionalities
 
 ### Devices
 
-You can attach blobs to devices. The following image depicts the Swagger reference documentation for your Management APIs. It specifies device-related API endpoints for blob consumption and any required path parameters to pass into them.
+You can attach blobs to devices. The following image shows the Swagger reference documentation for your Management APIs. It specifies device-related API endpoints for blob consumption and any required path parameters to pass into them.
 
 ![Device blobs][2]
 
-For example, to update or create a blob and attach the blob to a device, make a PATCH request to:
+For example, to update or create a blob and attach the blob to a device, make a **PATCH** request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -129,12 +129,12 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a DeviceBlob JSON object in the response. DeviceBlob objects conform to the following JSON schema:
+Successful requests return a **DeviceBlob** JSON object in the response. **DeviceBlob** objects conform to the following JSON schema:
 
 | Attribute | Type | Description | Examples |
 | --- | --- | --- | --- |
 | **DeviceBlobType** | String | A blob category that can be attached to a device | `Model` and `Specification` |
-| **DeviceBlobSubtype** | String | A blob subcategory that's more specific than DeviceBlobType | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
+| **DeviceBlobSubtype** | String | A blob subcategory that's more specific than **DeviceBlobType** | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
 
 > [!TIP]
 > Use the preceding table to handle successfully returned request data.
@@ -155,14 +155,14 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Making a PATCH request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the PATCH method, along with any necessary meta and multipart form data.
+Making a **PATCH** request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the **PATCH** method, along with any necessary meta and multipart form data.
 
-Successful operations return a SpaceBlob object that conforms to the following schema. You can use it to consume returned data.
+Successful operations return a **SpaceBlob** object that conforms to the following schema. You can use it to consume returned data.
 
 | Attribute | Type | Description | Examples |
 | --- | --- | --- | --- |
 | **SpaceBlobType** | String | A blob category that can be attached to a space | `Map` and `Image` |
-| **SpaceBlobSubtype** | String | A blob subcategory that's more specific than SpaceBlobType | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
+| **SpaceBlobSubtype** | String | A blob subcategory that's more specific than **SpaceBlobType** | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
 
 ### Users
 
@@ -180,12 +180,12 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-The returned JSON (UserBlob objects) conforms to the following JSON models:
+The returned JSON (**UserBlob** objects) conforms to the following JSON models:
 
 | Attribute | Type | Description | Examples |
 | --- | --- | --- | --- |
 | **UserBlobType** | String | A blob category that can be attached to a user | `Image` and `Video` |
-| **UserBlobSubtype** |  String | A blob subcategory that's more specific than UserBlobType | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
+| **UserBlobSubtype** |  String | A blob subcategory that's more specific than **UserBlobType** | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
 
 ## Common errors
 
