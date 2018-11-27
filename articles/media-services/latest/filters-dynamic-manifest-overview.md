@@ -124,8 +124,7 @@ Filter track property conditions describe track types, values (described in the 
 |Name|Description|
 |---|---|
 |Bitrate|Use the bitrate of the track for filtering.<br/><br/>The recommended value is a range of bitrates, in bits per second. For example, "0-2427000".<br/><br/>Note: while you can use a specific bitrate value, like 250000 (bits per second), this approach is not recommended, as the exact bitrates can fluctuate from one Asset to another.|
-|FourCC|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in RFC 6381. Currently, the following are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>
-To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files). |
+|FourCC|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in RFC 6381. Currently, the following are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files). |
 |Language|Use the language of the track for filtering.<br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, "en".|
 |Name|Use the name of the track for filtering.|
 |Type|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
