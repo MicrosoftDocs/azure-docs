@@ -968,9 +968,9 @@
         href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
   - name: Feature and API Retirement 
     items:
-    - name: Retirement of classic autoscale & metrics API
+    - name: Classic autoscale & metrics API
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
-    - name: Retirement of classic alerting & monitoring 
+    - name: Classic alerting & monitoring 
       href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
     - name: Extend alerts from Log Analytics to Azure
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
