@@ -40,10 +40,10 @@
     items:
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
+    - name: Dynamic manifest filtering 
+      href: filters-dynamic-manifest-overview.md        
   - name: Examining entities
-    items:
-    - name: Account and Asset filters 
-      href: filters-dynamic-manifest-overview.md      
+    items:   
     - name: Assets
       href: assets-concept.md        
     - name: Content key policies
