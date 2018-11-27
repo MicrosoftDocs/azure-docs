@@ -171,7 +171,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+    For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>
