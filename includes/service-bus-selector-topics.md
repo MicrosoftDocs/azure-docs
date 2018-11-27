@@ -1,3 +1,10 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: spelluru
+---
 > [!div class="op_single_selector"]
 > * [NET](../articles/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 > * [Java](../articles/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions.md)

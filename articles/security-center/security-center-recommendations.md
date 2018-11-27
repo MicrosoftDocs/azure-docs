@@ -30,13 +30,13 @@ Security Center periodically analyzes the security state of your Azure resources
 
 ## Implementing security recommendations
 ### Set recommendations
-In [Setting security policies in Azure Security Center](security-center-policies.md), you learn to:
+In [Setting security policies in Azure Security Center](security-center-azure-policy.md), you learn to:
 
 * Configure security policies.
 * Turn on data collection.
 * Choose which recommendations to see as part of your security policy.
 
-Current policy recommendations center around system updates, baseline rules, anti-malware programs, [network security groups](../virtual-network/security-overview.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, anti-malware programs, [network security groups](../virtual-network/security-overview.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-azure-policy.md) provides a description of each recommendation option.
 
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile under **Overview** lets you know the total number of recommendations identified by Security Center.
@@ -131,7 +131,7 @@ In the table of recommendations above, select a recommendation and walk through 
 ## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](security-center-azure-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.

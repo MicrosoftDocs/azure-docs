@@ -182,7 +182,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB supports [aggregate functions](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, , and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
+Cosmos DB supports [aggregate functions](how-to-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, , and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
 The Cosmos DB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
