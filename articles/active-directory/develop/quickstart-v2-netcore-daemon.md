@@ -111,7 +111,7 @@ Any *app-only permission* requires Admin consent - which means that it needs an 
 
 ##### Standard user
 
-If you are not a global administrator, then you need to ask a tenant administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+If you are not a global administrator, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -123,7 +123,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
 > [!NOTE]
-> Because this application and the request does not have a redirect URI, you may see the error `AADSTS50011: No reply address is registered for the application` after granting consent to the app using the preceding URL. Please ignore the error.
+> You may see the error *'AADSTS50011: No reply address is registered for the application'* after granting consent to the app using the preceding URL. This happen because this application and the URL do not have a redirect URI - please ignore the error.
 
 #### Step 5: Run the application
 
