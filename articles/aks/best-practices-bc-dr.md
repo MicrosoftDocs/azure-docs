@@ -45,8 +45,9 @@ To support routing incoming traffic to the desired region, use [Azure Traffic Ma
 
 Instead of directly publishing your Kubernetes Service IP, end users should be directed to the Azure Traffic Manager CNAME which will direct the users to the intended IP.  This can be setup by using Azure Traffic Manager Endpoints.  Each endpoint will be the Service Load Balancer IP allowing you to direct network traffic to from the Azure Endpoint in one region to the Azure Endpoint in a different region.
 
+![AKS with Azure Traffic Manager](media/best-practices-bc-dr/aks-azure-traffic-manager.jpg)
+
 For details on how to implement this, see [Traffic Manager Routing Details](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#geographic).
-TODO:
 
 ## Enable Geo-Replication in Azure Container Registry
 
