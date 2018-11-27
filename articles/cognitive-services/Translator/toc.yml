@@ -164,10 +164,12 @@
       href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
     - name: Language and region support
       href: language-support.md
-    - name: Pricing and limits
+    - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Regional availability
-      href: https://azure.microsoft.com/global-infrastructure/services/
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Request limits
+      href: request-limits.md
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
@@ -184,7 +186,7 @@
       href: custom-translator/quickstart-build-deploy-custom-model.md
   - name: Concepts
     items:
-    - name: Workspace and projects
+    - name: Workspaces and projects
       href: custom-translator/workspace-and-project.md
     - name: Parallel documents
       href: custom-translator/what-are-parallel-documents.md
@@ -221,14 +223,14 @@
   - name: Resources
     items:
     - name: Language Support
-      href: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
     - name: Glossary
       href: custom-translator/glossary.md
     - name: FAQ
       href: custom-translator/faq.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: Uservoice
+    - name: UserVoice
       href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide

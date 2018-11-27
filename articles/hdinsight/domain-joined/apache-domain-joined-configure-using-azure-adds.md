@@ -60,7 +60,7 @@ Once the managed identity is created and given the correct role, the AAD-DS admi
 ## Networking considerations
 
 > [!NOTE]
-> Azure AD-DS must be deployed in an Azure Resource Manager (ARM) based vNET. Classic virtual networks are not supported for Azure AD-DS. Please refer to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-network) for more details.
+> Azure AD-DS must be deployed in an Azure Resource Manager (ARM) based vNET. Classic virtual networks are not supported for Azure AD-DS. Please refer to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) for more details.
 
 After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs). Configure your Azure AD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
 

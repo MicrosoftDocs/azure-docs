@@ -78,7 +78,7 @@ To create partitioned table(s) according to the data schema, mapped to the datab
   To verify the ranges in effect in each partition according to the function/scheme, run the following query:
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id

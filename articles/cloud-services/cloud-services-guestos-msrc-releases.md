@@ -12,12 +12,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November 2018 Guest OS
+
+>[!NOTE]
+>The November Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the November Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | November 13, 2018 |
+| Rel 18-11 | [4467106] | Windows Security | 2.80 | November 13, 2018 |
+| Rel 18-11 | [4467678] | Windows Security | 3.67 | November 13, 2018 |
+| Rel 18-11 | [4467703] | Windows Security | 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467691] | Windows 10 Security | 5.25 | November 13, 2018 |
+| N/A | [3173426] | Servicing Stack Update | 3.67 | July 12, 2016 |
+| N/A | [4465659] | Servicing Stack Update | 5.25 | November 13, 2018 |
+| N/A | [4462923] | October Non-Security rollup | 2.80 | October 9, 2018 |
+| N/A | [4462929] | October Non-Security rollup | 3.67 | October 9, 2018 |
+| N/A | [4462926] | October Non-Security rollup | 4.60 | October 9, 2018 |
+| N/A | [3109976] | App compat shims | 4.60 | April 12, 2016 |
+| N/A | [4457037] | App compat shims | 4.60| June 12, 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## October 2018 Guest OS
 

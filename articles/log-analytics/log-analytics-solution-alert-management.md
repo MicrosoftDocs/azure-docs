@@ -32,7 +32,7 @@ The solution works with any records in the Log Analytics repository with a type 
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
-Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../monitoring/monitoring-solutions.md). There is no further configuration required.
+Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../azure-monitor/insights/solutions.md). There is no further configuration required.
 
 ## Management packs
 If your System Center Operations Manager management group is connected to your Log Analytics workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.

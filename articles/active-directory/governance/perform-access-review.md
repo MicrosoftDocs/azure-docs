@@ -1,6 +1,6 @@
 ---
-title: Review access by using Azure AD access reviews | Microsoft Docs
-description: Learn how to review access by using Azure Active Directory access reviews.
+title: Start an access review with Azure AD Access Reviews | Microsoft Docs
+description: Learn how to start an access review by using Azure Active Directory Access Reviews.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Review access with Azure AD access reviews
+# Start an access review with Azure AD Access Reviews
 
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you  received an email from Microsoft that asks you to review access for members of a group or users with access to an application. 
 

@@ -84,20 +84,11 @@ When you're ready to customize the C template with your own code, use the [Azure
 
 In each module folder, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C modules support debugging only in Linux amd64 containers.
 
-1. In VS Code, navigate to the `deployment.template.json` file. Update your module image URL by adding **.debug** to the end.
-
-    ![Add **.debug** to your image name](./media/how-to-develop-c-module/image-debug.png)
-
-2. Replace the C module createOptions in **deployment.template.json** with below content and save this file: 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. In VS Code, navigate to the `deployment.debug.template.json` file. This file contains the debug version of your module images with proper create options. 
 2. In the VS Code command palette, enter and run the command **Azure IoT Edge: Build and Push IoT Edge solution**.
-3. Select the `deployment.template.json` file for your solution from the command palette. 
+3. Select the `deployment.debug.template.json` file for your solution from the command palette. 
 4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for Single Device**. 
-5. Open your solution's **config** folder. Then select the `deployment.json` file. Choose **Select Edge Deployment Manifest**. 
+5. Open your solution's **config** folder. Then select the `deployment.debug.amd64.json` file. Choose **Select Edge Deployment Manifest**. 
 
 You'll see the deployment successfully created with a deployment ID in a VS Code-integrated terminal.
 

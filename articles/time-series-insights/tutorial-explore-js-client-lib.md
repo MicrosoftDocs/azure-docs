@@ -32,7 +32,7 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-This tutorial uses the "Developer Tools" feature (also known as DevTools or F12) that's found in most modern web browsers, including [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar with this feature, you might want to explore it in your browser before continuing.
+This tutorial uses the "Developer Tools" feature (also known as DevTools or F12) that's found in most modern web browsers, including [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar with this feature, you might want to explore it in your browser before continuing.
 
 ## Time Series Insights sample application
 

@@ -131,7 +131,7 @@ The following table lists Resource Manager template parameters for existing or r
 | Parameter | Description |
 | --- | --- |
 | vmName | Name of the VM to run the encryption operation. |
-| keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` or the Azure CLI command `az keyvault list --resource-group "MySecureGroup" |Convertfrom-JSON`|
+| keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` or the Azure CLI command `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`|
 | keyVaultResourceGroup | Name of the resource group that contains the key vault|
 |  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
 | volumeType | Type of volume that the encryption operation is performed on. Valid values are _OS_, _Data_, and _All_. 
@@ -154,7 +154,7 @@ The Azure disk encryption for virtual machine scale sets preview requires you to
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az_feature_show). When the `State` reports *Registered*, re-register the *Mirosoft.Compute* provider with [az provider register](/cli/azure/provider#az_provider_register):
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az_feature_show). When the `State` reports *Registered*, re-register the *Microsoft.Compute* provider with [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -192,7 +192,7 @@ The Azure disk encryption for virtual machine scale sets preview requires you to
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). When the `RegistrationState` reports *Registered*, re-register the *Mirosoft.Compute* provider with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). When the `RegistrationState` reports *Registered*, re-register the *Microsoft.Compute* provider with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -245,7 +245,7 @@ The **EncryptFormatAll** parameter reduces the time for Linux data disks to be e
  After running this command, any drives that were mounted previously will be formatted. Then the encryption layer will be started on top of the now empty drive. When this option is selected, the ephemeral resource disk attached to the VM will also be encrypted. If the ephemeral drive is reset, it will be reformatted and re-encrypted for the VM by the Azure Disk Encryption solution at the next opportunity.
 
 >[!WARNING]
-> EncryptFormatAll shouldn't be used when there is needed data on a VM's data volumes. You may exclude disks from encryption by unmounting them. You should first try out the EncryptFormatAll first on a test VM, understand the feature parameter and its implication before trying it on the production VM. The EncryptFormatAll option formats the data disk and all the data on it will be lost. Before proceeding, verify that disks you wish to exclude are properly unmouted. </br></br>
+> EncryptFormatAll shouldn't be used when there is needed data on a VM's data volumes. You may exclude disks from encryption by unmounting them. You should first try out the EncryptFormatAll first on a test VM, understand the feature parameter and its implication before trying it on the production VM. The EncryptFormatAll option formats the data disk and all the data on it will be lost. Before proceeding, verify that disks you wish to exclude are properly unmounted. </br></br>
  >If you’re setting this parameter while updating encryption settings, it might lead to a reboot before the actual encryption. In this case, you will also want to remove the disk you don’t want formatted from the fstab file. Similarly, you should add the partition you want encrypt-formatted to the fstab file before initiating the encryption operation. 
 
 ### <a name="bkmk_EFACriteria"> </a> EncryptFormatAll criteria

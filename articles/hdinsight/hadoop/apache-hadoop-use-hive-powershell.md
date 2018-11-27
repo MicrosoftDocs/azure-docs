@@ -55,7 +55,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
         .\hivejob.ps1
 
-    When the script runs, you are prompted to enter the cluster name and the HTTPS/Admin account credentials for the cluster. You may also be prompted to log in to your Azure subscription.
+    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to log in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 
