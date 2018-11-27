@@ -66,7 +66,7 @@ Before you begin:
 This device is shipped in a single box. Complete the following steps to unpack your device. 
 
 1. Place the box on a flat, level surface.
-2. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Contact Microsoft Support to help you assess whether the device is in good working order.
+2. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, don't open it. Contact Microsoft Support to help you assess whether the device is in good working order.
 3. Unpack the box. After unpacking the box, make sure that you have:
     - One single enclosure Edge device
     - Two power cords
@@ -83,19 +83,20 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 > Data Box Edge devices must be rack-mounted for proper operation.
 
 
-1. Pull on the front-release to unlock the inner rail from the slide assembly. Release the detent lock and push the middle rail inwards to retract the rail. The inner and outer rails should now be separate.
+1. Pull on the front-release to unlock the inner rail from the slide assembly. Release the detent lock and push the middle rail inwards to retract the rail.  
+    The inner and outer rails should now be separate.
 
     ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
-2. Now install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure. 
+2. Install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure. 
     
-    1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside of the rear rack mounting holes.   
+    1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack mounting holes.   
 
-    2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes and then release the trigger.
+    2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes, and then release the trigger.
 
     3. Align the front bracket with the mounting hole.
 
-    4. The front bracket should be now fixed onto the rack. Optionally, M5 X 10L screws can be used to secure the rails with posts if needed. 
+    4. The front bracket should be now fixed on the rack. Optionally, M5 X 10L screws can be used to secure the rails with posts if needed. 
 
     ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
@@ -115,14 +116,14 @@ Before you start cabling your device, you need the following:
 - Two power cables. 
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface: PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (connectivity to Azure).
-- Access to two Power Distribution Units (recommended).
+- Access to two power distribution units (recommended).
 
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 25-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
 > - The Edge device should be connected to the datacenter network so that it can ingest data from data source servers. 
 
-Your Edge device has 8 NVMe SSDs. The front panel also has status LEDs and power buttons. The device includes redundant Power Supply Units (PSUs) at the back. Your device has six network interfaces: two 1-Gbps interfaces and four 25-Gbps interfaces. Your device has a baseboard management controller (BMC). Identify the various ports on the backplane of your device.
+Your Edge device has 8 NVMe SSDs. The front panel also has status LEDs and power buttons. The device includes redundant power supply units (PSUs) at the back. Your device has six network interfaces: two 1-Gbps interfaces and four 25-Gbps interfaces. Your device has a baseboard management controller (BMC). Identify the various ports on the backplane of your device.
  
   ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
  
