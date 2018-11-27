@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
+ms.date: 12/01/2018
 ---
 # Overview: Active geo-replication and auto-failover groups
 
@@ -100,10 +100,6 @@ The active geo-replication feature provides the following essential capabilities
 ## Auto-failover group capabilities
 
 Auto-failover groups feature provides a powerful abstraction of active geo-replication by supporting group level replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points.
-
-> [!NOTE]
-> Auto-failover is not available in Managed Instance.
->  
 
 - **Failover group**
 

@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
+ms.date: 12/01/2018
 ---
 # Learn about automatic SQL Database backups
 
@@ -57,7 +57,7 @@ The default retention period for a database created using the DTU-based purchasi
 
 #### vCore-based purchasing model
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (both on Logical Servers and Managed Instances).
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled,and Managed Instance databases).
 
 - For single and pooled databases, you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period).
 - Changing backup retention period is not available in Managed Instance.
@@ -97,9 +97,6 @@ When you migrate your database from a DTU-based service tier with the default PI
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## How to change backup retention period
-
-> [!Note]
-> Default backup retention period (7 days) cannot be changed on Managed Instance.
 
 You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days.
 
