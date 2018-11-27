@@ -3,7 +3,7 @@ title: Use SSH keys with Windows for Linux VMs | Microsoft Docs
 description: Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
+ms.date: 11/26/2018
+ms.author: cynthn
 
 ---
 # How to use SSH keys with Windows on Azure
@@ -101,6 +101,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted during the login process.
+
+If the VM is using the just-in-time access policy, you need to request access before you can connect to the VM. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
 
 ### Connect with PuTTY
 
