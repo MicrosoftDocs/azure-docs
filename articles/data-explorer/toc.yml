@@ -12,10 +12,14 @@
     items:
     - name: Streaming data - Event Hub
       href: ingest-data-event-hub.md
+    - name: Streaming data - Kafka
+      href: ingest-data-kafka.md
     - name: Batching data - Python
       href: python-ingest-data.md
     - name: Batching data - Node SDK
       href: node-ingest-data.md
+    - name: Batching data - .NET Standard SDK
+      href: net-standard-ingest-data.md
   - name: Query data
     items:
     - name: Web UI

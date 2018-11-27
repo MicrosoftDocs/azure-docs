@@ -77,6 +77,7 @@ Within the solution you have three items:
    >The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables. 
 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+* A **deployment.debug.template.json** file containers the debug version of your module images with proper container options.
 
 ## Develop your module
 
@@ -89,6 +90,14 @@ Visual Studio Code has support for Node.js. Learn more about [how to work with N
 ## Launch and debug module code without container
 
 The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the default module code, you initialize a **ModuleClient** with environment settings and input name, which means the IoT Edge Node.js module requires the environment settings to start and run, and you also need to send or route messages to the input channels. Your default Node.js module only contains one input channel and the name is **input1**.
+
+### Setup IoT Edge simulator for IoT Edge solution
+
+In your development machine, you can start IoT Edge simulator instead of installing the IoT Edge security daemon to run your IoT Edge solution. 
+
+1. In device explorer on the left side, right-click on your IoT Edge device ID, select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+
+2. You can see the IoT Edge Simulator has been successfully setup in integrated terminal.
 
 ### Setup IoT Edge simulator for single module app
 
@@ -149,12 +158,7 @@ In your development machine, you can start IoT Edge simulator instead of install
 
 ### Build and run container for debugging and debug in attach mode
 
-1. In VS Code, navigate to the `deployment.template.json` file. Update your module image URL by adding **.debug** to the end.
-
-2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
-    ```
+1. In VS Code, navigate to the `deployment.debug.template.json` file. In the context-menu, click **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to Docker Explorer to watch container status.
 
 3. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (Node.js)** or **ModuleName Remote Debug (Node.js in Windows Container)**, which depends on your container type on development machine.
 

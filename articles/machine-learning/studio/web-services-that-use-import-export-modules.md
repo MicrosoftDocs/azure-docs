@@ -1,14 +1,13 @@
 ---
-title: Using Import/Export Data in Azure Machine Learning web services | Microsoft Docs
+title: Using Import/Export Data in Azure Machine Learning Studio web services | Microsoft Docs
 description: Learn how to use the Import Data and Export Data modules to send and receive data from a web service.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.component: studio
@@ -17,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-
 ---
-# Deploying Azure ML web services that use Data Import and Data Export modules
+# Deploy Azure Machine Learning Studio web services that use Data Import and Data Export modules
 
 When you create a predictive experiment, you typically add a web service input and output. When you deploy the experiment, consumers can send and receive data from the web service through the inputs and outputs. For some applications, a consumer's data may be available from a data feed or already reside in an external data source such as Azure Blob storage. In these cases, they do not need read and write data using web service inputs and outputs. They can, instead, use the Batch Execution Service (BES) to read data from the data source using an Import Data module and write the scoring results to a different data location using an Export Data module.
 

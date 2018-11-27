@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | Max number of Trusted IP addresses/ranges</a> per subscription |0 |50 |

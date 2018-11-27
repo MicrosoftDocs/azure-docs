@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -29,7 +29,7 @@ Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-au
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
 
 No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
 
@@ -127,7 +127,7 @@ To estimate network traffic, use the following sizing guidance:
 For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
 
 >[!NOTE]
->There is a system limit of 12 Authentication Agents per tenant.
+>There is a system limit of 40 Authentication Agents per tenant.
 
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 

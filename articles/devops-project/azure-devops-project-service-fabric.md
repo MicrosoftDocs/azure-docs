@@ -73,7 +73,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 ## Examine the CI pipeline
 
-DevOps Projects automatically configures a CI/CD pipeline in in Azure Pipelines. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
+DevOps Projects automatically configures a CI/CD pipeline in Azure Pipelines. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
 1. Go to the DevOps Projectss dashboard.
 

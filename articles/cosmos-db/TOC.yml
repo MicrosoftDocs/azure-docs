@@ -153,12 +153,12 @@
           href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
+      - name: Online backup and restore
+        href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
-    - name : Backup and restore
-      href: online-backup-and-restore.md
   - name: Multi-model APIs
     expanded: true
     items:
@@ -452,6 +452,10 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
+    - name: Enterprise readiness 
+      items:
+      - name: Restore data from a backup
+        href: how-to-backup-and-restore.md
     - name : Manage
       items:
       - name: Manage using PowerShell
