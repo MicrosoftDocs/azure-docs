@@ -161,7 +161,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 4. Update the user flow setting with the name generated when you created your sign up and sign-in user flow.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configure the scopes setting to match what you created in the portal.
