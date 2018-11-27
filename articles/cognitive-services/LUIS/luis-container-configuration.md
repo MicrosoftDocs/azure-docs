@@ -209,7 +209,7 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 ### Logging example with command-line arguments
 
-The following command sets the logging level, `Logging:Console:LogLevel`, to configure the logging level to `[Information](https://msdn.microsoft.com)`. 
+The following command sets the logging level, `Logging:Console:LogLevel`, to configure the logging level to [`Information`](https://msdn.microsoft.com). 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
@@ -224,7 +224,7 @@ Logging:Console:LogLevel=Information
 
 ### Logging example with environment variable
 
-The following commands use an environment variable, named `Logging:Console:LogLevel` to configure the logging level to `[Information](https://msdn.microsoft.com)`. 
+The following commands use an environment variable, named `Logging:Console:LogLevel` to configure the logging level to [`Information`](https://msdn.microsoft.com). 
 
 ```bash
 SET Logging:Console:LogLevel=Information
