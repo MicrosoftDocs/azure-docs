@@ -185,10 +185,24 @@ aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 
 ### Run container on AKS cluster
 
-As a simple example, use `kubectl run` to run a container on the AKS cluster from the `hello-world` container image you pushed to your container registry: 
+First find the tag of the latest `hello-world` container image in your private container registry:
+
+```azurecli
+tag=$(az acr repository show-tags -n myContainerRegistry717 --repository hello-world --top 1 --detail --orderby time_desc --query "[].name" --output tsv)
+```
+
+As a simple example, use `kubectl run` to run a container on the AKS cluster from the latest `hello-world` container image you pushed to your container registry.
+
+First find the tag of the latest `hello-world` container image in your private container registry:
+
+```azurecli
+tag=$(az acr repository show-tags -n myContainerRegistry717 --repository hello-world --top 1 --detail --orderby time_desc --query "[].name" --output tsv)
+```
+
+Now create a container in a pod on the AKS cluster:
 
 ```
-kubectl run hello-world --image=myContainerRegistry717.azurecr.io/hello-world
+kubectl run hello-world --image=myContainerRegistry717.azurecr.io/hello-world:$tag
 ```
 
 Output is similar to the following:
