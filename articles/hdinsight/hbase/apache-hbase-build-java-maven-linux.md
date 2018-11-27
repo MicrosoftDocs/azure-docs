@@ -33,7 +33,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * [Apache Maven](https://maven.apache.org/)
 
-* [A Linux-based Azure HDInsight cluster with Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [A Linux-based Azure HDInsight cluster with Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## Create the project
 
