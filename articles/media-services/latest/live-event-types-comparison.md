@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 11/27/2018
 ms.author: juliako
 
 ---
@@ -49,20 +49,9 @@ The following table compares features of the two LiveEvent types.
 | Support for ad signaling via SCTE-35 in-band messages|Yes|Yes|
 | Ability to recover from brief stalls in contribution feed|Yes|No (LiveEvent will begin slating after 6+ seconds w/o input data)|
 | Support for non-uniform input GOPs|Yes|No – input must have fixed GOP duration|
-| Support for variable frame rate input|Yes|No – input must be fixed frame rate.
-Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
+| Support for variable frame rate input|Yes|No – input must be fixed frame rate. Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
 | Auto-shutoff of LiveEvent when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
-
-## Max bitrates and source limitations 
-
-LiveEvent source limits for pass-through and live encoding channels. 
-
-||Max aggregate ingest bitrate for MBR sources (f-Mp4)|Max single track ingest bitrate
-(f-Mp4 or RTMP)|Maximum video resolution|Maximum # of video input tracks|Maximum # of audio input tracks|
-|---|---|---|---|---|---|
-|Pass-through LiveEvent|60 Mbps|20 Mbps|4096 x 2160|Limited only by Max Aggregate Ingest bitrate.|Limited only by Max Aggregate Ingest bitrate.|
-|Standard LiveEvent|N/A|20 Mbps|1920 x 1088|1 single high bitrate source stream|1 bitrate per language track|
 
 ## Next steps
 
-[Live streaming tutorial](stream-live-tutorial-with-api.md)
+[Live streaming overview](live-streaming-overview.md)
