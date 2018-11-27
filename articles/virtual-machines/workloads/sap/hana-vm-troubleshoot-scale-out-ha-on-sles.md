@@ -945,7 +945,7 @@ listeninterface = .internal
 ## Hawk
 
 The cluster solution provides a browser interface that offers a GUI for users who prefer menus and graphics to having all the commands on the shell level.
-To use the browser interface, replace **\<node\>** with an actual SAP HANA node in the following URL. Then enter the credentials of the cluster, user **cluster**:
+To use the browser interface, replace **\<node\>** with an actual SAP HANA node in the following URL. Then enter the credentials of the cluster (user **cluster**):
 
 <pre><code>
 https://&ltnode&gt:7630
