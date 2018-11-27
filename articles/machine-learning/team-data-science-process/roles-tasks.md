@@ -63,7 +63,7 @@ This schema and the following, more detailed outline of tasks that are assigned 
 > [!NOTE]
 > The following instructions show steps of how to set up a TDSP environment and complete other data science tasks in Azure DevOps. We specify how to accomplish these tasks with Azure DevOps because that is what we are using to implement TDSP at Microsoft. Azure DevOps facilitates collaboration by integrating the management of work items that track tasks and a code hosting service used to share utilities, organize versions, and provide role-based security. You are able to choose other platforms, if you prefer, to implement the tasks outlined by the TDSP. But depending on your platform, some features leveraged from Azure DevOps may not be available. 
 >
->Instructions here also use the [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) on the Azure cloud as the analytics desktop with several popular data science tools pre-configured and integrated with various Microsoft software and Azure services. You can use the DSVM or any other development environment to implement TDSP. 
+>Instructions here also use the [Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) on the Azure cloud as the analytics desktop with several popular data science tools pre-configured and integrated with various Microsoft software and Azure services. You can use the DSVM or any other development environment to implement TDSP. 
 
 
 ## Group Manager tasks

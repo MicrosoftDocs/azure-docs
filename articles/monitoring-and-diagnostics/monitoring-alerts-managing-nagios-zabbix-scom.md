@@ -1,5 +1,5 @@
 ---
-title: Manage alerts from other monitoring services
+title: Manage alerts from other monitoring services in Azure Monitor
 description: Managing Nagios, Zabbix and SCOM alerts in Azure Monitor
 author: anantr
 services: monitoring
@@ -20,7 +20,7 @@ Any records in the Log Analytics repository with a type of Alert will get import
 1. For **System Center Operations Manager** alerts, [connect your Operations Manager management group to your Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Any alerts created in System Center Operations Manager are imported into Log Analytics.
 
 ## View your alert instances
-Once you have configured the import into Log Analytics, youd can start viewing alert instances from these monitoring services in the [unified alerts experience](https://aka.ms/azure-alerts-overview). Once they are present in the unified alerts experience, you can [manage your alert instances](https://aka.ms/managing-alert-instances), [manage smart groups created on these alerts](https://aka.ms/managing-smart-groups) and [change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
+Once you have configured the import into Log Analytics, you can start viewing alert instances from these monitoring services in the [unified alerts experience](https://aka.ms/azure-alerts-overview). Once they are present in the unified alerts experience, you can [manage your alert instances](https://aka.ms/managing-alert-instances), [manage smart groups created on these alerts](https://aka.ms/managing-smart-groups) and [change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
 >  Nagios alerts in the unified alerts experience are not stateful – for example, the [monitor condition](https://aka.ms/azure-alerts-overview) of an alert will not go from "Fired" to "Resolved". Instead, both the “Fired” and “Resolved” are displayed as separate alert instances. 

@@ -1,6 +1,6 @@
 ---
-title: 'Migrate AD FS on-premises apps to Azure. | Microsoft Docs'
-description: This article is intended to help organizations understand how to migrate on-premises applications to Azure AD, with a focus on federated SaaS applications.
+title: 'Move apps from AD FS to Azure AD. | Microsoft Docs'
+description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -14,9 +14,9 @@ ms.date: 03/02/2018
 ms.author: barbkess
 ---
 
-# Migrate AD FS on-premises apps to Azure 
+# Move applications from AD FS to Azure AD 
 
-This article helps you understand how to migrate on-premises applications to Azure Active Directory (Azure AD). It focuses on federated SaaS applications. 
+This article helps you understand how to move applications from AD FS to Azure Active Directory (Azure AD). It focuses on federated SaaS applications. 
 
 This article does not provide step-by-step guidance. It provides conceptual guidance to help you achieve the migration by understanding how on-premises configurations translate to Azure AD. It also covers common scenarios.
 
@@ -26,7 +26,7 @@ If you have an on-premises directory that contains user accounts, chances are yo
 
 And if you’re like most organizations, you’re probably somewhere along the road to adopting cloud applications and identities. Perhaps you’re up and running with Office 365 and Azure AD Connect. Maybe you’ve set up cloud-based SaaS applications for some key workloads but not all.  
 
-Many organizations have SaaS or custom line-of-business (LOB) apps federated directly to an on-premises sign-on service such as Active Directory Federation Services (AD FS), alongside Office 365 and Azure AD-based apps. This migration guide describes why and how to migrate on-premises applications to Azure AD.
+Many organizations have SaaS or custom line-of-business (LOB) apps federated directly to an on-premises sign-on service such as Active Directory Federation Services (AD FS), alongside Office 365 and Azure AD-based apps. This guide describes why and how to move your applications to Azure AD.
 
 >[!NOTE]
 >This guide provides detailed information on SaaS app configuration and migration, with high-level information about custom LOB apps. More detailed guidance for custom LOB apps is planned for the future.
@@ -35,9 +35,9 @@ Many organizations have SaaS or custom line-of-business (LOB) apps federated dir
 
 ![Apps federated via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## Reasons for migrating apps to Azure AD
+## Reasons for moving apps to Azure AD
 
-For an organization that already uses AD FS, Ping, or another on-premises authentication provider, migrating apps to Azure AD enables the following benefits:
+For an organization that already uses AD FS, Ping, or another on-premises authentication provider, moving apps to Azure AD enables the following benefits:
 
 **More secure access**
 - Configure granular per-application access controls, including Azure Multi-Factor Authentication, by using [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md). The policies can be applied to SaaS and custom apps in the same way that you might be doing today for Office 365.
@@ -56,7 +56,7 @@ For an organization that already uses AD FS, Ping, or another on-premises authen
 - While you're gaining the Azure AD benefits, you can keep using your on-premises solution for authentication. That way, benefits like on-premises Multi-Factor Authentication solutions, logging, and auditing stay in place. 
 
 **Helping with retirement of the on-premises identity provider**
-- For organizations that want to retire the on-premises authentication product, migrating apps to Azure AD enables an easier transition by getting some of the work out of the way. 
+- For organizations that want to retire the on-premises authentication product, moving apps to Azure AD enables an easier transition by getting some of the work out of the way. 
 
 ## Mapping types of apps on-premises to types of apps in Azure AD
 Most apps fit in one of a few categories based on the type of sign-on that they use. These categories determine how the app is represented in Azure AD.
@@ -121,8 +121,8 @@ The following table describes the key IdP configuration elements to configure SS
 |Identifier/</br>“issuer”|Identifier of the IdP from the app’s perspective (sometimes called the “issuer ID”).</br></br>In the SAML token, the value appears as the **Issuer** element.|The identifier for AD FS is usually the federation service identifier in AD FS Management under **Service** > **Edit Federation Service Properties**. For example: http&#58;//fs.contoso.com/adfs/services/trust|The corresponding value for Azure AD follows the pattern where the value for {tenant-id} is replaced with the tenant ID. Find it in the Azure portal under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//sts.windows.net/{tenant-id}/|
 |IdP </br>federation </br>metadata|Location of the IdP’s publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)|Find the AD FS federation metadata URL in AD FS Management under **Service** > **Endpoints** > **Metadata** > **Type: Federation Metadata**. For example: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|The corresponding value for Azure AD follows the pattern https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. The value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com.” </br></br>For more information, see [Federation metadata](../develop/azure-ad-federation-metadata.md).
 
-## Migrating SaaS apps
-Migrating SaaS apps from AD FS or another identity provider to Azure AD is a manual process today. For app-specific guidance, see the [list of tutorials on integrating SaaS apps found in the Marketplace](../saas-apps/tutorial-list.md).
+## Moving SaaS apps
+Moving SaaS apps from AD FS or another identity provider to Azure AD is a manual process today. For app-specific guidance, see the [list of tutorials on integrating SaaS apps found in the Marketplace](../saas-apps/tutorial-list.md).
 
 The integration tutorials assume that you're doing a green field integration. As you plan, assess, configure, and cut over your apps, you should know about a few key concepts that are specific to migration:  
 - Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, might require additional configuration in Azure AD and/or Azure AD Connect.
@@ -130,7 +130,7 @@ The integration tutorials assume that you're doing a green field integration. As
 - After you determine that additional claims are required, ensure that they're available in Azure AD. Check Azure AD Connect sync configuration to ensure that a required attribute--for example, **samAccountName**--is being synced to Azure AD.
 - After the attributes are available in Azure AD, you can add claim issuance rules in Azure AD to include those attributes as claims in issued tokens. You add these rules in the **Single sign-on** properties of the app in Azure AD.
 
-### Assess what can be migrated
+### Assess what can be moved
 SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery in the Marketplace or as non-Marketplace applications.  
 
 Some configurations require additional steps to configure in Azure AD, and some configurations are not supported today. To determine what you can move, look at the current configuration of each of your apps. Specifically, look for:
@@ -139,8 +139,8 @@ Some configurations require additional steps to configure in Azure AD, and some 
 - SAML token versions issued.
 - Other configurations, such as issuance authorization rules or access control policies and Multi-Factor Authentication (additional authentication) rules.
 
-#### What can be migrated today
-Apps that you can migrate easily today include SAML 2.0 apps that use the standard set of configuration elements and claims. These apps can consist of:
+#### What can be moved today
+Apps that you can move easily today include SAML 2.0 apps that use the standard set of configuration elements and claims. These apps can consist of:
 - User principal name.
 - Email address.
 - Given name.

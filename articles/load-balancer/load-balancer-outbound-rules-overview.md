@@ -4,9 +4,6 @@ description: Use outbound rules to define outbound network address translations
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
-
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -63,11 +60,11 @@ API version "2018-07-01" permits an outbound rule definition structured as follo
 
 ### <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
-While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large scale scenarios and you can use outbound rules to mitigate [SNAT exhaustion](load-balancer-outbound-connections.md#snatexhaust) prone patterns.  
+While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large-scale scenarios and you can use outbound rules to mitigate [SNAT exhaustion](load-balancer-outbound-connections.md#snatexhaust) prone patterns.  
 
-Each additional IP address provided by a frontend provides 64,000 ephemeral ports for Load Balancer to use as SNAT ports. While load balancing or inbound NAT rules have a single frontend, the outbound rule expands the frontend notion and allows multiple frontends per rule.  With multiple frontends per rule, the quantity of available SNAT ports is multiplied with each public IP address, and very large scenarios can be supported.
+Each additional IP address provided by a frontend provides 64,000 ephemeral ports for Load Balancer to use as SNAT ports. While load balancing or inbound NAT rules have a single frontend, the outbound rule expands the frontend notion and allows multiple frontends per rule.  With multiple frontends per rule, the quantity of available SNAT ports is multiplied with each public IP address, and large scenarios can be supported.
 
-Additionally, you can use a [public IP prefix](https://aka.ms/lbpublicipprefix) directly with an outbound rule.  This provides for easier scaling and simplified whitelisting of flows originating from your Azure deployment. You can configure a frontend IP configuration within the Load Balancer resource to reference a public IP address prefix directly.  This allows Load Balancer exclusive control over the public IP prefix and the outbound rule will automatically use all public IP addresses contained within the public IP prefix for outbound connections.  Each of the IP addresses within the range of the public IP prefix provide 64,000 ephemeral ports per IP address for Load Balancer to use as SNAT ports.   
+Additionally, you can use a [public IP prefix](https://aka.ms/lbpublicipprefix) directly with an outbound rule.  Using public IP prefix provides for easier scaling and simplified white-listing of flows originating from your Azure deployment. You can configure a frontend IP configuration within the Load Balancer resource to reference a public IP address prefix directly.  This allows Load Balancer exclusive control over the public IP prefix and the outbound rule will automatically use all public IP addresses contained within the public IP prefix for outbound connections.  Each of the IP addresses within the range of the public IP prefix provide 64,000 ephemeral ports per IP address for Load Balancer to use as SNAT ports.   
 
 You cannot have individual public IP address resources created from the public IP prefix when using this option as the outbound rule must have complete control of the public IP prefix.  If you need more fine grained control, you can create individual public IP address resource from the public IP prefix and assign multiple public IP addresses individually to the frontend of an outbound rule.
 

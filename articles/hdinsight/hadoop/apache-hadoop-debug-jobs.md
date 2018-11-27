@@ -1,5 +1,5 @@
 ---
-title: 'Debug Hadoop in HDInsight: View logs and interpret error messages - Azure '
+title: 'Debug Apache Hadoop in HDInsight: View logs and interpret error messages - Azure '
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 services: hdinsight
 ms.reviewer: jasonh
@@ -14,7 +14,7 @@ ms.author: ashishth
 ---
 # Analyze Hadoop logs
 
-Each Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
+Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
 
 ## Logs written to Azure Tables
 
@@ -55,7 +55,7 @@ There are many tools available for accessing data in these tables:
 * Power Query for Excel
 
 #### Use Power Query for Excel
-Power Query can be installed from [Microsoft Power Query for Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379). See the download page for the system requirements.
+Power Query can be installed from [Microsoft Power Query for Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379). See the download page for the system requirements.
 
 **Use Power Query to open and analyze the service log**
 
@@ -127,7 +127,7 @@ The error messages itemized in this section are provided to help the users of Ha
 
 Some of these error messages could also be seen in the Azure portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Description**: Please provide Azure SQL database details for at least one component in order to use custom settings for Hive and Oozie metastores.
 * **Mitigation**: The user needs to supply a valid SQL Azure metastore and retry the request.  
 

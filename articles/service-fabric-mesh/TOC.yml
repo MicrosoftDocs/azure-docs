@@ -74,7 +74,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=service-fabric-mesh
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh
+    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
   - name: Regional availability

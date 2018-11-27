@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 1. Install dapl, rdmacm, ibverbs, and mlx4
 
   ```bash

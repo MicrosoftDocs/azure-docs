@@ -46,7 +46,7 @@ In this tutorial, you will build a sample environment to:
 -   Azure subscription. If needed, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before beginning.
 
 - An Azure Stack Integrated System or deployment of Azure Stack Development Kit.
-    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](../asdk/asdk-install.md).
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) This installation may require a few hours to complete.
 
 -   Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
@@ -94,11 +94,11 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md)" section for Azure Stack Operator.
 
 ### Add Code to Visual Studio Team Services Project
 
-1. Sign in to Visual Studio Team Services (VSTS) with an account that has project creation rights on VSTS~~.~~
+1. Sign in to Visual Studio Team Services (VSTS) with an account that has project creation rights on VSTS.
 
     Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
@@ -256,7 +256,7 @@ Now that the endpoint information exists, the VSTS to Azure Stack connection is 
 ## Develop the application build
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md)" section for Azure Stack Operator.
 
 Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from VSTS to deploy to both clouds.
 

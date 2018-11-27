@@ -60,9 +60,11 @@ Azure Data Explorer capabilities are extended by other services built on its pow
 
 We would be thrilled to hear your feedback regarding Azure Data Explorer and its query language at:
 
-- [Ask questions on the forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-
-- [Make product suggestions in User Voice](http://aka.ms/AzureDataExplorer.UserVoice)
+- Ask questions
+  - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
+  - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
+  - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
+- [Make product suggestions in User Voice](https://aka.ms/AzureDataExplorer.UserVoice)
 
 ## Next steps
 

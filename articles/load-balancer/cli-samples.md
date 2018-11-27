@@ -4,10 +4,6 @@ description: Azure CLI Samples
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags:
-ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

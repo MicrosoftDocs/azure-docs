@@ -53,7 +53,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Remove prebuilt number entity from app
 In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
@@ -79,7 +79,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
     In the [list entity](luis-quickstart-intent-and-list-entity.md) tutorial, an employee is designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance when the origin is not specified.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Create a location entity
 LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
@@ -115,7 +115,7 @@ Add the prebuilt number entity back to the application.
 
 1. Select **Entities** from the left navigation menu.
 
-2. Select **Manage prebuilt entities** button.
+2. Select **Add prebuilt entity** button.
 
 3. Select **number** from the list of prebuilt entities then select **Done**.
 
@@ -244,6 +244,10 @@ The locations in this example, such as `a-1234`, follow a specific format of one
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Hierarchical entities versus roles
+
+For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Next steps
 This tutorial created a new intent and added example utterances for the contextually-learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.

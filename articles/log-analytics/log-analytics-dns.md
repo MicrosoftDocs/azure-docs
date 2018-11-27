@@ -39,8 +39,8 @@ The following table describes the connected sources that are supported by this s
 
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agent.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [Windows agents](log-analytics-agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](log-analytics-om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage isn't used by the solution. |
 
@@ -52,8 +52,8 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 Use the following information to configure the solution:
 
-- You must have a [Windows](log-analytics-windows-agent.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
-- You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+- You must have a [Windows](log-analytics-agent-windows.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
+- You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
 
@@ -185,4 +185,4 @@ There are two ways you can give feedback:
 
 ## Next steps
 
-[Search logs](log-analytics-log-searches.md) to view detailed DNS log records.
+[Search logs](log-analytics-queries.md) to view detailed DNS log records.

@@ -232,7 +232,7 @@ In Azure, you can use Active Directory as a standalone cloud directory for your 
 
 In n-tier hybrid application pattern, you can implement the following workflow in the order specified:
 
-1. Identify enterprise database applications that need to be moved up to cloud by using the [Microsoft Assessment and Planning (MAP) Toolkit](http://microsoft.com/map). The MAP Toolkit gathers inventory and performance data from computers you are considering for virtualization and provides recommendations on capacity and assessment planning.
+1. Identify enterprise database applications that need to be moved up to cloud by using the [Microsoft Assessment and Planning (MAP) Toolkit](https://microsoft.com/map). The MAP Toolkit gathers inventory and performance data from computers you are considering for virtualization and provides recommendations on capacity and assessment planning.
 2. Plan the resources and configuration needed in the Azure platform, such as storage accounts and virtual machines.
 3. Set up network connectivity between the corporate network on-premises and [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). To set up the connection between the corporate network on-premises and a virtual machine in Azure, use one of the following two methods:
    

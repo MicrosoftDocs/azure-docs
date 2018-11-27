@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -20,9 +20,14 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 Using b2clogin.com gives you additional benefits, such as:
 
 - Cookies are no longer shared with the other Microsoft services.
-- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
+- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
 
-To use b2clogin.com, set the redirect URLs in your identity provider applications to use b2clogin.com. You also set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
+Consider these settings that might need to change when using b2clogin.com:
+
+- Set the redirect URLs in your identity provider applications to use b2clogin.com. 
+- Set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. 
+- If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
+- Make sure that you change any **Allowed Origins** that you have defined in the CORS settings for [user-interface customization](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## Change redirect URLs
 
@@ -53,7 +58,16 @@ Your Azure AD B2C application probably refers to `login.microsoftonline.com` in 
 
 If you're using MSAL, set the **ValidateAuthority** to `false`. The following example shows how you might set the property:
 
+In [MSAL for .Net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
+
+```CSharp
+ ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
+ client.ValidateAuthority = false;
 ```
+
+And in [MSAL for Javascript](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+
+```Javascript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -63,5 +77,3 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
-
- For more information, see [ClientApplicationBase Class ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).

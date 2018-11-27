@@ -5,10 +5,10 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 10/10/2018
+ms.topic: tutorial
+ms.date: 10/28/2018
 ms.author: raynew
-
+ms.custom: MVC
 ---
 # Set up disaster recovery for Hyper-V VMs to a secondary on-premises site
 

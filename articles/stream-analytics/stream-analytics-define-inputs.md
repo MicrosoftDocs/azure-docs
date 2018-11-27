@@ -109,7 +109,6 @@ When you use stream data from an IoT Hub, you have access to the following metad
 | **IoTHub.ConnectionDeviceId** | The authentication ID used to send this message. This value is stamped on servicebound messages by the IoT Hub. |
 | **IoTHub.ConnectionDeviceGenerationId** | The generation ID of the authenticated device that was used to send this message. This value is stamped on servicebound messages by the IoT Hub. |
 | **IoTHub.EnqueuedTime** | The time when the message was received by the IoT Hub. |
-| **IoTHub.StreamId** | A custom event property added by the sender device. |
 
 
 ## Stream data from Blob storage
@@ -173,5 +172,5 @@ FROM Input
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

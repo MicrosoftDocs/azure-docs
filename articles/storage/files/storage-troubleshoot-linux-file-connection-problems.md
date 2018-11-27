@@ -174,7 +174,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### Solution
-The Linux CIFS client doesn’t support creation of Windows style symbolic links over SMB2/3 protocol. Currently Linux client supports another style of symbolic links called [Mishall+French symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use "mfsymlinks" mount option. “mfsymlinks” are usually recommended because that is also the format used by Macs.
+The Linux CIFS client doesn’t support creation of Windows style symbolic links over SMB2/3 protocol. Currently Linux client supports another style of symbolic links called [Mishall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use "mfsymlinks" mount option. “mfsymlinks” are usually recommended because that is also the format used by Macs.
 
 To be able to use symlinks, add the following to the end of your CIFS mount command:
 

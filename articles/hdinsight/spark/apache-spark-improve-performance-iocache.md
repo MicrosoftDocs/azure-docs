@@ -10,7 +10,7 @@ ms.date: 10/15/2018
 ---
 # Improve performance of Apache Spark workloads using Azure HDInsight IO Cache (Preview)
 
-IO Cache is a data caching service for Azure HDInsight that improves the performance of Apache Spark jobs. IO Cache uses an open-source caching component called RubiX. RubiX is a local disk cache for use with big data analytics engines that access data from cloud storage systems. RubiX is unique among caching systems, because it uses Solid-State Drives (SSDs) rather than reserve operating memory for caching purposes. The IO Cache service launches and manages RubiX Metadata Servers on each worker node of the cluster. It also configures all services of the cluster for transparent use of RubiX cache.
+IO Cache is a data caching service for Azure HDInsight that improves the performance of Apache Spark jobs. IO Cache also works with Tez and Hive workloads, which can be run on Spark clusters. IO Cache uses an open-source caching component called RubiX. RubiX is a local disk cache for use with big data analytics engines that access data from cloud storage systems. RubiX is unique among caching systems, because it uses Solid-State Drives (SSDs) rather than reserve operating memory for caching purposes. The IO Cache service launches and manages RubiX Metadata Servers on each worker node of the cluster. It also configures all services of the cluster for transparent use of RubiX cache.
 
 Most SSDs provide more than 1 GByte per second of bandwidth. This bandwidth, complemented by the operating system in-memory file cache, provides enough bandwidth to load big data compute processing engines, such as Apache Spark. The operating memory is left available for Apache Spark to process heavily memory-dependent tasks, such as shuffles. Having exclusive use of operating memory allows Apache Spark to achieve optimal resource usage.  
 
@@ -19,7 +19,7 @@ Most SSDs provide more than 1 GByte per second of bandwidth. This bandwidth, com
 
 ## Benefits of Azure HDInsight IO Cache
 
-Caching provides a performance increase for jobs that read data from remote cloud storage.
+Using IO Cache provides a performance increase for jobs that read data from Azure Blob Storage.
 
 You don't have to make any changes to your Spark jobs to see performance increases when using IO Cache. When IO Cache is disabled, this Spark code would read data remotely from Azure Blob Storage: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. When IO Cache is activated, the same line of code causes a cached read through IO Cache. On following reads, the data is read locally from SSD. Worker nodes on HDInsight cluster are equipped with locally attached, dedicated SSD drives. HDInsight IO Cache uses these local SSDs for caching, which provides lowest level of latency and maximizes bandwidth.
 
@@ -40,7 +40,7 @@ Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is avail
 1. Confirm restart of all the affected services on the cluster.
 
 >[!NOTE] 
-> Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the service.
+> Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the other affected services.
 
 ## Troubleshooting
   
@@ -69,3 +69,7 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 1. Select **Confirm Restart All**.
 
 If that does not work, disable IO Cache.
+
+## Next Steps
+
+- Read more about IO Cache, including performance benchmarks in this blog post: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

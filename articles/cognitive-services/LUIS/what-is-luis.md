@@ -188,16 +188,7 @@ Other Cognitive Services used with LUIS:
 * [Speech service](../Speech-Service/overview.md) converts spoken language requests into text. 
 * [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) allows you to build bot conversations quicker with LUIS.
 * [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) to handle bot small talk.
-<!--
-## Other ways of implementing LUIS
 
-A client application for LUIS is:
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
-
-
-Labs: 
-
--->
 ## Next steps
 
 Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain. [Query the prediction endpoint](luis-get-started-cs-get-intent.md) of a public IoT app.

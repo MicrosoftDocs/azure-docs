@@ -28,7 +28,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
-* [Use Scheduled Events to proactively response to VM impacting events ] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use Scheduled Events to proactively response to VM impacting events ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
 * [Use availability zones to protect from datacenter level failures]

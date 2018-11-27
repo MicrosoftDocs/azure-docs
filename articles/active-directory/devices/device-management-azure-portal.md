@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -117,7 +117,14 @@ For some iOS devices, the device names containing apostrophes can potentially us
 
 ## Device management tasks
 
-As an administrator, you can manage the registered or joined devices. This section provides you with information about common device management tasks.
+As a global administrator, you can manage the registered or joined devices. Intune Service administrators can:
+ 
+- Update devices  - Examples are daily operations such as enabling/disabling devices
+
+- Delete devices – When a device is retired and should be deleted in Azure AD
+
+This section provides you with information about common device management tasks.
+
 
 
 ### Manage an Intune device
@@ -143,7 +150,7 @@ To enable / disable a device, you have two options:
 **Remarks:**
 
 - You need to be a global administrator in Azure  AD to enable / disable a device. 
-- Disabling a device prevents a device from accessing your Azure AD resources. 
+- Disabling a device prevents a device from successfully authenticating with Azure AD, therby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials. 
 
 
 

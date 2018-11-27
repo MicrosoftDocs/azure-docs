@@ -98,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -183,7 +183,7 @@ To ensure the fastest Windows container startup time, use one of the **three mos
 
 ### Windows containers slow network readiness
 
-Windows containers may incur no inbound or outbound connectivity for up to 5 seconds on initial creation. After initial setup, container networking should resume appropriately.
+On initial creation, Windows containers may have no inbound or outbound connectivity for up to 30 seconds (or longer, in rare cases). If your container application needs an Internet connection, add delay and retry logic to allow 30 seconds to establish Internet connectivity. After initial setup, container networking should resume appropriately.
 
 ## Resource not available error
 
@@ -201,6 +201,9 @@ This error indicates that due to heavy load in the region in which you are attem
 ## Cannot connect to underlying Docker API or run privileged containers
 
 Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+
+## IPs may not be accessible due to mismatched ports
+Azure Container Instances does not currently support port mapping like with regular docker configuration, however this fix is on the roadmap. If you find IPs are not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
 
 ## Next steps
 Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.

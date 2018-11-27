@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of encoding an asset by u
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
 
 ---

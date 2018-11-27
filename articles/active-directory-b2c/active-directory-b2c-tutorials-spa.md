@@ -197,4 +197,4 @@ You can use your Azure AD B2C directory if you plan to try other Azure AD B2C tu
 In this tutorial, you learned how to create an Azure AD B2C directory, create policies, and update the sample single page app to use your Azure AD B2C directory. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
 
 > [!div class="nextstepaction"]
-> 
+> [Azure AD B2C code samples](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

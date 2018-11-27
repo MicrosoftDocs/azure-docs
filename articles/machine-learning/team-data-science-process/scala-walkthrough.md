@@ -19,7 +19,7 @@ ms.author: deguhath
 
 ---
 # Data Science using Scala and Spark on Azure
-This article shows you how to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models in the article include logistic and linear regression, random forests, and gradient-boosted trees (GBTs), in addition to two common supervised machine learning tasks:
+This article shows you how to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science process](https://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models in the article include logistic and linear regression, random forests, and gradient-boosted trees (GBTs), in addition to two common supervised machine learning tasks:
 
 * Regression problem: Prediction of the tip amount ($) for a taxi trip
 * Binary classification: Prediction of tip or no tip (1/0) for a taxi trip
@@ -1100,7 +1100,7 @@ Next, optimize the model by using custom code, and identify the best model param
 Time to run the cell: 61 seconds.
 
 ## Consume Spark-built machine learning models automatically with Scala
-For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](https://aka.ms/datascienceprocess).
 
 [Team Data Science Process walkthroughs](walkthroughs.md) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 

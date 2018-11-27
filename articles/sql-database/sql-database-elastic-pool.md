@@ -3,7 +3,7 @@ title: Manage multiple SQL databases with elastic pools- Azure | Microsoft Docs
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -108,11 +108,11 @@ In cases where you can't use tooling, the following step-by-step can help you es
 1. Estimate the eDTUs or vCores needed for the pool as follows:
 
    For DTU-based purchasing model:
-   MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
+   MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>  
    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
 
    For vCore-based purchasing model:
-   MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>
+   MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>  
    <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*)
 
 2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.

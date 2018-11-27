@@ -3,14 +3,14 @@ title: "Tutorial: Create a custom search web page - Bing Custom Search"
 titlesuffix: Azure Cognitive Services
 description: Describes how to configure a custom search instance and integrate it into a web page.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
-ms.author: v-brapel
+ms.author: aahi
 ---
 
 # Tutorial: Build a Custom Search web page
@@ -75,7 +75,7 @@ To exclude results from specific websites or URLs, add them to the **Blocked** t
 
 ## Add pinned entries
 
-To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user’s query string matches the pin's query string based on pin's match condition. [Read more](../define-your-custom-view.md#pin-to-top).
+To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user’s query string matches the pin's query string based on pin's match condition. Only indexed webpages will be displayed in searches. See [Define your custom view](../define-your-custom-view.md#pin-to-top) for more information.
 
 1. On the **Configuration** page, click the **Pinned** tab and enter the webpage and query term of the webpage that you want returned as the top result.  
   

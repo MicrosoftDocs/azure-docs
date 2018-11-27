@@ -5,7 +5,6 @@ description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
@@ -15,7 +14,10 @@ ms.author: v-jansko
 
 # Translator Text API V2 to V3 Migration
 
-The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. V2 will be deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+> [!NOTE]
+> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+
+The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 
 The end of this document contains helpful links for you to learn more.
 
@@ -50,7 +52,7 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 
 ## Move to JSON format
 
-Microsoft Translator Text Translation V2 accepted and returned data in XML format. In V3 all data sent and received using the API is in JSON format. XML will no longer be accepted or returned in V3. 
+Microsoft Translator Text Translation V2 accepted and returned data in XML format. In V3 all data sent and received using the API is in JSON format. XML will no longer be accepted or returned in V3.
 
 This change will affect several aspects of an application written for the V2 Text Translation API. As an example: The Languages API returns language information for text translation, transliteration, and the two dictionary methods. You can request all language information for all methods in one call or request them individually.
 

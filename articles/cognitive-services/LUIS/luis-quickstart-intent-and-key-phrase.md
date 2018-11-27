@@ -54,11 +54,11 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Add keyPhrase entity 
 Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
-3. Select **Manage prebuilt entities**.
+3. Select **Add prebuilt entity**.
 
 4. In the pop-up dialog, Select **keyPhrase**, then select **Done**. 
 

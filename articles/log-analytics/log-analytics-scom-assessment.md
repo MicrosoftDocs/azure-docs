@@ -208,7 +208,7 @@ Every recommendation includes guidance about why it is important. Use this guida
 
 ## Use health check focus area recommendations
 
-Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
+Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](../azure-monitor/insights/solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
@@ -234,7 +234,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-queries.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -259,7 +259,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-queries.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -300,4 +300,4 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ## Next steps
 
-- [Search logs](log-analytics-log-searches.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+- [Search logs](log-analytics-queries.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.

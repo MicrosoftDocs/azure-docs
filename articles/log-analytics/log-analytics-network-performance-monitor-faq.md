@@ -17,7 +17,7 @@ ms.author: vinynigam
 ---
 # Network Performance Monitor solution FAQ
 
-![Network Performance Monitor symbol](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Network Performance Monitor symbol](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
@@ -39,7 +39,7 @@ Listed below are the platform requirements for NPM's various capabilities:
 The capability to monitor networks using Linux-based nodes is currently in private preview. Reach out to your Account Manager to know more. Once you provide the workspace ID, we will go ahead and enable the capability. Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
-For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500 MB memory and one core. You do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
+For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500-MB memory and one core. You do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
 
 ### To use NPM, should I connect my nodes as Direct agent or through System Center Operations Manager?
 Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](log-analytics-agent-windows.md) as well as [connected through Operations Manager](log-analytics-om-agents.md).
@@ -49,7 +49,7 @@ For ExpressRoute Monitor capability, the Azure nodes should be connected as Dire
 ### Which protocol among TCP and ICMP should be chosen for monitoring?
 If you are monitoring your network using Windows server-based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
 
-For Windows desktops/client operating system-based nodes, ICMP is recommended since this platform does not allow TCP data to be sent over raw sockets, which is required by NPM to discover network topology.
+ICMP is recommended for Windows desktops/client operating system-based nodes. This platform does not allow TCP data to be sent over raw sockets, which NPM uses to discover network topology.
 
 You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 11/19/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
@@ -54,6 +54,16 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 
 ## LUIS endpoint
 
+### My endpoint query returned unexpected results. What should I do?
+
+Unexpected query prediction results are based on the state of the published model. To correct the model, you may need to need to change the model, train, and publish again. 
+
+Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
+
+You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data. 
+
+Review the [best practices](luis-concept-best-practices.md) for other tips. 
+
 ### Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-language-support.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -61,7 +71,7 @@ LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](lu
 [Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Keys and endpoints](luis-how-to-manage-keys.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores?
-Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
+Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the [score](luis-concept-prediction-score.md) of the most-likely intent.
 
 ### Why don't I see my endpoint hits in my app's Dashboard?
 The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS endpoint key in the Azure portal are updated more frequently.
@@ -151,11 +161,9 @@ If you are using your log for prediction analysis, do not capture test utterance
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
-### Does Microsoft access my LUIS app data for its own purposes, for example, to enhance LUIS or Microsoft in general?
+### How does Microsoft manage data I send to LUIS?
 
-No. The LUIS app’s data model is not used by LUIS to enhance LUIS as a platform or used by Microsoft in any way. Each app’s data is separate and owned only by the user and collaborators.
-
-Learn more about [user privacy](luis-user-privacy.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
+The [Trust Center](https://www.microsoft.com/trustcenter) explains our commitments and your options for data management and access in Azure Services.
 
 ## Language and translation support
 

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/01/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -32,7 +32,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 
 1. **ValidationCode handshake**: At the time of event subscription creation, EventGrid POSTs a "subscription validation event" to your endpoint. The schema of this event is similar to any other EventGridEvent, and the data portion of this event includes a `validationCode` property. Once your application has verified that the validation request is for an expected event subscription, your application code needs to respond by echoing back the validation code to EventGrid. This handshake mechanism is supported in all EventGrid versions.
 
-2. **ValidationURL handshake (Manual handshake)**: In certain cases, you may not have control of the source code of the endpoint to be able to implement the ValidationCode based handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically respond back with the validation code. Starting with version 2018-05-01-preview, EventGrid now supports a manual validation handshake. If you're creating an event subscription using SDK/tools that use this new API version (2018-05-01-preview), EventGrid sends a `validationUrl` property as part of the data portion of the subscription validation event. To complete the handshake, just do a GET request on that URL, either through a REST client or using your web browser. The provided validation URL is valid only for about 10 minutes. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 10 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before attempting the manual validation.
+2. **ValidationURL handshake (Manual handshake)**: In certain cases, you may not have control of the source code of the endpoint to implement the ValidationCode based handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond back with the validation code. Starting with version 2018-05-01-preview, EventGrid now supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, EventGrid sends a `validationUrl` property as part of the data portion of the subscription validation event. To complete the handshake, just do a GET request on that URL, either through a REST client or using your web browser. The provided validation URL is valid only for about 10 minutes. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 10 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
 
 This mechanism of manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you're using the REST API, make sure you're using `api-version=2018-05-01-preview`.
 
@@ -88,7 +88,7 @@ During event subscription creation, if you're seeing an error message such as "T
 
 ### Event delivery security
 
-You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) which the webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
+You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
 When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -173,11 +173,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## Management Access Control
 
-Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's Role Based Access Check (RBAC).
+Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC).
 
 ### Operation types
 
-Azure event grid supports the following actions:
+Event Grid supports the following actions:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -186,15 +186,87 @@ Azure event grid supports the following actions:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-The last three operations return potentially secret information, which gets filtered out of normal read operations. It's recommended that you restrict access to these operations. Custom roles can be created using [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure Command-Line Interface (CLI)](../role-based-access-control/role-assignments-cli.md), and the [REST API](../role-based-access-control/role-assignments-rest.md).
+The last three operations return potentially secret information, which gets filtered out of normal read operations. It's recommended that you restrict access to these operations. 
 
-### Enforcing Role Based Access Check (RBAC)
+### Built-in roles
 
-Use the following steps to enforce RBAC for different users:
+Event Grid provides two built-in roles for managing event subscriptions. They are important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
 
-#### Create a custom role definition file (.json)
+You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-The following are sample Event Grid role definitions that allow users to take different actions.
+**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+### Custom roles
+
+If you need to specify permissions that are different than the built-in roles, you can create custom roles.
+
+The following are sample Event Grid role definitions that allow users to take different actions. These custom roles are different from the built-in roles because they grant broader access than just event subscriptions.
 
 **EventGridReadOnlyRole.json**: Only allow read-only operations.
 
@@ -260,19 +332,7 @@ The following are sample Event Grid role definitions that allow users to take di
 }
 ```
 
-#### Create and assign custom role with Azure CLI
-
-To create a custom role, use:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-To assign the role to a user, use:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+You can create custom roles with [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), and [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## Next steps
 

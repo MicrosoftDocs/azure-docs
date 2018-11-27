@@ -2,7 +2,7 @@
 title: Accelerated database recovery - Azure SQL Database | Microsoft Docs
 description: The Azure SQL Database has a new feature that provides fast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation for single databases, elastic pools, and Azure SQL Data Warehouse.
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -102,7 +102,7 @@ The four key components of ADR are:
   sLog is a secondary in-memory log stream that stores log records for non-versioned operations (such as metadata cache invalidation, lock acquisitions, and so on). The sLog is:
 
   - Low volume and in-memory
-  - Persisted on disk by been serialized during the checkpoint process
+  - Persisted on disk by being serialized during the checkpoint process
   - Periodically truncated as transactions commit
   - Accelerates redo and undo by processing only the non-versioned operations  
   - Enables aggressive transaction log truncation by preserving only the required log records
@@ -121,4 +121,4 @@ The following types of customers should consider enabling ADR:
 
 ## To enable ADR during this preview period
 
-During the preview period for this feature, send an email to [mailto:adr@microsoft.com](mailto:adr@microsoft.com) to learn more and try out Accelerated Database Recovery (ADR). In the e-mail, include the name of your logical server (for single databases, elastic pools, and Azure Data Warehouse). Since this is a preview feature, your testing server should be a non-production server.
+During the preview period for this feature, send an email to [adr@microsoft.com](mailto:adr@microsoft.com) to learn more and try out Accelerated Database Recovery (ADR). In the e-mail, include the name of your logical server (for single databases, elastic pools, and Azure Data Warehouse). Since this is a preview feature, your testing server should be a non-production server.

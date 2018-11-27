@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -27,7 +27,7 @@ If none of these steps work for you, the following support channels are also ava
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback) or file a new one.  
+* Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.  
 
 ## Important log locations and Log Collector tool
 
@@ -47,7 +47,7 @@ If none of these steps work for you, the following support channels are also ava
  Additional configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](log-analytics-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
+ >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
 > `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
 
 ## Installation error codes
@@ -80,7 +80,7 @@ If none of these steps work for you, the following support channels are also ava
 | --- | --- |
 | 2 | Invalid option provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
 | 3 | Invalid configuration provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
-| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | 403 HTTP error received from Log Analytics service. See the full output of the omsadmin script for details. |
 | 6 | Non-200 HTTP error received from Log Analytics service. See the full output of the omsadmin script for details. |
 | 7 | Unable to connect to Log Analytics service. See the full output of the omsadmin script for details. |
@@ -156,17 +156,9 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 * The proxy specified during onboarding was incorrect
 * The Log Analytics and Azure Automation Service Endpoints are not whitelisted in your datacenter 
 
-<<<<<<< HEAD
-### Resolutions
-1. Reonboard to Log Analytics with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to Log Analytics. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
-
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-=======
 ### Resolution
 1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. It allows verbose output of the agent connecting through the proxy to the Log Analytics service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following Log Analytics endpoints are whitelisted:
@@ -188,11 +180,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Linux server. 
 2. Verify you have installed the latest version of the Log Analytics agent for Linux.  The newest version now notifies you if time skew is causing the onboarding failure.
-<<<<<<< HEAD
-3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
-=======
 3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this article.
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 ## Issue: You see a 500 and 404 error in the log file right after onboarding
 This is a known issue that occurs on first upload of Linux data into a Log Analytics workspace. This does not affect data being sent or service experience.
@@ -201,17 +189,6 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 
 ### Probable causes
 
-<<<<<<< HEAD
-- Onboarding to Log Analytics failed
-- Connection to Log Analytics is blocked
-- Log Analytics agent for Linux data is backed up
-
-### Resolutions
-1. Check if onboarding Log Analytics was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reonboard using the `omsadmin.sh` command-line instructions
-3. If using a proxy, refer to the proxy resolution steps provided earlier.
-4. In some cases, when the Log Analytics agent for Linux cannot communicate with the service, data on the agent is queued to the full buffer size, which is 50 MB. The Log Analytics agent for Linux should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
-=======
 - Onboarding to the Log Analytics service failed
 - Connection to the Log Analytics service is blocked
 - Log Analytics agent for Linux data is backed up
@@ -221,7 +198,6 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 2. Reonboard using the `omsadmin.sh` command-line instructions
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
 4. In some cases, when the Log Analytics agent for Linux cannot communicate with the service, data on the agent is queued to the full buffer size, which is 50 MB. The agent should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
     >[!NOTE]
     >This issue is fixed in agent version 1.1.0-28 and later.
@@ -235,8 +211,8 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 * The number of messages being forwarded per second are too great for the base configuration of the Log Analytics agent for Linux to handle
 
 ### Resolution
-* Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](log-analytics-data-sources-syslog.md#configure-syslog-in-the-azure-portal)
-* Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to recieve the forwarded messages
+* Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
+* Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to receive the forwarded messages
 * Check firewall settings on the Syslog server to ensure that messages are not being blocked
 * Simulate a Syslog message to Log Analytics using `logger` command
   * `logger -p local0.err "This is my test message"`

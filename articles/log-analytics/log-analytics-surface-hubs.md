@@ -30,7 +30,7 @@ Use the following information to install and configure the solution. In order to
 
 * A [Log Analytics subscription](https://azure.microsoft.com/pricing/details/log-analytics/) level that will support the number of devices you want to monitor. Log Analytics pricing varies depending on how many devices are enrolled, and how much data it processes. You'll want to take this into consideration when planning your Surface Hub rollout.
 
-Next, you will either add an existing Log Analytics workspace or create a new one. Detailed instructions for using either method is at [Get started with Log Analytics](log-analytics-get-started.md). Once the Log Analytics workspace is configured, there are two ways to enroll your Surface Hub devices:
+Next, you will either add an existing Log Analytics workspace or create a new one. Detailed instructions for using either method is at [Create a Log Analytics workspace in the Azure portal](log-analytics-quick-create-workspace.md). Once the Log Analytics workspace is configured, there are two ways to enroll your Surface Hub devices:
 
 * Automatically through Intune
 * Manually through **Settings** on your Surface Hub device.
@@ -79,8 +79,8 @@ Monitoring your Surface Hubs using Log Analytics is much like monitoring any oth
 
    ![Surface Hub dashboard](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-You can create [alerts](log-analytics-alerts.md) based on existing or custom log searches. Using the data Log Analytics collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
+You can create [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) based on existing or custom log searches. Using the data Log Analytics collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Surface Hub data.
-* Create [alerts](log-analytics-alerts.md) to notify you when issues occur with your Surface Hubs.
+* Use [Log searches in Log Analytics](log-analytics-queries.md) to view detailed Surface Hub data.
+* Create [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify you when issues occur with your Surface Hubs.

@@ -148,7 +148,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     }
     ```
 
-1. In **Solution Explorer**, double-click **web.config** to open it.
+1. In **Solution Explorer**, double-click **Web.config** to open it.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 

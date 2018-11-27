@@ -28,7 +28,7 @@ To list a standalone SaaS application on AppSource, your application must accept
 
 ## Guides and code samples
 
-If you want to learn about how to integrate your application with Azure AD using Open ID connect, follow our guides and code samples in the [Azure Active Directory developer's guide](azure-ad-developers-guide.md#get-started "Get Started with Azure AD for developers").
+If you want to learn about how to integrate your application with Azure AD using Open ID connect, follow our guides and code samples in the [Azure Active Directory developer's guide](v1-overview.md#get-started "Get Started with Azure AD for developers").
 
 ## Multi-tenant applications
 
@@ -114,18 +114,18 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Get support
 
-For Azure AD integration, we use [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) with the community to provide support. 
+For Azure AD integration, we use [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) with the community to provide support. 
 
-We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]` and `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]` and `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
 <!--Reference style links -->
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: azure-ad-developers-guide.md
+[AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
-[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 
 <!--Image references-->

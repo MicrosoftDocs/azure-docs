@@ -75,7 +75,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | ------------- | ------------- |
 | What is it?   | Client IDE for Python language    |
 | Supported DSVM Versions      | Linux      |
-| Typical Uses      |  R development     |
+| Typical Uses      |  Python development     |
 | How to use / run it?      | Desktop Shortcut (`/usr/bin/pycharm`) on Linux      |
 | Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 

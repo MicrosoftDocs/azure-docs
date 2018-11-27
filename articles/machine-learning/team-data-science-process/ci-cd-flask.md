@@ -33,12 +33,12 @@ The following are the pre-requisites for following the CI/CD pipeline described 
 * [Azure DevOps Organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Azure Container Registy (ACR) account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Azure Container Registry (ACR) account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Install Kubectl to run commands against Kubernetes cluster.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) We will need this to fetch configuration from ACS cluster. 
 * Fork the repository to your GitHub account.
 
 ## Description of the CI/CD pipeline
-The pipeline kicks off for each new commit, run the test suite, if the test passes takes the latest build, packages it in a Docker container. The container is then deployed using Azure container service (ACS) and images are securely stored in Azure container registry (ACR). ACS is running Kubernetes for managing container cluster but you can choose Docker Swarm or Mesos.
+The pipeline kicks off for each new commit, run the test suite, if the test passes takes the latest build, packages it in a Docker container. The container is then deployed using Azure Container Service (ACS) and images are securely stored in Azure Container Registry (ACR). ACS is running Kubernetes for managing container cluster but you can choose Docker Swarm or Mesos.
 
 The application securely pulls the latest model from an Azure Storage account and packages that as part of the application. The deployed application has the app code and ML model packaged as single container. This decouples the app developers and data scientists, to make sure that their production app is always running the latest code with latest ML model.
 
@@ -65,5 +65,5 @@ The pipeline architecture is given below.
 ## References
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

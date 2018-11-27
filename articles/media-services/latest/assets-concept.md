@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
 ---
 
@@ -31,19 +31,19 @@ Also, read about [storage accounts in Media Services](storage-account-concept.md
 
 The following table shows the Asset's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.alternateId |string|The alternate ID of the Asset.|
-|properties.assetId |string|The Asset ID.|
-|properties.container |string|The name of the asset blob container.|
-|properties.created |string|The creation date of the Asset.|
-|properties.description |string|The Asset description.|
-|properties.lastModified |string|The last modified date of the Asset.|
-|properties.storageAccountName |string|The name of the storage account.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
-|type|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id|Fully qualified resource ID for the resource.|
+|name|The name of the resource.|
+|properties.alternateId |The alternate ID of the Asset.|
+|properties.assetId |The Asset ID.|
+|properties.container |The name of the asset blob container.|
+|properties.created |The creation date of the Asset.|
+|properties.description|The Asset description.|
+|properties.lastModified |The last modified date of the Asset.|
+|properties.storageAccountName |The name of the storage account.|
+|properties.storageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
+|type|The type of the resource.|
 
 For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 
@@ -113,8 +113,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/assets_list)
-
+For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
 ## Storage side encryption
 

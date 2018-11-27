@@ -2,9 +2,9 @@
 title: Auto-provision Azure IoT Edge device with DPS - Linux | Microsoft Docs 
 description: Use a simulated TPM on a Linux VM to test device provisioning for Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -58,7 +58,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
    1. **Specify Generation**: Select **Generation 2**.
    2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section. 
-   3. **Installation Oprtions**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
+   3. **Installation Options**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
 
 It may take a view minutes to create the new VM. 
 
@@ -120,7 +120,7 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
 ## Install the IoT Edge runtime
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual m achine. 
+The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine. 
 
 Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
 
@@ -175,7 +175,7 @@ Use the following steps to give TPM access. Alternatively, you can accomplish th
    Successful output looks like the following:
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Open the IoT Edge runtime overrides file. 

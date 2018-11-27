@@ -124,5 +124,5 @@ Importing your database is similar to exporting. Do the following actions:
 - [Connect applications to Azure Database for MariaDB](./howto-connection-string.md).
  
 <!--
-- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](http://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).
 -->

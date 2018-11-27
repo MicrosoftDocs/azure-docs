@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -20,13 +20,13 @@ ms.author: jgao
 
 Learn how to retrieve secret values from Azure Key Vault and pass the secret values as parameters during Resource Manager deployment. The value is never exposed because you only reference its Key Vault ID. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md)
 
-In this tutorial, you create a virtual machine and some dependent resources using the same template used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The virtual machine administrator password is retrieved from Azure Key Vault.
+In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources. In this tutorial, you customize the template to retrieve the virtual machine administrator password from Azure Key Vault.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Prepare the Key Vault
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Edit the parameters file
 > * Deploy the template
 > * Validate the deployment
@@ -38,13 +38,19 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare the Key Vault
 
 In this section, you use a Resource Manager template to create a Key Vault and a secret. This template does:
 
-* Create a Key Vault with the **enabledForTemplateDeployment** property enables. This property must be true before the template deployment process can access the secrets defined in this Key Vault.
+* Create a Key Vault with the `enabledForTemplateDeployment` property enables. This property must be true before the template deployment process can access the secrets defined in this Key Vault.
 * Add a secret to the Key Vault.  The secret stores the virtual machine administrator password.
 
 If you (as the user to deploy the virtual machine template) are not the owner or the contributor of the Key Vault, the Owner or a Contributor of the Key Vault must grant you the access to the Microsoft.KeyVault/vaults/deploy/action permission for the Key Vault. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md)
@@ -54,7 +60,9 @@ Your Azure AD user object ID is needed by the template to configure permissions.
 1. Run the following Azure PowerShell or Azure CLI command.  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -81,7 +89,7 @@ To create a Key Vault:
     * **Key Vault Name**: assign a unique name. 
     * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from the last procedure.
-    * **Secret Name**: The default name is **mAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
+    * **Secret Name**: The default name is **vmAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
     * **Secret Value**: Enter your secret.  The secret is the password used to sign in to the virtual machine. It is recommended to use the generated password you created in the last procedure.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Edit parameters** from the top to take a look of the template.
@@ -91,21 +99,21 @@ To create a Key Vault:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` is a Key Vault property. This property must be true before you can retrieve the secrets from this Key Vault during deployment. 
+    `enabledForTemplateDeployment` is a Key Vault property. This property must be true before you can retrieve the secrets from this Key Vault during deployment.
 6. Browse to line 89. This is the Key Vault secret definition.
 7. Select **Discard** from the bottom of the page. You didn't make any changes.
 8. Verify you have provided all the values as shown in the previous screenshot, and then click **Purchase** at the bottom of the page.
 9. Select the bell icon (notification) from the top of the page to open the **Notifications** pane. Wait until the resource is deployed successfully.
-8. Select **Go to resource group** from the **Notifications** pane. 
-9. Select the Key Vault name to open it.
-10. Select **Access policies** from the left pane. Your name (Active Directory) shall be listed, otherwise you don't have the permission to access the key vault.
-11. Select **Click to show advanced access policies**. Notice **Enable access to Azure Resource Manager for template deployment** is selected. This is another condition to make the Key Vault integration to work.
+10. Select **Go to resource group** from the **Notifications** pane. 
+11. Select the Key Vault name to open it.
+12. Select **Access policies** from the left pane. Your name (Active Directory) shall be listed, otherwise you don't have the permission to access the key vault.
+13. Select **Click to show advanced access policies**. Notice **Enable access to Azure Resource Manager for template deployment** is selected. This is another condition to make the Key Vault integration to work.
 
-    ![Resource Manager template Key Vault integration access policies](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. Select **Properties** from the left pane.
-13. Make a copy of **Resource ID**. You need this ID when you deploy the virtual machine.  The Resource ID format is:
+    ![Resource Manager template Key Vault integration access policies](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. Select **Properties** from the left pane.
+15. Make a copy of **Resource ID**. You need this ID when you deploy the virtual machine.  The Resource ID format is:
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -120,8 +128,17 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file. It is the same scenario used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
-5. Repeat steps 1-4 to open the following URL, and then save the file as **azuredeploy.parameters.json**.
+4. There are five resources defined by the template:
+
+    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+6. Repeat steps 1-4 to open the following URL, and then save the file as **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -150,7 +167,7 @@ You don't need to make any changes to the template file.
 3. Give the values to:
 
     * **adminUsername**: name the virtual machine administrator account.
-    * **dnsLabelPrefix**: name the dnsLablePrefix.
+    * **dnsLabelPrefix**: name the dnsLabelPrefix.
 4. Save the changes.
 
 ## Deploy the template
@@ -186,7 +203,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you retrieved a secret from Azure Key Vault, and use the secret in your template deployment.  To learn how to create linked templates, see:
+In this tutorial, you retrieved a secret from Azure Key Vault, and used the secret in your template deployment.  To learn how to create linked templates, see:
 
 > [!div class="nextstepaction"]
 > [Create linked templates](./resource-manager-tutorial-create-linked-templates.md)

@@ -150,4 +150,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.
+For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.

@@ -1,14 +1,14 @@
 ---
-title: Analyze Twitter data with Hadoop in HDInsight - Azure 
-description: Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.
+title: Analyze Twitter data with Apache Hadoop in HDInsight - Azure 
+description: Learn how to use Hive to analyze Twitter data on Apache Hadoop in HDInsight to find the usage frequency of a particular word.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---

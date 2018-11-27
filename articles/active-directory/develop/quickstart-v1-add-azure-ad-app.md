@@ -28,7 +28,10 @@ Enterprise developers and software-as-a-service (SaaS) providers can develop com
 
 Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
 
-This quickstart shows you how to add and register an application in Azure AD.
+This quickstart shows you how to add and register an application in Azure AD using the existing **App registrations** experience in the Azure portal.
+
+> [!NOTE]
+> Registering a new app? Try out the new **App registrations (Preview)** experience in the Azure portal. See [Register an app (Preview)](quickstart-register-app.md) to get started.
 
 ## Prerequisites
 

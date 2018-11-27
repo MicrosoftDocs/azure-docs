@@ -142,7 +142,7 @@ Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.File
 
 ```
 ```
-ResourceName         ResourceGroupName ResourceNamespace          ResouceType
+ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults     
 ```
@@ -338,7 +338,7 @@ A network mapping maps virtual networks in the primary region to virtual network
     #Extract resource name from the ResourceId of the nic
     $NICname = $SplitNicArmId[-1]
 
-    #Get network interface details using the extracted resource group name and resourec name
+    #Get network interface details using the extracted resource group name and resource name
     $NIC = Get-AzureRmNetworkInterface -ResourceGroupName $NICRG -Name $NICname
 
     #Get the subnet ID of the subnet that the nic is connected to
@@ -469,7 +469,7 @@ AzureDemoVM  Protected       Normal
 Once replication for the virtual machine has reached a protected state, a test failover operation can be performed on the virtual machine (on the replication protected item of the virtual machine.)
 
 ```azurepowershell
-#Create a seperate network for test failover (not connected to my DR network)
+#Create a separate network for test failover (not connected to my DR network)
 $TFOVnet = New-AzureRmVirtualNetwork -Name "a2aTFOvnet" -ResourceGroupName "a2ademorecoveryrg" -Location 'West US 2' -AddressPrefix "10.3.0.0/16"
 
 Add-AzureRmVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -AddressPrefix "10.3.0.0/20" | Set-AzureRmVirtualNetwork

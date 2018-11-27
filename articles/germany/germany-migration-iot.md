@@ -19,7 +19,7 @@ This article will provide you some help for the migration of Azure IoT resources
 
 With the Azure Cosmos DB Data Migration tool, you can easily migrate data to Azure Cosmos DB. The Azure Cosmos DB Data Migration tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
 
-The tool is available as a graphical interface tool or as command-line tool. The source code is available in the GitHub repository for [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool), and a compiled version is available on the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=46436).
+The tool is available as a graphical interface tool or as command-line tool. The source code is available in the GitHub repository for [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool), and a compiled version is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46436).
 
 The recommended steps are:
 

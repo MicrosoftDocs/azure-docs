@@ -29,12 +29,15 @@ When you're ready to run your test, use a Microsoft Azure Active Directory (Azur
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### View application results
+
 After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message *"Hello \<User>,"* a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the *Claims* controller that you created earlier.
 
 ### Browse to see the user's claims
+
 To see the user's claims, select the link to browse to the controller view that is available only to authenticated users.
 
 #### View the claims results
+
 After you browse to the controller view, you should see a table that contains the basic properties for the user:
 
 |Property |Value |Description |
@@ -46,13 +49,15 @@ After you browse to the controller view, you should see a table that contains th
 
 In addition, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an Azure AD ID Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
 ### Test access to a method that has an Authorize attribute (optional)
+
 To test access as an anonymous user to a controller protected with the `Authorize` attribute, follow these steps:
+
 1. Select the link to sign out the user and complete the sign-out process.
 2. In your browser, type http://<span></span>localhost:{port}/claims to access your controller that is protected with the `Authorize` attribute.
 
 #### Expected results after access to a protected controller
+
 You're prompted to authenticate to use the protected controller view.
 
 ## Advanced options
@@ -67,6 +72,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### Restrict who can sign in to your application
+
 By default when you build the application created by this guide, your application will accept sign-ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory. This is a recommended option for SaaS applications.
 
 To restrict user sign-in access for your application, multiple options are available:
@@ -85,6 +91,7 @@ You can restrict sign-in access to only user accounts that are in an Azure AD or
 2. Set the value of the `ValidIssuers` parameter to the list of allowed organizations.
 
 #### Option 3: Use a custom method to validate issuers
+
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

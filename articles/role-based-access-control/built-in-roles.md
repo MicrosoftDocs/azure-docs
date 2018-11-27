@@ -91,7 +91,6 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
-| [PowerApps Administrator Test](#powerapps-administrator-test) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
 | [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them. |
 | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
@@ -172,7 +171,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | acr quarantine data reader |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
 
 ## AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -181,8 +180,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | acr quarantine data writer |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
 
 ## API Management Service Contributor
 > [!div class="mx-tableFixed"]
@@ -1237,21 +1236,6 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | NewRelic.APM/accounts/* |  |
-
-## PowerApps Administrator Test
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Description** | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
-> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
-> | **Actions** |  |
-> | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Network/dnsZones/* |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
 
 ## Reader and Data Access
 > [!div class="mx-tableFixed"]

@@ -24,7 +24,7 @@ Metrics are enabled by default, and you can access the past 93 days of data. If 
 
 ### Access metrics in the Azure portal
 
-You can monitor metrics over time in the Azure portal. The following example shows how to view **UsedCapacity** at account level.
+You can monitor metrics over time in the Azure portal. The following example shows how to view **Transactions** at account level.
 
 ![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
@@ -403,6 +403,10 @@ Legacy metrics are available in parallel with Azure Monitor managed metrics. The
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
 
 No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) for more details.
+
+**How to map and migrate classic metrics with new metrics?**
+
+You can find detailed mapping between classic metrics and new metrics in [Azure Storage metrics migration](./storage-metrics-migration.md).
 
 ## Next steps
 

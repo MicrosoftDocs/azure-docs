@@ -16,4 +16,4 @@ In this quickstart, use an available public LUIS app to determine a user's inten
 
 This quickstart uses the endpoint REST API. For more information, see the [endpoint API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
 
-For this article, you need a free [LUIS](http://www.luis.ai) account. 
+For this article, you need a free [LUIS](https://www.luis.ai) account. 

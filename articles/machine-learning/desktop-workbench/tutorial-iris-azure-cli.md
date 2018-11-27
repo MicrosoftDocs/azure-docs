@@ -140,13 +140,13 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### Create a new project associated with a cloud Git repository
-You can create a new project associated with a Azure DevOps Git repository. Every time an experiment is submitted, a snapshot of the entire project folder is committed to the remote Git repo. See [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) for more details.
+You can create a new project associated with a Git repository in Azure Repos. Every time an experiment is submitted, a snapshot of the entire project folder is committed to the remote Git repo. See [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) for more details.
 
 > [!NOTE]
-> Azure Machine Learning only supports empty Git repos created in Azure DevOps.
+> Azure Machine Learning only supports empty Git repos created in Azure Repos.
 
 ```azure-cli
-$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <repo URL>
 ```
 > [!TIP]
 > If you are getting an error "Repository url might be invalid or user might not have access", you can create a security token in Azure DevOps (under _Security_, _Add personal access tokens_ menu) and use the `--vststoken` argument when creating your project. 

@@ -30,7 +30,7 @@ The following steps walk you through the settings necessary to configure a dynam
 
 ### <a name="pre"></a>Prerequisites
 
-* Both VNets have already been created. If you need to create a resource manager virtual network, see [Create a virtual network](../virtual-network/quick-create-powershell.md#create-a-virtual-network). To create a classic virtual network, see [Create a classic VNet](https://docs.microsoft.com/en-us/azure/virtual-network/create-virtual-network-classic).
+* Both VNets have already been created. If you need to create a resource manager virtual network, see [Create a virtual network](../virtual-network/quick-create-powershell.md#create-a-virtual-network). To create a classic virtual network, see [Create a classic VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
 * You have installed the latest PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 

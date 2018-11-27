@@ -813,7 +813,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster respondes to queries|No Dimensions|
 |IngestCommandOriginalSizeInMb|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
 |EventAgeSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
-|EventRecievedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
+|EventReceivedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
 |IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|IngestionResultDetails|
 |EngineCPU|CPU|Percent|Average|CPU utilization level|No Dimensions|
 
@@ -1564,6 +1564,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|Instance|
 
 ## Next steps
-* [Read about metrics in Azure Monitor](monitoring-overview-metrics.md)
-* [Create alerts on metrics](insights-receive-alert-notifications.md)
+* [Read about metrics in Azure Monitor](../azure-monitor/platform/data-collection.md)
+* [Create alerts on metrics](monitoring-overview-alerts.md)
 * [Export metrics to storage, Event Hub, or Log Analytics](monitoring-overview-of-diagnostic-logs.md)

@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  ms.date: 10/31/2018
   ms.author: jmartens
 
 abstract:
@@ -55,7 +55,7 @@ sections:
         - href: /azure/machine-learning/studio/create-workspace
       - title: Prepare data for modeling
         values:
-        - href: /azure/machine-learning/service/concept-data-preparation
+        - href: /azure/machine-learning/service/how-to-data-prep
         - href: /azure/machine-learning/studio/walkthrough-2-upload-data
       - title: Build your own machine learning model
         values:
@@ -71,8 +71,12 @@ sections:
         - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
       - title: Consume your machine learning models
         values:
-        - href: 
+        - href: /azure/machine-learning/service/how-to-consume-web-service
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
+      - title: Build, optimize, and manage your ML pipelines
+        values:
+        - href: /azure/machine-learning/service/concept-ml-pipelines
+        - href: 
 
 - title: Other Microsoft Machine Learning Technologies
   items:
@@ -107,7 +111,7 @@ sections:
         src: /azure/machine-learning/media/index/tdsp.png
       title: Team Data Science Process
     - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Experiment without worrying installing or configuring software using these Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
+      html: <p>Experiment without installing or configuring software using the Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Data Science Virtual Machine

@@ -1,18 +1,10 @@
 ---
-title: Troubleshoot failover to Azure failures | Microsoft Docs
-description: This article describes ways to troubleshoot common errors in failing over to Azure
-services: site-recovery
-documentationcenter: ''
+title: Troubleshoot failovers to Azure | Microsoft Docs
+description: This article describes how to troubleshoot common issues during failover to Azure with Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-
-ms.assetid:
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/11/2018
 ms.author: ponatara
 
@@ -25,7 +17,7 @@ You may receive one of the following errors while doing failover of a virtual ma
 
 Site Recovery was not able to create a failed over virtual machine in Azure. It could happen because of one of the following reasons:
 
-* There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](http://aka.ms/getazuresupport) to increase the quota.
+* There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota.
 
 * You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to Compute and Network settings of the virtual machine and then retry failover.
 
@@ -33,7 +25,7 @@ Site Recovery was not able to create a failed over virtual machine in Azure. It 
 
 ## Failover failed with Error ID 28092
 
-Site Recovery was not able to create a network interface for the failed over virtual machine. Make sure you have sufficient quota available to create network interfaces in the subscription. You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](http://aka.ms/getazuresupport) to increase the quota. If you have sufficient quota, then this might be an intermittent issue, try the operation again. If the issue persists even after retries, then leave a comment at the end of this document.  
+Site Recovery was not able to create a network interface for the failed over virtual machine. Make sure you have sufficient quota available to create network interfaces in the subscription. You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota. If you have sufficient quota, then this might be an intermittent issue, try the operation again. If the issue persists even after retries, then leave a comment at the end of this document.  
 
 ## Failover failed with Error ID 70038
 

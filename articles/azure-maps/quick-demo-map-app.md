@@ -1,9 +1,9 @@
 ---
 title: Interactive Map Search with Azure Maps | Microsoft Docs
 description: Azure Quickstart - Launch a demo interactive map search using Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/10/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/26/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps

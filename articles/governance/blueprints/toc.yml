@@ -4,35 +4,46 @@
   expanded: true
   items:
   - name: Overview of Azure Blueprints
+    displayName: templates, policy, definition, assignment, rbac
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a blueprint - Portal
+    displayName: publish, assign, track, unassign, delete
     href: create-blueprint-portal.md
   - name: Create a blueprint - REST API
+    displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
 - name: Concepts
   expanded: true
   items:
   - name: Lifecycle of a blueprint
+    displayName: publish, edit, delete, assignments
     href: ./concepts/lifecycle.md
   - name: Dynamic parameters in a blueprint
+    displayName: secureString, secureObject, static
     href: ./concepts/parameters.md
   - name: Sequencing order of blueprint deployment
+    displayName: customize
     href: ./concepts/sequencing-order.md
   - name: Resource locking in Blueprints
+    displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
 - name: How-to guides
   expanded: true
   items:
   - name: Update existing assignments
+    displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
 - name: Troubleshoot
+  displayName: errors, violation
   href: ./troubleshoot/general.md
 - name: References
   expanded: true
   items:
+  - name: REST API
+    href: /rest/api/blueprints/
   - name: PowerShell (community)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
 - name: Resources

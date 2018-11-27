@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/21/2018
 ms.author: juliako
 ---
 
@@ -25,6 +25,61 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Deprecated functionality
 * Plans for changes
 
+## Known issues
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
+
+For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+
+## November 2018
+
+The CLI 2.0 module is now available for [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+
+### New commands
+
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - enables you to manage Media Reserved Units
+
+### New features and breaking changes
+
+#### Asset commands
+
+- ```--storage-account``` and ```--container``` arguments added.
+- Default values for expiry time (Now+23h) and permissions (Read) in ```az ams asset get-sas-url``` command added.
+
+#### Job commands
+
+- ```--correlation-data``` and ```--label``` arguments added
+- ```--output-asset-names``` renamed to ```--output-assets```. Now it accepts a space-separated list of assets in 'assetName=label' format. An asset without label can be sent like this: 'assetName='.
+
+#### Streaming Locator commands
+
+- ```az ams streaming locator``` base command replaced with ```az ams streaming-locator```.
+- ```--streaming-locator-id``` and ```--alternative-media-id support``` arguments added.
+- ```--content-keys argument``` argument updated.
+- ```--content-policy-name``` renamed to ```--content-key-policy-name```.
+
+#### Streaming Policy commands
+
+- ```az ams streaming policy``` base command replaced with ```az ams streaming-policy```.
+- Encryption parameters support in ```az ams streaming-policy create``` added.
+
+#### Transform commands
+
+- ```--preset-names``` argument replaced with ```--preset```. Now you can only set 1 output/preset at a time (to add more you have to run ```az ams transform output add```). Also, you can set custom StandardEncoderPreset by passing the path to your custom JSON.
+- ```az ams transform output remove``` can be performed by passing the output index to remove.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` arguments added in ```az ams transform create``` and ```az ams transform output add``` commands.
+
 ## October 2018 - GA
 
 This section describes Azure Media Services (AMS) October updates.
@@ -32,10 +87,6 @@ This section describes Azure Media Services (AMS) October updates.
 ### REST v3 GA release
 
 The [REST v3 GA release](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) includes more APIs for Live, Account/Asset level manifest filters, and DRM support.
-
-#### Azure CLI 2.0
- 
-The Azure CLI 2.0 module for all features including Live, Content Key Policies, Account/Asset Filters, Streaming Policies.
 
 #### Azure Resource Management 
 
@@ -92,7 +143,9 @@ Video Indexer GA release was announced in August. For new information about curr
 
 ### Plans for changes
 
-The Azure CLI release is coming on 10/23/2018.
+#### Azure CLI 2.0
+ 
+The Azure CLI 2.0 module that includes operations on all features (including Live, Content Key Policies, Account/Asset Filters, Streaming Policies) is coming soon. 
 
 ### Known issues
 
@@ -119,5 +172,4 @@ The following features are present in the .Net SDK:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Overview](media-services-overview.md)
+[Overview](media-services-overview.md)

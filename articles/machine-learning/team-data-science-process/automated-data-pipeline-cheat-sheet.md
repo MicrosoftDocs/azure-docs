@@ -28,7 +28,7 @@ This cheat sheet walks you through the decisions you need to make, and it offers
 ## Download the Machine Learning automated data pipeline cheat sheet
 Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.).
 
-Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
 

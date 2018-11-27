@@ -6,7 +6,7 @@
   expanded: true
   items:
   - name: Overview
-    href: azure-ad-developers-guide.md
+    href: v1-overview.md
   - name: Quickstarts
     items:
     - name: Set up a dev environment
@@ -19,6 +19,16 @@
         href: quickstart-v1-update-azure-ad-app.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Register an app (Preview)
+        href: quickstart-register-app.md
+      - name: Configure app to access web APIs (Preview)
+        href: quickstart-configure-app-access-web-apis.md
+      - name: Configure app to expose web APIs (Preview)
+        href: quickstart-configure-app-expose-web-apis.md
+      - name: Modify accounts supported by an app (Preview)
+        href: quickstart-modify-supported-accounts.md
+      - name: Remove an app (Preview)
+        href: quickstart-remove-app.md
     - name: Single-page apps
       items:
       - name: AngularJS
@@ -161,6 +171,12 @@
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: Create service principal
+        items:
+        - name: Using Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Using Azure portal
+          href: howto-create-service-principal-portal.md
       - name: Restrict your app to a set of users
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: Add app roles in your application
@@ -190,9 +206,14 @@
       - name: Publish to Azure AD App Gallery
         href: howto-app-gallery-listing.md
       - name: Publish to the Office 365 Seller Dashboard
-        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store   
-    - name: Migrate from the Azure Access Control Service
-      href: active-directory-acs-migration.md
+        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+    - name: Azure Access Control Service
+      displayName: ACS
+      items:
+      - name: Migrate from the Azure Access Control Service
+        href: active-directory-acs-migration.md
+      - name: Reactivate disabled Access Control Service namespaces
+        href: howto-reactivate-disabled-acs-namespaces.md
     - name: Use the Azure AD Graph API
       href: active-directory-graph-api-quickstart.md
     - name: AD FS for developers
@@ -227,6 +248,16 @@
         href: quickstart-v1-update-azure-ad-app.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Register an app (Preview)
+        href: quickstart-register-app.md
+      - name: Configure app to access web APIs (Preview)
+        href: quickstart-configure-app-access-web-apis.md
+      - name: Configure app to expose web APIs (Preview)
+        href: quickstart-configure-app-expose-web-apis.md
+      - name: Modify accounts supported by an app (Preview)
+        href: quickstart-modify-supported-accounts.md
+      - name: Remove an app (Preview)
+        href: quickstart-remove-app.md
     - name: Single-page apps
       items:
       - name: JavaScript
@@ -342,12 +373,16 @@
         href: active-directory-optional-claims.md
       - name: Configure token lifetimes (Preview)
         href: active-directory-configurable-token-lifetimes.md
-      - name: Authenticate with Azure AD and get a JWT token using OAuth 2.0
-        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: Create service principal
+        items:
+        - name: Using Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Using Azure portal
+          href: howto-create-service-principal-portal.md
       - name: Restrict your app to a set of users
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: Add app roles in your application

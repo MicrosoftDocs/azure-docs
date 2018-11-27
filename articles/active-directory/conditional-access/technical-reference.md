@@ -123,13 +123,13 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 
 | OS                     | Browsers                            | Support     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Check][1] |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Check][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Check][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Check][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Check][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Check][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Check][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Check][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Check][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Check][1] |
 | Windows Server 2016    | Chrome                              | Coming soon |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Check][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Check][1] |
@@ -224,6 +224,7 @@ This setting applies to the following client apps:
 - Microsoft To-Do
 - Microsoft Stream
 - Microsoft Edge
+- Microsoft Delve
 
 
 
