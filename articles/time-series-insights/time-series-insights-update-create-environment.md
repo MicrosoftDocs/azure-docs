@@ -8,12 +8,12 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 11/21/2018
+ms.date: 11/26/2018
 ---
 
 # Provisioning and managing Azure Time Series Insights update
 
-This document describes how to provision and manage a new Azure Time Series Insights (TSI) update environment in the Azure Portal.
+This document describes how to provision and manage a new Azure Time Series Insights (TSI) update environment in the Azure portal.
 
 ## Overview
 
@@ -47,7 +47,7 @@ A brief description about provisioning following the TSI update:
 
     * Azure TSI supports Azure IoT Hub and Event Hubs as options. While you can only add a single event source at environment creation time, you can add an additional event source later. It’s best to create a unique consumer group to ensure all events are visible to TSI. You can select an existing consumer group or create a new consumer group when adding the event source.
 
-    * Also designate the appropriate **Timestamp** property.  By default, TSI uses the message enqueued time for each event source, which may not be right if you are batching events or uploading historical data. Therefore, it is imperative to input the case-sensitive timestamp property when adding the event source.  
+    * Also designate the appropriate **Timestamp** property. By default, TSI uses the message enqueued time for each event source, which may not be right if you are batching events or uploading historical data. Therefore, it is imperative to input the case-sensitive timestamp property when adding the event source.  
 
      ![environment_event_sources][2]
 
@@ -59,11 +59,11 @@ A brief description about provisioning following the TSI update:
 
 ## Management
 
-You have the ability to manage your TSI updated environment using the Azure Portal. Users familiar with TSI will feel immediately comfortable with the TSI update since much is carried over between versions.
+You have the ability to manage your TSI updated environment using the Azure portal. Users familiar with TSI will feel immediately comfortable with the TSI update since much is carried over between versions.
 
-Major differences in managing an L1 TSI environment versus an S1 or S2 environment using the Azure Portal are provided below:
+Major differences in managing an L1 TSI environment versus an S1 or S2 environment using the Azure portal are provided below:
 
-* TSI Azure Portal *Overview* blade:
+* TSI Azure portal *Overview* blade:
 
   * Using the overview blade remains the same except for:
 
@@ -71,14 +71,14 @@ Major differences in managing an L1 TSI environment versus an S1 or S2 environme
     * The **Time Series ID** property has been added. This is an immutable property you added at provisioning time and defines how your data is partitioned.
     * Reference data sets are removed.
 
-* TSI Azure Portal *Configure* blade:
+* TSI Azure portal *Configure* blade:
   
   * Retention is removed as retention will be set to unlimited.
 
     * We expect to add more controls to this in the future, but for now you cannot set a limit on this.
     * Capacity, calculator, and storage limit exceeded behavior all removed.
 
-* TSI Azure Portal *Reference* data blade:
+* TSI Azure portal *Reference* data blade:
 
   * This entire blade has been removed as reference data is not a component of L1 environments.
 

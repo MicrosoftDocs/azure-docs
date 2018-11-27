@@ -14,21 +14,21 @@ ms.date: 11/26/2018
 
 # How to add an IoT Hub event source to Time Series Insights environment
 
-This article describes how to use the Azure portal to add an event source that reads data from an IoT Hub into your Time Series Insights environment.
+This article describes how to use the Azure portal to add an event source that reads data from an IoT Hub into your Azure Time Series Insights (TSI) environment.
 
 > [!NOTE]
-> These instructions apply to both Time Series Insights GA & Time Series Insights Update environments.
+> These instructions apply to both TSI GA & TSI update environments.
 
 ## Prerequisites
 
-* Create a Time Series Insights environment. For more information, see [Create an Azure Time Series Insights environment](time-series-insights-get-started.md) 
+* Create a TSI environment. For more information, see [Create an Azure TSI environment](time-series-insights-get-started.md) 
 * Create an IoT Hub. For more information on IoT Hubs, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
 * The IoT Hub needs to have active message events being sent in.
-* Create a dedicated consumer group in IoT Hub for the Time Series Insight environment to consume from. Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
+* Create a dedicated consumer group in IoT Hub for the TSI environment to consume from. Each TSI event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
 ### Add a consumer group to your IoT Hub
 
-Consumer groups are used by applications to pull data from Azure IoT Hubs. Provide a dedicated consumer group, for use by this Time Series Insights environment only, to reliably read data from your IoT Hub.
+Consumer groups are used by applications to pull data from Azure IoT Hubs. Provide a dedicated consumer group, for use by this TSI environment only, to reliably read data from your IoT Hub.
 
 To add a new consumer group to your IoT Hub, follow these steps:
 
@@ -39,7 +39,7 @@ To add a new consumer group to your IoT Hub, follow these steps:
 
 1. Select the **Events** endpoint, and the **Properties** page opens.
 
-1. Under the **Consumer groups** heading, provide a new unique name for the consumer group. Use this same name in Time Series Insights environment when creating a new event source.
+1. Under the **Consumer groups** heading, provide a new unique name for the consumer group. Use this same name in TSI environment when creating a new event source.
 
 1. Select **Save** to save the new consumer group.
 
@@ -47,7 +47,7 @@ To add a new consumer group to your IoT Hub, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
+1. Locate your existing TSI environment. Click **All resources** in the menu on the left side of the Azure portal. Select your TSI environment.
 
 1. Under the **Environment Topology** heading, click **Event Sources**.
 
@@ -55,7 +55,7 @@ To add a new consumer group to your IoT Hub, follow these steps:
 
 1. Click **+ Add**.
 
-1. Provide an **Event source name** unique to this Time Series Insights environment, such as **event-stream**.
+1. Provide an **Event source name** unique to this TSI environment, such as **event-stream**.
 
    ![IoT Hub Three][3]
 

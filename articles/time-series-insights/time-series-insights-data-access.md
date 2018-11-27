@@ -14,15 +14,15 @@ ms.date: 11/26/2018
 
 # Grant data access to a Time Series Insights environment using Azure portal
 
-This article discusses the two types of Time Series Insights Update access policies.
+This article discusses the two types of Azure Time Series Insights (TSI) update access policies.
 
 ## Grant data access
 
 Follow these steps to grant data access for a user principal:
 
-1. Sign in to the [Azure portal]().
-1. Locate your Time Series Insights environment. Type **Time Series** in the **search** box. Select **Time Series Environment** in the search results.
-1. Select your Time Series Insights environment from the list.
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Locate your TSI environment. Type `Time Series` in the **search** box. Select **Time Series Environment** in the search results.
+1. Select your TSI environment from the list.
 1. Select **Data Access Policies**, then select **+ Add**.
 
     ![data-access-one][1]
@@ -49,15 +49,15 @@ Follow these steps to grant data access for a user principal:
 
     ![data-access-five[5]
 
-## Provide guest access to a user from another AAD tenant
+## Provide guest access to a user from another Azure Active Directory tenant
 
-“Guest” isn’t a management role; it’s a term used for an account that’s been invited from one tenant to another. After the guest account has been invited into the tenant’s directory, it can have the same access control applied to it like any other account, either to grant management access to a TSI Environment using the Access Control (IAM) blade, or to grant access to the data in the environment through the Data Access Policies blade. For more information on AAD tenant guest access, see this [document](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+`Guest` isn’t a management role; it’s a term used for an account that’s been invited from one tenant to another. After the guest account has been invited into the tenant’s directory, it can have the same access control applied to it like any other account, either to grant management access to a TSI Environment using the Access Control (IAM) blade, or to grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (AAD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-Follow these steps to grant guest access to a Time Series Insights environment to an AAD user from another tenant:
+Follow these steps to grant guest access to a TSI environment to an AAD user from another tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Locate your Time Series Insights environment. Type **Time Series** in the search box. Select **Time Series Environment** in the search results.
-1. Select your Time Series Insights environment from the list.
+1. Locate your TSI environment. Type **Time Series** in the search box. Select **Time Series Environment** in the search results.
+1. Select your TSI environment from the list.
 1. Select **Data Access Policies**, then select **+ Invite**.
 
     ![data-access-six][6]
@@ -87,7 +87,7 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     ![data-access-eleven][11]
 
-1. Now the guest user will need to take certain steps to access the environment located in the Azure tenant you just invited them to. First, they need to accept the invitation you just sent them. This invite is sent via email to the email address you invited in step 5. They should click 'Get Started,' to accept.
+1. Now the guest user will need to take certain steps to access the environment located in the Azure tenant you just invited them to. First, they need to accept the invitation you just sent them. This invite is sent via email to the email address you invited in step 5. They should click **Get Started**, to accept.
 
     ![data-access-twelve][12]
 
@@ -103,11 +103,11 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     ![data-access-fifteen][15]
 
-1. Finally, when the guest user selects your tenant, they will see the Time Series Insights environment that you just provided them access to. They now should have all capabilities associated with the role you provided them in step 8.
+1. Finally, when the guest user selects your tenant, they will see the TSI environment that you just provided them access to. They now should have all capabilities associated with the role you provided them in step 8.
 
 ## Next steps
 
-* Learn [how to add an Event Hub event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure Time Series Insights environment.
+* Learn [how to add an Event Hub event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure TSI environment.
 * Send [events to the event source](./time-series-insights-send-events.md).
 * View [your environment in Time Series Insights explorer](./time-series-insights-update-explorer.md).
 
