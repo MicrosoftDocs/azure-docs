@@ -80,17 +80,17 @@ You use the Diagnostics settings menu for each of databases in Azure portal to c
 To enable streaming of diagnostics telemetry for **Azure SQL Database**, follow these steps:
 
 1. Go to your Azure SQL Database resource.
-2. Select **Diagnostics settings**.
-3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+1. Select **Diagnostics settings**.
+1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
    - You can create up to three (3) parallel connections to stream diagnostics telemetry.
    - To configure parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting**.
 
    ![Enable diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
-4. Type a name for the setting for your own reference.
-5. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-6. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**.
-7. For an advanced, one-minute-based monitoring experience, select the check box for **AllMetrics**.
-8. Click on **Save**.
+1. Type in a name for the setting. This is for your own reference.
+1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
+1. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**.
+1. For an advanced, one-minute-based monitoring experience, select the check box for **AllMetrics**.
+1. Select **Save**.
 
    ![Configure diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
@@ -106,33 +106,34 @@ To enable streaming of diagnostics telemetry for **Azure SQL Database**, follow 
 
 To enable streaming of diagnostics telemetry for **databases in Managed Instance**, follow these steps:
 
-1. Go to your database in Managed Instance.
-2. Select **Diagnostics settings**.
-3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
-- Up to three (3) parallel connections to stream diagnostics telemetry can be created. To configure multiple parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting** to create an additional setting.
+1. Go to your database in a Managed Instance.
+1. Select **Diagnostics settings**.
+1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
+   - You can create up to three (3) parallel connections to stream diagnostics telemetry.
+   - To configure parallel streaming of diagnostics data to multiple resources, select **+Add diagnostic setting**.
 
    ![Enable diagnostics for Managed Instance database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-4. Type in the name for the setting - for your own reference
-5. Select to which resource to stream diagnostics data from the database: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
-6. Select checkboxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**
-7. Click on **Save**
+1. Type in a name for the setting. This is for your own reference.
+1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
+1. Select the check boxes for database diagnostics telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** and **Errors**.
+1. Select **Save**.
 
    ![Configure diagnostics for Managed Instance database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
 > [!TIP]
-> Repeat the above steps for each database in Managed Instance you wish to monitor.
+> Repeat the above steps for each database in the Managed Instance you wish to monitor.
 >
 
-## Enable logging for elastic pools or Managed Instance
+## Enable logging for elastic pools or Managed Instances
 
-Elastic pools and Managed Instances as database containers have its own diagnostics telemetry separate from databases. This diagnostics telemetry is not enabled by default. 
+You have to enable diagnostic telemetry for elastic pools and Managed Instances as database containers. They have their own diagnostics telemetry that isn't enabled by default.
 
 ### Configure streaming of diagnostics telemetry for elastic pools
 
    ![Elastic pool icon](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
 
-The following diagnostics telemetry is available for collection for elastic pools resource:
+The following diagnostics telemetry can be collected for elastic pool resource:
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
@@ -277,7 +278,7 @@ Read about how to [change diagnostics settings by using the Azure Monitor REST A
 
 ### Resource Manager template
 
-Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md).
 
 ## Stream into Azure SQL Analytics 
 
