@@ -2,21 +2,14 @@
 title: 'The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Docs'
 description: Advanced Analytics Process and Technology in Action
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.

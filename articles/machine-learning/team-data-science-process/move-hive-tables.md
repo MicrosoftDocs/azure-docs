@@ -1,22 +1,15 @@
 ---
 title: Create Hive tables and load data from Azure Blob Storage | Microsoft Docs
 description: Create Hive tables and load data in blob to hive tables
-services: machine-learning,storage
-documentationcenter: ''
+services: machine-learning
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-
 ---
 # Create Hive tables and load data from Azure Blob Storage
 

@@ -2,21 +2,14 @@
 title: Team Data Science Process for data scientists | Microsoft Docs
 description: Provides guidance to understand an analytics workload using the Team Data Science Process and Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-
 ---
 
 # Team Data Science Process for data scientists

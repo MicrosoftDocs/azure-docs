@@ -1,22 +1,15 @@
 ---
 title: Image classification with the Azure Machine Learning package for computer vision and Team Data Science Process (TDSP) | Microsoft Docs
 description: Describes the use of Team Data Science Process (TDSP) and the Azure Machine Learning package for computer vision for image classification.
-services: machine-learning, team-data-science-process
-documentationcenter: ''
+services: machine-learning
 author: deguhath
 ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-
 ---
 # Skin cancer image classification with the Azure Machine Learning package for computer vision and Team Data Science Process
 

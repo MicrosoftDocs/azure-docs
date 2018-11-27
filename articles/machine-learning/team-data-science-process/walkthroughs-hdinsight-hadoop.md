@@ -2,21 +2,14 @@
 title: HDInsight Hadoop data science walkthroughs using Hive on Azure  | Microsoft Docs
 description: Examples of the Team Data Science Process that walk through the use of Hive on Azure HDInsight Hadoop to do predictive analytics.
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid:
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-
 ---
 
 # HDInsight Hadoop data science walkthroughs using Hive on Azure 

@@ -5,13 +5,8 @@ services: machine-learning
 author: fboylu
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu

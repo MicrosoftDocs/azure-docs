@@ -1,21 +1,15 @@
-﻿---
+---
 title: Power BI dashboard for vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-
 ---
 # Vehicle Telemetry Analytics Solution Template Power BI dashboard setup instructions
 

@@ -1,21 +1,14 @@
 ---
 title: Execution of data science projects - Azure Machine Learning | Microsoft Docs
 description: How a data scientist can track the progress of a data science project.
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-
 ---
 
 

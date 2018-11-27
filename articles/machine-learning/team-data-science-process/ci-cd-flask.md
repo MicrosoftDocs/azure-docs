@@ -1,18 +1,12 @@
 ---
 title: "DevOps for Artificial Intelligence (AI) applications: Creating continous integration pipeline on Azure using Docker, Kubernetes & Python Flask application"
 description: "DevOps for Artificial Intelligence (AI) applications: Creating continous integration pipeline on Azure using Docker and Kubernetes"
-services: machine-learning, team-data-science-process
-documentationcenter: ''
+services: machine-learning
 author: jainr
-manager: deguhath
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr

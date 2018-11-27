@@ -2,21 +2,14 @@
 title: What is the Team Data Science Process? | Microsoft Docs
 description: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-
 ---
 # What is the Team Data Science Process?
 

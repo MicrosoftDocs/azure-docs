@@ -2,21 +2,14 @@
 title: The Team Data Science Process lifecycle - Azure | Microsoft Docs
 description: The steps needed to execute your data-science projects
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-
 ---
 # The Team Data Science Process lifecycle
 

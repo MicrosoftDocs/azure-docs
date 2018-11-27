@@ -1,18 +1,12 @@
 ---
 title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Azure DevOps Services"
 description: Data science code testing with UCI adult income prediction data
-services: machine-learning, team-data-science-process
-documentationcenter: ''
+services: machine-learning
 author: weig
-manager: deguhath
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
