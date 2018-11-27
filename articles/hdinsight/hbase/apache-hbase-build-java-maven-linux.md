@@ -3,14 +3,12 @@ title: Java HBase client - Azure HDInsight
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-
+ms.date: 11/27/2018
 ---
 # Build Java applications for Apache HBase
 
@@ -640,7 +638,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
 
     Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password.
 
-    This command creates a table named **people** in HBase on your HDInsight cluster. This command does not show any output in the console window.
+    This command creates a table named **people** in HBase on your HDInsight cluster. This command doesn't show any output in the console window.
 
 6. To search for entries in the table, use the following command:
 
@@ -667,7 +665,7 @@ Use the `-showErr` parameter to view the standard error (STDERR) that is produce
 
 ## Delete the table
 
-When you are done with the example, use the following to delete the **people** table used in this example:
+When you're done with the example, use the following to delete the **people** table used in this example:
 
 __From an `ssh` session__:
 
