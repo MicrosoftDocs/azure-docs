@@ -28,7 +28,6 @@ These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science
 Here are brief descriptions of what these walkthrough examples provide on their respective platforms:
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) These walkthrough tutorials and samples show how to create Team Data Science structured projects with Azure Machine Learning Workbench to do natural language processing and classification.
 - [HDInsight Spark walkthroughs using PySpark and Scala](walkthroughs-spark.md) These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics.
 - [HDInsight Hadoop walkthroughs using Hive](walkthroughs-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
 - [Azure Data Lake walkthroughs using U-SQL](walkthroughs-azure-data-lake.md) These walkthroughs use U-SQL with Azure Data Lake to do predictive analytics.
