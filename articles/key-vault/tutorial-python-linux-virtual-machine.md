@@ -1,5 +1,5 @@
 ---
-title: Tutorial - How to use Azure Key Vault with Azure Windows Virtual Machine in Python | Microsoft Docs
+title: Tutorial - How to use Azure Key Vault with Azure Linux Virtual Machine in Python | Microsoft Docs
 description: Tutorial Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
@@ -15,7 +15,7 @@ ms.author: pryerram
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial: How to use Azure Key Vault with Azure Windows Virtual Machine in Python
+# Tutorial: How to use Azure Key Vault with Azure Linux Virtual Machine in Python
 
 Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
 
@@ -96,13 +96,36 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 ```
 
 ## Create a Virtual Machine
-Follow the below links to create a Windows Virtual Machine
 
-[Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
+Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command.
 
-[Powershell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
 
-[Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
+
+```
+{
+  "fqdns": "",
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westus",
+  "macAddress": "00-00-00-00-00-00",
+  "powerState": "VM running",
+  "privateIpAddress": "XX.XX.XX.XX",
+  "publicIpAddress": "XX.XX.XXX.XXX",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
 
 ## Assign identity to Virtual Machine
 In this step we're creating a system assigned identity to the virtual machine by running the following command in Azure CLI
@@ -140,10 +163,10 @@ It uses [requests](http://docs.python-requests.org/master/) library to make HTTP
 ## Edit Sample.py
 After creating Sample.py open the file and copy the below code
 
-```
 The below is a 2 step process. 
 1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
 2. Pass the token to Key Vault and fetch your secret 
+
 ```
     # importing the requests library 
     import requests 
@@ -165,6 +188,7 @@ The below is a 2 step process.
 ```
 
 By running you should see the secret value 
+
 ```
 python Sample.py
 ```
