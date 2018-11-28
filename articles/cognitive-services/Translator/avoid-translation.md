@@ -29,7 +29,7 @@ Example:
 
 3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
 
-(4) Do not pass the string to translation.
+4. Don't pass the string to the Translator Text API for translation.
 
 (5) Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
