@@ -23,7 +23,7 @@ Azure Database for PostgreSQL has features that help you understand and improve 
 You need an Azure Database for PostgreSQL server with PostgreSQL version 9.6 or 10. You can follow the steps in the [Create tutorial](tutorial-design-database-using-azure-portal.md) to create a server.
 
 > [!IMPORTANT]
-> **Query Store**, **Query Performance Insight**, and **Performance Recommendation** are in Public Preview in a limited number of regions.
+> **Query Store**, **Query Performance Insight**, and **Performance Recommendation** are in Public Preview.
 
 ## Enabling data collection
 The [Query Store](concepts-query-store.md) captures a history of queries and wait statistics on your server and stores it in the **azure_sys** database on your server. It is an opt-in feature. To enable it:

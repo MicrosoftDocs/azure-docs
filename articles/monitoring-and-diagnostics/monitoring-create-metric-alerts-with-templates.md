@@ -236,7 +236,7 @@ Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
-  -TemplateFile simplemetricalert.json -TemplateParametersFile simplemetricalert.parameters.json
+  -TemplateFile simplemetricalert.json -TemplateParameterFile simplemetricalert.parameters.json
 ```
 
 
@@ -453,7 +453,7 @@ Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
-  -TemplateFile advancedmetricalert.json -TemplateParametersFile advancedmetricalert.parameters.json
+  -TemplateFile advancedmetricalert.json -TemplateParameterFile advancedmetricalert.parameters.json
 ```
 
 
@@ -763,7 +763,7 @@ Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile all-vms-in-resource-group.json -TemplateParametersFile all-vms-in-resource-group.parameters.json
+  -TemplateFile all-vms-in-resource-group.json -TemplateParameterFile all-vms-in-resource-group.parameters.json
 ```
 
 Using Azure CLI
@@ -1055,7 +1055,7 @@ Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile all-vms-in-subscription.json -TemplateParametersFile all-vms-in-subscription.parameters.json
+  -TemplateFile all-vms-in-subscription.json -TemplateParameterFile all-vms-in-subscription.parameters.json
 ```
 
 Using Azure CLI
@@ -1350,7 +1350,7 @@ Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
-  -TemplateFile list-of-vms.json -TemplateParametersFile list-of-vms.parameters.json
+  -TemplateFile list-of-vms.json -TemplateParameterFile list-of-vms.parameters.json
 ```
 
 Using Azure CLI
@@ -1366,5 +1366,5 @@ az group deployment create \
 ```
 
 ## Next steps
-* Read more about [alerts in Azure](monitoring-overview-unified-alerts.md)
+* Read more about [alerts in Azure](monitoring-overview-alerts.md)
 * Learn how to [create an action group with Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)

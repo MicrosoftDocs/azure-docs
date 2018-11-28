@@ -1,17 +1,16 @@
 ---
-title: Set up IP addressing to connect after failover to Azure with Azure Site Recovery | Microsoft Docs
-description: Describes how to set up IP addressing to connect to Azure VMs after failover from on-premises with Azure Site Recovery
+title: Set up IP addressing to connect after disaster recovery and failover to Azure with Azure Site Recovery | Microsoft Docs
+description: Describes how to set up IP addressing to connect to Azure VMs after disaster recovery and failover from on-premises with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
-# Set up IP addressing to connect after failover to Azure
+# Set up IP addressing to connect to Azure VMs after failover
 
 This article explains the networking requirements for connecting to Azure VMs, after using the [Azure Site Recovery](site-recovery-overview.md) service for replication and failover to Azure.
 
@@ -77,7 +76,7 @@ In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up
 
 ## Assigning new IP addresses
 
-This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
+This [blog post](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
 
 ## Next steps
 [Run a failover](site-recovery-failover.md)

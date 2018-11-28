@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Scale an application running in Service Fabric Mesh
 
-This tutorial is part two of a series. Learn how to manually scale the number service instances of an application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  When you're finished, you'll have .
+This tutorial is part two of a series. Learn how to manually scale the number service instances of an application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). When you're finished, you'll have a front-end service running three instances and a data service running two instances.
 
 In part two of the series, you learn how to:
 

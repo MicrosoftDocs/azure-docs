@@ -37,6 +37,10 @@ Currently, only the Remote Monitoring solution uses the microservices architectu
 
 Over the last two years, cloud architecture has greatly evolved. Microservices have emerged as a great pattern to achieve scale and flexibility, without sacrificing development speed. This architectural pattern is used in several Microsoft services internally with great reliability and scalability results. We are putting these learning in practice so that our customers benefit from them.
 
+### Where can I find information about the previous version of the Remote Monitoring solution?
+
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+
 ### Is the new solution accelerator available in the same geographic region as the existing solution?
 
 Yes, the new Remote Monitoring is available in the same geographic regions.
@@ -71,7 +75,7 @@ Currently, you cannot create a solution accelerator with a [Microsoft Azure for 
 
 ### How do I delete an AAD tenant?
 
-See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
 ### Next steps
 

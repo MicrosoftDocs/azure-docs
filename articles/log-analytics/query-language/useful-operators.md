@@ -26,7 +26,7 @@ The table below provides some common functions to use for different scenarios in
 Category								|Relevant Analytics Function
 ----------------------------------------|----------------------------------------
 Selection and Column aliases	     	|`project`, `project-away`, `extend`
-Temporary tables and constants	     	|`let scalar_alias_name = …;` <br> `let table_alias_name = (){ … &#124; … &#124; … };`
+Temporary tables and constants	     	|`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
 Comparison and String Operators	     	|`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
 Common string functions			     	|`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
 Common math functions			     	|`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`

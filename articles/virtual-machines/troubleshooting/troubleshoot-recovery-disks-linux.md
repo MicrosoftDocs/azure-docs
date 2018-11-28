@@ -1,4 +1,3 @@
-<<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
 
 title: Use a Linux troubleshooting VM with the Azure CLI | Microsoft Docs

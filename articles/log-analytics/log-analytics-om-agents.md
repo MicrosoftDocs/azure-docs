@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/23/2018
 ms.author: magoedte
 ms.component: 
 ---
 
 # Connect Operations Manager to Log Analytics
-To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your Log Analytics workspace. This allows you leverage the opportunities of Log Analytics while continuing to use Operations Manager to:
+To maintain your existing investment in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) and use extended capabilities with Log Analytics, you can integrate Operations Manager with your Log Analytics workspace. This allows you leverage the opportunities of Log Analytics while continuing to use Operations Manager to:
 
 * Monitor the health of your IT services with Operations Manager
 * Maintain integration with your ITSM solutions supporting incident and problem management
@@ -33,22 +33,25 @@ The following diagram shows the connection between the management servers and ag
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through an OMS Gateway to the Log Analytics service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).  
+If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to the Log Analytics service, see [Connect computers to Log Analytics using the Log Analytics gateway](log-analytics-oms-gateway.md).  
 
 ## Prerequisites 
 Before starting, review the following requirements.
 
 * Log Analytics only supports System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Connect computers from your environment to Log Analytics](log-analytics-concept-hybrid.md).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json).
 * You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Log Analytics for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
->A new management pack has been released for each version of Operations Manager:  
+>A new management pack has been released for the following versions of Operations Manager:
+>  
 >* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
->* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+>* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171)  
+>
+>This management pack update is not applicable to System Center Operations Manager 1807, which is an update release from version 1801 and not a full build of the product.   
 
 ### Network
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Log Analytics. Traffic from each component is outbound from your network to the Log Analytics service.   
@@ -65,7 +68,7 @@ The information below list the proxy and firewall configuration information requ
 |\*.blob.core.windows.net| 443| Yes|  
 |\*.ods.opinsights.azure.com| 443| Yes|  
 |*.azure-automation.net | 443| Yes|  
-|**Operations Manager console to OMS**|||  
+|**Operations Manager console to Log Analytics**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 and 443||  
@@ -92,12 +95,16 @@ During initial registration of your Operations Manager management group with a L
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-After completing the following steps to integrate with Log Analytics, you can remove the configuration by running `netsh winhttp reset proxy` and then use the **Configure proxy server** option in the Operations console to specify the proxy or OMS Gateway server. 
+After completing the following steps to integrate with Log Analytics, you can remove the configuration by running `netsh winhttp reset proxy` and then use the **Configure proxy server** option in the Operations console to specify the proxy or Log Analytics gateway server. 
 
 1. In the Operations Manager console, select the **Administration** workspace.
 1. Expand the Operations Management Suite node and click **Connection**.
 1. Click the **Register to Operations Management Suite** link.
 1. On the **Operations Management Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
+
+   >[!NOTE]
+   >OMS is now referred to as Log Analytics.
+   
 1. After you are successfully authenticated, on the **Operations Management Suite Onboarding Wizard: Select Workspace** page, you are prompted to select your Azure tenant, subscription, and Log Analytics workspace. If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
    
    > [!NOTE]
@@ -125,7 +132,7 @@ Perform the following steps if an internal proxy server is between the managemen
 1. In the OMS Connection view, click **Configure Proxy Server**.
 1. On **Operations Management Suite Wizard: Proxy Server** page, select **Use a proxy server to access the Operations Management Suite**, and then type the URL with the port number, for example, http://corpproxy:80 and then click **Finish**.
 
-If your proxy server requires authentication, perform the following steps to configure credentials and settings that need to propagate to managed computers that reports to OMS in the management group.
+If your proxy server requires authentication, perform the following steps to configure credentials and settings that need to propagate to managed computers that reports to Log Analytics in the management group.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Under **RunAs Configuration**, select **Profiles**.
@@ -139,7 +146,7 @@ If your proxy server requires authentication, perform the following steps to con
 After the connection is created and you configure which agents will collect and report data to Log Analytics, the following configuration is applied in the management group, not necessarily in order:
 
 * The Run As Account **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** is created. It is associated with the Run As profile **Microsoft System Center Advisor Run As Profile Blob** and is targeting two classes - **Collection Server** and **Operations Manager Management Group**.
-* Two connectors are created.  The first is named **Microsoft.SystemCenter.Advisor.DataConnector** and is automatically configured with a subscription that forwards all alerts generated from instances of all classes in the management group to Log Analytics. The second connector is **Advisor Connector**, which is responsible for communicating with OMS web service and sharing data.
+* Two connectors are created.  The first is named **Microsoft.SystemCenter.Advisor.DataConnector** and is automatically configured with a subscription that forwards all alerts generated from instances of all classes in the management group to Log Analytics. The second connector is **Advisor Connector**, which is responsible for communicating with Log Analytics and sharing data.
 * Agents and groups that you have selected to collect data in the management group is added to the **Microsoft System Center Advisor Monitoring Server Group**.
 
 ## Management pack updates
@@ -148,7 +155,7 @@ After configuration is completed, the Operations Manager management group establ
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - Updates the base Log Analytics management packs. Runs every 12 hours by default.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Runs every five (5) minutes by default.
 
-You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with OMS to determine if a new management pack is available and should be downloaded. Follow the steps [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules. Target the overrides to all objects of class Operations Manager Management Group.
+You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with Log Analytics to determine if a new management pack is available and should be downloaded. Follow the steps [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules. Target the overrides to all objects of class Operations Manager Management Group.
 
 To continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with a Log Analytics workspace to support this scenario. This allows you to review and evaluate the iterative releases of the Log Analytics management packs before releasing them into your production management group.
 
@@ -156,9 +163,9 @@ To continue following your existing change control process for controlling manag
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics** and then create a workspace.  
 1. Open the Operations Manager console with an account that is a member of the Operations Manager Administrators role and select the **Administration** workspace.
-1. Expand Operations Management Suite, and select **Connections**.
+1. Expand Log Analytics, and select **Connections**.
 1. Select the **Re-configure Operation Management Suite** link on the middle-side of the pane.
-1. Follow the **Operations Management Suite Onboarding Wizard** and enter the email address or phone number and password of the administrator account that is associated with your new Log Analytics workspace.
+1. Follow the **Log Analytics Onboarding Wizard** and enter the email address or phone number and password of the administrator account that is associated with your new Log Analytics workspace.
    
    > [!NOTE]
    > The **Operations Management Suite Onboarding Wizard: Select Workspace** page presents the existing workspace that is in use.
@@ -209,7 +216,7 @@ Management packs for the solutions you have enabled that integrate with Operatio
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
-1. In the OMS portal, click the **Settings** tile.
+1. In the Azure portal, click the **Settings** tile.
 1. Select **Connected Sources**.
 1. In the table under the System Center Operations Manager section, you should see the name of the management group you want to remove from the workspace. Under the column **Last Data**, click **Remove**.  
    
@@ -223,7 +230,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 
 ```
     .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SystemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 > [!NOTE]
@@ -323,6 +330,6 @@ In the future if you plan on reconnecting your management group to a Log Analyti
 * From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## Next steps
-To add functionality and gather data, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+To add functionality and gather data, see [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 

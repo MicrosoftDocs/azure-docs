@@ -1,15 +1,16 @@
 ---
 title: Speech Devices SDK license agreement
+titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK license agreement.
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 # Speech Devices SDK license agreement
 

@@ -2,17 +2,11 @@
 title: Quickstart for Microsoft Azure Data Box| Microsoft Docs
 description: Learn how to quickly deploy your Azure Data Box in Azure portal
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/04/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
@@ -31,7 +25,7 @@ Before you begin:
     - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
-    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
+    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 - Review the [safety guidelines for your Data Box](data-box-safety.md).

@@ -8,9 +8,9 @@
   items:
   - name: Create Basic Load Balancer - Portal
     href: quickstart-create-basic-load-balancer-portal.md
-  - name: Create Basic Load Balancer - Azure CLI 
+  - name: Create Basic Load Balancer - Azure CLI
     href: quickstart-create-basic-load-balancer-cli.md
-  - name: Create Basic Load Balancer - Azure PowerShell 
+  - name: Create Basic Load Balancer - Azure PowerShell
     href: quickstart-create-basic-load-balancer-powershell.md
   - name: Create Standard Load Balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
@@ -20,7 +20,7 @@
     href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutorials
   items:
-  - name: Create and manage Load Balancer
+  - name: Load balance internet traffic to VMs
     href: tutorial-load-balancer-standard-manage-portal.md
   - name: Load balance internal traffic to VMs
     href: tutorial-load-balancer-basic-internal-portal.md
@@ -29,7 +29,7 @@
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Configure port fowarding in Load Balancer
-    href: tutorial-load-balancer-port-forwarding-portal.md  
+    href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -81,7 +81,7 @@
   - name: Configure outbound rules
     href: configure-load-balancer-outbound-cli.md
   - name: Create an Azure Load Balancer using REST API
-    href: create-load-balancer-rest-api.md 
+    href: create-load-balancer-rest-api.md
   - name: Create Basic Load Balancer (Template)
     href: load-balancer-get-started-internet-arm-template.md
   - name: Create public Load Balancer with IPv6
@@ -146,7 +146,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer
+    href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
     href: /powershell/module/azurerm.network
   - name: Azure CLI

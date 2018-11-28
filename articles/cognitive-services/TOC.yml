@@ -8,6 +8,8 @@
     href: Welcome.md
   - name: Language support
     href: language-support.md
+  - name: Container support
+    href: cognitive-services-container-support.md
 - name: Quickstarts
   items:
   - name: Create an account
@@ -30,8 +32,6 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
-  - name: Language and region support
-    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Pricing calculator

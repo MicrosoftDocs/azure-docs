@@ -42,6 +42,24 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 | [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | This sample illustrates how an event hub can automatically scale up on high loads. The sample will send events at a rate that just exceed the configured rate of an event hub, causing the event hub to scale up. | 
 | [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | This sample allows measuring the ingress rate. | 
 
+## Python samples
+You can find Python samples for Azure Event Hubs in the [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub repository.
+
+## Node.js samples
+You can find Node.js samples for Azure Event Hubs in the [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub repository.
+
+## Go samples
+You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.
+
+## Azure CLI samples
+You can find Azure CLI samples for Azure Event Hubs in the [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub repository.
+
+## Azure PowerShell samples
+You can find Azure PowerShell samples for Azure Event Hubs in the [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub repository.
+ 
+## Apache Kafka samples
+You can find samples for the Event Hubs for Apache Kafka feature in the [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub repository.
+
 ## Next steps
 You can learn more about Event Hubs in the following articles:
 

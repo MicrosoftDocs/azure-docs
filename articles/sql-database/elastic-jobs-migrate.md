@@ -8,7 +8,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: johnpaulkee
-ms.author: johnpaulkee
+ms.author: joke
 ms.reviewer:
 manager: craigg
 ms.date: 06/14/2018

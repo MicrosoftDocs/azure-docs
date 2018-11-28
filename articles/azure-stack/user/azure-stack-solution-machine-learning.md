@@ -85,7 +85,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  An Azure Stack Integrated System or deployment of Azure Stack Development Kit.
 
-    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](../asdk/asdk-install.md).
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) This installation may require a few hours to complete.
 
  -  Deployment of [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack
@@ -206,7 +206,7 @@ Place the new DSVM in the same resource group as the newly created storage accou
 
     d.  For the **Diagnostics Storage Account**, select the storage account created earlier.
 
-    e.  Note: With AAD enabled and configured for the Azure Subscription, Managed Service Identity can be enabled as well.
+    e.  Note: With AAD enabled and configured for the Azure Subscription, managed identities for Azure resources can be enabled as well.
 
 2.  Select **OK**.
 
@@ -988,7 +988,7 @@ The Docker engine must be running locally to complete the following steps to ope
 1.  Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in the subscription. Register this resource provider before creating an environment in step 3. Check to see if it's already registered by using the following command:
 
     ```CLI
-        az provider list --query "\[\].{Provider:namespace, Status:registrationState}" --out table
+        az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
     ```
 
     View this output:
@@ -1171,7 +1171,7 @@ From within the Windows Subsystem for Linux Session use the following commands t
 
 ### Create a service principal in Azure AD
 
-1.  Sign in to the global [*Azure portal*](http://www.poartal.azure.com/).
+1.  Sign in to the global [*Azure portal*](http://portal.azure.com/).
 
 2.  Sign in using the Azure AD tenant associated with the Azure Stack instance.
 
@@ -1267,10 +1267,8 @@ From within the WSL Environment, run the following commands to install kubectl i
 
 ```Bash  
     apt-get update && apt-get install -y apt-transport-https
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-    cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-    deb http://apt.kubernetes.io/ kubernetes-xenial main
-    EOF
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+    sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     apt-get update
     apt-get install -y kubectl
 ```

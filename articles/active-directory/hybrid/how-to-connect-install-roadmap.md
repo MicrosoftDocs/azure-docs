@@ -14,14 +14,14 @@ ms.component: hybrid
 ms.author: billmath
 ---
 
-#Azure AD Connect and Azure AD Connect Health installation roadmap
+# Azure AD Connect and Azure AD Connect Health installation roadmap
 
 ## Install Azure AD Connect
 
 > [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
 
-You can find the download for Azure AD Connect on [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+You can find the download for Azure AD Connect on [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solution | Scenario |
 | --- | --- |
@@ -36,7 +36,7 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 ### Next steps to Install Azure AD Connect
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Install using Express settings | [Express installation of Azure AD Connect](./how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
@@ -136,12 +136,12 @@ To get started with Azure AD Connect Health, use the following steps:
 ## Download and install Azure AD Connect Health Agent
 * Make sure that you [satisfy the requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
-    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Download Azure AD Connect Health Agent for AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for sync
-    * [Download and install the latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
+    * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
 * Get started using Azure AD Connect Health for AD DS
-    * [Download Azure AD Connect Health Agent for AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Download Azure AD Connect Health Agent for AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 
@@ -164,7 +164,6 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 
 ## Next Steps
 
-
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
@@ -173,6 +172,3 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
 - [Install Azure AD Connect Health agents](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-
-
-

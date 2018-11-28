@@ -118,7 +118,7 @@ The following example skillset uses the OCR skill to extract text from images em
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

@@ -2,18 +2,12 @@
 title: Copy data to  your Microsoft Azure Data Box| Microsoft Docs
 description: Learn how to copy data to your Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -84,11 +78,11 @@ If you are using a Windows Server host computer, perform the following steps to 
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer.
+4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer. You should now be able to see the shares as folders.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. You should now be able to see the shares as folders. Create a folder for the files that you intend to copy (in this case templates). Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
+5.  **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -236,11 +230,13 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
  - Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
 
     `sudo apt-get install cifs-utils`
+
     `sudo apt-get install nfs-utils`
 
  -  Install **Rsync**, and **Parallel** (varies depending on the Linux distributed version).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Create a mount point.

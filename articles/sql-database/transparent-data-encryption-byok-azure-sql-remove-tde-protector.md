@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: becczhang
-ms.author: rebeccaz
+author: aliceku
+ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 08/07/2017

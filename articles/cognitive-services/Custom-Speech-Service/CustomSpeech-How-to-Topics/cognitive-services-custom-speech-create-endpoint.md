@@ -1,20 +1,20 @@
 ---
-title: Create a custom speech endpoint - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Learn how to create a custom speech-to-text endpoint with the Custom Speech Service.
+title: Create a custom speech endpoint with Custom Speech Service on Azure | Microsoft Docs
+description: Learn how to create a custom speech-to-text endpoint with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Create a custom speech-to-text endpoint
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint. 
 
 ## Create an endpoint

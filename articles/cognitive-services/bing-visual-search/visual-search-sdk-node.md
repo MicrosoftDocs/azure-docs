@@ -24,11 +24,21 @@ Code scenarios are documented under the following headings:
 
 ## Prerequisites
 
-* A Cognitive Services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with one call per second. For production scenarios, [buy an access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
 
 ## Application dependencies
 
-* Run `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch`.
+To set up a console application using the Bing Visual Search SDK:
+* Run `npm install ms-rest-azure`
+* Run `npm install azure-cognitiveservices-search-visualSearch`.
 
 <a name="client"></a>
 ## Visual Search client
@@ -215,7 +225,7 @@ function sample() {
         },
         async function () {
             let imageInfo = { url: "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80" };
-            let filters = { site: "www.bing.com" };
+            let filters = { site: "pinterest.com" };
             let knowledgeRequest = { filters: filters };
             let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo, knowledgeRequest: knowledgeRequest });
             let visualSearchResults;
@@ -261,7 +271,7 @@ function sample() {
             }
         },
         async function () {
-            var imageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+            var imageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
             let cropArea = { top: 0.1, bottom: 0.5, left: 0.1, right: 0.9 };
             let imageInfo = { imageInsightsToken: imageInsightsToken, cropArea: cropArea };
             let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo });

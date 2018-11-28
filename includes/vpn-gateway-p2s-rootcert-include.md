@@ -16,4 +16,4 @@ You can use either a root certificate that was generated using an enterprise sol
 
   * [Windows 10 PowerShell instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md): These instructions require Windows 10 and PowerShell to generate certificates. Client certificates that are generated from the root certificate can be installed on any supported P2S client.
   * [MakeCert instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert if you don't have access to a Windows 10 computer to use to generate certificates. MakeCert deprecated, but you can still use MakeCert to generate certificates. Client certificates that are generated from the root certificate can be installed on any supported P2S client.
-  * [Linux instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)
+  * [Linux instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)

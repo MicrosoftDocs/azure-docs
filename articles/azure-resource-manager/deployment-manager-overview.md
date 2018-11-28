@@ -13,13 +13,13 @@ ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
 ---
-# Enable safe deployment practices with Azure Deployment Manager (Public Preview)
+# Enable safe deployment practices with Azure Deployment Manager (Private Preview)
 
 To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](resource-group-authoring-templates.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
 
 Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings. 
 
-Azure Deployment Manager is in public preview. To use Azure Deployment Manager, complete the [sign-up form](https://aka.ms/admsignup). Help up improve the feature by providing [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager is in private preview. To use Azure Deployment Manager, complete the [sign-up form](https://aka.ms/admsignup). Help up improve the feature by providing [feedback](https://aka.ms/admfeedback).
 
 To use Deployment Manager, you need to create four files:
 
@@ -30,9 +30,11 @@ To use Deployment Manager, you need to create four files:
 
 You deploy the topology template before deploying the rollout template.
 
+The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 ## Supported locations
 
-For the public preview, Deployment Manager resources are supported in Central US and East US 2. When you define resources in your topology and rollout templates, such as the service units, artifact sources, and rollouts described in this article, you must specify one of those regions for the location. However, the resources that you deploy to create your service, such as the virtual machines, storage accounts, and web apps, are supported in all of their [standard locations](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+For the preview, Deployment Manager resources are supported in Central US and East US 2. When you define resources in your topology and rollout templates, such as the service units, artifact sources, and rollouts described in this article, you must specify one of those regions for the location. However, the resources that you deploy to create your service, such as the virtual machines, storage accounts, and web apps, are supported in all of their [standard locations](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
 
 ## Identity and access
 

@@ -24,6 +24,8 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 
 ![Manage protocols and ciphers in APIM](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Prerequisites
 
 To follow the steps in this article, you must have:
@@ -41,5 +43,5 @@ To follow the steps in this article, you must have:
 
 ## Next steps
 
-* Learn more about [TLS (Transport Layer Security)](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls).
+* Learn more about [TLS (Transport Layer Security)](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.

@@ -2,12 +2,10 @@
   href: index.md
 - name: Allocation failures
   items:
-  - name: Allocation failures 
+  - name: Allocation failures
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
-- name: Boot diagnostics
-  href: boot-diagnostics.md
 - name: RDP
   items:
   - name: Reset RDP
@@ -16,10 +14,44 @@
     href: troubleshoot-rdp-connection.md
   - name: Detailed RDP troubleshooting
     href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot RDP error because the DHCP is disabled
+    href: troubleshoot-rdp-dhcp-disabled.md
+  - name: Troubleshoot RDP error because of the NSG setting
+    href: troubleshoot-rdp-nsg-problem.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
-- name: SSH 
-  items: 
+  - name: Troubleshoot no license server errors
+    href: troubleshoot-rdp-no-license-server.md
+  - name: Troubleshoot remote desktop services issues
+    href: troubleshoot-remote-desktop-services-issues.md
+  - name: Troubleshoot An internal error
+    href: Troubleshoot-rdp-internal-error.md
+  - name: Troubleshoot connection disconnects frequently
+    href: troubleshoot-rdp-intermittent-connectivity.md
+  - name: Troubleshoot a general error
+    href: troubleshoot-rdp-general-error.md
+  - name: Troubleshoot authentication errors
+    href: troubleshoot-authentication-error-rdp-vm.md
+  - name: Troubleshoot Azure VM RDP connection issues by Event ID
+    href: event-id-troubleshoot-vm-rdp-connecton.md
+  - name: Troubleshoot RDP error in VM because of static IP
+    href: troubleshoot-rdp-static-ip.md
+  - name: Troubleshoot RDP error in VM because the NIC is disabled
+    href: troubleshoot-rdp-nic-disabled.md
+  - name: Troubleshoot RDP error caused by Safe Mode
+    href: troubleshoot-rdp-safe-mode.md
+  - name: Disable the guest OS Firewall in Azure VM
+    href: disable-guest-os-firewall-windows.md
+  - name: Enable or disable a firewall rule on a guest OS
+    href: enable-disable-firewall-rule-guest-os.md
+  - name: Guest OS firewall is blocking inbound traffic
+    href: guest-os-firewall-blocking-inbound-traffic.md
+  - name: Guest OS firewall is misconfigured
+    href: guest-os-firewall-misconfigured.md 
+  - name: Troubleshoot RDP error caused by netvsc.sys
+    href: troubleshoot-rdp-driver-netvsc.md
+- name: SSH
+  items:
   - name: SSH troubleshooting
     href: troubleshoot-ssh-connection.md
   - name: Detailed SSH troubleshooting
@@ -27,8 +59,8 @@
 - name: Common error messages
   href: error-messages.md
 - name: Performance issues with Windows VMs
-  href: performance-diagnostics.md  
-  items: 
+  href: performance-diagnostics.md
+  items:
   - name: How to use PerfInsights
     href: how-to-use-perfInsights.md
   - name: Performance diagnostics extension
@@ -42,7 +74,7 @@
   - name: Windows
     href: redeploy-to-new-node-windows.md
 - name: Reset VM password
-  items:    
+  items:
   - name: Windows
     href: reset-local-password-without-agent.md
   - name: Linux
@@ -60,21 +92,21 @@
       href: serial-console-grub-single-user-mode.md
     - name: Serial Console NMI/SysRq
       href: serial-console-nmi-sysrq.md
-  - name: Windows VM   
+  - name: Windows VM
     href: serial-console-windows.md
     items:
     - name: CMD and PowerShell commands
       href: serial-console-cmd-ps-commands.md
 - name: Errors when deleting storage resources
-  href: storage-resource-deletion-errors.md      
-- name: Unexpected reboots of VMs with attached VHDs  
+  href: storage-resource-deletion-errors.md
+- name: Unexpected reboots of VMs with attached VHDs
   href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
 - name: New VM deployments
-  items: 
+  items:
     - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
     - name: Windows
@@ -104,15 +136,27 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
-  - name: BitLocker errors 
-    href: troubleshoot-bitlocker-boot-error.md  
+  - name: Boot diagnostics
+    href: boot-diagnostics.md
+  - name: BitLocker errors
+    href: troubleshoot-bitlocker-boot-error.md
   - name: Checking file system errors
     href: troubleshoot-check-disk-boot-error.md
   - name: Blue screen errors
     href: troubleshoot-common-blue-screen-error.md
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: Critical service failed
+    href: troubleshoot-critical-service-failed-boot-error.md
+  - name: Reboot loop
+    href: troubleshoot-reboot-loop.md
+  - name: Stuck at Windows update
+    href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
-- name: Use nested virtualization 
+- name: Use nested virtualization
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Understand a system reboot
   href: understand-vm-reboot.md
+- name: Remote troubleshooting tools
+  href: remote-tools-troubleshoot-azure-vm-issues.md

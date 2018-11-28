@@ -5,9 +5,10 @@ description: A list of supported languages and regions for the Bing Autosuggest 
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ---

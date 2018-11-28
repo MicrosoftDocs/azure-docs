@@ -1,0 +1,94 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure SQL Database - Advanced Security
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - Advanced Security
+  meta.description: Learn about the Advanced security capabilities of Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang:
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+sections:
+
+- items:
+  - type: paragraph
+    text: Azure SQL Database has advanced built-in security features that help to protect your databases.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - title: Overview
+        href: /azure/sql-database/sql-database-security-overview
+        html: <p>Azure SQL Database provides a set of advanced security features that can help you make your data secure.</p>
+      - title: Threat detection
+        href: /azure/sql-database/sql-database-threat-detection
+        html: <p>Detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.</p>
+      - title: Vulnerability assessment
+        href: /azure/sql-database/sql-vulnerability-assessment
+        html: <p>Vulnerability assessment enables you to discover, track, and remediate potential database vulnerabilities.</p>
+      - title: Encryption as rest
+        href: /azure/sql-database/transparent-data-encryption-azure-sql
+        html: <p>Transparent data encryption (TDE) ensures that information in your databases are transparently encrypted.</p>
+      - title: Data discovery and classification
+        href: /azure/sql-database/sql-database-data-discovery-and-classification
+        html: <p>Data discovery and classification enables you to discover, classify, label, and protect the sensitive data in your databases.</p>
+      - title: Azure Active Directory
+        href: /azure/sql-database/sql-database-aad-authentication
+        html: <p>Azure SQL Database enables you to connect to your database by using identities in Azure Active Directory (Azure AD).</p>
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Setup and manage security features in Azure SQL Database using the Azure portal, Azure CLI, or PowerShell:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/portal.svg
+        title: The Azure portal
+      - image:
+          src: media/index/cli.svg
+        title: Azure CLI
+      - image:
+          src: media/index/logo_powershell.svg
+        title: PowerShell
+    rows:
+      - title: Setup Threat Detection on Single Database
+        values:
+          - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
+          - href: 
+          - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
+      - title: Setup Threat Detection on Managed Instance
+        values:
+          - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
+          - href:
+          - href:
+      - title: Setup Firewall rules on Single database
+        values:
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-powershell
+      - title: Manage Vulnerability Assessments rules
+        values:
+          - href:
+          - href:
+          - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
+- title: More resources
+  items:
+  - type: paragraph
+    text: Azure SQL Database provides a set of additional built-in features that you can improve security of your databases.
+  - type: list
+    style: ordered
+    items:
+    - html: Threat protection in <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">Managed Instances</a> and <a href="/azure/sql-database/sql-database-threat-detection">databases</a> detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+    - html: Auditing for <a href="/azure/sql-database/sql-database-managed-instance-auditing">Managed Instances</a> and <a href="/azure/sql-database/sql-database-auditing">databases</a> tracks database events and writes them to an audit log in your Azure storage account, OMS workspace or Event Hubs.
+    - html: <a href="/azure/sql-database/sql-database-firewall-configure">Firewall rules</a> in single databases enable you to controll what IP addresses can access your database.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet integration</a> in Managed Instance enables you to put the databases in your own private address space.
+    - html: <a href="/azure/sql-database/sql-database-always-encrypted">Always encrypted</a> protects sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system.
+    - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Dynamic data masking</a> helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer.

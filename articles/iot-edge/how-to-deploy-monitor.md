@@ -3,7 +3,7 @@ title: Deploy, monitor modules for Azure IoT Edge | Microsoft Docs
 description: Manage the modules that run on edge devices
 keywords: 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
@@ -34,11 +34,11 @@ Before you can create a deployment, you have to be able to specify which devices
 }
 ```
 
-For more information about device twins and tags, see [Understand and use device twins in IoT Hub][lnk-device-twin].
+For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## Create a deployment
 
-1. In the [Azure portal][lnk-portal], go to your IoT hub. 
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 1. Select **IoT Edge**.
 1. Select **Add IoT Edge Deployment**.
 
@@ -72,7 +72,7 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Select **IoT Edge Module**.
 1. Give your module a **Name**.
 1. For the **Image URI** field, enter the container image for your module. 
-1. Specify any **Container Create Options** that should be passed to the container. For more information, see [docker create][lnk-docker-create].
+1. Specify any **Container Create Options** that should be passed to the container. For more information, see [docker create](https://docs.docker.com/engine/reference/commandline/create/).
 1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
    * **Always** - The module always restarts if it shuts down for any reason.
    * **Never** - The module never restarts if it shuts down for any reason.
@@ -112,11 +112,11 @@ Review your deployment information, then select **Submit**.
 
 To view the details of a deployment and monitor the devices running it, use the following steps:
 
-1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
 1. Select **IoT Edge**.
 1. Select **IoT Edge deployments**. 
 
-   ![View IoT Edge deployments][1]
+   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Inspect the deployment list. For each deployment, you can view the following details:
    * **ID** - the name of the deployment.
@@ -139,11 +139,11 @@ If you update the target condition, the following updates occur:
 
 To modify a deployment, use the following steps: 
 
-1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
 1. Select **IoT Edge**.
 1. Select **IoT Edge deployments**. 
 
-   ![View IoT Edge deployments][1]
+   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Select the deployment that you want to modify. 
 1. Make updates to the following fields: 
@@ -151,17 +151,17 @@ To modify a deployment, use the following steps:
    * Labels 
    * Priority 
 1. Select **Save**.
-1. Follow the steps in [Monitor a deployment][anchor-monitor] to watch the changes roll out. 
+1. Follow the steps in [Monitor a deployment](#monitor-a-deployment) to watch the changes roll out. 
 
 ## Delete a deployment
 
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
 
-1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
 1. Select **IoT Edge**.
 1. Select **IoT Edge deployments**. 
 
-   ![View IoT Edge deployments][1]
+   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Use the checkbox to select the deployment that you want to delete. 
 1. Select **Delete**.
@@ -169,16 +169,4 @@ When you delete a deployment, any devices take on their next highest priority de
 
 ## Next steps
 
-Learn more about [Deploying modules to Edge devices][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Learn more about [Deploying modules to Edge devices](module-deployment-monitoring.md).

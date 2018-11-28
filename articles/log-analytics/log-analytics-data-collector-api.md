@@ -97,7 +97,7 @@ The samples in the next sections have sample code to help you create an authoriz
 ## Request body
 The body of the message must be in JSON. It must include one or more records with the property name and value pairs in this format:
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -110,7 +110,7 @@ The body of the message must be in JSON. It must include one or more records wit
 
 You can batch multiple records together in a single request by using the following format. All the records must be the same record type.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -197,7 +197,7 @@ This table lists the complete set of status codes that the service might return:
 To query data submitted by the Log Analytics HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, then you'd return all records with **Type=MyCustomLog_CL**.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-queries.md), then the above query would change to the following.
 
 > `MyCustomLog_CL`
 
@@ -214,7 +214,7 @@ For each sample, do these steps to set the variables for the authorization heade
 Alternatively, you can change the variables for the log type and JSON data.
 
 ### PowerShell sample
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -297,7 +297,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### C# sample
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -383,7 +383,7 @@ namespace OIAPIExample
 ```
 
 ### Python 2 sample
-```
+```python
 import json
 import requests
 import datetime
@@ -466,6 +466,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## Next steps
-- Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+- Use the [Log Search API](log-analytics-queries.md) to retrieve data from the Log Analytics repository.
 
 - Learn more about how [create a data pipeline with the Data Collector API](log-analytics-create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.

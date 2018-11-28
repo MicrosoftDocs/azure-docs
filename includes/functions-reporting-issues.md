@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
 | Item | Description | Link |
 | --- | --- | --- |
 | Runtime |Script Host, Triggers & Bindings, Language Support |[File an Issue](https://github.com/Azure/azure-webjobs-sdk-script/issues) |

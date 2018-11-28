@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: container-instances
-author: mmacy
+author: dlepow
 
 ms.service: container-instances
 ms.topic: include
 ms.date: 03/20/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: include file
 ---
 

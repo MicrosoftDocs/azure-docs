@@ -11,9 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 09/13/2018 
-ms.author: jeffgilb 
-ms.reviewer: jeffgo
+ms.date: 11/15/2018
+ms.author: jeffgilb
+ms.reviewer: quying
 ---
 
 # Deploy the MySQL resource provider on Azure Stack
@@ -38,10 +38,11 @@ There are several prerequisites that need to be in place before you can deploy t
 
 * The resource provider has a minimum corresponding Azure Stack build.
 
-    | Minimum Azure Stack version | MySQL RP version|
-    | --- | --- |
-    | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    |     |     |
+  |Minimum Azure Stack version|MySQL RP version|
+  |-----|-----|
+  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+  |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
 
 * Ensure datacenter integration prerequisites are met:
 
@@ -100,8 +101,8 @@ To eliminate any manual configuration when deploying the resource provider, you 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.4.0
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  

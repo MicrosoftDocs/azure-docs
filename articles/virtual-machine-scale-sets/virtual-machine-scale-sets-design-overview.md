@@ -4,7 +4,7 @@ description: Learn about design considerations for your Azure Virtual Machine Sc
 keywords: linux virtual machine,virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: negat
+ms.author: manayar
 
 ---
 # Design Considerations For Scale Sets
@@ -29,8 +29,8 @@ Generally, scale sets are useful for deploying highly available infrastructure w
 
 - Once you specify the scale set configuration, you can update the *capacity* property to deploy more VMs in parallel. This process is better than writing a script to orchestrate deploying many individual VMs in parallel.
 - You can [use Azure Autoscale to automatically scale a scale set](./virtual-machine-scale-sets-autoscale-overview.md) but not individual VMs.
-- You can [reimage scale set VMs](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) but [not individual VMs](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- You can [overprovision](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
+- You can [reimage scale set VMs](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) but [not individual VMs](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- You can [overprovision](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
 - You can specify an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md) to make it easy to roll out upgrades across VMs in your scale set. With individual VMs, you must orchestrate updates yourself.
 
 ### VM-specific features

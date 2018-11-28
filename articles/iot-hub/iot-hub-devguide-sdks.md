@@ -39,7 +39,7 @@ Azure IoT Hub device SDK for C, written in ANSI C (C99) for portability and broa
 
 * Install from [apt-get, MBED, Arduino IDE, or Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Source code](https://github.com/Azure/azure-iot-sdk-c)
-* [API reference](https://azure.github.io/azure-iot-sdk-c/index.html)
+* [API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Module reference](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub device SDK for Java: 
@@ -60,13 +60,13 @@ Azure IoT Hub device SDK for Python:
 
 * Install from [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
 * [Source code](https://github.com/Azure/azure-iot-sdk-python)
-* API reference: see [C API reference](https://azure.github.io/azure-iot-sdk-c/index.html)
+* API reference: see [C API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 Azure IoT Hub device SDK for iOS: 
 
 * Install from [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Samples](https://github.com/Azure-Samples/azure-iot-samples-ios)
-* API reference: see [C API reference](https://azure.github.io/azure-iot-sdk-c/index.html)
+* API reference: see [C API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
@@ -162,4 +162,4 @@ Other reference topics in this IoT Hub developer guide include:
 * [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md)
 * [IoT Hub REST API reference](/rest/api/iothub/)
-* [Auzre IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
+* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)

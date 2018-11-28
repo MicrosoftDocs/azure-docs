@@ -2,12 +2,12 @@
 title: Tutorial - Automate container image builds on base image update with Azure Container Registry Tasks
 description: In this tutorial, you learn how to configure a task to automatically trigger container image builds in the cloud when a base image is updated.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want container
 # images to be built automatically when the base image of a container is

@@ -34,6 +34,12 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
 
 To use dependency visualization, you need to download and install agents on each on-premises machine that you want to analyze.  
 
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine.
+- The [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) needs to be installed on each machine.
+- In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
+
+You don't need these agents on machines you want to assess unless you're using dependency visualization.
+
 ## Do I need to pay for it?
 
 Azure Migrate is available at no additional charge. Use of the dependency visualization feature in Azure Migrate requires Service Map and requires you to associate a Log Analytics workspace, either new or existing, with the Azure Migrate project. The dependency visualization functionality in Azure Migrate is free for the first 180 days in Azure Migrate.

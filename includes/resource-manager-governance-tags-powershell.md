@@ -81,6 +81,18 @@ To combine several values in a single tag, use a JSON string.
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
+To add a new tag with several values without losing the existing tags, you must retrieve the existing tags, use a JSON string for the new tag, and reapply the collection of tags:
+
+```azurepowershell-interactive
+# Get existing tags and add a new tag
+$ResourceGroup = Get-AzureRmResourceGroup -Name myResourceGroup
+$Tags = $ResourceGroup.Tags
+$Tags.Add("CostCenter", "{`"Dept`":`"IT`",`"Environment`":`"Test`"}")
+
+# Reapply the updated set of tags
+$ResourceGroup | Set-AzureRmResourceGroup -Tag $Tags
+```
+
 To remove all tags, you pass an empty hash table.
 
 ```azurepowershell-interactive

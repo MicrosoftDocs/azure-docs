@@ -30,8 +30,49 @@ Topic |  Details
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
 
-Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
+
+## 1.2.67.0
+
+### Release status 
+
+11/19/2018:  Released for download
+
+### Fixed issues
+
+This hotfix build fixes a regression in the previous build where Password Writeback fails when using an ADDS Domain Controller on Windows Server 2008/R2.
+
+## 1.2.65.0 
+
+### Release status 
+
+10/25/2018:  released for download
+
+ 
+### New features and improvements 
+
+
+- Changed the  functionality of attribute write-back to ensure hosted voice-mail is working as expected.  Under certain scenarios, Azure AD was overwriting the msExchUcVoicemailSettings attribute during write-back with a null value.  Azure AD will now no longer clear the on-premises value of this attribute if the cloud value is not set.
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to Azure AD. These same diagnostics can also be run directly through Powershell using the Test- AdSyncAzureServiceConnectivity Cmdlet. 
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through Powershell using the Start-ConnectivityValidation function in the ADConnectivityTools Powershell module.  For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
+- Added an AD schema version pre-check for Hybrid Azure Active Directory Join and device write-back 
+- Changed the Directory Extension page attribute search to be non-case sensitive.
+-	Added full support for TLS 1.2. This release supports all other protocols being disabled and only TLS 1.2 being enabled on the machine where Azure AD Connect is installed.  For more information see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
+
+ 
+
+### Fixed issues   
+
+- Fixed a bug where Azure AD Connect Upgrade would fail if SQL Always On was being used. 
+- Fixed a bug to correctly parse OU names that contain a forward slash. 
+- Fixed an issue where Pass-Through Authentication would be disabled for a clean install in staging mode. 
+- Fixed a bug that prevented the PowerShell module to be loaded when running the Troubleshooting tools 
+- Fixed a bug that would block customers from using numeric values in the first character of a host name. 
+- Fixed a bug where Azure AD Connect would allow invalid partitions and container selection 
+- Fixed the “Invalid Password” error message when Desktop SSO is enabled. 
+- Various Bug fixes for AD FS Trust Management  
+- When configuring Device Writeback - fixed the schema check to look for the msDs-DeviceContainer object class (introduced on WS2012 R2)
 
  
 ## 1.1.882.0  
@@ -107,7 +148,7 @@ New features and improvements
 
 ### Fixed issues 
 
-- This release updates the SQL Server Express installation to SQL Server 2012 SP4, which, among others, provides fixes for several security vulnerabilities.  Please see [here](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) for more information about SQL Server 2012 SP4.
+- This release updates the SQL Server Express installation to SQL Server 2012 SP4, which, among others, provides fixes for several security vulnerabilities.  Please see [here](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) for more information about SQL Server 2012 SP4.
 - Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent sync rule is no longer applicable
 - Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
 - Azure AD Connect Wizard: Error creating AD Connector account when Azure AD Connect is in a workgroup

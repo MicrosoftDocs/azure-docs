@@ -9,12 +9,12 @@
 ## [Set up your dev environment](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [Use AAD auth to access API](media-services-use-aad-auth-to-access-ams-api.md)
-### [Use portal to manage AAD auth](media-services-portal-get-started-with-aad.md)
+## [Use Azure AD auth to access API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Use portal to manage Azure AD auth](media-services-portal-get-started-with-aad.md)
 ### [Access API with .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Access API with REST](media-services-rest-connect-with-aad.md)
-### [Use Azure CLI to create and configure AAD app](media-services-cli-create-and-configure-aad-app.md)
-### [Use Azure PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
+### [Use Azure CLI to create and configure Azure AD app](media-services-cli-create-and-configure-aad-app.md)
+### [Use Azure PowerShell to create and configure Azure AD app](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Deliver video on demand
 ### [Azure portal](media-services-portal-vod-get-started.md)
@@ -64,6 +64,7 @@
 ##### [Customize Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
 ##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
+##### [Generate a thumbnail sprite](generate-thumbnail-sprite.md)
 #### MES Schemas
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
@@ -232,7 +233,7 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)
+## [REST](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 ## Specifications
 ### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 ### [Live Ingest - Signaling Timed Metadata in Live Streaming](media-services-specifications-live-timed-metadata.md)

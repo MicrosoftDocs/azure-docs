@@ -68,7 +68,7 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 
 3. Navigate to folder `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
-4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
+4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
 
 5. To shrink the database, at the sqlcmd prompt (1>), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the next line.
 

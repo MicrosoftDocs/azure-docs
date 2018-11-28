@@ -15,28 +15,28 @@
     href: quickstart.md
 - name: Tutorials
   items:
-  - name: Find insights at the edge
-    items: 
-    - name: Filter data with Azure Functions
-      href: tutorial-deploy-function.md
-    - name: Find averages with ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Score data with Azure ML
-      href: tutorial-deploy-machine-learning.md
-    - name: Filter data with custom code
-      items:
-      - name: C#
-        href: tutorial-csharp-module.md
-      - name: Python
-        href: tutorial-python-module.md
-      - name: Node.js
-        href: tutorial-node-module.md
-      - name: Java
-        href: tutorial-java-module.md
-      - name: C
-        href: tutorial-c-module.md
+  - name: Filter data with Azure Functions
+    href: tutorial-deploy-function.md
+  - name: Find averages with ASA
+    href: tutorial-deploy-stream-analytics.md
+  - name: Score data with Azure ML
+    href: tutorial-deploy-machine-learning.md
+  - name: Classify images with Custom Vision
+    href: tutorial-deploy-custom-vision.md
   - name: Store data locally with SQL
     href: tutorial-store-data-sql-server.md
+  - name: Develop custom code modules
+    items:
+    - name: C#
+      href: tutorial-csharp-module.md
+    - name: Python
+      href: tutorial-python-module.md
+    - name: Node.js
+      href: tutorial-node-module.md
+    - name: Java
+      href: tutorial-java-module.md
+    - name: C
+      href: tutorial-c-module.md
 - name: Concepts
   items: 
   - name: IoT Edge runtime
@@ -91,6 +91,8 @@
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: IoT Core
       href: how-to-install-iot-core.md
+    - name: Update the runtime version
+      href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items: 
     - name: Linux
@@ -133,10 +135,10 @@
       href: how-to-deploy-monitor-cli.md
   - name: Use Edge devices as gateways
     items:
-    - name: Transparent gateway (Linux)
-      href: how-to-create-transparent-gateway-linux.md
-    - name: Transparent gateway (Windows)
-      href: how-to-create-transparent-gateway-windows.md
+    - name: Configure a transparent gateway
+      href: how-to-create-transparent-gateway.md
+    - name: Connect a downstream device
+      href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
   - name: Configure proxy support
@@ -201,8 +203,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing

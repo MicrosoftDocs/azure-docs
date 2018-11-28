@@ -26,7 +26,16 @@ Code scenarios are documented under the following headings:
 * [Tags, actions, and actionType](#tags-actions)
 
 ## Application dependencies
-* A cognitive services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with 1 call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
+ 
 * If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 * The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
 ```
@@ -223,14 +232,14 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## KnowledgeRequest parameter
 
-The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter. Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
+The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:pinterest.com\" filter. Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
 ```
 def search_url_with_filters(client_in, sub_key):
 
     client = client_in
 
     image_url = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80"
-    filters = Filters(site="www.bing.com")
+    filters = Filters(site="pinterest.com")
 
     knowledge_request = VisualSearchRequest(
         image_info=ImageInfo(url=image_url),
@@ -277,7 +286,7 @@ The following code sends an image insights token in the knowledgeRequest paramet
 ```
     client = client_in
 
-    image_insights_token = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145"
+    image_insights_token = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D"
     crop_area = CropArea(top=0.1,bottom=0.5,left=0.1,right=0.9)
 
     knowledge_request = VisualSearchRequest(

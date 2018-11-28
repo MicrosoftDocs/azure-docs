@@ -1,12 +1,14 @@
 ---
-title: Project Answer Search reference - Microsoft Cognitive Services | Microsoft Docs
+title: Project Answer Search reference
+titlesuffix: Azure Cognitive Services
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ---

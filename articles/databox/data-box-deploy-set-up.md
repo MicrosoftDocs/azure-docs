@@ -2,18 +2,12 @@
 title: Set up your Azure Data Box| Microsoft Docs
 description: Learn how to cable and connect your Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 11/26/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -32,7 +26,9 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**. There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
+    - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+    - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
 3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
 4. You have received one grounded power cord to use with your 100-TB storage device.
 5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
@@ -88,7 +84,9 @@ Perform the following steps to set up your device using the local web UI and the
 
     ![Device dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
-Once the device setup is complete, you can connect to the device shares and copy the data from your computer to the device. 
+Once the data network interfaces are configured, you can also use the IP address of any of the DATA 1 - DATA 3 interfaces to access the local web UI at `https://<IP address of a data network interface>`. 
+
+After the device setup is complete, you can connect to the device shares and copy the data from your computer to the device. 
 
 ## Next steps
 

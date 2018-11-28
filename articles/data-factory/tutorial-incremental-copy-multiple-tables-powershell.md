@@ -600,7 +600,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     							"referenceName": "SinkDataset",
     							"type": "DatasetReference",
     							"parameters": {
-    								"SinkTableName": "@{item().TABLE_NAME}"
+    								"SinkTableName": "@{item().TableType}"
     							}
     						}]
     					},

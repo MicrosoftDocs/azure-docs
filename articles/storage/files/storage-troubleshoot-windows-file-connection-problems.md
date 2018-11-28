@@ -6,7 +6,7 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
 ---
@@ -26,20 +26,21 @@ When you try to mount a file share from on-premises or from a different datacent
 
 ### Cause 1: Unencrypted communication channel
 
-For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Communication channel encryption is provided only if the user's client OS supports SMB encryption.
+For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. Communication channel encryption is provided only if the user's client OS supports SMB encryption.
 
 Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
 
 ### Solution for cause 1
 
-Connect from a client that does one of the following:
+1. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account.
+2. Connect from a client that does one of the following:
 
-- Meets the requirements of Windows 8 and Windows Server 2012 or later versions
-- Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
+    - Meets the requirements of Windows 8 and Windows Server 2012 or later versions
+    - Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
 
 ### Cause 2: Port 445 is blocked
 
-System error 53 or system error 67 can occur if port 445 outbound communication to an Azure Files datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+System error 53 or system error 67 can occur if port 445 outbound communication to an Azure Files datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 To understand whether this is the reason behind the "System error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
@@ -182,6 +183,24 @@ To copy a file over the network, you must first decrypt it. Use one of the follo
   - Value = 1
 
 Be aware that setting the registry key affects all copy operations that are made to network shares.
+
+## Slow enumeration of files and folders
+
+### Cause
+
+This problem can occur if there is no enough cache on client machine for large directories.
+
+### Solution
+
+To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry value  to allow caching of larger directory listings in the client machine:
+
+- Location: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Value mane: DirectoryCacheEntrySizeMax 
+- Value type:DWORD
+ 
+ 
+For example, you can set it to 0x100000 and see if the performance become better.
+
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

@@ -8,8 +8,8 @@ manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/07/2018
 ms.author: diberry
 ---
 # Enable active learning by reviewing endpoint utterances
@@ -31,7 +31,7 @@ Endpoint utterances are taken from end-user queries on the application’s HTTP 
 Reviewing suggested utterances doesn't need to be done every day but should be part of your regular maintenance of LUIS. 
 
 ## Delete review items programmatically
-If your app is large, you may choose to review some utterances and delete the rest from the list programmatically. This is done by first [getting](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) the list and then [deleting](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) the utterances by ID.
+Use the **[delete unlabelled utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Back up these utterances before deletion by **[exporting the log files](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
 ## Next steps
 

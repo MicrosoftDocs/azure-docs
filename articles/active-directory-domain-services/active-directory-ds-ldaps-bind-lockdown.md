@@ -3,7 +3,7 @@ title: Bind using Secure LDAP (LDAPS) to an Azure AD Domain Services managed dom
 description: Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
@@ -34,8 +34,8 @@ Next, bind to the managed domain. Click **Connection** and click **Bind...** in 
 Select **View**, and then select **Tree** in the menu. Leave the Base DN field blank, and click OK. Navigate to the container that you want to search, right-click the container, and select Search.
 
 > [!TIP]
-> - Users and groups synchronized from Azure AD are stored in the **AADDC Users** container. The search path for this container looks like ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Computer accounts for computers joined to the managed domain are stored in the **AADDC Computers** container. The search path for this container looks like ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Users and groups synchronized from Azure AD are stored in the **AADDC Users** organizational unit. The search path for this organizational unit looks like ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Computer accounts for computers joined to the managed domain are stored in the **AADDC Computers** organizational unit. The search path for this organizational unit looks like ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

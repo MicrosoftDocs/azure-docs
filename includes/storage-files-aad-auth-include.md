@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 09/19/2018
+ ms.date: 10/22/2018
  ms.author: tamram
  ms.custom: include file
 ---
@@ -17,6 +17,7 @@ Azure AD authenticates an identity such as a user, group, or service principal w
 As part of the preview, Azure Files also supports preserving, inheriting, and enforcing [NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) on all files and directories in a file share. If you copy data from a file share to Azure Files, or vice versa, you can specify that NTFS DACLs are maintained. In this way you can implement backup scenarios using Azure Files, preserving your NTFS DACLS between your on-premises file share and your cloud file share. 
 
 > [!NOTE]
-> Azure AD authentication over SMB is not supported for Linux VMs for the preview release. Only Windows Server VMs are supported.
->
-> Azure AD authentication is available only for storage accounts created after September 24, 2018.
+> - Azure AD authentication over SMB is not supported for Linux VMs for the preview release. Only Windows Server VMs are supported.
+> - Azure AD authentication over SMB is not supported for on-premises machines accessing Azure Files.
+> - Azure AD authentication is available only for storage accounts created after September 24, 2018.
+> - Azure AD authentication over SMB and NTFS ACL persistent is not supported on Azure file shares managed by Azure File Sync Service. 

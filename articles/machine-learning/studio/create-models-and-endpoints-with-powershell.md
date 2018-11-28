@@ -1,13 +1,13 @@
 ---
-title: Create multiple models from one experiment | Microsoft Docs
+title: Create multiple models from one experiment - Azure Machine Learning Studio | Microsoft Docs
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
-
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
 ms.component: studio
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-
 ---
-# Create many Machine Learning models and web service endpoints from one experiment using PowerShell
+# Azure Machine Learning Studio: Use PowerShell to create many models and web service endpoints from one experiment
+
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio using just a single experiment.
 
 For example, let's say you own a global bike rental franchise business. You want to build a regression model to predict the rental demand based on historic data. You have 1,000 rental locations across the world and you've collected a dataset for each location. They include important features such as date, time, weather, and traffic that are specific to each location.
 
 You could train your model once using a merged version of all the datasets across all locations. But, each of your locations has a unique environment. So a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, and more.
 
-That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning with each one representing a unique location. Besides being an overwhelming task, it's also seems inefficient since each experiment would have all the same components except for the training dataset.
+That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
 Fortunately, you can accomplish this by using the [Azure Machine Learning retraining API](retrain-models-programmatically.md) and automating the task with [Azure Machine Learning PowerShell](powershell-module.md).
 
@@ -57,7 +57,7 @@ There are other ways you could have done this. You can use a SQL query with a we
 Now, let's run this training experiment using the default value *rental001.csv* as the training dataset. If you view the output of the **Evaluate** module (click the output and select **Visualize**), you can see you get a decent performance of *AUC* = 0.91. At this point, you're ready to deploy a web service out of this training experiment.
 
 ## Deploy the training and scoring web services
-To deploy the training web service, click the **Set Up Web Service** button below the experiment canvas and select **Deploy Web Service**. Call this web service ""Bike Rental Training".
+To deploy the training web service, click the **Set Up Web Service** button below the experiment canvas and select **Deploy Web Service**. Call this web service "Bike Rental Training".
 
 Now you need to deploy the scoring web service.
 To do this, click **Set Up Web Service** below the canvas and select **Predictive Web Service**. This creates a scoring experiment.
@@ -65,7 +65,7 @@ You need to make a few minor adjustments to make it work as a web service. Remov
 
 To save yourself that work, you can open the [predictive experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that has already been prepared.
 
-To deploy the web service, run the predictive experiment, then click the **Deploy Web Service** button below the canvas. Name the scoring web service "Bike Rental Scoring"".
+To deploy the web service, run the predictive experiment, then click the **Deploy Web Service** button below the canvas. Name the scoring web service "Bike Rental Scoring".
 
 ## Create 10 identical web service endpoints with PowerShell
 This web service comes with a default endpoint. But you're not as interested in the default endpoint since it can't be updated. What you need to do is to create 10 additional endpoints, one for each location. You can do this with PowerShell.

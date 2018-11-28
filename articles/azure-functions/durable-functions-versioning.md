@@ -118,11 +118,23 @@ The task hub can be configured in the *host.json* file as follows:
 
 ```json
 {
-    "durableTask": {
-        "HubName": "MyTaskHubV2"
+    "extensions": {
+        "durableTask": {
+            "HubName": "MyTaskHubV2"
+        }
     }
 }
 ```
+
+> [!NOTE]
+> For V1 Functions, *host.json* should be configured like this instead
+>```json
+>{
+>    "durableTask": {
+>        "HubName": "MyTaskHubV2"
+>    }
+>}
+>```
 
 The default value is `DurableFunctionsHub`.
 

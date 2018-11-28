@@ -60,7 +60,38 @@ If you are not seeing any output, contact the respective subscription admin to g
 
 ## In which Azure regions are traffic analytics available?
 
-You can use traffic analytics for NSGs in any of the following supported regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
+You can use traffic analytics for NSGs in any of the following supported regions:
+- Canada Central
+- West Central US
+- East US
+- East US 2
+- North Central US
+- South Central US
+- Central US
+- West US
+- West US 2
+- West Europe
+- North Europe
+- Brazil South
+- UK West
+- UK South
+- Australia East
+- Australia Southeast 
+- Southeast Asia
+- Central India
+- South India
+- Japan East
+
+The Log Analytics workspace must exist in the following regions:
+- Canada Central
+- West Central US
+- East US
+- West Europe
+- UK South
+- Australia Southeast
+- Southeast Asia 
+- Central India
+- Japan East
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -74,9 +105,9 @@ Yes.
 
 Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## Can my Azure Storage Account be in one subscription and my Operations Management Suite workspace be in a different subscription?
+## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
-Yes, your Azure Storage account can be in one subscription, and your Operations Management Suite workspace can be in a different subscription.
+Yes, your Azure Storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
 
 ## Can I store raw logs in a different subscription?
 
@@ -112,7 +143,7 @@ If problems persist, raise concerns in the [User voice forum](https://feedback.a
 
 You might see this message because:
 - Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
-- You are using the free version of the Operations Management Suite workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
+- You are using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

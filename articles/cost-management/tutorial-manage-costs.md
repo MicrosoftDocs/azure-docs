@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: 
+manager: benshy
 ---
 
 # Tutorial: Manage costs by using Cloudyn
@@ -56,7 +56,7 @@ On the **Cost Allocation 360** page, select **Add** and then enter a name and de
 
 
 
-The example shows that $14,444 is uncategorized (without tags).
+The example shows that $19,680 is uncategorized (without tags).
 
 Next, select **Uncategorized Resources** and select services that have unallocated costs. Then, define rules to allocate costs.
 

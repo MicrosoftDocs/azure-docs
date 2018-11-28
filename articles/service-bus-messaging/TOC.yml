@@ -29,8 +29,6 @@
       href: service-bus-python-how-to-use-queues.md
     - name: Send and receive messages - Ruby
       href: service-bus-ruby-how-to-use-queues.md
-    - name: Send and receive messages - REST
-      href: /rest/api/servicebus/queues    
   - name: Services Bus topics and subscriptions
     items:
     - name: Publish and subscribe for messages - .NET
@@ -117,8 +115,6 @@
         href: service-bus-amqp-overview.md
       - name: .NET
         href: service-bus-amqp-dotnet.md
-      - name: Java
-        href: service-bus-amqp-java.md
       - name: Java Message Service and AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP protocol guide
@@ -178,6 +174,10 @@
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Create a namespace with topic, subscription, and rule
         href: service-bus-resource-manager-namespace-topic-with-rule.md
+  - name: Troubleshoot
+    items:
+    - name: Exceptions
+      href: service-bus-messaging-exceptions.md
 - name: Reference
   items:
   - name: .NET
@@ -188,12 +188,12 @@
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Node.js
+    href: /javascript/api/overview/azure/service-bus
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicebus
   - name: REST
     href: /rest/api/servicebus
-  - name: Exceptions
-    href: service-bus-messaging-exceptions.md
   - name: Quotas
     href: service-bus-quotas.md
   - name: SQLFilter syntax

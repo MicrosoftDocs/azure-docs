@@ -1,13 +1,14 @@
 ---
 title: Cognitive Services Speech Devices SDK third-party notice
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: Azure Cognitive Services
 description: Information about third-party tools
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ---
@@ -267,7 +268,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     * SUCH DAMAGE.
     * 
-    * The licence and distribution terms for any publically available version or
+    * The licence and distribution terms for any publicly available version or
     * derivative of this code cannot be changed.  i.e. this code cannot simply be
     * copied and put under another distribution licence
     * [including the GNU Public Licence.]

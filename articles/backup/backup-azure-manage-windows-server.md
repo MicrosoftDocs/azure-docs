@@ -291,4 +291,4 @@ A3. Yes. In the following situations, notifications are not sent.
 ## Next steps
 * [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 * To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
-* Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Visit the [Azure Backup Forum](https://go.microsoft.com/fwlink/p/?LinkId=290933)

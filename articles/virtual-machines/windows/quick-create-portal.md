@@ -68,7 +68,7 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 
-3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\\*username*, enter password you created for the virtual machine, and then click **OK**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as **localhost**\\*username*, enter password you created for the virtual machine, and then click **OK**.
 
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to create the connection.
 

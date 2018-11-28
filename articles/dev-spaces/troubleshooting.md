@@ -4,13 +4,12 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: zr-msft
+ms.author: zarhoads
 ms.date: "09/11/2018"
 ms.topic: "article"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
 ---
 # Troubleshooting guide
 
@@ -59,9 +58,9 @@ On the command line:
 
 When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
  
-    ```cmd
-    azds up --verbose --output json
-    ```
+```cmd
+azds up --verbose --output json
+```
 
 In Visual Studio:
 
@@ -70,6 +69,23 @@ In Visual Studio:
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
     
+You may see this error when attempting to use a multi-stage Dockerfile. The verbose output will look like this:
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+This is because AKS nodes run an older version of Docker that does not support multi-stage builds. You will need to rewrite your Dockerfile to avoid multi-stage builds.
+
 ## DNS name resolution fails for a public URL associated with a Dev Spaces service
 
 When DNS name resolution fails, you might see a "Page cannot be displayed" or "This site cannot be reached" error in your web browser when attempting to connect to the public URL associated with a Dev Spaces service.
@@ -200,6 +216,24 @@ Someone with Owner or Contributor access to the Azure subscription can run the f
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## "Error: could not find a ready tiller pod" when launching Dev Spaces
+
+### Reason
+This error occurs if the Helm client can no longer talk to the Tiller pod running in the cluster.
+
+### Try:
+Restarting the agent nodes in your cluster usually resolves this issue.
+
+## Azure Dev Spaces proxy can interfere with other pods running in a dev space
+
+### Reason
+When you enable Dev Spaces on a namespace in your AKS cluster, an additional container called _mindaro-proxy_ is installed in each of the pods running inside that namespace. This container intercepts calls to the services in the pod, which is integral to Dev Spaces' team development capabilities.
+
+Unfortunately, it can interfere with certain services running in those pods. Specifically, it interferes with pods running Redis cache, causing connection errors and failures in master/slave communication.
+
+### Try:
+You can move the affected pod(s) to a namespace inside the cluster that does _not_ have Dev Spaces enabled, while continuing to run the rest of your application inside a Dev Spaces-enabled namespace. Dev Spaces will not install the _mindaro-proxy_ container inside non-Dev Spaces enabled namespaces.
 
 ## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container 
 

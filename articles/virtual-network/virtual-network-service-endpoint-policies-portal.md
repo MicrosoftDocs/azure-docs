@@ -60,7 +60,7 @@ Sign in to the Azure portal at http://portal.azure.com.
    
    ![Create service endpoint policy definitions](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Optional: Enter or select, the following information in **Tabs**
+5. Optional: Enter or select, the following information in **Tags**
    
    - Key     : Select your key for the policy. Ex: Dept     
    - Value   : Enter value pair for the key. Ex: Finance

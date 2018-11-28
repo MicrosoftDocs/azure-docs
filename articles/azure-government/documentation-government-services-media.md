@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.assetid: 1143caf9-b9b0-4a07-ae51-1d0b88022c17
 ms.service: azure-government
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/25/2018
+ms.date: 10/22/2018
 ms.author: juliako
 
 ---
 # Azure Government Media Services 
  
-For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
-
 Azure Media Services (AMS) v2 is currently generally available in Azure Government.
+
+Azure Media Services v3 is currently not available in Azure Government.
+
+For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
 
 ## Connecting  
 
@@ -29,7 +31,7 @@ For information on how to connect to AMS v2, see [connecting to AMS](../media-se
 
 ## Variations
 
-The following features are not currently available in Azure Government:
+The following AMS v2 features are currently not available in Azure Government:
 
 ### Analyzing
 
@@ -38,6 +40,10 @@ The "Azure Media Indexer 2 Preview" Azure Media Analytics media processor is not
 ### CDN integration
 
 There is no CDN integration with streaming endpoints in Azure Government DCs.
+
+### Live encoding
+
+Live encoding is not available in Azure Government.
 
 ## Next steps
 For supplemental information and updates, subscribe to the

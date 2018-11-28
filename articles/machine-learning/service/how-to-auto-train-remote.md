@@ -106,7 +106,7 @@ def get_data():
 
 ## Configure experiment
 
-Specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
+Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
 
 In the settings, `run_configuration` is set to the `run_config` object, which contains the settings and configuration for the DSVM.  
 
@@ -137,7 +137,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## Submit training experiment
 
-Now submit the configuration to automatically select the algorithm, hyper parameters, and train the model. (Learn [more information about settings]() for the `submit` method.)
+Now submit the configuration to automatically select the algorithm, hyper parameters, and train the model.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -199,7 +199,7 @@ Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs.
 
 ## Example
 
-The `automl/03.auto-ml-remote-execution.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
+The [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article.  Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

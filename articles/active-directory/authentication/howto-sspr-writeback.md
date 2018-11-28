@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,6 +31,12 @@ The following steps assume you have already configured Azure AD Connect in your 
 8. When you see the configuration finish, select **Exit**.
 
 For common troubleshooting tasks related to password writeback, see the section [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
+
+> [!WARNING]
+> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
+>
+> To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## Active Directory permissions
 
@@ -63,13 +69,14 @@ To set up the appropriate permissions for password writeback to occur, complete 
 3. In the left panel, right-click the object that represents the root of the domain and select **Properties** > **Security** > **Advanced**.
 4. From the **Permissions** tab, select **Add**.
 5. Pick the account that permissions are being applied to (from the Azure AD Connect setup).
-6. In the **Applies to** drop-down list, select **Descendent user** objects.
-7. Under **Permissions**, select the boxes for the following:
-    * **Reset password**
+6. In the **Applies to** drop-down list, select **Descendant User objects**.
+7. Under **Permissions**, select the boxes for the following options:
     * **Change password**
+    * **Reset password**
+8. Under **Properties**, select the boxes for the following options:
     * **Write lockoutTime**
     * **Write pwdLastSet**
-8. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+9. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
 
 ## Next steps
 

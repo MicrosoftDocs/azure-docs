@@ -103,7 +103,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+    href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: Concepts
@@ -116,6 +116,8 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Roles and permissions
+    href: concepts-roles-permissions.md
   - name: Understanding pricing
     href: pricing-concepts.md
   - name: Naming rules
@@ -156,6 +158,8 @@
       href: connector-azure-search.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
+    - name: Azure SQL Database Managed Instance
+      href: connector-azure-sql-database-managed-insance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
@@ -180,8 +184,6 @@
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
-    - name: GE Historian
-      href: connector-odbc.md#ge-historian-source
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
@@ -240,7 +242,7 @@
       href: connector-postgresql.md
     - name: Presto
       href: connector-presto.md
-    - name: QuickBooks
+    - name: QuickBooks Online
       href: connector-quickbooks.md
     - name: Salesforce
       href: connector-salesforce.md
@@ -340,6 +342,8 @@
       href: compute-linked-services.md
   - name: Control flow
     items:
+    - name: Append Variable Activity
+      href: control-flow-append-variable-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
@@ -352,6 +356,8 @@
       href: control-flow-if-condition-activity.md
     - name: Lookup Activity
       href: control-flow-lookup-activity.md
+    - name: Set Variable Activity
+      href: control-flow-set-variable-activity.md
     - name: Until Activity
       href: control-flow-until-activity.md
     - name: Wait Activity
@@ -398,6 +404,8 @@
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
+    - name: Shared self-hosted integration runtime
+      href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages with Execute SSIS Package activity
@@ -451,7 +459,7 @@
   - name: FAQ
     href: frequently-asked-questions.md
   - name: Roadmap
-    href: https://azure.microsoft.com/en-us/roadmap/?tag=data-factory
+    href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

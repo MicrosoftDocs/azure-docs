@@ -39,7 +39,7 @@ You can:
 
 Monitoring agents are installed on multiple servers, both on-premises and in Azure. The agents communicate with each other, but do not send data, they send TCP handshake packets. The communication between the agents allows Azure to map the network topology and path the traffic could take.
 
-1. Create an NPM Workspace. This is the same as an OMS Workspace.
+1. Create an NPM Workspace. This is the same as a Log Analytics workspace.
 2. Install and configure software agents: 
     * Install monitoring agents on the on-premises servers and the Azure VMs (for private peering).
     * Configure settings on the monitoring agent servers to allow the monitoring agents to communicate. (Open firewall ports, etc.)
@@ -59,10 +59,10 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **OMS Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
-3. On the **OMS Workspace** page, select **Create New**, then configure the following settings:
+2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **Log Analytics Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
+3. On the **Log Analytics Workspace** page, select **Create New**, then configure the following settings:
 
-  * OMS Workspace - Type a name for your Workspace.
+  * Log Analytics Workspace - Type a name for your Workspace.
   * Subscription - If you have multiple subscriptions, choose the one you want to associate with the new Workspace.
   * Resource group - Create a resource group, or use an existing one.
   * Location - This location is used to specify the location of the storage account that is used for the agent connection logs.
@@ -82,9 +82,9 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 ### <a name="download"></a>2.1: Download the agent setup file
 
-1. Go to the **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install OMS Agents** section, and download the setup file.
+1. Go to the **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install Log Analytics Agents** section, and download the setup file.
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
-3. From the **Configure OMS Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
+3. From the **Configure Log Analytics Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
   ![PowerShell script](.\media\how-to-npm\7.png)
 
@@ -113,7 +113,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
     ![Account](.\media\how-to-npm\10.png)
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
-8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Log Analytics (OMS). When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Log Analytics. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
 
 9. Repeat this procedure for each VNET that you need to be monitored.
 

@@ -2,18 +2,12 @@
 title: Ship Microsoft Azure Data Box back| Microsoft Docs
 description: Learn how to ship your Azure Data Box to Microsoft
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -54,11 +48,16 @@ After the verification is complete, the Data Box is connected to the network in 
 
 Once the copy is complete, order status updates to **Completed**.
 
-Verify that your data is in the storage account(s) before you delete it from the source. 
+Verify that your data is in the storage account(s) before you delete it from the source. When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+
+- For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
 ## Erasure of data from Data Box
  
- Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
 
 ## Next steps
 

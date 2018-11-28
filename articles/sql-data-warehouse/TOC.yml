@@ -17,7 +17,12 @@
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
+  href: release-notes.md
   items:
+    - name: October 2018 
+      href: release-notes-october-2018.md
+    - name: September 2018 
+      href: release-notes-september-2018.md
     - name: August 2018 
       href: release-notes-august-2018.md
     - name: July 2018 
@@ -75,6 +80,8 @@
       href: sql-data-warehouse-auditing-overview.md
     - name: Column-level security
       href: column-level-security.md
+    - name: Row-level security
+      href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
   - name: Data loading
     items:
     - name: Overview
@@ -235,14 +242,22 @@
       href: manage-compute-with-azure-functions.md
   - name: Integrate
     items:
-    - name: Configure SQL Database elastic query
-      href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
-    - name: Add an Azure Stream Analytics job
-      href: sql-data-warehouse-integrate-azure-stream-analytics.md
     - name: Use machine learning
       href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-    - name: Visualize with Power BI
-      href: sql-data-warehouse-get-started-visualize-with-power-bi.md
+    - name: Build data pipelines
+      items:
+      - name: Connect with Fivetran
+        href: fivetran-quickstart.md
+      - name: Get started with Striim
+        href: striim-quickstart.md
+      - name: Add an Azure Stream Analytics job
+        href: sql-data-warehouse-integrate-azure-stream-analytics.md
+    - name: Build dashboards and reports 
+      items:
+      - name: Configure SQL Database elastic query
+        href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+      - name: Visualize with Power BI
+        href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 - name: Reference
   items:
   - name: T-SQL

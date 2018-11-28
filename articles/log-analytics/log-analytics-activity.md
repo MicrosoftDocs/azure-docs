@@ -50,8 +50,8 @@ Unlike most other Log Analytics solutions, data isn't collected for activity log
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
+| [Windows agents](log-analytics-agent-windows.md) | No | The solution does not collect information from Windows agents. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collect information from Azure storage. |
 
@@ -63,7 +63,7 @@ Unlike most other Log Analytics solutions, data isn't collected for activity log
 
 Perform the following steps to configure the Activity Log Analytics solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 2. Configure activity logs to go to your Log Analytics workspace.
     1. In the Azure portal, select your workspace and then click **Azure Activity log**.
     2. For each subscription, click the subscription name.  
@@ -71,8 +71,7 @@ Perform the following steps to configure the Activity Log Analytics solution for
     3. In the *SubscriptionName* blade, click **Connect**.  
         ![connect subscription](./media/log-analytics-activity/subscription-connect.png)
 
-If you add the solution using the OMS portal, you'll see the following tile. Sign in to the Azure portal to connect an Azure subscription to your workspace.  
-![performing assessment](./media/log-analytics-activity/tile-performing-assessment.png)
+Sign in to the Azure portal to connect an Azure subscription to your workspace.  
 
 ## Using the solution
 
@@ -97,5 +96,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](log-analytics-alerts-creating.md) when a specific activity happens.
-- Use [Log Search](log-analytics-log-searches.md) to view detailed information from your activity logs.
+- Create an [alert](../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
+- Use [Log Search](log-analytics-queries.md) to view detailed information from your activity logs.

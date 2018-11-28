@@ -76,7 +76,7 @@ This updates includes the following:
 
 * **Azure Data Lake Tools** for Visual Studio is now merged into the Azure SDK for .NET release. The tool is automatically installed when you install Azure SDK. 
   
-    The tool is updated frequently, go [here](http://aka.ms/datalaketool) to get the updates.
+    The tool is updated frequently, go [here](https://aka.ms/datalaketool) to get the updates.
 * **Server Explorer** now enables you to view all and create some U-SQL metadata entities. For more information, see [this](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 ## HDInsight Tools

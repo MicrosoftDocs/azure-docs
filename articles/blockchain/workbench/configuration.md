@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -15,7 +15,7 @@ manager: femila
 
  Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
 
-Configuration metadata specifies the following information for each blockchain application: 
+Configuration metadata specifies the following information for each blockchain application:
 
 * Name and description of the blockchain application
 * Unique roles for users who can act or participate within the blockchain application
@@ -67,17 +67,44 @@ Supported data types.
 
 | Type | Description |
 |-------|-------------|
-| address  | Blockchain address type, such as *contracts* or *users* |
-| bool     | Boolean data type |
-| contract | Address of type contract |
-| enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). |
-| int      | Integer data type |
-| money    | Money data type |
-| state    | Workflow state |
-| string   | String data type |
-| user     | Address of type user |
-| time     | Time data type |
+| address  | Blockchain address type, such as *contracts* or *users*. |
+| array    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. Use **ElementType** to specify the datatype of the elements within the array. See [example configuration](#example-configuration-of-type-array). |
+| bool     | Boolean data type. |
+| contract | Address of type contract. |
+| enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). See [example configuration and use in Solidity](#example-configuration-of-type-enum). |
+| int      | Integer data type. |
+| money    | Money data type. |
+| state    | Workflow state. |
+| string  | String data type. 4000 character maximum. See [example configuration](#example-configuration-of-type-string). |
+| user     | Address of type user. |
+| time     | Time data type. |
 |`[ Application Role Name ]`| Any name specified in application role. Limits users to be of that role type. |
+
+### Example configuration of type array
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### Using a property of type array
+
+If you define a property as type array in configuration, you need to include an explicit get function to return the public property of the array type in Solidity. For example:
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### Example configuration of type string
 

@@ -1,20 +1,19 @@
 ---
-title: Service meters and quotas - Custom Speech
-titlesuffix: Azure Cognitive Services
+title: Custom Speech Service meters and quotas on Azure | Microsoft Docs
 description: Information about meters and quotas of Custom Speech Service on Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Custom Speech Service meters and quotas
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 With cloud-based Custom Speech Service, you can customize speech models for speech-to-text transcription.
 

@@ -7,9 +7,9 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 11/27/2018
 ms.author: diberry
 ---
 

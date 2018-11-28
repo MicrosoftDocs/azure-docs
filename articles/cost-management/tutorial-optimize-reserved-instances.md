@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: 
+manager: benshy
 ---
 
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
@@ -120,7 +120,7 @@ When you purchase a reservation, you make a one-time payment. There are two ways
 
 The Actual Cost Analysis and Analysis Over Time reports show the full amount that you paid for the reservation, starting in the month of purchase. They help you see your actual spending over a period.
 
-Navigate to **Cost** > **Cost Analysis** > in the Cloudyn portal and then select either **Actual Cost Analysis** or **Actual Cost Over Time**. Set the filters next. For example, filter just Azure/VM service and group by Resource Type and Price Model. See the following image:
+Navigate to **Costs** > **Cost Analysis** > in the Cloudyn portal and then select either **Actual Cost Analysis** or **Actual Cost Over Time**. Set the filters next. For example, filter just Azure/VM service and group by Resource Type and Price Model. See the following image:
 
 ![Actual cost of reserved instance](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -138,7 +138,7 @@ The amortized reserved instance cost is calculated by taking the reservation one
 
 In the Actual Cost report, you saw a spike for an RI purchase on November 16 of $747. In the Amortized Cost report (see the following image), there's a partial day cost on November 16. Starting on November 17 you see the amortized RI cost of $747/365 = $2.05. Incidentally, you also notice that the purchased reservation is unused, so you can optimize it by switching it to a different VM size.
 
-To view it, navigate to **Cost** > **Cost Analysis** > and then select **Amortized Cost Analysis** or **Amortized Cost Over Time**.
+To view it, navigate to **Costs** > **Cost Analysis** > and then select **Amortized Cost Analysis** or **Amortized Cost Over Time**.
 
 ![Amortized reserved instance cost](./media/tutorial-optimize-reserved-instances/azure07.png)
 

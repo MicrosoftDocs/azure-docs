@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of classic alerts in Microsoft Azure and Azure Monitor
 description: Classic alerts are being deprecated. Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
 author: rboucher
@@ -24,7 +24,7 @@ In the past Azure Monitor, Application Insights, Log Analytics and Service Healt
 
 You can view classic alerts only in the classic alerts user screen in the Azure Portal. You get this screen from the **View classic alerts** button on the alerts screen. 
 
- ![Alert choices in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Alert choices in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 The new alerts user experience has the following benefits over the classic alerts experience:
 -	**Better notification system** - All newer alerts use action groups, which are named groups of notifications and actions that can be reused in multiple alerts. Classic metric alerts and older Log Analytics alerts do not use action groups.
@@ -35,7 +35,7 @@ The new alerts user experience has the following benefits over the classic alert
 -   **Smart Alerts consolidation** and **setting alert state**  -  Newer alerts include auto grouping functionality showing similar alerts together to reduce overload in the user interface. 
 
 The newer metric alerts have the following benefits over the classic metric alerts:
--	**Improved latency**: Newer metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes. Newer alerts have increasing smaller delay from issue occurance to notification or action (3 to 5 minutes). Older alerts are 5 to 15 minutes depending on the type.  Log alerts typically have 10 to 15 minute delay due to the time is takes to ingest the logs, but newer processing methods is reducing that time. 
+-	**Improved latency**: Newer metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes. Newer alerts have increasing smaller delay from issue occurrence to notification or action (3 to 5 minutes). Older alerts are 5 to 15 minutes depending on the type.  Log alerts typically have 10 to 15 minute delay due to the time is takes to ingest the logs, but newer processing methods is reducing that time. 
 -	**Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
 -	**More control over metric conditions**: You can define richer alert rules. The newer alerts support monitoring the maximum, minimum, average, and total values of metrics.
 -	**Combined monitoring of multiple metrics**: You can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time-period.
@@ -51,7 +51,7 @@ There are two types of classic alerts available -  metric alerts and activity lo
 
 * **Classic activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
 
-For Diagnostic Log data available through Azure Monitor, route the data into Log Analytics (formerly OMS) and use a Log Analytics query alert. Log Analytics now uses the [new alerting method](monitoring-overview-unified-alerts.md) 
+For Diagnostic Log data available through Azure Monitor, route the data into Log Analytics (formerly OMS) and use a Log Analytics query alert. Log Analytics now uses the [new alerting method](monitoring-overview-alerts.md) 
 
 The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
 
@@ -85,14 +85,14 @@ Webhooks enables automation and remediation, for example, using:
 ## Next steps
 Get information about alert rules and configuring them by using:
 
-* Learn more about [Metrics](monitoring-overview-metrics.md)
-* Configure [classic Metric Alerts via Azure portal](insights-alerts-portal.md)
-* Configure [classic Metric Alerts PowerShell](insights-alerts-powershell.md)
-* Configure [classic Metric Alerts Command-line interface (CLI)](insights-alerts-command-line-interface.md)
+* Learn more about [Metrics](../azure-monitor/platform/data-collection.md)
+* Configure [classic Metric Alerts via Azure portal](alert-metric-classic.md)
+* Configure [classic Metric Alerts PowerShell](alert-metric-classic.md)
+* Configure [classic Metric Alerts Command-line interface (CLI)](alert-metric-classic.md)
 * Configure [classic Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Learn more about [Activity Log](monitoring-overview-activity-logs.md)
 * Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
-* Configure [Activity Log Alerts via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configure [Activity Log Alerts via Resource Manager](alert-activity-log.md)
 * Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
 * Learn more about [Action groups](monitoring-action-groups.md)
-* Configure [newer Alerts](monitor-alerts-unified-usage.md)
+* Configure [newer Alerts](alert-metric.md)

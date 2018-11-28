@@ -1,17 +1,19 @@
----
-title: "Bing Custom Search: Create a custom search web page | Microsoft Docs"
-description: Describes how to configure a custom search instance and integrate it into a web page
+﻿---
+title: "Tutorial: Create a custom search web page - Bing Custom Search"
+titlesuffix: Azure Cognitive Services
+description: Describes how to configure a custom search instance and integrate it into a web page.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
-ms.author: v-brapel
+ms.author: aahi
 ---
 
-# Build a Custom Search web page
+# Tutorial: Build a Custom Search web page
 
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
 
@@ -73,7 +75,7 @@ To exclude results from specific websites or URLs, add them to the **Blocked** t
 
 ## Add pinned entries
 
-To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user’s query string matches the pin's query string based on pin's match condition. [Read more](../define-your-custom-view.md#pin-to-top).
+To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user’s query string matches the pin's query string based on pin's match condition. Only indexed webpages will be displayed in searches. See [Define your custom view](../define-your-custom-view.md#pin-to-top) for more information.
 
 1. On the **Configuration** page, click the **Pinned** tab and enter the webpage and query term of the webpage that you want returned as the top result.  
   
@@ -114,7 +116,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
   
   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## Consuming Hosted UI

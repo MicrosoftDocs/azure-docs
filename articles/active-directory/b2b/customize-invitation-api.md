@@ -73,11 +73,11 @@ In this mode, whoever is using the API needs to have the permissions to be creat
 ### App only mode
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
-For more information, refer to: https://graph.microsoft.io/docs/authorization/permission_scopes
+For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## PowerShell
-It is now possible to use PowerShell to add and invite external users to an organization easily. Create an invitation using the cmdlet:
+You can use PowerShell to add and invite external users to an organization easily. Create an invitation using the cmdlet:
 
 ```
 New-AzureADMSInvitation
@@ -90,7 +90,25 @@ You can use the following options:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-You can also check out the invitation API reference in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+### Invitation status
+
+After you send an external user an invitation, you can use the **Get-AzureADUser** cmdlet to see if they've accepted it. The following properties of Get-AzureADUser are populated when an external user is sent an invitation:
+
+* **UserState** indicates whether the invitation is **PendingAcceptance** or **Accepted**.
+* **UserStateChangedOn** shows the timestamp for the latest change to the **UserState** property.
+
+You can use the **Filter** option to filter the results by **UserState**. The example below shows how to filter results to show only users who have a pending invitation. The example also shows the **Format-List** option, which lets you specify the properties to display. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> Make sure you have the latest version of the AzureAD PowerShell module or AzureADPreview PowerShell module. 
+
+## See also
+
+Check out the invitation API reference in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## Next steps
 

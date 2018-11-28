@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS monitoring | Microsoft Docs
-description: Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS monitoring
+title: Azure CLI Script Sample - Create a Windows Server 2016 VM with Log Analytics monitoring | Microsoft Docs
+description: Azure CLI Script Sample - Create a Windows Server 2016 VM with Log Analytics monitoring
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -19,9 +19,9 @@ ms.author: rclaus
 ms.custom: mvc
 ---
 
-# Monitor a VM with Operations Management Suite
+# Monitor a VM with Log Analytics
 
-This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
+This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log analytics workspace. Once the script has run, the virtual machine will be visible in Azure Monitoring.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -47,7 +47,7 @@ This script uses the following commands to create a resource group, virtual mach
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Runs a VM extension against a virtual machine. In this case, the Operations Management Suite agent extension is used to install the OMS agent and enroll the VM in an OMS workspace. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Runs a VM extension against a virtual machine. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
 ## Next steps

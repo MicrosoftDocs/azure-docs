@@ -1,11 +1,11 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service SDK Documentation
+title: Speech Service Documentation
 metadata:
-  title: Speech Service SDK Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -20,15 +20,6 @@ metadata:
 
 abstract:
   description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ../media/index/speech-landing-page-video.png
-      width: 250  
-    title: Speech Service overview (10:34)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
-    width: 250
 sections:
 - items:
     - type: list
@@ -54,7 +45,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -132,6 +123,17 @@ sections:
         - href:
         - href:
         - href:
+      - title: Android (x86/x64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-java-android
+        - href:
+        - href:
+        - href:
+        - href:
       - title: Devices SDK (ARM64)
         values:
         - href:
@@ -171,7 +173,7 @@ sections:
     text: 'Learn how to develop applications using Speech Service:'
   - type: list
     style: unordered
-    items: 
+    items:
     - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
     - html: <a href="intent.md">Intent Recognition</a><br/>
     - html: <a href="translation.md">Translation</a>
@@ -181,7 +183,7 @@ sections:
     text: 'Find samples on Github for Speech Service:'
   - type: list
     style: unordered
-    items: 
+    items:
     - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Service SDK Samples</a><br/>
     - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Device SDK Samples</a><br/>
 - title: Reference
@@ -190,20 +192,19 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: SDK Reference 
+    - title: SDK Reference
       html: |
         <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></p>
         <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
         <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
         <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
         <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
-    - title: REST API 
+    - title: REST API
       html: |
         <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
-    - title: PowerShell 
+    - title: PowerShell
       html: |
         <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI 
+    - title: CLI
       html: |
         <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
-    

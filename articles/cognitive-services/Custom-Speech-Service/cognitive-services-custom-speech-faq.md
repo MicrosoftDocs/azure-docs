@@ -1,20 +1,19 @@
 ---
-title: Frequently asked questions - Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Frequently asked questions for the Custom Speech Service on Azure | Microsoft Docs
 description: Here are answers to the most popular questions about the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: faq
+ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Custom Speech Service Frequently Asked Questions
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)] 
 
 If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
 

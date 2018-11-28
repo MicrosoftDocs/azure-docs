@@ -1,18 +1,64 @@
 ---
-title: Cognitive Services Speech SDK Documentation | Microsoft Docs
+title: Speech Service SDK Documentation
+titlesuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
+ms.topic: conceptual
+ms.date: 11/12/2018
 ms.author: wolfma
 ---
 
 # Release notes
+
+## Speech Service SDK 1.1.0
+
+**New Features**
+
+* Support for Android x86/x64.
+* Proxy Support: In the SpeechConfig object you can now call a function to set the proxy information (hostname, port, username, and password). This feature is not yet available on iOS.
+* Improved error code and messages. If a recognition returned an error, this did already set `Reason` (in canceled event) or `CancellationDetails` (in recognition result) to `Error`. The canceled event now contains two additional members, `ErrorCode` and `ErrorDetails`. If the server returned additional error information with the reported error, it will now be available in the new members.
+
+**Improvements**
+
+* Added additional verification in the recognizer configuration, and added additional error message.
+* Improved handling of long-time silence in middle of an audio file.
+* NuGet package: for .NET Framework projects, it prevents building with AnyCPU configuration.
+
+**Bug fixes**
+
+* Fixed several exceptions found in recognizers. In addition exceptions are caught and converted into Canceled event.
+* Fix a memory leak in property management.
+* Fixed bug in which an audio input file could crash the recognizer.
+* Fixed a bug where events could be received after a session stop event.
+* Fixed some race conditions in threading.
+* Fixed an iOS compatibility issue that could result in a crash.
+* Stability improvements for Android microphone support.
+* Fixed a bug where a recognizer in JavaScript would ignore the recognition language.
+* Fixed a bug preventing setting the EndpointId (in some cases) in JavaScript.
+* Changed parameter order in AddIntent in JavaScript, and added missing AddIntent JavaScript signature.
+
+**Samples**
+
+* Added C++ and C# samplea for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
+
+## Speech Service SDK 1.0.1
+
+Reliability improvements and bug fixes:
+
+* Fixed potential fatal error due to race condition in disposing recognizer
+* Fixed potential fatal error in case of unset properties.
+* Added additional error and parameter checking.
+* Objective-C: Fixed possible fatal error caused by name overriding in NSString.
+* Objective-C: Adjusted visibility of API
+* JavaScript: Fixed regarding events and their payloads.
+* Documentation improvements.
+
+In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
 
 ## Cognitive Services Speech SDK 1.0.0: 2018-September release
 

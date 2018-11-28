@@ -81,7 +81,7 @@ This template deploys a secure cluster of five virtual machines and a single nod
 
 ### Service Fabric cluster
 
-A Linux cluster is deployed with the following characteristics:
+In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deployed with the following characteristics:
 
 * a single node type
 * five nodes in the primary node type (configurable in the template parameters)
@@ -95,7 +95,7 @@ A Linux cluster is deployed with the following characteristics:
 
 ### Azure load balancer
 
-A load balancer is deployed and probes and rules setup for the following ports:
+In the **Microsoft.Network/loadBalancers** resource, a load balancer is configured and probes and rules setup for the following ports:
 
 * client connection endpoint: 19000
 * HTTP gateway endpoint: 19080
@@ -104,7 +104,7 @@ A load balancer is deployed and probes and rules setup for the following ports:
 
 ### Virtual network and subnet
 
-The names of the virtual network and subnet are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters:
+The names of the virtual network and subnet are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters and configured in the **Microsoft.Network/virtualNetworks** resource:
 
 * virtual network address space: 10.0.0.0/16
 * Service Fabric subnet address space: 10.0.2.0/24

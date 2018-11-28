@@ -1,4 +1,4 @@
-﻿---
+---
 title: Parameterize linked services in Azure Data Factory | Microsoft Docs
 description: Learn how to parameterize linked services in Azure Data Factory and pass dynamic values at run time.
 services: data-factory
@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/22/2018
 ms.author: douglasl
 ---
 # Parameterize linked services in Azure Data Factory
@@ -21,6 +21,22 @@ You can use the Data Factory UI in the Azure Portal or a programming interface t
 
 > [!TIP]
 > We recommend not to parameterize passwords or secrets. Store all connection strings in Azure Key Vault instead, and parameterize the *Secret Name*.
+
+For a seven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
+
+## Supported data stores
+
+At this time, linked service parameterization is supported in the Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the pipeline tab and using the JSON editor.
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- SQL Server
+- Oracle
+- Cosmos DB
+- Amazon Redshift
+- MySQL
+- Azure Database for MySQL
 
 ## Data Factory UI
 

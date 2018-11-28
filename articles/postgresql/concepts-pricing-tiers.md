@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/10/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -41,8 +41,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US | X | X |
-| East US | X | X |
+| Central US |  | X |
+| East US |  | X |
 | East US 2 | X | X |
 | North Central US | X | X |
 | South Central US | X | X |

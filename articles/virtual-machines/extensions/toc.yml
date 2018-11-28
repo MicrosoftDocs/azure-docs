@@ -56,7 +56,7 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Operations Management suite
+  - name: Log Analytics
     items:
     - name: Linux
       href: oms-linux.md

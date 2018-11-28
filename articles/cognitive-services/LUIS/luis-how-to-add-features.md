@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
 ---
 
@@ -41,10 +41,7 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> You can edit, delete, or deactivate a phrase list from the ellipsis (***...***) button at the end of the row of eac phrase list.
-
-## Pattern (regular expression) feature 
-**This feature is deprecated**. New pattern features cannot be added to LUIS. Any existing pattern features are supported until May 2018. Contribute to standard LUIS regular expression matching with a PR to the [Recognizers-Text Github repository](https://github.com/Microsoft/Recognizers-Text). 
+> You can delete, or deactivate a phrase list from the contextual toolbar on the **Phrase lists** page.
 
 ## Next steps
 

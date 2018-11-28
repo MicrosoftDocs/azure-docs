@@ -1,13 +1,14 @@
 ---
-title: How to page through the available news articles | Microsoft Docs
-description: Shows how to page through all of the news articles that Bing can return.
+title: How to page through the available news articles - Bing News Search
+titlesuffix: Azure Cognitive Services
+description: Shows how to page through all of the news articles that Bing New Search can return.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
@@ -53,3 +54,6 @@ Host: api.cognitive.microsoft.com
   
 > [!NOTE]
 > Paging applies only to news search (/news/search), and not to trending topics (/news/trendingtopics) or news categories (/news).
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 

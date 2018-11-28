@@ -22,6 +22,8 @@ In addition to the documentation on this site, you can find:
 + [Architecture overview](../service/concept-azure-machine-learning-architecture.md)
 + [Videos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
+## Submit doc feedback 
+
 You can **submit requests** for additional learning materials using the feedback link at the bottom of the article.
 
 ## Get support for Azure Machine Learning service

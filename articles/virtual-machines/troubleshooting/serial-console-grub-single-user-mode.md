@@ -3,7 +3,7 @@ title: Azure Serial Console for GRUB and Single User Mode | Microsoft Docs
 description: Using Serial Console for grub in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -18,11 +18,32 @@ ms.author: alsin
 ---
 
 # Use Serial Console to access GRUB and Single User Mode
-Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
+GRUB is the GRand Unified Bootloader. From GRUB you are able to modify your boot configuration to boot into single user mode, among other things.
 
-Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
+Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues, filesystem issues, or network issues. Fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted.
 
-You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. 
+Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication.
+
+To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console. 
+
+## General GRUB access
+To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout. 
+
+You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below and at [this link](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+
+### Reboot your VM to access GRUB in Serial Console
+Rebooting your VM with the serial console blade open can be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled, or by clicking the Restart button in the Overview blade (open the VM in a new browser tab to reboot without closing the serial console blade). Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
+
+## General Single User Mode access
+Manual access to single user mode may be needed in situations where you have not configured an account with password authentication. You will need to modify the GRUB configuration to manually enter single user mode. Once you have done this, see [Use Single User Mode to reset or add a password](#-Use-Single-User-Mode-to-reset-or-add-a-password) for further instructions.
+
+In cases where the VM is unable to boot, distros will often automatically drop you into single user mode or emergency mode. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically (such as setting up a root password).
+
+### Use Single User Mode to reset or add a password
+Once you are in single user mode, do the following to add a new user with sudo privileges:
+1. Run `useradd <username>` to add a user
+1. Run `sudo usermod -a -G sudo <username>` to grant the new user root privileges
+1. Use `passwd <username>` to set the password for the new user. You will then be able to log in as the new user
 
 
 ## Access for Red Hat Enterprise Linux (RHEL)
@@ -60,7 +81,7 @@ If you have set up GRUB and root access with the instructions above, then you ca
 1. Press Ctrl + X to exit and reboot with the applied settings
 1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above    
 
-    ![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### Enter single user mode without root account enabled in RHEL
 If you did not go through the steps above to enable the root user, you can still reset your  root password. Use the following instructions:
@@ -77,7 +98,7 @@ If you did not go through the steps above to enable the root user, you can still
 1. Once you boot into single user mode, type in `chroot /sysroot` to switch into the `sysroot` jail
 1. You are now root. You can reset your root password with `passwd` and then use the instructions above to enter single user mode. Type `reboot -f` to reboot once you are done.
 
-![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Note: Running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
 
@@ -96,6 +117,13 @@ Ubuntu images do not require a root password. If the system boots into single us
 
 ### GRUB access in Ubuntu
 To access GRUB, press and hold 'Esc' while the VM is booting up.
+
+By default, Ubuntu images may not automatically show the GRUB screen. This can be changed with the following instructions:
+1. Open `/etc/default/grub.d/50-cloudimg-settings.cfg` in a text editor of your choice
+1. Change the `GRUB_TIMEOUT` value to a non-zero value
+1. Open `/etc/default/grub` in a text editor of your choice
+1. Comment out the `GRUB_HIDDEN_TIMEOUT=1` line
+1. Run `sudo update-grub`
 
 ### Single user mode in Ubuntu
 Ubuntu will drop you into single user mode automatically if it cannot boot normally. To manually enter single user mode, use the following instructions:
@@ -132,7 +160,7 @@ GRUB access in SLES requires bootloader configuration via YaST. To do this, foll
 1. To enter GRUB, reboot your VM and press any key during boot sequence to make GRUB stay on screen
     - The default timeout for GRUB is 1s. You can modify this by changing the `GRUB_TIMEOUT` variable in `/etc/default/grub`
 
-![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### Single user mode in SUSE SLES
 You will be automatically dropped into emergency shell if SLES cannot boot normally. To manually enter the emergency shell, use the following instructions:
@@ -154,6 +182,7 @@ Follow the instructions for RHEL above to enable single user mode in Oracle Linu
 
 ## Next steps
 * The main serial console Linux documentation page is located [here](serial-console-linux.md).
+* Learn how to use Serial Console to [enable GRUB in various distros](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
 * The Serial Console is also available for [Windows](serial-console-windows.md) VMs
 * Learn more about [boot diagnostics](boot-diagnostics.md)

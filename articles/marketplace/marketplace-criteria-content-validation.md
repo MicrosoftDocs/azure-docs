@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: yijenj
 
 ---
@@ -22,17 +22,7 @@ ms.author: yijenj
 
 This document contains requirement guidelines as well as a checklist for reviewers for new offers and services listed to Azure Marketplace.
 
-All offers must meet the “all listing requirements”. Additional requirements and checklists are provided for specific listing types including: offers with attached trials, consulting offers, SaaS apps & containers.
-
-**See best practice listing examples here:**
-| Offer Type | Offer Link
-|:--- |:--- |
-| General | <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=Overview <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-altavault-cloud-integrated-storage-solution?tab=Overview |
-| Trial | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/intigua.intigua-agent-manager-trial?tab=Overview |
-| SaaS Apps | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/apptimized.isvtesting?tab=Overview |
-| Containers |https://azuremarketplace.microsoft.com/en-us/marketplace/apps/couchbase.couchbase-server-enterprise-containercouchbase-enterprise-server-container-byol?tab=Overview |
-| Consulting Services | https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/wipro-ltd.cmp-wipro?page=1 |
-
+All offers must meet the [All Listing Requirements](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) indicated below. Additional requirements and checklists are provided for specific listing types including: offers with attached [trials](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [containers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements), and [consulting offers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## All listing requirements
@@ -103,8 +93,6 @@ All offers must meet the “all listing requirements”. Additional requirements
 | 10 | Products | Must be Azure | |
 | 11 | Country/Region | Ensure country and region matches chosen currency | |
 | 12 | Learn More  | <br>• Links at the bottom (under the description, not the marketplace links on the left) leads to more information about the solution and are publicly available and displaying correctly. <br>•  Links must have a “friendly name” and not be appearing as the file name of any downloads | |
-
-
 
 
 ## Next steps

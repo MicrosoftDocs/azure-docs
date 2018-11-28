@@ -16,9 +16,17 @@ ms.custom: include file
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ### Azure roles
-To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. In the Azure portal, select your username in the upper-right corner, and select **Permissions** to view the permissions that you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../articles/billing/billing-add-change-azure-subscription-administrator.md) article.
+To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. 
 
-To create and manage child resources (including datasets, linked services, pipelines, triggers, and integration runtimes) for Data Factory through the Author & Monitor UI in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above. To create and manage child resources with Powershell or the SDK, the **contributor** role at the resource level or above is sufficient.
+To create and manage child resources for Data Factory - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
+- To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above.
+- To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
+
+For sample instructions about how to add a user to a role, see the [Add roles](../articles/billing/billing-add-change-azure-subscription-administrator.md) article.
+
+For more info, see the following articles:
+- [Data Factory Contributor role](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### Azure storage account
 You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md) to create one. 
@@ -50,7 +58,7 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
    ![Enter container name](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. Select **adftutorial** in the list of containers. 
 
-   ![Select the container](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
+   ![Select the container](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
 5. On the **Container** page, select **Upload** on the toolbar.  
 
    ![Upload button](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)

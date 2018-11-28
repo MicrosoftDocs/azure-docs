@@ -5,16 +5,19 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom:
 ---
 
 # Connect a Google Cloud Platform account
 
 You can connect your existing Google Cloud Platform account to Cloudyn. After you connect your account to Cloudyn, cost and usage data is available in Cloudyn reports. This article helps you to configure and connect your Google account with Cloudyn.
+
+> [!NOTE]
+> Google has modified their account security, which prevents new connections from being established between Cloudyn and Google. Cloudyn continues to collect Google data for users who already have Cloudyn connected to Google. However, you can't add new Google accounts to Cloudyn currently. The Cloudyn team doesn't know when support for adding new Google accounts to Cloudyn will resume. We'll remove this note when support resumes.
 
 ## Collect project information
 

@@ -73,8 +73,8 @@ If the application persistently fails to connect to Azure SQL Database, it usual
 4. Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 
 ## Next steps
-* [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-* [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
+* [Search the documentation on Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+* [View the latest updates to the Azure SQL Database service](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## Additional resources
 * [SQL Database Development Overview](sql-database-develop-overview.md)

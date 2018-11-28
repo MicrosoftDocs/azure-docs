@@ -94,7 +94,7 @@ The individual registering in [Dev Center](https://developer.microsoft.com/store
 Once you have completed the [Dev Center](https://developer.microsoft.com/store/register) registration, link your Cloud Partner Profile with your [Dev Center](https://developer.microsoft.com/store/register) account (see detailed steps here). This step must be completed before publishing your transact offer. 
 
 >[!Note]
->To waive the $99 Developer Center registration fee, complete the marketplace registration form and you will receive an email containing your promotional code. 
+>To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://azuremarketplace.microsoft.com/en-us/sell/signup) and you will receive an email containing your promotional code. 
 
 >[!Important]
 >Before you create a Microsoft Dev Center account, please verify that your organization does not already have a Dev Center account to avoid duplicate accounts. For more information, visit the [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) section.

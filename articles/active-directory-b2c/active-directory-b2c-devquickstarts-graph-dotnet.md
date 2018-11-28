@@ -34,7 +34,7 @@ Before you can create applications or users, you need an Azure AD B2C tenant. If
 After you have a B2C tenant, you need to register your application using the [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> To use the Graph API with your B2C tenant, you need to register an application using the *App Registrations* service in the Azure portal, **NOT** Azure AD B2C's *Applications* menu. The following instructions lead you to the appropropriate menu. You can't reuse existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
+> To use the Graph API with your B2C tenant, you need to register an application using the *App Registrations* service in the Azure portal, **NOT** Azure AD B2C's *Applications* menu. The following instructions lead you to the appropriate menu. You can't reuse existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD B2C tenant by selecting your account in the top right corner of the page.
@@ -62,8 +62,8 @@ You now have an application that has permission to create, read and update users
 > 
 > 
 
-## Configure delete permissions for your application
-Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give your application the ability to delete users, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
+## Configure delete or update password permissions for your application
+Currently, the *Read and write directory data* permission does **NOT** include the ability to delete users or update user passwords. If you want to give your application the ability to delete users or update passwords, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
 
 First, if you don't already have it installed, install the [Azure AD PowerShell v1 module (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -80,7 +80,7 @@ After you install the PowerShell module connect to your Azure AD B2C tenant.
 Connect-MsolService
 ```
 
-Now we'll use the **Application ID** in the script below to assign the application the user account administrator role which will allow it to delete users. These roles have well-known identifiers, so all you need to do is input your **Application ID** in the script below.
+Now we'll use the **Application ID** in the script below to assign the application the user account administrator role. These roles have well-known identifiers, so all you need to do is input your **Application ID** in the script below.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -88,7 +88,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Your application now also has permissions to delete users from your B2C tenant.
+Your application now also has permissions to delete users or update passwords from your B2C tenant.
 
 ## Download, configure, and build the sample code
 First, download the sample code and get it running. Then we will take a closer look at it.  You can [download the sample code as a .zip file](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). You can also clone it into a directory of your choice:

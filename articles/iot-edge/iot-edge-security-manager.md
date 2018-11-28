@@ -2,9 +2,9 @@
 title: Azure IoT Edge security manager | Microsoft Docs 
 description: Manages the IoT Edge device security stance and the integrity of security services.
 services: iot-edge
-keywords: security, element, enclave, IoT Edge
+keywords: security, secure element, enclave, TEE, IoT Edge
 author: eustacea
-manager: timlt
+manager: philmea
 
 ms.author: eustacea
 ms.date: 07/30/2018
@@ -109,7 +109,7 @@ The HSM PAL abstracts all root of trust hardware to isolate the developer or use
 
 ## Secure silicon root of trust hardware
 
-Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSM), ARM Trustzone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is highly recommended given the threats associated with physically accessibility of IoT devices.
+Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), ARM TrustZone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is highly recommended given the threats associated with physically accessibility of IoT devices.
 
 ## IoT Edge security manager integration and maintenance
 

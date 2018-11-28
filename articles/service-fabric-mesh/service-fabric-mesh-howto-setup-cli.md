@@ -13,7 +13,7 @@ manager: timlt
 ---
 
 # Set up the Service Fabric Mesh CLI
-Service Fabric Mesh CLI is required to deploy and manage resources in Service Fabric Mesh. 
+The Service Fabric Mesh Command Line Interface (CLI) is required to deploy and manage resources in Service Fabric Mesh. 
 
 For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI. You can install it in the Azure Cloud Shell or a local installation of Azure CLI. 
 
@@ -33,7 +33,10 @@ To update an existing Azure Service Fabric Mesh CLI module, run the following co
 ```azurecli-interactive
 az extension update --name mesh
 ```
+## Next steps
 
 You can also set up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
+
+Find answers to [common questions and issues](service-fabric-mesh-faq.md).
 
 [azure-cli-install]: /cli/azure/install-azure-cli
