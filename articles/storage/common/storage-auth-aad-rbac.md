@@ -71,6 +71,9 @@ To assign a built-in role granting access to all containers or queues in the sto
 
 ### Assign a role scoped to a container or queue in the Azure portal
 
+> [!IMPORTANT]
+> You cannot do this if you are using an account with the hierarchical namespace enabled, yet.
+
 The steps for assigning a built-in role scoped to a container or to a queue are similar. The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your storage account and display the **Overview** for the account.
