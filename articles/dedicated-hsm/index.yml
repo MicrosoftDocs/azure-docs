@@ -16,7 +16,7 @@ metadata:
   ms.date: 11/21/2018
   ms.author: barclayn
 abstract:
-  description: Learn about dedicated HSM functionality and whether it applies to your environment.
+  description: Learn about Dedicated HSM functionality and whether it applies to your environment.
 sections:
 
 - items:
@@ -26,10 +26,10 @@ sections:
     columns: 3
     items:
       - href: /azure/dedicated-hsm/overview
-        html: <p>Learn what Azure dedicated HSM is all about.</p>
+        html: <p>Learn what Azure Dedicated HSM is all about.</p>
         image: 
           src: media/index/hsm.svg
-        title: Dedicated HSM overview
+        title: Azure Dedicated HSM overview
       - href: /azure/dedicated-hsm/faq
         html: <p>Design considerations when using Dedicated HSM</p>
         image:
