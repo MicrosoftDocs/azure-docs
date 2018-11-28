@@ -49,7 +49,7 @@ While estimating the number of RU/s to provision, it is important to consider th
 ## Next steps
 
 * Learn more about [provisioning throughput for Azure Cosmos containers and databases](set-throughput.md)
-* Learn more about [Llogical partitions](partition-data.md)
+* Learn more about [Logical partitions](partition-data.md)
 * Learn more about [globally scaling provisioned throughput](scaling-throughput.md)
 * Learn [how to provision throughput on a Azure Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Azure Cosmos database](how-to-provision-database-throughput.md)
