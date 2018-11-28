@@ -56,7 +56,7 @@ Example:
 
 **Q: Does Azure AD Connect Health support Azure Germany Cloud?**
 
-Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | Roles | Features | Supported in German Cloud |
 | ------ | --------------- | --- |
