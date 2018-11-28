@@ -22,7 +22,7 @@ This example application gets local response data from the API for the search qu
 
 * The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 This example application gets local response data from the query for a *hotel in Bellevue*.
 
@@ -32,9 +32,9 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ````
     // construct URL of search request (endpoint + query string)
-	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&market=en-us");
+	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	//connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+	connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
 	// receive JSON body
 	InputStream stream = connection.getInputStream();
@@ -95,10 +95,9 @@ public class LocalSearchCls {
 
 	    public static SearchResults SearchLocal (String searchQuery) throws Exception {
 	        // construct URL of search request (endpoint + query string)
-	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + 
-                         "&appid=" + subscriptionKey + "&market=en-us");
+	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "&mkt=en-us");
 	        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	        //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+	        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
 	        // receive JSON body
 	        InputStream stream = connection.getInputStream();

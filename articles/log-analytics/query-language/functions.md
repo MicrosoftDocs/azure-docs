@@ -60,7 +60,7 @@ Update
 | where UpdateState == "Needed"
 ```
 
-Create another to search for SQL-related needed security updates.
+Create another query and reference the _security_updates_last_day_ function to search for SQL-related needed security updates.
 
 ```Kusto
 security_updates_last_day | where Title contains "SQL"

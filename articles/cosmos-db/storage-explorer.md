@@ -149,7 +149,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 - Click the **Delete** button to delete the selected document.
 
 #### Query for documents
-- Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
+- Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
     ![Document Filter](./media/storage-explorer/document-filter.png)
 
