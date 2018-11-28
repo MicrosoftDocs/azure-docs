@@ -1,5 +1,5 @@
 ---
-title: The Azure Time Series Insights update Explorer | Microsoft Docs
+title: Visualize data in the Explorer update | Microsoft Docs
 description: The Azure Time Series Insights update Explorer
 author: ashannon7
 ms.author: anshan
@@ -8,10 +8,10 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 11/28/2018
 ---
 
-# The Azure Time Series Insights update Explorer
+# Visualize data in the Explorer update
 
 This article describes features and options available within The Azure Time Series Insights (TSI) update Explorer web application.
 

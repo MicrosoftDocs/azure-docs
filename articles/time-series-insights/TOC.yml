@@ -14,8 +14,8 @@
       href: time-series-quickstart.md
   - name: Azure Time Series Insights update (preview)
     items:
-    - name: Azure Time Series Insights Quickstart
-      href: time-series-insights-update-quickstart.md
+    - name: Explore the Time Series Insights update demo environment
+      href: time-series-insights-update-quickstart.md  
 - name: Tutorials
   items:
   - name: Explore TSI JavaScript client library
