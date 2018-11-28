@@ -69,13 +69,13 @@ Then click **Launch** on the tile for the Remote Monitoring solution accelerator
 
 To automatically update the firmware on a group of devices, the devices must be members of a device group in your Remote Monitoring solution:
 
-1. On the **Devices**** page, select all the **IoT DevKit** devices you've connected to the solution accelerator. Then click **Jobs**.
+1. On the **Devices** page, select all the **IoT DevKit** devices you've connected to the solution accelerator. Then click **Jobs**.
 
-1. In the **Jobs** panel, select **Tag**, set the job name to **AddDevKitTag**, and then add a text tag called **IsDevKitDevice** with a value **Y**. Then click **Apply**.
+1. In the **Jobs** panel, select **Tags**, set the job name to **AddDevKitTag**, and then add a text tag called **IsDevKitDevice** with a value **Y**. Then click **Apply**.
 
 1. Now you can use the tag values to create a device group. On the **Devices** page, click **Manage device groups**.
 
-1. Create a text filter that uses the tag name **IsDevKitDevice** and value **Y** in the condition. Save the filter as **IoT DevKit devices**:
+1. Create a text filter that uses the tag name **IsDevKitDevice** and value **Y** in the condition. Save the device group as **IoT DevKit devices**.
 
 Later in this tutorial, you use this device group to apply a device configuration that updates the firmware of all the members.
 
@@ -151,7 +151,7 @@ Use your Azure storage account to host your new firmware file in the cloud.
 
 A device configuration specifies the desired state of your devices. Typically, a developer [creates the configuration](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) on the **IoT device configuration** page in the Azure portal. A device configuration is a JSON document that specifies the desired state of your devices and a set of metrics.
 
-Save the following configuration as file called **firmware_update.json** on your local machine. Replace the `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`, and `YOURPACKAGESIZE` placeholders with the values you made a note of previously:
+Save the following configuration as file called **firmware-update.json** on your local machine. Replace the `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`, and `YOURPACKAGESIZE` placeholders with the values you made a note of previously:
 
 <!--
 TODO - Check if we can remove timestamps, etag, and results to simplify this.
@@ -213,13 +213,13 @@ In this section, you import the device configuration as a package into the Remot
 
 1. In the Remote Monitoring web UI, navigate to the **Packages** page and click **+ New Package**:
 
-    ![New package]()
+    ![New package](media/iot-accelerators-remote-monitoring-bulk-configuration-update/packagepage.png)
 
-1. In the **New Package** panel, choose **Device configuration** as the package type and **Firmware - MXChip** as the configuration type. Click **Browse** to find the **firmware-update.json** file on your local machine, and then click **Upload**:
+1. In the **New Package** panel, choose **Device configuration** as the package type and **Firmware** as the configuration type. Click **Browse** to find the **firmware-update.json** file on your local machine, and then click **Upload**:
 
-    ![Upload package]()
+    ![Upload package](media/iot-accelerators-remote-monitoring-bulk-configuration-update/uploadpackage.png)
 
-1. The list of packages now includes the **firmware-update** package. You can also see the device configuration labels you added in the summary section.
+1. The list of packages now includes the **firmware-update** package.
 
 ## Deploy the configuration to your devices
 
@@ -227,7 +227,7 @@ In this section, you create and execute a deployment that applies the device con
 
 1. In the Remote Monitoring web UI, navigate to the **Deployments** page and click **+ New deployment**:
 
-    ![New deployment]()
+    ![New deployment](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentpage.png)
 
 1. In the **New deployment** panel, create a deployment with the following settings:
 
@@ -237,10 +237,10 @@ In this section, you create and execute a deployment that applies the device con
     |Package type|Device Configuration|
     |Configuration type|Firmware|
     |Package|firmware-update.json|
-    |Device Group|DevKit|
+    |Device Group|IoT DevKit devices|
     |Priority|10|
 
-    ![Create deployment]()
+    ![Create deployment](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
     Click **Apply**. You see a new deployment in the **Deployments** page that shows the following metrics:
 
@@ -273,7 +273,7 @@ When the reboot is finished, your IoT DevKit device is now running version 1.0.1
 
 On the **Deployments** page, click on a deployment to see the status of your devices as they update. You can see the status of each device in your device group and the custom metrics you defined.
 
-![Deployment details]()
+![Deployment details](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentstatus.png)
 
 ## Next steps
 

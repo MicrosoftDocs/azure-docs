@@ -2,7 +2,7 @@
 title: Remote Monitoring solution import ADM package - Azure | Microsoft Docs 
 description: This article describes how to import an automatic device management package into the Remote Monitoring solution accelerator
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
@@ -38,19 +38,20 @@ Use the Azure portal to export the automatic device management configuration fro
 
 Now you have a file that contains the automatic device management configuration. In the next section, you import this configuration as a package into the Remote Monitoring solution.
 
-<!-- TODO update this when the UI is available -->
 ## Import a package
 
 Follow the steps below to import an automatic device management configuration as a package into your solution:
 
 1. Navigate to the **Packages** page in the Remote Monitoring web UI:
-    ![Packages page](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
+    ![Packages page](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. Click **+ New Package**, choose **Configuration** as the package type, and click **Browse** to select the **configuration.json** file you saved in the previous section:
-    ![Select configuration](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
+
+    ![Select configuration](media/iot-accelerators-remote-monitoring-import-adm-package/uploadpackage.png)
 
 1. Click **Upload** to add the package to your Remote Monitoring solution:
-    ![Uploaded package](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
+
+    ![Uploaded package](media/iot-accelerators-remote-monitoring-import-adm-package/uploadedpackage.png)
 
 You've now uploaded an automatic device management configuration as a package. On the **Deployments** page, you can deploy this package to your connected devices.
 
