@@ -8,8 +8,6 @@ ms.author: iainfou
 
 > [!WARNING]
 >  **The Azure Container Service (ACS) is being deprecated. No new features or functionality are being added to ACS. All of the APIs, portal experience, CLI commands and documentation are marked as deprecated.**
->  
-> For more information about the planned deprecation, see [the Azure ACS announcement](http://blogs.azure.com).
 >
 > We recommend that you deploy one of the following Azure Marketplace solutions:
 >
