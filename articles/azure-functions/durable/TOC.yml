@@ -15,6 +15,7 @@
     displayName: get started, chaining
   - name: Create durable function - JavaScript
     displayName: get started, chaining
+    href: quickstart-js-vscode.md
 - name: Tutorials
   items:
   - name: Fan-in/fan-out
@@ -54,6 +55,8 @@
   items:
   - name: Plan and design
     items: 
+    - name: Function chaining
+      href: durable-functions-sequence.md
     - name: Eternal orchestrations
       href: durable-functions-eternal-orchestrations.md
     - name: Singleton orchestrations
