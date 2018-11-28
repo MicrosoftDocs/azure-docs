@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)
 
-To keep up with application demands in Azure Kubernetes Service (AKS), you may need to adjust the number of nodes that run your workloads. The cluster autoscaler component can watch for pods in your cluster that can't be scheduled due to resource constraints. When issues are detected, the number of nodes is increased to meet the application demand. Nodes are also regularly checked for a lack of running pods, with the number of nodes then decreased as needed. This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.
+To keep up with application demands in Azure Kubernetes Service (AKS), you may need to adjust the number of nodes that run your workloads. The cluster autoscaler component can watch for pods in your cluster that can't be scheduled because of resource constraints. When issues are detected, the number of nodes is increased to meet the application demand. Nodes are also regularly checked for a lack of running pods, with the number of nodes then decreased as needed. This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.
 
 This article shows you how to enable and manage the cluster autoscaler in an AKS cluster.
 
@@ -23,24 +23,25 @@ This article shows you how to enable and manage the cluster autoscaler in an AKS
 
 This article requires that you are running the Azure CLI version 2.0.49 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-AKS clusters that support the cluster autoscaler must use virtual machine scale sets and run Kubernetes version *1.12.x* or later. This scale set support is in preview. To opt-in and create clusters that use scale sets, install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+AKS clusters that support the cluster autoscaler must use virtual machine scale sets and run Kubernetes version *1.12.x* or later. This scale set support is in preview. To opt in and create clusters that use scale sets, install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
 
 ```azurecli-interactive
 az extension add --name aks-preview
 ```
 
-When you install the *aks-preview* extension, every AKS cluster you create uses the scale set preview deployment model. To opt-out and create regular, fully-supported clusters, remove the extension using `az extension remove --name aks-preview`.
+> [!NOTE]
+> When you install the *aks-preview* extension, every AKS cluster you create uses the scale set preview deployment model. To opt out and create regular, fully supported clusters, remove the extension using `az extension remove --name aks-preview`.
 
 ## About the cluster autoscaler
 
 To adjust to changing application demands, such as between the workday and evening or on a weekend, clusters often need a way to automatically scale. AKS clusters can scale in one of two ways:
 
-* The **cluster autoscaler** watches for pods that cannot be scheduled on nodes due to resource constraints, and automatically increases the number of nodes.
+* The **cluster autoscaler** watches for pods that can't be scheduled on nodes because of resource constraints. The cluster automatically then increases the number of nodes.
 * The **horizontal pod autoscaler** uses the Metrics Server in a Kubernetes cluster to monitor the resource demand of pods. If a service needs more resources, the number of pods is automatically increased to meet the demand.
 
 ![The cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands](media/autoscaler/cluster-autoscaler.png)
 
-Both the horizontal pod autoscaler and cluster autoscaler can also then decrease the number of pods and nodes as needed. The two autoscalers can work together, and are often both deployed in a cluster. When combined, the horizontal pod autoscaler is focused on running the number of pods required to meet application demand, and the cluster autoscaler is focused on running the number of nodes required to support the scheduled pods.
+Both the horizontal pod autoscaler and cluster autoscaler can also then decrease the number of pods and nodes as needed. The two autoscalers can work together, and are often both deployed in a cluster. When combined, the horizontal pod autoscaler is focused on running the number of pods required to meet application demand. The cluster autoscaler is focused on running the number of nodes required to support the scheduled pods.
 
 > [!NOTE]
 > Manual scaling is disabled when you use the cluster autoscaler. Let the cluster autoscaler determine the required number of nodes. If you want to manually scale your cluster, [disable the cluster autoscaler](#disable-the-cluster-autoscaler).
@@ -99,13 +100,13 @@ az aks update \
 ```
 
 > [!NOTE]
-> During preview, you cannot set a higher minimum node count than is currently set for the cluster. For example, if you currently have min count set to *1*, you cannot update the min count to *3*.
+> During preview, you can't set a higher minimum node count than is currently set for the cluster. For example, if you currently have min count set to *1*, you can't update the min count to *3*.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 
 ## Disable the cluster autoscaler
 
-If you no longer wish to use the cluster autoscaler, you can disable it using the [az aks update][az-aks-update] command. Nodes are not removed when the cluster autoscaler is disabled.
+If you no longer wish to use the cluster autoscaler, you can disable it using the [az aks update][az-aks-update] command. Nodes aren't removed when the cluster autoscaler is disabled.
 
 To remove the cluster autoscaler, specify the *--disable-cluster-autoscaler* parameter, as shown in the following example:
 
