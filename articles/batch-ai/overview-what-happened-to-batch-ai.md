@@ -14,7 +14,7 @@ ms.author: garye
 
 Azure Batch AI is retiring in March because its capabilities are available in (Azure Machine Learning service)[What is Azure Machine Learning service?](../machine-learning/service/overview-what-is-azure-ml.md).  The Azure Machine Learning service became generally available on December 4, 2018. 
 
-Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring ML models. This compute target is called the [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). 
+Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring ML models. This compute target is called the [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md). 
 
 Azure Machine Learning service is exposed to users through Python SDKs, the Azure portal, and the CLI. 
 
