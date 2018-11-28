@@ -1,4 +1,4 @@
-﻿---
+---
 title: Register the ASDK with Azure | Microsoft Docs
 description: Describes how to register Azure Stack with Azure to enable marketplace syndication and usage reporting.
 services: azure-stack
@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -152,17 +152,16 @@ Alternatively, you can use the **Get-Content** cmdlet to point to a file that co
   ```
 
 ## Verify the registration was successful
-Follow these steps to verify that the ASDK registration with Azure was successful.
+
+You can use the **Region management** tile to verify that the Azure Stack registration was successful. This tile is available on the default dashboard in the administrator portal.
 
 1. Sign in to the [Azure Stack administration portal](https://adminportal.local.azurestack.external).
 
-2. Click **Marketplace Management** > **Add from Azure**.
+2. From the Dashboard, select **Region management**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![Region management tile](media/asdk-register/admin1sm.png "Region management tile") ](media/asdk-register/admin1.png#lightbox)
 
-3. If you see a list of items available from Azure, your activation was successful.
-
-    ![](media/asdk-register/3.PNG)
+3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
 
 ## Move a registration resource
 Moving a registration resource between resource groups under the same subscription **is** supported. For more information about moving resources to a new resource group, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
