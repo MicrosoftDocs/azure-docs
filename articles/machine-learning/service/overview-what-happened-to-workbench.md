@@ -39,10 +39,10 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the [Resources section](../desktop-workbench/tutorial-classifying-iris-part-1.md) at the bottom of the table of contents.
 
-|Date|Support details for earlier features|
+|Retirement&nbsp;phase|Support details for earlier features|
 |:---:|----------------|
-|December 4, 2018|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI ends. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
-|January 19, 2019|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
+|December 4, 2018|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI has ended. The ability to create ML Compute Environments from the CLI has also ended. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
+|January 9, 2019|Support for everything else, including the remaining APIs and the desktop Workbench ends on this date.|
 
 [Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
 
@@ -88,7 +88,7 @@ In the newer version, models are deployed as web services to [Azure Container In
 
 ## What about the old SDK & CLI?
 
-Yes, they will continue to work for a while (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
+Yes, they will continue to work until January (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
 
 In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
