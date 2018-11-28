@@ -54,11 +54,10 @@ The following sections describe the limitations and capabilities of each role.
 |Add or remove Department Administrators|✔|✔|✔|✘|✘|
 |View Accounts in the enrollment |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✔<sup>3</sup>|✘|✘|
-|View subscriptions in your scope |✔|✔|✔|✔|✔|
 |Create and manage subscriptions and subscription permissions|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> Notification contacts are sent configurable email communications about the Azure Enterprise Agreement.
-- <sup>3</sup> Accounts must be in the Department's scope.
+- <sup>2</sup> Notification contacts are sent email communications about the Azure Enterprise Agreement.
+- <sup>3</sup> Task is limited to accounts in your department.
 
 
 ## Usage and costs access by role
@@ -66,8 +65,8 @@ The following sections describe the limitations and capabilities of each role.
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)|Department Administrator|Department Administrator (read only) |Account Owner|
 |---|---|---|---|---|---|
 |View credit balance including monetary commitment|✔|✔|✘|✘|✘|
-|View department spending limits|✔|✔|✘|✘|✘|
-|Set department spending limits|✔|✘|✘|✘|✘|
+|View department spending quotas|✔|✔|✘|✘|✘|
+|Set department spending quotas|✔|✘|✘|✘|✘|
 |View organization's EA price sheet|✔|✔|✘|✘|✘|
 |View usage and cost details|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
 |Manage resources in Azure portal|✘|✘|✘|✘|✔|
