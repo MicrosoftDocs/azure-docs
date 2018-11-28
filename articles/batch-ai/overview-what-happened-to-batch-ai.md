@@ -1,6 +1,6 @@
 ---
 title: What's happening to Azure Batch AI? | Microsoft Docs
-description: Learn about what's happening to Azure Batch AI, how it is being replaced with Azure Machine Learning, and what the timeline is.
+description: Learn about what's happening to Azure Batch AI and the Azure Machine Learning service compute option.
 services: batch-ai
 author: garyericson
 
@@ -10,9 +10,9 @@ ms.date: 12/04/2018
 ms.author: garye
 ---
 
-# What's happening to Azure Batch AI?
+# What's happening to the Azure Batch AI service?
 
-We recently released Azure Machine Learning for general availability. The service offers **[Azure Machine Learning Compute](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute)**, which provides you with a cloud-based compute target for developing, training, and batch inferencing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on March 4, 2019.
+Azure Batch AI is retiring in March because its capabilities are available in (Azure Machine Learning service)[What is Azure Machine Learning service?](../machine-learning/service/overview-what-is-azure-ml.md).  The Azure Machine Learning service became generally available on December 4, 2018. 
 
 
 
