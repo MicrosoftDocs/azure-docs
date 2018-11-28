@@ -33,7 +33,7 @@ This script uses the commands outlined in the following table:
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az mariadb server create](/cli/azure/mariadb/server#az-mysql-server-create) | Creates a MariaDB server that hosts the databases. |
+| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Creates a MariaDB server that hosts the databases. |
 | [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) | List the configuration values for a server. |
 | [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) | Update the configuration of a server. |
 | [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) | List log files for a server. |
