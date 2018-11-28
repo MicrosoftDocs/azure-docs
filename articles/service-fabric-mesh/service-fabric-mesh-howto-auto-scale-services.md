@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2018
+ms.date: 11/28/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to scale for demand by autoscaling services in a Service Fabric Mesh application.
@@ -32,7 +32,7 @@ The scaling mechanism defines how to perform the scaling operation when the poli
 
 ## Define an auto scaling policy in a JSON template
 
-The following example shows an autoscaling policy in a JSON deployment template.  The autoscaling policy is declared in a property of the service to be scaled.  In this example, a CPU average load trigger is defined.  The mechanism will be triggered if the average CPU load of all the deployed instances drops below 20% or goes above 80%.  The CPU load is checked every 60 seconds.  The scaling mechanism is defined to add or remove instances if the policy is triggered.  Service instances will be added or removed in increments of one.  A minimum instance count of one and a maximum instance count of 40 is also defined.
+The following example shows an autoscaling policy in a JSON deployment template.  The autoscaling policy is declared in a property of the service to be scaled.  In this example, a CPU average load trigger is defined.  The mechanism will be triggered if the average CPU load of all the deployed instances drops below 0.2 (20%) or goes above 0.8 (80%).  The CPU load is checked every 60 seconds.  The scaling mechanism is defined to add or remove instances if the policy is triggered.  Service instances will be added or removed in increments of one.  A minimum instance count of one and a maximum instance count of 40 is also defined.
 
 ```json
 {
@@ -85,7 +85,7 @@ The following example shows an autoscaling policy in a JSON deployment template.
 ```
 
 ## Define an autoscale policy in a service.yaml resource file
-The following example shows an autoscaling policy in a service resource (YAML) file.  The autoscaling policy is declared as a property of the service to be scaled.  In this example, a CPU average load trigger is defined.  The mechanism will be triggered if the average CPU load of all the deployed instances drops below 20% or goes above 80%.  The CPU load is checked every 60 seconds.  The scaling mechanism is defined to add or remove instances if the policy is triggered.  Service instances will be added or removed in increments of one.  A minimum instance count of one and a maximum instance count of 40 is also defined.
+The following example shows an autoscaling policy in a service resource (YAML) file.  The autoscaling policy is declared as a property of the service to be scaled.  In this example, a CPU average load trigger is defined.  The mechanism will be triggered if the average CPU load of all the deployed instances drops below 0.2 (20%) or goes above 0.8 (80%).  The CPU load is checked every 60 seconds.  The scaling mechanism is defined to add or remove instances if the policy is triggered.  Service instances will be added or removed in increments of one.  A minimum instance count of one and a maximum instance count of 40 is also defined.
 
 ```yaml
 ## Service definition ##
