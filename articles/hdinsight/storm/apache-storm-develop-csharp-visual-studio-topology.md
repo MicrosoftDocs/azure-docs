@@ -12,7 +12,7 @@ ROBOTS: NOINDEX
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
-Learn how to create a C# Storm topology by using the Azure Data Lake (Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
+Learn how to create a C# Apache Storm topology by using the Azure Data Lake (Apache Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
@@ -21,7 +21,7 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or later. The version of the package must also match the major version of Storm installed on HDInsight.
 
-| HDInsight version | Storm version | SCP.NET version | Default Mono version |
+| HDInsight version | Apache Storm version | SCP.NET version | Default Mono version |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(only on Windows-based HDInsight) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -91,7 +91,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## Storm templates
+## Apache Storm templates
 
 The Data Lake tools for Visual Studio provide the following templates:
 
@@ -113,7 +113,7 @@ The Data Lake tools for Visual Studio provide the following templates:
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 
-### HBase templates notes
+### Apache HBase templates notes
 
 The HBase reader and writer templates use the HBase REST API, not the HBase Java API, to communicate with an HBase on HDInsight cluster.
 
@@ -748,14 +748,14 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 **Apache Storm on HDInsight**
 
 * [Deploy and monitor topologies with Apache Storm on HDInsight](apache-storm-deploy-monitor-topology.md)
-* [Example topologies for Storm on HDInsight](apache-storm-example-topology.md)
+* [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 
-* [Use Hive with Hadoop on HDInsight](../hadoop/hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](../hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [Getting started with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Getting started with Apache HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
