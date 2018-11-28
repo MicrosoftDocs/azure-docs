@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a DNS zone and record using the Azure Portal
+title: Quickstart - Create a DNS zone and record using the Azure portal
 description: Use this quickstart to learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure portal.
 services: dns
 author: vhorne
@@ -7,35 +7,37 @@ manager: jeconnoc
 
 ms.service: dns
 ms.topic: quickstart
-ms.date: 6/13/2018
+ms.date: 11/28/2018
 ms.author: victorh
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS so I can connect to my web server using a friendly name.
 ---
 
-# Quickstart: Configure Azure DNS for name resolution using the Azure Portal
+# Quickstart: Configure Azure DNS for name resolution by using the portal
 
- You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the contoso.com domain name from a domain name registrar, you can configure Azure DNS to host the contoso.com domain and resolve www.contoso.com to the IP address of your web server or web app.
+You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.com* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.com* domain and resolve *www.contoso.com* to the IP address of your web server or web app.
 
-In this quickstart, you will create a test domain and then create an  address record named 'www' to resolve to the IP address 10.10.10.10.
+In this quickstart, you will create a test domain, and then create an address record named **www** to resolve to the IP address **10.10.10.10**.
 
-It is important to know that all the names and IP addresses used in this quickstart are examples only and are not meant to represent a real-world scenario. However, where applicable, real-world scenarios are also described.
+>[!IMPORTANT]
+>All the names and IP addresses used in this quickstart are examples that do not represent real-world scenarios. The quickstart discusses real-world implications where applicable.
 
 <!---
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
-A DNS zone is used to contain the DNS entries for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS entry (or record) for your domain is then created inside this DNS zone. The following steps show you how to do this.
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a DNS zone
 
-1. Sign in to the Azure portal.
-2. In the upper left, click **+ Create a resource**, then **Networking**, and then **DNS zone** to open the **Create DNS zone** page.
+A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. 
 
-    ![DNS zone](./media/dns-getstarted-portal/openzone650.png)
-
-4. On the **Create DNS zone** page, enter the following values and then click **Create**:
+1. Sign in to the [Azure portal]().
+   
+1. At upper left, select **Create a resource**, then **Networking**, and then **DNS zone**.
+   
+   ![DNS zone](./media/dns-getstarted-portal/openzone650.png)
+   
+1. On the **Create DNS zone** page, select or enter the following values:
 
 
    | **Setting** | **Value** | **Details** |
@@ -45,9 +47,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    |**Resource group**|**Create new:** dns-test|Create a resource group. The resource group name must be unique within the subscription you selected. |
    |**Location**|East US||
 
+, and then click **Create**
+
 It may take a few minutes to create the zone.
 
 ## Create a DNS record
+
+Each DNS entry (or record) for your domain is then created inside this DNS zone. The following steps show you how to do this.
 
 Now create a new address record ('A' record). 'A' records are used to resolve a host name to an IPv4 address.
 
