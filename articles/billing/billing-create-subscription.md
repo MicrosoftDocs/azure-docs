@@ -43,6 +43,6 @@ You can also create additional subscriptions programmatically. For more informat
 - [Create management groups for resource organization and management](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Cancel your subscription for Azure](billing-how-to-cancel-azure-subscription.md)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
