@@ -148,8 +148,8 @@ To continue to the tutorials, don't clean up the resources created in this quick
 
 1. Delete the folder that was created when you downloaded the sample repository.
 1. From the menu on the left in the [Azure portal](http://portal.azure.com), select **All resources**. Then select your Digital Twins resource. At the top of the **All resources** pane, select **Delete**.
-    > [!TIP]
-    > Some of the initial Digital Twins instances experienced trouble getting deleted. The Digital Twins service has rolled out an update with a fix. Please retry deleting your instance if you encountered this issue.
+   > [!TIP]
+   > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
 
 
 ## Next steps

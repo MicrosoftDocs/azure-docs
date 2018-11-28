@@ -156,8 +156,8 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 If you want to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and then select **Delete**.
-    > [!TIP]
-    > Some of the initial Digital Twins instances experienced trouble getting deleted. The Digital Twins service has rolled out an update with a fix. Please retry deleting your instance if you encountered this issue.
+   > [!TIP]
+   > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
 
 2. If necessary, delete the sample applications on your work machine. 
 
