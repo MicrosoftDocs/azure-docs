@@ -5,6 +5,8 @@
   items:
   - name: Understand your bill
     href: billing-understand-your-bill.md
+  - name: Understand your bill - EA only
+    href: billing-understand-your-bill-ea.md
   - name: Get invoice and usage data
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: Third-party service charges
@@ -17,6 +19,8 @@
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
+  - name: View EA pricing
+    href: billing-ea-pricing.md
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Start analyzing costs - EA only
@@ -83,6 +87,8 @@
     href: billing-how-to-change-azure-account-profile.md
   - name: Grant access to billing
     href: billing-manage-access.md
+  - name: EA roles in Azure
+    href: billing-understand-ea-roles.md 
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
@@ -113,7 +119,9 @@
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Move Azure resources
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Create Enterprise subscriptions
+  - name: Create additional subscription
+    href: billing-create-subscription.md
+  - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information
     href: billing-export-subscriptions.md
