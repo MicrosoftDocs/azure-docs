@@ -1,5 +1,5 @@
 ---
-title: App Service Environment Reference for DoD customers using a DISA CAP Connection
+title: Use DISA CAP to connect to Azure Government
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
@@ -20,9 +20,7 @@ ms.author: joscot
 
 # App Service Environment Reference for DoD customers using a DISA CAP Connection
 
-## Purpose
-
-The purpose of this document is to document the correct configuration for an App Service Environment (ASE) configured with an internal load balancer (ILB) for customers who use the DISA CAP connection to Azure.
+This article explains the baseline configuration of an App Service Environment (ASE) with an internal load balancer (ILB) for customers who use the DISA CAP to connect to Azure Government.
 
 ## Environment Configuration
 
@@ -59,6 +57,9 @@ The images below describe the default NSG rules created during the ASE creation.
 
 ## Resource Manager Template Sample
 
+> [!NOTE]
+   > The Azure Portal will not allow the ASE to be configured with non-RFC 1918 IP addresses.  If your solution requires non-RFC 1918 IP addresses, you must use a Resource Manager Template to deploy the ASE.
+   
 <a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmasonch%2Fazure-ilb-ase-azuregov%2Fmaster%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>
 </a>
