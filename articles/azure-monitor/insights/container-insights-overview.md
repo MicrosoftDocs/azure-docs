@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 11/28/2018
 ms.author: magoedte
 ---
 
 # Azure Monitor for containers (Preview) overview
 
-Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
+Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
 Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux and stored in your [Log Analytics](../../log-analytics/log-analytics-queries.md) workspace. 
  
@@ -28,7 +28,7 @@ Azure Monitor for containers gives you performance visibility by collecting memo
 Azure Monitor for containers includes several pre-defined views that show the residing container workloads and what affects the performance health of the monitored Kubernetes cluster so that you can:  
 
 * Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
-* Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance. 
+* Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.  * Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance.
 * Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
 * Understand the behavior of the cluster under average and heaviest loads. This knowledge can help you identify capacity needs and determine the maximum load that the cluster can sustain. 
 

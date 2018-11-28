@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
+ms.date: 11/28/2018
 ms.author: magoedte
 ---
 
 # Understand AKS cluster performance with Azure Monitor for containers (Preview)
-Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from a AKS cluster or view all AKS clusters in a subscription from Azure Monitor. 
+Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from a AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also included when you you drill-down to a specific AKS cluster.
 
 This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
 
@@ -105,8 +105,11 @@ Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object 
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/container-insights-analyze/containers-nodes-view.png)
 
-From an expanded node, you can drill-down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
+Azure Container Instances Virtual Nodes running the Linux OS are shown after the last AKS cluster node in the list.  When you expand an ACI Virtual Node, you can view one or more ACI pods and containers running on the node.  Metrics are not collected and reported for nodes, only pods.
 
+![Example Node hierarchy with Container Instances listed](./media/monitoring-container-insights-analyze/container-health-nodes-view-aci.png)
+
+From an expanded node, you can drill-down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
 
 You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
@@ -140,11 +143,15 @@ In the selector, select **Controllers**.
 
 ![Select controllers view](./media/container-insights-analyze/containers-controllers-tab.png)
 
-Here you can view the performance health of your controllers.
+Here you can view the performance health of your controllers and ACI Virtual Node controllers or Virtual Node pods not connected to a controller.
 
 ![<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
 
-The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. Click on the value under the **Node** column for the specific controller.   
+The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
+
+![Example Controllers hierarchy with Container Instances pods listed](./media/monitoring-container-insights-analyze/container-health-controllers-view-aci.png)
+
+Click on the value under the **Node** column for the specific controller.   
 
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
 
@@ -177,7 +184,7 @@ In the selector, select **Containers**.
 
 ![Select containers view](./media/container-insights-analyze/containers-containers-tab.png)
 
-Here you can view the performance health of your Azure Kubernetes containers.  
+Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers.  
 
 ![<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
