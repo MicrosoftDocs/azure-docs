@@ -1,4 +1,4 @@
----
+﻿---
 title: Named Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract named entities for person, location and organization from text in an Azure Search cognitive search pipeline.
 services: search
@@ -9,19 +9,24 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 11/27/2018
 ms.author: luisca
 ---
 
 #	 Named Entity Recognition cognitive skill
 
-The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location`, and `organization`.
+The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location` and `organization`.
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> <ul>
+> <li>Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. </li>
+> <li> Named entity recognition skill is considered "deprecated" and will not be officially supported starting Feburary 15, 2019. Follow recommendations listed in <a href="cognitive-search-skill-deprecated.md">Deprecated Cognitive Seach Skills</a> page to migrate to a supported skill</li>
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
+
+## Data limits
+The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -30,7 +35,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`. If no category is provided, all types are returned.|
-|defaultLanguageCode |	Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
+|defaultLanguageCode |	Language code of the input text. The following languages are supported: `de, en, es, fr, it`|
 | minimumPrecision	| A number between 0 and 1. If the precision is lower than this value, the entity is not returned. The default is 0.|
 
 ## Skill inputs
@@ -54,7 +59,7 @@ Parameters are case-sensitive.
 ```json
   {
     "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-    "categories": [ "Person"],
+    "categories": [ "Person", "Location", "Organization"],
     "defaultLanguageCode": "en",
     "inputs": [
       {
@@ -79,7 +84,7 @@ Parameters are case-sensitive.
         "recordId": "1",
         "data":
            {
-             "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "text": "This is the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
              "languageCode": "en"
            }
       }
@@ -97,32 +102,38 @@ Parameters are case-sensitive.
       "data" : 
       {
         "persons": [ "Joe Romero", "Ana Smith"],
-        "locations": ["Seattle"],
-        "organizations":["Microsoft Corporation"],
+        "locations": ["Chile", "Australia"],
+        "organizations":["Microsoft"],
         "entities":  
         [
           {
             "category":"person",
             "value": "Joe Romero",
-            "offset": 45,
+            "offset": 33,
             "confidence": 0.87
           },
           {
             "category":"person",
             "value": "Ana Smith",
-            "offset": 59,
+            "offset": 124,
             "confidence": 0.87
           },
           {
             "category":"location",
-            "value": "Seattle",
-            "offset": 5,
+            "value": "Chile",
+            "offset": 88,
+            "confidence": 0.99
+          },
+          {
+            "category":"location",
+            "value": "Australia",
+            "offset": 112,
             "confidence": 0.99
           },
           {
             "category":"organization",
-            "value": "Microsoft Corporation",
-            "offset": 120,
+            "value": "Microsoft",
+            "offset": 54,
             "confidence": 0.99
           }
         ]
@@ -134,9 +145,10 @@ Parameters are case-sensitive.
 
 
 ## Error cases
-If you specify an unsupported language code, or if content doesn't match the language specified, an error is return and no entities are extracted.
+If the language code for the document is unsupported, an error is returned and no entities are extracted.
 
 ## See also
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Entity Recognition Skill](cognitive-search-skill-entity-recognition.md)
