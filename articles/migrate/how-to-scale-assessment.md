@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 11/29/2018
 ms.author: raynew
 ---
 
@@ -47,9 +47,12 @@ If you're deploying in a tenant environment, here's one way to set this up:
 
 ## Plan your migration projects and discoveries
 
-A single Azure Migrate collector supports discovery from multiple vCenter Servers (one after another) and also supports discovery to multiple migration projects (one after another).
+Based on the number of VMs you are planning to discover, you can create multiple projects and deploy multiple appliances in your environment. An appliance can be connected to a single vCenter Server and a single project (unless you stop the discovery and start afresh).
 
-Since the collector is continuously connected to the project, one appliance is connected to a single project only, so you cannot use the same collector to trigger a second discovery unless you stop the first one. In case of one-time discovery (deprecated now), the discovery works in a fire and forget model, once a discovery is done, you can use the same collector to collect data from a different vCenter Server or send it to a different migration project.
+In case of one-time discovery (deprecated now), the discovery works in a fire and forget model, once a discovery is done, you can use the same collector to collect data from a different vCenter Server or send it to a different migration project.
+
+> [!NOTE]
+> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure. It is recommended to move to the one-time discovery appliance.
 
 Plan your discoveries and assessments based on the following limits:
 
@@ -62,7 +65,7 @@ Plan your discoveries and assessments based on the following limits:
 Keep these planning considerations in mind:
 
 - When you do a discovery by using the Azure Migrate collector, you can set the discovery scope to a vCenter Server folder, datacenter, cluster, or host.
-- To do more than one discovery, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,500 machines.
+- To do more than one discovery from the same vCenter Server, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,500 machines.
 - We recommend that for assessment purposes, you keep machines with interdependencies within the same project and assessment. In vCenter Server, make sure that dependent machines are in the same folder, datacenter, or cluster for the assessment.
 
 Depending on your scenario, you can split your discoveries as prescribed below:
@@ -122,8 +125,8 @@ If you have multiple projects, you need to download the collector appliance only
 
     The Azure Migrate appliance communicates with vCenter Server and continuously profiles the on-premises environment to gather real-time utilization data for each VM. It collects peak counters for each metric (CPU utilization, memory utilization etc.). This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
 
-        > [!NOTE]
-        > The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
+    > [!NOTE]
+    > The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
     **Instant gratification:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
 

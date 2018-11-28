@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/28/2018
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -15,9 +15,9 @@ services: azure-migrate
 
 The Azure Migrate Collector is a lightweight appliance that can be used to discover an on-premises vCenter environment for the purposes of assessment with the [Azure Migrate](migrate-overview.md) service, before migration to Azure.  
 
-## Discovery methods
+## Discovery method
 
-There were earlier two options for the Collector appliance, one-time discovery, and continuous discovery. The one-time discovery model is now deprecated as it relied on vCenter Server statistics settings for performance data collection (required level 3) and also collected average counters which resulted in under-sizing. The continuous discovery model ensures granular data collection and results in accurate sizing due to collection of peak counters. Below is how it works:
+There were earlier two options for the collector appliance, one-time discovery, and continuous discovery. The one-time discovery model is now deprecated as it relied on vCenter Server statistics settings for performance data collection (required level 3) and also collected average counters which resulted in under-sizing. The continuous discovery model ensures granular data collection and results in accurate sizing due to collection of peak counters. Below is how it works:
 
 The collector appliance is continuously connected to the Azure Migrate project and continuously collects performance data of VMs.
 

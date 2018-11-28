@@ -4,7 +4,7 @@ description: Provides information about upgrades for the Azure Migrate Collector
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
 ---
@@ -15,8 +15,14 @@ This article summarizes upgrade information for the Collector appliance in [Azur
 
 The Azure Migrate Collector is a lightweight appliance that's used to discover an on-premises vCenter environment, for the purposes of assessment before migration to Azure. [Learn more](concepts-collector.md).
 
+## Continuous discovery: Upgrade versions
 
-## One-time discovery  (deprecated now): Upgrade versions
+No upgrade for the continuous discovery appliance is available yet.
+
+## One-time discovery (deprecated now): Previous upgrade versions
+
+> [!NOTE]
+> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
 ### Version 1.0.9.16 (Released on 10/29/2018)
 
@@ -50,9 +56,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-## Continuous discovery: Upgrade versions
-
-No upgrade for the continuous discovery appliance is available yet.
 
 ## Run an upgrade
 
