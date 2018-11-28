@@ -163,10 +163,10 @@ It uses [requests](http://docs.python-requests.org/master/) library to make HTTP
 ## Edit Sample.py
 After creating Sample.py open the file and copy the below code
 
-```
 The below is a 2 step process. 
 1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
 2. Pass the token to Key Vault and fetch your secret 
+
 ```
     # importing the requests library 
     import requests 
@@ -188,6 +188,7 @@ The below is a 2 step process.
 ```
 
 By running you should see the secret value 
+
 ```
 python Sample.py
 ```
