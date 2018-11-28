@@ -22,7 +22,7 @@ The Translator Text API allows you to tag content so that it isn't translated. F
 
 Example:
 
-```
+```html
 <div class="notranslate">This will not be translated.</div>
 <div>This will be translated. </div>
 ```
