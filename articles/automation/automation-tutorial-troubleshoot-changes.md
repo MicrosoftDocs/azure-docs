@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 

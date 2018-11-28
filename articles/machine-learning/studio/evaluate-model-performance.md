@@ -1,6 +1,6 @@
 ---
-title: Evaluate model performance in Machine Learning | Microsoft Docs
-description: Explains how to evaluate model performance in Azure Machine Learning.
+title: Evaluate model performance - Azure Machine Learning Studio | Microsoft Docs
+description: This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -33,7 +33,7 @@ Azure Machine Learning supports model evaluation through two of its main machine
 ## Evaluation vs. Cross Validation
 Evaluation and cross validation are standard ways to measure the performance of your model. They both generate evaluation metrics that you can inspect or compare against those of other models.
 
-[Evaluate Model][evaluate-model] expects a scored dataset as input (or 2 in case you would like to compare the performance of 2 different models). This means that you need to train your model using the [Train Model][train-model] module and make predictions on some dataset using the [Score Model][score-model] module, before you can evaluate the results. The evaluation is based on the scored labels/probabilities along with the true labels, all of which are output by the [Score Model][score-model] module.
+[Evaluate Model][evaluate-model] expects a scored dataset as input (or 2 in case you would like to compare the performance of two different models). This means that you need to train your model using the [Train Model][train-model] module and make predictions on some dataset using the [Score Model][score-model] module, before you can evaluate the results. The evaluation is based on the scored labels/probabilities along with the true labels, all of which are output by the [Score Model][score-model] module.
 
 Alternatively, you can use cross validation to perform a number of train-score-evaluate operations (10 folds) automatically on different subsets of the input data. The input data is split into 10 parts, where one is reserved for testing, and the other 9 for training. This process is repeated 10 times and the evaluation metrics are averaged. This helps in determining how well a model would generalize to new datasets. The [Cross-Validate Model][cross-validate-model] module takes in an untrained model and some labeled dataset and outputs the evaluation results of each of the 10 folds, in addition to the averaged results.
 
@@ -60,7 +60,7 @@ Figure 1. Evaluating a Regression Model.
 ### Inspecting the Evaluation Results
 After running the experiment, you can click on the output port of the [Evaluate Model][evaluate-model] module and select *Visualize* to see the evaluation results. The evaluation metrics available for regression models are: *Mean Absolute Error*, *Root Mean Absolute Error*, *Relative Absolute Error*, *Relative Squared Error*, and the *Coefficient of Determination*.
 
-The term "error" here represents the difference between the predicted value and the true value. The absolute value or the square of this difference are usually computed to capture the total magnitude of error across all instances, as the difference between the predicted and true value could be negative in some cases. The error metrics measure the predictive performance of a regression model in terms of the mean deviation of its predictions from the true values. Lower error values mean the model is more accurate in making predictions. An overall error metric of 0 means that the model fits the data perfectly.
+The term "error" here represents the difference between the predicted value and the true value. The absolute value or the square of this difference is usually computed to capture the total magnitude of error across all instances, as the difference between the predicted and true value could be negative in some cases. The error metrics measure the predictive performance of a regression model in terms of the mean deviation of its predictions from the true values. Lower error values mean the model is more accurate in making predictions. An overall error metric of zero means that the model fits the data perfectly.
 
 The coefficient of determination, which is also known as R squared, is also a standard way of measuring how well the model fits the data. It can be interpreted as the proportion of variation explained by the model. A higher proportion is better in this case, where 1 indicates a perfect fit.
 
@@ -69,7 +69,7 @@ The coefficient of determination, which is also known as R squared, is also a st
 Figure 2. Linear Regression Evaluation Metrics.
 
 ### Using Cross Validation
-As mentioned earlier, you can perform repeated training, scoring and evaluations automatically using the [Cross-Validate Model][cross-validate-model] module. All you need in this case is a dataset, an untrained model, and a [Cross-Validate Model][cross-validate-model] module (see figure below). Note that you need to set the label column to *price* in the [Cross-Validate Model][cross-validate-model] module’s properties.
+As mentioned earlier, you can perform repeated training, scoring, and evaluations automatically using the [Cross-Validate Model][cross-validate-model] module. All you need in this case is a dataset, an untrained model, and a [Cross-Validate Model][cross-validate-model] module (see figure below). You need to set the label column to *price* in the [Cross-Validate Model][cross-validate-model] module’s properties.
 
 ![Cross-Validating a Regression Model](./media/evaluate-model-performance/3.png)
 
@@ -82,7 +82,7 @@ After running the experiment, you can inspect the evaluation results by clicking
 Figure 4. Cross-Validation Results of a Regression Model.
 
 ## Evaluating a Binary Classification Model
-In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50K”, “>50K”}. In other words, the negative class represents the employees who make less than or equal to 50K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
+In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50 K”, “>50 K”}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
 
 ### Creating the Experiment
 Add the following modules to your workspace in Azure Machine Learning Studio:
@@ -110,7 +110,7 @@ For that reason, it is helpful to compute additional metrics that capture more s
 
 Figure 6. Binary Classification Confusion Matrix.
 
-Going back to the income classification problem, we would want to ask several evaluation questions that help us understand the performance of the classifier used. A very natural question is: ‘Out of the individuals whom the model predicted to be earning >50K (TP+FP), how many were classified correctly (TP)?’ This question can be answered by looking at the **Precision** of the model, which is the proportion of positives that are classified correctly: TP/(TP+FP). Another common question is “Out of all the high earning employees with income >50k (TP+FN), how many did the classifier classify correctly (TP)”. This is actually the **Recall**, or the true positive rate: TP/(TP+FN) of the classifier. You might notice that there is an obvious trade-off between precision and recall. For example, given a relatively balanced dataset, a classifier that predicts mostly positive instances, would have a high recall, but a rather low precision as many of the negative instances would be misclassified resulting in a large number of false positives. To see a plot of how these two metrics vary, you can click on the ‘PRECISION/RECALL’ curve in the evaluation result output page (top left part of Figure 7).
+Going back to the income classification problem, we would want to ask several evaluation questions that help us understand the performance of the classifier used. A very natural question is: ‘Out of the individuals whom the model predicted to be earning >50K (TP+FP), how many were classified correctly (TP)?’ This question can be answered by looking at the **Precision** of the model, which is the proportion of positives that are classified correctly: TP/(TP+FP). Another common question is “Out of all the high earning employees with income >50k (TP+FN), how many did the classifier classify correctly (TP)”. This is actually the **Recall**, or the true positive rate: TP/(TP+FN) of the classifier. You might notice that there is an obvious trade-off between precision and recall. For example, given a relatively balanced dataset, a classifier that predicts mostly positive instances, would have a high recall, but a rather low precision as many of the negative instances would be misclassified resulting in a large number of false positives. To see a plot of how these two metrics vary, you can click on the **PRECISION/RECALL** curve in the evaluation result output page (top-left part of Figure 7).
 
 ![Binary Classification Evaluation Results](./media/evaluate-model-performance/7.png)
 
