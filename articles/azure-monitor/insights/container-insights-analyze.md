@@ -107,7 +107,7 @@ Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object 
 
 Azure Container Instances Virtual Nodes running the Linux OS are shown after the last AKS cluster node in the list.  When you expand an ACI Virtual Node, you can view one or more ACI pods and containers running on the node.  Metrics are not collected and reported for nodes, only pods.
 
-![Example Node hierarchy with Container Instances listed](./media/monitoring-container-insights-analyze/container-health-nodes-view-aci.png)
+![Example Node hierarchy with Container Instances listed](./media/container-insights-analyze/nodes-view-aci.png)
 
 From an expanded node, you can drill-down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
@@ -149,7 +149,7 @@ Here you can view the performance health of your controllers and ACI Virtual Nod
 
 The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
 
-![Example Controllers hierarchy with Container Instances pods listed](./media/monitoring-container-insights-analyze/container-health-controllers-view-aci.png)
+![Example Controllers hierarchy with Container Instances pods listed](./media/container-insights-analyze/controllers-view-aci.png)
 
 Click on the value under the **Node** column for the specific controller.   
 
