@@ -14,17 +14,16 @@ ms.author: garye
 
 The Azure Batch AI service is retiring in March. The training and testing at-scale capabilities of Batch AI are now available in [Azure Machine Learning service](../machine-learning/service/overview-what-is-azure-ml.md), which became generally available on December 4, 2018. 
 
-Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring ML models. This compute target is called the [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md). 
+Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring ML models. This compute target is called the [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md). [Start migrating and using it today](#migrate). You can interact with the Azure Machine Learning service through its [Python SDKs](../machine-learning/service/quickstart-create-workspace-with-python.md), the [Azure portal](../machine-learning/service/quickstart-get-started.md), and the CLI. 
 
-You can interact with the Azure Machine Learning service through its [Python SDKs](../machine-learning/service/quickstart-create-workspace-with-python.md), the [Azure portal](../machine-learning/service/quickstart-get-started.md), and the CLI. 
+## Support timeline
 
-## Batch AI support timeline
-
-| Date | Support details |
+| Date | Batch AI service support details |
 | ---- |-----------------|
 | December&nbsp;14&#x2c;&nbsp;2018| Continue to use your existing Azure Batch AI subscriptions as before. However, creating new subscriptions is no longer possible and no new investments will be made to this service.|
 | March 4 2019 | After this date, existing Batch AI subscriptions will no longer run. |
 
+<a name="migrate"></a>
 ## How do I migrate?
 
 To avoid disruptions to your applications and to benefit from the latest features, take the following steps before March 4, 2019:
