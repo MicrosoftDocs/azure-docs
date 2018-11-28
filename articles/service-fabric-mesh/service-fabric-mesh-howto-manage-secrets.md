@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: secrets
 author: aljo
 ms.author: aljo
-ms.date: 09/13/2018
+ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
