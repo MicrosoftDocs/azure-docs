@@ -27,9 +27,8 @@ Convert your scripts to use Azure Machine Learning Compute before June 28, 2019,
 | Date | Support details |
 | ---- |-----------------|
 | December 4, 2018 | Beginning this date, the ability to create a new Azure Batch AI subscription ended. You can continue to use your existing subscriptions as before. |
-| Between Dec 4, 2018 and March 4, 2019 | If Azure Machine Learning service does not meet your need, and a supported functionality exists in the BatchAI service, you can raise a support request against the BatchAI service and request that your subscription be whitelisted to use the service. |
-| March 4, 2019 | After this date, existing subscriptions to Azure Batch AI will no longer run. We expect to have migrated all our customers to Azure Machine Learning by then. |
-
+| Between Dec 4, 2018 and March 4, 2019 | No new investments to the Batch AI service. We will support existing customers during their migration to the more comprehensive [Azure Machine Learning service](https://aka.ms/aml-docs). If Azure Machine Learning service does not meet your need, and a supported functionality exists in Batch AI, then raise a support whitelist request against Batch AI service. |
+| March 4, 2019 | Existing subscriptions will continue to run through this date, at which point we should have full feature parity between the two services. After this date, existing Batch AI subscriptions will no longer run. |
 
 ## For more information
 
