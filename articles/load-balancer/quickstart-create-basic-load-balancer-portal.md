@@ -33,7 +33,7 @@ First, create a public Basic load balancer by using the portal. The name and pub
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
    
-1. In the **Create load balancer** pane, enter or select these values:
+1. In the **Create load balancer** pane, type or select these values:
    
    - **Name**: **MyLoadBalancer**
    - **Type**: **Public** 
@@ -47,15 +47,15 @@ First, create a public Basic load balancer by using the portal. The name and pub
    
 ![Create a load balancer](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-## Create and configure back-end servers
+## Create back-end servers
 
-Next, create a virtual network and two virtual machines for the backend pool of your Basic load balancer. 
+Next, create a virtual network and two virtual machines for the back-end pool of your Basic load balancer. 
 
 ### Create a virtual network
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
    
-1. In the **Create virtual network** pane, enter or select these values:
+1. In the **Create virtual network** pane, type or select these values:
    
    - **Name**: **MyVnet**
    - **ResourceGroup**: drop down **Select existing** and select **MyResourceGroupLB** 
@@ -69,14 +69,14 @@ Next, create a virtual network and two virtual machines for the backend pool of 
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
-1. In the **Create a virtual machine** pane, enter or select the following values in the **Basics** tab:
+1. In the **Create a virtual machine** pane, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: drop down and select **MyResourceGroupLB**
    - **Instance Details** > **Virtual machine name**: **MyVM1**
    - **Instance Details** > **Availability Options**: 
      1. Drop down and select **Availability set**. 
      2. Select **Create new**, enter **MyAvailabilitySet**, and select **OK**.
    - **Administrator Account** > **Username**: **azureuser**
-   - **Administrator Account** > **Password**: **Azure123456!**. Retype the password in the **Confirm Password** field.
+   - **Administrator Account** > **Password**: **Azure1234567**. Retype the password in the **Confirm Password** field.
    
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. Make sure the following are selected:
    - **Virtual network**: **MyVnet**
@@ -103,7 +103,7 @@ In this section, you create network security group (NSG) rules for the VMs, to a
    
 1. Under **Settings**, select **Inbound security rules**, and then select **Add**.
    
-1. In the **Add inbound security rule** dialog, for the HTTP rule, enter or select the following:
+1. In the **Add inbound security rule** dialog, for the HTTP rule, type or select the following:
    
    - **Source**: **Service Tag**  
    - **Source service tag**: **Internet** 
@@ -132,13 +132,13 @@ In this section, you configure load balancer settings for a back-end address poo
 
 To distribute traffic to the VMs, the load balancer uses a back-end address pool. The back-end address pool contains the IP addresses of the virtual NICs that are connected to the load balancer. 
 
-**To create a backend address pool that includes VM1 and VM2:
+**To create a back-end address pool that includes VM1 and VM2:
 
 1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
    
 1. Under **Settings**, select **Backend pools**, and then select **Add**.
    
-1. On the **Add a backend pool** page, enter or select the following: 
+1. On the **Add a backend pool** page, type or select the following values:
    
    - **Name**: **MyBackEndPool**
    - **Associated to**: drop down and select **Availability set**
@@ -164,7 +164,7 @@ To allow the load balancer to monitor app status, you use a health probe. The he
    
 1. Under **Settings**, select **Health probes**, and then select **Add**.
    
-1. On the **Add a health probe** page, enter or select the following: 
+1. On the **Add a health probe** page, type or select the following values:
    
    - **Name**: **MyHealthProbe**
    - **Protocol**: **HTTP** 
@@ -190,7 +190,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Under **Settings**, select **Load balancing rules**, and then select **Add**.
    
-1. On the **Add load balancing rule** page, enter or select the following: 
+1. On the **Add load balancing rule** page, type or select the following values:
    
    - **Name**: **MyLoadBalancerRule**
    - **Frontend IP address:** **LoadBalancerFrontend**
@@ -222,7 +222,7 @@ You'll use Internet Information Services (IIS) and a web browser on the virtual 
    
 1. On the Windows Security screen, select **More choices** and then **Use a different account**. 
    
-   Enter username **azureuser** and password **Azure123456!**, and select **OK**.
+   Enter username **azureuser** and password **Azure1234567**, and select **OK**.
 
 1. Respond **Yes** to any certificate prompt. 
    
