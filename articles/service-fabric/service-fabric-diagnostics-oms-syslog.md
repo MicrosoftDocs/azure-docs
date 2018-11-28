@@ -20,11 +20,11 @@ ms.author: srrengar
 
 # Service Fabric Linux cluster events in Syslog
 
-Service fabric exposes a set of platform events to inform you of important activity in your cluster. The full list of events that we expose is available [here](service-fabric-diagnostics-event-generation-operational.md). There are variety of ways through which these events can be consumed. In this article, we are going to discuss how to configure Service Fabric to write these events to Syslog.
+Service Fabric exposes a set of platform events to inform you of important activity in your cluster. The full list of events that are exposed is available [here](service-fabric-diagnostics-event-generation-operational.md). There are variety of ways through which these events can be consumed. In this article, we are going to discuss how to configure Service Fabric to write these events to Syslog.
 
 ## Introduction
 
-In the 6.4 release, we have added functionality called the SyslogConsumer to send the Service Fabric platform events to Syslog for Linux clusters. Once turned on, events will automatically flow to Syslog which can be collected and sent by the Log Analytics Agent.
+In the 6.4 release, the SyslogConsumer has been introduced to send the Service Fabric platform events to Syslog for Linux clusters. Once turned on, events will automatically flow to Syslog which can be collected and sent by the Log Analytics Agent.
 
 Each Syslog event has 4 components
 * Facility
@@ -32,7 +32,7 @@ Each Syslog event has 4 components
 * Message
 * Severity
 
-The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility cy changing the config  config. The Identity used is `ServicFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
+The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServicFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
 
 ## Enable SyslogConsumer
 
@@ -79,8 +79,8 @@ To enable the SyslogConsumer, you need to perform an upgrade of your cluster. Th
 ```
 
 Here are the changes to call out
-1. In the Common section, we have a new parameter called `LinuxStructuredTracesEnabled`. **This is required to have Linux events structured and serialized when sent to Syslog.**
-2. In the Diagnostics section, we added a new ConsumerInstance: SyslogConsumer. This tells the platform there is another consumer of the events. 
+1. In the Common section, there is a new parameter called `LinuxStructuredTracesEnabled`. **This is required to have Linux events structured and serialized when sent to Syslog.**
+2. In the Diagnostics section, a new ConsumerInstance: SyslogConsumer has been added. This tells the platform there is another consumer of the events. 
 3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configurd to use the Local0 facility automatically. You can override this by adding another parameter.
 
 ```json
@@ -91,7 +91,7 @@ Here are the changes to call out
 ```
 
 ## Log Analytics integration
-You can read these Syslog events in a monitoring tool such as Log Analytics. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions](../log-analytics/log-analytics-quick-create-workspace.md)
+You can read these Syslog events in a monitoring tool such as Log Analytics. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../log-analytics/log-analytics-quick-create-workspace.md)
 You also need to add the Log Analytics agent to your cluster to collect and send this data to the workspace. This is the same agent used to collect performance counters. 
 
 1. Navigate to the `Advanced Settings` blade
