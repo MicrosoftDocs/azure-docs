@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: juliako
 ---
 
@@ -21,18 +21,30 @@ Azure Media Services v3 enables you to extract insights from your video and audi
 
 To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. The following article demonstrates how to use **VideoAnalyzerPreset**: [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 
-## AudioAnalyzerPreset
+> [!NOTE]
+> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
 
-**AudioAnalyzerPreset** enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
+## Built-in presets
+
+Media Services currently supports the following built-in analyzer presets:  
+
+|**Preset name**|**Scenario**|**Details**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Analyzing audio|The preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.<br/>You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region' (for example, 'en-US'). The list of supported languages is, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'. If language is not specified or set to Null, automatic language detection will be employed. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese.|
+|**VideoAnalyzerPreset**|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
+
+### AudioAnalyzerPreset
+
+The preset enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
 
 * Audio transcription – a transcript of the spoken words with timestamps. Multiple languages are supported
 * Speaker indexing – a mapping of the speakers and the corresponding spoken words
 * Speech sentiment analysis – the output of sentiment analysis performed on the audio transcription
 * Keywords – keywords that are extracted from the audio transcription.
 
-## VideoAnalyzerPreset
+### VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
+The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
 
 * Face tracking – the time during which faces are present in the video. Each face has a face id and a corresponding collection of thumbnails
 * Visual text – the text that is detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript)

@@ -1,5 +1,5 @@
 ﻿---
-title: Call a secured ASP.NET web api in Azure Active Directory B2C | Microsoft Docs
+title: Call a .NET web API from a .NET web app in Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web app and call a web api using Azure Active Directory B2C and OAuth 2.0 access tokens.
 services: active-directory-b2c
 author: davidmu1
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Azure AD B2C: Call a .NET web API from a .NET web app
+# Call a .NET web API from a .NET web app in Azure Active Directory B2C
 
 By using Azure AD B2C, you can add powerful identity management features to your web apps and web APIs. This article discusses how to request access tokens and make calls from a .NET "to-do list" web app to a .NET web api.
 
@@ -27,10 +27,10 @@ This article does not cover how to implement sign-in, sign-up and profile manage
 To build a web application that calls a web api, you need to:
 
 1. [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
-2. [Register a web api](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Register a web app](active-directory-b2c-app-registration.md#register-a-web-app).
+2. [Register a web api](active-directory-b2c-app-registration.md).
+3. [Register a web app](active-directory-b2c-app-registration.md).
 4. [Set up policies](active-directory-b2c-reference-policies.md).
-5. [Grant the web app permissions to use the web api](active-directory-b2c-access-tokens.md#publishing-permissions).
+5. [Grant the web app permissions to use the web api](active-directory-b2c-access-tokens.md).
 
 > [!IMPORTANT]
 > The client application and web API must use the same Azure AD B2C directory.
@@ -83,7 +83,7 @@ To specify the scope in our sample, open the file `App_Start\Startup.Auth.cs` an
         {
             ...
 
-            // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+            // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
             Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
         }
     );

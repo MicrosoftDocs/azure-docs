@@ -1,11 +1,11 @@
 ---
-title: Prepare on-premises Hyper-V server for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
-description: Learn how to prepare on-premises Hyper-V VMs not managed by System Center VMM for disaster recovery to Azure with the Azure Site Recovery service.
+title: Prepare on-premises Hyper-V servers for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
+description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -85,7 +85,7 @@ To connect to Windows VMs using RDP after failover, allow access as follows:
    machine until the update completes.
 3. On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the
    VM. If you can't connect, check that the VM is running and review these
-   [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+   [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 After failover, you can access Azure VMs using the same IP address as the replicated on-premises VM, or a different IP address. [Learn more](concepts-on-premises-to-azure-networking.md) about setting up IP addressing for failover.
 

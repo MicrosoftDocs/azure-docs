@@ -106,10 +106,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### What are the known service limits?
 
-* Azure Firewall has a soft limit of 1000 TB per firewall per month.
-* An instance of Azure Firewall that is running in a central virtual network has virtual network peering limitations, with a maximum of 50 spoke virtual networks.  
-* Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
-* Azure Firewall supports 10k application rules and 10k network rules.
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ### Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 

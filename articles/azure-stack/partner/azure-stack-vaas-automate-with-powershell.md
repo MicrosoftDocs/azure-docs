@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -25,9 +25,7 @@ You can use PowerShell for the following workflow:
 
 - Test Pass
 
-In this tutorial, you learn how to to create a script that:
-
-This script performs the following actions:
+In this tutorial, you learn how to create a script that:
 
 > [!div class="checklist"]
 > * Installs prerequisites

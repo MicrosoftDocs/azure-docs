@@ -11,7 +11,7 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ---
 # Monitoring and performance tuning
 
@@ -28,7 +28,7 @@ You have the following options for monitoring and troubleshooting database perfo
 - Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues.
 - Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
 - [Enable automatic tuning](sql-database-automatic-tuning-enable.md) and let Azure SQL database automatically fix identified performance issues.
-- Use [dynamic management views (DMVs)](sql-database-monitoring-with-dmvs.md), [extended events](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-xevent-db-diff-from-svr), and the [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) for more detailed troubleshooting of performance issues.
+- Use [dynamic management views (DMVs)](sql-database-monitoring-with-dmvs.md), [extended events](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr), and the [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) for more detailed troubleshooting of performance issues.
 
 > [!TIP]
 > See [performance guidance](sql-database-performance-guidance.md) to find techniques that you can use to improve performance of Azure SQL Database after identifying the performance issue using one or more of the above methods.

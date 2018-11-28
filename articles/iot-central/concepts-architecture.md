@@ -74,7 +74,7 @@ In a device template:
 
 An application can have one or more simulated and real devices based on each device template.
 
-## RBAC
+## Role-based access control (RBAC)
 
 An [administrator can define access rules](howto-administer.md) for an Azure IoT Central application using the predefined roles. An administrator can assign users to roles that determine what areas of the application the user has access to.
 

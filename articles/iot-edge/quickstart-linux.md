@@ -2,16 +2,18 @@
 title: Quickstart Azure IoT Edge + Linux | Microsoft Docs 
 description: In this quickstart, learn how to deploy prebuilt code remotely to an IoT Edge device.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
-ms.date: 08/14/2018
+ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 
 experimental: true
-experiment_id: 21cb7321-bcff-4b
+experiment_id: "b0354115-dc43-45"
+# Control file -- leave as-is 
+# Any changes not related to the IoT Edge VM switch should be reflected in both files
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Linux x64 device
@@ -48,7 +50,7 @@ Cloud resources:
 * A resource group to manage all the resources you use in this quickstart. 
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 IoT Edge device:
@@ -56,8 +58,10 @@ IoT Edge device:
 * A Linux device or virtual machine to act as your IoT Edge device. If you want to create a virtual machine in Azure, use the following command to get started quickly:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You use this public IP address to connect to the virtual machine later in the quickstart.
 
 ## Create an IoT hub
 
@@ -73,7 +77,7 @@ The following code creates a free **F1** hub in the resource group **IoTEdgeReso
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. 
+   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. If you get an error that the IoT Hub name isn't available, it means that someone else already has a hub with that name. Try a new name. 
 
 ## Register an IoT Edge device
 
@@ -82,7 +86,7 @@ Register an IoT Edge device with your newly created IoT hub.
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity. 
 
-Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
+Since IoT Edge devices behave and can be managed differently than typical IoT devices, declare this identity to be for an IoT Edge device with the `--edge-enabled` flag. 
 
 1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
@@ -90,14 +94,15 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-1. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
+   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-cli-iot-ext extension. 
+
+2. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
-
+3. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
 ## Install and start the IoT Edge runtime
 
@@ -108,13 +113,21 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 During the runtime configuration, you provide a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure. 
 
-Complete the following steps in the Linux machine or VM that you prepared to function as an IoT Edge device. 
+### Connect to your IoT Edge device
+
+The steps in this section all take place on your IoT Edge device. If you're using your own machine as the IoT Edge device, you can skip this part. If you're using a virtual machine or secondary hardware, you want to connect to that machine now. 
+
+If you created an Azure virtual machine for this quickstart, retrieve the public IP address that was output by the creation command. You can also find the public IP address on your virtual machine's overview page in the Azure portal. Use the following command to connect to your virtual machine. Replace **{publicIpAddress}** with your machine's address. 
+
+```azurecli-interactive
+ssh azureuser@{publicIpAddress}
+```
 
 ### Register your device to use the software repository
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The steps in this section are for x64 devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux or device architectures, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+The steps in this section are for x64 devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux or device architectures, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. On the machine that you're using as an IoT Edge device, install the repository configuration.
 
@@ -163,7 +176,7 @@ The security daemon installs as a system service so that the IoT Edge runtime st
    sudo apt-get install iotedge
    ```
 
-2. Open the IoT Edge configuration file. It is a protected file so you may have to use elevated privileges to access it.
+2. Open the IoT Edge configuration file. It's a protected file so you may have to use elevated privileges to access it.
    
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -241,7 +254,7 @@ View the messages being sent from the tempSensor module:
 
 The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
 
-You can also view the telemetry as it arrives at your IoT hub by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+You can also watch the messages arrive at your IoT hub by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## Clean up resources
 
@@ -249,7 +262,7 @@ If you want to continue on to the IoT Edge tutorials, you can use the device tha
 
 ### Delete Azure resources
 
-If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. If there's anything in that resource group that you want to keep, then just delete the individual resources that you want to clean up. 
+If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. Double check the contents of the resource group to make sure that there's nothing you want to keep. If you don't want to delete the whole group, you can delete individual resources instead.
 
 Remove the **IoTEdgeResources** group.
 

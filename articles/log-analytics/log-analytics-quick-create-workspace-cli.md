@@ -118,7 +118,7 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![Example result when deployment is complete](media/log-analytics-quick-create-workspace-cli/template-output-01.png)
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  
@@ -126,4 +126,4 @@ Now that you have a workspace available, you can configure collection of monitor
 * To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](log-analytics-azure-storage.md).  
 * Add [System Center Operations Manager as a data source](log-analytics-om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
 * Connect [Configuration Manager](log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
-* Review the [management solutions](log-analytics-add-solutions.md) available and how to add or remove a solution from your workspace.
+* Review the [management solutions](../azure-monitor/insights/solutions.md) available and how to add or remove a solution from your workspace.

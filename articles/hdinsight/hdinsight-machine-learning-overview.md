@@ -2,14 +2,14 @@
 title: Machine learning overview - Azure HDInsight 
 description: Describes the machine learning options in HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: jasonh
+ms.author: hrasheed
 ---
 # Machine learning on HDInsight
 

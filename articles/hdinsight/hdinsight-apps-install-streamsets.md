@@ -1,6 +1,6 @@
 ---
 title: Install published application - StreamSets Data Collector - Azure HDInsight 
-description: Install and use the StreamSets Data Collector third-party Hadoop application.
+description: Install and use the StreamSets Data Collector third-party Apache Hadoop application.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -14,13 +14,13 @@ ms.author: ashish
 ---
 # Install published application - StreamSets Data Collector
 
-This article describes how to install and run the [StreamSets Data Collector for HDInsight](https://streamsets.com/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [StreamSets Data Collector for HDInsight](https://streamsets.com/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About StreamSets Data Collector
 
 The StreamSets Data Collector deploys on top of an Azure HDInsight application. StreamSets Data Collector provides a full-featured integrated development environment (IDE) that lets you design, test, deploy, and manage any-to-any ingest pipelines. These pipelines can mesh stream and batch data, and include a variety of in-stream transformations, all without having to write custom code.
 
-StreamSets Data Collector lets you build data flows using numerous Big Data components such as HDFS, Kafka, Solr, Hive, HBASE, and Kudu. Once StreamSets Data Collector is running on an edge server, or in your Hadoop cluster, you get real-time monitoring for both data anomalies and data flow operations. This monitoring includes threshold-based alerting, anomaly detection, and automatic remediation of error records.
+StreamSets Data Collector lets you build data flows using numerous Big Data components such as [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Kafka](https://kafka.apache.org/), [Apache Solr](https://lucene.apache.org/solr/), [Apache Hive](https://hive.apache.org/), [Apache HBase](https://hbase.apache.org/), and [Apache Kudu](https://kudu.apache.org/). Once StreamSets Data Collector is running on an edge server, or in your Hadoop cluster, you get real-time monitoring for both data anomalies and data flow operations. This monitoring includes threshold-based alerting, anomaly detection, and automatic remediation of error records.
 
 StreamSets Data Collector is designed to logically isolate each stage in a pipeline, so you can meet new business requirements by dropping in new processors and connectors without coding and with minimal downtime.
 
@@ -42,7 +42,7 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 
 ## Install the StreamSets Data Collector published application
 
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md).
 
 ## Launch StreamSets Data Collector
 

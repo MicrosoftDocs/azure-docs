@@ -10,7 +10,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ---
-# Create a Spark machine learning pipeline
+# Create an Apache Spark machine learning pipeline
 
 Apache Spark's scalable machine learning library (MLlib)  brings modeling capabilities to a  distributed environment. The Spark package [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) is a  set of high-level APIs built on DataFrames. These APIs help you create and tune practical machine-learning pipelines.  *Spark machine learning*  refers to this MLlib DataFrame-based API, not the  older RDD-based pipeline API.
 
@@ -34,6 +34,11 @@ The following code:
 4. Creates training data.
 
 ```python
+from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import HashingTF, Tokenizer
+from pyspark.sql import Row
+
 # The data structure (column meanings) of the data array:
 # 0 Date
 # 1 Time
@@ -120,4 +125,4 @@ The `model` object can now be used to make predictions. For the  full sample of 
 
 ## See also
 
-* [Data Science using Scala and Spark on Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Data Science using Scala and Apache Spark on Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

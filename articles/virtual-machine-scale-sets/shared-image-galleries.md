@@ -31,4 +31,4 @@ ms.custom:
 
 ## Next steps
 
-Learn how to deploy shared images using the [Azure CLI] (shared-images-cli.md)
+Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md)

@@ -97,20 +97,20 @@ Cloud Services can be redeployed by providing the `.cspkg` and `.cscfg` definiti
 
 ### By PowerShell
 
-- [Create a new Cloud Service](/powershell/module/azure/new-azureservice?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`.
+- [Create a new Cloud Service](/powershell/module/servicemanagement/azure/new-azureservice) with your `.cspkg` and `.cscfg`.
 
 ```powershell
 New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
 ```
 
-- [Create a new deployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`. See details [here].
+- [Create a new deployment](/powershell/module/servicemanagement/azure/new-azuredeployment) with your `.cspkg` and `.cscfg`. See details [here].
 
 ```powershell
 New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
 ```
 
 - Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new Cloud Service.
-- [Delete your old Cloud Service](/powershell/module/azure/remove-azureservice?view=azuresmps-4.0.0) in Azure Germany after your traffic is pointing to the new Cloud Service.
+- [Delete your old Cloud Service](/powershell/module/servicemanagement/azure/remove-azureservice) in Azure Germany after your traffic is pointing to the new Cloud Service.
 
 ```powershell
 Remove-AzureService -ServiceName <yourOldServiceName>

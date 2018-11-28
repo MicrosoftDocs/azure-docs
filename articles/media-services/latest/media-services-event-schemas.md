@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 10/16/2018
+ms.date: 10/30/2018
 ms.author: juliako
 ---
 
@@ -112,9 +112,7 @@ The data object has the following properties:
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
-### JobScheduled
-### JobProcessing
-### JobCanceling
+### JobScheduled, JobProcessing, JobCanceling
 
 For each non-final Job state change (such as JobScheduled, JobProcessing, JobCanceling), the example schema looks similar to the following:
 
@@ -138,9 +136,7 @@ For each non-final Job state change (such as JobScheduled, JobProcessing, JobCan
 }]
 ```
 
-### JobFinished
-### JobCanceled
-### JobErrored
+### JobFinished, JobCanceled, JobErrored
 
 For each final Job state change (such as JobFinished, JobCanceled, JobErrored), the example schema looks similar to the following:
 
@@ -211,12 +207,7 @@ The following example shows the schema of the **JobOutputStateChange** event:
 }]
 ```
 
-### JobOutputScheduled
-### JobOutputProcessing
-### JobOutputFinished
-### JobOutputCanceling
-### JobOutputCanceled
-### JobOutputErrored
+### JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
 For each JobOutput state change, the example schema looks similar to the following:
 
@@ -638,3 +629,8 @@ An event has the following top-level data:
 ## Next steps
 
 [Register for job state change events](job-state-events-cli-how-to.md)
+
+## See also
+
+- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

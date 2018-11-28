@@ -96,7 +96,7 @@ The response to the request is similar to the following JSON document:
 > [!TIP]
 > The `id` entry in the response is the ID of the new project. This is used in other examples later in this document.
 
-For more information on this request, see [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+For more information on this request, see [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446).
 
 ### Specific domains
 

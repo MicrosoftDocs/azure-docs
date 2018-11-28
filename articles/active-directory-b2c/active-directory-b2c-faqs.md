@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -17,7 +17,7 @@ ms.component: B2C
 This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
 
 ### Why can't I access the Azure AD B2C extension in the Azure portal?
-There are two common reasons for why the Azure AD extension is not working for you.  Azure AD B2C requires your user role in the directory to be global administrator.  Please contact your administrator if you think you should have access.  If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure Active Directory directory.  You can see instructions for [creating an Azure AD B2C directory here](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+There are two common reasons for why the Azure AD extension is not working for you.  Azure AD B2C requires your user role in the directory to be global administrator.  Please contact your administrator if you think you should have access.  If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure Active Directory directory.  You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant.  An Azure AD tenant represents an organization.  An Azure AD B2C tenant represents a collection of identities to be used with relying party applications.  With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
@@ -35,12 +35,12 @@ User accounts for applications must always be created through a sign-up policy, 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
 
-Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
+Azure AD B2C has also added support for [custom policies](active-directory-b2c-overview-custom.md).  These [custom policies](active-directory-b2c-overview-custom.md) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
 
 Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
-No, but this feature is on our roadmap. The default scopes used for our supported set of social identity providers are:
+No. The default scopes used for our supported set of social identity providers are:
 
 * Facebook: email
 * Google+: email
@@ -52,7 +52,7 @@ No, but this feature is on our roadmap. The default scopes used for our supporte
 No, you can host your application anywhere (in the cloud or on-premises). All it needs to interact with Azure AD B2C is the ability to send and receive HTTP requests on publicly accessible endpoints.
 
 ### I have multiple Azure AD B2C tenants. How can I manage them on the Azure portal?
-Before opening 'Azure AD B2C' in the left side menu of the Azure portal, you must switch into the directory you want to manage.  Switch directories by clicking your identity in the upper right of the Azure portal, then choose a directory in the drop down that appears.  For a step-by-step with images, see [Navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Before opening 'Azure AD B2C' in the left side menu of the Azure portal, you must switch into the directory you want to manage.  Switch directories by clicking your identity in the upper right of the Azure portal, then choose a directory in the drop down that appears.
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 You can use the [company branding feature](../active-directory/fundamentals/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
@@ -70,13 +70,13 @@ The email signature contains the Azure AD B2C tenant's name that you provided wh
 1. Change the **Name** field.
 1. Click **Save** at the top of the page.
 
-Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
+Currently there is no way to change the "From:" field on the email.
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### What password policy is used for local accounts in Azure AD B2C?
-The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
+The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
@@ -109,8 +109,7 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Follow these steps to [navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-1. Navigate to the **Applications**, **Identity providers**, and **All policies** and delete all the entries in each of them.
+1. Delete all the policies in your Azure AD B2C tenant.
 1. Now sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Switch to the Azure AD B2C tenant you want to delete.
 2. Navigate to the Active Directory menu on the left.

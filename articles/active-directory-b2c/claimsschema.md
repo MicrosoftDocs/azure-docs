@@ -105,7 +105,7 @@ The **Mask** element contains the following attributes:
 | Type | Yes | The type of the claim mask. Possible values: `Simple` or `Regex`. The `Simple` value indicates that a simple text mask is applied to the leading portion of a string claim. The `Regex` value indicates that a regular expression is applied to the string claim as whole.  If the `Regex` value is specified, an optional attribute must also be defined with the regular expression to use. |
 | Regex | No | If **Type** is set to `Regex`, specify the regular expression to use.
 
-The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
+The following example configures a **PhoneNumber** claim with the `Simple` mask:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -120,7 +120,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 ![Using claim type with mask](./media/claimsschema/mask.png)
 
-The follwing example configures a **AlternateEmail** claim with the `Regex` mask:
+The following example configures a **AlternateEmail** claim with the `Regex` mask:
 
 ```XML
 <ClaimType Id="AlternateEmail">

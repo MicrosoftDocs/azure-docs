@@ -44,7 +44,7 @@ If CPU consumption is above 80% for extended periods of time, consider the follo
 
 If issue is occurring right now, there are two possible scenarios:
 
-#### There are many queries that individually run quickly but cumulatively consume high CPU
+#### Many individual queries that cumulatively consume high CPU
 
 Use the following query to identify top query hashes:
 
@@ -59,7 +59,7 @@ FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### Some long running queries that consume CPU are still running
+#### Long running queries that consume CPU are still running
 
 Use the following query to identify these queries:
 
@@ -111,7 +111,9 @@ When identifying IO performance issues, the top wait types associated with IO is
 
 ### If the IO issue is occurring right now
 
-Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
+Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
+
+#### Identify data and log IO usage
 
 Use the following query to identify data and log IO usage. If the data or log IO is above 80%, it means users have used the available IO for the SQL DB service tier.
 
@@ -126,9 +128,11 @@ If the IO limit has been reached, you have two options:
 - Option 1: Upgrade the compute size or service tier
 - Option 2: Identify and tune the queries consuming the most IO.
 
-For option 2, you can use the following query against Query Store for buffer-related IO (looks at the last two hours of tracked activity):
+#### View buffer-related IO using the Query Store
 
-```SQL
+For option 2, you can use the following query against Query Store for buffer-related IO to view the last two hours of tracked activity:
+
+```sql
 -- top queries that waited on buffer
 -- note these are finished queries
 WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
@@ -147,6 +151,85 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
+#### View total log IO for WRITELOG waits
+
+If the wait type is `WRITELOG`, use the following query to view total log IO by statement:
+
+```sql
+-- Top transaction log consumers
+-- Adjust the time window by changing
+-- rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+WITH AggregatedLogUsed
+AS (SELECT q.query_hash,
+           SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec,
+           SUM(count_executions * avg_cpu_time / 1000.0) / SUM(count_executions) AS avg_cpu_millisec,
+           SUM(count_executions * avg_log_bytes_used) AS total_log_bytes_used,
+           MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec,
+           MAX(max_logical_io_reads) max_logical_reads,
+           COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans,
+           COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Aborted' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Aborted_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Regular' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Regular_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Exception' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Exception_Execution_Count,
+           SUM(count_executions) AS total_executions,
+           MIN(qt.query_sql_text) AS sampled_query_text
+    FROM sys.query_store_query_text AS qt
+        JOIN sys.query_store_query AS q
+            ON qt.query_text_id = q.query_text_id
+        JOIN sys.query_store_plan AS p
+            ON q.query_id = p.query_id
+        JOIN sys.query_store_runtime_stats AS rs
+            ON rs.plan_id = p.plan_id
+        JOIN sys.query_store_runtime_stats_interval AS rsi
+            ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+    WHERE rs.execution_type_desc IN ( 'Regular', 'Aborted', 'Exception' )
+          AND rsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY q.query_hash),
+     OrderedLogUsed
+AS (SELECT query_hash,
+           total_log_bytes_used,
+           number_of_distinct_plans,
+           number_of_distinct_query_ids,
+           total_executions,
+           Aborted_Execution_Count,
+           Regular_Execution_Count,
+           Exception_Execution_Count,
+           sampled_query_text,
+           ROW_NUMBER() OVER (ORDER BY total_log_bytes_used DESC, query_hash ASC) AS RN
+    FROM AggregatedLogUsed)
+SELECT OD.total_log_bytes_used,
+       OD.number_of_distinct_plans,
+       OD.number_of_distinct_query_ids,
+       OD.total_executions,
+       OD.Aborted_Execution_Count,
+       OD.Regular_Execution_Count,
+       OD.Exception_Execution_Count,
+       OD.sampled_query_text,
+       OD.RN
+FROM OrderedLogUsed AS OD
+WHERE OD.RN <= 15
+ORDER BY total_log_bytes_used DESC;
+GO
+```
+
 ## Identify `tempdb` performance issues
 
 When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database id, `x` is the file id, and `y` is the page id.  
@@ -158,6 +241,8 @@ For tempdb contention, a common method is to reduce or re-write application code
 - Table valued parameters
 - Version store usage (specifically associated with long running transactions)
 - Queries that have query plans that use sorts, hash joins, and spools
+
+### Top queries that use table variables and temporary tables
 
 Use the following query to identify top queries that use table variables and temporary tables:
 
@@ -182,146 +267,67 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
 
+### Identify long running transactions
+
 Use the following query to identify long running transactions. Long running transactions prevent version store cleanup.
 
 ```sql
-SELECT DB.database_id,
-    SessionTrans.session_id AS SPID,
-    enlist_count AS [Active Requests],
-    ActiveTrans.transaction_id AS ID,
-    ActiveTrans.name AS Name,
-    ActiveTrans.transaction_begin_time AS [Start Time],
-    CASE transaction_type
-        WHEN 1 THEN
-            'Read/Write'
-        WHEN 2 THEN
-            'Read-Only'
-        WHEN 3 THEN
-            'System'
-        WHEN 4 THEN
-            'Distributed'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), transaction_type)
-       END AS [Transaction Type],
-    CASE transaction_state
-        WHEN 0 THEN
-            'Uninitialized'
-        WHEN 1 THEN
-            'Not Yet Started'
-        WHEN 2 THEN
-            'Active'
-        WHEN 3 THEN
-            'Ended (Read-Only)'
-        WHEN 4 THEN
-            'Committing'
-        WHEN 5 THEN
-            'Prepared'
-        WHEN 6 THEN
-            'Committed'
-        WHEN 7 THEN
-            'Rolling Back'
-        WHEN 8 THEN
-            'Rolled Back'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), transaction_state)
-    END AS 'State',
-    CASE dtc_state
-        WHEN 0 THEN
-            NULL
-        WHEN 1 THEN
-            'Active'
-        WHEN 2 THEN
-            'Prepared'
-        WHEN 3 THEN
-            'Committed'
-        WHEN 4 THEN
-            'Aborted'
-        WHEN 5 THEN
-            'Recovered'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), dtc_state)
-    END AS 'Distributed State',
-       DB.name AS 'Database',
-       database_transaction_begin_time AS [DB Begin Time],
-    CASE database_transaction_type
-        WHEN 1 THEN
-            'Read/Write'
-        WHEN 2 THEN
-            'Read-Only'
-        WHEN 3 THEN
-            'System'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_type)
-    END AS 'DB Type',
-    CASE database_transaction_state
-        WHEN 1 THEN
-            'Uninitialized'
-        WHEN 3 THEN
-            'No Log Records'
-        WHEN 4 THEN
-            'Log Records'
-        WHEN 5 THEN
-            'Prepared'
-        WHEN 10 THEN
-            'Committed'
-        WHEN 11 THEN
-            'Rolled Back'
-        WHEN 12 THEN
-            'Committing'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_state)
-    END AS 'DB State',
-       database_transaction_log_record_count AS [Log Records],
-       database_transaction_log_bytes_used / 1024 AS [Log KB Used],
-       database_transaction_log_bytes_reserved / 1024 AS [Log KB Reserved],
-       database_transaction_log_bytes_used_system / 1024 AS [Log KB Used (System)],
-       database_transaction_log_bytes_reserved_system / 1024 AS [Log KB Reserved (System)],
-       database_transaction_replicate_record_count AS [Replication Records],
-       command AS [Command Type],
-       total_elapsed_time AS [Elapsed Time],
-       cpu_time AS [CPU Time],
-       wait_type AS [Wait Type],
-       wait_time AS [Wait Time],
-       wait_resource AS [Wait Resource],
-       reads AS Reads,
-       logical_reads AS [Logical Reads],
-       writes AS Writes,
-       SessionTrans.open_transaction_count AS [Open Transactions],
-       open_resultset_count AS [Open Result Sets],
-       row_count AS [Rows Returned],
-       nest_level AS [Nest Level],
-       granted_query_memory AS [Query Memory],
-       SUBSTRING(
-            SQLText.text,
-            ExecReqs.statement_start_offset / 2,
-            (CASE
-                WHEN ExecReqs.statement_end_offset = -1 THEN
-                    LEN(CONVERT(NVARCHAR(MAX), SQLText.text)) * 2
-                ELSE
-                    ExecReqs.statement_end_offset
-                END - ExecReqs.statement_start_offset
-                ) / 2
-                ) AS query_text
-FROM sys.dm_tran_active_transactions AS ActiveTrans (NOLOCK)
-    INNER JOIN sys.dm_tran_database_transactions AS DBTrans (NOLOCK)
-        ON DBTrans.transaction_id = ActiveTrans.transaction_id
-    INNER JOIN sys.databases AS DB (NOLOCK)
-        ON DB.database_id = DBTrans.database_id
-    LEFT JOIN sys.dm_tran_session_transactions AS SessionTrans (NOLOCK)
-        ON SessionTrans.transaction_id = ActiveTrans.transaction_id
-    LEFT JOIN sys.dm_exec_requests AS ExecReqs (NOLOCK)
-        ON ExecReqs.session_id = SessionTrans.session_id
-           AND ExecReqs.transaction_id = SessionTrans.transaction_id
-    OUTER APPLY sys.dm_exec_sql_text(ExecReqs.sql_handle) AS SQLText
-WHERE ActiveTrans.transaction_type <> 2 --ignore read only transactions
-    AND SessionTrans.session_id IS NOT NULL
-ORDER BY database_id ASC,
-    start_time ASC;
+SELECT DB_NAME(dtr.database_id) 'database_name',
+       sess.session_id,
+       atr.name AS 'tran_name',
+       atr.transaction_id,
+       transaction_type,
+       transaction_begin_time,
+       database_transaction_begin_time transaction_state,
+       is_user_transaction,
+       sess.open_transaction_count,
+       LTRIM(RTRIM(REPLACE(
+                              REPLACE(
+                                         SUBSTRING(
+                                                      SUBSTRING(
+                                                                   txt.text,
+                                                                   (req.statement_start_offset / 2) + 1,
+                                                                   ((CASE req.statement_end_offset
+                                                                         WHEN -1 THEN
+                                                                             DATALENGTH(txt.text)
+                                                                         ELSE
+                                                                             req.statement_end_offset
+                                                                     END - req.statement_start_offset
+                                                                    ) / 2
+                                                                   ) + 1
+                                                               ),
+                                                      1,
+                                                      1000
+                                                  ),
+                                         CHAR(10),
+                                         ' '
+                                     ),
+                              CHAR(13),
+                              ' '
+                          )
+                  )
+            ) Running_stmt_text,
+       recenttxt.text 'MostRecentSQLText'
+FROM sys.dm_tran_active_transactions AS atr
+    INNER JOIN sys.dm_tran_database_transactions AS dtr
+        ON dtr.transaction_id = atr.transaction_id
+    LEFT JOIN sys.dm_tran_session_transactions AS sess
+        ON sess.transaction_id = atr.transaction_id
+    LEFT JOIN sys.dm_exec_requests AS req
+        ON req.session_id = sess.session_id
+           AND req.transaction_id = sess.transaction_id
+    LEFT JOIN sys.dm_exec_connections AS conn
+        ON sess.session_id = conn.session_id
+    OUTER APPLY sys.dm_exec_sql_text(req.sql_handle) AS txt
+    OUTER APPLY sys.dm_exec_sql_text(conn.most_recent_sql_handle) AS recenttxt
+WHERE atr.transaction_type != 2
+      AND sess.session_id != @@spid
+ORDER BY start_time ASC;
 ```
 
 ## Identify memory grant wait performance issues
 
-If your top wait type is `RESOURCE_SEMAHPORE` and you don't have high a CPU issue, you may have a memory grant waiting issue.
+If your top wait type is `RESOURCE_SEMAHPORE` and you don't have a high CPU usage issue, you may have a memory grant waiting issue.
 
 ### Determine if a `RESOURCE_SEMAHPORE` wait is a top wait
 
@@ -448,7 +454,7 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## Calculating database size
+## Calculating database and objects sizes
 
 The following query returns the size of your database (in megabytes):
 
@@ -670,7 +676,7 @@ For SQL Database analysis, you can get historical statistics on sessions by quer
 
 ## Monitoring query performance
 
-Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
+Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
 
 ### Finding top N queries
 

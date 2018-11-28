@@ -1,5 +1,5 @@
 ---
-title: Extend alerts from Log Analytcs to Azure
+title: Extend alerts from Log Analytics to Azure
 description: This article describes the tools and API by which you can extend alerts from Log Analytics to Azure Alerts.
 author: msvijayn
 services: azure-monitor
@@ -16,31 +16,31 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 - Programmatically by using the AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Goverment and Soveriegn cloud users of Log Analytics*. 
+> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Government and Sovereign cloud users of Log Analytics*. 
 
 ## Option 1: Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In the Log Analytics subscriptions pane, select a workspace, and then select the **OMS Portal** tile.
-![Screenshot of Log Analytics subscription pane, with OMS Portal tile highlighted](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Screenshot of Log Analytics subscription pane, with OMS Portal tile highlighted](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. After you are redirected to the Operations Management Suite portal, select the **Settings** icon.
-![Screenshot of Operations Management Suite portal, with Settings icon highlighted](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Screenshot of Operations Management Suite portal, with Settings icon highlighted](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. From the **Settings** page, select **Alerts**.  
 5. Select **Extend into Azure**.
-![Screenshot of Operations Management Suite portal Alert Settings page, with Extend into Azure highlighted](./media/monitor-alerts-extend/ExtendInto.png)
+![Screenshot of Operations Management Suite portal Alert Settings page, with Extend into Azure highlighted](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. A three-step wizard appears in the **Alerts** pane. Read the overview, and select **Next**.
-![Screenshot of step 1 of the wizard](./media/monitor-alerts-extend/ExtendStep1.png)  
+![Screenshot of step 1 of the wizard](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. In the second step, you see a summary of proposed changes, listing appropriate [action groups](monitoring-action-groups.md) for the alerts. If similar actions are seen across more than one alert, the wizard proposes to associate a single action group with all of them.  The naming convention is as follows: *WorkspaceName_AG_#Number*. To proceed, select **Next**.
-![Screenshot of step 2 of the wizard](./media/monitor-alerts-extend/ExtendStep2.png)  
+![Screenshot of step 2 of the wizard](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. In the last step of wizard, select **Finish**, and confirm when prompted to initiate the process. Optionally, you can provide an email address, so that you are notified when the process completes and all alerts have been successfully moved to Azure Alerts.
-![Screenshot of step 3 of the wizard](./media/monitor-alerts-extend/ExtendStep3.png)
+![Screenshot of step 3 of the wizard](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 When the wizard is finished, on the **Alert Settings** page, the option to extend alerts to Azure is removed. In the background, your alerts are moved into Azure, and this can take some time. During the operation, you can't make changes to alerts from the Operations Management Suite portal. You can see the current status from the banner at the top of the portal. If you provided an email address earlier, you receive an email when the process has successfully completed.  
 
 
 Alerts continue to be listed in Operations Management Suite portal, even after they are successfully moved into Azure.
-![Screenshot of Operations Management Suite portal Alert Settings page](./media/monitor-alerts-extend/PostExtendList.png)
+![Screenshot of Operations Management Suite portal Alert Settings page](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## Option 2: Use the AlertsVersion API
@@ -455,7 +455,7 @@ During the process of extending alerts, problems can prevent the system from cre
 
 Here are the remediation steps for each error:
 - **Error: Scope Lock is present at subscription/resource group level for write operations**:
-    ![Screenshot of the Operations Management Suite portal Alert Settings page, with Scope Lock error message highlighted](./media/monitor-alerts-extend/ErrorScopeLock.png)
+    ![Screenshot of the Operations Management Suite portal Alert Settings page, with Scope Lock error message highlighted](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     When Scope Lock is enabled, the feature restricts any new change in the subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
@@ -464,9 +464,9 @@ Here are the remediation steps for each error:
     When you resolve the error by using the steps illustrated in the article, Operations Management Suite extends your alerts into Azure within the next day's scheduled run. You don't need to take any further action or initiate anything.
 
 - **Error: Policy is present at subscription/resource group level**: 
-    ![Screenshot of the Operations Management Suite portal Alert Settings page, with Policy error message highlighted](./media/monitor-alerts-extend/ErrorPolicy.png)
+    ![Screenshot of the Operations Management Suite portal Alert Settings page, with Policy error message highlighted](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, it restricts any new resource in a subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
+    When [Azure Policy](../governance/policy/overview.md) is applied, it restricts any new resource in a subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
     To resolve, edit the policy that's causing the *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group that contains the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI, or the API. You can audit actions to find the appropriate policy that's causing failure. To learn more, see [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
@@ -475,5 +475,5 @@ Here are the remediation steps for each error:
 
 ## Next steps
 
-* Learn more about the new [Azure Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Azure Alerts experience](monitoring-overview-alerts.md).
 * Learn about [log alerts in Azure Alerts](monitor-alerts-unified-log.md).

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -70,6 +70,9 @@ No, Azure AD Connect does not support on-premises forests or domains where the N
 
 **Q: Is pure IPv6 environment supported?**  
 No, Azure AD Connect does not support a pure IPv6 environment.
+
+**Q:I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?**</br>
+ No, using Azure AD Connect over NAT is not supported. 
 
 ## Federation
 **Q: What do I do if I receive an email that asks me to renew my Office 365 certificate?**  

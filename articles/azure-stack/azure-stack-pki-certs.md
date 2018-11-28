@@ -16,7 +16,6 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-
 ---
 
 # Azure Stack public key infrastructure certificate requirements
@@ -37,8 +36,9 @@ The following list describes the certificate requirements that are needed to dep
 - When rotating certificates, certificates must be either issued from the same internal certificate authority used to sign certificates provided at deployment or any public certificate authority from above
 - The use of self-signed certificates are not supported
 - For deployment and rotation you can either use a single certificate covering all name spaces in the certificate's Subject Name and Subject Alternative Name (SAN) fields OR you can use individual certificates for each of the namespaces below that the Azure Stack services you plan to utilize require. Both approaches require using wild cards for endpoints where they are required, such as **KeyVault** and **KeyVaultInternal**. 
-- The signature algorithm cannot be SHA1, as it must be stronger. 
-- The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
+- The certificate's PFX Encryption should be 3DES. 
+- The certificate signature algorithm should not be SHA1. 
+- The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. The private key must have the local machine key attribute set.
 - The PFX encryption must be 3DES (this is default when exporting from a Windows 10 client or Windows Server 2016 certificate store).
 - The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
 - The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.

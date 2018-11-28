@@ -1,12 +1,12 @@
 ---
-title: About migration in Azure Site Recovery | Microsoft Docs
-description: This article describes how to migrate on-premises and Azure VMs using the Azure Site Recovery service.
+title: About migration of on-premises machines and Azure VMs Azure Site Recovery | Microsoft Docs
+description: This article describes how to migrate on-premises and Azure IaaS VMs to Azure using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 
 ---

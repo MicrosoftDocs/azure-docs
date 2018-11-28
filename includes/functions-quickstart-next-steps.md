@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
 Learn how to create functions with other kinds of triggers or how to integrate functions with other Azure services.
 
 + [Create a function that runs on a schedule](../articles/azure-functions/functions-create-scheduled-function.md) 

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 11/02/2018
 ms.author: rolyon
 
 ---
@@ -42,6 +42,7 @@ Azure AD Terms of use enables you to do the following:
 - Assist in meeting privacy regulations.
 - List who has or hasn't agreed to your Terms of use.
 - Display a log of Terms of use activity for compliance and audit.
+- Create and manage Terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
 
 ## Prerequisites
 To use and configure Azure AD Terms of use, you must have:
@@ -213,7 +214,7 @@ Conditional access policies take effect immediately. When this happens, the admi
 
 **Q: How do I see when/if a user has accepted a Terms of use?**</br>
 A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see [View report of who has accepted and declined](#view-who-has-accepted-and-declined) and [View Azure AD audit logs](#view-azure-ad-audit-logs).
- 
+
 **Q: How long is information stored?**</br>
 A: The user counts in the Terms of use report and who accepted/declined are stored for the life of the Terms of use. The Azure AD audit logs are stored for 30 days.
 
@@ -240,12 +241,15 @@ A: You can create a conditional access policy on the enterprise applications usi
 
 **Q: Can I add multiple Terms of use to a given user or app?**</br>
 A: Yes, by creating multiple conditional access policies targeting those groups or applications. If a user falls in scope of multiple Terms of use, they agree to one Terms of use at a time.
- 
+
 **Q: What happens if a user declines the Terms of use?**</br>
 A: The user is blocked from getting access to the application. The user would have to sign in again and agree to the terms in order to get access.
- 
+
 **Q: Is it possible to unaccept Terms of use that were previously accepted?**</br>
 A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
+
+**Q: What happens if I'm also using Intune terms and conditions?**</br>
+A: If you have configured both Azure AD Terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## Next steps
 

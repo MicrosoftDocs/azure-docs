@@ -77,7 +77,7 @@ Body example
 |  status         | Status of the offer. For the list of possible values, see [Offer status](#offer-status) below.                         |
 |  id             | GUID that uniquely identifies the offer in the publisher namespace.                                                    |
 |  version        | Current version of the offer. The version property cannot be modified by the client. It's incremented after each publishing. |
-|  definition     | Contains a summarized view of the actual definition of the workload. To get a detailed definition, use the [Retrieve specific offer] (./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  definition     | Contains a summarized view of the actual definition of the workload. To get a detailed definition, use the [Retrieve specific offer](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | UTC time when the offer was last modified                                                                              |
 |  |  |
 

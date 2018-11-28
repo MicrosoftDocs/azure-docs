@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
 
 ---
@@ -115,10 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    In the Reply URL textbox, enter the URL: `https://login.zscalerthree.net/sfc_sso`
-
-	> [!NOTE]
-	> You have to update this value with the actual Sign-On URL. Contact [Zscaler Three Client support team](https://www.zscaler.com/company/contact) to get these values.
+    In the Sign on URL textbox, enter the URL: `https://login.zscalerthree.net/sfc_sso`
 
 6. On the **SAML Signing Certificate** section, Click on **Download** to download **Certificate(Base64)** and then save the certificate file on your computer.
 

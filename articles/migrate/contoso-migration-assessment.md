@@ -122,8 +122,8 @@ Contoso and other users must meet the following prerequisites for the assessment
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-        - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
+    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 
@@ -286,19 +286,11 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings (version 1.0.9.15):
 
-<<<<<<< HEAD
     **Algorithm** | **Hash value**
     --- | ---
     MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
     SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
     SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
-=======
-**Algorithm** | **Hash value**
---- | ---
-MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### Create the collector appliance
 

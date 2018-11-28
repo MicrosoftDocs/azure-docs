@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -54,6 +54,8 @@ Use the following procedures to abandon the encryption key.
 
 If you need to abandon the encryption key, use the following procedures to accomplish this.
 
+1. [Stop the Synchronization Service](#stop-the-synchronization-service)
+
 1. [Abandon the existing encryption key](#abandon-the-existing-encryption-key)
 
 2. [Provide the password of the AD DS account](#provide-the-password-of-the-ad-ds-account)
@@ -61,6 +63,13 @@ If you need to abandon the encryption key, use the following procedures to accom
 3. [Reinitialize the password of the Azure AD sync account](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Start the Synchronization Service](#start-the-synchronization-service)
+
+#### Stop the Synchronization Service
+First you can stop the service in the Windows Service Control Manager.  Make sure that the service is not running when attempting to stop it.  If it is, wait until it completes and then stop it.
+
+
+1. Go to Windows Service Control Manager (START → Services).
+2. Select **Microsoft Azure AD Sync** and click Stop.
 
 #### Abandon the existing encryption key
 Abandon the existing encryption key so that new encryption key can be created:

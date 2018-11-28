@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 10/26/2018
 ---
 
 # Use Terraform to create an Azure virtual machine scale set
@@ -307,7 +307,7 @@ In Cloud Shell, perform the following steps:
     }
 
     storage_profile_os_disk {
-      name              = "osdisk"
+      name              = ""
       caching           = "ReadWrite"
       create_option     = "FromImage"
       managed_disk_type = "Standard_LRS"
@@ -339,6 +339,7 @@ In Cloud Shell, perform the following steps:
         name                                   = "IPConfiguration"
         subnet_id                              = "${azurerm_subnet.vmss.id}"
         load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+        primary = true
       }
     }
 
@@ -564,6 +565,6 @@ The destruction process can take several minutes to complete.
 In this article, you learned how to use Terraform to create an Azure virtual machine scale set. Here are some additional resources to help you learn more about Terraform on Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](http://aka.ms/terraform)  
- [Terraform Azure provider source](http://aka.ms/tfgit)  
- [Terraform Azure modules](http://aka.ms/tfmodules)
+ [Terraform Azure provider documentation](https://aka.ms/terraform)  
+ [Terraform Azure provider source](https://aka.ms/tfgit)  
+ [Terraform Azure modules](https://aka.ms/tfmodules)

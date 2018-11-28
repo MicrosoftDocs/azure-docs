@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users from a specific Azure Act
 
 ## Create an Azure AD app
 
-To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as you Azure AD B2C tenant.
+To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD tenant by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your Azure AD tenant.
@@ -30,10 +30,10 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
 6. For the **Application type**, select `Web app / API`.
-7. For the **Sign-on URL**, enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`:
+7. For the **Sign-on URL**, enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     All URLs should now be using [b2clogin.com](b2clogin.md).

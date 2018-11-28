@@ -5,7 +5,7 @@ keywords: transfer azure subscription,azure transfer subscription,move azure sub
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 

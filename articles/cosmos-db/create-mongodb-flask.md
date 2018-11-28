@@ -10,7 +10,7 @@ ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/2/2017
+ms.date: 10/02/2017
 ms.author: sclyon
 
 ---

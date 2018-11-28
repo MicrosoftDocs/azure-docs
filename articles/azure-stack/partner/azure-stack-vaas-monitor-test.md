@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -25,7 +25,7 @@ After scheduling tests against your Azure Stack solution, Validation as a Servic
 
 ## Navigate to the workflow tests summary page
 
-1. On the solutions dashboard, select an existing solution that has at at least one workflow.
+1. On the solutions dashboard, select an existing solution that has at least one workflow.
 
     ![Workflow tiles](media/tile_all-workflows.png)
 

@@ -102,7 +102,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Hindi | hi | Devanagari | <--> | Latin |
 | Japanese | ja | Japanese | <--> | Latin |
 | Kannada | kn | Kannada | --> | Latin |
-| Malasian | ml | Malayalam | --> | Latin |
+| Malayalam | ml | Malayalam | --> | Latin |
 | Marathi | mr | Devanagari | --> | Latin |
 | Oriya | or | Oriya | <--> | Latin |
 | Punjabi | pa | Gurmukhi | <--> | Latin  |
