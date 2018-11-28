@@ -22,8 +22,7 @@ You can interact with the Azure Machine Learning service through Python SDKs, th
 
 | Date | Support details |
 | ---- |-----------------|
-| December&nbsp;14&nbsp;2018 | You can continue to use your existing subscriptions as before. However, the ability to create new Azure Batch AI subscriptions is no longer possible and no new investments will be made to the Batch AI service.|
-| Between Dec 4, 2018 and March 4, 2019 | No new investments to the Batch AI service. We will support existing customers during their migration to the more comprehensive [Azure Machine Learning service](https://aka.ms/aml-docs). If Azure Machine Learning service does not meet your need, and a supported functionality exists in Batch AI, then raise a support whitelist request against Batch AI service. |
+| December&nbsp;14&nbsp;2018 | You can continue to use your existing subscriptions as before. However, the ability to create new Azure Batch AI subscriptions is no longer possible and no new investments will be made to the Batch AI service.  <br><br>Support is available to existing customers wanting to migrate to the more comprehensive [Azure Machine Learning service](https://aka.ms/aml-docs). If Azure Machine Learning service does not meet your need, and supported functionality exists in Batch AI, please raise a whitelist request with support against Batch AI service. |
 | March 4 2019 | Existing subscriptions continue to run through this date. After this date, existing Batch AI subscriptions will no longer run. |
 
 ## How do I migrate?
