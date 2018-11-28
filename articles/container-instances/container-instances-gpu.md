@@ -122,7 +122,7 @@ az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml
 The deployment takes several minutes to complete. Then, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
 Output:
@@ -199,7 +199,7 @@ az group deployment create --resource-group myResourceGroup --template-file gpud
 The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
 Output:
