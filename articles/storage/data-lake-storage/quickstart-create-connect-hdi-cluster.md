@@ -77,12 +77,6 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### Enterprise security package
-
-For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Enterprise Security Package in Azure HDInsight](../../hdinsight/domain-joined/apache-domain-joined-introduction.md).
-
-![hdinsight create options choose enterprise security package](./media/quickstart-create-connect-hdi-cluster/hdinsight-creation-enterprise-security-package.png)
-
 For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](../../hdinsight/domain-joined/apache-domain-joined-configure.md).
 
 ## Cluster login and SSH user name
