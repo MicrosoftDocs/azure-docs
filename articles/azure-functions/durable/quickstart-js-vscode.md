@@ -157,7 +157,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`. On a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage account. You create a storage account later in this article.
 
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension will be installed, so the build might take a few seconds.
+1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -179,7 +179,7 @@ After you've verified that the function runs correctly on your local computer, i
 
         http://<functionappname>.azurewebsites.net/api/<functionname>
 
-1. Paste this new URL for the HTTP request into your browser's address bar. 
+1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
 ## Next steps
 

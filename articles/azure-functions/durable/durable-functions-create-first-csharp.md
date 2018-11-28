@@ -132,7 +132,7 @@ You must have a function app in your Azure subscription before you can publish y
 
         http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
 
-2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as above on the published app.
+2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
 ## Next steps
 
