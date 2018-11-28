@@ -134,7 +134,7 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 **Can I use GBT partitioning on an Azure Disk?**
 
-GBT partitioning can be used only on data disks, not OS disks.
+GBT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
 
 ## Standard SSD disks
 
