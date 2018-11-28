@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/05/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -65,9 +65,9 @@ Follow these steps to view the access for a single user, group, service principa
 
     ![Access control - Check access tab](./media/role-assignments-portal/access-control-check-access.png)
 
-1. In the **Check Access for** list, select the type of security principal you want to check access for.
+1. In the **Find** list, select the type of security principal you want to check access for.
 
-1. In the **Select** list, select a security principal. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 
     ![Check access select list](./media/role-assignments-portal/check-access-select.png)
 

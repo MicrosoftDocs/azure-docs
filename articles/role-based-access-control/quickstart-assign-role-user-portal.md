@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/05/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources in the portal, so that I can start granting access to others.
