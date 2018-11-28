@@ -38,8 +38,6 @@ Azure Machine Learning service supports the following compute targets:
 > [!IMPORTANT]
 > <a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. For more information on pipelines, see the [Pipelines in Azure Machine Learning](concept-ml-pipelines.md) document.
 
-__[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
-
 The key differentiators between the compute targets are:
 * __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware, drivers, and frameworks that are installed.
 * __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model.
@@ -47,7 +45,7 @@ The key differentiators between the compute targets are:
 * __Pipelines__: Azure Machine Learning service enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
 
 > [!IMPORTANT]
-> Azure Machine Learning Compute and Azure Container Instances must be created from within a workspace. You cannot attach existing instances to a workspace.
+> Azure Machine Learning Compute must be created from within a workspace. You cannot attach existing instances to a workspace.
 >
 > Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
 
@@ -220,49 +218,6 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     ```
 
 For a Jupyter Notebook that demonstrates training on a Data Science Virtual Machine, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
-
-## <a name='aci'></a>Azure Container Instance (ACI)
-
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. The Azure Machine Learning service uses Linux containers, which are available in the westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. For more information, see [region availability](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). 
-
-The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
-
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-# create a new runconfig object
-run_config = RunConfiguration()
-
-# signal that you want to use ACI to run script.
-run_config.target = "containerinstance"
-
-# ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
-run_config.container_instance.region = 'eastus'
-
-# set the ACI CPU and Memory 
-run_config.container_instance.cpu_cores = 1
-run_config.container_instance.memory_gb = 2
-
-# enable Docker 
-run_config.environment.docker.enabled = True
-
-# set Docker base image to the default CPU-based image
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-
-# use conda_dependencies.yml to create a conda environment in the Docker image
-run_config.environment.python.user_managed_dependencies = False
-
-# auto-prepare the Docker image when used for the first time (if it is not already prepared)
-run_config.auto_prepare_environment = True
-
-# specify CondaDependencies obj
-run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-```
-
-It can take from a few seconds to a few minutes to create an ACI compute target.
-
-For a Jupyter Notebook that demonstrates training on Azure Container Instance, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="databricks"></a>Azure Databricks
 
@@ -532,7 +487,6 @@ Follow the above steps to view the list of compute targets, then use the followi
 The following notebooks demonstrate concepts in this article:
 * [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 * [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
-* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
 * [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
 * [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
