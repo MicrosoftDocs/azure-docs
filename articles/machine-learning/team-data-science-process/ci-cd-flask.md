@@ -45,7 +45,7 @@ The pipeline architecture is given below.
 1. Developer work on the IDE of their choice on the application code.
 2. They commit the code to source control of their choice (Azure DevOps has good support for various source controls)
 3. Separately, the data scientist work on developing their model.
-4. Once happy, they publish the model to a model repository, in this case we are using a blob storage account. This could be easily replaced with Azure ML Workbench's Model management service through their REST APIs.
+4. Once happy, they publish the model to a model repository, in this case we are using a blob storage account. 
 5. A build is kicked off in Azure DevOps based on the commit in GitHub.
 6. Azure DevOps Build pipeline pulls the latest model from Blob container and creates a container.
 7. Azure DevOps pushes the image to private image repository in Azure Container Registry
