@@ -144,7 +144,7 @@ Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
 
-## See also
+## Next steps
 
 - [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
