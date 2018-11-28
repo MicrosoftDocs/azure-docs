@@ -41,20 +41,22 @@
   items: 
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
-  - name: IoT Edge certificates
-    href: iot-edge-certs.md
   - name: IoT Edge modules
     items: 
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
     - name: Development
       href: module-development.md
-    - name: Composition
-      href: module-composition.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: Deployments
-    href: module-deployment-monitoring.md
+  - name: Module deployment 
+    items:
+    - name: Deployment manifest
+      href: module-composition.md
+    - name: Automatic deployments
+      href: module-deployment-monitoring.md
+  - name: IoT Edge certificates
+    href: iot-edge-certs.md
   - name: Offline capabilities
     href: offline-capabilities.md
   - name: IoT Edge device as a gateway
