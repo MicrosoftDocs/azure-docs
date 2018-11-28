@@ -141,7 +141,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-After creating an Azure AD admin for your Managed Instance, you can begin to create Azure AD logins (**public preview**) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration).
+After provisioning an Azure AD admin for your Managed Instance, you can begin to create Azure AD logins (**public preview**) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
