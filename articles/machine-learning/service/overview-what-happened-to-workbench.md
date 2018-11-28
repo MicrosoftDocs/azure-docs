@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
+ms.date: 12/4/2018
 ---
 # What is happening to Workbench in Azure Machine Learning?
 
@@ -39,10 +39,10 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the [Resources section](../desktop-workbench/tutorial-classifying-iris-part-1.md) at the bottom of the table of contents.
 
-|Phase|Support details for earlier features|
+|Date|Support details for earlier features|
 |:---:|----------------|
-|1|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI ends. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
-|2|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
+|December 4, 2018|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI ends. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
+|January 19, 2019|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
 [Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
 
