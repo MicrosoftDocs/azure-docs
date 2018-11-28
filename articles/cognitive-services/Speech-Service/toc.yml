@@ -6,11 +6,10 @@
   items:
   - name: What is the Speech Service?
     href: overview.md
-- name: Quickstarts
-  items:
   - name: Try the Speech service for free
     href: get-started.md
-    displayName: get started, subscription key
+- name: Quickstarts
+  items:
   - name: Recognize speech
     items:
     - name: 'Using C# (.NET on Windows)'
@@ -40,6 +39,10 @@
     - name: 'Using Objective-C (iOS)'
       href: quickstart-objectivec-ios.md
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
+  - name: Text-to-speech
+    items:
+    - name: 'Using Python, REST'
+      href: quickstart-python-text-to-speech.md
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
