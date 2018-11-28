@@ -30,10 +30,10 @@ Convert your scripts to use Azure Machine Learning Compute before June 28, 2019,
 | Between Dec 4, 2018 and March 4, 2019 | No new investments to the Batch AI service. We will support existing customers during their migration to the more comprehensive [Azure Machine Learning service](https://aka.ms/aml-docs). If Azure Machine Learning service does not meet your need, and a supported functionality exists in Batch AI, then raise a support whitelist request against Batch AI service. |
 | March 4, 2019 | Existing subscriptions will continue to run through this date, at which point we should have full feature parity between the two services. After this date, existing Batch AI subscriptions will no longer run. |
 
-## For more information
+## Next steps
 
-- To learn more about Azure Machine Learning service, see [What is Azure Machine Learning service?](../machine-learning/service/overview-what-is-azure-ml.md).
+- Read the [Azure Machine Learning service overview](../machine-learning/service/overview-what-is-azure-ml.md).
 
-- To learn how to configure various compute targets for your machine learning models, see [Set up compute targets for model training with Azure Machine Learning service](../machine-learning/service/how-to-set-up-training-targets.md).
+- Learn how to [configure compute targets for model training](../machine-learning/service/how-to-set-up-training-targets.md) with Azure Machine Learning service.
 
-- For more information about updates to Azure services, see the [Azure roadmap](https://azure.microsoft.com/updates/).
+- Review the [Azure roadmap](https://azure.microsoft.com/updates/) for other updates to Azure services.
