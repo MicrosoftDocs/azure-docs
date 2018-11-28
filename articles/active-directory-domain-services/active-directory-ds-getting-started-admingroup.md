@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 11/27/2018
 ms.author: ergreenl
 
 ---
@@ -38,6 +38,22 @@ The wizard automatically creates the administrative group in your Azure AD direc
 
 3. When you are done, click **OK** to move on to the **Summary** page of the wizard.
 
+## Configure synchronization
+
+Azure AD Domain Services allows for either full synchronization of all users and groups available in Azure AD, or you can select scoped synchronization to synchronize only specific groups. If you choose the full synchronization, you will **not** be able to choose scoped synchronization at a later time. To learn more about scoped synchronization, visit the [Azure AD Domain Services scoped synchronization article](active-directory-ds-scoped-synchronization.md).
+
+### Full synchronization
+
+1. For full synchronization, just click "OK" on the bottom of the screen, as full is already chosen.
+    ![Full synchronization](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### Scoped synchronization
+
+1. Toggle the synchronization button to "Scoped" and a select groups page will appear. From this, you can see what groups are already selected to be synchronized to your managed domain.
+    ![Scoped synchronization](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. Click **Select groups** in the top navigation bar. From here, a group picker will pop up on the side. Use this to select any additional groups to synchronize to Azure AD Domain Services. When finished, click **Select** to close the group picker and add those groups to the selected list.
+    ![Scoped synchronization select groups](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. Click **OK** to move to the summary page.
 
 ## Deploy your managed domain
 
