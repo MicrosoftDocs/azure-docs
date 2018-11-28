@@ -22,7 +22,7 @@ Learn how to access the interfaces like [Apache Ambari](https://ambari.apache.or
 
 ## Open the Ambari Web UI
 
-Apache Ambari is used to monitor the cluster and make configuration changes. For more information, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
+Apache Ambari is used to monitor the cluster and make configuration changes. For more information, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui)
 
 ## Open the Spark History Server
 
