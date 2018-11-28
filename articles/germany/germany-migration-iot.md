@@ -51,9 +51,9 @@ For more information:
 
 - Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
 - Learn how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview for [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-- Read the [Azure Functions overview](../azure-functions/functions-overview.md).
+- Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
-- Review an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Notification Hubs
@@ -67,7 +67,7 @@ To migrate settings from one instance of Azure Notification Hubs to another inst
 For more information:
 
 - Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
-- Read the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
+- Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## IoT Hub
 
@@ -76,11 +76,11 @@ Although you can migrate Azure IoT Hub instances from Azure Germany to global Az
 > [!NOTE]
 > This migration can cause downtime and data loss to your Azure IoT application. All telemetry messages, C2D commands, and job-related information (schedules and history) are not migrated. You must reconfigure your devices and backend applications to start using the new connection strings.
 
-### Step 1 - Re-create the IoT hub
+### Step 1: Re-create the IoT hub
 
 IoT Hub doesn’t support cloning natively. However, you can use the Azure Resource Manager feature to [export a resource group as a template](../azure-resource-manager/resource-manager-export-template-powershell.md) to export your IoT Hub metadata. Configured routes and other IoT hub settings are included in the exported metadata. Then, redeploy the template in global Azure. You might find it easier to re-create the IoT hub in the Azure portal by looking at the details in the exported JSON.
 
-### Step 2 - Migrate device identities
+### Step 2: Migrate device identities
 
 To migrate device identities:
 
@@ -93,6 +93,22 @@ To migrate device identities:
 
 For more information:
 
-- Learn how to [export IoT Hub bulk identity](../iot-hub/iot-hub-bulk-identity-mgmt.md#export-devices).
-- Learn how to [import IoT Hub bulk identity](../iot-hub/iot-hub-bulk-identity-mgmt.md#import-devices).
-- Read the [Azure IoT Hub overview](../iot-hub/about-iot-hub.md).
+- Learn how to [export IoT Hub bulk identities](../iot-hub/iot-hub-bulk-identity-mgmt.md#export-devices).
+- Learn how to [import IoT Hub bulk identities](../iot-hub/iot-hub-bulk-identity-mgmt.md#import-devices).
+- Review the [Azure IoT Hub overview](../iot-hub/about-iot-hub.md).
+
+## Next steps
+
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

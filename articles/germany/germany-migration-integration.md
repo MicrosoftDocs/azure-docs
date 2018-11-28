@@ -22,7 +22,6 @@ Azure Service Bus services don't have data export or import capabilities. To mig
 > [!NOTE]
 > Exporting a Resource Manager template doesn't copy the data (for example, messages). Exporting a template only re-creates the metadata.
 
-
 > [!IMPORTANT]
 > Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
@@ -74,7 +73,7 @@ Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyNam
 
 For more information:
 
-- Refresh your knowledge by completing the [Service Bus  tutorials](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Service Bus tutorials](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
 - Become familiar with how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
 - Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
@@ -86,4 +85,20 @@ The Azure Logic Apps service isn't available in Azure Germany. However, Azure Sc
 For more information:
 
 - Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
-- Read the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
+- Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
+
+## Next steps
+
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

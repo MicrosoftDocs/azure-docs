@@ -23,7 +23,7 @@ You can't migrate Azure Event Hubs resources from Azure Germany to global Azure 
 > Exporting an Event Hubs template doesn't copy data (for example, messages). Exporting a template only re-creates the metadata.
 
 > [!IMPORTANT]
-> Change location, Azure Key Vault secrets, certicates, and other GUIDs to be consistent with the new region.
+> Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
 ### Event Hubs metadata
 
@@ -36,7 +36,7 @@ The following metadata elements are re-created when you export an Event Hubs tem
 
 For more information:
 
-- Read the [Event Hubs overview](../event-hubs/event-hubs-about.md).
+- Review the [Event Hubs overview](../event-hubs/event-hubs-about.md).
 - Refresh your knowledge by completing the [Event Hubs tutorials](https://docs.microsoft.com/azure/event-hubs/#step-by-step-tutorials).
 - Check the migration steps for [Azure Service Bus](./germany-migration-integration.md#service-bus).
 - Become familiar with how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview for [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
@@ -65,7 +65,7 @@ To migrate Azure Stream Analytics services from Azure Germany to global Azure, m
 For more information:
 
 - Refresh your knowledge by completing the [Stream Analytics tutorials](https://docs.microsoft.com/azure/stream-analytics/#step-by-step-tutorials).
-- Read the [Stream Analytics overview](../stream-analytics/stream-analytics-introduction.md).
+- Review the [Stream Analytics overview](../stream-analytics/stream-analytics-introduction.md).
 - Learn how to [create a Stream Analytics job by using PowerShell](../stream-analytics/stream-analytics-quick-create-powershell.md).
 
 ## SQL Data Warehouse

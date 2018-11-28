@@ -120,7 +120,7 @@ For more information:
 - Learn about [hybrid identity solutions](../active-directory/choose-hybrid-identity-solution.md).
 - Read the blog post [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/) to learn about ways you can sync to different cloud environments.
 - Learn more about [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
-- Read bout [custom domain names](../active-directory/fundamentals/add-custom-domain.md).
+- Read about [custom domain names](../active-directory/fundamentals/add-custom-domain.md).
 - Learn how to [import data from CSV to Azure AD](/powershell/azure/active-directory/importing-data).
 
 ## Azure AD Connect
@@ -156,3 +156,19 @@ To get a list of user accounts for which multi-factor authentication is enabled 
 For more information:
 
 - Learn more about [Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+
+## Next steps
+
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)
