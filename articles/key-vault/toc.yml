@@ -55,7 +55,7 @@
   - name: Managed storage account keys - Azure CLI
     href: key-vault-ovw-storage-keys.md
   - name: Managed storage account keys - PowerShell
-    href: key-vault-ovw-storage-keys-powershell.md
+    href: key-vault-overview-storage-keys-powershell.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
