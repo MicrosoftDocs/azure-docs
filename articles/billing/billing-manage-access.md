@@ -98,6 +98,6 @@ The Account Administrator is the legal owner of the subscription. By default, th
 - Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 - For more information about roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
