@@ -12,8 +12,8 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-
 ---
+
 # Create your first durable function in JavaScript
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
@@ -34,39 +34,9 @@ To complete this tutorial:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Install the Azure Function extension
+[!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-The Azure Functions extension is used to create, test, and deploy functions to Azure.
-
-1. In Visual Studio Code, open **Extensions** and search for `azure functions`, or [open this link in Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
-
-1. Select **Install** to install the extension to Visual Studio Code. 
-
-    ![Install the extension for Azure Functions](../media/functions-create-first-function-vs-code/vscode-install-extension.png)
-
-1. Restart Visual Studio Code and select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
-
-    ![Azure Functions area in the Side Bar](../media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
-
-## Create an Azure Functions project
-
-The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
-
-1. In Visual Studio Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
-
-    ![Create a function app project](../media/functions-create-first-function-vs-code/create-function-app-project.png)
-
-1. Choose a location for your project workspace and choose **Select**.
-
-    > [!NOTE]
-    > This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
-
-1. Select the language for your function app project. In this article, JavaScript is used.
-    ![Choose project language](../media/functions-create-first-function-vs-code/create-function-app-project-language.png)
-
-1. When prompted, choose **Add to workspace**.
-
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
+[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
 
 ## Create a Starter Function
 
@@ -88,46 +58,46 @@ Visual Studio Code creates the function app project in a new workspace. This pro
 
 1. Replace index.js with the below JavaScript:
 
-```JavaScript
-const df = require("durable-functions");
-
-module.exports = async function (context, req) {
-    const client = df.getClient(context);
-    const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-
-    context.log(`Started orchestration with ID = '${instanceId}'.`);
-
-    return client.createCheckStatusResponse(context.bindingData.req, instanceId);
-};
-```
+    ```javascript
+    const df = require("durable-functions");
+    
+    module.exports = async function (context, req) {
+        const client = df.getClient(context);
+        const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
+    
+        context.log(`Started orchestration with ID = '${instanceId}'.`);
+    
+        return client.createCheckStatusResponse(context.bindingData.req, instanceId);
+    };
+    ```
 
 1. Replace function.json with the below JSON:
 
-```JSON
-{
-  "bindings": [
+    ```JSON
     {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "route": "orchestrators/{functionName}",
-      "methods": ["post"]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "name": "starter",
-      "type": "orchestrationClient",
-      "direction": "in"
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "name": "req",
+          "type": "httpTrigger",
+          "direction": "in",
+          "route": "orchestrators/{functionName}",
+          "methods": ["post"]
+        },
+        {
+          "name": "$return",
+          "type": "http",
+          "direction": "out"
+        },
+        {
+          "name": "starter",
+          "type": "orchestrationClient",
+          "direction": "in"
+        }
+      ],
+      "disabled": false
     }
-  ],
-  "disabled": false
-}
-```
+    ```
 
 We've now created an entry-point into our Durable Function. Let's add an orchestrator.
 
@@ -147,19 +117,19 @@ We've now created an entry-point into our Durable Function. Let's add an orchest
 
 1. Replace index.js with the below JavaScript:
 
-```JavaScript
-const df = require("durable-functions");
-
-module.exports = df.orchestrator(function*(context){
-    context.log("Starting chain sample");
-    const output = [];
-    output.push(yield context.df.callActivity("SayHello", "Tokyo"));
-    output.push(yield context.df.callActivity("SayHello", "Seattle"));
-    output.push(yield context.df.callActivity("SayHello", "London"));
-
-    return output;
-});
-```
+    ```javascript
+    const df = require("durable-functions");
+    
+    module.exports = df.orchestrator(function*(context){
+        context.log("Starting chain sample");
+        const output = [];
+        output.push(yield context.df.callActivity("SayHello", "Tokyo"));
+        output.push(yield context.df.callActivity("SayHello", "Seattle"));
+        output.push(yield context.df.callActivity("SayHello", "London"));
+    
+        return output;
+    });
+    ```
 
 1. Replace function.json with the below JSON:
 
@@ -183,11 +153,11 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
 1. Replace index.js with the below JavaScript:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
 1. Replace function.json with the below JSON:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
 We've now added all components necessary to start off our orchestration and chain together activity functions.
 
@@ -211,62 +181,14 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
-## Sign in to Azure
+[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
-Before you can publish your app, you must sign in to Azure.
 
-1. In the **Azure: Functions** area, choose **Sign in to Azure...**. If you don't already have one, you can **Create a free Azure account**.
-
-    ![Function localhost response in the browser](../media/functions-create-first-function-vs-code/functions-sign-into-azure.png)
-
-1. When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser.
-
-1. Paste the copied code in the **Device Login** page, verify the sign in for Visual Studio Code, then select **Continue**.  
-
-1. Complete the sign in using your Azure account credentials. After you have successfully signed in, you can close the browser.
-
-## Publish the project to Azure
-
-Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription. 
-
-This article assumes that you are creating a new function app. Publishing to an existing function app overwrites the content of that app in Azure.
-
-1. In the **Azure: Functions** area, select the Deploy to function app icon.
-
-    ![Function app settings](../media/functions-create-first-function-vs-code/function-app-publish-project.png)
-
-1. Choose the project folder, which is your current workspace.
-
-1. If you have more than one subscription, choose the one you want to host your function app, then choose **+ Create New Function App**.
-
-1. Type a globally unique name that identifies your function app and press Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
-
-1. Choose **+ Create New Resource Group**, type a resource group name, like `myResourceGroup`, and press enter. You can also use an existing resource group.
-
-1. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
-
-1. Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.
-
-    Function app creation starts after you choose your location. A notification is displayed after your function app is created and the deployment package is applied.
-
-1. Select **View Output** in the notifications to view the creation and deployment results, including the Azure resources that you created.
-
-    ![Function app creation output](../media/functions-create-first-function-vs-code/function-create-notifications.png)
-
-1. Make a note of the URL of the new function app in Azure. You use this URL to test your function after the project is published to Azure.
-
-    ![Function app creation output](../media/functions-create-first-function-vs-code/function-create-output.png)
-
-1. Back in the **Azure: Functions** area, you see the new function app displayed under your subscription. When you expand this node, you see the functions in the function app, as well as application settings and function proxies.
-
-    ![Function app settings](../media/functions-create-first-function-vs-code/function-app-project-settings.png)
-
-    From your function app node, type Ctrl and click (right-click) to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal.
+[!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. 
-    The URL that calls your HTTP-triggered function should be in the following format:
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in the following format:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>
 
@@ -276,5 +198,5 @@ This article assumes that you are creating a new function app. Publishing to an 
 
 You have used Visual Studio Code to create and publish a JavaScript durable function app.
 
-* [Learn about common durable function patterns.](durable-functions-overview.md)
-* [Learn more about the different types and features of durable functions.](durable-functions-types-features-overview.md).
+> [!div class="nextstepaction"]
+> [Learn about common durable function patterns](durable-functions-overview.md)
