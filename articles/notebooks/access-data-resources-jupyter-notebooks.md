@@ -81,3 +81,7 @@ Azure provides a number of other database types that you can use. The articles b
 - [Azure Database for MySQL: Use Python to connect and query data](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copy Wizard for Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+
+## Next steps
+
+- [How to: Work with project data files](work-with-project-data-files.md)

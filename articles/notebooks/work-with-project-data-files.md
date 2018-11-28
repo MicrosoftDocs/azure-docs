@@ -115,3 +115,7 @@ You can also select a file and use the **Download** command (keyboard shortcut: 
 1. Select the boxes to the left of the files and folders you want to download, then select **Download Selected**.
 
 1. The notebook prepares a single *.zip* file containing the selected files, which you then save as you normally do from your browser. The notebook creates a *.zip* file even when you download a single file.
+
+## Next steps
+
+- [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md)
