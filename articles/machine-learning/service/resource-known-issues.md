@@ -18,7 +18,7 @@ This article helps you find and correct errors or failures encountered when usin
 
 **Error message: Cannot uninstall 'PyYAML'** 
 
-PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it in the event of a partial uninstall. To continue installing the SDK while ignoring this error, use:
+Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it in the event of a partial uninstall. To continue installing the SDK while ignoring this error, use:
 ```Python 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
