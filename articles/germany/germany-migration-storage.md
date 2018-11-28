@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure storage resources from Azure Germany to global Azure
-description: This article provides information about migrating storage resources from Azure Germany to global Azure.
+description: This article provides information about migrating your Azure storage resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate Azure storage resources to global Azure
+# Migrate storage resources to global Azure
 
 This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
 

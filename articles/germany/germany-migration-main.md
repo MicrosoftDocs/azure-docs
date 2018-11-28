@@ -1,6 +1,6 @@
 ---
 title: Migrate from Azure Germany to global Azure
-description: An introduction to migrating resources from Azure Germany to global Azure.
+description: An introduction to migrating your Azure resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
