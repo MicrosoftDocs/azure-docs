@@ -16,13 +16,13 @@ ms.date: 11/28/2018
 ms.author: jingwang
 
 ---
-# Copy data from an Dynamics AX source by using Azure Data Factory (Preview)
+# Copy data from Dynamics AX by using Azure Data Factory (Preview)
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from an Dynamics AX source. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from Dynamics AX source. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
-You can copy data from an Dynamics AX source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+You can copy data from Dynamics AX to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Specifically, this Dynamics AX connector supports copying data from Dynamics AX using **OData protocol** with **Service Principal authentication**.
 
@@ -33,7 +33,7 @@ Specifically, this Dynamics AX connector supports copying data from Dynamics AX 
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to an Dynamics AX connector.
+The following sections provide details about properties you can use to define Data Factory entities that are specific to Dynamics AX connector.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ To use service principal authentication, follow these steps:
 
 ## Linked service properties
 
-The following properties are supported for an Dynamics AX linked service:
+The following properties are supported for Dynamics AX linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
