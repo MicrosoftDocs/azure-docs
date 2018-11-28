@@ -1,5 +1,5 @@
 ---
-title: What is Azure Monitor for VMs (Preview)? | Microsoft Docs
+title: What is Azure Monitor for VMs (preview)? | Microsoft Docs
 description: Azure Monitor for VMs is a feature of Azure Monitor that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article provides an overview.
 services: azure-monitor
 documentationcenter: ''
@@ -18,40 +18,47 @@ ms.author: magoedte
 
 ---
 
-# What is Azure Monitor for VMs (Preview)?
+# What is Azure Monitor for VMs (preview)?
 
-Azure Monitor for VMs monitors your Azure virtual machines (VM) and Azure virtual machine scale sets at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider. It includes three key features to deliver this in-depth insight:
+Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. The service analyzes the performance and health of your Windows and Linux VMs, monitoring their processes and their dependencies on other resources and external processes. 
 
-* Logical components of Azure VMs running Windows and Linux operating system are measured based on a set of pre-configured health criteria and alerts when the evaluated condition is met.  ​
-* Core performance metrics from processor, memory, disk, and network adapter of the guest VM operating system are collected and presented in pre-defined trending performance charts.
-* Dependency map showing the discovered interconnected components with that VM from multiple resource groups and subscriptions.  
+As a solution, Azure Monitor for VMs includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider. Three key features deliver in-depth insight:
 
-These features are organized into three perspectives:
+* **Logical components of Azure VMs that run Windows and Linux**: Are measured against pre-configured health criteria, and they alert you when the evaluated condition is met.  ​
+
+* **Pre-defined, trending performance charts**: Display core performance metrics from the guest VM operating system.
+
+* **Dependency map**: Displays the interconnected components with the VM from various resource groups and subscriptions.  
+
+The features are organized into three perspectives:
 
 * Health
 * Performance
 * Map
 
 >[!NOTE]
->Currently, the Health feature is only offered for Azure virtual machines and virtual machine scale sets. Performance and Map support both Azure VMs and virtual machines hosted in your environment or other cloud provider.
->
+>Currently, the Health feature is offered only for Azure virtual machines and virtual machine scale sets. The Performance and Map features support both Azure VMs and virtual machines that are hosted in your environment or other cloud provider.
 
-Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. The comprehensive monitoring of your workloads can't be achieved alone with Azure Monitor, Service Map, or Log Analytics.  
+Integration with Log Analytics delivers powerful aggregation and filtering, and it can analyze data trends over time. Such comprehensive workload monitoring can't be achieved with Azure Monitor, Service Map, or Log Analytics alone.  
 
-You can view this data in the context of single VM from the virtual machine directly, or with Azure Monitor it delivers an aggregated view of your VMs based on the following perspective for each feature:
+You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of your VMs. This view is based on each feature's perspective:
 
-* Health - VMs related to a resource group
-* Map and Performance - VMs configured to report to a specific Log Analytics workspace
+* Health feature: The VMs are related to a resource group.
+* Map and Performance features: The VMs are configured to report to a specific Log Analytics workspace.
 
-![Virtual machine insights perspective from portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
+![Virtual machine insights perspective in the Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
+Azure DevOps can deliver predictable performance and availability of vital applications. It identifies critical operating system events, performance bottlenecks, and network issues. Azure DevOps can also help you understand whether an issue is related to other dependencies.  
 
 ## Data usage 
 
-As soon as you onboard Azure Monitor for VMs, data collected by your VMs is ingested and stored in Azure Monitor. Azure Monitor for VMs is billed for the data ingested and retained, number of health criteria metric time-series monitored, alert rules created, notifications sent, per pricing published on the Azure Monitor [pricing page](https://azure.microsoft.com/pricing/details/monitor/)
+When you onboard Azure Monitor for VMs, the data that's collected by your VMs is ingested and stored in Azure Monitor. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
+* The data that's ingested and stored.
+* The number of health criteria metric time-series that are monitored.
+* The alert rules that are created.
+* The notifications that are sent. 
 
-The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters. If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied. If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Azure Monitor.​
+The log size varies by the string lengths of counters, and it can increase with the number of logical disks and network adapters. If you already have a workspace and are collecting these counters, no duplicate charges are applied. If you're already using Service Map, the only change you’ll see is the additional connection data that's sent to Azure Monitor.​
 
 ## Next steps
-Review [Onboard Azure Monitor for VMs](vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.
+To understand the requirements and methods that help you monitor your virtual machines, review [Onboard Azure Monitor for VMs](vminsights-onboard.md).
