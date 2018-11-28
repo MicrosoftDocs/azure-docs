@@ -27,7 +27,7 @@ Example:
 <div>This will be translated. </div>
 ```
 
-(3) Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
 
 (4) Do not pass the string to translation.
 
