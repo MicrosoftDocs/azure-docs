@@ -4,12 +4,11 @@ description: This machine learning tutorial walks you through an easy data scien
 keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
 ms.component: studio
@@ -18,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-
 ---
 
 # Machine learning tutorial: Create your first data science experiment in Azure Machine Learning Studio
@@ -40,9 +38,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 - [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) and [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) - This downloadable poster and accompanying article discuss the Studio algorithms in depth.
 - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) - This is the complete reference for all Studio modules, including machine learning algorithms,
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## How does Machine Learning Studio help?
 
