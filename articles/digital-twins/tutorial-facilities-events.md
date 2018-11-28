@@ -190,6 +190,9 @@ To stop receiving these emails, go to your Logic Apps resource in the portal, an
 If you want to stop exploring Azure Digital Twins at this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and select **Delete**.
+    > [!TIP]
+    > Some of the initial Digital Twins instances experienced trouble getting deleted. The Digital Twins service has rolled out an update with a fix. Please retry deleting your instance if you encountered this issue.
+
 2. If necessary, delete the sample applications on your work machine. 
 
 

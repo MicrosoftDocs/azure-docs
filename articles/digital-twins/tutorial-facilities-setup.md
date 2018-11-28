@@ -167,7 +167,10 @@ Save and close the provisionSample.yaml file. In the next tutorial, you'll add m
 If you want to stop exploring Azure Digital Twins at this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and select **Delete**.
-2. If necessary, delete the sample application on your work machine. 
+    > [!TIP]
+    > Some of the initial Digital Twins instances experienced trouble getting deleted. The Digital Twins service has rolled out an update with a fix. Please retry deleting your instance if you encountered this issue.
+
+1. If necessary, delete the sample application on your work machine. 
 
 
 ## Next steps
