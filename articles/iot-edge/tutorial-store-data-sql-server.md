@@ -226,9 +226,9 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
        "type": "docker",
        "status": "running",
        "restartPolicy": "always",
+       "env":{},
        "settings": {
            "image": "",
-           "environment": "",
            "createOptions": ""
        }
    }
@@ -236,16 +236,16 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
    ![Add sql server container](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. Depending on the type of Docker containers on your IoT Edge device, update the **sql.settings** parameters with the following code:
+5. Depending on the type of Docker containers on your IoT Edge device, update the **sql** module parameters with the following code:
    * Windows containers:
 
       ```json
-      {
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
           "image": "microsoft/mssql-server-windows-developer",
-          "environment": {
-              "ACCEPT_EULA": "Y",
-              "SA_PASSWORD": "Strong!Passw0rd"
-          },
           "createOptions": {
               "HostConfig": {
                   "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
@@ -260,12 +260,12 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    * Linux containers:
 
       ```json
-      {
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
           "image": "mcr.microsoft.com/mssql/server:latest",
-          "environment": {
-              "ACCEPT_EULA": "Y",
-              "SA_PASSWORD": "Strong!Passw0rd"
-          },
           "createOptions": {
               "HostConfig": {
                   "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
