@@ -216,8 +216,6 @@ You can perform various operations by using Azure Toolkit for IntelliJ.
 1. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Select the name of the application for which you want to see more details.
 
     ![Application details](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
-    >Note
-    >
 
 1. To display basic running job information, hover over the job graph. To view the stages graph and information that every job generates, select a node on the job graph.
 
