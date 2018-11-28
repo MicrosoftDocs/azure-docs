@@ -49,8 +49,7 @@ The following table compares features of the two LiveEvent types.
 | Support for ad signaling via SCTE-35 in-band messages|Yes|Yes|
 | Ability to recover from brief stalls in contribution feed|Yes|No (LiveEvent will begin slating after 6+ seconds w/o input data)|
 | Support for non-uniform input GOPs|Yes|No – input must have fixed GOP duration|
-| Support for variable frame rate input|Yes|No – input must be fixed frame rate.
-Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
+| Support for variable frame rate input|Yes|No – input must be fixed frame rate. <br/>Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
 | Auto-shutoff of LiveEvent when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
 
 ## Max bitrates and source limitations 
