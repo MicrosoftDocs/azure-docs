@@ -131,3 +131,4 @@ In this quickstart, you learned how to create an HDInsight Spark cluster and run
 
 > [!div class="nextstepaction"]
 >[Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)
+
