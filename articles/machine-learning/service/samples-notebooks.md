@@ -17,10 +17,10 @@ ms.date: 12/4/2018
 
 For your convenience, we have developed a series of Jupyter Python notebooks you can use to explore the Azure Machine Learning service. Learn how to use the service with the documentation on this site and use these notebooks to customize them to your situation.  
 
-## **Azure Notebooks** - Free Jupyter based notebooks in the Azure cloud
+## Try Azure Notebooks - Free Jupyter based notebooks in the Azure cloud
 The SDK is already installed and configured for you on Azure Notebooks.
   
-1. Complete the [getting started quickstart](../articles/machine-learning/service/quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
+1. Complete the [getting started quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com/)
 
@@ -28,9 +28,9 @@ The SDK is already installed and configured for you on Azure Notebooks.
 
 1. Open the notebook.
 
-## **Your own Jupyter notebook server**
+## Use your own Jupyter notebook server
 
-1. Complete the [getting started with Python SDK quickstart](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) to install the SDK and create a workspace.
+1. Complete the [getting started with Python SDK quickstart](quickstart-create-workspace-with-python.md) to install the SDK and create a workspace.
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
