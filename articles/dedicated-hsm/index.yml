@@ -59,4 +59,4 @@ sections:
     className: cardsD
     items:
     - title: FAQ
-      html: <p><a href="/dedicated-hsm/faq/">Frequently asked questions</a></p>
+      html: <p><a href="/azure/dedicated-hsm/faq/">Frequently asked questions</a></p>
