@@ -42,6 +42,10 @@ sections:
     style: unordered
     items: 
     - html: <a href="/azure/virtual-desktop/tenant-setup-remote-desktop">Connect to a Remote Desktop environment</a>
+    - html: <a href="/azure/create-host-pools-azure-marketplace">Create a host pool with Azure Marketplace</a>
+    - html: <a href="/azure/virtual-desktop/create-host-pools-arm-template">Create a host pool with an ARM template</a>
+    - html: <a href="/azure/create-host-pools-powershell">Create a host pool with PowerShell</a>
+    - html: <a href="/azure/create-host-pools-user-profile-disk">Create a User Profile Disk share for a host pool</a>
 - title: Concepts
   items: 
   - type: list
