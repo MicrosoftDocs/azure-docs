@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/26/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,21 +12,21 @@ services: iot-edge
 
 # Learn how to deploy modules and establish routes in IoT Edge
 
-Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which make up the IoT Edge runtime. Additionally, any IoT Edge device can run multiple modules to perform any number of processes. When you deploy all these modules to a device at once, you need a way to declare which modules are included and how they interact with each other. 
+Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. Additionally, any IoT Edge device can run multiple modules to perform any number of processes. You deploy all these modules to a device at once, so IoT Edge provides a way to declare which modules to install and how to configure them to work together. 
 
 The *deployment manifest* is a JSON document that describes:
 
-* The configuration of the **IoT Edge agent**, which includes the container image for each module, the credentials to access private container registries, and instructions for how each module should be created and managed.
-* The configuration of the **IoT Edge hub**, which includes how messages flow between modules and eventually to IoT Hub.
-* Optionally, the desired properties of **module twins**.
+* The **IoT Edge agent** module twin, which includes the container image for each module, the credentials to access private container registries, and instructions for how each module should be created and managed.
+* The **IoT Edge hub** module twin, which includes how messages flow between modules and eventually to IoT Hub.
+* Optionally, the desired properties of any additional module twins.
 
-All IoT Edge devices need to be configured with a deployment manifest. A newly installed IoT Edge runtime reports an error code until configured with a valid manifest. 
+All IoT Edge devices must be configured with a deployment manifest. A newly installed IoT Edge runtime reports an error code until configured with a valid manifest. 
 
 In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. For more information, see [Understand IoT Edge deployments](module-deployment-monitoring.md).
 
 ## Create a deployment manifest
 
-At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules should be installed, and how they should be configured. Deployment manifests contain the *desired properties* for each module twin. IoT Edge devices report back the *reported properties* for each module. 
+At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install and how to configure them. Deployment manifests include the *desired properties* for each module twin. IoT Edge devices report back the *reported properties* for each module. 
 
 Two modules are required in every deployment manifest: `$edgeAgent`, and `$edgeHub`. These modules are part of the IoT Edge runtime that manages the IoT Edge device and the modules running on it. For more information about these modules, see [Understand the IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -69,7 +69,7 @@ Deployment manifests follow this structure:
 
 ## Configure modules
 
-You need to tell the IoT Edge runtime how to install the modules in your deployment. The IoT Edge agent is the runtime component that manages installation, updates, and status reporting for an IoT Edge device. Therefore, the $edgeAgent module twin requires the configuration and management information for all modules. This information includes the configuration parameters for the Edge agent itself. 
+Define how the IoT Edge runtime installs the modules in your deployment. The IoT Edge agent is the runtime component that manages installation, updates, and status reporting for an IoT Edge device. Therefore, the $edgeAgent module twin requires the configuration and management information for all modules. This information includes the configuration parameters for the Edge agent itself. 
 
 For a complete list of properties that can or must be included, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
 
@@ -108,7 +108,7 @@ The $edgeAgent properties follow this structure:
 
 ## Declare routes
 
-The IoT Edge hub is responsible for communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* which declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
+The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
 
 Routes are declared in the **$edgeHub** desired properties with the following syntax:
 
@@ -143,7 +143,7 @@ The source property can be any of the following values:
 | `/messages/modules/{moduleId}/outputs/{output}` | Any device-to-cloud message sent by a specific module through a specific output |
 
 ### Condition
-The condition is optional in a route declaration. If you want to pass all messages from the sink to the source, just leave out the **WHERE** clause entirely. Or you can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-routing-query-syntax.md) to filter for certain messages or message types that satisfy the condition. IoT Edge routes do not support filtering messages based on twin tags or properties. 
+The condition is optional in a route declaration. If you want to pass all messages from the sink to the source, just leave out the **WHERE** clause entirely. Or you can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-routing-query-syntax.md) to filter for certain messages or message types that satisfy the condition. IoT Edge routes don't support filtering messages based on twin tags or properties. 
 
 The messages that pass between modules in IoT Edge are formatted the same as the messages that pass between your devices and Azure IoT Hub. All messages are formatted as JSON and have **systemProperties**, **appProperties**, and **body** parameters. 
 
@@ -155,14 +155,14 @@ You can build queries around any of the three parameters with the following synt
 
 For examples about how to create queries for message properties, see [Device-to-cloud message routes query expressions](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules contain a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
+An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules include a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
 
 ```query
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### Sink
-The sink defines where the messages are sent. Only modules and IoT Hub can receive messages. Messages cannot be routed to other devices. There are no wildcard options in the sink property. 
+The sink defines where the messages are sent. Only modules and IoT Hub can receive messages. Messages can't be routed to other devices. There are no wildcard options in the sink property. 
 
 The sink property can be any of the following values:
 
@@ -171,21 +171,21 @@ The sink property can be any of the following values:
 | `$upstream` | Send the message to IoT Hub |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Send the message to a specific input of a specific module |
 
-IoT Edge provides at-least-once guarantees. The Edge hub stores messages locally in case a route cannot deliver the message to its sink. For example, if the Edge hub cannot connect to IoT Hub, or the target module is not connected.
+IoT Edge provides at-least-once guarantees. The Edge hub stores messages locally in case a route can't deliver the message to its sink. For example, if the Edge hub can't connect to IoT Hub, or the target module isn't connected.
 
 Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [Edge hub desired properties](module-edgeagent-edgehub.md).
 
 ## Define or update desired properties 
 
-The deployment manifest can specify desired properties for each module deployed to the IoT Edge device. When the desired properties are specified in the deployment manifest, they overwrite any desired properties currently in the module twin.
+The deployment manifest specifies desired properties for each module deployed to the IoT Edge device. Desired properties in the deployment manifest overwrite any desired properties currently in the module twin.
 
-If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
+If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub won't modify the module twin in any way. Instead, you can set the desired properties programmatically.
 
 The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [module twin developer guide](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## Deployment manifest example
 
-This an example of a deployment manifest JSON document.
+The following example shows what a valid deployment manifest document may look like.
 
 ```json
 {
