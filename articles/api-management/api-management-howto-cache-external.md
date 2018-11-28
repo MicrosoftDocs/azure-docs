@@ -31,7 +31,7 @@ Using an external cache allows to overcome a few limitations of the built-in cac
 
 For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
-![Bring your own cache to APIM](media/api-management-howto-byoc/overview.png)
+![Bring your own cache to APIM](media/api-management-howto-cache-external/overview.png)
 
 What you'll learn:
 
@@ -56,11 +56,11 @@ This section explains how to create a Redis cache in Azure. If you already have 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="add-external-cache"> </a>Add an external cache in API Management
+## <a name="add-external-cache"> </a>Add an external cache
 
 Follow the steps below to add an external Redis cache in Azure API Management.
 
-![Bring your own cache to APIM](media/api-management-howto-byoc/add-external-cache.png)
+![Bring your own cache to APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
 > The **Used from** setting specifies which API Management regional deployment will communicate with the configured cache in case of a multi-regional configuration of API Management. The caches specified as **Default** will be overridden by caches with a regional value.

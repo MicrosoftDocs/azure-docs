@@ -92,7 +92,7 @@
     - name: Add caching to improve performance
       href: api-management-howto-cache.md
     - name: Use an external cache
-      href: api-management-howto-byoc.md
+      href: api-management-howto-cache-external.md
   - name: Secure your backend
     items:
     - name: Protect your API with Azure AD
