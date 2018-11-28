@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure DC/OS cluster - Operations Management
+title: (DEPRECATED) Monitor Azure DC/OS cluster - Operations Management
 description: Monitor an Azure Container Service DC/OS cluster with Log Analytics.
 services: container-service
 author: keikhara
@@ -12,7 +12,9 @@ ms.author: keikhara
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Log Analytics
+# (DEPRECATED) Monitor an Azure Container Service DC/OS cluster with Log Analytics
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Log Analytics is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
