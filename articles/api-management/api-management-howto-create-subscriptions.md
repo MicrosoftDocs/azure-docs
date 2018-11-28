@@ -1,5 +1,5 @@
 ---
-title: How to create Subscription in Azure API Management | Microsoft Docs
+title: How to create Subscriptions in Azure API Management | Microsoft Docs
 description: Learn how to create Subscriptions in Azure API Management.
 services: api-management
 documentationcenter: ''
