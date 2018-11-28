@@ -5,15 +5,12 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 11/28/2018
 ms.author: jdial
 
 ---
@@ -279,3 +276,110 @@ Virtual network TAP is in developer preview. During preview, there is no service
 ### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
 
 You will be able to add a TAP configuration on a network interface attached to a virtual machine that is enabled with accelerated networking. But the performance and latency on the virtual machine will be affected by adding TAP configuration since the offload for mirroring traffic is currently not supported by Azure accelerated networking.
+
+## Virtual network service endpoints
+
+### What is the right sequence of operations to set up service endpoints to an Azure service?
+There are two steps to securing an Azure service resource through service endpoints:
+1. Turn on service endpoints for the Azure service.
+2. Set up VNet ACLs on the Azure service.
+
+The first step is a network side operation and the second step is a service resource side operation. Both steps can be performed either by the same administrator or different administrators based on the RBAC permissions granted to the administrator role. We recommend that you first turn on service endpoints for your virtual network prior to setting VNet ACLs on Azure Service Side. Hence, the steps must be performed in sequence listed above to set up VNet service endpoints.
+
+>[!NOTE]
+> Both the operations described above must be completed before you can limit the Azure Service access to the allowed VNet and subnet. Only turning on service endpoints for Azure Service on the network side does not provide you the limited access. In addition, You must also set up VNet ACLs on the Azure Service side.
+
+Certain services such as SQL, CosmosDB allow exception to above sequence through a flag `IgnoreMissingVnetServiceEndpoint`. Once the flag is set to **True**, VNet ACLs can be set on Azure service side prior to setting up service endpoints on network side. Azure services provide this flag to help customers with cases where specific IP firewalls are configured on Azure Services and turning on service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on Azure service side before setting service endpoints on the network side can help avoid the connectivity drop.
+
+### Do all Azure services reside in the Azure virtual network provided by the customer? How does VNet service endpoint work with Azure services?
+
+No, not all Azure services reside in the customer's virtual network. Majority of Azure data services such as Azure Storage, Azure SQL, and Azure Cosmos DB, are multi-tenant services that can be accessed over public IP addresses. You can learn more about virtual network integration for Azure Services [here](virtual-network-for-azure-services.md). 
+
+When you use the VNet service endpoints feature (turning on VNet service endpoint on the network side and setting up appropriate VNet ACLs on the Azure service side), access to an Azure service is restricted from an allowed VNet and subnet.
+
+### How does VNet service endpoint provide security?
+
+The VNet service endpoint feature (turning on VNet service endpoint on the network side and setting up appropriate VNet ACLs on the Azure service side) limits the Azure service access to allowed VNet and subnet, thus providing a network level security and isolation of the Azure service traffic. All traffic using VNet service endpoint feature flows over Microsoft backbone, thus providing another layer of isolation from the public internet. Moreover, customers can choose to fully remove public Internet access to Azures service resources and allow traffic only from their virtual network through combination of IP firewall and VNet ACLs thus protecting the Azure service resources from unauthorized access.      
+
+### What does the VNet service endpoint protect - VNet resources or Azure service?
+VNet service endpoints help protect Azure service resources. VNet resources are protected through Network Security Groups (NSGs).
+
+### Is there any cost for using VNet service endpoints?
+
+No, there is no additional cost for using VNet service endpoints.
+
+### Can I turn on VNet service endpoints and set up VNet ACLs when the virtual network and the Azure service resources belong to different subscriptions?
+
+Yes, it is possible. Virtual networks and Azure service resources can be in the same or different subscriptions. The only requirement is that both the virtual network and Azure service resources must be under the same Active Directory (AD) tenant.
+
+### Can I turn on VNet service endpoints and setup VNet ACLs when the virtual network and the Azure service resources belong to different AD tenants?
+No, VNet service endpoints and VNet ACLs are not supported across AD tenants.
+
+### Can an on-premises device’s IP address that is connected through Azure Virtual Network gateway (VPN) or Express route gateway access Azure PaaS Service over VNet service endpoints?
+By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for Azure service resources.
+
+### Can I use VNet Service Endpoint feature to secure Azure Service to multiple subnets with in a Virtual network or across multiple virtual networks?
+To secure Azure services to multiple subnets within a virtual network or across multiple virtual networks, you can enable service endpoints on network side on each of the subnets independently, and secure Azure service resources to all of the subnets by setting up appropriate VNet ACLs on Azure Service side.
+ 
+### How can I filter outbound traffic from a virtual network to Azure services and still use service endpoint feature?
+If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed, and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources, using network virtual appliance filtering. For more information, see egress with network virtual appliances.
+
+## What happens when you access an Azure Service account that has virtual network access control list (ACL) enabled from outside VNet?
+The HTTP 404 error is returned.
+
+### Are subnets of a virtual network created in different regions allowed to access an Azure Service account in another region? For example, if Azure Cosmos DB account is in West US or East US and virtual networks are in multiple regions, can the virtual network access Azure Cosmos DB?
+Yes, for majority of Azure services, virtual networks created in different regions can access Azure service in different region through VNet service endpoints. Storage and SQL are exceptions and are regional in nature i.e., both virtual network and service need to be in same region.
+  
+### Can an Azure service have both VNet ACL and an IP firewall?
+Yes, VNet ACL and an IP firewall can co-exist. Both features complement each other to ensure isolation and security.
+ 
+### What happens if you delete a virtual network or subnet that has service endpoint turned on for Azure service?
+Deletion of VNets and Subnets are independent operations and are supported even when Service Endpoints are turned on for Azure Services. In cases, where Azure Services have VNet ACLs setup for those VNets and Subnets, the VNet ACLs information associated with that Azure service is disabled, when a VNets or Subnets that has VNet Service Endpoint turned on are deleted.
+ 
+### What happens if Azure Service account that has VNet Service endpoint enabled is deleted?
+The deletion of Azure Service account is an independent operation and is supported even when Service endpoint is turned on on Network Side and VNet ACLs are set on Azure Service side. 
+
+### What happens to the source IP address of resource like virtual machine in the subnet that has VNet service endpoint enabled?
+When virtual network service endpoints are enabled, the source IP addresses of resources in your virtual network's subnet will switch from using public IPV4 addresses to Azure Virtual Network's private addresses for traffic to Azure Service. Note that this will cause specific IP firewall set to public IPV4 address earlier on Azure services to fail. 
+
+### Does service endpoint Route always take precedence?
+Service Endpoints add a system route which takes precedence over BGP routes and provide optimum routing for Service Endpoint traffic. Service Endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Note that Azure routing is based on LPM (longest prefix match). When there is LPM clash the below is the priority in which the route wins:
+- UDR
+- System Routes (such as Service Endpoints, VNet Peering, VNet Local)
+- BGP Routes
+ 
+### How does NSG's on a subnet work with service endpoints?
+To reach the Azure service, NSGs need to allow the outbound connectivity. If your NSG's are opened to all Internet Outbound, service endpoint traffic should work. You can also limit the outbound traffic to Service IPs only using Service tags.  
+ 
+### What all permissions do I need to setup Service Endpoints?
+Service endpoints can be configured on virtual networks independently, by a user with write access to a virtual network. To secure Azure service resources to a VNet, the user must have permission to Microsoft.Network/JoinServicetoaSubnet for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to custom roles.
+ 
+
+### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? 
+
+Virtual Network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources, over service endpoints. Endpoint policies provide granular access control for virtual network traffic to Azure services. You can read more about service endpoint policies here.
+ 
+### Is there any limit on how may VNet Service Endpoints I can setup from my VNet?
+There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as, an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. Below table shows some example limits. Note that these are subjected to change at Azure service discretion.  Refer to the documentation for various services for details. 
+
+|||
+|---|---|
+|Azure Service|	Limits on VNet Rules|
+|Azure Storage|	100|
+|Azure SQL|	128|
+|Azure SQL Datawarehouse|	128|
+|Azure KeyVault|	128|
+|Azure Cosmos DB|	64|
+|Azure Event Hub|	128|
+|Azure Service Bus|	128|
+|Azure Data Lake Store V1|	100|
+ 
+
+
+
+
+
+  
+
+
+
