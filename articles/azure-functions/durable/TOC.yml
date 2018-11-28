@@ -34,7 +34,6 @@
     href: ../functions-cli-samples.md   
 - name: Concepts
   items:
-  - name: Durable function patterns 
   - name: Function types and features
     href: durable-functions-types-features-overview.md
   - name: Bindings
