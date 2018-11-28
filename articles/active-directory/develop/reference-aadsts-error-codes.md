@@ -85,7 +85,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50079 | UserStrongAuthEnrollmentRequired - Due to a configuration change made by the administrator, or because the user moved to a new location, the user is required to use multi-factor authentication. |
 | AADSTS50085 | Refresh token needs social IDP login. Have user try signing-in again with username -password |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError |
+| AADSTS50087 | SasRetryableError - The service is temporarily unavailable. Retry again. |
 | AADSTS50089 | Flow token expired - Authentication Failed. Have user try signing-in again with username -password |
 | AADSTS50097 | DeviceAuthenticationRequired - Device authentication is required. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - The JWT signature is invalid. |
