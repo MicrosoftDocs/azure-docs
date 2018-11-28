@@ -184,12 +184,6 @@ You need a few more packages in your environment to use it with Machine Learning
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
-
-    # install run history widget
-    jupyter nbextension install --py --user azureml.train.widgets
-
-    # enable run history widget
-    jupyter nbextension enable --py --user azureml.train.widgets
     ```
     You can also use different "extra" keywords to install additional components of the SDK.
     
@@ -203,7 +197,7 @@ You need a few more packages in your environment to use it with Machine Learning
     # install the base SDK and experimental components
     pip install azureml-sdk[contrib]
     
-    # install the base SDK and automl components in Azure Databricks environment
+    # install the base SDK and automated machine learning components in Azure Databricks environment
     # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
     pip install azureml-sdk[databricks]
     ```
