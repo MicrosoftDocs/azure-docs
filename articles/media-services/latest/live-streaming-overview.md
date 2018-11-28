@@ -93,7 +93,7 @@ Each **LiveOutput** is associated with an **Asset**, which it uses to record the
 
 A **LiveEvent** supports up to three concurrently running **LiveOutput**s so you can create at most 3 recordings/archives from one live stream. This allows you to publish and archive different parts of an event as needed. Suppose you need to broadcast a 24x7 live linear feed, and create "recordings" of the different programs throughout the day to offer to customers as on-demand content for catch-up viewing. For this scenario, you first create a primary LiveOutput, with a short archive window of 1 hour or less – this is the primary live stream that your viewers would tune into. You would create a **StreamingLocator** for this **LiveOutput** and publish it to your application or web site as the "Live" feed. While the **LiveEvent** is running, you can programmatically create a second concurrent **LiveOutput** at the beginning of a program (or 5 minutes early to provide some handles to trim later). This second **LiveOutput** can be deleted 5 minutes after the program ends. With this second **Asset**, you can create a new **StreamingLocator** to publish this program as an on-demand asset in your application's catalog. You can repeat this process multiple times for other program boundaries or highlights that you wish to share as on-demand videos, all while the "Live" feed from the first **LiveOutput** continues to broadcast the linear feed. 
 
-> [!Note]
+> [!NOTE]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the Asset.  
 >
 
