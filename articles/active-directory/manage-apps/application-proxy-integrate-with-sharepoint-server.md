@@ -49,7 +49,7 @@ You need to have a previously created Azure AD account for the service. We sugge
 
 To ensure that your sites are running under a defined service account, perform the following steps:
 
-1. Open the **SharePoint 2013 Central Administration** site.
+1. Open the **SharePoint Central Administration** site.
 2. Go to **Security** and select **Configure service accounts**.
 3. Select **Web Application Pool - SharePoint - 80**. The options may be slightly different based on the name of your web pool, or if the web pool uses SSL by default.
 
@@ -161,27 +161,50 @@ Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're rea
 
 ## Step 3: Configure SharePoint to use Kerberos and Azure AD Proxy URLs
 
-Your last step is to extend SharePoint web application to a new zone, configured with Kerberos and the appropriate alternate access mapping to allow SharePoint to handle incoming requests sent on the Internal URL, and respond with links built on the External URL.
+Next step is to extend SharePoint web application to a new zone, configured with Kerberos and the appropriate alternate access mapping to allow SharePoint to handle incoming requests sent to the Internal URL, and respond with links built for the External URL.
 
-1. Start the **SharePoint 2013 Mamangement Shell**.
-2. Run the following script to extend the web application to zone Extranet and enable Kerberos authentication. Replace "https://sharepoint-iddemo.msappproxy.net" with the External URL in Azure AD proxy application:
+1. Start the **SharePoint Mamangement Shell**.
+2. Run the following script to extend the web application to zone Extranet and enable Kerberos authentication. Replace <https://sharepoint-iddemo.msappproxy.net> with the External URL in Azure AD proxy application:
 
 ```powershell
 $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
 Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-iddemo.msappproxy.net" -AuthenticationProvider $winAp
 ```
 
-3. Open the **SharePoint 2013 Central Administration** site.
+3. Open the **SharePoint Central Administration** site.
 4. Under **System Settings**, select **Configure Alternate Access Mappings**. The Alternate Access Mappings box opens.
+5. Select your site--for example, **SharePoint - 80**. For the moment, Extranet zone doesn't have the Internal URL properly set yet:
 
 ![Alternate Access Mappings box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
-5. Select your site--for example, **SharePoint - 80**. For the moment, Extranet zone doesn't have the Internal URL properly set yet:
-6. Click **Add Internal URLs**
-7. In the **Add Internal URLs** page: in **URL protocol, host and port** textbox, type the **Internal URL** configured in Azure AD proxy, e.g. "https://SharePoint/" and select Zone **Extranet** in the drop down list.
-8. Click **Save**.
-9. The Alternate Access Mappings should now look like this:
+
+6. Click **Add Internal URLs**.
+7. In **URL protocol, host and port** textbox, type the **Internal URL** configured in Azure AD proxy, e.g. <https://SharePoint/>.
+8. Select Zone **Extranet** in the drop down list.
+9. Click **Save**.
+10. The Alternate Access Mappings should now look like this:
 
 ![Correct Alternate Access Mappings](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
+
+## Step 4: Ensure that a HTTPS certificate is configured for the IIS site of the new SharePoint zone
+
+SharePoint configuration is now finished, but since the Internal URL of the Extranet zone is <https://SharePoint/>, a certificate must be set for this site.
+
+1. Open Windows PowerShell console.
+2. Run the following script to generate a self-signed certificate and add it to the computer MY store:
+
+```powershell
+# Replace "SharePoint" with the actual hostname of the Internal URL in Azure AD proxy application
+New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
+```
+
+> [!NOTE]
+Self-signed certificate is suitable only for test purpose. In a production environment, it is strongly recommended to use a certificate issued by a certificate authority.
+
+3. Open "Internet Information Services Manager" console.
+4. Expand the server in the tree view, expand "Sites", select the site "SharePoint - AAD Proxy" and click on **Bindings**.
+5. Select https binding and click **Edit...**.
+6. In SSL certificate field, choose **SharePoint** certificate and click OK.
+
 You can now access the SharePoint site externally via Azure AD Application Proxy.
 
 ## Next steps
