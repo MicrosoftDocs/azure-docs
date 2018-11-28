@@ -48,7 +48,9 @@ LiveEvent liveEvent = new LiveEvent(
 
 See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-### Pass-through LiveEvents
+## Pass-through LiveEvents latency
+
+The following table shows typical results that you see when using the low latency settings in various players.
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
