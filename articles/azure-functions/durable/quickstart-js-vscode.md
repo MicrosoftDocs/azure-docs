@@ -3,7 +3,7 @@ title: Create your first durable function in Azure using JavaScript
 description: Create and publish an Azure Durable Function using Visual Studio Code.
 services: functions
 documentationcenter: na
-author: cotresne
+author: ColbyTresness
 manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: azfuncdf
+ms.author: azfuncdf, cotresne, glenga
 
 ---
 # Create your first durable function in JavaScript
 
-*Durable Functions* is an extension of [Azure Functions](../../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
@@ -26,13 +26,13 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Make sure you have the [latest Azure Functions tools](../../functions-develop-vs.md#check-your-tools-version).
+* Make sure you have the [latest Azure Functions tools](../functions-develop-vs.md#check-your-tools-version).
 
-* Verify you have the [Azure Storage Emulator](../../../storage/common/storage-use-emulator.md) installed and running.
+* Verify you have the [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) installed and running.
 
 * Verify you have [Node 8.0+](https://nodejs.org/en/) installed on your machine.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Install the Azure Function extension
 
@@ -66,7 +66,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 1. When prompted, choose **Add to workspace**.
 
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
+Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
 
 ## Create a Starter Function
 
@@ -137,7 +137,7 @@ We've now created an entry-point into our Durable Function. Let's add an orchest
 
     ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template. Note that we'll be replacing this code, so the trigger doesn't matter.
+1. Select the folder with your function app project and select the **HTTP trigger** function template. Since you'll be replacing this code,     the trigger itself doesn't matter.
 
     ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
 
@@ -173,7 +173,7 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
     ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template. Note that we'll be replacing this code, so the trigger doesn't matter.
+1. Select the folder with your function app project and select the **HTTP trigger** function template. Since you'll be replacing this code, the trigger itself doesn't matter.
 
     ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
 
@@ -195,7 +195,7 @@ We've now added all components necessary to start off our orchestration and chai
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
 
-1.  First, install the durable-functions npm package by running "npm install durable-functions" in the root directory of the Function App.
+1.  Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
 
 1.  Next, start the Azure Storage Emulator, and ensure that the "AzureWebJobsStorage" property of local.settings.json is set to "UseDevelopmentStorage=true".
 
@@ -221,9 +221,9 @@ Before you can publish your app, you must sign in to Azure.
 
 1. When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser.
 
-1. Paste the copied code in the **Device Login** page, verify the sign-in for Visual Studio Code, then select **Continue**.  
+1. Paste the copied code in the **Device Login** page, verify the sign in for Visual Studio Code, then select **Continue**.  
 
-1. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser.
+1. Complete the sign in using your Azure account credentials. After you have successfully signed in, you can close the browser.
 
 ## Publish the project to Azure
 
@@ -231,7 +231,7 @@ Visual Studio Code lets you publish your functions project directly to Azure. In
 
 This article assumes that you are creating a new function app. Publishing to an existing function app overwrites the content of that app in Azure.
 
-1. In the **Azure: Functions** area, select the Deploy to Function App icon.
+1. In the **Azure: Functions** area, select the Deploy to function app icon.
 
     ![Function app settings](../media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
@@ -253,7 +253,7 @@ This article assumes that you are creating a new function app. Publishing to an 
 
     ![Function app creation output](../media/functions-create-first-function-vs-code/function-create-notifications.png)
 
-1. Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
+1. Make a note of the URL of the new function app in Azure. You use this URL to test your function after the project is published to Azure.
 
     ![Function app creation output](../media/functions-create-first-function-vs-code/function-create-output.png)
 
