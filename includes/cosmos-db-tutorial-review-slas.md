@@ -1,3 +1,10 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+---
 The throughput, storage, availability, latency, and consistency of the resources in your account are monitored in the Azure portal. Let's take a quick look at these metrics. 
 
 1. Click **Metrics** in the navigation menu.

@@ -2,7 +2,7 @@
 title: Troubleshoot Azure IoT Edge | Microsoft Docs 
 description: Resolve common issues and learn troubleshooting skills for Azure IoT Edge 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/26/2018
 ms.topic: conceptual

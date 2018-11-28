@@ -3,7 +3,7 @@ title: Azure Service Fabric Event Store  | Microsoft Docs
 description: Learn about Azure Service Fabric's EventStore
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,24 +13,25 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
-ms.author: dekapur
+ms.date: 11/21/2018
+ms.author: srrengar
 
 ---
 
 # EventStore service overview
 
->[!NOTE]
->As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
-
 ## Overview
 
 Introduced in version 6.2, the EventStore service is a monitoring option in Service Fabric, which provides a way for you to understand the state of your cluster or workloads at a given point in time. 
-The EventStore service exposes Service Fabric events through APIs that you can make calls. These EventStore APIs allow you to query the cluster directly to get diagnostics data on any entity in your cluster and should be used to help:
+The EventStore service exposes Service Fabric events via a set of APIs (accessible via REST endpoints or through the client library). These EventStore APIs allow you to query the cluster directly to get diagnostics data on any entity in your cluster and should be used to help:
+
 * Diagnose issues in development or testing, or where you might be using a monitoring pipeline
 * Confirm that management actions you are taking on your cluster are being processed correctly by your cluster
 
 To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
+
+>[!NOTE]
+>As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
 The EventStore service can be queried for events that are available for each entity and entity type in your cluster. This means you can query for events on the following levels;
 * Cluster: all cluster level events
@@ -47,6 +48,8 @@ The EventStore service can be queried for events that are available for each ent
 
 
 The EventStore service also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. For example, if one of your applications happens to become unhealthy without any induced changes, the EventStore will also look at other events exposed by the platform and could correlate this with a `NodeDown` event. This helps with faster failure detection and root causes analysis.
+
+We recommend using the EventStore for quick analysis and to get a snapshot idea of how your cluster is operating, and if things are happening as expected.
 
 To get started with using the EventStore service, see [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md).
 

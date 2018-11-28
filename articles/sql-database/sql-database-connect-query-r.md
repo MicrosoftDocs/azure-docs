@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign up for the preview
 
-The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default. Send an email to to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview.
+The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default. Send an email to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview.
 
 Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new databases on an R enabled service.
 

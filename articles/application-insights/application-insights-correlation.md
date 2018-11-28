@@ -3,7 +3,7 @@ title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 
 ms.service: application-insights
@@ -11,9 +11,9 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 10/31/2018
 ms.reviewer: sergkanz
-ms.author: mbullwin
+ms.author: lagayhar
 
 ---
 # Telemetry correlation in Application Insights
@@ -142,19 +142,15 @@ Currently, automatic context propagation across messaging technologies (e.g. Kaf
 ### Role Name
 At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_roleName` by doing one of the following:
 
-Via a telemetry initializer (all telemetry items are tagged)
-```Java
-public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
-
-    @Override
-    protected void onInitializeTelemetry(Telemetry telemetry) {
-        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
-    }
-  }
+If you are using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` will set the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
+```XML
+<ContextInitializers>
+  <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
+</ContextInitializers>
 ```
-Via the [device context class](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
+Via the cloud context class:
 ```Java
-telemetry.getContext().getDevice().setRoleName("My Component Name");
+telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
 
 ## Next steps
