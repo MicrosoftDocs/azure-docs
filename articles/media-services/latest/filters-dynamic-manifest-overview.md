@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 11/28/2018
 ms.author: juliako
 
 ---
@@ -118,12 +118,12 @@ Use this property with **Asset Filters**. It is not recommended to set the prope
 
 |Name|Description|
 |---|---|
-|endTimestamp|The absolute end time boundary. Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|forceEndTimestamp|Applies to Live filters. The indicator of forcing the end of time stamp.|
-|liveBackoffDuration|Applies to Live only. The property is used to define live playback position. Using this rule, you can delay live playback position and create a server-side buffer for players. LiveBackoffDuration is relative to the live position. The maximum live backoff duration is 60 seconds.|
-|presentationWindowDuration|Applies to Live. Use PresentationWindowDuration to apply a sliding window to the playlist. For example, set PresentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 120 seconds.|
-|startTimestamp|Applies to VoD or Live streams. The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|timescale|Applies to VoD or Live streams. The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used. Default is 10000000 HNS (hundred nanosecond).|
+|**endTimestamp**|The absolute end time boundary. Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.<br/><br/>Also, see the **forceEndTimestamp** definition that follows.|
+|**forceEndTimestamp**|Applies to Live filters.<br/><br/>**forceEndTimestamp** is a boolean that indicates whether or not endTimestamp was set to a valid value. <br/><br/>If the value is **true**, the **endTimestamp** value should be specified. If it is not specified, then a bad request is returned.<br/<br/>If for example, you want to define a filter that starts at 5 minutes into the input video, and lasts until the end of the stream, you would set **forceEndTimestamp** to false and omit setting **endTimestamp**.|
+|**liveBackoffDuration**|Applies to Live only. The property is used to define live playback position. Using this rule, you can delay live playback position and create a server-side buffer for players. LiveBackoffDuration is relative to the live position. The maximum live backoff duration is 60 seconds.|
+|**presentationWindowDuration**|Applies to Live. Use **presentationWindowDuration** to apply a sliding window to the playlist. For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 120 seconds.|
+|**startTimestamp**|Applies to VoD or Live streams. The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use **startTimestamp** and **endTimestamp** to trim the playlist (manifest). For example, startTimestamp=40000000 and endTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|**timescale**|Applies to VoD or Live streams. The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used. Default is 10000000 HNS (hundred nanosecond).|
 
 ### Tracks
 
@@ -133,11 +133,11 @@ Filter track property conditions describe track types, values (described in the 
 
 |Name|Description|
 |---|---|
-|Bitrate|Use the bitrate of the track for filtering.<br/><br/>The recommended value is a range of bitrates, in bits per second. For example, "0-2427000".<br/><br/>Note: while you can use a specific bitrate value, like 250000 (bits per second), this approach is not recommended, as the exact bitrates can fluctuate from one Asset to another.|
-|FourCC|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in [RFC 6381](https://tools.ietf.org/html/rfc6381). Currently, the following codecs are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).|
-|Language|Use the language of the track for filtering.<br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, "en".|
-|Name|Use the name of the track for filtering.|
-|Type|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
+|**Bitrate**|Use the bitrate of the track for filtering.<br/><br/>The recommended value is a range of bitrates, in bits per second. For example, "0-2427000".<br/><br/>Note: while you can use a specific bitrate value, like 250000 (bits per second), this approach is not recommended, as the exact bitrates can fluctuate from one Asset to another.|
+|**FourCC**|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in [RFC 6381](https://tools.ietf.org/html/rfc6381). Currently, the following codecs are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).|
+|**Language**|Use the language of the track for filtering.<br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, "en".|
+|**Name**|Use the name of the track for filtering.|
+|**Type**|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
 
 ### Example
 
