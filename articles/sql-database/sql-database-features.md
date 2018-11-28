@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 12/01/2018
+ms.date: 12/03/2018
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server

@@ -11,21 +11,21 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/01/2018
+ms.date: 12/03/2018
 ---
 # Overview: Active geo-replication and auto-failover groups
 
-Active geo-replication is Azure SQL Database feature that allows you to create readable replicas of your database in the same or different data center (region).
+Active geo-replication is Azure SQL Database feature that allows you to create readable replicas of individual databases in the same or different data center (region).
 
 ![Geo-replication](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
 
-Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery in case of a data center scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
+Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disastor or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
 
 > [!NOTE]
 > Active geo-replication is available for all databases in all service tiers in all regions.
-> Active Geo-replication is not available in Managed Instance.
+> Active geo-replication is not supported for databases created within a managed instance. Consider using [failover groups](#auto-failover-group-capabilities) with Managed Instances.
 
-Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases simultaneously using an application initiated failover or by delegating failover to be done by the SQL Database service based on a user-defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases simultaneously using application-initiated failover or by delegating failover to be done by the SQL Database service based on a user-defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
 > Use active geo-replication if multiple secondaries are required.
@@ -120,6 +120,9 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
   > [!NOTE]
   > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
 
+> [!IMPORTANT]
+> In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
+
 - **Failover group read-write listener**
 
   A DNS CNAME record formed as **&lt;failover-group-name&gt;.database.windows.net** that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover.
@@ -127,6 +130,9 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 - **Failover group read-only listener**
 
   A DNS CNAME record formed as **&lt;failover-group-name&gt;.secondary.database.windows.net** that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules.
+
+  > [!IMPORTANT]
+  > When a failover group is created on a Managed Instance, the DNS CNAME records for the listeners are **&lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net and &lt;failover-group-name&gt;.&lt;zone_id&gt;.secondary.database.windows.net. See [Best practices for failover groups with Managed Instances](#best-practices-of-using-failover-groups-for-business-continuity-with-managed-instances)for details of using zone_id with managed instance.
 
 - **Automatic failover policy**
 
@@ -151,9 +157,9 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 
   You can configure multiple failover groups for the same pair of servers to control the scale of failovers. Each group fails over independently. If your multi-tenant application uses elastic pools, you can use this capability to mix primary and secondary databases in each pool. This way you can reduce the impact of an outage to only half of the tenants.
 
-## Best practices of using failover groups for business continuity
+## Best practices of using failover groups with single and pooled databases
 
-When designing a service with business continuity in mind, you should follow these guidelines:
+When designing a service with business continuity in mind, follow these general guidelines:
 
 - **Use one or several failover groups to manage failover of multiple databases**
 
@@ -169,7 +175,10 @@ When designing a service with business continuity in mind, you should follow the
 
 - **Be prepared for perf degradation**
 
-  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the guidelines in this article. Note the application in the DR region does not have to use a different connection string.  
+  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
+
+  > [!NOTE]
+  > The application in the DR region does not have to use a different connection string.  
 
 - **Prepare for data loss**
 
@@ -177,6 +186,44 @@ When designing a service with business continuity in mind, you should follow the
 
 > [!IMPORTANT]
 > Elastic pools with 800 or fewer DTUs and more than 250 databases using geo-replication may encounter issues including longer planned failovers and degraded performance.  These issues are more likely to occur for write intensive workloads, when geo-replication endpoints are widely separated by geography, or when multiple secondary endpoints are used for each database.  Symptoms of these issues are indicated when the geo-replication lag increases over time.  This lag can be monitored using [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  If these issues occur, then mitigations include increasing the number of pool DTUs, or reducing the number of geo-replicated databases in the same pool.
+
+## Best practices of using failover groups with Managed Instances
+
+If your application uses managed instance as the data tier, follow these general guidelines when designing for business continuity:
+
+- **Create the secondary instance in the same DNS zone as the primary instance**
+
+  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of &lt;zone_id&gt;.database.windows.net`. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a “DNS Zone Partner” optional parameter of the “create instance” command <link>.
+
+- **Enable replication traffic between two instances**
+
+  Because each instance is isolated in its own VNET, two-directional traffic between these VNETs must be allowed. See <enabling replication between managed instances link> for details.
+
+- **Configure a failover group to manage failover of entire instance**
+
+  The failover group will manage the failover of all the databases in the instance. When a group is created, each database in the instance will be automatically geo-replicated to the secondary instance. You cannot use failover groups to initiate a partial failover of a subset of the databases.
+
+- **Use read-write listener for OLTP workload**
+
+  When performing OLTP operations, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note, the failover involves updating the DNS recordrecord, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
+
+- **Use read-only listener for read-only workload**
+
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.secondary.database.windows.net as the server URL and the connection is will be automatically directed routed to the secondary. It is also recommended that you indicate in connection string read intent by using ApplicationIntent=ReadOnlyIt is also recommended that you indicate in connection string read intent by using ApplicationIntent=ReadOnly.
+
+- **Be prepared for perf degradation**
+
+  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the network security guidelines in this article <link>.
+
+- **Prepare for data loss**
+
+  If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by GracePeriodWithDataLossHours. If you specified GracePeriodWithDataLossHours, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
+
+> [!IMPORTANT]
+> Use manual group failover to move primaries back to the original location: When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
+
+> [!IMPORTANT]
+> The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using portal then the UI will indicate completion status. If it is initiated using the REST API, use standard ARM’s polling mechanism to monitor for completion.
 
 ## Failover groups and network security
 
@@ -213,6 +260,14 @@ The above configuration will ensure that the automatic failover will not block c
 
 > [!IMPORTANT]
 > To guarantee business continuity for regional outages you must ensure geographic redundancy for both front-end components and the databases.
+
+## Enabling replication between managed instances and their VNETs 
+
+When you set up a failover groups between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNET. To allow replication traffic between these VNETs follow these steps:
+
+1. Connect them through either Express Route circuit (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings) or a VPN Gateway  (https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+2. Setup each NSG such that ports 5022 and the range 11000-12000 are open for inbound connections from the other VNET.
+
 
 ## Upgrading or downgrading a primary database
 

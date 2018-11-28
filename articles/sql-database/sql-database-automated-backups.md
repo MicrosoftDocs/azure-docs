@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/01/2018
+ms.date: 12/03/2018
 ---
 # Learn about automatic SQL Database backups
 
