@@ -53,7 +53,7 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key, endpoint=ENDPOINT)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Create a new project
 print ("Creating project...")

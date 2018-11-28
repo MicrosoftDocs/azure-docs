@@ -335,7 +335,7 @@
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    
-      - name: Computer vision package
+      - name: Computer vision package deprecated
         items:
         - name: Package install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
@@ -349,7 +349,7 @@
             href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
           - name: Improve model accuracy
             href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Forecasting package
+      - name: Forecasting package deprecated
         items:
         - name: Overview and install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
@@ -359,7 +359,7 @@
         href: reference-fpga-package-overview.md
       - name: Text analytics package
         items:
-        - name: Overview and install
+        - name: Overview and install deprecated
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     

@@ -1,15 +1,14 @@
 ---
-title: Consume a Machine Learning web service by using a web app template | Microsoft Docs
+title: Consume a Machine Learning web service with a web app template - Azure Machine Learning Studio | Microsoft Docs
 description: Use a web app template in Azure Marketplace to consume a predictive web service in Azure Machine Learning.
 keywords: web service,operationalization,REST API,machine learning
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
 ms.component: studio
@@ -18,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-
 ---
 # Consume an Azure Machine Learning web service by using a web app template
 

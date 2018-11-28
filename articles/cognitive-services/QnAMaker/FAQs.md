@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
 ---
 # Frequently Asked Questions
@@ -59,8 +59,7 @@ The default message is part of the settings in your App service.
 
 ### Why is my SharePoint link not getting extracted?
 
-The tool parses only public URLs and does not support authenticated data sources at this time. Alternately, you can download the file and use the file-upload option to extract questions and answers.
-
+Please see [Data source locations](./Concepts/data-sources-supported.md#data-source-locations) for more information.
 
 ### The updates that I made to my knowledge base are not reflected on publish. Why not?
 
