@@ -1,5 +1,5 @@
 ---
-title: Avoid translation - Translator Text API
+title: Prevent content translation - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Avoid translation when using the Translator Text API.
 services: cognitive-services
