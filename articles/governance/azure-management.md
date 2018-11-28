@@ -73,7 +73,7 @@ your Azure resources and other cloud providers including AWS and Google.
 Managing security of your applications, resources, and data involves a combination of assessing
 threats, collecting and analyzing security data, and ensuring that your applications and resources
 are designed and configured in a secure fashion. Security monitoring and threat analysis are
-provided by [Azure Security Center](../security-center/security-center-intro.md) which includes
+provided by [Azure Security Center, which includes
 unified security management and advanced threat protection across hybrid cloud workloads. You
 should also see [Introduction to Azure Security](../security/azure-security.md) for comprehensive
 information on security in Azure and guidance on securely configuring Azure resources.
