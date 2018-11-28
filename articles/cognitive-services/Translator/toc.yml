@@ -124,8 +124,12 @@
       href: profanity-filtering.md
     - name: Receive word alignment information
       href: word-alignment.md
+    - name: Prevent translation of content
+      href: avoid-translation.md
     - name: Use the dynamic dictionary feature
       href: dynamic-dictionary.md
+    - name: Translate behind firewalls
+      href: firewalls.md
   - name: Reference
     items:
     - name: v3 Translator Text API reference

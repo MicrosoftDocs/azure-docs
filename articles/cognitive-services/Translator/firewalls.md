@@ -12,7 +12,7 @@ ms.date: 11/20/2018
 ms.author: v-jansko
 ---
 
-# Translate behind IP firewalls with the Translator Text API
+# How to translate behind IP firewalls with the Translator Text API
 
 > [!NOTE]
 > We **do not recommend** running Microsoft Translator from behind an IP filtered firewall. The setup is likely to break in the future without notice. It is better to use domain-name filtering.

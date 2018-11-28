@@ -27,11 +27,22 @@ Version 3 of the Translator Text API provides a modern JSON-based Web API. It im
 
 ## Base URLs
 
-Text API v3.0 is available in the following cloud:
+Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions):
 
-| Description | Region | Base URL                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Global | api.cognitive.microsofttranslator.com           |
+* **Americas:** West US 2 and West Central US 
+* **Asia Pacific:** Southeast Asia and Korea South
+* **Europe:** North Europe and West Europe
+
+Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the region.
+
+To force the request to be handled by a specific datacenter, change the Global endpoint in the API request to the desired regional endpoint:
+
+|Description|Region|Base URL|
+|:--|:--|:--|
+|Azure|Global|	api.cognitive.microsofttranslator.com|
+|Azure|North America|	api-nam.cognitive.microsofttranslator.com|
+|Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
+|Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
 
 
 ## Authentication

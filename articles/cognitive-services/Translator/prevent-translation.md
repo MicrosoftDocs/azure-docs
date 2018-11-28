@@ -1,7 +1,7 @@
 ---
 title: Prevent content translation - Translator Text API
 titlesuffix: Azure Cognitive Services
-description: Avoid translation when using the Translator Text API.
+description: Prevent translation of content with the the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.date: 11/20/2018
 ms.author: v-jansko
 ---
 
-# Prevent translation of content with the Translator Text API
+# How to prevent translation of content with the Translator Text API
 
 The Translator Text API allows you to tag content so that it isn't translated. For example, you may want to tag code, a brand name, or a word/phrase that doesn't make sense when localized. There are a few ways you can do this: 
 

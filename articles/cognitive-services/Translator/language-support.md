@@ -18,6 +18,10 @@ The Translator Text API supports the following languages for text to text transl
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
 **V2 Translator API**
+
+> [!NOTE]
+> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+
 * Statistical only: No neural system is available for this language.
 * Neural available: A neural system is available. Use the parameter `category=generalnn` to access the neural system.
 * Neural default: Neural is the default translation system. Use the parameter `category=smt` to access the statistical system for use with the Microsoft Translator Hub.
