@@ -47,7 +47,7 @@ Before you begin this tutorial:
 
 * [Install Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## Create a container registry
 
