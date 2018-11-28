@@ -13,9 +13,9 @@ ms.date: 09/24/2018
 ---
 # What is happening to Workbench in Azure Machine Learning?
 
-The Workbench application and some other early features were replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
+The Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
 
-In this article, you'll learn about what changed and how it affects your pre-existing work with the Azure Machine Learning service.
+In this article, you'll learn about what changed and how it affects your pre-existing work with the Azure Machine Learning Workbench and its APIs.
 
 ## What changed?
 
@@ -76,7 +76,7 @@ Learn how to get started [in Python with the main SDK](quickstart-get-started.md
 
 ## What about my registers models and images?
  
-The models that you registered in your old model registry must migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
+The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
 
 The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
 
