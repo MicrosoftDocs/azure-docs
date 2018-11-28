@@ -75,6 +75,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 [qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
+
 <!--[birst_datasheet]:-->
 [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
 [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
@@ -92,10 +93,12 @@ To learn more about some of our other partners, see [Data Integration partners][
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
 [dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
+
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 <!--[jinfonet_marketplace]:-->
 [logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 [sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
@@ -107,17 +110,21 @@ To learn more about some of our other partners, see [Data Integration partners][
 [clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 <!--[dell_statistica_press]:-->
 [dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
+
 <!--[jinfonet_press]:-->
 [logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
 [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
+
 <!--[qlik_press]:-->
 <!--[sisense_press]:-->
 [tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
+
 <!--[targit_press]:-->
 <!--[yellowfin_press]:-->
 
 <!--YouTube links-->
 [birst_youtube]:https://www.youtube.com/user/BirstBI
+
 [clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
 [dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo
 [dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
