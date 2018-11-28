@@ -27,14 +27,14 @@ sections:
     items:
       - href: /azure/dedicated-hsm/overview
         html: <p>Learn what Azure dedicated HSM is all about.</p>
-        image:
-          src: media/index/i_article.svg
+        image: 
+          src: media/index/hsm.svg
         title: Dedicated HSM overview
       - href: /azure/dedicated-hsm/faq
-        html: <p>Frequently asked questions.</p>
+        html: <p>Design considerations when using Dedicated HSM</p>
         image:
           src: media/index/guide.svg
-        title: FAQ
+        title: Deciding on deployment architecture
 
 - title: Step-by-Step Tutorials
   items:
