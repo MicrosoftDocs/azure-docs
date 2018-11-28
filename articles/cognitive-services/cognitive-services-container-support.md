@@ -7,7 +7,7 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: article 
 ms.date: 12/04/2018
 ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.

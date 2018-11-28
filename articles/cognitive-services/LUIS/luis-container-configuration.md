@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: diberry
+ms.author: diberry 
 ---
 
 # Configure containers
