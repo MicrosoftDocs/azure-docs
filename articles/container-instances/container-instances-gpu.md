@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/28/2018
 ms.author: danlep
 ---
 
@@ -119,7 +119,13 @@ Deploy the container group with the [az container create][az-container-create] c
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml
 ```
 
-The command runs for several minutes before it returns deployment information. Once the deployment has completed, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
+The deployment takes several minutes to complete. Then, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
+
+```azurecli
+az container logs --resource-group myResourceGroup --name gpucontainer
+```
+
+Output:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -132,7 +138,7 @@ Done
 
 ## Resource Manager template example
 
-Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
+Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
 ```JSON
 {
@@ -190,7 +196,13 @@ Deploy the template with the [az group deployment create][az-group-deployment-cr
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-The deployment takes several minutes. Once the deployment has completed, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
+The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
+
+```azurecli
+az container logs --resource-group myResourceGroup --name gpucontainer
+```
+
+Output:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
