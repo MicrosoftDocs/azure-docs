@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
 ---
