@@ -18,19 +18,22 @@ Along with many other machine learning capabilities, the Azure Machine Learning 
 
 Azure Machine Learning service is exposed to users through Python SDKs, the Azure portal, and the CLI. 
 
-Convert your scripts to use Azure Machine Learning Compute before June 28, 2019, to avoid disruptions to your applications and enjoy quality and feature updates. Azure Machine Learning service is exposed to users through a Python SDK, the portal, and the CLI. 
-
 ## Batch AI support timeline
 
 | Date | Support details |
 | ---- |-----------------|
-| December 4, 2018 | Beginning this date, the ability to create a new Azure Batch AI subscription ended. You can continue to use your existing subscriptions as before. |
+| December&nbsp;4&nbsp;2018 | Beginning this date, the ability to create a new Azure Batch AI subscription ended. You can continue to use your existing subscriptions as before. |
 | Between Dec 4, 2018 and March 4, 2019 | No new investments to the Batch AI service. We will support existing customers during their migration to the more comprehensive [Azure Machine Learning service](https://aka.ms/aml-docs). If Azure Machine Learning service does not meet your need, and a supported functionality exists in Batch AI, then raise a support whitelist request against Batch AI service. |
 | March 4, 2019 | Existing subscriptions will continue to run through this date, at which point we should have full feature parity between the two services. After this date, existing Batch AI subscriptions will no longer run. |
 
 ## How do I migrate
 
 To avoid disruptions to your applications and to benefit from the latest features, do the following before March 4, 2019:
+
+1. Create an Azure Machine Learning service workspace and get started:
+    + [Python based quickstart](../machine-learning/service/quickstart-create-workspace-with-python.md)
+    + [Azure portal based quickstart](../machine-learning/service/quickstart-get-started.md)
+
 
 ## Next steps
 
