@@ -113,7 +113,7 @@ In this section, you create network security group (NSG) rules for the VMs, to a
    - **Action**: Select **Allow**.  
    - **Priority**: Type **100**. 
    - **Name**: Type **MyHTTPRule**. 
-   - **Description**: Type **Allow HTTP.**. 
+   - **Description**: Type **Allow HTTP**. 
    
 1. Select **Add**. 
    
@@ -123,7 +123,7 @@ In this section, you create network security group (NSG) rules for the VMs, to a
    - **Destination port ranges**: Type **3389**.
    - **Priority**: Type **200**. 
    - **Name**: Type **MyRDPRule**. 
-   - **Description**: Type **Allow RDP.**. 
+   - **Description**: Type **Allow RDP**. 
 
 ## Create resources for the load balancer
 
