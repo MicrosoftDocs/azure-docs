@@ -36,7 +36,7 @@ The following Azure permissions are supported per subscription for budgets by us
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
 - Reader and Cost Management reader – Can view budgets that they have permission to.
 
-For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data).
+For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
 ## Sign in to Azure
 
