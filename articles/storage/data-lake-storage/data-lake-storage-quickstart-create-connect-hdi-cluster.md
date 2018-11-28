@@ -22,7 +22,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 > [!IMPORTANT]
 >HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
-A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
+A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](abfs-driver.md), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
 
@@ -78,12 +78,6 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### Enterprise security package
-
-For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Enterprise Security Package in Azure HDInsight](../../hdinsight/domain-joined/apache-domain-joined-introduction.md).
-
-![hdinsight create options choose enterprise security package](./media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-creation-enterprise-security-package.png)
-
 For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](../../hdinsight/domain-joined/apache-domain-joined-configure.md).
 
 ## Cluster login and SSH user name
@@ -93,15 +87,13 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * HTTP user: The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters): Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
-
 ## <a name="location"></a>Location (regions) for clusters and storage
 
 You don't need to specify the cluster location explicitly; the cluster is in the same location as the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ## Storage endpoints for clusters
 
-Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2]() or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data.
+Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](abfs-driver.md) or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data.
 
 > [!WARNING]
 > Using an additional storage account in a different location from the HDInsight cluster is not supported.
@@ -249,7 +241,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-- [ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2]()
+- [ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](abfs-driver.md)
 - [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](tutorial-extract-transform-load-hive.md)
 - [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Get started using Hadoop in HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
