@@ -19,7 +19,7 @@ ms.custom:
 ---
 # Understand deny assignments
 
-Similar to a role assignment, a *deny assignment* binds a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. A deny assignment can also exclude principals and prevent inheritance to child scopes, which is different than role assignments. Currently, deny assignments are **read-only** and can only be set by Azure. This article describes how deny assignments are defined.
+Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. A deny assignment can also exclude principals and prevent inheritance to child scopes, which is different than role assignments. Currently, deny assignments are **read-only** and can only be set by Azure. This article describes how deny assignments are defined.
 
 ## Deny assignment properties
 
