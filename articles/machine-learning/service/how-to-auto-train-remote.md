@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 #Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on a DSVM remote compute target.
 ---
 # Train models with automated machine learning in the cloud
@@ -18,7 +18,7 @@ In Azure Machine Learning, you train your model on different types of compute re
 
 You can easily scale up or scale out your machine learning experiment by adding additional compute targets. Compute target options include Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Machine Learning Compute. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
 
-In this article, you learn how to build a model using automated ML on the DSVM.   
+In this article, you learn how to build a model using automated ML on the DSVM.
 
 ## How does remote differ from local?
 
@@ -232,7 +232,7 @@ You will see output similar to the following example:
 You can use the same Jupyter widget as the one in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
 Here is a static image of the widget.  In the notebook, you can click on any line in the table to see run properties and output logs for that run.   You can also use the dropdown above the graph to view a graph of each available metric for each iteration.
