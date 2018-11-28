@@ -12,14 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/27/2018
 ms.author: danlep
 
 
 ---
 # Use RDMA or GPU instances in Batch pools
 
-To run certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, to run multi-instance [MPI workloads](batch-mpi.md), you can choose H-series and certain other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications. Or for CUDA applications, choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
+To run certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example:
+
+* To run multi-instance [MPI workloads](batch-mpi.md), choose H-series and certain other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications. 
+
+* For CUDA applications, choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
 
 This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background, see:
 
@@ -42,7 +46,7 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
 | [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series)<br/>RDMA (select sizes) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A | 
-| [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers* | N/A |
+| [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 ### Windows pools - Virtual machine configuration
 
@@ -90,7 +94,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 ## Example: NVIDIA GPU drivers on Windows NC VM pool
 
-To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. Here are sample steps to deploy a pool of Windows Server nodes using an application package for the NVIDIA GPU drivers:
+To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. Here are sample steps to deploy a pool of Windows Server nodes using an application package for the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
 
 1. Download a [setup package](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe) for the GPU drivers on Windows Server 2016 from the NVIDIA website. Save the file locally using the short name *GPUDriverSetup.exe*.
 2. Create a zip file of the package.
@@ -111,7 +115,7 @@ To run CUDA applications on a pool of Windows NC nodes, you need to install NVDI
 
 ## Example: NVIDIA GPU drivers on Linux NC VM pool
 
-To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA Toolkit 9.0 on the nodes. The Toolkit installs the necessary NVIDIA Tesla GPU drivers. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
+To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA Toolkit on the nodes. The Toolkit installs the necessary NVIDIA Tesla GPU drivers. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
 
 1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with a managed disk.
 2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md).
