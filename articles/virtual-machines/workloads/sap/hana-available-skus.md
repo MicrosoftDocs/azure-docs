@@ -48,7 +48,7 @@ In a lot of cases, these customer-specific server configurations carry more memo
 
 | SKU|CPU | Memory | Storage | Availability |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA on Azure S96<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 48 CPU cores and 96 CPU threads |  768 TB |  3 TB | Available |
+| S96 | SAP HANA on Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 CPU cores and 96 CPU threads |  768 TB |  3 TB | Available |
 
 
 | Original SKU that can be <br /> extended in memory | CPU | Memory | Storage | Availability |

@@ -42,9 +42,9 @@ ms.author: maquaran
 ### <a name="2.2.3"/>2.2.3
 * Added support for using custom store to persist continuation tokens per partition.
   * For example, a custom lease store can be Azure Cosmos DB lease collection partitioned in any custom way.
-  * Custom lease stores can use new extensibility point ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) and ILeaseStoreManager public interface.
+  * Custom lease stores can use new extensibility point ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) and ILeaseStoreManager public interface.
   * Refactored the ILeaseManager interface into multiple role interfaces.
-* Minor breaking change: removed extensibility point ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), use ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) instead.
+* Minor breaking change: removed extensibility point ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), use ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) instead.
 
 ### <a name="2.2.2"/>2.2.2
 * This release fixes an issue that occurs during processing a split in monitored collection and using a partitioned lease collection. When processing a lease for split partition, the lease corresponding to that partition may not be deleted. The issue is fixed in this release.
