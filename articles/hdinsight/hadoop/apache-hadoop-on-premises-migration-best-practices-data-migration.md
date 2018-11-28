@@ -19,20 +19,12 @@ This article gives recommendations for data migration to Azure HDInsight. It's p
 There are two main options to migrate data from on-premises to Azure environment:
 
 1.  Transfer data over network with TLS
-    1.  Over internet
-    2.  Express Route
-2.  Shipping data
-    1.  Import / Export service
-        - Internal SATA HDDs or SSDs only
-        - Encrypted at REST (AES-128 / AES-256)
-        - Import job can have up to 10 disks
-        - Available in all Public regions & GA
-    1.  Data Box
-        - Up to 80 TB of data per Data box
-        - Encrypted at REST (AES-256)
-        - Uses NAS protocols and supports common data copy tools
-        - Ruggedized hardware
-        - Available in US only & Public Preview
+    1. Over internet
+    2. Express Route
+    1. Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [https://docs.microsoft.com/en-us/azure/databox-online/](../databox-online/index.yml).
+1.  Shipping data Offline
+    1. Import / Export service - you can send physical disks to Azure and they will be uploaded for you. For more information see [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md).
+    1. Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information, see [Azure Data Box Documentation - Offline Transfer](../databox/index.yml).
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 
