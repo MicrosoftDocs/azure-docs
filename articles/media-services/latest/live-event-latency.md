@@ -29,7 +29,7 @@ The following .NET example shows how to set **LowLatency** on the **LiveEvent**:
 LiveEvent liveEvent = new LiveEvent(
             location: mediaService.Location, 
             description: "Sample LiveEvent for testing",
-            vanityUrl:false,
+            vanityUrl: false,
             encoding: new LiveEventEncoding(
                         // Set this to Basic to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
                         encodingType:LiveEventEncodingType.None, 
