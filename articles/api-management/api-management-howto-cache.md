@@ -54,11 +54,11 @@ With caching policies shown in this example, the first request to the **GetSpeak
 4. Click **Demo Conference API** from your API list.
 5. Select **GetSpeakers**.
 6. On the top of the screen, select **Design** tab.
-7. In the **Inbound processing** window, click the triangle (next to the pencil).
+7. In the **Inbound processing** section, click the **</>** icon.
 
-    ![code editor](media/api-management-howto-cache/code-editor.png)
-8. Select **Code editor**.
-9. In the **inbound** element, add the following policy:
+    ![code editor](media/api-management-howto-cache/code-editor.png) 
+
+8. In the **inbound** element, add the following policy:
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -66,7 +66,7 @@ With caching policies shown in this example, the first request to the **GetSpeak
             <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
 
-10. In the **outbound** element, add the following policy:
+9. In the **outbound** element, add the following policy:
 
         <cache-store caching-mode="cache-on" duration="20" />
 
