@@ -66,3 +66,8 @@ Paket.Package
 "MathNet.Numerics.FSharp"
 ]
 ```
+
+## Next steps
+
+- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md)
+- [How to: Present a slide show](present-jupyter-notebooks-slideshow.md)

@@ -39,7 +39,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 1. Once configuration is complete, select **01.getting-started** to navigate into the folder containing thirteen different sample notebooks, each of which is self-explanatory.
 
-## Additional resources
+## Next steps
 
 The Azure Machine Learning Services documentation contains a variety of other resources that guide you through working with Machine Learning Service within notebooks:
 
