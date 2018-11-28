@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -62,7 +62,6 @@ ms.custom: include file
 | &nbsp; |[Concur (Preview)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) 
 | &nbsp; |[Google AdWords (Preview)](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot (Preview)](../articles/data-factory/connector-hubspot.md) |
 | &nbsp; |[Jira (Preview)](../articles/data-factory/connector-jira.md) |

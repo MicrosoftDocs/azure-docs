@@ -152,13 +152,13 @@ The dashboard also provides information on connector status which can be used as
 
 You can also visualize the incidents synced against the impacted computers, within the Service Map solution.
 
-Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent. [Learn more](../monitoring/monitoring-service-map.md).
+Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent. [Learn more](../azure-monitor/insights/service-map.md).
 
 If you are using the Service Map solution, you can view the service desk items created in the ITSM solutions as shown in the following example:
 
 ![Log Analytics screen](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-More information: [Service Map](../monitoring/monitoring-service-map.md)
+More information: [Service Map](../azure-monitor/insights/service-map.md)
 
 
 ## Additional information

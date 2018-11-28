@@ -2,7 +2,7 @@
 title: Azure IoT Edge Platform Support | Microsoft Docs 
 description: Platforms supported by Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/07/2018
 ms.topic: conceptual

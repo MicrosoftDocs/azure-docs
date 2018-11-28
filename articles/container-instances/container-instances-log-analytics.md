@@ -129,8 +129,9 @@ ContainerInstanceLog_CL
 
 For more information about querying logs and configuring alerts in Azure Log Analytics, see:
 
-* [Understanding log searches in Log Analytics](../log-analytics/log-analytics-queries.md)
-* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 
 ### Monitor container CPU and memory
 

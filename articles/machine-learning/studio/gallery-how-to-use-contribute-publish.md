@@ -1,13 +1,13 @@
 ---
-title: Azure AI Gallery | Microsoft Docs
+title: Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-
 ---
 # Share and discover resources in the Azure AI Gallery
 

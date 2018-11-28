@@ -123,7 +123,7 @@ Now create a virtual machine in Azure, and put it on your VM subnet in your virt
 
 1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Oval** image.
+3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** section, for **Name**, type **AzureVM**.
 5. Type a valid username and password. You use this account to sign in to the virtual machine after it is created.
 6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
@@ -223,7 +223,7 @@ To check the VPN connection, create two VMs: one in Azure, and one in Azure Stac
 
 1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Oval** image.
+3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** section, in **Name**, type **Azs-VM**.
 5. Type a valid username and password. You use this account to sign in to the VM after it is created.
 6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.

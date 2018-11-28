@@ -2,7 +2,7 @@
 title: Azure IoT Edge module composition | Microsoft Docs 
 description: Learn how a deployment manifest declares which modules to deploy, how to deploy them, and how to create message routes between them. 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/06/2018
 ms.topic: conceptual

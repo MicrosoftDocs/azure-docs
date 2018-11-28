@@ -174,7 +174,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             //If clientid or client secret has special characters, encode before sending request
             this.request = string.Format("grant_type=client_credentials&client_id={0}&client_secret={1}&scope=http://api.microsofttranslator.com", HttpUtility.UrlEncode(clientId), HttpUtility.UrlEncode(clientSecret));
             this.token = HttpPost(DatamarketAccessUri, this.request);
-            //renew the token every specfied minutes
+            //renew the token every specified minutes
             accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback), this, TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
         }
         public AdmAccessToken GetAccessToken()

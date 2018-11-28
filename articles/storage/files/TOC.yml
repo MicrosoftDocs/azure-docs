@@ -185,8 +185,8 @@
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?product=storage
   - name: Azure Storage client tools
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Stack Overflow
@@ -197,8 +197,6 @@
     href: https://azure.microsoft.com/pricing/details/storage/blobs/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=storage
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer

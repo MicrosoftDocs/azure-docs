@@ -36,17 +36,18 @@
   - name: Analyzing content
     href: analyzing-video-audio-files-concept.md
   - name: Encoding content
+    href: encoding-concept.md
     items:
-    - name: Overview
-      href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities
     items:
+    - name: Account and Asset filters 
+      href: filters-dynamic-manifest-overview.md      
     - name: Assets
-      href: assets-concept.md
+      href: assets-concept.md        
     - name: Content key policies
-      href: content-key-policy-concept.md
+      href: content-key-policy-concept.md 
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
@@ -81,6 +82,14 @@
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
+  - name: Create filters
+    items:
+    - name: With .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: With REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: With CLI
+      href: filters-dynamic-manifest-cli-howto.md
   - name: Encode 
     items:
     - name: Customize Transform presets - .NET Core
@@ -99,6 +108,8 @@
       href: protect-with-drm.md
   - name: Configure Postman
     href: media-rest-apis-with-postman.md
+  - name: Scale Media Reserved Units - CLI
+    href: media-reserved-units-cli-how-to.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)

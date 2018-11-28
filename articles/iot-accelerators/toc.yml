@@ -33,6 +33,8 @@
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Use alerts and fix device issues
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Detect anomalies at the edge
+      href: iot-accelerators-remote-monitoring-edge.md
   - name: Device Simulation
     items:
     - name: Create and run a simulation
@@ -79,6 +81,10 @@
         href: iot-accelerators-connecting-pi-node.md
       - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+    - name: Add an IoT Edge device
+      href: iot-accelerators-remote-monitoring-add-edge-device.md
+    - name: Import an IoT Edge package
+      href: iot-accelerators-remote-monitoring-import-edge-package.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Create a simulated device
@@ -103,11 +109,14 @@
     - name: Deploy using the CLI
       href: iot-accelerators-remote-monitoring-deploy-cli.md
     - name: Deploy locally
+      href: iot-accelerators-remote-monitoring-deploy-local.md
       items:
       - name: Visual Studio
         href: iot-accelerators-remote-monitoring-deploy-local.md
       - name: Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
+    - name: Email Actions
+      href: iot-accelerators-remote-monitoring-email-actions.md
     - name: Visualize telemetry with PowerBI
       href: iot-accelerators-integrate-data-powerbi.md
     - name: Integrate Azure Time Series Insights with Remote Monitoring
@@ -224,5 +233,4 @@
     href: iot-accelerators-faq-cf.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-  - name: IoT solution accelerators learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
+

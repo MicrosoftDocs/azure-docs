@@ -20,6 +20,8 @@
     href: pim-email-notifications.md
   - name: Assignment types
     href: pim-resource-roles-eligible-visibility.md
+  - name: Microsoft Graph APIs
+    href: pim-apis.md
 - name: How-to guides
   expanded: true
   items:

@@ -97,7 +97,7 @@ If you are writing a quick prototype and don't want to provision Azure resources
 
 1. Install the following NuGet package to your project
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
@@ -142,7 +142,7 @@ Follow instructions from ASP.NET core section to configure a Key Vault for your 
 
 1. Install the following NuGet package to your project
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.
