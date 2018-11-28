@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services LiveEvent types | Microsoft Docs
-description: This article shows a detailed table that compare LiveEvent types. It also discusses max bitrates and source limitations.
+description: This article shows a detailed table that compare LiveEvent types. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,7 +16,7 @@ ms.date: 11/27/2018
 ms.author: juliako
 
 ---
-# LiveEvent types comparison and limitations
+# LiveEvent types comparison
 
 In Azure Media Services, a  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
 
