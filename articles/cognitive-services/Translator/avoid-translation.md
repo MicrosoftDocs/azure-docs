@@ -12,7 +12,7 @@ ms.date: 11/20/2018
 ms.author: v-jansko
 ---
 
-# Avoid translation when using the Translator Text API
+# Prevent translation of content with the Translator Text API
 
 To prevent a piece of text from being translated, you can:
 
