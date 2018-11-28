@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Upgrade a Service Fabric application running in Service Fabric Mesh
 
-This tutorial is part three of a series. You'll learn how to upgrade a Service Fabric application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) by increasing the allocated CPU resources.  When you're finished, you'll have a web front end service running with higher CPU resources.
+This tutorial is part three of a series. You'll learn how to upgrade a Service Fabric application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) by increasing the allocated CPU resources.  When you're finished, you'll have a web front-end service running with higher CPU resources.
 
 In part three of the series, you learn how to:
 
@@ -55,7 +55,7 @@ This tutorial uses the To Do List sample as an example, which was [deployed prev
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-In the deployment template for the application resource, each service has a *cpu* property that can be used to set the requested CPU resources. An application can consist of multiple services, each service with a unique *cpu* setting, which are deployed and managed together. In order to increase the CPU resources of the web front end service, modify the *cpue* value in the deployment template or parameters file.  Then upgrade the application.
+In the deployment template for the application resource, each service has a *cpu* property that can be used to set the requested CPU resources. An application can consist of multiple services, each service with a unique *cpu* setting, which are deployed and managed together. In order to increase the CPU resources of the web front-end service, modify the *cpue* value in the deployment template or parameters file.  Then upgrade the application.
 
 ### Modify the deployment template parameters
 
