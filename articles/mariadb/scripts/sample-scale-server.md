@@ -40,4 +40,4 @@ This script uses the commands outlined in the following table:
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
 - Try additional scripts: [Azure CLI samples for Azure Database for MariaDB](../sample-scripts-azure-cli.md)
-- For more information on scaling, see [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).
+- For more information on scaling, see [Pricing Tiers](../concepts-pricing-tiers.md.
