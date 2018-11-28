@@ -44,7 +44,7 @@ For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azu
 
 ## Install the Service Fabric CLI (sfctl) 
 
-Follow instructions on [Set up Service Fabric CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli). The **sfctl** module can be used for deployment of applications based on the resource model against Service Fabric clusters on your local machine. 
+Follow instructions on [Set up Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). The **sfctl** module can be used for deployment of applications based on the resource model against Service Fabric clusters on your local machine. 
 
 ## Install the Maven CLI 
 
@@ -58,7 +58,7 @@ In order to use the Maven CLI, the following needs to be installed on your machi
 
 The Maven CLI for Service Fabric is still in preview. 
 
-1. To use the Maven plugin in your Maven Java app, add the following snippet to your pom.xml file:
+To use the Maven plugin in your Maven Java app, add the following snippet to your pom.xml file:
 
 ```XML
 <project>

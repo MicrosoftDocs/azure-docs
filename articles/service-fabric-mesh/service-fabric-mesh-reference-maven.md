@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Mesh Maven Reference | Microsoft Docs
+title: Azure Service Fabric Mesh Maven reference | Microsoft Docs
 description: Contains the reference for how to use the Maven plugin for Service Fabric Mesh 
 services: service-fabric-mesh
 keywords: maven, java, cli 
@@ -11,30 +11,6 @@ ms.service: service-fabric-mesh
 manager: subramar
 ---
 # Maven Plugin for Service Fabric Mesh
-
-[![Maven Central](https://img.shields.io/maven-central/v/com.microsoft.azure/azure-sfmesh-maven-plugin.svg)]()
-
-Need to update the above link after publishing
-
-## Table of Content
-  - [Prerequisites](#prerequisites)
-  - [Goals](#goals)
-      - [azure-sfmesh:init](#azure-sfmeshinit)
-      - [azure-sfmesh:add-service](#azure-sfmeshaddservice)
-      - [azure-sfmesh:add-network](#azure-sfmeshaddnetwork)
-      - [azure-sfmesh:add-gateway](#azure-sfmeshaddgateway)
-      - [azure-sfmesh:add-secret](#azure-sfmeshaddsecret)
-      - [azure-sfmesh:add-secretvalue](#azure-sfmeshaddsecretvalue)
-      - [azure-sfmesh:add-volume](#azure-sfmeshaddvolume)
-      - [azure-sfmesh:deploy](#azure-sfmeshdeploy)
-      - [azure-sfmesh:deploytocluster](#azure-sfmeshdeploytocluster) 
-  - [Usage](#usage)
-  - [Common Configuration](#common-configuration)
-  - [How-To](#how-to)
-    - [Initialize Maven project for Azure Service Fabric Mesh](#initialize-maven-project-for-azure-service-fabric-mesh)
-    - [Add a new resource to the project](#add-resource-to-your-application)
-    - [Run the application locally](#run-the-application-locally)
-    - [Deploy to application Azure Service Fabric Mesh](#deploy-applications-to-azure-service-fabric-mesh)
 
 ## Prerequisites
 
@@ -64,7 +40,7 @@ Need to update the above link after publishing
 - Generates a `secretvalue` YAML with the provided secret and secret value name in the `appresources` folder 
 
 ### `azure-sfmesh:deploy`
-- Merges the yamls from the `servicefabric` folder and creates a ARM JSON in the current folder.
+- Merges the yamls from the `servicefabric` folder and creates an Azure Resource Manager template JSON in the current folder.
 - Deploys all the resources to the Azure Service Fabric Mesh environment 
 
 ### `azure-sfmesh:deploytocluster`
@@ -95,12 +71,12 @@ To use the Maven plugin in your Maven Java app, add the following snippet to you
 
 ## Common Configuration
 
-The Maven plugin currently doesn't support common configurations of Maven Plugins for Azure. Support for this feature is coming in the next release. 
+The Maven plugin currently doesn't support common configurations of Maven Plugins for Azure.
 
 ## How-To
 
 ### Initialize Maven project for Azure Service Fabric Mesh
-Run below command to create an application resource yaml.
+Run the following command to create the application resource YAML file.
 
 ```cmd
 mvn azure-sfmesh:init -DapplicationName=helloworldserver
@@ -161,7 +137,7 @@ mvn azure-sfmesh:addsecret -DsecretName=secret1
 ```
 
 - Creates a secret YAML in folder `servicefabric->appresources` named `secret_secret1`
-- For more information on how to reference this created secret, visit the following, [Manage Secrets](service-fabric-mesh-howto-manage-secrets.md
+- For more information on how to reference this created secret, visit the following, [Manage Secrets](service-fabric-mesh-howto-manage-secrets.md)
 
 #### Add a new secretvalue resource to your application
 Run the command below to create a secretvalue resource yaml. 
@@ -194,5 +170,5 @@ mvn azure-sfmesh:deploy -DresourceGroup=todoapprg -Dlocation=eastus
 ```
 
 - Creates a resource group called `todoapprg` if it doesn't exist.
-- Creates a ARM JSON by merging the yamls 
+- Creates an Azure Resource Manager template JSON by merging the YAMLs. 
 - Deploys the JSON to the Azure Service Fabric Mesh environment.
