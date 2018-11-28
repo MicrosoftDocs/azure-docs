@@ -30,11 +30,11 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it, and then declared to the IoT Edge runtime in the config.yaml file. To make development and testing easier, the IoT Edge runtime creates temporary certificates if none are declared in the config.yaml file, but these certificates expire and aren't secure for production scenarios. 
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config.yaml file. To make development and testing easier, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file. However, these temporary certificates expire after three months and aren't secure for production scenarios. 
 
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-The steps to install certificates on an IoT Edge device and point to them from the config.yaml file are detailed in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md). The steps for configuring the certificates are the same whether the device is going to be used as a gateway or not. That article provides scripts to generate sample certificates for testing only. Don't use those sample certificates in production. 
+For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md). The steps for configuring the certificates are the same whether the device is going to be used as a gateway or not. That article provides scripts to generate sample certificates for testing only. Don't use those sample certificates in production. 
 
 ### Have a device management plan
 
@@ -50,7 +50,7 @@ For steps to update the IoT Edge daemon, see [Update the IoT Edge runtime](how-t
 
 ### Use Moby as the container engine
 
-Having a container engine on a device is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. Using other container engines on an IoT Edge device is not supported.
+Having a container engine on a device is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. Using other container engines on an IoT Edge device is not supported.
 
 ### Choose upstream protocol
 
@@ -78,7 +78,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 
 If you configured the Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all subsequent deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, if you don't configure the same APQPWS protocol for the Edge agent and Edge hub, the default AMQP will override the settings and prevent you from connecting again. 
 
-You only have to configure the UpstreamProtocol environment variable for the Edge agent and Edge hub modules. Any additional modules adopt whatever protocol is set in those two. 
+You only have to configure the UpstreamProtocol environment variable for the Edge agent and Edge hub modules. Any additional modules adopt whatever protocol is set in the runtime modules. 
 
 An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
@@ -88,7 +88,7 @@ If you're deploying constrained devices with limited memory available, you can c
 
 #### Don't optimize for performance on constrained devices
 
-The Edge hub is optimized for performance by default, so it attempts to allocate large chunks of memory. This can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the Edge hub. 
+The Edge hub is optimized for performance by default, so it attempts to allocate large chunks of memory. This configuration can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the Edge hub. 
 
 For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
@@ -112,7 +112,7 @@ The default value of the timeToLiveSecs parameter is 7200 seconds, which is two 
 
 ### Do not use debug versions of module images
 
-When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those as well. 
+When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well. 
 
 ## Container management
 
@@ -122,7 +122,7 @@ When moving from test scenarios to production scenarios, remember to remove debu
 
 ### Manage access to your container registry
 
-Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. You should use a private, not public, container registry to manage container images. 
+Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private, not public, container registry to manage container images. 
 
 In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario. Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner, as IoT Edge devices do. Create a service principal with read-only access to your container registry, and provide that username and password in the deployment manifest.
 
@@ -159,7 +159,7 @@ Additionally, the **Container engine** makes calls to container registries over 
 
 ### Configure communication through a proxy
 
-If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy.md).
+If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
 ## Solution management
 
@@ -169,9 +169,9 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 ### Set up logs and diagnostics
 
-On Linux, the IoT Edge daemon uses journald as the default logging driver. You can use the command line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the Docker default.  
+On Linux, the IoT Edge daemon uses journald as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the Docker default.  
 
-When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. You should consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
+When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
 
 If you're worried about logs becoming too large on a resource constrained device, you have a few options to reduce memory use. 
 
