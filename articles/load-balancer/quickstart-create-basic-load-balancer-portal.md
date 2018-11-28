@@ -19,9 +19,9 @@ ms.author: kumud
 ms.custom: mvc
 ---
 
-# Quickstart: Create a public load balancer by using the Azure portal
+# Quickstart: Create a public Basic load balancer by using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across virtual machines (VMs). You can use the Azure portal to create a load balancer and balance the load among VMs. This quickstart shows you how to create and configure a load balancer, back-end servers, and network resources at the Basic pricing tier.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across virtual machines (VMs). You can use the Azure portal to create a load balancer and balance traffic among VMs. This quickstart shows you how to create and configure a load balancer, back-end servers, and network resources at the Basic pricing tier.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -29,7 +29,7 @@ To do the tasks in this quickstart, sign in to the [Azure portal](http://portal.
 
 ## Create a Basic load balancer
 
-First, create a public Basic-tier load balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public Basic load balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
    
@@ -49,7 +49,7 @@ First, create a public Basic-tier load balancer by using the portal. The name an
 
 ## Create back-end servers
 
-Next, create a virtual network and two virtual machines for the back-end pool of your load balancer. 
+Next, create a virtual network and two virtual machines for the back-end pool of your Basic load balancer. 
 
 ### Create a virtual network
 
@@ -69,7 +69,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
-1. In the **Create a virtual machine** pane, type or select the following values in the **Basics** tab:
+1. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Drop down and select **MyResourceGroupLB**.
    - **Instance Details** > **Virtual machine name**: Type **MyVM1**.
    - **Instance Details** > **Availability Options**: 
@@ -79,12 +79,14 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    - **Administrator Account** > **Password**: Type **Azure1234567**. 
      Retype the password in the **Confirm password** field.
    
-1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. Make sure the following are selected:
+1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
+   
+   Make sure the following are selected:
    - **Virtual network**: **MyVnet**
    - **Subnet**: **MyBackendSubnet**
    - **Public IP**: **MyVM1-ip**
    
-   Under **Network Security Group**, select **Advanced**. 
+   To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
    1. In the **Configure network security group** field, select **Create new**. 
    1. Type **MyNetworkSecurityGroup**, and select **OK**. 
    
@@ -131,7 +133,7 @@ In this section, you configure load balancer settings for a back-end address poo
 
 ### Create a back-end address pool
 
-To distribute traffic to the VMs, the load balancer uses a back-end address pool. The back-end address pool contains the IP addresses of the virtual NICs that are connected to the load balancer. 
+To distribute traffic to the VMs, the load balancer uses a back-end address pool. The back-end address pool contains the IP addresses of the virtual network interfaces (NICs) that are connected to the load balancer. 
 
 **To create a back-end address pool that includes VM1 and VM2:**
 
@@ -182,7 +184,7 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
 
 A load balancer rule defines how traffic is distributed to the VMs. The rule defines the front-end IP configuration for incoming traffic, the back-end IP pool to receive the traffic, and the required source and destination ports. 
 
-The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends load-balanced network traffic to the back-end address pool **MyBackEndPool**, also on port 80. 
+The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends network traffic to the back-end address pool **MyBackEndPool**, also on port 80. 
 
 **To create the load balancer rule:**
 
