@@ -101,4 +101,4 @@ Because the slideshow renders fragments with more vertical spacing than when all
 - [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md)
 - [How to: Install packages from within a notebook](install-packages-jupyter-notebook.md)
 - [How to: Work with data files](work-with-project-data-files.md)
-- [How to: Access data resources](access-data-resources-in-jupyter-notebooks.md)
+- [How to: Access data resources](access-data-resources-jupyter-notebooks.md)

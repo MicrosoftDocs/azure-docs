@@ -23,8 +23,6 @@ The Internet has many collections of interesting and useful Jupyter notebooks th
 Once you've identified a notebook you'd like to explore, here are a few details you'll want to understand:
 
 - If a notebook is already in Azure Notebooks, use the **Clone** button on its project dashboard to make a copy of the project in your own account.
-- To upload a notebook you have locally, or to migrate a notebook from a URL, see [Quickstart: Migrate a local Jupyter notebook](quickstart-migrate-local-jupyter-notebook.md).
-- To clone a notebook from a GitHub repository, see [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md).
 - Some notebooks require specific packages to run. Although you can use `!pip install` (Python) or `install.packages` (R) to install packages from a notebook itself, you can also [configure an Azure Notebooks project with the appropriate environment](configure-manage-azure-notebooks-projects.md).
 
 ## Great sample notebooks
@@ -41,5 +39,5 @@ Once you've identified a notebook you'd like to explore, here are a few details 
 
 - [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md)
 - [How to: Work with data files](work-with-project-data-files.md)
-- [How to: Access data resources](access-data-resources-in-jupyter-notebooks.md)
+- [How to: Access data resources](access-data-resources-jupyter-notebooks.md)
 - [How to: Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
