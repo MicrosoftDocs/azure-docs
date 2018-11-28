@@ -53,9 +53,10 @@ The Azure Functions project template in Visual Studio creates a project that can
     | **Version** | Azure Functions 2.x <br />(.NET Core) | Creates a function project that uses the version 2.x runtime of Azure Functions which supports .NET Core. Azure Functions 1.x supports the .NET Framework. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
     | **Template** | Empty | This creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
+
 4. Click **OK** to create an empty function project.
 
-### Adding a durable function to an app
+## Add functions to the app
 
 Visual Studio creates an empty function app project.  It contains the basic configuration files needed for an app, but doesn't yet contain any functions.  We'll need to add a durable function template to the project.
 
@@ -131,7 +132,7 @@ You must have a function app in your Azure subscription before you can publish y
 
         http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
 
-2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as above on the published app.
+2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
 ## Next steps
 

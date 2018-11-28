@@ -16,10 +16,7 @@ ms.author: azfuncdf
 
 The monitor pattern refers to a flexible *recurring* process in a workflow - for example, polling until certain conditions are met. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement monitoring.
 
-## Prerequisites
-
-* [Install Durable Functions](durable-functions-install.md).
-* Complete the [Hello Sequence](durable-functions-sequence.md) walkthrough.
+[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
 ## Scenario overview
 
