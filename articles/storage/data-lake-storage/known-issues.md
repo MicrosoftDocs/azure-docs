@@ -27,33 +27,31 @@ If you want to use the same tool to work with all of the content that you upload
 
 Blob storage APIs aren't yet available to Azure Data Lake Storage Gen 2 accounts.
 
-If you enable hierarchical namespaces on your storage account, then all Blob API operations for that storage account are disabled. These APIs have been disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
+These APIs are disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
 
-Unmanaged Virtual Machine (VM) disks depend upon these API operations, so if you want to enable hierarchical namespaces on a storage account, consider placing unmanaged VM disks into a storage account that doesn't have hierarchical namespaces enabled.
+Unmanaged Virtual Machine (VM) disks depend upon these APIs, so if you want to enable hierarchical namespaces on a storage account, consider placing unmanaged VM disks into a storage account that doesn't have hierarchical namespaces enabled.
 
-To restore Blob API operations, just disable hierarchical namespace on the storage account.
+To restore Blob API operations, disable hierarchical namespace on the storage account.
 
 ## Azure Storage Explorer
-
-Azure Storage Explorer has only limited support for Azure Data Lake Storage Gen2.
 
 Some features in Storage Explorer don't yet work with Azure Data Lake Storage Gen2 file systems. These limitations apply to both the [stand-alone version](https://azure.microsoft.com/features/storage-explorer/) of Azure Storage Explorer as well as the version that appears in the Azure portal.
 
 ## Blob viewing tool
 
-Blob viewing tool on Azure portal has only limited support for Azure Data Lake Storage Gen2
+Blob viewing tool on Azure portal has only limited support for Azure Data Lake Storage Gen2.
 
 ## Third-party applications
 
 Third-party applications might not support Azure Data Lake Storage Gen2.
 
-Support for Azure Data Lake Gen2 is at the discretion of each third-party application provider. Currently, Blob storage APIs and Azure Data Lake Storage Gen2 APIs can't be used to manage the same content. As we work to enable that interoperability, it's possible that many third-party tools will automatically support Azure Data Lake Storage Gen2.
+Support is at the discretion of each third-party application provider. Currently, Blob storage APIs and Azure Data Lake Storage Gen2 APIs can't be used to manage the same content. As we work to enable that interoperability, it's possible that many third-party tools will automatically support Azure Data Lake Storage Gen2.
 
 ## AzCopy support
 
 AzCopy version 8 doesn’t support Azure Data Lake Storage Gen2.
 
-Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ). AzCopy V10 supports Azure Data Lake Storage Gen2 endpoints.
+Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) as it supports Azure Data Lake Storage Gen2 endpoints.
 
 ## OAuth authentication
 
@@ -65,17 +63,13 @@ Directory and file-level access control lists (ACL) are difficult to manage. The
 
 ## Azure Event Grid
 
-Azure Event Grid doesn't receive events from Azure Data Lake Gen2 accounts. Azure Data Lake Gen 2 accounts don't yet generate events so you can't use the [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to handle them.
+[Azure Event Grid](https://azure.microsoft.com/services/event-grid/) doesn't receive events from Azure Data Lake Gen2 accounts because those accounts don't yet generate them.  
 
 ## Role-based access control
-
-Role-based access control can't be applied to Azure Data Lake Storage Gen2.
 
 You can't apply Role-based access control to file system objects in an Azure Data Lake Storage Gen2 account.
 
 ## SQL Data Warehouse PolyBase
-
-SQL Data Warehouse PolyBase can't access Storage accounts that have Storage firewalls enabled. 
 
 When Storage Firewalls are enabled on an Azure Storage account, SQL Data Warehouse [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017) can't access those accounts.
 
@@ -93,7 +87,7 @@ Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azu
 
 Azure Blob Storage lifecycle management (Preview) policies aren't yet available for Azure Data Lake Storage Gen2 accounts.
 
-These policies are available to Storage accounts don't have hierarchical spaces enabled.
+These policies are available to Storage accounts that don't have hierarchical spaces enabled.
 
 ## Diagnostic logs
 
