@@ -223,7 +223,7 @@ In this section, we'll add code to handle the following:
 
 The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic in to a class called TodoItemService.cs. 
 
-1.	From **Solution Explorer**, right-click the **Services** folder, select **Add**, and then select **Class**. Name the new class ** TodoItemService** and select **Add**.
+1. From **Solution Explorer**, right-click the **Services** folder, select **Add**, and then select **Class**. Name the new class **TodoItemService** and select **Add**.
 
 2. Add the following code to the **TodoItemService** class and replace the code in that file with the following code to it:
 
@@ -450,6 +450,10 @@ The first thing to do here is add a class that contains the logic to connect to 
 	}
    ```
 
+   **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
+   
+   **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+
 6. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
    
    ```csharp
@@ -472,128 +476,9 @@ If you build and run this project now, you should now see something that looks t
 
 ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
-### <a name="_Toc395637771"></a>Add Items
-
-Let's put some items into our database so we have something more than an empty grid to look at. Let's add some code to  Azure Cosmos DBRepository and ItemController to persist the record in Azure Cosmos DB.
-
-1. Add the following method to your **DocumentDBRepository** class.
-   
-       public static async Task<Document> CreateItemAsync(T item)
-       {
-           return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
-       }
-   
-   This method simply takes an object passed to it and persists it in Azure Cosmos DB.
-
-2. Open the ItemController.cs file and add the following code snippet within the class. This is how ASP.NET MVC knows what to do for the **Create** action. In this case just render the associated Create.cshtml view created earlier.
-   
-        [ActionName("Create")]
-        public async Task<ActionResult> CreateAsync()
-        {
-            return View();
-        }
-   
-    We now need some more code in this controller that will accept the submission from the **Create** view.
-
-3. Add the next block of code to the ItemController.cs class that tells ASP.NET MVC what to do with a form POST for this controller.
-   
-        [HttpPost]
-        [ActionName("Create")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed")] Item item)
-        {
-            if (ModelState.IsValid)
-            {
-                await DocumentDBRepository<Item>.CreateItemAsync(item);
-                return RedirectToAction("Index");
-            }
-   
-            return View(item);
-        }
-   
-    This code calls in to the DocumentDBRepository and uses the CreateItemAsync method to persist the new todo item to the database. 
-   
-    **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
-   
-    **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
-This concludes the code required to add new Items to our database.
-
-### <a name="_Toc395637772"></a>Editing Items
-There is one last thing for us to do, and that is to add the ability to edit **Items** in the database and to mark them as complete. The view for editing was already added to the project, so we just need to add some code to our controller and to the **DocumentDBRepository** class again.
-
-1. Add the following to the **DocumentDBRepository** class.
-   
-        public static async Task<Document> UpdateItemAsync(string id, T item)
-        {
-            return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
-        }
-   
-        public static async Task<T> GetItemAsync(string id)
-        {
-            try
-            {
-                Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
-                return (T)(dynamic)document;
-            }
-            catch (DocumentClientException e)
-            {
-                if (e.StatusCode == HttpStatusCode.NotFound)
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
-            }
-        }
-   
-    The first of these methods, **GetItem** fetches an Item from Azure Cosmos DB which is passed back to the **ItemController** and then on to the **Edit** view.
-   
-    The second of the methods we just added replaces the **Document** in Azure Cosmos DB with the version of the **Document** passed in from the **ItemController**.
-2. Add the following to the **ItemController** class.
-   
-        [HttpPost]
-        [ActionName("Edit")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed")] Item item)
-        {
-            if (ModelState.IsValid)
-            {
-                await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-                return RedirectToAction("Index");
-            }
-   
-            return View(item);
-        }
-   
-        [ActionName("Edit")]
-        public async Task<ActionResult> EditAsync(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-   
-            Item item = await DocumentDBRepository<Item>.GetItemAsync(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-   
-            return View(item);
-        }
-   
-    The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from Azure Cosmos DB and passes it to the **Edit** view.
-   
-    The **Edit** view will then do an Http POST to the **IndexController**. 
-   
-    The second method we added handles passing the updated object to Azure Cosmos DB to be persisted in the database.
-
-That's it, that is everything we need to run our application, list incomplete **Items**, add new **Items**, and edit **Items**.
 
 ## <a name="_Toc395637773"></a>Step 6: Run the application locally
+
 To test the application on your local machine, use the following steps:
 
 1. Hit F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
