@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ---
 # Use SQL Database Managed Instance with virtual networks and near 100% compatibility
 
@@ -39,9 +39,9 @@ Azure SQL Database Managed Instance combines the best features that are availabl
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
-|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
+|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
-|Isolated environment ([VNet integration](sql-database-managed-instance-vnet-configuration.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Threat Detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
+|Isolated environment ([VNet integration](sql-database-managed-instance-vnet-configuration.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD logins</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Threat Detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
 The key features of Managed Instance are shown in the following table:
 
@@ -78,12 +78,9 @@ Find more information about the difference between hardware generations in [Mana
 Managed Instance is available in two service tiers:
 
 - **General Purpose**: Designed for applications with typical performance and IO latency requirements.
-- **Business Critical (preview)**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
+- **Business Critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
 
 Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
-
-> [!IMPORTANT]
-> Changing your service tier from General Purpose to Business Critical or vice versa is not supported in Public Preview. If you want to migrate your databases to an instance in different service tier, you can create new instance, restore databases with point in time restore from the original instance and then drop original instance if it is not needed anymore. However, you can scale your number of vCores and storage up or down within a service tier with no downtime.
 
 ### General Purpose service tier
 
@@ -97,7 +94,7 @@ For more information, see [Storage layer in General purpose tier](https://medium
 
 Find more information about the difference between service tiers in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-### Business Critical service tier (preview)
+### Business Critical service tier
 
 Business Critical service tier is built for applications with high IO requirements. It offers highest resilience to failures using several isolated replicas.
 
@@ -108,9 +105,6 @@ The following list outlines the key characteristics of the Business Critical ser
 - Built-in [High availability](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Built-in additional [Read-only database replica](sql-database-read-scale-out.md) that can be used for reporting and other read-only workloads
 - [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-performance requirements  
-
-> [!IMPORTANT]
-> The **Business Critical** service tier is in preview.
 
 Find more information about the difference between service tiers in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -144,13 +138,15 @@ Azure SQL Database provides a set of advanced security features that can be used
 - [Threat Detection](sql-database-managed-instance-threat-detection.md) complements [Managed Instance auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 - [Row-level security](/sql/relational-databases/security/row-level-security) enables you to control access to rows in a database table based on the characteristics of the user executing a query (such as by group membership or execution context). Row-level security (RLS) simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example, ensuring that workers can access only the data rows that are pertinent to their department, or restricting a data access to only the relevant data.
-- [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts Azure SQL Database Managed Instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in Managed Instance with transparent data encryption. TDE is SQL’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media. During public preview, the automatic key management model is supported (performed by the PaaS platform).
+- [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts Azure SQL Database Managed Instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in Managed Instance with transparent data encryption. TDE is SQL Server’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media.
 
 Migration of an encrypted database to SQL Managed Instance is supported via the Azure Database Migration Service (DMS) or native restore. If you plan to migrate encrypted database using native restore, migration of the existing TDE certificate from the SQL Server on-premise or SQL Server VM to Managed instance is a required step. For more information about migration options, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## Azure Active Directory Integration
 
-Azure SQL Database Managed Instance supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). AAD Logins are Azure cloud version of Windows database logins that you are using in your on-premises environment.
+Azure SQL Database Managed Instance supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). AAD Logins (**public preview**) are Azure cloud version of Windows database logins that you are using in your on-premises environment. AAD logins enables you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries.
+
+A new syntax is introduced for AAD logins (**public preview**). For more information, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 ### Azure Active Directory integration and multi-factor authentication
 
@@ -175,7 +171,7 @@ Authorization refers to what a user can do within an Azure SQL Database, and is 
 
 Managed Instance targets user scenarios with mass database migration from on-premises or IaaS database implementations. Managed Instance supports several database migration options:
 
-### Backup and restore  
+### Back up and restore  
 
 The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -187,7 +183,7 @@ The migration approach leverages SQL backups to Azure blob storage. Backups stor
 
 ### Data Migration Service
 
-The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options include Azure SQL Database, Managed Instance, and SQL Server in Azure VM at Public Preview. See [How to migrate your on-premises database to Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure SQL Database (single database, elastic pools, and Managed Instance) and SQL Server in Azure VM. See [How to migrate your on-premises database to Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## SQL features supported
 
@@ -226,14 +222,14 @@ The following table shows several properties, accessible through Transact SQL, t
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|This value is same as in SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|This value uniquely identifies Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:`<instanceName>`.`<dnsPrefix>`.database.windows.net, where `<instanceName>` is name provided by the customer, while `<dnsPrefix>` is auto-generated part of the name guaranteeing global DNS name uniqueness ("wcus17662feb9ce98", for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:`<instanceName>`.`<dnsPrefix>`.database.windows.net, where `<instanceName>` is name provided by the customer, while `<dnsPrefix>` is autogenerated part of the name guaranteeing global DNS name uniqueness ("wcus17662feb9ce98", for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## Next steps
 
-- To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).
+- To learn how to create your first Managed Instance, see [Quickstart guide](sql-database-managed-instance-get-started.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 - For a quickstart that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- For advanced monitoring of Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md) 
+- For advanced monitoring of Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
