@@ -26,12 +26,12 @@ The data movement can be of the following types:
 
 - **Shippable devices** - Use physical shippable devices when you want to do offline one-time bulk data transfer. Microsoft sends you a disk, or a secure specialized device. Alternatively, you can purchase and ship your own disks. You copy data to the device and then ship it to Azure where the data is uploaded.  The available options for this case are Data Box Disk, Data Box, Data Box Heavy, and Import/Export (use your own disks).
 
-- **Network Transfer** - You transfer your data to Azure over your network connection as you have moderate to high network bandwidth.  This can be done in many ways.
+- **Network Transfer** - You transfer your data to Azure over your network connection.  This can be done in many ways.
 
     - **Graphical interface** - If you occasionally transfer just a few files and do not need to automate the data transfer, you can choose a graphical interface tool such as Azure Storage Explorer or a web-based exploration tool in Azure portal.
-    - **Scripted or programmatic transfer** - You can use optimized software tools that we provide or call our REST APIs directly. The available options are AzCopy, Azure PowerShell, Azure CLI, and Azure Storage REST APIs.
+    - **Scripted or programmatic transfer** - You can use optimized software tools that we provide or call our REST APIs directly. The available scriptable tools are AzCopy, Azure PowerShell, and Azure CLI. For programmatic interface, use one of the SDKs for .NET, Java, Python, Node/JS, C++, Go, PHP or Ruby.
     - **On-premises devices** - We supply you a physical or virtual device that resides in your datacenter and optimizes data transfer over the network. These devices also provide a local cache of frequently used files. The physical device is the Data Box Edge and the virtual device is the Data Box Gateway. Both run permanently in your premises and connect to Azure over the network.
-    - **Data pipeline** - You can set up a cloud pipeline to regularly transfer files between several Azure services, on-premises or a combination of two. Use Azure Data Factory to set up and manage data pipelines, and move and transform data for analysis.
+    - **Managed data pipeline** - You can set up a cloud pipeline to regularly transfer files between several Azure services, on-premises or a combination of two. Use Azure Data Factory to set up and manage data pipelines, and move and transform data for analysis.
 
 The following visual illustrates how the various Azure data transfer tools can be used depending upon the network bandwidth available for transfer, data size intended for transfer, and frequency of the transfer.
 
@@ -50,7 +50,7 @@ Answer the following questions to help select a data transfer solution:
 ## Next steps
 
 - [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Read an overview of AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Read an overview of AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - Understand:
 
     - [Azure Data Box family for offline transfers](https://docs.microsoft.com/azure/databox/).

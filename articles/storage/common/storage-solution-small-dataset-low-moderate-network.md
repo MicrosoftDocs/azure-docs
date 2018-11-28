@@ -21,22 +21,22 @@ To understand an overview of all the available data transfer options, go to [Cho
 
 Small datasets refer to data sizes in the order of GBs. Low to moderate network bandwidth implies 45 Mbps (T3 connection in datacenter) to 1 Gbps.
 
-- If you are transferring only a handful of files or objects and you don’t need to automate data transfer, consider the tools with a graphical interface.
+- If you are transferring only a handful of files and you don’t need to automate data transfer, consider the tools with a graphical interface.
 - If you are comfortable with system administration, consider command line or programmatic/scripting tools.
 
 ## Recommended options
 
 The options recommended in this scenario are:
 
-- **Graphical interface tools** such as Azure Storage Explorer, and Azure Blob storage and Data Lake Storage Gen 1, available in Azure portal. These provide an easy way to view your data and quickly transfer a few files or objects.
+- **Graphical interface tools** such as Azure Storage Explorer and Azure Storage in Azure portal. These provide an easy way to view your data and quickly transfer a few files or objects.
 
     - **Azure Storage Explorer** - This cross-platform tool lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob storage to manage blobs and folders, as well as upload and download blobs between your local file system and Blob storage, or between storage accounts.
-    - **Azure portal** - Both Azure Blob storage and Data Lake Gen 1 Storage in Azure portal provide a web-based interface to explore files and upload new files one at a time. This is a good option if you do not want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
+    - **Azure portal** - Azure Storage in Azure portal provides a web-based interface to explore files and upload new files one at a time. This is a good option if you do not want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
 
 - **Scripting/programmatic tools** such as AzCopy/PowerShell/Azure CLI and Azure Storage REST APIs.
 
     - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
-    - **PowerShell** - For users comfortable with system administration, use the `Start-AzureStorageBlobCopy` PowerShell cmdlet.
+    - **Azure PowerShell** - For users comfortable with system administration, use the Azure Storage module in Azure PowerShell to transfer data. PowerShell cmdlet.
     - **Azure CLI** - Use this cross-platform tool to manage Azure services and upload data to Azure Storage.
     - **Azure Storage REST APIs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure client libraries offered in multiple languages.
 
@@ -60,5 +60,5 @@ The following table summarizes the differences in key capabilities.
 ## Next steps
 
 - Learn how to [transfer data with Azure Storage Explorer](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transfer data with AzCopy](storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Transfer data with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 
