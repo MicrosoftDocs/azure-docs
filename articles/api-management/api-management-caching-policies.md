@@ -131,7 +131,7 @@ This topic provides a reference for the following API Management policies. For i
 ### Policy statement  
   
 ```xml  
-<cache-store duration="seconds" cache-preference="prefer-external | external | internal" />  
+<cache-store duration="seconds" />  
 ```  
   
 ### Examples  
@@ -186,7 +186,6 @@ This topic provides a reference for the following API Management policies. For i
   
 | Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | Choose between the following values of the attribute:<br />- `internal` to use the built-in API Management cache,<br />- `external` to use the external cache as described in [Use an external Redis cache in Azure API Management](api-management-howto-byoc.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
 | duration         | Time-to-live of the cached entries, specified in seconds.                                                                                                                                                                                                                                                                                                   | Yes      | N/A               |  
 
 ### Usage  
@@ -285,7 +284,7 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** global, API, operation, product  
   
 ###  <a name="RemoveCacheByKey"></a> Remove value from cache  
-The             `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.  
+The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.  
   
 #### Policy statement  
   
