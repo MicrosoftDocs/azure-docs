@@ -4,7 +4,6 @@ description: This sample CLI script creates an Azure Database for MariaDB server
 services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 ms.service: mariadb
 ms.devlang: azure-cli

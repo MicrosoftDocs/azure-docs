@@ -4,7 +4,6 @@ description: This sample Azure CLI script shows how to enable and download the s
 services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 ms.service: mariadb
 ms.devlang: azure-cli
