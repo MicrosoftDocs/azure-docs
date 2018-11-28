@@ -167,7 +167,7 @@ Next step is to extend SharePoint web application to a new zone, configured with
 
 ```powershell
 # Replace "http://spsites/" with the URL of your web application
-# Replace "https://sharepoint-iddemo.msappproxy.net" with the External URL in Azure AD proxy application
+# Replace "https://sharepoint-iddemo.msappproxy.net" with the External URL in your Azure AD proxy application
 $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
 Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-iddemo.msappproxy.net" -AuthenticationProvider $winAp
 ```
@@ -199,7 +199,7 @@ New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalM
 ```
 
 > [!NOTE]
-Self-signed certificate is suitable only for test purpose. In production environments, it is strongly recommended to use certificates issued by a certificate authority instead.
+Self-signed certificates are suitable only for test purposes. In production environments, it is strongly recommended to use certificates issued by a certificate authority instead.
 
 3. Open "Internet Information Services Manager" console.
 4. Expand the server in the tree view, expand "Sites", select the site "SharePoint - AAD Proxy" and click on **Bindings**.
