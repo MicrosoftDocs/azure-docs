@@ -66,13 +66,30 @@ Activate the environment.
 
 ### Install the SDK
 
+In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
 
-In the activated conda environment, install the SDK. The following command installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
-
-```shell
+```sh
 # install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
 ```
+
+You can also use different "extra" keywords to install additional components of the SDK.
+
+```sh
+# install the base SDK and auto ml components
+pip install azureml-sdk[automl]
+
+# install the base SDK and model explainability component
+pip install azureml-sdk[explain]
+
+# install the base SDK and experimental components
+pip install azureml-sdk[contrib]
+
+# install the base SDK and automl components in Azure Databricks environment
+# read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+pip install azureml-sdk[databricks]
+```
+
 
 ## Create a workspace
 
