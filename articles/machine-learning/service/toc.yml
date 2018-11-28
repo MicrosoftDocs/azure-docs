@@ -33,7 +33,7 @@
       href: tutorial-data-prep.md
     - name: 2. Auto-train an ML model
       displayName: automl, automated, auto ml,
-      href: tutorial-auto-train-models.md
+      href: tutorial-aml-new.md
 - name: Samples
   items:
   - name: Jupyter notebooks (GitHub)

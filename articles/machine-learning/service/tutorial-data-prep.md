@@ -13,7 +13,7 @@ ms.date: 11/19/2018
 
 ---
 
-# Tutorial: Use Azure DataPrep SDK to prepare data for machine learning
+# Tutorial #1: Use Azure DataPrep SDK to prepare data for machine learning
 
 Prepare data for use as a training data set in a machine learning model with the Azure DataPrep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets. Learn some of the unique features of the DataPrep SDK: 
 
@@ -29,6 +29,26 @@ In this tutorial, you:
 * Use automated feature engineering to build dynamic fields 
 * Merge the two datasets to use for your machine learning training 
 
+## Get the notebook
+
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Run the `regression-part1-data-prep.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+
+### **Azure Notebooks** - Free Jupyter based notebooks in the Azure cloud
+
+The SDK is already installed and configured for you on Azure Notebooks.
+  
+1. Complete the [getting started quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
+1. Go to [Azure Notebooks](https://notebooks.azure.com/)
+1. In the `Getting Started` Library you created during the quickstart, go to the `tutorials` folder
+1. Open the notebook.
+
+### **Your own Jupyter notebook server**
+
+1. [Configure a Python environment](how-to-configure-environment.md) and install the SDK.
+1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
+1. Start the notebook server from your cloned directory.
+1. Go to the `tutorials` folder.
+1. Open the notebook.
 
 ## Import packages
 Begin by importing the Azure DataPrep SDK.
@@ -1040,3 +1060,18 @@ dflow_prepared = tmp_df
 package = dprep.Package([dflow_prepared])
 package.save(".\dflow")
 ```
+
+## Next steps
+
+In this Azure Machine Learning Data Prep SDK tutorial, you:
+
+> [!div class="checklist"]
+> * Set up your development environment
+> * Loaded and cleansed data sets
+> * Used smart transforms to predict your logic based on an example
+> * Merged and packaged datasets for machine learning training
+
+You are ready to use this training data in the next part of the tutorial series:
+
+> [!div class="nextstepaction"]
+> [Tutorial 2 - Automated ML](tutorial-aml-new.md)
