@@ -132,7 +132,7 @@ You need to add two additional resources to the template.
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
+Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"

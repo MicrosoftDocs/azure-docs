@@ -97,10 +97,10 @@ Download the BACPAC file, https://armtutorials.blob.core.windows.net/sqlextensio
 17. Select **Generate blob SAS token and URL**.
 18. Make a copy of both **Blob SAS token** and **Blob SAS URL**
 
-- sp=r&st=2018-11-26T20:12:19Z&se=2018-11-27T04:12:19Z&spr=https&sv=2017-11-09&sig=cot0%2Bc9JUeRAGe5iPQmuzzSGueeUm2tUXIc6E1T9ghY%3D&sr=b
-- https://avtigyz23vqm4standardsa.blob.core.windows.net/sqlbacpac/SQLDatabaseExtension.bacpac?sp=r&st=2018-11-26T20:12:19Z&se=2018-11-27T04:12:19Z&spr=https&sv=2017-11-09&sig=cot0%2Bc9JUeRAGe5iPQmuzzSGueeUm2tUXIc6E1T9ghY%3D&sr=b
+- sp=r&st=2018-11-27T16:49:00Z&se=2018-11-28T00:49:00Z&spr=https&sv=2017-11-09&sig=qDl04Uar9Zi9ICH2SvXNcCNthUygIQIRdFmqQvvBmto%3D&sr=b
+- https://avtigyz23vqm4standardsa.blob.core.windows.net/sqlbacpac/SQLDatabaseExtension.bacpac?sp=r&st=2018-11-27T16:49:00Z&se=2018-11-28T00:49:00Z&spr=https&sv=2017-11-09&sig=qDl04Uar9Zi9ICH2SvXNcCNthUygIQIRdFmqQvvBmto%3D&sr=b
 
-
+  https://avtigyz23vqm4standardsa.blob.core.windows.net/sqlbacpac/SQLDatabaseExtension.bacpac sp=r&amp;amp;st=2018-11-27T16:49:00Z&amp;amp;se=2018-11-28T00:49:00Z&amp;amp;spr=https&amp;amp;sv=2017-11-09&amp;amp;sig=qDl04Uar9Zi9ICH2SvXNcCNthUygIQIRdFmqQvvBmto%3D&amp;amp;sr=b
 ## Open a Quickstart template
 
 Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy an Azure SQL Server with Threat Detection](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/).
