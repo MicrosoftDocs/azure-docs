@@ -69,7 +69,7 @@ This feature provides a report about synchronization errors that can occur when 
   * List of objects with error per category
   * All the data about the errors at one place
   * Side by side comparison of Objects with error due to a conflict
-  * Download the error report as a CVS (coming soon)
+  * Download the error report as a CVS
 
 ### Categorization of Errors
 The report categorizes the existing synchronization errors in the following categories:
