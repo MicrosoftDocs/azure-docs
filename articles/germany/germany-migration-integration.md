@@ -1,6 +1,6 @@
 ---
-title: Migration of integration resources from Azure Germany to global Azure
-description: This article provides help for migrating integration resources from Azure Germany to global Azure
+title: Migrate Azure integration resources from Azure Germany to global Azure
+description: This article provides information about migrating Azure integration resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -11,33 +11,35 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migration of integration resources from Azure Germany to global Azure
+# Migrate Azure integration resources to global Azure
 
-This article will provide you some help for the migration of Azure Integration resources from Azure Germany to global Azure.
+This article has information that can help you migrate Azure integration resources from Azure Germany to global Azure.
 
 ## Service Bus
 
-Service Bus services don't have data export or import capabilities. To migrate Service Bus from Azure Germany to global Azure, you can export the Service Bus resources [as a Resource Manager template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.
+Azure Service Bus services don't have data export or import capabilities. To migrate Service Bus resources from Azure Germany to global Azure, you can export the resources [as an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then, adapt the exported template for global Azure and re-create the resources.
 
 > [!NOTE]
-> This doesn't copy the data (for example messages), it's only recreating the metadata.
+> Exporting a Resource Manager template doesn't copy the data (for example, messages). Exporting a template only re-creates the metadata.
 
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
-### Metadata Service Bus
+### Service Bus metadata
+
+The following Service Bus metadata elements are re-created when you export a Resource Manager template:
 
 - Namespaces
 - Queues
 - Topics
 - Subscriptions
 - Rules
-- AuthorizationRules (see also below)
+- Authorization rules
 
 ### Keys
 
-The Export/Recreate steps above won't copy the SAS keys associated with Authorization rules. If you need to preserve the SAS keys, use the `New-AzureRmServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as string. The updated cmdlet is available at [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or at [GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018).
+The export and re-create steps listed in the preceding section don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzureRmServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in the [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or on [GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018).
 
 ### Usage example
 
@@ -54,7 +56,7 @@ New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <name
 ```
 
 > [!NOTE]
-> You will need to update your applications to use a new connection string even if you preserve the keys because the DNS host names are different between Azure Germany and global Azure.
+> You must update your applications to use a new connection string even if you preserve the keys. DNS host names are different in Azure Germany and global Azure.
 
 ### Sample connection strings
 
@@ -70,30 +72,18 @@ Endpoint=sb://myBFProdnamespaceName.**servicebus.cloudapi.de**/;SharedAccessKeyN
 Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXx=
 ```
 
-### Next steps
+For more information:
 
-- Refresh your knowledge about Service Bus by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-### References
-
-- [Service Bus Overview](../service-bus-messaging/service-bus-messaging-overview.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Service Bus  tutorials](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
+- Become familiar with how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
+- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 
 ## Logic Apps
 
-Logic Apps service isn't available in Azure Germany. However, Azure Scheduler (which is available) is being deprecated. Use Azure Logic apps instead to create scheduling jobs.
+The Azure Logic Apps service isn't available in Azure Germany. However, Azure Scheduler, which is available, is being deprecated. Use Logic Apps to create scheduling jobs in global Azure.
 
-### Next Steps
+For more information:
 
-- Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
-
-### Reference
-
-- [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md) 
+- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Read the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
