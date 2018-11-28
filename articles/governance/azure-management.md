@@ -1,5 +1,5 @@
 ---
-title: Azure Management
+title: Azure Management Overview
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
 author: DCtheGeek
 manager: carmonm
