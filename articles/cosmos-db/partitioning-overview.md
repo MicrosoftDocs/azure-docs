@@ -44,7 +44,6 @@ Consider the following details when choosing a partition key:
 
 ## Next steps
 
-* Learn about [choosing a partition key](partitioning-overview.md#choose-partitionkey)
 * Learn about [partitions](partition-data.md)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)
