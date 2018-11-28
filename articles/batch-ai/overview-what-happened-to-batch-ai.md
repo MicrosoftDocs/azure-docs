@@ -14,9 +14,7 @@ ms.author: garye
 
 We recently released Azure Machine Learning for general availability. The service offers **[Azure Machine Learning Compute](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute)**, which provides you with a cloud-based compute target for developing, training, and batch inferencing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on March 4, 2019.
 
-## How does this affect me?
 
-Beginning December 4, 2018, we will no longer accept new subscriptions to the Batch AI service. Existing customers of the service can continue to use the service as they do today with no foreseeable difference. We will not make any new product investments to the service, but will instead support our existing customers as we work with them to successfully migrate to the larger Azure Machine Learning product. Existing subscriptions will continue to run through March 4, 2019, at which point we should have full feature parity between the two services.
 
 ## What do I need to do to prepare for this change?
 
