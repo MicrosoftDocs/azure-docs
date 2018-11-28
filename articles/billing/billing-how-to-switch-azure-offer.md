@@ -4,7 +4,7 @@ description: Learn about how to change your Azure subscription and switch to a d
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 

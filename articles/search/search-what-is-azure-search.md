@@ -85,7 +85,7 @@ Key strengths include:
 
 Among our customers, those able to leverage the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
 
-## REST API | .Net SDK
+## REST API | .NET SDK
 
 While many tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
 
