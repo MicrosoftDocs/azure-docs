@@ -87,6 +87,12 @@ The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.
 
 For the REST example, see [Upload, encode, and stream files with REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
+### Monitor the bitrate of a video stream
+
+You can use the [Azure Media Player demo page](http://aka.ms/amp) to monitor the bitrate of a video stream. The demo page displays diagnostics info in the **Diagnostics** tab:
+
+![Azure Media Player diagnostics][amp_diagnostics]
+
 ## Defining filters
 
 There are two types of asset filters: 
@@ -292,3 +298,4 @@ The following articles show how to create filters programmatically.
 [language_filter]: ./media/filters-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/filters-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/filters-dynamic-manifest-overview/media-services-skiing.png
+[amp_diagnostics]: ./media/filters-dynamic-manifest-overview/amp_diagnostics.png
