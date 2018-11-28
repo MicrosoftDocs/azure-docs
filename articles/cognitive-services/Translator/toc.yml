@@ -125,7 +125,7 @@
     - name: Receive word alignment information
       href: word-alignment.md
     - name: Prevent translation of content
-      href: avoid-translation.md
+      href: prevent-translation.md
     - name: Use the dynamic dictionary feature
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
