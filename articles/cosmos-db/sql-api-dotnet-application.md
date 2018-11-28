@@ -1,23 +1,16 @@
 ---
-title: 'ASP.NET MVC tutorial for Azure Cosmos DB: Web Application Development | Microsoft Docs'
-description: ASP.NET MVC tutorial to create an MVC web application using Azure Cosmos DB. You'll store JSON and access data from a todo app hosted on Azure Websites - ASP NET MVC tutorial step by step.
-keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
+title: ASP.NET MVC tutorial for Azure Cosmos DB: Web Application Development 
+description: This tutorial describes how to create an ASP .Net MVC web application using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure Websites.
+author: deborahc
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/03/2017
-ms.author: sngun
-ms.custom: devcenter, vs-azure
-
-
+ms.date: 12/03/2018
+ms.author: dech
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB
+# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,161 +19,153 @@ ms.custom: devcenter, vs-azure
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
-
-To highlight how you can efficiently leverage Azure Cosmos DB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo app using Azure Cosmos DB. The tasks will be stored as JSON documents in Azure Cosmos DB.
-
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure Websites. The items are stored as JSON documents in Azure Cosmos DB. The following image shows the web page that you will build by using the sample application: 
 ![Screen shot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
-
-This walk-through shows you how to use the Azure Cosmos DB service to store and access data from an ASP.NET MVC web application hosted on Azure. If you're looking for a tutorial that focuses only on Azure Cosmos DB, and not the ASP.NET MVC components, see [Build an Azure Cosmos DB C# console application](sql-api-get-started.md).
+If you're looking for a tutorial to build a console application that can store and access data from Azure Cosmos DB, see [Build an Azure Cosmos DB C# console application](sql-api-get-started.md) article.
 
 > [!TIP]
-> This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend downloading the complete sample project from [GitHub][GitHub] and following the instructions in this sample. Once you have it built, you can review this article to gain insight on the code in the context of the project.
-> 
+> This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend you to download the complete sample project from [GitHub][GitHub] and following the instructions in this sample. Once you build the project, you can review this article to gain insight on the code in the context of the project.
 > 
 
-## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
-Before following the instructions in this article, you should ensure that you have the following:
+## <a name="_Toc395637760"></a>Prerequisites 
+Before following the instructions in this article, ensure that you have the following resources:
 
-* An active Azure account.  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+* **An active Azure account:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 * Microsoft Azure SDK for .NET for Visual Studio 2017, available through the Visual Studio Installer.
 
-All the screen shots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
+All the screen shots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version, it is possible that your screens and options may not match entirely, but if you meet the above prerequisites this solution should work.
 
-## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos DB database account
-Let's start by creating an Azure Cosmos DB account. If you already have a SQL account for Azure Cosmos DB or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).
+## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos account
+
+Let's start by creating an Azure Cosmos account. If you already have a SQL account for Azure Cosmos DB or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762) section.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-<br/>
-We will now walk through how to create a new ASP.NET MVC application from the ground-up. 
+We will now walk through how to create a new ASP.NET MVC application. 
+
 
 ## <a name="_Toc395637762"></a>Step 2: Create a new ASP.NET MVC application
 
-1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**. The **New Project** dialog box appears.
+1. In Visual Studio, on the **File** menu, point to **New**, and then select **Project**. The **New Project** dialog box appears.
 
 2. In the **Project types** pane, expand **Templates**, **Visual C#**, **Web**, and then select **ASP.NET Web Application**.
 
-      ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+   ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application. 
-4. Click **Browse** to navigate to the folder where you would like to create the project, and then click **OK**.
+
+4. Select **Browse** to navigate to the folder where you would like to create the project, and then select **OK**. The **New ASP.NET Web Application** dialog box appears.
    
-      The **New ASP.NET Web Application** dialog box appears.
-   
-    ![Screen shot of the New ASP.NET Web Application dialog box with the MVC application template highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+   ![Screen shot of the New ASP.NET Web Application dialog box with the MVC application template highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+
 5. In the templates pane, select **MVC**.
 
-6. Click **OK** and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template. 
+6. Select **OK** and let Visual Studio do the scaffolding around the empty ASP.NET MVC template. 
 
-          
 7. Once Visual Studio has finished creating the boilerplate MVC application you have an empty ASP.NET application that you can run locally.
-   
-    We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding Azure Cosmos DB to this project and building our application.
 
-## <a name="_Toc395637767"></a>Step 3: Add Azure Cosmos DB to your MVC web application project
-Now that we have most of the ASP.NET MVC plumbing that we need for
-this solution, let's get to the real purpose of this tutorial, adding Azure Cosmos DB to our MVC web application.
+## <a name="_Toc395637767"></a>Step 3: Add Azure Cosmos DB NuGet packages to the project
 
-1. The Azure Cosmos DB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then clicking **Manage NuGet Packages**.
-   
-    ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
-   
-    The **Manage NuGet Packages** dialog box appears.
-2. In the NuGet **Browse** box, type ***Azure DocumentDB***. (The package name has not been updated to Azure Cosmos DB.)
-   
-    From the results, install the **Microsoft.Azure.DocumentDB by Microsoft** package. This will download and install the Azure Cosmos DB package as well as all dependencies, such as Newtonsoft.Json. Click **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the install.
-   
-    ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
-   
-      Alternatively you can use the Package Manager Console to install the package. To do so, on the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**. At the prompt, type the following.
-   
-        Install-Package Microsoft.Azure.DocumentDB
-        
-3. Once the package is installed, your Visual Studio solution should resemble the following with two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
-   
-    ![Sreen shot of the two references added to the JSON data project in Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
+Now that we have most of the ASP.NET MVC framework code that we need for this solution, let's add the NuGet packages required to connect to Azure Cosmos DB.
 
+1. The Azure Cosmos DB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then select **Manage NuGet Packages**.
+   
+   ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+   
+   The **Manage NuGet Packages** dialog box appears.
+
+2. In the NuGet **Browse** box, type ***Azure DocumentDB***. (The package name is not yet updated to Azure Cosmos DB, so you will see DocumentDB). From the results, install the **Microsoft.Azure.DocumentDB** by Microsoft package. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
+   
+   ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+   
+   Alternatively, you can use the Package Manager Console to install the NuGet package. To do so, on the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. At the prompt, type the following command:
+   
+   ```bash
+       Install-Package Microsoft.Azure.DocumentDB
+   ```        
+
+3. After the package is installed, your Visual Studio solution should contain the following two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
+  
 ## <a name="_Toc395637763"></a>Step 4: Set up the ASP.NET MVC application
+
 Now let's add the models, views, and controllers to this MVC application:
 
 * [Add a model](#_Toc395637764).
 * [Add a controller](#_Toc395637765).
 * [Add views](#_Toc395637766).
 
-### <a name="_Toc395637764"></a>Add a JSON data model
-Let's begin by creating the **M** in MVC, the model. 
+### <a name="_Toc395637764"></a> Add a model
 
-1. In **Solution Explorer**, right-click the **Models** folder, click **Add**, and then click **Class**.
+1. From the **Solution Explorer**, right-click the **Models** folder, select **Add**, and then **Class**. The **Add New Item** dialog box appears.
+
+1. Name your new class **TodoItem.cs** and select **Add**. 
+
+1. Next replace the code in Todoitem class with the following code:
+      
+   ```csharp
+   namespace todo.Models
+	{
+	    using Newtonsoft.Json;
+	
+
+	    public class TodoItem
+	    {
+	        [JsonProperty(PropertyName = "id")]
+	        public string Id { get; set; }
+	
+
+	        [JsonProperty(PropertyName = "name")]
+	        public string Name { get; set; }
+	
+
+	        [JsonProperty(PropertyName = "description")]
+	        public string Description { get; set; }
+	
+
+	        [JsonProperty(PropertyName = "isComplete")]
+	        public bool Completed { get; set; }
+	
+
+	        [JsonProperty(PropertyName = "category")]
+	        public string Category { get; set; }
+	    }
+	}
+
+   ```
    
-      The **Add New Item** dialog box appears.
-2. Name your new class **Item.cs** and click **Add**. 
-3. In this new **Item.cs** file, add the following after the last *using statement*.
-   
-        using Newtonsoft.Json;
-4. Now replace this code 
-   
-        public class Item
-        {
-        }
-   
-    with the following code.
-   
-        public class Item
-        {
-            [JsonProperty(PropertyName = "id")]
-            public string Id { get; set; }
-   
-            [JsonProperty(PropertyName = "name")]
-            public string Name { get; set; }
-   
-            [JsonProperty(PropertyName = "description")]
-            public string Description { get; set; }
-   
-            [JsonProperty(PropertyName = "isComplete")]
-            public bool Completed { get; set; }
-        }
-   
-    All data in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **Item** class we just created. You don't **have** to do this but I want to ensure that my properties follow the JSON camelCase naming conventions. 
-   
-    Not only can you control the format of the property name when it goes into JSON, but you can entirely rename your .NET properties like I did with the **Description** property. 
+   The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **TodoItem** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
 
 ### <a name="_Toc395637765"></a>Add a controller
-That takes care of the **M**, now let's create the **C** in MVC, a controller class.
 
-1. In **Solution Explorer**, right-click the **Controllers** folder, click **Add**, and then click **Controller**.
-   
-    The **Add Scaffold** dialog box appears.
-2. Select **MVC 5 Controller - Empty** and then click **Add**.
-   
-    ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-3. Name your new Controller, **ItemController.**
-   
-    ![Screen shot of the Add Controller dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
-   
-    Once the file is created, your Visual Studio solution should resemble the following with the new ItemController.cs file in **Solution Explorer**. The new Item.cs file created earlier is also shown.
-   
-    ![Screen shot of the Visual Studio solution - Solution Explorer with the new ItemController.cs file and Item.cs file highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
-   
-    You can close ItemController.cs, we'll come back to it later. 
+1. From the **Solution Explorer**, right-click the **Controllers** folder, select **Add**, and then select **Controller**.  The **Add Scaffold** dialog box appears.
 
+1. Select **MVC 5 Controller - Empty** and select **Add**.
+
+   ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. Name your new Controller, **ItemController.**
+    
 ### <a name="_Toc395637766"></a>Add views
-Now, let's create the **V** in MVC, the views:
+
+Now, let's create the views, in this tutorial, you will create the following three view classes:
 
 * [Add an Item Index view](#AddItemIndexView).
 * [Add a New Item view](#AddNewIndexView).
 * [Add an Edit Item view](#_Toc395888515).
 
-#### <a name="AddItemIndexView"></a>Add an Item Index view
+#### <a name="AddItemIndexView"></a>Add a list items Index view
+
 1. In **Solution Explorer**, expand the **Views**  folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
    
-    ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
-2. In the **Add View** dialog box, do the following:
+   ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+
+2. In the **Add View** dialog box, update the following values:
    
    * In the **View name** box, type ***Index***.
    * In the **Template** box, select ***List***.
@@ -188,196 +173,305 @@ Now, let's create the **V** in MVC, the views:
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
      
    ![Screen shot showing the Add View dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
-3. Once all these values are set, click **Add** and let Visual Studio create a new template view. Once it is done, it will open the cshtml file  that was created. We can close that file in Visual Studio as we will come back to it later.
 
-#### <a name="AddNewIndexView"></a>Add a New Item view
-Similar to how we created an **Item Index** view, we will now create a new view for creating new **Items**.
+3. After you add these values, select **Add** and let Visual Studio create a new template view. Once done, it will open the cshtml file that was created. We can close that file in Visual Studio as we will come back to it later.
 
-1. In **Solution Explorer**, right-click the **Item** folder again, click **Add**, and then click **View**.
-2. In the **Add View** dialog box, do the following:
+#### <a name="AddNewIndexView"></a>Add a new item view
+
+Like how we created a view to list items, we will now create a new view to create new Items.
+
+1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add**, and then select **View**.
+
+1. In the **Add View** dialog box, update the following values:
    
    * In the **View name** box, type ***Create***.
    * In the **Template** box, select ***Create***.
    * In the **Model class** box, select ***Item (todo.Models)***.
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
-   * Click **Add**.
+   * Select **Add**.
    
-#### <a name="_Toc395888515"></a>Add an Edit Item view
-And finally, add one last view for editing an **Item** in the same way as before.
+#### <a name="_Toc395888515"></a>Add an edit item view
 
-1. In **Solution Explorer**, right-click the **Item** folder again, click **Add**, and then click **View**.
-2. In the **Add View** dialog box, do the following:
+And finally, add a view to edit an item with the following steps:
+
+1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add**, and then select **View**.
+
+1. In the **Add View** dialog box, do the following:
    
    * In the **View name** box, type ***Edit***.
    * In the **Template** box, select ***Edit***.
    * In the **Model class** box, select ***Item (todo.Models)***.
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
-   * Click **Add**.
+   * Select **Add**.
 
 Once this is done, close all the cshtml documents in Visual Studio as we will return to these views later.
 
-## <a name="_Toc395637769"></a>Step 5: Wiring up Azure Cosmos DB
-Now that the standard MVC stuff is taken care of, let's turn to adding the code for Azure Cosmos DB. 
+## <a name="_Toc395637769"></a>Step 5: Connect to Azure Cosmos DB 
+
+Now that the standard MVC stuff is taken care of, let's turn to adding the code to connect to Azure Cosmos DB. 
 
 In this section, we'll add code to handle the following:
 
-* [Listing incomplete Items](#_Toc395637770).
-* [Adding Items](#_Toc395637771).
-* [Editing Items](#_Toc395637772).
+* [List the items that are marked incomplete](#_Toc395637770).
+* [Add items](#_Toc395637771).
+* [Edit items](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Listing incomplete Items in your MVC web application
-The first thing to do here is add a class that contains all the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate all this logic in to a repository class called DocumentDBRepository. 
+### <a name="_Toc395637770"></a> Run CRUD operations on the data
 
-1. In **Solution Explorer**, right-click on the project, click **Add**, and then click **Class**. Name the new class **DocumentDBRepository** and click **Add**.
-2. In the newly created **DocumentDBRepository** class and add the following *using statements* above the *namespace* declaration
-   
-        using Microsoft.Azure.Documents; 
-        using Microsoft.Azure.Documents.Client; 
-        using Microsoft.Azure.Documents.Linq; 
-        using System.Configuration;
-        using System.Linq.Expressions;
-        using System.Threading.Tasks;
-        using System.Net;
-        
-    Now replace this code 
-   
-        public class DocumentDBRepository
-        {
-        }
-   
-    with the following code.
-   
-        public static class DocumentDBRepository<T> where T : class
-        {
-            private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"];
-            private static readonly string CollectionId = ConfigurationManager.AppSettings["collection"];
-            private static DocumentClient client;
-   
-            public static void Initialize()
-            {
-                client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
-                CreateDatabaseIfNotExistsAsync().Wait();
-                CreateCollectionIfNotExistsAsync().Wait();
-            }
-   
-            private static async Task CreateDatabaseIfNotExistsAsync()
-            {
-                try
-                {
-                    await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(DatabaseId));
-                }
-                catch (DocumentClientException e)
-                {
-                    if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-            }
-   
-            private static async Task CreateCollectionIfNotExistsAsync()
-            {
-                try
-                {
-                    await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-                }
-                catch (DocumentClientException e)
-                {
-                    if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        await client.CreateDocumentCollectionAsync(
-                            UriFactory.CreateDatabaseUri(DatabaseId),
-                            new DocumentCollection { Id = CollectionId },
-                            new RequestOptions { OfferThroughput = 1000 });
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-            }
-        }
-   
-    
-3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
-   
-        <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
-        <add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
-        <add key="database" value="ToDoList"/>
-        <add key="collection" value="Items"/>
-4. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.
+The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic in to a class called TodoItemService.cs. 
 
-    That takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
+1.	From **Solution Explorer**, right-click the **Services** folder, select **Add**, and then select **Class**. Name the new class ** TodoItemService** and select **Add**.
 
-1. The first thing we want to be able to do with a todo list application is to display the incomplete items.  Copy and paste the following code snippet anywhere within the **DocumentDBRepository** class.
-   
-        public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
-        {
-            IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
-                UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
-                .Where(predicate)
-                .AsDocumentQuery();
-   
-            List<T> results = new List<T>();
-            while (query.HasMoreResults)
-            {
-                results.AddRange(await query.ExecuteNextAsync<T>());
-            }
-   
-            return results;
-        }
-2. Open the **ItemController** we added earlier and add the following *using statements* above the namespace declaration.
-   
-        using System.Net;
-        using System.Threading.Tasks;
-        using todo.Models;
-   
-    If your project is not named "todo", then you need to update using "todo.Models"; to reflect the name of your project.
-   
-    Now replace this code
-   
-        //GET: Item
-        public ActionResult Index()
-        {
-            return View();
-        }
-   
-    with the following code.
-   
-        [ActionName("Index")]
-        public async Task<ActionResult> IndexAsync()
-        {
-            var items = await DocumentDBRepository<Item>.GetItemsAsync(d => !d.Completed);
-            return View(items);
-        }
-3. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
-   
-        DocumentDBRepository<todo.Models.Item>.Initialize();
+2. Add the following code to the **TodoItemService** class and replace the code in that file with the following code to it:
 
-At this point your solution should be able to build without any errors.
+   This code Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations on the items.  The first thing we want to be able to do with a todo list application is to display the incomplete items.  Copy and paste the following code snippet anywhere within the **DocumentDBRepository** class.
 
-If you ran the application now, you would go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start but we don't want that! Let's change the routing on this MVC application to alter this behavior.
+   ```csharp
+   using todo.Models;
+	
 
-Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
+	namespace todo
+	{
+	    using System;
+	    using System.Collections.Generic;
+	    using System.Configuration;
+	    using System.Linq;
+	    using System.Linq.Expressions;
+	    using System.Threading.Tasks;
+	    using Microsoft.Azure.Cosmos;
+	
 
-        defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
+	    public static class TodoItemService
+	    {
+	        private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"] ?? "Tasks";
+	        private static readonly string ContainerId = ConfigurationManager.AppSettings["container"] ?? "Items";
+	        private static readonly string Endpoint = ConfigurationManager.AppSettings["endpoint"];
+	        private static readonly string PrimaryKey = ConfigurationManager.AppSettings["primaryKey"];
+	        private static CosmosItemSet items;
+	        private static CosmosClient client;
+	
 
-This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home**, use **Item** as the controller and user **Index** as the view.
+	        public static async Task<TodoItem> GetTodoItemAsync(string id, string partitionKey)
+	        {
+	            TodoItem item = await items.ReadItemAsync<TodoItem>(partitionKey, id);
+	            return item;
+	        }
+	
 
-Now if you run the application, it will call into your **ItemController** which will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
+	        public static async Task<IEnumerable<TodoItem>> GetOpenItemsAsync()
+	        {
+	            var queryText = "SELECT* FROM c WHERE c.isComplete != true";
+	            var querySpec = new CosmosSqlQueryDefinition(queryText);
+	
+
+	            // Selecting all tasks that are not completed is a cross partition query. 
+	            // We set the max concurrency to 4, which controls the max number of partitions that our client will query in parallel.
+	            var query = items.CreateItemQuery<TodoItem>(querySpec, maxConcurrency: 4);
+	
+
+	            List<TodoItem> results = new List<TodoItem>();
+	            while (query.HasMoreResults)
+	            {
+	                var set = await query.FetchNextSetAsync();
+	                results.AddRange(set);
+	            }
+	
+
+	            return results;
+	        }
+	
+
+	        public static async Task<TodoItem> CreateItemAsync(TodoItem item)
+	        {
+	            if(item.Id == null)
+	            {
+	                item.Id = Guid.NewGuid().ToString();
+	            }
+	            return await items.CreateItemAsync<TodoItem>(item.Category, item);
+	        }
+	
+
+	        public static async Task<TodoItem> UpdateItemAsync(TodoItem item)
+	        {
+	            return await items.ReplaceItemAsync<TodoItem>(item.Category, item.Id, item);
+	        }
+	
+
+	        public static async Task DeleteItemAsync(string id, string category)
+	        {
+	            await items.DeleteItemAsync<TodoItem>(category, id);
+	        }
+	
+
+	        public static async Task Initialize()
+	        {
+	            CosmosConfiguration config = new CosmosConfiguration(Endpoint, PrimaryKey);
+	            client = new CosmosClient(config);
+	
+
+	            CosmosDatabase database = await client.Databases.CreateDatabaseIfNotExistsAsync(DatabaseId);
+	            CosmosContainer container = await database.Containers.CreateContainerIfNotExistsAsync(ContainerId, "/category");
+	            items = container.Items;
+	        }
+	    }
+	}
+   ```
+ 
+3. The previous code reads some values from configuration file. Open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
+
+   ```csharp
+    <add key="endpoint" value="< enter the URI from the Keys blade of the Azure Portal >" />
+	<add key="primaryKey" value="< enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal >" />
+	<add key="database" value="Tasks" />
+	<add key="container" value="Items" />
+   ```
+ 
+4. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.  This takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
+
+5. Open the **ItemController** class you added earlier and replace the code in that class with the following code: 
+
+   ```csharp
+   namespace todo.Controllers
+	{
+	    using System.Net;
+	    using System.Threading.Tasks;
+	    using System.Web.Mvc;
+	    using Models;
+	
+
+	    public class ItemController : Controller
+	    {
+	        [ActionName("Index")]
+	        public async Task<ActionResult> IndexAsync()
+	        {
+	            var items = await TodoItemService.GetOpenItemsAsync();
+	            return View(items);
+	        }
+	        
+	        [ActionName("Create")]
+	        public async Task<ActionResult> CreateAsync()
+	        {
+	            return View();
+	        }
+	
+
+	        [HttpPost]
+	        [ActionName("Create")]
+	        [ValidateAntiForgeryToken]
+	        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
+	        {
+	            if (ModelState.IsValid)
+	            {
+	                await TodoItemService.CreateItemAsync(item);
+	                return RedirectToAction("Index");
+	            }
+	
+
+	            return View(item);
+	        }
+	
+
+	        [HttpPost]
+	        [ActionName("Edit")]
+	        [ValidateAntiForgeryToken]
+	        public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
+	        {
+	            if (ModelState.IsValid)
+	            {
+	                await TodoItemService.UpdateItemAsync(item);
+	                return RedirectToAction("Index");
+	            }
+	
+
+	            return View(item);
+	        }
+	
+
+	        [ActionName("Edit")]
+	        public async Task<ActionResult> EditAsync(string id, string category)
+	        {
+	            if (id == null)
+	            {
+	                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+	            }
+	
+
+	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+	            if (item == null)
+	            {
+	                return HttpNotFound();
+	            }
+	
+
+	            return View(item);
+	        }
+	
+
+	        [ActionName("Delete")]
+	        public async Task<ActionResult> DeleteAsync(string id, string category)
+	        {
+	            if (id == null)
+	            {
+	                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+	            }
+	
+
+	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+	            if (item == null)
+	            {
+	                return HttpNotFound();
+	            }
+	
+
+	            return View(item);
+	        }
+	
+
+	        [HttpPost]
+	        [ActionName("Delete")]
+	        [ValidateAntiForgeryToken]
+	        public async Task<ActionResult> DeleteConfirmedAsync([Bind(Include = "Id, Category")] string id, string category)
+	        {
+	            await TodoItemService.DeleteItemAsync(id, category);
+	            return RedirectToAction("Index");
+	        }
+	
+
+	        [ActionName("Details")]
+	        public async Task<ActionResult> DetailsAsync(string id, string category)
+	        {
+	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+	            return View(item);
+	        }
+	    }
+	}
+   ```
+
+6. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
+   
+   ```csharp
+   TodoItemService.Initialize().GetAwaiter().GetResult();
+   ```
+
+At this point your solution should be able to build your project without any errors. If you run the application now, you will go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start. Let's change the routing on this MVC application to alter this behavior.
+
+7. Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
+
+   ```csharp
+   defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
+   ```
+
+  This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
+
+   Now if you run the application, it will call into your **ItemController** which will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
 
 If you build and run this project now, you should now see something that looks this.    
 
 ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
-### <a name="_Toc395637771"></a>Adding Items
-Let's put some items into our database so we have something more than an empty grid to look at.
+### <a name="_Toc395637771"></a>Add Items
 
-Let's add some code to  Azure Cosmos DBRepository and ItemController to persist the record in Azure Cosmos DB.
+Let's put some items into our database so we have something more than an empty grid to look at. Let's add some code to  Azure Cosmos DBRepository and ItemController to persist the record in Azure Cosmos DB.
 
 1. Add the following method to your **DocumentDBRepository** class.
    
@@ -387,6 +481,7 @@ Let's add some code to  Azure Cosmos DBRepository and ItemController to persist 
        }
    
    This method simply takes an object passed to it and persists it in Azure Cosmos DB.
+
 2. Open the ItemController.cs file and add the following code snippet within the class. This is how ASP.NET MVC knows what to do for the **Create** action. In this case just render the associated Create.cshtml view created earlier.
    
         [ActionName("Create")]
@@ -396,6 +491,7 @@ Let's add some code to  Azure Cosmos DBRepository and ItemController to persist 
         }
    
     We now need some more code in this controller that will accept the submission from the **Create** view.
+
 3. Add the next block of code to the ItemController.cs class that tells ASP.NET MVC what to do with a form POST for this controller.
    
         [HttpPost]
@@ -495,58 +591,47 @@ There is one last thing for us to do, and that is to add the ability to edit **I
 That's it, that is everything we need to run our application, list incomplete **Items**, add new **Items**, and edit **Items**.
 
 ## <a name="_Toc395637773"></a>Step 6: Run the application locally
-To test the application on your local machine, do the following:
+To test the application on your local machine, use the following steps:
 
 1. Hit F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
    
     ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+       
+2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new item will be added in a completed state and will not appear on the initial list.
    
-     
-2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new **Item** will be added in a completed state and will not appear on the initial list.
-   
-    ![Screen shot of the Create view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
-3. Click **Create** and you are redirected back to the **Index** view and your **Item** appears in the list.
-   
-    ![Screen shot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
-   
-    Feel free to add a few more **Items** to your todo list.
-    
+3. Click **Create** and you are redirected back to the **Index** view and your item appears in the list. You can add a few more items to your todo list.
+       ![Screen shot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+  
 4. Click **Edit** next to an **Item** on the list and you are taken to the **Edit** view where you can update any property of your object, including the **Completed** flag. If you mark the **Complete** flag and click **Save**, the **Item** is removed from the list of incomplete tasks.
    
     ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
-## <a name="_Toc395637774"></a>Step 7: Deploy the application to Azure App Service 
+## <a name="_Toc395637774"></a>Step 7: Deploy the application 
 Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
 
-1. To publish this application all you need to do is right-click on the project in **Solution Explorer** and click **Publish**.
+1. To publish this application all you need to do is right-click on the project in **Solution Explorer** and select **Publish**.
    
-    ![Screen shot of the Publish option in Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
-
-2. In the **Publish** dialog box, click **Microsoft Azure App Service**, then select **Create New** to create an App Service profile, or click **Select Existing** to use an existing profile.
-
-    ![Publish dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
+2. In the **Publish** dialog box, select **Microsoft Azure App Service**, then select **Create New** to create an App Service profile, or choose **Select Existing** to use an existing profile.
 
 3. If you have an existing Azure App Service profile, enter your subscription name. Use the **View** filter to sort by resource group or resource type, then select your Azure App Service. 
    
     ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
-
-4. To create a new Azure App Service profile, click **Create New** in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and appropriate subscription, resource group, and App Service plan, then click **Create**.
+4. To create a new Azure App Service profile, click **Create New** in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and the appropriate subscription, resource group, and App Service plan, then select **Create**.
 
     ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
-In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handiwork running in Azure!
-
-
+In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your project running in Azure!
 
 ## <a name="_Toc395637775"></a>Next steps
-Congratulations! You just built your first ASP.NET MVC web application using Azure Cosmos DB and published it to Azure. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.
+In this tutorial, you've learned how to build a ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
 
-To add additional functionality to your application, review the APIs available in the [Azure Cosmos DB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the Azure Cosmos DB .NET Library on [GitHub][GitHub]. 
+> [!div class="nextstepaction"]
+> [Build a Java application to access data stored in SQL API account of Azure Cosmos DB]( sql-api-java-application.md)
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+ [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
-[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
+[GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-todo-app
