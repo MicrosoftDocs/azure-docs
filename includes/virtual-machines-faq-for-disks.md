@@ -132,6 +132,10 @@ No, when the new disk is created it is a full standalone copy of that blob at th
 
 For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
 
+**Can I use GBT partitioning on an Azure Disk?**
+
+GBT partitioning can be used only on data disks, not OS disks.
+
 ## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
