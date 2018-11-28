@@ -29,6 +29,8 @@ AKS clusters that support the cluster autoscaler must use virtual machine scale 
 az extension add --name aks-preview
 ```
 
+When you install the *aks-preview* extension, every AKS cluster you create uses the scale set preview deployment model. To opt-out and create regular, fully-supported clusters, remove the extension using `az extension remove --name aks-preview`.
+
 ## About the cluster autoscaler
 
 To adjust to changing application demands, such as between the workday and evening or on a weekend, clusters often need a way to automatically scale. AKS clusters can scale in one of two ways:
@@ -50,7 +52,12 @@ If you need to create an AKS cluster, use the [az aks create][az-aks-create] com
 The following example creates an AKS cluster with cluster autoscaler enabled that uses a minimum of *1* and maximum of *5* nodes:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup \
+# First create a resource group
+az group create --name myResourceGroup --location eastus
+
+# Now create the AKS cluster and enable the cluster autoscaler
+az aks create \
+  --resource-group myResourceGroup \
   --name myAKSCluster \
   --kubernetes-version 1.12 \
   --node-count 1 \
