@@ -9,12 +9,7 @@ ms.author: iainfou
 > [!WARNING]
 >  **The Azure Container Service (ACS) is being deprecated. No new features or functionality are being added to ACS. All of the APIs, portal experience, CLI commands and documentation are marked as deprecated.**
 >  
-> Beginning January 31, 2020:
->  
-> * All ACS APIs will be blocked. Any code you have written will no longer execute.
-> * You will not be able to create new clusters, update, or scale existing clusters using the portal, CLI or Azure Resource Manager templates.
->  
-> Existing ACS clusters won't be deleted. You can continue to list and delete existing clusters using the portal, CLI and ARM templates. Between now and January 31, 2020, you can continue to perform all operations; including create, update, scale, delete and list. All these operations are available through the portal, CLI and Azure Resource Manager templates.
+> For more information about the planned deprecation of ACS, see [the Azure ACS announcement](http://blogs.azure.com).
 >
 > We recommend that you deploy the following Azure Marketplace solutions that use the latest versions of the respective orchestrator and [acs-engine](https://github.com/Azure/acs-engine):
 >
