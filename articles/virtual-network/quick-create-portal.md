@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Subnet - Name | Enter *myVirtualSubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
 
-1. Accept the defaults for the remaining settings and select **Create**.
+1. Leave the rest of the defaults and select **Create**.
 
 ## Create virtual machines
 
@@ -70,7 +70,7 @@ Create two VMs in the virtual network:
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a user name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Re-enter password. |
+    | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Leave the default **None**. |
     | **Save MONEY** |  |
@@ -119,7 +119,7 @@ Create two VMs in the virtual network:
 
 After *myVm1* is created, you can connect to it over the internet.
 
-1. In the portal's search bar, enter *myVm1* and select it when it appears in the search results, select it.
+1. In the portal's search bar, enter *myVm1*.
 1. Select the **Connect** button.
 
     ![Connect to a virtual machine](./media/quick-create-portal/connect-to-virtual-machine.png)
@@ -128,13 +128,13 @@ After *myVm1* is created, you can connect to it over the internet.
 
 1. Select **Download RDP File**. A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.
 
-1. Open the downloaded .rdp file.
+1. Open the downloaded `.rdp` file.
     1. If prompted, select **Connect**. 
     1. Enter the user name and password you specified when creating the VM. 
         > [!NOTE]
         > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
 1. Select **OK**.
-1. You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
+1. You may receive a certificate warning during the sign in process. If you receive a certificate warning, select **Yes** or **Continue**.
 1. Once the VM desktop appears, minimize it to go back to your local desktop.
 
 ## Communicate between VMs
@@ -142,7 +142,7 @@ After *myVm1* is created, you can connect to it over the internet.
 1. In the Remote Desktop of myVm1, open PowerShell.
 1. Enter `ping myVm2`.
 
-    You'll get back something like this:
+    You'll get back something like this message:
 
     ```powershell
     Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
@@ -155,7 +155,7 @@ After *myVm1* is created, you can connect to it over the internet.
     Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-    The `ping` fails, because `ping` uses the Internet Control Message Protocol (ICMP), and ICMP is not allowed through the Windows firewall, by default.
+    The `ping` fails, because `ping` uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through the Windows firewall.
 
 1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
 
@@ -170,7 +170,7 @@ After *myVm1* is created, you can connect to it over the internet.
 1. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*.
 1. From a command prompt, enter `ping myvm1`.
 
-    You'll get back something like this:
+    You'll get back something like this message:
 
     ```powershell
     Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
@@ -191,7 +191,7 @@ After *myVm1* is created, you can connect to it over the internet.
 
 ## Clean up resources
 
-When your done with the virtual network and the VMs, delete the resource group and all of the resources it contains:
+When you're done with the virtual network, and the VMs, delete the resource group and all of the resources it contains:
 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal.
 1. When you see **myResourceGroup** in the search results, select it.
@@ -202,4 +202,4 @@ When your done with the virtual network and the VMs, delete the resource group a
 
 In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet, and communicated privately between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
 
-By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the internet. To learn how to allow or restrict different types of network communication to and from VMs, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
+By default, Azure allows unrestricted private communication between VMs. Conversely, it only allows inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
