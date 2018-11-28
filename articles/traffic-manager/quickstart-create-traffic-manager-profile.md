@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 11/28/2018
 ms.author: kumud
 ---
 
@@ -18,7 +18,7 @@ ms.author: kumud
 
 This quickstart describes how to create a Traffic Manager profile that delivers high availability for your web application.
 
-In this quickstart, you'll read about two instances of a web application. Each of them is running in a different Azure region. A Traffic Manager profile is created based on [endpoint priority](traffic-manager-routing-methods.md#priority). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
+In this quickstart, you'll read about two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
-1. On the upper left side of the screen, select **Create a resource** > **Web** > **Web App**.
+1. On the upper-left side of the screen, select **Create a resource** > **Web** > **Web App**.
 2. In **Web App**, enter, or select these settings:
 
     | Setting | Value |
@@ -53,7 +53,7 @@ For this quickstart, you'll need two instances of a web application deployed in 
 
 6. Select **OK**.
 
-7. In **Web App**, select **Create**. A default website is created when the Web App is successfully deployed.
+7. In **Web App**, select **Create**. When the Web App successfully deploys, it creates a default web site.
 
 8. To create a second website in a different Azure region, repeat steps 1-7 with these settings:
 
@@ -72,7 +72,7 @@ For this quickstart, you'll need two instances of a web application deployed in 
 
 Create a Traffic Manager profile that directs user traffic based on endpoint priority.
 
-1. On the upper left side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile**.
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile**.
 2. In the **Create Traffic Manager profile**, enter, or select these settings:
 
     | Setting | Value |
@@ -87,7 +87,7 @@ Create a Traffic Manager profile that directs user traffic based on endpoint pri
 
 ## Add Traffic Manager endpoints
 
-Add the website in the *East US* as primary endpoint to route all the user traffic. Add the website in *West Europe* as a failover endpoint. When the primary endpoint is unavailable, traffic is automatically routed to the failover endpoint.
+Add the website in the *East US* as primary endpoint to route all the user traffic. Add the website in *West Europe* as a failover endpoint. When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
 1. In the portal's search bar, enter the Traffic Manager profile name that you created in the preceding section.
 2. Select the profile from the search results.
@@ -113,15 +113,15 @@ Add the website in the *East US* as primary endpoint to route all the user traff
     | Name | Enter *myFailoverEndpoint*. |
     | Target resource type | Select **App Service**. |
     | Target resource | Select **Choose an app service** > **West Europe**. |
-    | Priority | Select **2**. All traffic will go to this failover endpoint if the primary endpoint is unhealthy. |
+    | Priority | Select **2**. All traffic goes to this failover endpoint if the primary endpoint is unhealthy. |
 
 7. Select **OK**.
 
-When you're done adding the two endpoints, they'll be displayed in **Traffic Manager profile**. Notice that their monitoring status is **Online** now.
+When you're done adding the two endpoints, they're displayed in **Traffic Manager profile**. Notice that their monitoring status is **Online** now.
 
 ## Test Traffic Manager profile
 
-In this section, you'll check the domain name of your Traffic Manager profile. Then you'll configure the primary endpoint to be unavailable. Finally, you get to see that the web app is still available. It's because Traffic Manager sends the traffic to the failover endpoint.
+In this section, you'll check the domain name of your Traffic Manager profile. You'll also configure the primary endpoint to be unavailable. Finally, you get to see that the web app is still available. It's because Traffic Manager sends the traffic to the failover endpoint.
 
 ### Check the DNS name
 
@@ -136,7 +136,7 @@ In this section, you'll check the domain name of your Traffic Manager profile. T
 1. In a web browser, enter the DNS name of your Traffic Manager profile to view your Web App's default website.
 
     > [!NOTE]
-    > In this quickstart scenario, all requests are routed to the primary endpoint that is set to **Priority 1**.
+    > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
 
     ![Screenshot of the webpage to confirm availability of Traffic Manager profile](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
 
@@ -147,7 +147,7 @@ In this section, you'll check the domain name of your Traffic Manager profile. T
 3. Copy the DNS name of your Traffic Manager Profile from the preceding step to view the website in a new web browser session.
 4. Verify that the web app is still available.
 
-The primary endpoint isn't available, so you got routed to the failover endpoint.
+The primary endpoint isn't available, so you were routed to the failover endpoint.
 
 ## Clean up resources
 
@@ -155,7 +155,7 @@ When you're done, delete the resource groups, web applications, and all related 
 
 ## Next steps
 
-In this quickstart, you created a Traffic Manager profile. It allows you to direct user traffic for high availability web applications. To learn more about routing traffic, continue to the Traffic Manager tutorials.
+In this quickstart, you created a Traffic Manager profile. It allows you to direct user traffic for high-availability web applications. To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md)
