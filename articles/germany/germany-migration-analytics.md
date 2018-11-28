@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure analytics resources from Azure Germany to global Azure
-description: This article provides information about migrating Azure analytics resources from Azure Germany to global Azure.
+description: This article provides information about migrating your Azure analytics resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -11,13 +11,13 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate Azure analytics resources to global Azure
+# Migrate analytics resources to global Azure
 
 This article has information that can help you migrate Azure analytics resources from Azure Germany to global Azure.
   
 ## Event Hubs
 
-You can't migrate Azure Event Hubs resources from Azure Germany to global Azure directly. The Event Hubs service doesn't provide data export or import. However, you can export the Event Hubs resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then, adapt the exported template for global Azure and re-create the resources.
+You can't migrate Azure Event Hubs resources from Azure Germany to global Azure directly. The Event Hubs service doesn't provide data export or import capabilities. However, you can export the Event Hubs resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then, adapt the exported template for global Azure and re-create the resources.
 
 > [!NOTE]
 > Exporting an Event Hubs template doesn't copy data (for example, messages). Exporting a template only re-creates the metadata.
@@ -54,13 +54,13 @@ For more specialized, long-running clusters (Kafka, Spark streaming, Storm, or H
 For more information:
 
 - Review the [Azure HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/).
-- Refresh your knowledge by completing [HDInsight tutorials](https://docs.microsoft.com/azure/hdinsight/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [HDInsight tutorials](https://docs.microsoft.com/azure/hdinsight/#step-by-step-tutorials).
 - For more help with [scaling HDInsight clusters](../hdinsight/hdinsight-administer-use-powershell.md#scale-clusters), see [Administer HDInsight by using PowerShell](../hdinsight/hdinsight-administer-use-powershell.md).
 - Learn how to use [AzCopy](../storage/common/storage-use-azcopy.md).
 
 ## Stream Analytics
 
-To migrate Azure Stream Analytics services from Azure Germany to global Azure, manually re-create the entire setup in a global Azure region either in the Azure portal or by using  PowerShell. The ingress and egress sources for any Stream Analytics job can be in any region.
+To migrate Azure Stream Analytics services from Azure Germany to global Azure, manually re-create the entire setup in a global Azure region either by using the Azure portal or by using PowerShell. The ingress and egress sources for any Stream Analytics job can be in any region.
 
 For more information:
 
@@ -68,9 +68,9 @@ For more information:
 - Review the [Stream Analytics overview](../stream-analytics/stream-analytics-introduction.md).
 - Learn how to [create a Stream Analytics job by using PowerShell](../stream-analytics/stream-analytics-quick-create-powershell.md).
 
-## SQL Data Warehouse
+## SQL Database
 
-To migrate Azure SQL Database resources, for smaller workloads, you can use the export function to create a BACPAC file. BACPAC file is a compressed (zipped) file that contains metadata and the data from the SQL Server database. After you create the BACPAC file, you can copy it to the target environment (for example, by using AzCopy) and use the import function to rebuild the database. Be aware of the following considerations:
+To migrate Azure SQL Database resources, for smaller workloads, you can use the export function to create a BACPAC file. A BACPAC file is a compressed (zipped) file that contains metadata and the data from the SQL Server database. After you create the BACPAC file, you can copy it to the target environment (for example, by using AzCopy) and use the import function to rebuild the database. Be aware of the following considerations:
 
 - For an export to be transactionally consistent, make sure that one of the following conditions is true:
   - No write activity occurs during the export.
@@ -98,3 +98,18 @@ For more information:
 - Learn about [Analysis Services backup](../analysis-services/analysis-services-backup.md).
 - Review the [Analysis Services overview](../analysis-services/analysis-services-overview.md).
 
+## Next steps
+
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

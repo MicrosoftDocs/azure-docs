@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure database resources from Azure Germany to global Azure
-description: This article provides information about migrating Azure database resources from Azure Germany to global Azure
+description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate Azure database resources to global Azure
+# Migrate database resources to global Azure
 
 This article has information that can help you migrate Azure database resources from Azure Germany to global Azure.
 
@@ -63,33 +63,33 @@ For more information:
 - Read an [introduction to Azure Cosmos DB](../cosmos-db/introduction.md).
 - Learn how to [import data to Azure Cosmos DB](../cosmos-db/import-data.md).
 
-## Redis Cache
+## Azure Cache for Redis
 
-You have a few options if you want to migrate an Azure Redis Cache instance from Azure Germany to global Azure. The option you choose depends on your requirements.
+You have a few options if you want to migrate an Azure Cache for Redis instance from Azure Germany to global Azure. The option you choose depends on your requirements.
 
 ### Option 1: Accept data loss, create a new instance
 
 This approach makes most sense when both of the following conditions are true:
 
-- You're using Redis as a transient data cache.
+- You're using Azure Cache for Redis as a transient data cache.
 - Your application will repopulate the cache data automatically in the new region.
 
 To migrate with data loss and create a new instance:
 
-1. Create a new Redis instance in the new target region.
+1. Create a new Azure Cache for Redis instance in the new target region.
 1. Update your application to use the new instance in the new region.
-1. Delete the old Redis instance in the source region.
+1. Delete the old Azure Cache for Redis instance in the source region.
 
 ### Option 2: Copy data from the source instance to the target instance
 
-A member of the Azure Redis team wrote an open-source tool that copies data from one Redis instance to another without requiring import or export functionality. See step 4 in the following steps for information about the tool.
+A member of the Azure Cache for Redis team wrote an open-source tool that copies data from one Azure Cache for Redis instance to another without requiring import or export functionality. See step 4 in the following steps for information about the tool.
 
 To copy date from the source instance to the target instance:
 
-1. Create a VM in the source region. If your dataset in Redis is large, make sure that you select a relatively powerful VM size to minimize copying time.
-1. Create a new Redis instance in the target region.
+1. Create a VM in the source region. If your dataset in Azure Cache for Redis is large, make sure that you select a relatively powerful VM size to minimize copying time.
+1. Create a new Azure Cache for Redis instance in the target region.
 1. Flush data from the **target** instance. (Make sure *not* to flush from the **source** instance. Flushing is required because the copy tool *doesn't overwrite* existing keys in the target location.)
-1. Use a tool like the following to automatically copy data from source Redis instance to target Redis instance: [Source](https://github.com/deepakverma/redis-copy), [Download](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip).
+1. Use a tool like the following to automatically copy data from source Azure Cache for Redis instance to target Azure Cache for Redis instance: [Source](https://github.com/deepakverma/redis-copy) and [download](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip).
 
 > [!NOTE]
 > This process can take a long time depending on the size of your dataset.
@@ -100,26 +100,26 @@ This approach takes advantage of features that are available only in the Premium
 
 To export from the source instance and import to the destination instance:
 
-1. Create a new Premium tier Redis instance in the target region. Use the same size as the source Redis instance.
+1. Create a new Premium tier Azure Cache for Redis instance in the target region. Use the same size as the source Azure Cache for Redis instance.
 1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzureRmRedisCache PowerShell cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
 
-    > [!NOTE]
-    > The export storage account must be in the same region as the cache instance.
+  > [!NOTE]
+  > The export storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
 1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzureRmRedisCAche PowerShell cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.4.0).
 1. Reconfigure your application to use the target Redis instance.
 
-### Option 4: Write data to two Redis instances, read from one instance
+### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
 
-For this approach, you must modify your application. The application needs to write data to more than one cache instance while reading from one of the cache instances. This approach makes sense if the data stored in Redis meets the following criteria:
+For this approach, you must modify your application. The application needs to write data to more than one cache instance while reading from one of the cache instances. This approach makes sense if the data stored in Azure Cache for Redis meets the following criteria:
 - The data is refreshed on a regular basis. 
-- All data is written to the target Redis instance.
+- All data is written to the target Azure Cache for Redis instance.
 - You have enough time for all data to be refreshed.
 
 For more information:
 
-- Review the [overview for Azure Redis Cache](../redis-cache/cache-overview.md).
+- Review the [overview for Azure Cache for Redis](../redis-cache/cache-overview.md).
 
 ## Next steps
 

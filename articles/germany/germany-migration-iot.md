@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure IoT resources from Azure Germany to global Azure
-description: This article provides information about migrating Azure IoT resources from Azure Germany to global Azure.
+description: This article provides information about migrating your Azure IoT resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate Azure IoT resources to global Azure
+# Migrate IoT resources to global Azure
 
 This article has information that can help you migrate Azure IoT resources from Azure Germany to global Azure.
 
