@@ -10,7 +10,7 @@
 - name: Blobs
   href: ./blobs/storage-blobs-overview.md
 - name: Data Lake Storage Gen2
-  href: ./data-lake-storage/introduction.md
+  href: ./data-lake-storage/data-lake-storage-introduction.md
 - name: Files 
   href: ./files/storage-files-introduction.md
 - name: Queues

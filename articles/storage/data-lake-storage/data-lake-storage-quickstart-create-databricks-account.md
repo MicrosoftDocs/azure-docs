@@ -3,12 +3,12 @@ title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Mic
 description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: storage
 author: jamesbak
+
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 06/27/2018
-
+ms.date: 11/28/2018
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
@@ -36,11 +36,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
-    ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Databricks on Azure portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 2. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
-    ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
+    ![Create an Azure Databricks workspace](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Provide the following values:
 
@@ -56,7 +56,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 3. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
-    ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
+    ![Databricks deployment tile](./media/data-lake-storage-quickstart-create-databricks-account/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
 
@@ -64,11 +64,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 2. You are redirected to the Azure Databricks portal. From the portal, select **New** > **Cluster**.
 
-    ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
+    ![Databricks on Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Databricks on Azure")
 
 3. In the **New cluster** page, provide the values to create a cluster.
 
-    ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     Accept all other default values other than the following:
 
@@ -154,17 +154,17 @@ Perform the following tasks to run a Spark SQL job on the data.
 
 3. You see a tabular output like shown in the following screenshot (only some columns are shown):
 
-    ![Sample JSON data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
+    ![Sample JSON data](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "Sample JSON data")
 
     Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**) and whether their subscription is free or paid (column name, **level**).
 
 4. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
 
-    ![Create bar chart](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Create bar chart")
+    ![Create bar chart](./media/data-lake-storage-quickstart-create-databricks-account/create-plots-databricks-notebook.png "Create bar chart")
 
 5. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
 
-    ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
+    ![Customize bar chart](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Customize bar chart")
 
     - Set **Keys** to **gender**.
     - Set **Series groupings** to **level**.
@@ -175,13 +175,13 @@ Perform the following tasks to run a Spark SQL job on the data.
 
 7. The output shows the visual representation as depicted in the following screenshot:
 
-     ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
+     ![Customize bar chart](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sql-query-output-bar-chart.png "Customize bar chart")
 
 ## Clean up resources
 
 Once finished with this article, you can terminate the cluster. From the Azure Databricks workspace, select **Clusters** and locate the cluster you want to terminate. Hover your mouse cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
-![Stop a Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Stop a Databricks cluster](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
 If you do not manually terminate the cluster it automatically stops, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. If you set this option the cluster stops after it has been inactive for the designated amount of time.
 

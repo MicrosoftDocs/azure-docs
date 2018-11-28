@@ -27329,6 +27329,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/data-lake-storage/introduction.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-account.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-quickstart-create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-quickstart-create-connect-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-databricks-account.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-quickstart-create-databricks-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/abfs-driver.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-abfs-driver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/compatible-oss-other-applications.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-compatible-oss-other-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/evaluation.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-evaluation",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false

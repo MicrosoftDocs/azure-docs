@@ -11,7 +11,7 @@
   - name: Create a Data Lake Storage Gen2 capable Storage account
     href: quickstart-create-account.md
   - name: Create/connect Databricks account
-    href: quickstart-create-databricks-account.md
+    href: data-lake-storage-quickstart-create-databricks-account.md
   - name: Create an HDInsight cluster
     href: quickstart-create-connect-hdi-cluster.md
 - name: Tutorials
@@ -25,7 +25,7 @@
 - name: Concepts
   items:
   - name: The Azure Blob FileSystem driver for Hadoop
-    href: abfs-driver.md
+    href: 
   - name: Introduction to the Azure Blob File System URI
     href: introduction-abfs-uri.md
   - name: The Hierarchical Namespace Service
@@ -37,7 +37,7 @@
       - name: Encryption for data at rest with customer keys
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
   - name: Data Lake Storage Gen2 evaluation
-    href: evaluation.md
+    href: data-lake-storage-evaluation.md
 - name: How-to guides
   items:
   - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters

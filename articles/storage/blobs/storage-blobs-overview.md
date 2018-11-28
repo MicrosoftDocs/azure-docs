@@ -18,4 +18,4 @@ ms.component: blobs
 ## Next steps
 
 - [Introduction to Azure Blob storage](storage-blobs-introduction.md)
-- [Introduction to Azure Data Lake Storage Gen2 Preview](../data-lake-storage/introduction.md)
+- [Introduction to Azure Data Lake Storage Gen2 Preview](../data-lake-storage/data-lake-storage-introduction.md)
