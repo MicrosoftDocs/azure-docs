@@ -1,25 +1,24 @@
 ---
 title: Deploy GPU-enabled container instances 
-description: Learn how to deploy container instances to run on GPUs.
+description: Learn how to deploy container instances to run on GPU resources.
 services: container-instances
 author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 11/27/2018
 ms.author: danlep
 ---
 
 # Deploy container instances that use GPU resources
 
-To run certain compute-intensive workloads on Azure Container Instances, deploy your container groups with *GPU resources*. The container instances can access one or more NVIDIA Tesla GPUs while running the container workloads.
+To run certain compute-intensive workloads on Azure Container Instances, deploy your container groups with *GPU resources*. The container instances can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
 
-As shown in this article, you can add GPU resources when you deploy a container group using the Azure CLI, a YAML file, or a Resource Manager template.
+As shown in this article, you can add GPU resources when you deploy a container group by using a YAML file or a Resource Manager template.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
-
 
 ## Preview limitations
 
@@ -31,6 +30,9 @@ In preview, the following limitations apply when using GPU resources in containe
 * West US 2 (westus2)
 * South Central US (southcentralus)
 * West Europe (westeurope)
+* North Europe (northeurope)
+* East Asia (eastasia)
+* Central India (centralindia)
 
 Support will be added for additional regions over time.
 
@@ -44,8 +46,8 @@ Support will be added for additional regions over time.
 
 To use GPUs in a container instance, specify a *GPU resource* with the following information:
 
-* **Count** - The number of GPUs. You can add 1, 2, or 4 GPUs to a container instance.
-* **SKU** - The NVIDIA Tesla GPU SKU, which is one of the following values: K80, P100, or V100. Each SKU maps to the Tesla GPU in one the following Azure GPU-enabled VM families, designed for various GPU workloads:
+* **Count** - The number of GPUs: **1**, **2**, or **4**.
+* **SKU** - The GPU SKU: **K80**, **P100**, or **V100**. Each SKU maps to the NVIDIA Tesla GPU in one the following Azure GPU-enabled VM families, designed for various GPU workloads:
 
   | SKU | VM family |
   | --- | --- |
@@ -53,11 +55,11 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### CPU and Memory
+### CPU and memory
 
-When deploying GPU resources, set CPU and Memory resources appropriate for the workload, up to the maximum values supported in the underlying VM size: 
+When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the following table. These values are larger than the CPU and memory limits in container instances without GPU resources.  
 
-| SKU | Count | CPU |  Memory (GB) |
+| GPU SKU | GPU count | CPU |  Memory (GB) |
 | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 |
 | K80 | 2 | 12 | 112 |
@@ -71,26 +73,22 @@ When deploying GPU resources, set CPU and Memory resources appropriate for the w
 
 ### Things to know
 
-* **Deployment time** - Creation of a container group containing GPU resources may take up to **10 minutes**. This is due to the additional time to provision and configure a GPU VM in Azure. 
+* **Deployment time** - Creation of a container group containing GPU resources takes up to **8-10 minutes**. This is due to the additional time to provision and configure a GPU VM in Azure. 
 * **Pricing** - As with container groups without GPU resources, Azure bills for the *duration* of the container group (after the group is created). The duration is calculated from the time to pull your first container's image until the container group terminates.
 
   Pricing for container group duration is greater for container groups with GPU resources than for container groups without.
-* **CUDA drivers** - GPU resources are pre-provisioned with CUDA drivers, so you can run container images developed for CUDA workloads. 
 
-
-## Azure CLI example
-
-[waiting for CLI support]
+* **CUDA drivers** - GPU resources are pre-provisioned with CUDA drivers, so you can run container images developed for CUDA workloads.
 
 ## YAML example
 
-Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainer* with a K80 GPU. The container runs a CUDA vector addition application.
+Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application.
 
 ```YAML
 additional_properties: {}
 apiVersion: '2018-10-01'
 location: southcentralus
-name: gpucontainer
+name: gpucontainergroup
 properties:
   containers:
   - name: gpucontainer
@@ -121,7 +119,7 @@ Deploy the container group with the [az container create][az-container-create] c
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml
 ```
 
-The deployment takes some time. Once the deployment has completed, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
+The command runs for several minutes before it returns deployment information. Once the deployment has completed, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -134,8 +132,7 @@ Done
 
 ## Resource Manager template example
 
-
-Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
+Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
 ```JSON
 {
@@ -144,7 +141,7 @@ Start by creating a file named `gpudeploy.json`, then copy the following JSON in
     "parameters": {
       "containerGroupName": {
         "type": "string",
-        "defaultValue": "gpucontainer",
+        "defaultValue": "gpucontainergroup",
         "metadata": {
           "description": "Container Group name."
         }
@@ -168,18 +165,19 @@ Start by creating a file named `gpudeploy.json`, then copy the following JSON in
                 "image": "[variables('containerimage')]",
                 "resources": {
                   "requests": {
-                    "cpu": 4,
-                    "memoryInGb": 6.0,
+                    "cpu": 4.0,
+                    "memoryInGb": 12.0,
                     "gpu": {
                         "count": 1,
-                        "sku": "k80"
+                        "sku": "V100"
                   }
                 }
               }
             }
           }
         ],
-        "osType": "Linux"
+        "osType": "Linux",
+        "restartPolicy": "OnFailure"
         }
       }
     ]
@@ -192,7 +190,7 @@ Deploy the template with the [az group deployment create][az-group-deployment-cr
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-The deployment takes some time. Once the deployment has completed, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
+The deployment takes several minutes. Once the deployment has completed, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
