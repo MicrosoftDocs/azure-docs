@@ -1,5 +1,5 @@
 ---
-title: Install packages in a Jupyter notebook | Microsoft Docs 
+title: Install packages in a Jupyter notebook on Azure | Microsoft Docs 
 description: How to install Python, R, and F# packages from within a notebook.
 services: app-service
 documentationcenter: ''

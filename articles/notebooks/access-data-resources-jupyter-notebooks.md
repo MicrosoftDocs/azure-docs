@@ -1,5 +1,5 @@
 ---
-title: Access data resources from Jupyter notebooks | Microsoft Docs 
+title: Access data resources from Jupyter notebooks on Azure | Microsoft Docs 
 description: How to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
 services: app-service
 documentationcenter: ''
@@ -60,9 +60,9 @@ Azure Storage provides several different types of non-relational storage, depend
 
 The sample notebook demonstrates working with both tables and blobs, including how to use a shared access signature to allow read-only access to blobs.
 
-## Azure CosmosDB
+## Azure Cosmos DB
 
-Azure CosmosDB provides a fully indexed NoSQL store for JSON documents). The following articles provide a number of different ways to work with CosmosDB from Python:
+Azure Cosmos DB provides a fully indexed NoSQL store for JSON documents). The following articles provide a number of different ways to work with Cosmos DB from Python:
 
 - [Build a SQL API app with Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
 - [Build a Flask app with the MongoDB API](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
@@ -70,7 +70,7 @@ Azure CosmosDB provides a fully indexed NoSQL store for JSON documents). The fol
 - [Build a Cassandra app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Build a Table API app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
-When working with CosmosDB, you can use the [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) library.
+When working with Cosmos DB, you can use the [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) library.
 
 ## Other Azure databases
 
