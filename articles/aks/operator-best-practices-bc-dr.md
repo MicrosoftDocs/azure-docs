@@ -45,7 +45,7 @@ To route incoming traffic to the desired region, use [Azure Traffic Manager](htt
 
 Instead of directly publishing your Kubernetes Service IP, end users should be directed to the Azure Traffic Manager CNAME that point to the intended IP. This configuration can be set up by using Azure Traffic Manager Endpoints. Each endpoint is the Service Load Balancer IP. This configuration lets you direct network traffic from the Azure Endpoint in one region to the Azure Endpoint in a different region.
 
-![AKS with Azure Traffic Manager](media/best-practices-bc-dr/aks-azure-traffic-manager.jpg)
+![AKS with Azure Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.jpg)
 
 For more information on how to configure this network routing, see [Traffic Manager Routing Details](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#geographic).
 
@@ -91,7 +91,7 @@ The two common ways of replicating storage are:
 
 ### Infrastructure-based asynchronous replication
 
-![Infrastructure-based Asynchronous Replication](media/best-practices-bc-dr/aks-infra-based-async-repl.jpg)
+![Infrastructure-based Asynchronous Replication](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.jpg)
 
 Sometimes your application requires persistent storage even after the pod is deleted. Kubernetes enables this ability by using Persistent Volumes. These volumes are mounted to host VM and then to the containers running on that VM. Persistent Volumes follow Pods, even if the Pod is moved to a different node inside the same cluster.
 
@@ -104,7 +104,7 @@ If you use Azure Managed Disks, the recommended approaches to migrate storage ac
 
 ### Application-based Asynchronous Replication
 
-![Application-based Asynchronous Replication](media/best-practices-bc-dr/aks-app-based-async-repl.jpg)
+![Application-based Asynchronous Replication](media/operator-best-practices-bc-dr/aks-app-based-async-repl.jpg)
 
 Currently, there are no Kubernetes native implementations for application-based asynchronous replication. Due to the loosely coupled nature of containers and Kubernetes, any traditional application/language approach should work.
 
