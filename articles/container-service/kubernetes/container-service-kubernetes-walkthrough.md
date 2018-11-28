@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Azure Kubernetes cluster for Linux
+title: (DEPRECATED) Quickstart - Azure Kubernetes cluster for Linux
 description: Quickly learn to create a Kubernetes cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 author: neilpeterson
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
-# Deploy Kubernetes cluster for Linux containers
+# (DEPRECATED) Deploy Kubernetes cluster for Linux containers
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet. 
 

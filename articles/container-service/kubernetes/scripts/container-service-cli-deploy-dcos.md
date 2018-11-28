@@ -19,7 +19,9 @@ ms.date: 05/30/2017
 ms.author: nepeters
 ---
 
-# Create an Azure Container Service DC/OS Cluster
+# (DEPRECATED) Create an Azure Container Service DC/OS Cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 This sample creates an Azure Container Service cluster running DCOS.
 

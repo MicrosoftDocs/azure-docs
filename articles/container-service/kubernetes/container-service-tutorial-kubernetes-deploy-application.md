@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service tutorial - Deploy Application
+title: (DEPRECATED) Azure Container Service tutorial - Deploy Application
 description: Azure Container Service tutorial - Deploy Application
 services: container-service
 author: neilpeterson
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Run applications in Kubernetes
+# (DEPRECATED) Run applications in Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 

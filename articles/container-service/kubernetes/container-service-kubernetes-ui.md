@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Kubernetes cluster with web UI
+title: (DEPRECATED) Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes web UI in Azure Container Service
 services: container-service
 author: bburns
@@ -12,9 +12,9 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Using the Kubernetes web UI with Azure Container Service
+# (DEPRECATED) Using the Kubernetes web UI with Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).

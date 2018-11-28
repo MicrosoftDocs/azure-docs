@@ -19,7 +19,9 @@ ms.date: 05/30/2017
 ms.author: nepeters
 ---
 
-# Create an Azure Container Service Kubernetes Linux Cluster
+# (DEPRECATED) Create an Azure Container Service Kubernetes Linux Cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 This sample creates an Azure Container Service cluster running Kubernetes for Linux based containers.
 

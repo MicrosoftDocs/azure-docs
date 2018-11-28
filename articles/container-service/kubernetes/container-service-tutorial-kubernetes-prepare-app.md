@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service tutorial - Prepare App
+title: (DEPRECATED) Azure Container Service tutorial - Prepare App
 description: Azure Container Service tutorial - Prepare App 
 services: container-service
 author: neilpeterson
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Create container images to be used with Azure Container Service
+# (DEPRECATED) Create container images to be used with Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 

@@ -1,5 +1,5 @@
 ---
-title: Monitor an Azure Kubernetes cluster with CoScale
+title: (DEPRECATED) Monitor an Azure Kubernetes cluster with CoScale
 description: Monitor a Kubernetes cluster in Azure Container Service using CoScale
 services: container-service
 author: fryckbos
@@ -12,9 +12,9 @@ ms.author: saudas
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service Kubernetes cluster with CoScale
+# (DEPRECATED) Monitor an Azure Container Service Kubernetes cluster with CoScale
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this article, we show you how to deploy the [CoScale](https://www.coscale.com/) agent to monitor all nodes and containers in your Kubernetes cluster in Azure Container Service. You need an account with CoScale for this configuration. 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service tutorial - Scale Application
+title: (DEPRECATED) Azure Container Service tutorial - Scale Application
 description: Azure Container Service tutorial - Scale Application
 services: container-service
 author: dlepow
@@ -12,9 +12,9 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Scale Kubernetes pods and Kubernetes infrastructure
+# (DEPRECATED) Scale Kubernetes pods and Kubernetes infrastructure
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
 

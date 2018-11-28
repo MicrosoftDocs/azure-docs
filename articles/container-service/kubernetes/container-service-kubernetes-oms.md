@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Kubernetes cluster - Operations Management
+title: (DEPRECATED) Monitor Azure Kubernetes cluster - Operations Management
 description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
 services: container-service
 author: bburns
@@ -12,9 +12,9 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with Log Analytics
+# (DEPRECATED) Monitor an Azure Container Service cluster with Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
