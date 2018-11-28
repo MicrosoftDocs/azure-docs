@@ -43,13 +43,15 @@ The EventStore service can be queried for events that are available for each ent
 * Nodes: all node level events
 * Node: events specific to one node, identified by `nodeName`
 * Applications: all application level events
-* Application: events specific to one application
+* Application: events specific to one application identified by `applicationId`
 * Services: events from all services in your clusters
-* Service: events from a specific service
+* Service: events from a specific service identified by `serviceId`
 * Partitions: events from all partitions
-* Partition: events from a specific partition
-* Replicas: events from all replicas / instances
-* Replica: events from a specific replica / instance
+* Partition: events from a specific partition identified by `partitionId`
+* Partition Replicas: events from all replicas / instances within a specific partition identified by `partitionId`
+* Partition Replica: events from a specific replica / instance identified by `replicaId` and `partitionId`
+
+To learn more about the API check out the [EventStore API reference]((https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
 The EventStore service also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. For example, if one of your applications happens to become unhealthy without any induced changes, the EventStore will also look at other events exposed by the platform and could correlate this with an `Error` or `Warning` event. This helps with faster failure detection and root causes analysis.
 
@@ -57,7 +59,7 @@ The EventStore service also has the ability to correlate events in your cluster.
 
 ### Local Cluster
 
-In fabricSettings.json, add EventStoreService as an addOn feature and perform a cluster upgrade.
+In [fabricSettings.json in your cluster](service-fabric-cluster-fabric-settings.md), add EventStoreService as an addOn feature and perform a cluster upgrade.
 
 ```json
     "addOnFeatures": [
@@ -67,7 +69,7 @@ In fabricSettings.json, add EventStoreService as an addOn feature and perform a 
 
 ### Azure cluster
 
-In your cluster's template, you can turn on the EventStore service by performing a cluster config upgrade and adding the following code. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
+In your cluster's ARM template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
 
 ```json
     "fabricSettings": [
@@ -113,5 +115,5 @@ In your cluster's template, you can turn on the EventStore service by performing
 * Get started with the EventStore API - [Using the EventStore APIs in Azure Service Fabric clusters](service-fabric-diagnostics-eventstore-query.md)
 * Learn more about the list of events offered by EventStore - [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md)
 * Overview of monitoring and diagnostics in Service Fabric - [Monitoring and Diagnostics for Service Fabric](service-fabric-diagnostics-overview.md)
-* View the full list of API calls - [EventStore REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-v62-index-eventsstore)
+* View the full list of API calls - [EventStore REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
 * Learn more about monitoring your cluster - [Monitoring the cluster and platform](service-fabric-diagnostics-event-generation-infra.md).
