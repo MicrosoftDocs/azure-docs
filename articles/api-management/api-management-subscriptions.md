@@ -50,7 +50,7 @@ When we introduced the [Consumption](https://aka.ms/apimconsumptionblog) tier of
 
 Second, APIM now allows "standalone" Subscriptions. Subscriptions are no longer required to be associated with a developer account. This is useful in scenarios such as when a subscription is shared by multiple developers or teams.
 
-Finally, API publishers can now [create Subscriptions](api-management-how-to-create-subscriptions.md) directly in the Azure Portal:
+Finally, API publishers can now [create Subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure Portal:
 
 ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
 

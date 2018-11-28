@@ -96,7 +96,7 @@
       - name: Secure your APIs
         items:
             - name: Create Subscriptions
-              href: api-management-how-to-create-subscriptions.md
+              href: api-management-howto-create-subscriptions.md
             - name: Secure APIs using client certificate authentication
               href: api-management-howto-mutual-certificates-for-clients.md
       - name: Secure your backend
