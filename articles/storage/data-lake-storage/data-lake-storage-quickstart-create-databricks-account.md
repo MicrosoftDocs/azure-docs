@@ -88,11 +88,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
-    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Create notebook in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Create notebook in Databricks")
 
 3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
+    ![Create notebook in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Create notebook in Databricks")
 
     Select **Create**.
 
