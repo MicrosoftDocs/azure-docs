@@ -14,9 +14,9 @@ ms.author: tamram
 ms.custom: mvc
 ---
 
-# Upload image data in the cloud with Azure Storage
+# Tutorial: Upload image data in the cloud with Azure Storage
 
-This tutorial is part one of a series. This tutorial shows you how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you have a web app that stores and displays images from Azure storage.
+This tutorial is part one of a series. In this tutorial you will learn how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
 # [\.NET](#tab/net)
 ![Images container view](media/storage-upload-process-images/figure2.png)
