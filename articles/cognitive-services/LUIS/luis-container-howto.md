@@ -279,13 +279,6 @@ curl -X GET \
 ```
 The version name has a maximum of 10 characters and contains only characters allowed in a URL. 
 
-### Query endpoint API from an SDK
-
-Query operations from an SDK are available for published apps. Trained app can't be queried from an SDK. Use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) to query the container.  
-
-> [!IMPORTANT]
-> You must have Azure Cognitive Services LUIS Client Library version 2.0.0 or later.
-
 ## Upload logs for active learning
 
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
@@ -361,7 +354,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Language Understanding (LUIS) provides one Linux containers for Docker providing endpoint query predictions of utterances.
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
-* You can use either the REST API or SDK to query the container endpoints by specifying the host URI of the container.
+* You can use REST API to query the container endpoints by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
