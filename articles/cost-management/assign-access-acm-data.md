@@ -96,7 +96,7 @@ Access to the enrollment account scope requires account owner (AO view charges) 
 8. Click on **Add** to create the account.  
     ![Add account box](./media/assign-access-acm-data/add-account.png)
 
-After following the step above, the user account is also an enrollment account in the Enterprise portal and can create subscriptions. The user can access cost and usage data for subscriptions that they create.
+After completing the steps above, the user account becomes an enrollment account in the Enterprise portal and can create subscriptions. The user can access cost and usage data for subscriptions that they create.
 
 ## Assign management group scope access
 
