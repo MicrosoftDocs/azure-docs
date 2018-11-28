@@ -23,7 +23,7 @@ Along with many other machine learning capabilities, the Azure Machine Learning 
 | December&nbsp;14&#x2c;&nbsp;2018| Continue to use your existing Azure Batch AI subscriptions as before. However, creating new subscriptions is no longer possible and no new investments will be made to this service.|
 | March 4 2019 | After this date, existing Batch AI subscriptions will no longer run. |
 
-<a href="migrate"></a>
+<a name="migrate"></a>
 ## How do I migrate?
 
 To avoid disruptions to your applications and to benefit from the latest features, take the following steps before March 4, 2019:
