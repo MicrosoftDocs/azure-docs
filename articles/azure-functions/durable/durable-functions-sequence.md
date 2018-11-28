@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # Function chaining in Durable Functions - Hello sequence sample
 
-Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the [Durable Functions quickstart](durable-functions-create-first-csharp.md). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
+Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md)). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 

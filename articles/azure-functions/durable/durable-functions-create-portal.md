@@ -29,7 +29,7 @@ You must have a function app to host the execution of any function. A function a
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-By default, the the function app created uses version 2.x of the Azure Functions runtime. The Durable Functions extension works on both versions 1.X and 2.x of the Azure Functions runtime. However, templates are only available when targeting version 2.x of the runtime.
+By default, the the function app created uses version 2.x of the Azure Functions runtime. The Durable Functions extension works on both versions 1.x and 2.x of the Azure Functions runtime. However, templates are only available when targeting version 2.x of the runtime.
 
 ## Create an orchestrator function
 
