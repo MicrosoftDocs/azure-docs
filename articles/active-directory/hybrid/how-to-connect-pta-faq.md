@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -29,7 +29,7 @@ Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-au
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
 
 No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
 
@@ -39,7 +39,7 @@ Yes. All conditional access capabilities, including Azure Multi-Factor Authentic
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 
-Yes. Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
+Yes, Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. As a pre-requisite, Azure AD Connect needs to synchronize the on-premises Active Directory `UserPrincipalName` attribute to Azure AD. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
@@ -114,6 +114,10 @@ If you are migrating from AD FS (or other federation technologies) to Pass-throu
 
 Yes. Multi-forest environments are supported if there are forest trusts between your Active Directory forests and if name suffix routing is correctly configured.
 
+## Does Pass-through Authentication provide load balancing across multiple Authentication Agents?
+
+No, installing multiple Pass-through Authentication Agents ensures only [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). It does not provide deterministic load balancing between the Authentication Agents. Any Authentication Agent (at random) can process a particular user sign-in request.
+
 ## How many Pass-through Authentication Agents do I need to install?
 
 Installing multiple Pass-through Authentication Agents ensures [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
@@ -127,7 +131,7 @@ To estimate network traffic, use the following sizing guidance:
 For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
 
 >[!NOTE]
->There is a system limit of 12 Authentication Agents per tenant.
+>There is a system limit of 40 Authentication Agents per tenant.
 
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 
