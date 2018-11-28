@@ -20,8 +20,6 @@ ms.author: juliako
 
 In Azure Media Services, a  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
 
-This article shows a detailed table that compare LiveEvent types. It also discusses max bitrates and source limitations.
-
 ## Types comparison 
 
 The following table compares features of the two LiveEvent types.
@@ -37,7 +35,7 @@ The following table compares features of the two LiveEvent types.
 | Support for multiple language audio tracks|Yes|No|
 | Supported input video codecs |H.264/AVC and H.265/HEVC|H.264/AVC|
 | Supported output video codecs|Same as input|H.264/AVC|
-| Supported video bit depth, input and output|Up to 10-bit including HDR 10/HLG|8-bit|
+| Supported video bit depth, input, and output|Up to 10-bit including HDR 10/HLG|8-bit|
 | Supported input audio codecs|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Supported output audio codecs|Same as input|AAC-LC|
 | Input protocols|RTMP, fragmented-MP4 (Smooth Streaming)|RTMP, fragmented-MP4 (Smooth Streaming)|
