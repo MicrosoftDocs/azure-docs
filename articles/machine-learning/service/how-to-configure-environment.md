@@ -145,17 +145,11 @@ The steps in the [Local computer](#local) section install optional components fo
 
 1. Open a command prompt or shell.
 
-1. To install a conda-aware Jupyter Notebook server and enable experiment widgets, use the following commands:
+1. To install a conda-aware Jupyter Notebook server using the following command:
 
     ```shell
     # install Jupyter
     conda install nb_conda
-
-    # install experiment widget
-    jupyter nbextension install --py --user azureml.widgets
-
-    # enable experiment widget
-    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. Open Jupyter Notebook with the following command:
