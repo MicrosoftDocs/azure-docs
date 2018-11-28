@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -21,16 +21,13 @@ ms.custom: aaddev
 
 # Azure Active Directory v2.0 and the OAuth 2.0 resource owner password credential
 
-Azure Active Directory (Azure AD) supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and developers should only be used when the other, more secure, flows can't be used.
+Azure Active Directory (Azure AD) supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and developers should only use this flow when the other, more secure, flows can't be used.
 
 > [!Important]
-> The v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenanted endpoint or the `organizations` endpoint.
->
-> Personal accounts that are invited to an Azure AD tenant can't use ROPC.
->
-> Accounts that don't have passwords can't sign in through ROPC - for this reason, we encourage that you use a different flow for your app instead.
->
-> If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
+> * The Azure AD v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
+> * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
+> * Accounts that don't have passwords can't sign in through ROPC. For this scenario, we recommend that you use a different flow for your app instead.
+> * If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
 
 ## Protocol diagram
 
@@ -40,7 +37,7 @@ The following diagram shows the ROPC flow.
 
 ## Authorization request
 
-The ROPC flow is a single request: sending the client identification and user's credentials to the IDP, and then receiving tokens back. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
+The ROPC flow is a single request-it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
 
 ```
 // Line breaks and spaces are for legibility only.
@@ -57,15 +54,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| `tenant` |Required | The directory tenant that you want to log the user into. This can be in GUID or friendly name format, and cannot be `common` or `consumers` but may be `organizations`. |
+| `tenant` | Required | The directory tenant that you want to log the user into. This can be in GUID or friendly name format. This parameter can't be set to `common` or `consumers`, but may be set to `organizations`. |
 | `grant_type` | Required | Must be set to `password`. |
 | `username` | Required | The user's email address. |
 | `password` | Required | The user's password. |
-| `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that the app requires. These must be consented to ahead of time either by an admin or by the user in an interactive flow. |
+| `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. These scopes must be consented to ahead of time either by an admin or by the user in an interactive flow. |
 
 ### Successful authentication response
 
-A successful token response will look like:
+The following shows an example of a successful token response:
 
 ```json
 {
@@ -95,9 +92,9 @@ If the user hasn't provided the correct username or password, or the client hasn
 
 | Error | Description | Client action |
 |------ | ----------- | -------------|
-| `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` suberror will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser.|
+| `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` suberror will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser. |
 | `invalid_request` | The request was improperly constructed | The grant type is not supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` instead. |
-| `invalid_client` | The app is improperly setup | This can happen if the `allowPublicClient` property is not set to truein the application manifest.  This is needed as this grant does not have a redirect URI, and therefore AAD cannot determine if the app is a public client application or confidential client application. ROPC is only supported for public client apps. |
+| `invalid_client` | The app is improperly set up | This can happen if the `allowPublicClient` property is not set to true in the [application manifest](reference-app-manifest.md). The `allowPublicClient` property is needed because the ROPC grant doesn't have a redirect URI. Azure AD can't determine if the app is a public client application or a confidential client application unless the property is set. Note that ROPC is only supported for public client apps. |
 
 ## Learn more
 
