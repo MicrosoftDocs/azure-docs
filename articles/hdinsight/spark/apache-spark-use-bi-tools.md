@@ -16,7 +16,7 @@ ms.date: 05/07/2018
 
 # Tutorial: Analyze Apache Spark data using Power BI in HDInsight 
 
-Learn how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in [Apache Spark](https://spark.apache.org/) cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
+Learn how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an [Apache Spark](https://spark.apache.org/) cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
