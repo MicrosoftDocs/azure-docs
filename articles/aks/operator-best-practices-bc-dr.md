@@ -12,7 +12,7 @@ ms.author: lastcoolnameleft
 ---
 # Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)
 
-As you manage clusters in Azure Kubernetes Service (AKS), your application uptime becomes important. you may want to consider removing Single Point of Failures and increasing the application's fault tolerance. AKS provides high availability by using multiple nodes in an availability set. Multiple nodes don’t protect you from a region failure. To maximize your uptime, you should implement business continuity and disaster recovery features.
+As you manage clusters in Azure Kubernetes Service (AKS), application uptime becomes important. AKS provides high availability by using multiple nodes in an availability set. These multiple nodes don’t protect you from a region failure. To maximize your uptime, implement some business continuity and disaster recovery features.
 
 This best practices article focuses on considerations that help you plan for business continuity and disaster recovery in AKS. You learn how to:
 
@@ -25,31 +25,42 @@ This best practices article focuses on considerations that help you plan for bus
 
 ## Plan for multi-region deployment
 
-**Best practice guidance** - When you deploy multiple AKS clusters for BC/DR, use regions where both AKS clusters are available, and use Azure Paired Regions.
+**Best practice guidance** - When you deploy multiple AKS clusters, choose regions where AKS is available and use paired regions.
 
-By default, an AKS cluster is deployed into a single region. To protect yourself from region failure, deploy your application into multiple AKS clusters across different region. When you plan what regions to deploy your AKS cluster, the following considerations apply:
+An AKS cluster is deployed into a single region. To protect yourself from region failure, deploy your application into multiple AKS clusters across different regions. When you plan what regions to deploy your AKS cluster, the following considerations apply:
 
 * [AKS region availability](https://docs.microsoft.com/en-us/azure/aks/container-service-quotas#region-availability)
+  * Choose regions close to your users. AKS is continually expanding into new regions.
 * [Azure paired regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions)
+  * For your geographic area, choose two regions that are paired with each other. These regions coordinate platform updates, and prioritize recovery efforts where needed.
 * Service Availability Level (Hot/Hot, Hot/Warm, Hot/Cold)
+  * Do you want to run both regions at the same time, with one region *ready* to start serving traffic, or one region that needs to time get ready to serve traffic.
 
 AKS region availability and paired regions are joint consideration. Deploy your AKS clusters into paired regions that are designed to manage region disaster recovery together. For example, AKS is available in *East US* and *West US*. These regions are also paired. These two regions would be recommended when creating an AKS BC/DR strategy.
 
-When you deploy your application, you must also add another step to your CI/CD pipeline to deploy to these multiple AKS clusters.
+When you deploy your application, you must also add another step to your CI/CD pipeline to deploy to these multiple AKS clusters. If you don't perform this step, application deployments may only be deployed into one of your regions and AKS clusters. Customer traffic that is directed to a secondary region won't receive the latest code updates.
 
 ## Use Azure Traffic Manager to route traffic to desired regions
 
-**Best practice guidance** - Ensure that all application traffic is directed through Azure Traffic Manager before going to your AKS cluster.
+**Best practice guidance** - Azure Traffic Manager can direct customers to their closest AKS cluster and application instance. For the best performance and redundancy, direct all application traffic through Traffic Manager before going to your AKS cluster.
 
-To route incoming traffic to the desired region, use [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/). Azure Traffic Manager is a DNS-based traffic load balancer that can distribute network traffic across regions.
-
-Instead of directly publishing your Kubernetes Service IP, end users should be directed to the Azure Traffic Manager CNAME that point to the intended IP. This configuration can be set up by using Azure Traffic Manager Endpoints. Each endpoint is the Service Load Balancer IP. This configuration lets you direct network traffic from the Azure Endpoint in one region to the Azure Endpoint in a different region.
+When you run multiple AKS clusters in different regions, you need to control how traffic is directed to the applications that run in each cluster. [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) is a DNS-based traffic load balancer that can distribute network traffic across regions. You can route users based on cluster response time, or based on geography.
 
 ![AKS with Azure Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.jpg)
 
-For more information on how to configure this network routing, see [Traffic Manager Routing Details](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#geographic).
+With a single AKS cluster, customers typically connect to the *Service IP* or DNS name of a given application. In a multi-cluster deployment, customers should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. These services are defined using Traffic Manager endpoints. Each endpoint is the *Service Load Balancer IP*. This configuration lets you direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
+
+![Geographic routing with Azure Traffic Manager](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.jpg)
+
+Traffic Manager is used to perform the DNS lookups and return the most appropriate endpoint for a user. Nested profiles can be used, with priority given for a primary location. For example, a user should primarily connect to their closest geographic region. If that region has a problem, Traffic Manager can instead direct them to a secondary region. This approach makes sure customers can always connect to an application instance, even if their closest geographic region is unavailable.
+
+For steps on how to set up these endpoints and routing, see [Configure the geographic traffic routing method using Traffic Manager]((https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+
+### Layer 7 application routing with Azure Front Door
 
 Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (preview)](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
+
+Review the needs of your application traffic to understand which solution is the most suitable.
 
 ## Enable geo-replication in Azure Container Registry
 
