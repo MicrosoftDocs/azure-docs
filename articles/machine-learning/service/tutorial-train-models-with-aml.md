@@ -129,7 +129,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -338,12 +338,12 @@ An estimator object is used to submit the run.  Create your estimator by running
 
 * The name of the estimator object, `est`
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution. 
-* The compute target.  In this case you will use the Batch AI cluster you created
+* The compute target.  In this case you will use the Azure Machine Learning compute cluster you created
 * The training script name, train.py
 * Parameters required from the training script 
 * Python packages needed for training
 
-In this tutorial, this target is the Batch AI cluster. All files in the script folder are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
+In this tutorial, this target is the Azure Machine Learning compute cluster. All files in the script folder are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
