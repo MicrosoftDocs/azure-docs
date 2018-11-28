@@ -23,13 +23,27 @@ ms.custom: mvc
 
 This article describes how [Azure App Service on Linux](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed.
 
+## Set Python version
+
+Two base images are available: Python 3.6 and Python 3.7. You can create an app with the desired Python based image. For example, to create an app with Python 3.7, run the following command in the Cloud Shell:
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+To change the Python version (based image) to Python 3.6, for example, run the following command in the Cloud Shell:
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+If you require a different version of Python, you must build and deploy your own container image instead. For more information, see [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md).
+
 ## Container characteristics
 
-Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Azure-App-Service/python container](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) or [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 This container has the following characteristics:
-
-- The base container image is `python-3.7.0-slim-stretch`, which means apps are run with Python 3.7. If you require a different version of Python, you must build and deploy your own container image instead. For more information, see [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md).
 
 - Apps are run using the [Gunicorn WSGI HTTP Server](http://gunicorn.org/), using the additional arguments `--bind=0.0.0.0 --timeout 600`.
 

@@ -18,7 +18,7 @@ ms.author: wolfma
 
 Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Microsoft Speech enabled. If you don't have an account, you can use the [free trial](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Microsoft Speech enabled. If you don't have an account, you can use the [free trial](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) to get a subscription key.
 
 ## Prerequisites
 

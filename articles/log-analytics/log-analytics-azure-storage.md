@@ -29,7 +29,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
-| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | Connector   | Connector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
 | Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [More information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
@@ -39,10 +39,10 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Event Hub namespace     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](../azure-monitor/insights/azure-key-vault.md) |
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Recovery vaults         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -153,5 +153,5 @@ The Azure template gallery has [examples of using Azure Automation](https://azur
 ## Next steps
 
 * [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
-* [Enable Solutions](../monitoring/monitoring-solutions.md) to provide insight into the data.
+* [Enable Solutions](../azure-monitor/insights/solutions.md) to provide insight into the data.
 * [Use search queries](log-analytics-queries.md) to analyze the data.

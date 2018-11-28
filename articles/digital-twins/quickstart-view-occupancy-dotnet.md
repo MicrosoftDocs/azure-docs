@@ -118,12 +118,24 @@ The sensor sample simulates random data values for two sensors. They're motion a
 
      ![Get available spaces with fresh air][3]
 
-To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in digital-twins-samples-csharp. Use the following command. 
+To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in digital-twins-samples-csharp. Use the following command:
 
-```
+```plaintext
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
-The tutorials go deep into the code. They teach you how to modify configuration data and what APIs are called. For more information on Management APIs, go to your Digital Twins Swagger page `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net//management/swagger`. Or for convenience, browse to [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger). 
+
+The tutorials go deep into the code. They teach you how to modify configuration data and what APIs are called. For more information on Management APIs, go to your Digital Twins Swagger page:
+
+```plaintext
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
+```
+
+| Name | Replace with |
+| --- | --- |
+| YOUR_INSTANCE_NAME | The name of your Digital Twins instance |
+| YOUR_LOCATION | Which server region your instance is hosted on |
+
+Or for convenience, browse to [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 ## Clean up resources
 

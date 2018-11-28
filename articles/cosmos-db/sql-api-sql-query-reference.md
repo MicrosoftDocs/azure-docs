@@ -16,12 +16,12 @@ ms.author: laviswa
 
 # Azure Cosmos DB SQL syntax reference
 
-Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](how-to-sql-query.md).  
   
 Visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Cosmos DB and run SQL queries against our dataset.  
   
 ## SELECT query  
-Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](sql-api-sql-query.md#SelectClause)
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
   
 **Syntax**  
   
@@ -66,7 +66,7 @@ The query language supports T-SQL style comments like
 While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
 
 ##  <a name="bk_select_query"></a> SELECT clause  
-The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order. For examples, see [SELECT query examples](sql-api-sql-query.md#SelectClause).
+The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause).
 
 **Syntax**  
 
@@ -129,7 +129,7 @@ Both `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alte
 [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM clause  
-Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole container is the source, but one can specify a subset of the container instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document. For examples, see [FROM clause examples](sql-api-sql-query.md#FromClause)
+Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole container is the source, but one can specify a subset of the container instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document. For examples, see [FROM clause examples](how-to-sql-query.md#FromClause)
   
 **Syntax**  
   
@@ -213,7 +213,7 @@ A container expression may be container-scoped or document-scoped:
   
 In the current release, Cosmos DB supports inner joins. Additional join capabilities are forthcoming. 
 
-Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses. For examples, see [JOIN keyword examples](sql-api-sql-query.md#Joins)
+Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses. For examples, see [JOIN keyword examples](how-to-sql-query.md#Joins)
   
 The evaluation of the join depends on the context scope of the participating sets:  
   
@@ -308,7 +308,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
  [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE clause  
- Specifies the search condition for the documents returned by the query. For examples, see [WHERE clause examples](sql-api-sql-query.md#WhereClause)
+ Specifies the search condition for the documents returned by the query. For examples, see [WHERE clause examples](how-to-sql-query.md#WhereClause)
   
  **Syntax**  
   
@@ -333,7 +333,7 @@ WHERE <filter_condition>
  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY clause  
- Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](sql-api-sql-query.md#OrderByClause)
+ Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](how-to-sql-query.md#OrderByClause)
   
  **Syntax**  
   
@@ -371,7 +371,7 @@ ORDER BY <sort_specification>
  While the query grammar supports multiple order by properties, the Cosmos DB query runtime supports sorting only against a single property, and only against property names (not against computed properties). Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalar expressions  
- A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](sql-api-sql-query.md#scalar-expressions)
+ A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](how-to-sql-query.md#scalar-expressions)
   
  For details on values that scalar expression may have, see [Constants](#bk_constants) section.  
   
@@ -2902,6 +2902,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## Next steps  
 
-- [SQL syntax and SQL query for Cosmos DB](sql-api-sql-query.md)
+- [SQL syntax and SQL query for Cosmos DB](how-to-sql-query.md)
 
 - [Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  

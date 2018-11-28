@@ -33,9 +33,9 @@ In addition to Azure and Power BI subscriptions, you need the following to compl
 
 * [A test cluster and database](create-cluster-database-portal.md)
 
-* [The StormEvents sample data](ingest-sample-data.md)
+* [The StormEvents sample data](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (click **DOWNLOAD FREE**)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (select **DOWNLOAD FREE**)
 
 ## Render visuals in Azure Data Explorer
 
@@ -79,17 +79,17 @@ It's now time to look at Power BI, but there's a lot more you can do with visual
 
 Now you connect to Azure Data Explorer in Power BI Desktop.
 
-1. In Power BI Desktop, select **Get Data** then **More**.
+1. In Power BI Desktop on the **Home** tab, select **Get Data** then **More**.
 
     ![Get data](media/visualize-power-bi/get-data-more.png)
 
-1. Search for *Kusto*, select **Azure Kusto (Beta)**, then **Connect**.
+1. Search for *Azure Data Explorer*, select **Azure Data Explorer (Beta)**, then **Connect**.
 
     ![Search and get data](media/visualize-power-bi/search-get-data.png)
 
 1. On the **Preview connector** screen, select **Continue**.
 
-1. On the **Kusto** screen, enter the name of your test cluster and database. Cluster should be in the form `https://<ClusterName>.<Region>.kusto.windows.net`. Enter *StormEvents* for the name of the table. Leave all other options with default values, and select **OK**.
+1. On the next screen, enter the name of your test cluster and database. Cluster should be in the form `https://<ClusterName>.<Region>.kusto.windows.net`. Enter *StormEvents* for the name of the table. Leave all other options with default values, and select **OK**.
 
     ![Cluster, database, table options](media/visualize-power-bi/cluster-database-table.png)
 

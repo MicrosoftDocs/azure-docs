@@ -85,7 +85,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  An Azure Stack Integrated System or deployment of Azure Stack Development Kit.
 
-    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](../asdk/asdk-install.md).
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) This installation may require a few hours to complete.
 
  -  Deployment of [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack

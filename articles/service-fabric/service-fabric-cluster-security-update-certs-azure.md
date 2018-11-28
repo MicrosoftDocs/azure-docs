@@ -192,7 +192,7 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 
 ```powershell
 Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
+Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
 
 ```
 

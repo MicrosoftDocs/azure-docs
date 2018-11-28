@@ -4,11 +4,11 @@ description: This article helps you enable and configure extended diagnostics me
 services: cost-management
 keywords:
 author: bandersmsft
+manager: vitavor
 ms.author: banders
 ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
 ms.custom:
 ---
 
