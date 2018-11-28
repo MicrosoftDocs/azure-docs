@@ -81,8 +81,6 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
 
 If you are setting up a CI/CD pipeline for an application that uses the Azure Cosmos DB MongoDB API, the MongoDB connection string by default includes the port number 10255. However, this port is not currently open, as an alternate, you should use port 10250 to establish the connection. The Azure Cosmos DB MongoDB connection string remains the same except the supported port number is 10250 instead of 10255.
 
-There's an issue in the latest Azure Cosmos Emulator that the 10255 MongoDB port is not currently opened. This will be fixed in the next release of the emulator. Meanwhile can you please try to use 10250 which is the "legacy" MongoDB port? The connection string remains the same except for 10255->10250
-
 These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
 
 ```csharp
