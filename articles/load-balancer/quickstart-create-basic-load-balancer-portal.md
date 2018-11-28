@@ -25,11 +25,11 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-For all the tasks in this quickstart, sign in to the [Azure portal](http://portal.azure.com).
+To do the tasks in this quickstart, sign in to the [Azure portal](http://portal.azure.com).
 
 ## Create a Basic load balancer
 
-First, create a public Basic load balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public Basic-tier load balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
    
@@ -38,9 +38,9 @@ First, create a public Basic load balancer by using the portal. The name and pub
    - **Name**: **MyLoadBalancer**
    - **Type**: **Public** 
    - **SKU**: **Basic**
-   - **Public IP address: **Create new**. 
+   - **Public IP address:** **Create new**. 
      - **Public IP Address** field: **MyPublicIP**
-     - **Configure Public IP address** > **Assignment**: *Dynamic**
+     - **Configure Public IP address** > **Assignment**: **Dynamic**
    - **ResourceGroup**: select **Create new**, then enter **MyResourceGroupLB**, and select **OK**. 
    
 1. Select **Create**.
@@ -49,7 +49,7 @@ First, create a public Basic load balancer by using the portal. The name and pub
 
 ## Create back-end servers
 
-Next, create a virtual network and two virtual machines for the back-end pool of your Basic load balancer. 
+Next, create a virtual network and two virtual machines for the back-end pool of your load balancer. 
 
 ### Create a virtual network
 
@@ -76,7 +76,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
      1. Drop down and select **Availability set**. 
      2. Select **Create new**, enter **MyAvailabilitySet**, and select **OK**.
    - **Administrator Account** > **Username**: **azureuser**
-   - **Administrator Account** > **Password**: **Azure1234567**. Retype the password in the **Confirm Password** field.
+   - **Administrator Account** > **Password**: **Azure1234567**. Retype the password in the **Confirm password** field.
    
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. Make sure the following are selected:
    - **Virtual network**: **MyVnet**
@@ -87,7 +87,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    1. In the **Configure network security group** field, select **Create new**. 
    1. Enter **MyNetworkSecurityGroup**, and select **OK**. 
    
-1. Select the *Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
+1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
    
 1. Select **Review + create**
    
@@ -111,8 +111,8 @@ In this section, you create network security group (NSG) rules for the VMs, to a
    - **Protocol**: **TCP** 
    - **Action**: **Allow**  
    - **Priority**: **100** 
-   - **Name**: **myHTTPRule** 
-   - **Description**: **Allow HTTP** 
+   - **Name**: **MyHTTPRule** 
+   - **Description**: **Allow HTTP.** 
    
 1. Select **Add**. 
    
@@ -121,10 +121,10 @@ In this section, you create network security group (NSG) rules for the VMs, to a
 4. Repeat the steps for the inbound RDP rule, with the following differing values:
    - **Destination port ranges**: **3389**
    - **Priority**: **200** 
-   - **Name**: **myRDPRule** 
+   - **Name**: **MyRDPRule** 
    - **Description**: **Allow RDP** 
 
-## Create resources for the Basic load balancer
+## Create resources for the load balancer
 
 In this section, you configure load balancer settings for a back-end address pool, a health probe, and a load balancer rule.
 
@@ -132,7 +132,7 @@ In this section, you configure load balancer settings for a back-end address poo
 
 To distribute traffic to the VMs, the load balancer uses a back-end address pool. The back-end address pool contains the IP addresses of the virtual NICs that are connected to the load balancer. 
 
-**To create a back-end address pool that includes VM1 and VM2:
+**To create a back-end address pool that includes VM1 and VM2:**
 
 1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
    
@@ -145,7 +145,7 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
    - **Availability set**: **MyAvailabilitySet**
    
 1. Select **Add a target network IP configuration**. 
-   1. Add each virtual machine (**myVM1** and **myVM2**) that you created to the back-end pool.
+   1. Add each virtual machine (**MyVM1** and **MyVM2**) that you created to the back-end pool.
    2. After you add each machine, drop down and select its **Network IP configuration**. 
    
 1. Select **OK**.
@@ -179,9 +179,9 @@ To allow the load balancer to monitor app status, you use a health probe. The he
 
 ### Create a load balancer rule
 
-A load balancer rule defines how traffic is distributed to the VMs. The rule defines the frontend IP configuration for incoming traffic, the back-end IP pool to receive the traffic, and the required source and destination ports. 
+A load balancer rule defines how traffic is distributed to the VMs. The rule defines the front-end IP configuration for incoming traffic, the back-end IP pool to receive the traffic, and the required source and destination ports. 
 
-The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends load-balanced network traffic to the backend address pool **MyBackEndPool**, also on port 80. 
+The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends load-balanced network traffic to the back-end address pool **MyBackEndPool**, also on port 80. 
 
 **To create the load balancer rule:**
 
@@ -206,9 +206,9 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
 
 ## Test the load balancer
 
-Find the public IP address for your load balancer on its **Overview** page under **Public IP Address**. Hover over the address and select the **Copy** icon to copy it. 
+On the **Overview** page for **MyLoadBalancer**, find its public IP address under **Public IP Address**. Hover over the address and select the **Copy** icon to copy it. You'll use the public IP address to test the load balancer on the VMs. 
 
-You'll use Internet Information Services (IIS) and a web browser on the virtual machines to test the load balancer.
+You'll need to install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
 
 ### Install IIS on the VMs
 
@@ -217,16 +217,18 @@ You'll use Internet Information Services (IIS) and a web browser on the virtual 
 1. In the portal, select **All resources** on the left menu. From the resource list, select **MyVM1** in the **MyResourceGroupLB** resource group.
    
 1. On the **Overview** page, select **Connect** and then select **Download RDP file**. 
-
+   
 1. Open the RDP file you downloaded, and select **Connect**.
    
 1. On the Windows Security screen, select **More choices** and then **Use a different account**. 
    
    Enter username **azureuser** and password **Azure1234567**, and select **OK**.
-
+   
 1. Respond **Yes** to any certificate prompt. 
    
-**To install IIS:**
+   The VM desktop opens in a new window. 
+   
+**To install IIS on the VM:**
 
 1. If **Server Manager** is not already open on the server desktop, browse to **Windows Administrative Tools** > **Server Manager**.
    
@@ -254,11 +256,11 @@ Paste your load balancer's public IP address into the browser's address bar. The
 
 ## Clean up resources
 
-To delete the load balancer and all related resources when you no longer need them, open **MyResourceGroupLB** and select **Delete resource group**.
+To delete the load balancer and all related resources when you no longer need them, open the **MyResourceGroupLB** resource group and select **Delete resource group**.
 
 ## Next steps
 
-In this quickstart, you created a Basic-tier load balancer. You created and configured a resource group, network resources, back-end servers, and a health probe and rules for the load balancer. You tested the load balancer with IIS web servers. 
+In this quickstart, you created a Basic-tier load balancer. You created and configured a resource group, network resources, back-end servers, a health probe, and rules for the load balancer. You used IIS to test the load balancer on VMs. 
 
 To learn more about Azure Load Balancer, continue to the tutorials.
 
