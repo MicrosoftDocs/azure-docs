@@ -43,7 +43,7 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 |Page blob max size|8 TB|1 TB
 |Page blob page size|512 bytes|4 KB
 |Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
-|Blob snapshot|The max number of snapshots of one blob isn’t limited.|The max number of snapshots of one blob is 8,196.
+|Blob snapshot|The max number of snapshots of one blob isn’t limited.|The max number of snapshots of one blob is 1,000.
 |Azure AD Authentication for storage|In preview|Not yet supported.
 |Immutable Blobs|General available|Not yet supported.
 |Firewall and virtual network rules for storage|General available|Not yet supported.|
