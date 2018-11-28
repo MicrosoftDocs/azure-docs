@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # (DEPRECATED) Scale an Azure Container Service Cluster
 
-[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 This sample scales and Azure Container Service. 
 
