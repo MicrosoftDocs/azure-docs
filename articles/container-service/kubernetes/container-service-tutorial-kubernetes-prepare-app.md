@@ -2,13 +2,13 @@
 title: (DEPRECATED) Azure Container Service tutorial - Prepare App
 description: Azure Container Service tutorial - Prepare App 
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
