@@ -56,7 +56,7 @@ This feature provides a graphical trend of the number of changes that are being 
 
 ![Sync Latency](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## Object Level Synchronization Error Report (Preview)
+## Object Level Synchronization Error Report
 This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Azure AD using Azure AD Connect.
 
 * The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
