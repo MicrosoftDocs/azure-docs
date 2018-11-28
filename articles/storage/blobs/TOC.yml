@@ -582,7 +582,7 @@
     - name: Create/connect Databricks account
       href: ../data-lake-storage/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create an HDInsight cluster
-      href: ../data-lake-storage/quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../data-lake-storage/data-lake-storage-quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Tutorials
     items:
     - name: Extract, transform, and load data using Azure Databricks
