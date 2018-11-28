@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -36,18 +36,18 @@ Similar to a role assignment, a *deny assignment* binds a set of deny actions to
 > | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
 > | `Scope` | No | String | A string that specifies the scope that the deny assignment applies to. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifies whether the deny assignment applies to child scopes. Default value is false. |
-> | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, or service principal) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
-> | `Principals[i].Type` | No | String[] | An array of object types represented by Principals[i].Id. Set to `AllPrincipals` to represent all principals. |
-> | `ExcludePrincipals[i].Id` | No | String[] | An array of Azure AD principal object IDs (user, group, or service principal) to which the deny assignment does not apply. |
+> | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
+> | `Principals[i].Type` | No | String[] | An array of object types represented by Principals[i].Id. Set to `SystemDefined` to represent all principals. |
+> | `ExcludePrincipals[i].Id` | No | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment does not apply. |
 > | `ExcludePrincipals[i].Type` | No | String[] | An array of object types represented by ExcludePrincipals[i].Id. |
 > | `IsSystemProtected` | No | Boolean | Specifies whether this deny assignment was created by Azure and cannot be edited or deleted. Currently, all deny assignments are system protected. |
 
-## All Principals
+## System-Defined Principal
 
-To support deny assignments, a system-defined principal named **All Principals** has been introduced. This principal represents all users, groups, service principals, and managed identities in an Azure AD directory. If the principal ID is a zero GUID `00000000-0000-0000-0000-000000000000` and the principal type is `AllPrincipals`, the principal represents all principals. `AllPrincipals` can be combined with `ExcludePrincipals` to deny all principals except some users. `AllPrincipals` has the following constraints:
+To support deny assignments, the **System-Defined Principal** has been introduced. This principal represents all users, groups, service principals, and managed identities in an Azure AD directory. If the principal ID is a zero GUID `00000000-0000-0000-0000-000000000000` and the principal type is `SystemDefined`, the principal represents all principals. `SystemDefined` can be combined with `ExcludePrincipals` to deny all principals except some users. `SystemDefined` has the following constraints:
 
 - Can be used only in `Principals` and cannot be used in `ExcludePrincipals`.
-- `Principals[i].Type` must be set to `AllPrincipals`.
+- `Principals[i].Type` must be set to `SystemDefined`.
 
 ## Next steps
 
