@@ -13,40 +13,79 @@ ms.date: 12/4/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
-# Samples: Use Jupyter Notebooks to explore Azure Machine Learning service
+# Use Example Jupyter notebooks to explore the Azure Machine Learning service
 
-For your convenience, we have developed a series of Jupyter Python notebooks you can use to explore the Azure Machine Learning service. Learn how to use the service with the documentation on this site and use these notebooks to customize them to your situation.  
+For your convenience, we have developed a series of Jupyter Python notebooks you can use to explore the Azure Machine Learning service. 
 
-## Try Azure Notebooks - Free Jupyter based notebooks in the Azure cloud
-The SDK is already installed and configured for you on Azure Notebooks.
+Learn how to use the service with the documentation on this site and use these notebooks to customize them to your situation. 
+
+## Prerequisite
+
+Complete the [Azure Machine Learning Python quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
+
+## Try Azure Notebooks: Free Jupyter notebooks in the cloud
+
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on Azure Notebooks. The installation and future updates are automatically managed via Azure services.
   
-1. Complete the [getting started quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
++ To run the **core tutorial notebooks**:
+  1. Go to [Azure Notebooks](https://notebooks.azure.com/).
+    
+  1. Find the **tutorials** folder in the  **Getting Started** library you created during the prerequisite quickstart.
+    
+  1. Open the notebook you want to run.
+    
++ To run **other notebooks**:
 
-1. Go to [Azure Notebooks](https://notebooks.azure.com/)
+  1. [Import the sample notebooks](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
 
-1. In the `Getting Started` Library you created during the quickstart, go to the `tutorials` folder
+  1. Add a workspace configuration file to the library using either of these methods:
+     + Copy the **config.json** file from the **Getting Started** Library into the new cloned library.
 
-1. Open the notebook.
+     + Create a new workspace using code in the [00.configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/00.configuration.ipynb).
+    
+  1. Open the notebook you want to run.     
 
-## Use your own Jupyter notebook server
 
-1. Complete the [getting started with Python SDK quickstart](quickstart-create-workspace-with-python.md) to install the SDK and create a workspace.
+## Use a Data Science Virtual Machine (DSVM)
+
+The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook server are already installed and configured for you on a DSVM. Use these steps run the notebooks.
+
+1. [Create a DSVM](how-to-configure-environment.md#dsvm).
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
-1. Copy the `aml_config` directory you created during the quickstart into your cloned directory.
+1. Add a workspace configuration file to the library using either of these methods:
+    * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
+
+    * Create a new workspace using code in the [00.configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/00.configuration.ipynb).
 
 1. Start the notebook server from your cloned directory.
 
-1. Go to the `tutorials` folder.
+## Use your own Jupyter notebook server
+
+Use these steps to create a local Jupyter Notebook server on your computer.
+
+1. Ensure you've completed the prerequisite quickstart in which you installed the Azure Machine Learning SDKs.
+
+1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
+
+1. Add a workspace configuration file to the library using either of these methods:
+    * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
+    
+    * Create a new workspace using code in the [00.configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/00.configuration.ipynb).
+
+1. Start the notebook server from your cloned directory.
+
+1. Go to the folder containing the notebook.
 
 1. Open the notebook.
+
 
 ## Next steps
 
 Explore the [GitHub notebooks repository for Azure Machine Learning service](https://aka.ms/aml-notebooks)
 
 Try these tutorials:
-+ Classify Images with MNIST
++ [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
 
-+ Perform regression model with the NYC taxi data set
++ [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-data-prep.md)
