@@ -86,8 +86,6 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * HTTP user: The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters): Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
-
 ## <a name="location"></a>Location (regions) for clusters and storage
 
 You don't need to specify the cluster location explicitly; the cluster is in the same location as the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
