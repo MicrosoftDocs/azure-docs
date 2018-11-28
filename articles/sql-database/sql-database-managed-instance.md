@@ -146,7 +146,7 @@ Migration of an encrypted database to SQL Managed Instance is supported via the 
 
 Azure SQL Database Managed Instance supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). AAD Logins (**public preview**) are Azure cloud version of Windows database logins that you are using in your on-premises environment. AAD logins enables you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries.
 
-A new syntax is introduced for AAD logins (**public preview**). For more information, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+A new syntax is introduced to create AAD logins (**public preview**), **FROM EXTERNAL PROVIDER**. For more information, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 ### Azure Active Directory integration and multi-factor authentication
 
