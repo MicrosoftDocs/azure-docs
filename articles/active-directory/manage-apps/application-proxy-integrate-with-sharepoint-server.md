@@ -58,26 +58,6 @@ To ensure that your sites are running under a defined service account, perform t
 4. If **Select an account for this component** field is set to **Local Service** or **Network Service**, you need to create an account. If not, you're finished and can move to the next section.
 5. Select **Register new managed account**. After your account is created, you must set **Web Application Pool** before you can use the account.
 
-### Configure SharePoint for Kerberos
-
-You use KCD to perform single sign-on to the SharePoint server.
-
-To configure your SharePoint site for Kerberos authentication:
-
-1. Open the **SharePoint 2013 Central Administration** site.
-2. Go to **Application Management**, select **Manage web applications**, and select your SharePoint site. In this example, it is **SharePoint - 80**.
-
-  ![Selecting the SharePoint site](./media/application-proxy-integrate-with-sharepoint-server/manage-web-applications.png)
-
-3. Click **Authentication Providers** on the toolbar.
-4. In the **Authentication Providers** box, click **Default Zone** to view the settings.
-5. In the **Edit Authentication** dialog box, scroll down until you see **Claims Authentication Types**. Ensure that both **Enable Windows Authentication** and **Integrated Windows Authentication** are selected.
-6. In the drop-down box for the Integrated Windows Authentication field, make sure that **Negotiate (Kerberos)** is selected.
-
-  ![Edit Authentication dialog box](./media/application-proxy-integrate-with-sharepoint-server/service-edit-authentication.png)
-
-7. At the bottom of the **Edit Authentication** dialog box, click **Save**.
-
 ### Set a service principal name for the SharePoint service account
 
 Before you configure  KCD, you need to identify the SharePoint service running as the service account that you've configured. Identify the service by setting an SPN. For more information, see [Service Principal Names](https://technet.microsoft.com/library/cc961723.aspx).
@@ -179,28 +159,32 @@ Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're rea
 
 3. To finish setting up your application, go to the **Users and groups** section and assign users to access this application. 
 
-## Step 3: Ensure that SharePoint knows about the external URL
+## Step 3: Configure SharePoint to use Kerberos and Azure AD Proxy URLs
 
-Your last step is to ensure that SharePoint can find the site based on the external URL, so that it renders links based on that external URL. You do this by configuring alternate access mappings for the SharePoint site.
+Your last step is to extend SharePoint web application to a new zone, configured with Kerberos and the appropriate alternate access mapping to allow SharePoint to handle incoming requests sent on the Internal URL, and respond with links built on the External URL.
 
-1. Open the **SharePoint 2013 Central Administration** site.
-2. Under **System Settings**, select **Configure Alternate Access Mappings**. The Alternate Access Mappings box opens.
+1. Start the **SharePoint 2013 Mamangement Shell**.
+2. Run the following script to extend the web application to zone Extranet and enable Kerberos authentication. Replace "https://sharepoint-iddemo.msappproxy.net" with the External URL in Azure AD proxy application:
 
-  ![Alternate Access Mappings box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+```powershell
+$winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
+Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-iddemo.msappproxy.net" -AuthenticationProvider $winAp
+```
 
-3. In the drop-down list beside **Alternate Access Mapping Collection**, select **Change Alternate Access Mapping Collection**.
-4. Select your site--for example, **SharePoint - 80**.
-5. You can choose to add the published URL as either an internal URL or a public URL. This example uses a public URL as the extranet. If you are using a custom port make sure to include your custom port in the URL.
-6. Click **Edit Public URLs** in the **Extranet** path, and then enter the External URL that was created when you published the application. For example, enter **https://sharepoint-iddemo.msappproxy.net**.
+3. Open the **SharePoint 2013 Central Administration** site.
+4. Under **System Settings**, select **Configure Alternate Access Mappings**. The Alternate Access Mappings box opens.
 
-  ![Entering the path](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
+![Alternate Access Mappings box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+5. Select your site--for example, **SharePoint - 80**. For the moment, Extranet zone doesn't have the Internal URL properly set yet:
+6. Click **Add Internal URLs**
+7. In the **Add Internal URLs** page: in **URL protocol, host and port** textbox, type the **Internal URL** configured in Azure AD proxy, e.g. "https://SharePoint/" and select Zone **Extranet** in the drop down list.
+8. Click **Save**.
+9. The Alternate Access Mappings should now look like this:
 
-7. Click **Save**.
-
+![Correct Alternate Access Mappings](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 You can now access the SharePoint site externally via Azure AD Application Proxy.
 
 ## Next steps
 
 - [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
 - [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-
