@@ -77,8 +77,6 @@
       href: How-To/create-knowledge-base.md
     - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
-    - name: Use metadata with GenerateAnswer API
-      href: How-To/metadata-generateanswer-usage.md
     - name: Migrate a knowledge base from Preview
       href: Tutorials/migrate-knowledge-base.md
     - name: Edit a knowledge base
@@ -91,6 +89,12 @@
       href: How-To/publish-knowledge-base.md
     - name: Test a knowledge base
       href: How-To/test-knowledge-base.md
+  - name: Use knowledge base
+    items: 
+    - name: Get answer from knowledge base
+      href: How-To/use-knowledge-base.md
+    - name: Use metadata with GenerateAnswer API
+      href: How-To/metadata-generateanswer-usage.md    
   - name: Integrate with other services
     items:
     - name: Integrate QnA Maker and LUIS
