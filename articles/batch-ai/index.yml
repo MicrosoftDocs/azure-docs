@@ -13,7 +13,7 @@ metadata:
   ms.date: 12/14/2018
   ms.author: jmartens
 abstract:
-  description: <p><strong>NOTE:</strong> <strong>Azure Batch AI is being retired.</strong> Support for this service will be retired incrementally. The capabilities of Azure Batch AI are now available as a managed compute target in <a href"https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets">Azure Machine Learning service</a>. For more information, see <a href="https://review.docs.microsoft.com/en-us/azure/batch-ai/overview-what-happened-to-batch-ai">What's happening to Batch AI?</a>
+  description: <p><strong>NOTE:</strong> <strong>Azure Batch AI is being retired.</strong> Support for this service will be retired incrementally. The capabilities of Azure Batch AI are now available as a managed compute target in <a href="https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets">Azure Machine Learning service</a>. For more information, see <a href="https://review.docs.microsoft.com/en-us/azure/batch-ai/overview-what-happened-to-batch-ai">What's happening to Batch AI?</a>
 sections:
 - title: 5-Minute Quickstarts
   items:
