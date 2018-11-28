@@ -27,7 +27,7 @@ In this article, we look at these stages with respect to Azure Data Lake Storage
 ## Ingest data into Data Lake Storage Gen2
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
 
-![Ingest data into Data Lake Storage Gen2](./media/data-scenarios/ingest-data.png "Ingest data into Data Lake Storage Gen2")
+![Ingest data into Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Ingest data into Data Lake Storage Gen2")
 
 ### Ad hoc data
 This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data.
@@ -76,17 +76,12 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the options below.
 
 * **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
-* **"Offline" upload of data**. If using Azure ExpressRoute is not feasible for any reason, you can use [Azure Import/Export service](../common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs.
-
-  > [!NOTE]
-  > While using the Import/Export service, the file sizes on the disks that you ship to Azure data center should not be greater than 195 GB.
-  >
-  >
+* **"Offline" upload of data**. If using Azure ExpressRoute is not feasible for any reason, you can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to ship your data to an Azure data center.
 
 ## Process data stored in Data Lake Storage Gen2
 Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. Currently, you can use Azure HDInsight and Azure Databricks to run data analysis jobs on the data stored in Data Lake Storage Gen2.
 
-![Analyze data in Data Lake Storage Gen2](./media/data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
+![Analyze data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
 
 
 ## Download data from Data Lake Storage Gen2
@@ -95,7 +90,7 @@ You might also want to download or move data from Azure Data Lake Storage Gen2 f
 * Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or on-premises SQL Server.
 * Download data to your local computer for processing in IDE environments while building application prototypes.
 
-![Egress data from Data Lake Storage Gen2](./media/data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen2")
+![Egress data from Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen2")
 
 In such cases, you can use any of the following options:
 
@@ -105,7 +100,7 @@ In such cases, you can use any of the following options:
 ## Visualize data in Data Lake Storage Gen2
 You can use a mix of services to create visual representations of data stored in Data Lake Storage Gen2.
 
-![Visualize data in Data Lake Storage Gen2](./media/data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen2")
+![Visualize data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen2")
 
 * You can start by using [Azure Data Factory to move data from Data Lake Storage Gen2 to Azure SQL Data Warehouse](../../data-factory/copy-activity-overview.md)
 * After that, you can [integrate Power BI with Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.

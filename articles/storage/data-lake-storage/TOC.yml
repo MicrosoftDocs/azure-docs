@@ -17,7 +17,7 @@
 - name: Tutorials
   items:
   - name: Extract, transform, and load data using Azure Databricks
-    href: handle-data-using-databricks.md
+    href: data-lake-storage-handle-data-using-databricks.md
   - name: Access Data Lake Storage data with Databricks using Spark
     href: using-databricks-spark.md
   - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
@@ -25,7 +25,7 @@
 - name: Concepts
   items:
   - name: The Azure Blob FileSystem driver for Hadoop
-    href: 
+    href: data-lake-storage-abfs-driver.md
   - name: Introduction to the Azure Blob File System URI
     href: introduction-abfs-uri.md
   - name: The Hierarchical Namespace Service

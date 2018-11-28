@@ -38,7 +38,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 > During the public preview of Data Lake Storage Gen2, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated.
 > [Sign up](https://aka.ms/adlsgen2signup) to the public preview of Data Lake Storage Gen2.  
 
-- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./) is available within all Apache Hadoop environments, including [Azure HDInsight](../../hdinsight/index.yml) and [Azure Databricks](../../azure-databricks/index.yml) to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](./data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](../../hdinsight/index.yml) and [Azure Databricks](../../azure-databricks/index.yml) to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
@@ -46,7 +46,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
-- **Optimized driver**: The `abfs` driver is [optimized specifically](./) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, `dfs.core.windows.net`.
+- **Optimized driver**: The `abfs` driver is [optimized specifically](./data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, `dfs.core.windows.net`.
 
 ## Scalability
 

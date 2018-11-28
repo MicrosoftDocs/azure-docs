@@ -27364,6 +27364,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/data-lake-storage/data-scenarios.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-data-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/handle-data-using-databricks.md",
+            "redirect_url": "/azure/storage/data-lake-storage/data-lake-storage-handle-data-using-databricks",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false

@@ -572,7 +572,7 @@
     - name: Introduction to Data Lake Storage
       href: ../data-lake-storage/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Processing big data
-      href: ../data-lake-storage/data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../data-lake-storage/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Working with open source applications
       href: ../data-lake-storage/data-lake-storage-compatible-oss-other-applications.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Quickstarts
@@ -586,7 +586,7 @@
   - name: Tutorials
     items:
     - name: Extract, transform, and load data using Azure Databricks
-      href: ../data-lake-storage/handle-data-using-databricks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../data-lake-storage/data-lake-storage-handle-data-using-databricks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Access Data Lake Storage data with Databricks using Spark
       href: ../data-lake-storage/using-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Extract, transform, and load data using Apache Hive on Azure HDInsight
