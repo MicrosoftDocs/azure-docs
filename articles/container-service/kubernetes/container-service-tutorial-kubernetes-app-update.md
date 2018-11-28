@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Update an application in Kubernetes
 
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-app-update.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 

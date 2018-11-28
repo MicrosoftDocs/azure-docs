@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Deploy and use Azure Container Registry
 
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-prepare-acr.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of seven, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:

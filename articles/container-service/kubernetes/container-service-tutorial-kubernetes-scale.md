@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Scale Kubernetes pods and Kubernetes infrastructure
 
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-scale.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 

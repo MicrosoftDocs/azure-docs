@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Introduction to Azure Container Service for Kubernetes
 
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/intro-kubernetes.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Service for Kubernetes makes it simple to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.

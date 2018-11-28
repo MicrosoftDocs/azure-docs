@@ -12,6 +12,9 @@ ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ---
 
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/faq.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [!INCLUDE [container-service-faq.md](../../../includes/container-service-faq.md)]

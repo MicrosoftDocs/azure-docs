@@ -14,6 +14,9 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter
 
 # (DEPRECATED) Deploy Kubernetes cluster for Linux containers
 
+> [!TIP]
+> For the updated version this quickstart that uses Azure Kubernetes Service, see [here](../../aks/kubernetes-walkthrough.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet. 

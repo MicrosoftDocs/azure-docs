@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Using the Kubernetes web UI with Azure Container Service
 
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/kubernetes-dashboard.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites

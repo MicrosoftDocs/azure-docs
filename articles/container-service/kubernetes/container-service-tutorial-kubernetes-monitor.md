@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Monitor a Kubernetes cluster with Log Analytics
 
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [](../../azure-monitor/insights/container-insights-overview.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps.

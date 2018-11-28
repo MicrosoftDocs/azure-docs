@@ -14,6 +14,9 @@ ms.custom: mvc
 
 # (DEPRECATED) Run applications in Kubernetes
 
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-deploy-application.md)
+
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
