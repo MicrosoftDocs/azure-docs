@@ -55,7 +55,7 @@ See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-se
 |DASH in AMP|10s|8s|
 |HLS on native iOS player|14s|10s|
 
-> [!Note]
+> [!NOTE]
 > The end-to-end latency can vary depending on local network conditions or by introducing a CDN caching layer. You should test your exact configurations.
 
 ## Next steps
