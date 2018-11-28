@@ -354,6 +354,19 @@ You can use a LUIS application if it **doesn't include** any of the following de
 ||X|Sentiment analysis|External dependencies are not supported in the container.|
 ||X|Bing spell check|External dependencies are not supported in the container.|
 
+## Summary
+
+In this article, you learned concepts and workflow for downloading, installing, and running Language Understanding (LUIS) containers. In summary:
+
+* Language Understanding (LUIS) provides one Linux containers for Docker providing endpoint query predictions of utterances.
+* Container images are downloaded from the Microsoft Container Registry (MCR).
+* Container images run in Docker.
+* You can use either the REST API or SDK to query the container endpoints by specifying the host URI of the container.
+* You must specify billing information when instantiating a container.
+
+> [!IMPORTANT]
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
