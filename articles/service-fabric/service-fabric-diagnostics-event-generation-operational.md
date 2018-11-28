@@ -23,11 +23,11 @@ ms.author: dekapur
 Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring in a number of ways including configuring [Log Analytics with your cluster](service-fabric-diagnostics-oms-setup.md), or querying the [EventStore](service-fabric-diagnostics-eventstore.md). On Windows machines, these events are fed into the EventLog - so you can see Service Fabric Events in Event Viewer. 
 
 Here are some characteristics of these events
-* Each event is tied to a specific entity in the cluster e.g. Application, Service, Node, Replica
-* Each event contains a set of common fields: EventInstaceId, EventName, and Category
-* Each event contains fields that tie the event back to the entity it is associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created 
-* Events are structured in such a way that they can be consumed in a variety of tools to do richer analysis and relevant details to an event are defined as separate properties versus a long String 
-* Events are written by different subsystems in Service Fabric identifyed by Source(Task) below. More information is available on these subsystems in [Service Fabric Architecture](service-fabric-architecture.md) and [Service Fabric Technical Overview](service-fabric-technical-overview.md)
+* Each event is tied to a specific entity in the cluster e.g. Application, Service, Node, Replica.
+* Each event contains a set of common fields: EventInstanceId, EventName, and Category.
+* Each event contains fields that tie the event back to the entity it is associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created.
+* Events are structured in such a way that they can be consumed in a variety of tools to do further analysis. Additionally, relevant details for an event are defined as separate properties as opposed to a long String. 
+* Events are written by different subsystems in Service Fabric are identified by Source(Task) below. More information is available on these subsystems in [Service Fabric Architecture](service-fabric-architecture.md) and [Service Fabric Technical Overview](service-fabric-technical-overview.md).
 
 Here is a list of these Service Fabric events organized by entity.
 
@@ -35,7 +35,7 @@ Here is a list of these Service Fabric events organized by entity.
 
 **Cluster upgrade events**
 
-More details on cluster upgrades can be found [here](service-fabric-cluster-upgrade-windows-server.md)
+More details on cluster upgrades can be found [here](service-fabric-cluster-upgrade-windows-server.md).
 
 | EventId | Name | Category | Description |Source (Task) | Level | 
 | --- | --- | --- | --- | --- | --- | 
@@ -74,7 +74,7 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 
 **Application upgrade events**
 
-More details on application upgrades can be found [here](service-fabric-application-upgrade.md)
+More details on application upgrades can be found [here](service-fabric-application-upgrade.md).
 
 | EventId | Name | Category | Description |Source (Task) | Level | 
 | --- | --- | ---| --- | --- | --- | 
@@ -113,7 +113,7 @@ More details on application upgrades can be found [here](service-fabric-applicat
 
 ## Health reports
 
-The [Service Fabric Health Model](service-fabric-health-introduction.md) provides a rich, flexible, and extensible health evaluation and reporting. Starting in version 6.2, health data is written as Platform events to provide historical records of health. To keep the volume of health events low, we only write the following as Service Fabric events:
+The [Service Fabric Health Model](service-fabric-health-introduction.md) provides a rich, flexible, and extensible health evaluation and reporting. Starting Service Fabric version 6.2, health data is written as Platform events to provide historical records of health. To keep the volume of health events low, we only write the following as Service Fabric events:
 
 * All `Error` or `Warning` health reports
 * `Ok` health reports during transitions
