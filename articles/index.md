@@ -1554,7 +1554,13 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                        <li>
+                                            <a href="/azure/dedicated-hsm">
+                                                <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                <p>Azure Dedicated HSM</p>
+                                            </a>
+                                        </li>
+					    <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS protection</p>
                                             </a>
@@ -4574,7 +4580,26 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                <a href="/azure/dedicated-hsm/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Dedicated HSM</h3>
+                                                    <p>Use cryptographic key storage in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+			        <a href="/azure/virtual-network/ddos-protection-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
