@@ -1,6 +1,6 @@
 ---
 title: Migrate from Azure Germany to global Azure
-description: Introduction to migrating from Azure Germany to global Azure
+description: An introduction to migrating resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -13,7 +13,7 @@ ms.custom: bfmigrate
 
 # Overview of migration guidance for Azure Germany
 
-The articles in this section provide guidance for migrating your workloads from Azure Germany to global Azure. Although Azure provides tools in the [Azure migration center](https://azure.microsoft.com/migration/) to help you migrate resources, some of the tools in the Azure migration center are designed only for migrations in the same tenant or in the same region.
+The articles in this section were created to help you migrate your workloads from Azure Germany to global Azure. Although the [Azure migration center](https://azure.microsoft.com/migration/) provides tools that help you migrate resources, some of the tools in the Azure migration center are useful only for migrations that occur in the same tenant or in the same region.
 
 The two regions in Germany are entirely separate from global Azure. The clouds in global Azure and in Germany have their own, separate Azure Active Directory (Azure AD) instances. Because of this, Azure Germany tenants are separate from global Azure tenants. This article describes the migration tools that are available when you migrate between *different* tenants.
 
@@ -37,7 +37,7 @@ In the assessment stage, compile an inventory of resources:
   - Document the count of each Azure resource and the amount of data that's associated with each instance you want to migrate.
   - Ensure that application architecture documents are consistent with the Azure resources list.
 
-At the end of this stage, you'll have:
+At the end of this stage, you have:
 
 - A complete list of Azure resources that are in use.
 - A list of dependencies between resources.

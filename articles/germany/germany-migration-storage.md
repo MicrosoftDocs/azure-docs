@@ -1,5 +1,5 @@
 ---
-title: Migrate storage resources from  Azure Germany to global Azure
+title: Migrate Azure storage resources from Azure Germany to global Azure
 description: This article provides information about migrating storage resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
@@ -13,7 +13,7 @@ ms.custom: bfmigrate
 
 # Migrate Azure storage resources to global Azure
 
-This article helps you migrate Azure storage resources from Azure Germany to global Azure.
+This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
 
 ## Blobs
 
@@ -62,17 +62,18 @@ azcopy -v /source:https://migratetest.blob.core.cloudapi.de/vhds /sourcekey:"0LN
 
 To get a consistent copy of the VHD, shut down the VM before you copy the VHD. Plan some downtime for the copy activity. When the VHD is copied, [rebuild your VM in the target environment](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-For more information, see these articles:
-- [AzCopy documentation](../storage/common/storage-use-azcopy.md)
-- [Create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+For more information:
+
+- Review the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+- Learn how to [create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## Managed Disks
 
 Azure Managed Disks simplifies disk management for Azure infrastructure as a service (IaaS) VMs by managing the storage accounts that are associated with the VM disk. 
 
-Because you don't have direct access to the .vhd file, you can't directly use tools like AzCopy to copy your files (see [Blobs](#blobs)). The workaround is to first export the managed disk by getting a temporary SAS URI, and then download it or copy it by using this information. The following sections show an example of how to get the SAS URI and what to do with it.
+Because you don't have direct access to the .vhd file, you can't directly use tools like AzCopy to copy your files (see [Blobs](#blobs)). The workaround is to first export the managed disk by getting a temporary shared access signature URI, and then download it or copy it by using this information. The following sections show an example of how to get the shared access signature URI and what to do with it.
 
-### Step 1: Get the SAS URI
+### Step 1: Get the shared access signature URI
 
 1. In the portal, search for your managed disk. (It's in the same resource group as your VM. The resource type is **Disk**.)
 1. On the **Overview** page, select the **Export** button in the top menu (you have to shut down and deallocate your VM first, or unattach the VM).
@@ -82,7 +83,7 @@ Because you don't have direct access to the .vhd file, you can't directly use to
 
 ### Step 2: AzCopy
 
-For examples of how to use AzCopy, see [Blobs](#blobs). Use AzCopy (or a similar tool) to copy the disk directly from your source environment to the target environment. In AzCopy, you have to split the URI into the base URI and the SAS part. The SAS part of the URI begins with the character "**?**". The portal provides this URI for the SAS URI:
+For examples of how to use AzCopy, see [Blobs](#blobs). Use AzCopy (or a similar tool) to copy the disk directly from your source environment to the target environment. In AzCopy, you have to split the URI into the base URI and the shared access signature part. The shared access signature part of the URI begins with the character "**?**". The portal provides this URI for the shared access signature URI:
 
 ```http
 https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D>
@@ -119,9 +120,27 @@ You have several options for creating a new managed disk. Here's how to do it in
 As noted earlier, there are multiple ways to create a VM by using this new managed disk. Here are two options:
 
 - In the portal, select the disk, and then select **Create VM**. Define the other parameters of your VM as usual.
-- In PowerShell, see [Create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+- For PowerShell, see [Create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+
+For more information:
+
+- Learn how to export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a shared access signature URI. 
+- Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) from an unmanaged blob.
+
 
 ## Next steps
 
-- Export to disk [via API](/rest/api/compute/disks/grantaccess) by getting an SAS URI. 
-- Create a managed disk [via API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) from an unmanaged blob.
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)
+
