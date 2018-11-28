@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/28/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
@@ -32,7 +32,7 @@ This article assumes that you already have SharePoint 2013 or newer in your envi
 
 * This scenario includes configuration changes to your SharePoint server. We recommend using a staging environment. This way, you can make updates to your staging server first, and then facilitate a testing cycle before going into production.
 
-* We require SSL on the published URL. You need to have SSL enabled on your internal site to ensure that links are sent/mapped correctly. If you haven't configured SSL, see [Configure SSL for SharePoint 2013](https://blogs.msdn.microsoft.com/fabdulwahab/2013/01/20/configure-ssl-for-sharepoint-2013) for instructions. Also, make sure that the connector machine trusts the certificate that you issue. (The certificate does not need to be publicly issued.)
+* We require SSL on the published URL. You need to have SSL enabled on your internal site to ensure that links are sent/mapped correctly. If you haven't configured SSL, see [Configure SSL for SharePoint](https://blogs.msdn.microsoft.com/fabdulwahab/2013/01/20/configure-ssl-for-sharepoint-2013) for instructions. Also, make sure that the connector machine trusts the certificate that you issue. (The certificate does not need to be publicly issued.)
 
 ## Step 1: Set up single sign-on to SharePoint
 
@@ -40,12 +40,12 @@ For on-premises applications that use Windows authentication, you can achieve si
 
 To set up KCD for a SharePoint server, use the procedures in the following sequential sections:
 
-### Ensure that SharePoint is running under a service account
+### Ensure that SharePoint web application is running under a domain account
 
-First, make sure that SharePoint is running under a defined service account--not local system, local service, or network service. Do this so that you can attach service principal names (SPNs) to a valid account. SPNs are how the Kerberos protocol identifies different services. And you will need the account later to configure the KCD.
+First, make sure that SharePoint web application is running under a domain account--not local system, local service, or network service. Do this so that you can attach service principal names (SPNs) to this account. SPNs are how the Kerberos protocol identifies different services. And you will need the account later to configure the KCD.
 
 > [!NOTE]
-You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint 2013](https://technet.microsoft.com/library/ff724280.aspx).
+You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint](https://technet.microsoft.com/library/ff724280.aspx).
 
 To ensure that your sites are running under a defined service account, perform the following steps:
 
@@ -71,9 +71,7 @@ The SPN format is:
 In the SPN format:
 
 * _service class_ is a unique name for the service. For SharePoint, you use **HTTP**.
-
 * _host_ is the fully qualified domain or NetBIOS name of the host that the service is running on. For a SharePoint site, this text might need to be the URL of the site, depending on the version of IIS that you're using.
-
 * _port_ is optional.
 
 If the FQDN of the SharePoint server is:
@@ -140,9 +138,9 @@ To configure the KCD, repeat the following steps for each connector machine:
 Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're ready to publish the SharePoint farm for remote access through Azure AD Application Proxy.
 
 1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
-   - **Internal URL**: the URL of the SharePoint site internally, such as **https://SharePoint/**. In this example, make sure to use **https**
-   - **Preauthentication Method**: Azure Active Directory
-   - **Translate URL in Headers**: NO
+   * **Internal URL**: the URL of the SharePoint site internally, such as **https://SharePoint/**. In this example, make sure to use **https**
+   * **Preauthentication Method**: Azure Active Directory
+   * **Translate URL in Headers**: NO
 
    >[!TIP]
    >SharePoint uses the _Host Header_ value to look up the site. It also generates links based on this value. The net effect is that any link that SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to **YES** also enables the connector to forward the request to the back-end application. However, setting the value to **NO** means that the connector will not send the internal host name. Instead, the connector sends the host header as the published URL to the back-end application.
@@ -154,6 +152,7 @@ Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're rea
    1. On the application page in the portal, select **Single sign-on**.
    2. For Single Sign-on Mode, select **Integrated Windows Authentication**.
    3. Set Internal Application SPN to the value that you set earlier. For this example, that would be **http/sharepoint.demo.o365identity.us**.
+   4. In "Delegated Login Identity", select *On-premises SAM account name*
 
    ![Configure Integrated Windows Authentication for SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -164,9 +163,11 @@ Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're rea
 Next step is to extend SharePoint web application to a new zone, configured with Kerberos and the appropriate alternate access mapping to allow SharePoint to handle incoming requests sent to the Internal URL, and respond with links built for the External URL.
 
 1. Start the **SharePoint Mamangement Shell**.
-2. Run the following script to extend the web application to zone Extranet and enable Kerberos authentication. Replace <https://sharepoint-iddemo.msappproxy.net> with the External URL in Azure AD proxy application:
+2. Run the following script to extend the web application to Extranet zone and enable Kerberos authentication:
 
 ```powershell
+# Replace "http://spsites/" with the URL of your web application
+# Replace "https://sharepoint-iddemo.msappproxy.net" with the External URL in Azure AD proxy application
 $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
 Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-iddemo.msappproxy.net" -AuthenticationProvider $winAp
 ```
@@ -185,7 +186,7 @@ Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "Sh
 
 ![Correct Alternate Access Mappings](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
-## Step 4: Ensure that a HTTPS certificate is configured for the IIS site of the new SharePoint zone
+## Step 4: Ensure that a HTTPS certificate is configured for the IIS site of the Extranet zone
 
 SharePoint configuration is now finished, but since the Internal URL of the Extranet zone is <https://SharePoint/>, a certificate must be set for this site.
 
@@ -193,12 +194,12 @@ SharePoint configuration is now finished, but since the Internal URL of the Extr
 2. Run the following script to generate a self-signed certificate and add it to the computer MY store:
 
 ```powershell
-# Replace "SharePoint" with the actual hostname of the Internal URL in Azure AD proxy application
+# Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
 New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
 ```
 
 > [!NOTE]
-Self-signed certificate is suitable only for test purpose. In a production environment, it is strongly recommended to use a certificate issued by a certificate authority.
+Self-signed certificate is suitable only for test purpose. In production environments, it is strongly recommended to use certificates issued by a certificate authority instead.
 
 3. Open "Internet Information Services Manager" console.
 4. Expand the server in the tree view, expand "Sites", select the site "SharePoint - AAD Proxy" and click on **Bindings**.
@@ -209,5 +210,5 @@ You can now access the SharePoint site externally via Azure AD Application Proxy
 
 ## Next steps
 
-- [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
-- [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+* [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
+* [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
