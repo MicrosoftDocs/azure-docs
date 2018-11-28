@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.author: danlep
 ---
 
