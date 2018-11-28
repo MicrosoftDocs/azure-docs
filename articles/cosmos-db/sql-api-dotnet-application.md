@@ -106,7 +106,10 @@ Now let's add the models, views, and controllers to this MVC application:
 
 1. Name your new class **TodoItem.cs** and select **Add**. 
 
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Models/TodoItem.cs)]
+
 1. Next replace the code in Todoitem class with the following code:
+
       
    ```csharp
    namespace todo.Models
