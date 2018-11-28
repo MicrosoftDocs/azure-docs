@@ -230,7 +230,7 @@ The `durable get-instances` command can also be used with filters. In addition t
 If no filters (`created-after`, `created-before`, or `runtime-status`) are provided, then `top` instances will be retrieved with no regard to runtime status or creation time.
 
 ```bash
-func durable get-instances --created-after 2018-03-10T13:57:31.2311892Z --created-before  2018-03-10T23:59Z --top 15
+func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
 ```
 
 ## Terminating instances
