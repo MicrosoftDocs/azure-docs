@@ -15,22 +15,30 @@ ms.date: 09/24/2018
 
 With the Azure Machine Learning service, you can train your model in different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
 
-A compute target is the resource that runs your training script, or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
+A compute target is the resource that runs your training script, or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK, Portal or CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
 
-You can start with local runs on your machine, and then scale up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
+There are three broad categories of compute targets that we support:
+### Local
+This is your local machine, or a cloud based VM which you use as a dev/experimentation environment. 
+
+### Managed Compute
+Azure Machine Learning Compute is a managed compute offering that allows you to easily create single to multi-node compute for training, testing and batch inferencing.
+
+### Attached Compute
+You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
 
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 0.168 
 
 ## Supported compute targets
 
-Azure Machine Learning service supports the following compute targets:
+Azure Machine Learning service has varying support across the various compute targets:
 
-|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
+|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#batch)| ✓ | ✓ | ✓ | ✓ |
-|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
+|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
+|[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
@@ -38,16 +46,8 @@ Azure Machine Learning service supports the following compute targets:
 > [!IMPORTANT]
 > <a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. For more information on pipelines, see the [Pipelines in Azure Machine Learning](concept-ml-pipelines.md) document.
 
-__[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
-
-The key differentiators between the compute targets are:
-* __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware, drivers, and frameworks that are installed.
-* __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model.
-* __Automated model selection__: Azure Machine Learning service can intelligently recommend algorithm and hyperparameter selection when building a model. Automated model selection helps you converge to a high-quality model faster than manually trying different combinations. For more information, see the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) document.
-* __Pipelines__: Azure Machine Learning service enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
-
 > [!IMPORTANT]
-> Azure Machine Learning Compute and Azure Container Instances must be created from within a workspace. You cannot attach existing instances to a workspace.
+> Azure Machine Learning Compute must be created from within a workspace. You cannot attach existing instances to a workspace.
 >
 > Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
 
@@ -115,59 +115,110 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
 
 For a Jupyter Notebook that demonstrates training in a system-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
 
-<a id="batch"></a>
 ## <a id="amlcompute"></a>Azure Machine Learning Compute
 
-Azure Machine Learning Compute is part of the Azure Machine Learning service. You can use Azure Machine Learning Compute to distribute the training across a cluster of compute resources in the cloud. It can also be configured to enable a GPU resource.
+Azure Machine Learning Compute (AmlCompute) is managed compute infrastructure that allows the user to easily create single to multi-node compute of the appropriate VM Family. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, can be put behind a VNet and executes in a containerized environment packaging the dependencies as specified by the user. You can use AmlCompute to distribute the training across a cluster of CPU or GPU compute nodes in the cloud.
 
-The following example looks for an existing ML Compute cluster by name. If one is not found, it is created:
+**Note:** As with other Azure services, there are limits on certain resources (for eg. AmlCompute quota) associated with the Azure Machine Learning service. Please read [this article](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas) on the default limits and how to request more quota.
 
-TBD: Update code for managed compute
+There are a few ways to provision Azure Machine Learning Compute based on your scenarios. Lets look at each of them:
+
+### Run-time compute target
+You can provision AmlCompute as a compute target at run-time. In this case, the compute is auto-created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes. 
 
 ```python
-from azureml.core.compute import BatchAiCompute
-from azureml.core.compute import ComputeTarget
-import os
+from azureml.core.compute import ComputeTarget, AmlCompute
 
-# choose a name for your cluster
-batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
-cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
-cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
-autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
+#Let us first list the supported VM families for Azure Machine Learning Compute
+AmlCompute.supported_vmsizes()
 
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import DEFAULT_CPU_IMAGE
 
-if batchai_cluster_name in ws.compute_targets():
-    compute_target = ws.compute_targets()[batchai_cluster_name]
-    if compute_target and type(compute_target) is BatchAiCompute:
-        print('found compute target. just use it. ' + batchai_cluster_name)
-else:
-    print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = autoscale_enabled,
-                                                                cluster_min_nodes = cluster_min_nodes, 
-                                                                cluster_max_nodes = cluster_max_nodes)
+# create a new runconfig object
+run_config = RunConfiguration()
 
-    # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
+# signal that you want to use AmlCompute to execute script.
+run_config.target = "amlcompute"
+
+# AmlCompute will be created in the same region as workspace. Set vm size for AmlCompute from the list returned above
+run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
+
+#After specifying the Docker image and the conda environment, you can simply submit a run
+run = experiment.submit(script_run_config)
+
 ```
 
+### Dedicated compute target (Basic-create)
+You can provision a dedicated AmlCompute resource by simply defining two parameters thanks to smart defaults. By default it autoscales from 0 nodes and provisions dedicated VMs to run your job in a container. This is useful when you want to continously re-use the same target, debug it between jobs or simply share the resource with other users of your workspace.
 
-It takes around 5 minutes to create an ML Compute cluster.
+1. **vm_size**: VM family of the nodes provisioned by AmlCompute
+1. **max_nodes**: Maximum nodes to autoscale to while running a job on AmlCompute
 
-For a Jupyter Notebook that demonstrates training in an ML Compute cluster, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
 
-## <a id="dsvm"></a>Data Science Virtual Machine
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
 
-Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Data Science Virtual Machines (DSVM).
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print('Found existing cluster, use it.')
+except ComputeTargetException:
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                           max_nodes=4)
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+cpu_cluster.wait_for_completion(show_output=True)
+
+```
+
+### Dedicated compute target (Advanced-create)
+You can also specify additional properties or change defaults while provisioning AmlCompute using a more advanced configuration. This is useful when you want a dedicated cluster of 4 nodes (for example you can set the min_nodes and max_nodes to 4), or want the compute to be within an existing VNet in your subscription.
+In addition to vm_size and max_nodes, you can specify:
+
+1. **min_nodes**: Minimum nodes (default 0 nodes) to downscale to while running a job on AmlCompute
+1. **vm_priority**: Choose between 'dedicated' (default) and 'lowpriority' VMs when provisioning AmlCompute. Low Priority VMs use Azure's excess capacity and are thus cheaper but risk your run being pre-empted
+1. **idle_seconds_before_scaledown**: Idle time (default 120 seconds) to wait after run completion before auto-scaling to min_nodes
+1. **VNet properties**: Specify the VNet and subnet names for an existing VNet in your subscription within that region. Click here for more details on [AzureML VNets](insert Aashish's VNet article link)
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print('Found existing cluster, use it.')
+except ComputeTargetException:
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                           vm_priority='lowpriority',
+                                                           min_nodes=2,
+                                                           max_nodes=4,
+                                                           idle_seconds_before_scaledown='300',
+                                                           vnet_resourcegroup_name='<my-resource-group>',
+                                                           vnet_name='<my-vnet-name>',
+                                                           subnet_name='<my-subnet-name>')
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+cpu_cluster.wait_for_completion(show_output=True)
+
+```
+
+For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb).
+
+## <a id="vm"></a>Remote VM
+
+Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is a remote Azure VM which can be used for remote runs, given its IP address, and a username/password or an SSH key. You can either use a system built conda environment, or an already existing Python environment, or a Docker container assuming you have the Docker Engine running on it. This functionality is especially useful when you want a more elastic, cloud-based dev/experimentation environment than your local machine.
+
+> [!TIP]
+> We recommended using the Data Sceince Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. Read more about how to configure it [here](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#dsvm)
 
 > [!WARNING]
 > Azure Machine Learning only supports virtual machines running Ubuntu. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
@@ -219,50 +270,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
     ```
 
-For a Jupyter Notebook that demonstrates training on a Data Science Virtual Machine, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
-
-## <a name='aci'></a>Azure Container Instance (ACI)
-
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. The Azure Machine Learning service uses Linux containers, which are available in the westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. For more information, see [region availability](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). 
-
-The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
-
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-# create a new runconfig object
-run_config = RunConfiguration()
-
-# signal that you want to use ACI to run script.
-run_config.target = "containerinstance"
-
-# ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
-run_config.container_instance.region = 'eastus'
-
-# set the ACI CPU and Memory 
-run_config.container_instance.cpu_cores = 1
-run_config.container_instance.memory_gb = 2
-
-# enable Docker 
-run_config.environment.docker.enabled = True
-
-# set Docker base image to the default CPU-based image
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-
-# use conda_dependencies.yml to create a conda environment in the Docker image
-run_config.environment.python.user_managed_dependencies = False
-
-# auto-prepare the Docker image when used for the first time (if it is not already prepared)
-run_config.auto_prepare_environment = True
-
-# specify CondaDependencies obj
-run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-```
-
-It can take from a few seconds to a few minutes to create an ACI compute target.
-
-For a Jupyter Notebook that demonstrates training on Azure Container Instance, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
+For a Jupyter Notebook that demonstrates training on a Remote VM, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
 
 ## <a id="databricks"></a>Azure Databricks
 
@@ -482,42 +490,39 @@ Follow the above steps to view the list of compute targets, and then use the fol
 
     ![Add compute ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
-1. Enter a name for the compute target.
-1. Select the type of compute to attach for __Training__. 
+1. Enter a name for the compute target
+1. Select **Machine Learning Compute** as the type of compute to use for __Training__
 
     > [!IMPORTANT]
-    > Not all compute types can be created using the Azure portal. Currently the types that can be created for training are:
-    > 
-    > * Virtual Machine
-    > * Batch AI
+    > You can only create Azure Machine Learning Compute as the managed compute for training
 
-1. Select __Create New__ and fill out the required form. 
+1. Fill out the required form especially the VM Family and the maximum nodes to use for spinning up the compute 
 1. Select __Create__
-1. You can view the status create operation by selecting the compute target from the list.
+1. You can view the status of the create operation by selecting the compute target from the list
 
     ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
     You will then see the details for the compute target.
     ![View details](./media/how-to-set-up-training-targets/vm_view.PNG)
-1. Now you can submit a run against these targets as detailed above.
+1. Now you can submit a run against these targets as detailed above
 
 ### Reuse existing compute in your workspace
 
 Follow the above steps to view the list of compute targets, then use the following steps to reuse compute target:
 
-1. Click the **+** sign to add a compute target.
-2. Enter a name for the compute target.
-3. Select the type of compute to attach for Training.
+1. Click the **+** sign to add a compute target
+2. Enter a name for the compute target
+3. Select the type of compute to attach for __Training__
 
     > [!IMPORTANT]
     > Not all compute types can be attached using the portal.
     > Currently the types that can be attached for training are:
     > 
-    > * Virtual Machine
-    > * Batch AI
+    > * Remote VM
+    > * Databricks
+    > * Data Lake Analytics
+    > * HDInsight
 
-1. Select 'Use Existing'.
-    - When attaching Batch AI clusters, select the compute target from the dropdown, select the Batch AI workspace and the Batch AI Cluster, and then click **Create**.
-    - When attaching a Virtual Machine, enter the IP Address, Username/Password Combination, Private/Public Keys, and the Port and click Create.
+1. Fill out the required form
 
     > [!NOTE]
     > Microsoft recommends that you use SSH keys, as they are more secure than passwords. Passwords are vulnerable to brute force attacks, while SSH keys rely on cryptographic signatures. For information on creating SSH keys for use with Azure Virtual Machines, see the following documents:
@@ -525,12 +530,15 @@ Follow the above steps to view the list of compute targets, then use the followi
     > * [Create and use SSH keys on Linux or macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Create and use SSH keys on Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. You can view the status of the provisioning state by selecting the compute target from the list.
-6. Now you can submit a run against these targets.
+1. Select Attach
+1. You can view the status of the attach operation by selecting the compute target from the list
+1. Now you can submit a run against these targets as detailed above
 
 ## Examples
 The following notebooks demonstrate concepts in this article:
 * [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [getting-started/train-on-amlcompute/train-on-amlcompute.ipynb]
+(https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute)
 * [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
 * [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
 * [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
