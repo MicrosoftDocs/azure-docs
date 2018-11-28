@@ -41,8 +41,10 @@
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
   - name: Text-to-speech
     items:
-    - name: 'Using C# (.NET Core), REST'
+    - name: 'Using C#, REST'
       href: quickstart-dotnet-tts.md
+    - name: 'Using Python, REST'
+      href: quickstart-python-text-to-speech.md
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
