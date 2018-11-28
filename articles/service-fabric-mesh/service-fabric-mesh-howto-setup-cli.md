@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/26/2018
+ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt  
