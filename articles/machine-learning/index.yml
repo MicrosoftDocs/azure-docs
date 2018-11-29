@@ -21,17 +21,15 @@ sections:
 
 - title: Azure Machine Learning Service
   items:
-  - type: paragraph
-    text: 'With Azure Machine Learning service, train, deploy, automate, and manage your ML models in the Azure cloud. '
   - type: list
     style: cards
     className: cardsB
     columns: 1
     items:
-    - html: <p>Train, deploy, automate, and manage your ML models in the Azure cloud. <a href="service/overview-what-is-azure-ml.md">Learn more about the service...</a></p>
+    - html: <p>Train, deploy, automate, and manage your ML models in the Azure cloud. <a href="service/overview-what-is-azure-ml.md">Learn more...</a></p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning service overview
+      title: Service overview
 
 
   - type: list
@@ -47,20 +45,18 @@ sections:
     - html: <a href="/azure/machine-learning/service/concept-ml-pipelines">Build, optimize, and manage your ML pipelines</a>
 
 
+
 - title: Azure Machine Learning Studio (legacy)
   items:
-  - type: paragraph
-    text: 'Learn how this legacy drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. '
-
   - type: list
     style: cards
-    className: cardsFTitle
+    className: cardsB
+    columns: 1
     items:
-    - title: About Studio
-      href: /azure/machine-learning/studio/
-      image: 
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+    - html: <p>A legacy drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. <a href="/azure/machine-learning/studio/">Learn more...</a></p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Studio overview
 
   - type: list
     style: unordered
