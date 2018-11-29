@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 11/29/2018
 ms.author: adugar
 
 # As an operator of an IoT monitoring solution, I want to manage the local configuration of my connected devices in bulk.
@@ -14,8 +14,6 @@ ms.author: adugar
 # Tutorial: Manage your connected devices in bulk
 
 In this tutorial, you use the Remote Monitoring solution accelerator to manage the configuration of your connected devices in bulk.
-
-<!-- TODO - check terminology matches what's in the Remote Monitoring Web UI -->
 
 As an operator at Contoso, you need to configure a group of devices with a new firmware version. You don't want to have to update the firmware on each device individually. To update the firmware on a group of devices, you can use device groups and automatic device management in the Remote Monitoring solution accelerator. Any device you add to the device group gets the latest firmware as soon as the device comes online.
 
@@ -153,10 +151,6 @@ A device configuration specifies the desired state of your devices. Typically, a
 
 Save the following configuration as file called **firmware-update.json** on your local machine. Replace the `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`, and `YOURPACKAGESIZE` placeholders with the values you made a note of previously:
 
-<!--
-TODO - Check if we can remove timestamps, etag, and results to simplify this.
--->
-
 ```json
 {
   "id": "firmware-update",
@@ -176,8 +170,6 @@ TODO - Check if we can remove timestamps, etag, and results to simplify this.
     }
   },
   "targetCondition": "",
-  "createdTimeUtc": "2018-11-15T14:52:06.697Z",
-  "lastUpdatedTimeUtc": "2018-11-15T14:52:06.697Z",
   "priority": 10,
   "systemMetrics": {
     "results": {
@@ -200,8 +192,7 @@ TODO - Check if we can remove timestamps, etag, and results to simplify this.
       "Applying": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Applying' AND properties.reported.firmware.type='IoTDevKit'",
       "Error": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Error' AND properties.reported.firmware.type='IoTDevKit'"
     }
-  },
-  "etag": "MQ=="
+  }
 }
 ```
 
@@ -255,7 +246,7 @@ After a few minutes, the IoT DevKit retrieves the new firmware information and s
 
 ![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
-Depending on the speed of your network, the download may take up to a couple of minutes. After the firmware is downloaded, the device verifies the file size and CRC value. The screen on the MXChip displays "passed" if verification is successful.
+Depending on the speed of your network, the download may take up to a couple of minutes. After the firmware is downloaded, the device verifies the file size and CRC value. The screen on the MXChip displays **passed** if verification is successful.
 
 ![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
@@ -274,6 +265,8 @@ When the reboot is finished, your IoT DevKit device is now running version 1.0.1
 On the **Deployments** page, click on a deployment to see the status of your devices as they update. You can see the status of each device in your device group and the custom metrics you defined.
 
 ![Deployment details](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentstatus.png)
+
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 

@@ -6,7 +6,7 @@ manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/22/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 
 # As an operator in the Remote Monitoring solution accelerator, I want add an automatic device management package to the Remote Monitoring solution accelerator
@@ -57,4 +57,4 @@ You've now uploaded an automatic device management configuration as a package. O
 
 ## Next steps
 
-Now that you've learned how to deploy modules to an IoT Edge device from the Remote Monitoring solution, the next step is to learn more about [IoT Edge](../iot-edge/about-iot-edge.md).
+Now that you've learned how to create a configuration package and import it into from the Remote Monitoring solution, the next step is to learn how to [Manage devices connected to Remote Monitoring in bulk](iot-accelerators-remote-monitoring-bulk-configuration-update.md).
