@@ -309,7 +309,7 @@ Replace the contents of the entire file with the following HTML that defines a s
 </div>
 ```
 
-Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**.
+Click on the dropdown icon of the **Index.cshtml** file in the **Solution Explorer** and then open **Index.cshtml.cs**.
 At the top of **Index.cshtml.cs**, add `using System.Net.Http;`
 
 Replace the contents of `public class IndexModel` with:
@@ -348,6 +348,11 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 The URL is composed of the service name and the port. All of this information is found in the service.yaml file found in the **ToDoService** project.
 
+> [!IMPORTANT]
+> In the following steps, YAML files will be modified.
+> Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create the environment variables. Replace all tabs with spaces. Although you'll see errors in the **build** debug output, the app will still launch. It won't work, however, until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, you can make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
+> Note that service.yaml files are processed using the English locale.  For example, if you need to use a decimal separator, use a period rather than a comma.
+
 Navigate in **Solution Explorer** to the **ToDoService** project and open **Service Resources** > **service.yaml**.
 
 ![Figure 1 - The ToDoService service.yaml file](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
@@ -359,15 +364,18 @@ Next, environment variables representing the service name and port number will b
 
 In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
 
-In the service.yaml file, add the following variables under `environmentVariables`. The spacing is important so align the variables you add with the other variables under `environmentVariables:`
-
-> [!IMPORTANT]
-> Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create the environment variables. Replace all tabs with spaces. Although you'll see errors in the **build** debug output, the app will still launch. It won't work, however, until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, you can make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
-> Note that service.yaml files are processed using the English locale.  For example, if you need to use a decimal separator, use a period rather than a comma.
+In the service.yaml file, add the following variables under `environmentVariables`. The spacing is important so align the variables you add with the other variables under `environmentVariables:`. It is very important that the value for ApiHostPort matches the value of ToDoServiceListener which was previously seen in the service.yaml file of the ToDoService.
+```yaml
+- name: ApiHostPort
+    value: 
+- name: ToDoServiceName
+    value: ToDoService
+```
 
 Your **WebFrontEnd** project's **service.yaml** file should look something like this although your `ApiHostPort` value will probably be different:
 
 ![Service.yaml in the WebFrontEnd project](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
+
 
 Now you are ready to build and deploy the image the Service Fabric Mesh application, along with the back-end web service, to your local cluster.
 
