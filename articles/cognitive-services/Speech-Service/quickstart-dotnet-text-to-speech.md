@@ -72,32 +72,34 @@ This sample assumes that your Speech Service subscription is in the West US regi
 ```csharp
 public class Authentication
 {
-  public static readonly string FetchTokenUri = "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-  private string subscriptionKey;
-  private string token;
+    private string subscriptionKey;
+    private string tokenFetchUri;
 
-  public Authentication(string subscriptionKey)
-  {
-      this.subscriptionKey = subscriptionKey;
-      this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
-  }
+    public Authentication(string tokenFetchUri, string subscriptionKey)
+    {
+        if (string.IsNullOrWhiteSpace(tokenFetchUri))
+        {
+            throw new ArgumentNullException(nameof(tokenFetchUri));
+        }
+        if (string.IsNullOrWhiteSpace(subscriptionKey))
+        {
+            throw new ArgumentNullException(nameof(subscriptionKey));
+        }
+        this.tokenFetchUri = tokenFetchUri;
+        this.subscriptionKey = subscriptionKey;
+    }
 
-  public string GetAccessToken()
-  {
-      return this.token;
-  }
+    public async Task<string> FetchTokenAsync()
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", this.subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(this.tokenFetchUri);
 
-  private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
-  {
-      using (var client = new HttpClient())
-      {
-          client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-          UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-          var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-          return await result.Content.ReadAsStringAsync();
-      }
-  }
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null).ConfigureAwait(false);
+            return await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+        }
+    }
 }
 ```
 
@@ -120,11 +122,13 @@ string text = Console.ReadLine();
 // Gets an access token
 string accessToken;
 Console.WriteLine("Attempting token exchange. Please wait...\n");
-// Add your subscription key
-Authentication auth = new Authentication("YOUR_SUBSCRIPTION_KEY");
+
+// Add your subscription key here
+// If your resource isn't in WEST US, change the endpoint
+Authentication auth = new Authentication("https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken", "YOUR_SUBSCRIPTION_KEY");
 try
 {
-    accessToken = auth.GetAccessToken();
+    accessToken = await auth.FetchTokenAsync().ConfigureAwait(false);
     Console.WriteLine("Successfully obtained an access token. \n");
 }
 catch (Exception ex)
@@ -154,7 +158,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
               text + "</voice></speak>";
 ```
 
-## Instantiate the client, make a request, and save the speech to file
+## Instantiate the client, make a request, and save synthesized audio to a file
 
 There's a lot going on in this code sample. Let's quickly review what's happening:
 
@@ -173,32 +177,29 @@ using (var client = new HttpClient())
     {
         // Set the HTTP method
         request.Method = HttpMethod.Post;
-
         // Construct the URI
         request.RequestUri = new Uri(host);
-
         // Set the content type header
         request.Content = new StringContent(body, Encoding.UTF8, "application/ssml+xml");
-
         // Set additional header, such as Authorization and User-Agent
         request.Headers.Add("Authorization", "Bearer " + accessToken);
         request.Headers.Add("Connection", "Keep-Alive");
+        // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
         request.Headers.Add("Connection", "Keep-Alive");
-
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
-        using (var response = await client.SendAsync(request))
+        using (var response = await client.SendAsync(request).ConfigureAwait(false))
         {
             response.EnsureSuccessStatusCode();
             // Asynchronously read the response
-            using (var dataStream = await response.Content.ReadAsStreamAsync())
+            using (var dataStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
             {
                 Console.WriteLine("Your speech file is being written to file...");
                 using (var fileStream = new FileStream(@"sample.wav", FileMode.Create, FileAccess.Write, FileShare.Write))
                 {
-                    await dataStream.CopyToAsync(fileStream);
+                    await dataStream.CopyToAsync(fileStream).ConfigureAwait(false);
                     fileStream.Close();
                 }
                 Console.WriteLine("\nYour file is ready. Press any key to exit.");
@@ -206,7 +207,7 @@ using (var client = new HttpClient())
             }
         }
     }
-}    
+}
 ```
 
 ## Run the sample app
