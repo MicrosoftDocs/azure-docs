@@ -54,6 +54,8 @@ This update includes the following improvements for Azure Stack:
 
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
 
+- Improved Marketplace management experience for disconnected customers. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
+
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
@@ -61,7 +63,7 @@ This update includes the following improvements for Azure Stack:
 
    For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
 
-- You can now [move the registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
+
 
 ### Fixed issues
 
