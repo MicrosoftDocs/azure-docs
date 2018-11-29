@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 11/27/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
@@ -69,13 +69,15 @@ Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 
 ## Build a cluster
 
+> [!IMPORTANT]
+> Docker **must** be running before you can build a cluster.
+> Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
+
 If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
 For the best debugging performance when you create and run Service Fabric apps, we recommend creating a single-node local development cluster. This cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
-Docker **must** be running before you can build a cluster. Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
-
-After you install the runtime, SDKs, and Visual Studio tools, create a development cluster.
+After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a development cluster.
 
 1. Close your PowerShell window.
 2. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules that were recently installed.

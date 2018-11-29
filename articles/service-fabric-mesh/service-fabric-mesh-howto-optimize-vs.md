@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: optimize debugging performance 
 author: tylermsft
 ms.author: twhitney
-ms.date: 11/07/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc  
@@ -18,7 +18,7 @@ This article shows you how to optimize Visual Studio performance for Service Fab
 
 ## Change Visual Studio settings
  
-In Visual Studio, under **Tools** > **Options**  > **Service Fabric Tools** > **General**, you can adjust the following settings:
+In Visual Studio, under **Tools** > **Options**  > **Service Fabric Mesh Tools** > **General**, you can adjust the following settings:
 
 - **Pull required Docker images on project open** makes your first debugging run (F5) faster by starting the image download process while the project is loading.  
 - **Deploy application on project open** can make your first debugging run (F5) faster by starting the deploy process once the project is opened.  
