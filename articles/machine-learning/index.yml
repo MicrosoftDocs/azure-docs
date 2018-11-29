@@ -26,10 +26,10 @@ sections:
     className: cardsB
     columns: 1
     items:
-    - html: <p>Train, deploy, automate, and manage your ML models in the Azure cloud. <a href="service/overview-what-is-azure-ml.md">Learn more...</a></p>
+    - html: <p>Train, deploy, automate, and manage your ML models in the Azure cloud. <br><a href="service/overview-what-is-azure-ml.md">Learn more...</a></p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Service overview
+      title: 
 
 
   - type: list
@@ -53,10 +53,10 @@ sections:
     className: cardsB
     columns: 1
     items:
-    - html: <p>A legacy drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. <a href="/azure/machine-learning/studio/">Learn more...</a></p>
+    - html: <p>A legacy drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. <br><a href="/azure/machine-learning/studio/">Learn more...</a></p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Studio overview
+      title: 
 
   - type: list
     style: unordered
