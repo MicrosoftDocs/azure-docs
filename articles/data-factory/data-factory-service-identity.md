@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 ---
 
@@ -26,7 +26,8 @@ When creating a data factory, a service identity can be created along with facto
 Data factory service identity benefits the following features:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory service identity is used for Azure Key Vault authentication.
-- Connectors including [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Connectors including [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- [Web activity](control-flow-web-activity.md).
 
 ## Generate service identity
 
@@ -40,6 +41,7 @@ If you find your data factory doesn't have a service identity associated followi
 
 - [Generate service identity using PowerShell](#generate-service-identity-using-powershell)
 - [Generate service identity using REST API](#generate-service-identity-using-rest-api)
+- [Generate service identity using an Azure Resource Manager template](#generate-service-identity-using-resource-management-template)
 - [Generate service identity using SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -88,7 +90,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ```json
 {
-    "name": "ADFV2DemoFactory",
+    "name": "<dataFactoryName>",
     "tags": {},
     "properties": {
         "provisioningState": "Succeeded",
@@ -103,7 +105,27 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
     "type": "Microsoft.DataFactory/factories",
-    "location": "EastUS"
+    "location": "<region>"
+}
+```
+
+### Generate service identity using an Azure Resource Manager template
+
+**Template**: add "identity": { "type": "SystemAssigned" }.
+
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "resources": [{
+        "name": "<dataFactoryName>",
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.DataFactory/factories",
+        "location": "<region>",
+        "identity": {
+			"type": "SystemAssigned"
+		}
+    }]
 }
 ```
 
