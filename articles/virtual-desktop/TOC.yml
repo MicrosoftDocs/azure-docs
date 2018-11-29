@@ -15,7 +15,9 @@
     href: manage-app-groups.md
   - name: 4. Manage user storage
     href: manage-user-storage.md
-  - name: 5. Connect to Windows Virtual Desktop
+  - name: 5. Create service principals and role assignments with PowerShell
+  - href: create-service-principal-role-powershell.md
+  - name: 6. Connect to Windows Virtual Desktop
     href: connect.md
 - name: Concepts
   items:
