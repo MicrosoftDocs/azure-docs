@@ -22,7 +22,7 @@ ms.author: dekapur
  
 This article covers the steps required to set up the Azure Log Analytics container monitoring solution to view container events. To set up your cluster to collect container events, see this [step-by-step tutorial](service-fabric-tutorial-monitoring-wincontainers.md). 
 
-[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
 ## Set up the container monitoring solution
 
