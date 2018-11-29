@@ -129,7 +129,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
-7. In the Add admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
+7. In the AAD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
    The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Server.
 
