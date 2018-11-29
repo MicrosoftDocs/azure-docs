@@ -54,9 +54,6 @@ Perform the following steps to create and retrieve information from an Face reso
 1. Create an Face resource in the Azure portal.  
    If you want to use the Face container, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
 
-   > [!IMPORTANT]
-   > The Face resource must use the F0 pricing tier.
-
 1. Get the endpoint URL and subscription key for the Azure resource.  
    Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Face container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Face resource on the Azure portal.
 
