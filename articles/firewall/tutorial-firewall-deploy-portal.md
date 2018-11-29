@@ -234,7 +234,7 @@ Now test the firewall to confirm that it works as expected.
 3. Open Internet Explorer and browse to http://msn.com.
 4. Click **OK** > **Close** on the security alerts.
 
-   You should see the GitHub home page.
+   You should see the MSN home page.
 
 5. Browse to http://www.msn.com.
 
