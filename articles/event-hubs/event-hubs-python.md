@@ -37,7 +37,7 @@ For a tutorial on how to send events to an event hub from an application written
 For a tutorial on how to receive events from an event hub from an application written in Python, see [this article](event-hubs-python-get-started-receive.md)
 
 ## Capture Event Hubs data
-For a tutorial on how to capture EVent Hubs data from an application written in Python, see [this article](event-hubs/event-hubs-capture-python.md)
+For a tutorial on how to capture EVent Hubs data from an application written in Python, see [this article](event-hubs-capture-python.md)
 
 ## GitHub samples
 You can find Python samples in the [azure-event-hubs-python Git repository](https://github.com/Azure/azure-event-hubs-python/tree/master/examples).
