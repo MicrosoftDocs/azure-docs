@@ -95,7 +95,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 8. In the **Specify Azure Data Lake Storage connection** page, do the following steps:
 
    1. Select your Data Lake Storage Gen2 capable account from the "Storage account name" drop down list.
-   2. Select **Next**.
+   2. Select **Finish** to create the connection. Then select **Next**.
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
