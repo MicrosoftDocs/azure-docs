@@ -60,4 +60,4 @@ See the **pricing tier targeted customers** table to get a better sense of the S
 Learn more about viewing and changing pricing tier:
 
 > [!div class="nextstepaction"]
-> [Change Pricing Tier](https://azure.microsoft.com/pricing/details/azure-maps/)
+> [Manage Pricing Tier](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-pricing-tier)
