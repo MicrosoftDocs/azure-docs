@@ -78,12 +78,12 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
 1. Copy one of the name server names from the name server list on the **Overview** page. 
    
+   ![zone](./media/dns-getstarted-portal/viewzonens500.png)
+   
    >[!NOTE]
    >In a real-world scenario, you copy all four name server names, including trailing periods, and use them for the new Azure DNS name server names at your domain registrar. For more information, see [Delegate a domain to Azure DNS](dns-delegate-domain-azure-dns.md)
-
-   ![zone](./media/dns-getstarted-portal/viewzonens500.png)
-
-1. Open a command prompt and run the following command:
+   
+1. Open a command prompt, and run the following command:
 
    ```
    nslookup <host name> <name server name>
