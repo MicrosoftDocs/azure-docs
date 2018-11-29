@@ -73,7 +73,7 @@ This VNet will contain three subnets.
 11. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /25.
+> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
@@ -115,7 +115,7 @@ Now create the jump and workload virtual machines, and place them in the appropr
 
 Repeat this process to create another virtual machine named **Srv-Work**.
 
-Use the information in the following table to configure the the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
+Use the information in the following table to configure the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
 
 |Setting  |Value  |
 |---------|---------|

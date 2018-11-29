@@ -149,7 +149,7 @@ ms.custom: H1Hack27Feb2017
 * Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
+* Fixed hashPartitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib’s requests.

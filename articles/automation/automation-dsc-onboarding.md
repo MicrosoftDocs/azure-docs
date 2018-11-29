@@ -53,7 +53,7 @@ are provided in the following [**Troubleshooting Azure virtual machine onboardin
 
 ### Azure portal
 
-In the [Azure portal](http://portal.azure.com/), click **Browse** -> **Virtual machines
+In the [Azure portal](https://portal.azure.com/), click **Browse** -> **Virtual machines
 (classic)**. Select the Windows VM you want to onboard. On the virtual machine's dashboard blade,
 click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**.
 Enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4) required for your use case, your
@@ -155,7 +155,7 @@ If the machine does not have the PowerShell desired state extension installed an
 Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
 required for your use case, and optionally a node configuration to assign to the VM.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### Azure Resource Manager templates
 

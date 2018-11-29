@@ -81,4 +81,6 @@
   - name: Azure Active Directory FAQ
     href: active-directory-faq.md
   - name: Azure Active Directory deployment plans
-    href: active-directory-deployment-plans.md    
+    href: active-directory-deployment-plans.md
+  - name: Archive for What's new? in Azure AD
+    href: whats-new-archive.md    

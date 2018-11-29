@@ -131,6 +131,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|
+| 408001| The custom translation system requested is not yet available. Please retry in a few minutes.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client is sending too many requests. Reduce the frequency of requests to avoid throttling.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 ---
@@ -23,8 +23,8 @@ ms.reviewer: quying
 
 A new SQL resource provider might be released when Azure Stack is updated to a new build. Although the existing adapter continues to work, we recommend updating to the latest build as soon as possible.
 
->[!IMPORTANT]
->You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> [!IMPORTANT]
+> You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## Overview
 

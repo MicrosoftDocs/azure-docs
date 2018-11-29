@@ -185,7 +185,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.1.0"/>1.1.0
 
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-api-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.0.0"/>1.0.0

@@ -69,6 +69,42 @@
         href: create-table-python.md
   - name: Concepts
     items:
+    - name: Global distribution
+      items:
+      - name: Overview
+        href: distribute-data-globally.md
+      - name: Consistency Levels
+        href: consistency-levels.md
+      - name: Choosing the right consistency level
+        href: consistency-levels-choosing.md
+      - name: Consistency levels and Cosmos DB APIs
+        href: consistency-levels-across-apis.md
+      - name: Consistency, availability and performance tradeoffs
+        href: consistency-levels-tradeoffs.md
+      - name: High availability
+        href: high-availability.md
+      - name: Globally scaling provisioned throughput
+        href: scaling-throughput.md
+      - name: Conflict types and resolution policies
+        href: conflict-resolution-policies.md
+      - name: Global distribution - under the hood
+        href: global-dist-under-the-hood.md
+      - name: Regional presence
+        href: regional-presence.md
+    - name: Partitioning
+      items:
+      - name: Overview
+        href: partitioning-overview.md  
+      - name: Logical partitions
+        href: partition-data.md
+      - name: Creating a synthetic partition key
+        href: synthetic-partition-keys.md
+    - name: Provisioned throughput
+      items:
+      - name: Request units
+        href: request-units.md
+      - name: Provision throughput on containers and databases
+        href: set-throughput.md
     - name: Working with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -101,40 +137,6 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
-    - name: Global distribution
-      items:
-      - name: Overview
-        href: distribute-data-globally.md
-      - name: Consistency Levels
-        href: consistency-levels.md
-      - name: Choosing the right consistency level
-        href: consistency-levels-choosing.md
-      - name: Consistency levels and Cosmos DB APIs
-        href: consistency-levels-across-apis.md
-      - name: Consistency, availability and performance tradeoffs
-        href: consistency-levels-tradeoffs.md
-      - name: High availability
-        href: high-availability.md
-      - name: Globally scaling provisioned throughput
-        href: scaling-throughput.md
-      - name: Conflict resolution policies
-        href: conflict-resolution-policies.md
-      - name: Global distribution - under the hood
-        href: global-dist-under-the-hood.md
-    - name: Partitioning
-      items:
-      - name: Overview
-        href: partitioning-overview.md  
-      - name: Logical partitions
-        href: partition-data.md
-      - name: Creating a synthetic partition key
-        href: synthetic-partition-keys.md
-    - name: Provisioned throughput
-      items:
-      - name: Request units
-        href: request-units.md
-      - name: Provision throughput on containers and databases
-        href: set-throughput.md
     - name: Security
       items:
         - name: Overview
@@ -149,10 +151,14 @@
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
+    - name: Enterprise readiness 
+      items:
+      - name: Online backup and restore
+        href: online-backup-and-restore.md
+      - name: Compliance
+        href: compliance.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
-    - name : Backup and restore
-      href: online-backup-and-restore.md
   - name: Multi-model APIs
     expanded: true
     items:
@@ -160,8 +166,6 @@
       items:
       - name: Introduction
         href: sql-api-introduction.md
-      - name: Write SQL queries
-        href: sql-api-sql-query.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
@@ -436,6 +440,8 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Query data with SQL queries
+        href: how-to-sql-query.md
     - name: Indexing
       items:
       - name: Configure indexing
@@ -446,6 +452,10 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
+    - name: Enterprise readiness 
+      items:
+      - name: Restore data from a backup
+        href: how-to-backup-and-restore.md
     - name : Manage
       items:
       - name: Manage using PowerShell
