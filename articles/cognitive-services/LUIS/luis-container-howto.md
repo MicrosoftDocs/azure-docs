@@ -254,7 +254,7 @@ The query parameters configure how and what is returned in the query response:
 |`q`|string|The user's utterance.|
 |`timezoneOffset`|number|The timezoneOffset allows you to [change the timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) used by the prebuilt entity datetimeV2.|
 |`verbose`|boolean|Returns all intents and their scores when set to true. Default is false, which returns only the top intent.|
-|`staging`|boolean|Returns query from staging environment results if set to true. Default is false, which returns production environment results.|
+|`staging`|boolean|Returns query from staging environment results if set to true. |
 |`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endoint-utt.md). Default is true.|
 
 ### Query published app
