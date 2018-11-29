@@ -178,6 +178,8 @@
       href: connector-drill.md
     - name: Dynamics 365
       href: connector-dynamics-crm-office-365.md
+    - name: Dynamics AX
+      href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
     - name: File System
