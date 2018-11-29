@@ -4,7 +4,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Time Series Insights update
+  - name: About Time Series Insights (preview)
     href: time-series-insights-update-overview.md
 - name: Quickstarts
   items:
@@ -14,7 +14,7 @@
       href: time-series-quickstart.md
   - name: Azure Time Series Insights (preview)
     items:
-    - name: Explore the Time Series Insights update
+    - name: Explore the Time Series Insights (preview)
       href: time-series-insights-update-quickstart.md  
 - name: Tutorials
   items:

@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 ## Explore Time Series Insights explorer in a demo environment
 
-1. In your browser, navigate to insights.timeseries.azure.com/preview/samples.  
+1. In your browser, navigate to [insights.timeseries.azure.com/preview/samples](https://insights.timeseries.azure.com/preview/samples).  
 
 1. If prompted, log in to the Time Series Insights Explorer using your Azure account credentials.
 

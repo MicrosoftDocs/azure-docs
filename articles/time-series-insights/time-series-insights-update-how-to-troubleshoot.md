@@ -15,7 +15,7 @@ ms.date: 11/27/2018
 
 This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
 
-## Problem: No data is seen in the Time Series Insights update Explorer
+## Problem: No data is seen in the Time Series Insights (preview) Explorer
 
 There are several common reasons why you might not see your data in the Azure TSI Explorer:
 
@@ -46,7 +46,10 @@ There are several common reasons why you might not see your data in the Azure TS
 
 ## Problem: Some data is shown, but some is missing
 
-This may occur because your environment is being throttled. At this time, we support a maximum ingestion rate of 6 MBps.
+This may occur because your environment is being throttled.
+
+> {!NOTE]
+> At this time, Azure TSI supports a maximum ingestion rate of 6 MBps.
 
 ## Problem: My event source's timestamp property name setting doesn't work
 
@@ -63,7 +66,7 @@ The easiest way to ensure that your timestamp property name is captured and work
 
 ## Problem: My Time Series ID property is incorrect, missing, or null
 
-This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see this article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
+This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. See the [TSI preview planning](./time-series-insights-update-plan.md) article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
 
 ## Problem: All my instances in Time Series Insights (preview) Explorer don’t have a parent
 
