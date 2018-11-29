@@ -262,7 +262,8 @@ Use your favorite API development application to generate an API call, and revie
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
+- Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
+- Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
 
 | Key | Value |
 | --- | ----- |
@@ -275,7 +276,6 @@ Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 
 - Replace `user-account` with the name of a user account in your tenant.
 - Replace `password1` with the password of the user account.
-- Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
 - Replace `application-id` with the Application ID from the *ROPC_Auth_app* registration. 
 - *Offline_access* is optional if you want to receive a refresh token.
 
@@ -308,7 +308,8 @@ Construct a POST call like the one shown here. Use the information in the follow
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
+- Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
+- Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
 
 | Key | Value |
 | --- | ----- |
@@ -316,10 +317,10 @@ Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 | response_type | id_token |
 | client_id | `application-id` |
 | resource | `application-id` |
-| refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
+| refresh_token | `refresh-token` |
 
 - Replace `application-id` with the Application ID from the *ROPC_Auth_app* registration.
-- *Refresh_token* is the token that you received in the previous authentication call.
+- Replace `refresh-token` with the **refresh_token** that was sent back in the previous response. 
 
 A successful response looks like the following example:
 
