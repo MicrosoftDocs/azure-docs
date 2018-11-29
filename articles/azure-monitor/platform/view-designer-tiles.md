@@ -23,8 +23,8 @@ By using View Designer in Azure Log Analytics, you can create custom views in th
 
 For more information about View Designer, see:
 
-* [View Designer](log-analytics-view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
-* [Visualization part reference](log-analytics-view-designer-parts.md): Provides a reference guide to the settings for the visualization parts that are available in your custom views.
+* [View Designer](view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
+* [Visualization part reference](view-designer-parts.md): Provides a reference guide to the settings for the visualization parts that are available in your custom views.
 
 
 The available View Designer tiles are described in the following table:  
@@ -43,7 +43,7 @@ The next sections describe the tile types and their properties in detail.
 ## Number tile
 The **Number** tile displays both the count of records from a log query and a label.
 
-![Number tile](media/log-analytics-view-designer-tiles/tile-number.png)
+![Number tile](media/view-designer-tiles/tile-number.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -61,7 +61,7 @@ The **Number** tile displays both the count of records from a log query and a la
 ## Two Numbers tile
 This tile displays the count of records from two different log queries and a label for each.
 
-![Two Numbers tile](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
+![Two Numbers tile](media/view-designer-tiles/tile-two-numbers.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -82,7 +82,7 @@ This tile displays the count of records from two different log queries and a lab
 ## Donut tile
 The **Donut** tile displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records.
 
-![Donut tile](media/log-analytics-view-designer-tiles/tile-donut.png)
+![Donut tile](media/view-designer-tiles/tile-donut.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -106,7 +106,7 @@ The **Donut** tile displays a single number that summarizes a value column in a 
 ## Line chart tile
 This tile is a line chart that displays multiple series from a log query over time. 
 
-![Line chart and callout tile](media/log-analytics-view-designer-tiles/tile-line-chart.png)
+![Line chart and callout tile](media/view-designer-tiles/tile-line-chart.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -127,7 +127,7 @@ This tile is a line chart that displays multiple series from a log query over ti
 ## Line chart and callout tile
 This tile has both a line chart that displays multiple series from a log query over time and a callout with a summarized value. 
 
-![Line chart and callout tile](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
+![Line chart and callout tile](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -152,7 +152,7 @@ This tile has both a line chart that displays multiple series from a log query o
 ## Two timelines tile
 The **Two timelines** tile displays the results of two log queries over time as column charts. A callout is displayed for each series. 
 
-![Two timelines tile](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
+![Two timelines tile](media/view-designer-tiles/tile-two-timelines.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -175,5 +175,5 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 
 ## Next steps
-* Learn about [log searches](log-analytics-queries.md) to support the queries in tiles.
-* Add [visualization parts](log-analytics-view-designer-parts.md) to your custom view.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to support the queries in tiles.
+* Add [visualization parts](view-designer-parts.md) to your custom view.

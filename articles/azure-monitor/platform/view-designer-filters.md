@@ -19,26 +19,26 @@ ms.component:
 ---
 
 # Filters in Log Analytics views
-A **filter** in a [Log Analytics view](log-analytics-view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.  This article describes how to use a filter and add one to a custom view.
+A **filter** in a [Log Analytics view](view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.  This article describes how to use a filter and add one to a custom view.
 
 ## Using a filter
 Click the data time range at the top of a view to open the drop down where you can change the data time range for the view.
 
-![Filter example](media/log-analytics-view-designer-filters/filters-example-time.png)
+![Filter example](media/view-designer-filters/filters-example-time.png)
 
 Click the **+** to add a filter using custom filters that are defined for the view. Either select a value for the filter from the dropdown or type in a value. Continue to add filters by clicking the **+**. 
 
 
-![Filter example](media/log-analytics-view-designer-filters/filters-example-custom.png)
+![Filter example](media/view-designer-filters/filters-example-custom.png)
 
 If you remove all of the values for a filter, then that filter will no longer be applied.
 
 
 ## Creating a filter
 
-Create a filter from the **Filters** tab when [editing a view](log-analytics-view-designer.md).  The filter is global for the view and applies to all parts in the view.  
+Create a filter from the **Filters** tab when [editing a view](view-designer.md).  The filter is global for the view and applies to all parts in the view.  
 
-![Filter settings](media/log-analytics-view-designer-filters/filters-settings.png)
+![Filter settings](media/view-designer-filters/filters-settings.png)
 
 The following table describes the settings for a filter.
 
@@ -77,4 +77,4 @@ If you added another filter called Severity, you could use the following query t
     Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
 
 ## Next steps
-* Learn more about the [Visualization Parts](log-analytics-view-designer-parts.md) you can add to your custom view.
+* Learn more about the [Visualization Parts](view-designer-parts.md) you can add to your custom view.

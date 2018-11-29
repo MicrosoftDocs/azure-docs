@@ -30,14 +30,14 @@ The agent may be installed by using one of the following methods. Most installat
 * PowerShell script.
 * Resource Manager template for virtual machines running Windows on-premises in Azure Stack.  
 
-To understand the supported configuration, review [supported Windows operating systems](log-analytics-agent-overview.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-agent-overview.md#network-firewall-requirements).
+To understand the supported configuration, review [supported Windows operating systems](log-analytics-agent.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-firewall-requirements).
 
 ## Obtain workspace ID and key
 Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics in Azure commercial and US Government cloud.  
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select the workspace you intend on configuring the agent to report to.
-3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
+3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Select **Connected Sources**, and then select **Windows Servers**.   
 5. Copy and paste into your favorite editor, the **Workspace ID** and **Primary Key**.    
    
@@ -72,7 +72,7 @@ The following steps install and configure the agent for Log Analytics in Azure a
 6. On the **Azure Log Analytics** page, perform the following:
    1. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier.  If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.  
    2. If the computer needs to communicate through a proxy server to the Log Analytics service, click **Advanced** and provide the URL and port number of the proxy server.  If your proxy server requires authentication, type the username and password to authenticate with the proxy server and then click **Next**.  
-7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> ![paste Workspace ID and Primary Key](media/log-analytics-agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> ![paste Workspace ID and Primary Key](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. On the **Ready to Install** page, review your choices and then click **Install**.
 9. On the **Configuration completed successfully** page, click **Finish**.
 
@@ -82,7 +82,7 @@ When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. 
 The downloaded file for the agent is a self-contained installation package.  The setup program for the agent and supporting files are contained in the package and need to be extracted in order to properly install using the command line shown in the following examples.    
 
 >[!NOTE]
->If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the topic [Managing and maintaining the Log Analytics agent for Windows and Linux](log-analytics-agent-manage.md) for further information.
+>If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the topic [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) for further information.
 
 The following table highlights the specific Log Analytics parameters supported by setup for the agent, including when deployed using Automation DSC.
 
@@ -112,7 +112,7 @@ The following table highlights the specific Log Analytics parameters supported b
 
 ## Install the agent using DSC in Azure Automation
 
-You can use the following script example to install the agent using Azure Automation DSC.   If you do not have an Automation account, see [Get started with Azure Automation](/azure/automation/) to understand requirements and steps for creating an Automation account required before using Automation DSC.  If you are not familiar with Automation DSC, review [Getting started with Automation DSC](../automation/automation-dsc-getting-started.md).
+You can use the following script example to install the agent using Azure Automation DSC.   If you do not have an Automation account, see [Get started with Azure Automation](/azure/automation/) to understand requirements and steps for creating an Automation account required before using Automation DSC.  If you are not familiar with Automation DSC, review [Getting started with Automation DSC](../../automation/automation-dsc-getting-started.md).
 
 The following example installs the 64-bit agent, identified by the `URI` value. You can also use the 32-bit version by replacing the URI value. The URIs for both versions are:
 
@@ -168,14 +168,14 @@ To retrieve the product code from the agent install package directly, you can us
     ```
 
 4. Update the `ProductId` value in the script with the product code extracted from the latest version of the agent install package using the methods recommended earlier. 
-5. [Import the MMAgent.ps1 configuration script](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) into your Automation account. 
-5. [Assign a Windows computer or node](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
+5. [Import the MMAgent.ps1 configuration script](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) into your Automation account. 
+5. [Assign a Windows computer or node](../../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
 
 ## Verify agent connectivity to Log Analytics
 
 Once installation of the agent is complete, verifying it is successfully connected and reporting can be accomplished in two ways.  
 
-From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**.  Select it and on the **Azure Log Analytics** tab, the agent should display a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**<br><br> ![MMA connection status to Log Analytics](media/log-analytics-agent-windows/log-analytics-mma-laworkspace-status.png)
+From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**.  Select it and on the **Azure Log Analytics** tab, the agent should display a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**<br><br> ![MMA connection status to Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 You can also perform a simple log search in the Azure portal.  
 
@@ -194,4 +194,4 @@ In the search results returned, you should see heartbeat records for the compute
 
 ## Next steps
 
-Review [Managing and maintaining the Log Analytics agent for Windows and Linux](log-analytics-agent-manage.md) to learn about how to manage the agent during its deployment lifecycle on your machines.  
+Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to manage the agent during its deployment lifecycle on your machines.  
