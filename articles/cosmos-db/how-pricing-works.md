@@ -58,12 +58,12 @@ Reserved capacity provides a billing discount and does not affect the runtime st
 You can learn more about optimizing the costs for your Azure Cosmos DB resources in the following articles:
 
 * Learn about [Optimizing for development and testing](optimize-dev-test.md)
-* Learn about Understanding your Cosmos DB bill
-* Learn about Optimizing throughput cost
-* Learn about Optimizing storage cost
-* Learn about Optimizing the cost of reads and writes
-* Learn about Optimizing the cost of queries
-* Learn about Optimizing the cost of multi-region Cosmos accounts
+* Learn about [Understanding your Cosmos DB bill](TBD)
+* Learn about [Optimizing throughput cost](TBD)
+* Learn about [Optimizing storage cost](TBD)
+* Learn about [Optimizing the cost of reads and writes](TBD)
+* Learn about [Optimizing the cost of queries](TBD)
+* Learn about [Optimizing the cost of multi-region Cosmos accounts](TBD)
 * Learn about [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 * Learn about [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)
 * Learn about [Cosmos DB Emulator](local-emulator.md)
