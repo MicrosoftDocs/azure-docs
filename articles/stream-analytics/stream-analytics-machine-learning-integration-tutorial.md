@@ -194,9 +194,9 @@ Stream Analytics uses a declarative, SQL-based query to examine the input and pr
 
 3. Enter the following query:
 
-    ```
+    ```SQL
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result 
+    SELECT text, sentiment1(text) as result 
     FROM datainput  
     )  
 

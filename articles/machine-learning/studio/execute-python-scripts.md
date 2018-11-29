@@ -1,14 +1,14 @@
 ---
-title: Execute Python machine learning scripts | Microsoft Docs
-description: Outlines design principles underlying support for Python scripts in Azure Machine Learning and basic usage scenarios, capabilities, and limitations.
+title: Execute Python machine learning scripts - Azure Machine Learning Studio | Microsoft Docs
+description: Outlines design principles underlying support for Python scripts in Azure Machine Learning Studio and basic usage scenarios, capabilities, and limitations.
 keywords: python machine learning,pandas,python pandas,python scripts, execute python scripts
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
 ms.component: studio
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio
 

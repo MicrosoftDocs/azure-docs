@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
 ---
 
@@ -74,13 +74,13 @@ If you deploy a Digital Twins service in your subscription, you become the globa
 After you deploy Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated. It's displayed in the Azure portal in the **Overview** section with the following format.
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Custom attribute name | Replace with |
+| Name | Replace with |
 | --- | --- |
-| **yourInstanceName** | The name of your Digital Twins instance |
-| **yourLocation** | Which server region your instance is hosted on |
+| YOUR_INSTANCE_NAME | The name of your Digital Twins instance |
+| YOUR_LOCATION | Which server region your instance is hosted on |
 
  The full URL format appears in this image.
 

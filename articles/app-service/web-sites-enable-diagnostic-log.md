@@ -155,7 +155,9 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 ## <a name="understandlogs"></a> How to: Understand diagnostics logs
 ### Application diagnostics logs
-Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system or blob storage. The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message.
+Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system or blob storage. 
+
+The base set of data stored is the same across both storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message. Using the file system for log storage is useful when you need immediate access to troubleshoot an issue because the log files are updated near instantaneously. Blob storage is use for archival purposes because the files are cached and then flushed to the storage container on a schedule.
 
 **File system**
 
@@ -191,7 +193,7 @@ The data stored in a blob would look similar to the following example:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> The first line of the log contains the column headers as represented in this example.
+> For ASP.NET Core, logging is accomplished using the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider This provider deposits additional log files into the blob container. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

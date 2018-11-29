@@ -1,5 +1,5 @@
 ---
-title: An introduction to Hadoop security with Enterprise Security Package
+title: An introduction to Apache Hadoop security with Enterprise Security Package
 description: Learn how Enterprise Security Package supports the four pillars of enterprise security.
 services: hdinsight
 ms.service: hdinsight
@@ -10,13 +10,13 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
-# An introduction to Hadoop security with Enterprise Security Package
+# An introduction to Apache Hadoop security with Enterprise Security Package
 
-In the past, Azure HDInsight supported only a single user: local admin. This worked great for smaller application teams or departments. As Hadoop-based workloads gained more popularity in the enterprise sector, the need for enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control became increasingly important. 
+In the past, Azure HDInsight supported only a single user: local admin. This worked great for smaller application teams or departments. As Apache Hadoop-based workloads gained more popularity in the enterprise sector, the need for enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control became increasingly important. 
 
 You can create an HDInsight cluster with Enterprise Security Package (ESP) that's joined to an Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to the HDInsight cluster. No one from outside the enterprise can log on or access the HDInsight cluster. 
 
-The enterprise admin can configure role-based access control (RBAC) for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
+The enterprise admin can configure role-based access control (RBAC) for Apache Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
 
 > [!NOTE]
 > Oozie is now enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).

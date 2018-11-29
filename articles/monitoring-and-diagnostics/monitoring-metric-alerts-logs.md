@@ -15,10 +15,10 @@ ms.component: alerts
 Azure Monitor supports [metric alert type](monitoring-near-real-time-metric-alerts.md) which has benefits over the [classic alerts](alert-metric-classic.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premise. The supported Log Analytics solutions are listed below:
-- [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
-- [Heartbeat records for Agent Health](../monitoring/monitoring-solution-agenthealth.md)
+- [Performance counters](../azure-monitor/platform/data-sources-performance-counters.md) for Windows & Linux machines
+- [Heartbeat records for Agent Health](../azure-monitor/insights/solution-agenthealth.md)
 - [Update management](../automation/automation-update-management.md) records
-- [Event data](../log-analytics/log-analytics-data-sources-windows-events.md) logs
+- [Event data](../azure-monitor/platform/data-sources-windows-events.md) logs
  
 There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](alert-log.md) in Azure; some of them are listed below:
 - Metric Alerts offer near-realtime monitoring capability and Metric Alerts for Logs forks data from log source to ensure the same
@@ -41,9 +41,9 @@ Listed below are the means of crafting a metric alert for logs.
 ## Prerequisites for Metric Alert for Logs
 Before Metric for Logs gathered on Log Analytics data works, the following must be set up and available:
 1. **Active Log Analytics Workspace**: A valid and active Log Analytics workspace must be present. For more information, see [Create a Log Analytics Workspace in Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
-2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) On-Premise VMs to send data into the Log Analytics Workspace used in earlier step. For more information, see [Log Analytics - Agent Overview](../monitoring/monitoring-overview-azure-agents.md).
-3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Heartbeat records for Agent Health](../monitoring/monitoring-solution-agenthealth.md), [Update management, and [Event data](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Log Analytics solutions configured to send logs**: Log Analytis solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) solution first.
+2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) On-Premise VMs to send data into the Log Analytics Workspace used in earlier step. For more information, see [Log Analytics - Agent Overview](../azure-monitor/platform/agents-overview.md).
+3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat records for Agent Health](../azure-monitor/insights/solution-agenthealth.md), [Update management, and [Event data](../azure-monitor/platform/data-sources-windows-events.md).
+4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](../azure-monitor/platform/data-sources-performance-counters.md) solution first.
 
 ## Configuring Metric Alert for Logs
  metric alerts can be created and managed using the Azure portal, Resource Manager Templates, REST API, PowerShell, and Azure CLI. Since Metric Alerts for Logs, is a variant of  metric alerts - once the prerequisites are done, metric alert for logs can be created for specified Log Analytics workspace. All characteristics and functionalities of [ metric alerts](monitoring-near-real-time-metric-alerts.md) will be applicable to metric alerts for logs, as well; including payload schema, applicable quota limits, and billed price.
@@ -53,8 +53,7 @@ For step-by-step details and samples - see [creating and managing  metric alerts
 - Signal chosen for  metric alert for selected *Log Analytics workspace* is of type **Metric**
 - Filter for specific conditions or resource using dimension filters; metrics for logs are multi-dimensional
 - When configuring *Signal Logic*, a single alert can be created to span multiple values of dimension (like Computer)
-- If **not** using Azure portal for creating  metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
-).
+- If **not** using Azure portal for creating  metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
 > When creating  metric alert for Log Analytics workspace via Azure portal - corresponding rule for converting log data into metric via  [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) is automatically created in background, *without the need of any user intervention or action*. For metric alert for logs creation using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
@@ -96,7 +95,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
 			"type": "string",
 			"defaultValue": "true",
 			"metadata": {
-				"description": "Specifies whether the log convertion rule is enabled"
+				"description": "Specifies whether the log conversion rule is enabled"
 			}
 		},
 		"convertRuleMetric": {

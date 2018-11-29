@@ -4,7 +4,7 @@ description: Describes how to add or change Azure Co-Administrator, Service Admi
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -123,6 +123,6 @@ The Account administrator is the user that initially signed up for the Azure sub
 * To learn more about all the roles in Azure, see [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * For more information about Azure Active Directory, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
