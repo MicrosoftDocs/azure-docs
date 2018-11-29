@@ -242,7 +242,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 ## Next steps
 
 - [ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](abfs-driver.md)
-- [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](tutorial-extract-transform-load-hive.md)
+- [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
 - [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Get started using Hadoop in HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Work in Hadoop on HDInsight from a Windows PC](../../hdinsight/hdinsight-hadoop-windows-tools.md)

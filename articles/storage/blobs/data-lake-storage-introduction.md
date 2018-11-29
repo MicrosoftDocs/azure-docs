@@ -20,7 +20,7 @@ Data Lake Storage Gen2 brings all the qualities that are required for the full l
 
 Data Lake Storage Gen2 makes Azure storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
-A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](./namespace.md) to the Blob storage service which organizes objects/files into a hierarchy of directories for efficient data access. The hierarchical namespace also enables Data Lake Storage Gen2 to support both object store and file system paradigms at the same time. For instance, a common object store naming convention uses slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
+A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](./data-lake-storage-namespace.md) to the Blob storage service which organizes objects/files into a hierarchy of directories for efficient data access. The hierarchical namespace also enables Data Lake Storage Gen2 to support both object store and file system paradigms at the same time. For instance, a common object store naming convention uses slashes in the name to mimic a hierarchical folder structure. This structure becomes real with Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Data Lake Storage Gen2 addresses each of these aspects in the following ways:
 
@@ -56,13 +56,13 @@ Azure Storage is scalable by design whether you access via Data Lake Storage Gen
 
 One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob storage is the [low-cost](https://azure.microsoft.com/pricing/details/storage) of storage capacity and transactions. Unlike other cloud storage services, Data Lake Storage Gen2 lowers costs because data is not required to be moved or transformed prior to performing analysis.
 
-Additionally, features such as the [hierarchical namespace](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end-to-end analytics job.
+Additionally, features such as the [hierarchical namespace](./data-lake-storage-namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end-to-end analytics job.
 
 ## Next steps
 
 The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
 
-* [Hierarchical namespace](./namespace.md)
+* [Hierarchical namespace](./data-lake-storage-namespace.md)
 * [Create a storage account](./quickstart-create-account.md)
 * [Create an HDInsight cluster with Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
 * [Use an Azure Data Lake Storage Gen2 account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)

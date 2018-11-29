@@ -17,7 +17,7 @@ If you have an HDInsight cluster and are enrolled in Azure Data Lake Storage Gen
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Storage account with Data Lake Storage Gen2 (Preview) feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2 Preview storage account](quickstart-create-account.md)
-* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
+* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](data-lake-storage-use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
 
 ## Use Distcp from an HDInsight Linux cluster
 
