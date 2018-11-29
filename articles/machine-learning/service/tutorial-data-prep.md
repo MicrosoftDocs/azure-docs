@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Use Azure DataPrep SDK to prepare data for machine learning"
-description: This tutorial shows how to use Azure Machine Learning Data Prep SDK to prepare data for machine learning. This tutorial is part one of a two-part series.
+title: "Tutorial #1: Prepare data for modeling with Azure Machine Learning service"
+description: In the first part of this tutorial, you'll learn how to prep data in Python for regression modeling using the Azure ML SDK. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,25 +9,24 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 11/19/2018
-
+ms.date: 12/4/2018
+# As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
 
-# Tutorial #1: Use Azure DataPrep SDK to prepare data for machine learning
+# Tutorial #1: Prepare data for regression modeling
 
-Prepare data for use as a training data set in a machine learning model with the Azure DataPrep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets. Learn some of the unique features of the DataPrep SDK: 
-
-* Transform data from derived examples 
-* Infer field type from data 
-
-This tutorial is part one of a two-part tutorial series.
+In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep Python SDK. Perform various transformations to filter and combine two different NYC Taxi data sets, with the end goal of predicting the cost of a taxi trip. This tutorial is part one of a two-part tutorial series.
 
 In this tutorial, you:
-* Load two datasets with different field names 
-* Cleanse the data  
-* Use smart transforms to predict your logic based on an example
-* Use automated feature engineering to build dynamic fields 
-* Merge the two datasets to use for your machine learning training 
+
+> [!div class="checklist"]
+> * Setup a Python environment and import packages
+> * Load two datasets with different field names
+> * Cleanse data to remove anomalies
+> * Transform data using intelligent transforms to create new features
+> * Save your dataflow object to use in a regression model
+
+You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 ## Get the notebook
 
@@ -36,6 +35,7 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## Import packages
+
 Begin by importing the Azure DataPrep SDK.
 
 
@@ -44,7 +44,8 @@ import azureml.dataprep as dprep
 ```
 
 ## Load data
-Download two different NYC Taxi data sets into dataflow objects.  These datasets contain slightly different fields. The method `smart_read_file()` automatically recognizes the input file type.
+
+Download two different NYC Taxi data sets into dataflow objects.  These datasets contain slightly different fields. The method `auto_read_file()` automatically recognizes the input file type.
 
 
 ```python
@@ -54,13 +55,14 @@ green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
 green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
-yellow_df = dprep.smart_read_file(path=yellow_path)
+# auto_read_file will automatically identify and parse the file type, and is useful if you don't know the file type
+yellow_df = dprep.auto_read_file(path=yellow_path)
 
 display(green_df.head(5))
 display(yellow_df.head(5))
 ```
 
-## Data transformation
+## Cleanse data
 
 Now you populate some variables with shortcut transforms that will apply to all dataflows. The variable `drop_if_all_null` will be used to delete records where all fields are null. The variable `useful_columns` holds an array of column descriptions that are retained in each dataflow.
 
@@ -792,7 +794,7 @@ combined_df = tmp_df_renamed
 combined_df.get_profile()
 ```
 
-## Feature engineering
+## Transform data
 
 Split the pickup and drop-off date further into day of week, day of month, and month. To get day of week, use the `derive_column_by_example()` function. This function takes as a parameter an array of example objects that define the input data, and the desired output. The function then automatically determines your desired transformation. For pickup and drop-off time columns, split into hour, minute, and second using the `split_column_by_example()` function with no example parameter.
 
@@ -1046,6 +1048,10 @@ package = dprep.Package([dflow_prepared])
 package.save(".\dflow")
 ```
 
+## Clean up resources
+
+Delete the file `dflow` (whether you are running locally or in Azure Notebooks) in your current directory if you do not wish to continue with part two of the tutorial. If you continue on to part two, you will need the `dflow` file in the current directory.
+
 ## Next steps
 
 In this Azure Machine Learning Data Prep SDK tutorial, you:
@@ -1059,4 +1065,4 @@ In this Azure Machine Learning Data Prep SDK tutorial, you:
 You are ready to use this training data in the next part of the tutorial series:
 
 > [!div class="nextstepaction"]
-> [Tutorial 2 - Automated Machine Learning](tutorial-aml-new.md)
+> [Tutorial #2: Train regression model](tutorial-auto-train-models.md)
