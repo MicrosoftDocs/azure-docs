@@ -286,7 +286,7 @@
     },
     {
       "path_to_root": "samples-cosmosdb-dotnet-web-app",
-      "url": " https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
       "branch": "master",
       "branch_mapping": {}
     }
