@@ -21,7 +21,6 @@ The Azure Database Migration Service integrates some of the functionality of our
 > Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Business Critical (Preview) pricing tier.
 
 ## Regional availability
-
 For up-to-date info about regional availability of the Azure Database Migration Service, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
 ## Pricing
