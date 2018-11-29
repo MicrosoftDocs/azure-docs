@@ -23,11 +23,11 @@ The following steps are supported on a Mac, Windows, or Linux computer.
 
 ## Prerequisites
 
-To build and test locally:
+To build and test locally, you will need to:
 
 + Install [Python 3.6](https://www.python.org/downloads/)
 
-+ Install [Azure Core Tools](functions-run-local.md#v2) version 2.0.1.39 or later
++ Install [Azure Functions Core Tools](functions-run-local.md#v2) version 2.2.70 or later
 
 To publish and run in Azure:
 
@@ -38,16 +38,16 @@ To publish and run in Azure:
 
 ## Create and activate a virtual environment
 
-To create a Functions project, it is required that you work in a Python 3.6 virtual environment. Run the following commands to create and activate a virtual environment named `env`.
+To create a Functions project, it is required that you work in a Python 3.6 virtual environment. Run the following commands to create and activate a virtual environment named `.env`.
 
 ```bash
 # In Bash
-python3.6 -m venv env
-source env/bin/activate
+python3.6 -m venv .env
+source .env/bin/activate
 
 # In PowerShell
-py -3.6 -m venv env
-env\scripts\activate
+py -3.6 -m venv .env
+.env\scripts\activate
 ```
 
 ## Create a local Functions project
