@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
 ---
 
 # Load data into Azure Data Lake Storage Gen2 (Preview) with Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (Preview)](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchical file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2 (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
+Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -72,14 +72,14 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 	![Source data store s3 page](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
 	
 4. In the **Specify Amazon S3 connection** page, do the following steps:
-   1. Specify the **Access Key ID** value.
-   2. Specify the **Secret Access Key** value.
-   3. Click **Test connection** to validate the settings, then select **Finish**.
+
+    1. Specify the **Access Key ID** value.
+    2. Specify the **Secret Access Key** value.
+    3. Click **Test connection** to validate the settings, then select **Finish**.
+    4. You will see a new connection gets created. Select **Next**.
    
-   ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. You will see a new connection gets created. Select **Next**.
-   
+    ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. In the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder/file, select **Choose**:
 
     ![Choose input file or folder](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
