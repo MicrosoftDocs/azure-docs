@@ -21,15 +21,15 @@ In Azure Active Directory (Azure AD) B2C, the resource owner password credential
 
 The following options are supported in the ROPC flow:
 
-- **Native Client** - User interaction during authentication happens when code runs on a user-side device. The device can be a mobile application that's running in a native operating system, such as Android, or running in a browser, such as JavaScript.
-- **Public client flow** - Only user credentials, gathered by an application, are sent in the API call. The credentials of the application are not sent.
+- **Native Client** - User interaction during authentication happens when code runs on a user-side device.
+- **Public client flow** - Only user credentials that are gathered by an application are sent in the API call. The credentials of the application aren't sent.
 - **Add new claims** - The ID token contents can be changed to add new claims. 
 
-The following flows are not supported:
+The following flows aren't supported:
 
-- **Server-to-server** - The identity protection system needs a reliable IP address gathered from the caller (the native client) as part of the interaction. In a server-side API call, only the server’s IP address is used. If a dynamic threshold of failed authentications is exceeded, the identity protection system may identify a repeated IP address as an attacker.
+- **Server-to-server** - The identity protection system needs a reliable IP address gathered from the caller (the native client) as part of the interaction. In a server-side API call, only the server’s IP address is used. If too many sign-ins fail, the identity protection system may look at a repeated IP address as an attacker.
 - **Single page application** - A front-end application that is primarily written in JavaScript. Often, the application is written by using a framework like AngularJS, Ember.js, or Durandal.
-- **Confidential client flow** - The application client ID is validated, but the application secret is not.
+- **Confidential client flow** - The application client ID is validated, but the application secret isn't.
 
 ## Prerequisites
 
@@ -240,8 +240,8 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 Next, update the relying party file that initiates the user journey that you created:
 
 1. Make a copy of *SignUpOrSignin.xml* file in your working directory and rename it to *ROPC_Auth.xml*.
-2. Open the new file and change the value of **PolicyId** attribute for **TrustFrameworkPolicy** to a unique value. This is the name of your policy. For example, **B2C_1A_ROPC_Auth**.
-3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the **Id** of the new user journey that you created.
+2. Open the new file and change the value of the **PolicyId** attribute for **TrustFrameworkPolicy** to a unique value. The policy ID is the name of your policy. For example, **B2C_1A_ROPC_Auth**.
+3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created.
 4. Change the **OutputClaims** element to only contain the following claims:
     
     ```XML
@@ -258,14 +258,11 @@ Next, update the relying party file that initiates the user journey that you cre
 
 ## Test the policy
 
-Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this with the following information as the body of the POST request:
-- Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
-- Replace `user-account` with the name of a user account in your tenant.
-- Replace `password1` with the password of the user account.
-- Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
-- Replace `application-id` with the Application ID from the *ROPC_Auth_app* registration.
+Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this example with the following information as the body of the POST request:
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+
+Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 
 | Key | Value |
 | --- | ----- |
@@ -276,9 +273,13 @@ Use your favorite API development application to generate an API call, and revie
 | client_id | `application-id` |
 | response_type | token id_token |
 
-*Offline_access* is optional if you want to receive a refresh token.
+- Replace `user-account` with the name of a user account in your tenant.
+- Replace `password1` with the password of the user account.
+- Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
+- Replace `application-id` with the Application ID from the *ROPC_Auth_app* registration. 
+- *Offline_access* is optional if you want to receive a refresh token.
 
-The actual POST request looks like the following:
+The actual POST request looks like the following example:
 
 ```HTTPS
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
@@ -303,9 +304,11 @@ A successful response with offline-access looks like the following example:
 
 ## Redeem a refresh token
 
-Construct a POST call like the one shown here with the information in the following table as the body of the request:
+Construct a POST call like the one shown here. Use the information in the following table as the body of the request:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+
+Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 
 | Key | Value |
 | --- | ----- |
@@ -315,7 +318,8 @@ Construct a POST call like the one shown here with the information in the follow
 | resource | `application-id` |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Refresh_token* is the token that you received in the previous authentication call.
+- Replace `application-id` with the Application ID from the *ROPC_Auth_app* registration.
+- *Refresh_token* is the token that you received in the previous authentication call.
 
 A successful response looks like the following example:
 
