@@ -70,7 +70,7 @@ The email includes four tiles:
 | **Role assignments in PIM** | Number of times users are assigned an eligible role inside PIM. |
 | **Role assignments outside of PIM** | Number of times users are assigned a permanent role outside of PIM (inside Azure AD). |
 
-The **Overview of your top roles** section lists your top five roles based on total number of permanent and eligible administrators for each role. The **Take action** link opens the [PIM wizard](pim-security-wizard.md) where you can convert permanent administrators to eligible administrators in batches.
+The **Overview of your top roles** section lists the top five roles in your tenant based on total number of permanent and eligible administrators for each role. The **Take action** link opens the [PIM wizard](pim-security-wizard.md) where you can convert permanent administrators to eligible administrators in batches.
 
 ## PIM emails for Azure resource roles
 
@@ -93,22 +93,6 @@ PIM sends emails to end users when the following events occur for Azure resource
 The following shows an example email that is sent when a user is assigned an Azure resource role for the fictional Contoso organization.
 
 ![New PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-new.png)
-
-## Previous email format
-
-Prior to July 2018, the PIM email notifications had several differences. Previously, emails had the following sender address:
-
-- Email address:  **azureadnotifications@microsoft.com**
-- Display name: Microsoft Azure AD Notification Service
-
-Prior to July 2018, the emails had a different design with different content. The following shows an example email that was sent when a user activated an Azure AD role.
-
-![Old PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-old.png)
-
-The following shows an example email that was sent when a user was assigned an Azure resource role.
-
-![Old PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-old.png)
-
 
 ## Next steps
 
