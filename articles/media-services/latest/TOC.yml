@@ -66,8 +66,17 @@
       href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Streaming live 
+  - name: Streaming live events
     href: live-streaming-overview.md
+    items:
+    - name: Using a cloud DVR
+      href: live-event-cloud-dvr.md
+    - name: Types comparison
+      href: live-event-types-comparison.md
+    - name: States and billing
+      href: live-event-states-billing.md
+    - name: Latency
+      href: live-event-latency.md
 - name: How-to guides
   items:
   - name: Migrate from v2 to v3

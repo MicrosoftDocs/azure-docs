@@ -16,6 +16,10 @@ ms.author: diberry
 
 You can add features to your LUIS app to improve its accuracy. Features help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary. 
 
+A [phrase list](luis-concept-feature.md) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed list entity (exact text matches) of matched words.
+
+A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
+
 ## Add phrase list
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Build**, then click **Phrase lists** in your app's left panel. 
