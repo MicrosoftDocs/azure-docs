@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create a DNS zone and record using the Azure portal
-description: Use this quickstart to learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure portal.
+description: Use this step-by-step quickstart guide to learn how to create an Azure DNS zone and record using the Azure portal.
 services: dns
 author: vhorne
 manager: jeconnoc
@@ -16,10 +16,10 @@ ms.author: victorh
 
 You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.com* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.com* domain and resolve *www.contoso.com* to the IP address of your web server or web app.
 
-In this quickstart, you will create a test domain, and then create an address record to resolve *www* to the IP address **10.10.10.10**.
+In this quickstart, you will create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*.
 
 >[!IMPORTANT]
->All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios. The quickstart refers to real-world implications where applicable.
+>All the names and IP addresses in this quickstart are examples that do not represent real-world scenarios. The quickstart also discusses real-world implications where applicable.
 
 <!---
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
@@ -60,7 +60,7 @@ You create DNS entries or records for your domain inside the DNS zone. Create a 
 
 1. On the **Add record set** page, type or select the following values:
 
-   - **Name**: *www*. The record name is the host name that you want to resolve to the specified IP address.
+   - **Name**: Type *www*. The record name is the host name that you want to resolve to the specified IP address.
    - **Type**: Select **A**. 'A' records are the most common, but there are other record types for mail servers ('MX'), IP v6 addresses ('AAAA'), and so on. 
    - **TTL**: Type *1*. *Time-to-live* of the DNS request specifies how long DNS servers and clients can cache a response.
    - **TTL unit**: Select **Hours**. Time unit for the **TTL** value. 
