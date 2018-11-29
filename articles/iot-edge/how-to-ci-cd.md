@@ -29,7 +29,7 @@ It will take 30 minutes to complete the steps in this article.
 
 In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). You need to change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
+1. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). Change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
 
     ![Set up ACR](./media/how-to-ci-cd/acr.png)
 
@@ -78,11 +78,11 @@ In this section, you will create a build pipeline that is configured to run auto
     
     ![Add tasks](./media/how-to-ci-cd/add-tasks.png)
 
-1. In the first **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Build module images**, and in the **Action** dropdown list, select **Build module images**. In the **.template.json file** control, select the **deployment.template.json** file which discribes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform as your IoT Edge device. This task will build all modules in the solution with the target platform you specified. And also generate the **deployment.json** file, you can find the file path in Output Variables.
+1. In the first **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Build module images**, and in the **Action** dropdown list, select **Build module images**. In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform as your IoT Edge device. This task will build all modules in the solution with the target platform you specified. And also generate the **deployment.json** file, you can find the file path in Output Variables.
     
     ![Build and push](./media/how-to-ci-cd/build-and-push.png)
 
-1. In the second **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Push module images**, and in the **Action** dropdown list, select **Push module images**. Choose Container Registry Type, make sure you configure and select the same registry in your code(module.json). In the **.template.json file** control, select the **deployment.template.json** file which discribes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform for your built module images. This task will push all module images to the container registry you selected. And also add container registry credentials in the **deployment.json** file, you can find the file path in Output Variables. If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
+1. In the second **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Push module images**, and in the **Action** dropdown list, select **Push module images**. Choose Container Registry Type, make sure you configure and select the same registry in your code(module.json). In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform for your built module images. This task will push all module images to the container registry you selected. And also add container registry credentials in the **deployment.json** file, you can find the file path in Output Variables. If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
 
     ![Push](./media/how-to-ci-cd/push.png)
 
@@ -138,7 +138,7 @@ In this section, you will create a release pipeline that is configured to run au
 
     Save the new release pipeline. Click the **Save** button. And then click **Pipeline** to go back to the pipeline.
 
-6. The second stage is for your production environment. To add a new stage "PROD", you can simply clone the Stage "QA" and rename cloned stage to **PROD**,
+6. The second stage is for your production environment. To add a new stage "PROD", you can clone the Stage "QA" and rename cloned stage to **PROD**,
 
     ![Clone stage](./media/how-to-ci-cd/clone-stage.png)
 
@@ -146,7 +146,7 @@ In this section, you will create a release pipeline that is configured to run au
     
     ![Deploy to production](./media/how-to-ci-cd/deploy-to-prod.png)
 
-7. Currently, our build artifact will be triggered continuously on **QA** stage and then **PROD** stage. But most of the times you need to integrate some test cases on the QA devices and manually approve the bits. Later the bits will be deployed to PROD environment. Set up an approval in PROD stage as the following.
+7. Currently, our build artifact will be triggered continuously on **QA** stage and then **PROD** stage. But most of the times you need to integrate some test cases on the QA devices and manually approve the bits. Later the bits will be deployed to PROD environment. Set up an approval in PROD stage as the following screenshot.
 
     1. Open **Pre-deployment conditions** setting panel.
 
@@ -157,7 +157,7 @@ In this section, you will create a release pipeline that is configured to run au
         ![Set conditions](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
 
-8. Now your release pipeline has been set up as following.
+8. Now your release pipeline has been set up as following screenshot.
 
     ![Release pipeline](./media/how-to-ci-cd/release-pipeline.png)
 
