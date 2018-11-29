@@ -36,8 +36,17 @@ By default, the **IP Filter** grid in the portal for Service Bus is empty. This 
 
 IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
 
-> [!NOTE]
-> Rejecting IP addresses can prevent other Azure services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with Service Bus.
+>[!WARNING]
+> Implementing Firewalls can prevent other Azure services from interacting with Service Bus.
+> 
+> First party integrations are not supported when IP Filtering (Firewalls) are implemented, and will be made available soon.
+> Common Azure scenarios that don't work with IP Filtering - 
+> - Azure Diagnostics and Logging
+> - Azure Stream Analytics
+> - Event Grid Integration
+> - Web Apps & Functions are required to be on a Virtual network.
+> - IoT Hub Routes
+> - IoT Device Explorer
 
 ### Creating a virtual network and firewall rule with Azure Resource Manager templates
 

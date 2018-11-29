@@ -21,9 +21,22 @@ Once configured to be bound to at least one virtual network subnet service endpo
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Service Bus namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
 
-## Enable service endpoints with Service Bus
+>[!WARNING]
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+>
+> First party integrations are not supported when Virtual Networks are enabled, and will be made available soon.
+> Common Azure scenarios that don't work with Virtual Networks -
+> - Azure Diagnostics and Logging
+> - Azure Stream Analytics
+> - Event Grid Integration
+> - Web Apps & Functions are required to be on a Virtual network.
+> - IoT Hub Routes
+> - IoT Device Explorer
 
-Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. 
+> [!IMPORTANT]
+> Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces.
+
+## Enable service endpoints with Service Bus
 
 An important consideration when using VNet service endpoints with Service Bus is that you should not enable these endpoints in applications that mix Standard and Premium tier Service Bus namespaces. Because Standard tier does not support VNets, the endpoint is restricted to Premium tier namespaces only. The VNet will block traffic to the Standard namespace.
 

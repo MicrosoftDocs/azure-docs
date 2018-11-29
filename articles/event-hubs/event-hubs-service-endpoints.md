@@ -16,14 +16,27 @@ ms.author: shvija
 
 # Use Virtual Network service endpoints with Azure Event Hubs
 
-The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends. 
-
-> [!IMPORTANT]
-> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier. 
+The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
 Once configured to be bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
+
+>[!WARNING]
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+>
+> First party integrations are not supported when Virtual Networks are enabled, and will be made available soon.
+> Common Azure scenarios that don't work with Virtual Networks -
+> - Azure Diagnostics and Logging
+> - Azure Stream Analytics
+> - Event Grid Integration
+> - Web Apps & Functions are required to be on a Virtual network.
+> - IoT Hub Routes
+> - IoT Device Explorer
+
+
+> [!IMPORTANT]
+> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier. 
 
 ## Advanced security scenarios enabled by VNet integration 
 
@@ -54,37 +67,56 @@ Template parameters:
 
 ```json
 {  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{	  
-		  "namespaceName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the namespace"
-			 }
-		  },
-		  "vnetRuleName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the Authorization rule"
-			 }
-		  },
-		  "virtualNetworkSubnetId":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"subnet Azure Resource Manager ID"
-			 }
-		  }
-	  },
-	"resources": [
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "namespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
+      },
+      "vnetRuleName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "resources": [
         {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.EventHub/namespaces/VirtualNetworkRules",			
-            "properties": {			    
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"	
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules":
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
             }
-        } 
+          ],
+          "ipRules":[],
+          "defaultAction": "Deny"
+        }
+      }
     ]
 }
 ```

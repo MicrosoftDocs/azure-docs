@@ -36,8 +36,18 @@ By default, the **IP Filter** grid in the portal for Event Hubs is empty. This d
 
 IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
-> [!NOTE]
-> Rejecting IP addresses can prevent other Azure services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with Event Hubs.
+>[!WARNING]
+> Implementing Firewalls can prevent other Azure services from interacting with Service Bus.
+> 
+> First party integrations are not supported when IP Filtering (Firewalls) are implemented, and will be made available soon.
+> Common Azure scenarios that don't work with IP Filtering - 
+> - Azure Diagnostics and Logging
+> - Azure Stream Analytics
+> - Event Grid Integration
+> - Web Apps & Functions are required to be on a Virtual network.
+> - IoT Hub Routes
+> - IoT Device Explorer
+
 
 ### Creating a Firewall rule with Azure Resource Manager templates
 
@@ -54,46 +64,58 @@ Template parameters:
 
 ```json
 {  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{	  
-		  "namespaceName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the namespace"
-			 }
-		  },
-		  "ipFilterRuleName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the Authorization rule"
-			 }
-		  },
-		  "ipFilterAction":{  
-			 "type":"string",
-			 "allowedValues": ["Reject", "Accept"],
-			 "metadata":{  
-				"description":"IP Filter Action"
-			 }
-		  },
-		  "IpMask":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"IP Mask"
-			 }
-		  }
-	  },
-	"resources": [
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "namespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
+      },
+      "vnetRuleName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "resources": [
         {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
-            "properties": {
-				"FilterName":"[parameters('ipFilterRuleName')]",
-				"Action":"[parameters('ipFilterAction')]",				
-                "IpMask": "[parameters('IpMask')]"
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules":[],
+          "ipRules":
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
+          ],
+          "defaultAction": "Deny"
+        }
+      }
     ]
 }
 ```
