@@ -169,8 +169,4 @@ Moving a registration resource between resource groups under the same subscripti
 
 
 ## Next steps
-<<<<<<< HEAD
 [Add an Azure Stack marketplace item](../azure-stack-marketplace.md)
-=======
-[Add an Azure Stack marketplace item](././azure-stack-marketplace.md)
->>>>>>> change back slashes to forward slashes

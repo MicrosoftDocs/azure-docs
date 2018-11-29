@@ -40,4 +40,8 @@ As an Azure Stack Operator, you can create offers that let your users (tenants) 
 Deploy the App Service resource provider to [make web and API apps available to your Azure Stack users](../azure-stack-tutorial-app-service.md)
 
 ## Next steps
+<<<<<<< HEAD
 [Learn more about offering services with Azure Stack integrated systems](../azure-stack-offer-services-overview.md)
+=======
+[Learn more about offering services with Azure Stack integrated systems](../azure-stack-offer-services-overview.md)
+>>>>>>> update all ././ to ../
