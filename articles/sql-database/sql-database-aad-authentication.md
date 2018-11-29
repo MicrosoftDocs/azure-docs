@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 12/03/2018
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
 

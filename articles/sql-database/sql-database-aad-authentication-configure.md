@@ -121,7 +121,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
     }
     ```
 
-5. After the operation is successfully completed, the following notification will show up in top-right corner:
+5. After the operation is successfully completed, the following notification will show up in the top-right corner:
 
     ![success](./media/sql-database-aad-authentication/success.png)
 
