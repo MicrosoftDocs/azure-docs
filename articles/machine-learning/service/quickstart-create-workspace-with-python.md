@@ -32,8 +32,9 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.80 
 
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
