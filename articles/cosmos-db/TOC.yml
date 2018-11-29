@@ -141,7 +141,7 @@
       items:
         - name: Pricing model
           href: how-pricing-works.md
-        - name: Total Cost of Ownership 
+        - name: Total Cost of Ownership(TCO) 
           href: total-cost-of-ownership.md
         - name: Optimize your dev/test workloads 
           href: optimize-dev-test.md

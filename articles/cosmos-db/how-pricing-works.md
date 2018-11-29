@@ -15,8 +15,8 @@ The pricing model of Azure Cosmos DB simplifies the cost management and planning
 
 * **Provisioned Throughput**: Provisioned throughput (also called reserved throughput) guarantees high performance at any scale. You specify the throughput (RU/s) that you need, and Azure Cosmos DB dedicates the resources required to guarantee the configured throughput. You are billed hourly for the maximum provisioned throughput for a given hour.
 
-> [!NOTE]
-> Because the provisioned throughput model dedicates resources to your container or database, you will be charged for the provisioned throughput even if you don’t run any workloads.
+   > [!NOTE]
+   > Because the provisioned throughput model dedicates resources to your container or database, you will be charged for the provisioned throughput even if you don’t run any workloads.
 
 * **Consumed Storage**: You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
@@ -35,7 +35,7 @@ Currently the minimum price for both database and the container-based throughput
 
 As shown in the previous table, the minimum throughput in Azure Cosmos DB starts at a price of $24/month. If you start with the minimum throughput and scale up over time to support your production workloads, your costs will rise smoothly, in the increments of $6/month. The pricing model in Azure Cosmos DB is elastic and there is a smooth increase or decrease in the price as you scale up or down.
 
-## Try Azure Cosmos DB without any pricing 
+## Try Azure Cosmos DB for free 
 
 Azure Cosmos DB offers several options for developers to it for free. These options include:
 
