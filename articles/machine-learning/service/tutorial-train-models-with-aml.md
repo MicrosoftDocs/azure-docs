@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-01). Run the `01.train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-01). Run the `tutorials/01.train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
