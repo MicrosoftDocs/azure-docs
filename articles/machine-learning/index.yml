@@ -36,7 +36,44 @@ sections:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
 
-- title: Quickstarts and Tutorials
+- title: Azure Machine Learning service
+  items:
+  - type: paragraph
+    text: 'Learn how this service empowers data scientists to develop and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
+
+  - href: /azure/machine-learning/service/overview-what-is-azure-ml
+    html: <p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
+ 
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/i_machine-learning.svg
+    rows:
+      - title: Get started with the service
+        values:
+        - href: /azure/machine-learning/service/quickstart-get-started
+      - title: Prepare data for modeling
+        values:
+        - href: /azure/machine-learning/service/how-to-data-prep
+      - title: Build your own machine learning model
+        values:
+        - href: /azure/machine-learning/service/tutorial-train-models-with-aml
+      - title: Automatically generate and tune algorithms
+        values:
+        - href: /azure/machine-learning/service/tutorial-auto-train-models
+      - title: Deploy your model as a web service
+        values:
+        - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
+      - title: Consume your machine learning models
+        values:
+        - href: /azure/machine-learning/service/how-to-consume-web-service
+      - title: Build, optimize, and manage your ML pipelines
+        values:
+        - href: /azure/machine-learning/service/concept-ml-pipelines
+
+
+- title: Azure Machine Learning Studio (Original service)
   items:
   - type: paragraph
     text: 'Learn how to quickly set up and use Azure Machine Learning service (preview) and Studio:'
