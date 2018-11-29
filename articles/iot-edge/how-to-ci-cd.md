@@ -137,7 +137,7 @@ In this section, you will create a release pipeline that is configured to run au
 
     ![Clone stage](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure the tasks for your production environment. Assume you have several IoT Edge devices have been tagged as 'prod', in the task configurations, update the Target Condition to "prod", and set the deployment id as "deploy-prod" in advanced settings. Click the **Save** button. And then click **Pipeline** to go back to the pipeline.
+7. Configure the tasks for your production environment. Assume you have several IoT Edge devices have been tagged as 'prod', in the task configurations, update the Target Condition to "prod", and set the deployment ID as "deploy-prod" in advanced settings. Click the **Save** button. And then click **Pipeline** to go back to the pipeline.
     
     ![Deploy to production](./media/how-to-ci-cd/deploy-to-prod.png)
 
