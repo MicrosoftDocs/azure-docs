@@ -95,15 +95,15 @@ Total backup time of less than 24 hours is valid for incremental backups, but ma
 Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications. For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is effected. For help with tuning your application to improve backup performance, see [Tuning applications for optimal performance with Azure storage](../virtual-machines/windows/premium-storage-performance.md). Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.
 There can be several reasons for the long backup time:
 
-  1. **First backup for a newly added disk to an already protected VM**
+  1. **First backup for a newly added disk to an already protected VM** <br>
     If a VM is already undergoing incremental backups, but new disk(s) get added, then backup might miss 1 day SLA depending on the first backup size of the new disk.
-  2. **Fragmentation**
+  2. **Fragmentation** <br>
     If the customer application is poorly configured that does small fragmented writes.
-  3. **Customer storage account overloaded**
+  3. **Customer storage account overloaded** <br>
 
       a. If the backup is scheduled during customer's production application time.  
       b. If more than 5 to 10 disks are hosted from same storage account.
-  4. **Consistency check(CC) mode**
+  4. **Consistency check(CC) mode** <br>
       For > 1TB disks, if the backup happens using CC mode due to reasons as mentioned below.
 
         a. The managed disk moves as part of customer VM reboot
