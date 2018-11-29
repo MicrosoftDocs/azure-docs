@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/23/2018
+ms.date: 11/26/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
 # What is Dedicated HSM?
 
-Azure Dedicated HSM provides cryptographic key storage in Azure that meets the most stringent security requirements. Dedicated HSM is the ideal solution for customers requiring FIPS 140-2 Level 3 validated devices and complete and exclusive control of the HSM appliance. The HSM devices are deployed globally across several Azure regions  and can be easily provisioned as a pair of devices and configured for high availability failover via Gemalto software. HSMs may also be provisioned across regions to assure against regional level failover. Microsoft has partnered with Gemalto to provide the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). This device offers the highest levels of performance and cryptographic integration options. HSMs are connected directly to customer’s virtual network and can also be (optionally) accessed by on-premises application and management tools by configuring point-to-site or site-to-site VPN connectivity. Customers will acquire software and tools to manage the HSM from Gemalto’s support portal.
+Azure Dedicated HSM provides cryptographic key storage in Azure that meets the most stringent security requirements. Dedicated HSM is the ideal solution for customers requiring FIPS 140-2 Level 3 validated devices and complete and exclusive control of the HSM appliance. The HSM devices are deployed globally across several Azure regions and can be easily provisioned as a pair of devices and configured for high availability. HSMs may also be provisioned across regions to assure against regional level failover. Microsoft has delivered the Dedicated HSM service using the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) appliance from Gemalto. This device offers the highest levels of performance and cryptographic integration options. When provisioned, HSMs are connected directly to a customer’s virtual network and could also be accessed by on-premises application and management tools by configuring point-to-site or site-to-site VPN connectivity. Customers will acquire software and documentation to configure and manage HSM devices from Gemalto’s support portal.
 
 ## Why use Azure dedicated HSM?
 
@@ -57,21 +57,11 @@ Most suitable for “lift-and-shift” scenarios that require direct and sole ac
 
 ### Not a Fit
 
-Azure Dedicated HSM service has no IaaS/PaaS integration for customer-managed keys and for these scenarios the best fit would be Azure Key Vault service. Examples include:
-
-- Azure Disk Encryption
-- Azure Data Lake Store encryption
-- Azure Storage server-side encryption
-- Azure SQL DB TDE
-- Azure Information Protection
-- Office 365 service encryption
-- Azure App Services SSL
-- Azure CDN SSL 
-- API Management SSL
+Microsoft cloud services that support encryption with customer-managed keys (such as Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL, Office 365 Customer Key) are not integrated with Azure Dedicated HSM.
 
 ### It Depends
 
-Many scenarios will depend on a potential complex mix of requirements and what compromises can or cannot be made. An example is FIPS 140-2 Level 3 requirement which is often mandated and hence, currently Dedicated HSM is the only options.  If these mandated requirements are not relevant, then often it would be decision between Azure Key Vault and Dedicated HSM based on assessing a mix of requirements. Example include:
+Many scenarios will depend on a potential complex mix of requirements and what compromises can or cannot be made. An example is FIPS 140-2 Level 3 requirement, which is often mandated and hence, currently Dedicated HSM is the only options.  If these mandated requirements are not relevant, then often it would be decision between Azure Key Vault and Dedicated HSM based on assessing a mix of requirements. Examples include:
 
 - New code running in a customer’s Azure Virtual Machine
 - SQL Server TDE in an Azure Virtual Machine
@@ -80,7 +70,7 @@ Many scenarios will depend on a potential complex mix of requirements and what c
 
 ## Next Steps
 
-Considering the highly specialized nature of this service, it is recommended that some of the key concepts found in this documentation set are fully understood, the pricing, support, and service level agreements are fully understood, and then a tutorial is available to facilitate provisioning of HSMs into an existing virtual network environment. Gemalto integration guides and how-to guides for deciding deployment architecture are also a great resource.
+Considering the highly specialized nature of this service, it is recommended that some of the key concepts found in this documentation set are fully understood, the pricing, support, and service level agreements are fully understood, and then a tutorial is available to facilitate provisioning of HSMs into an existing virtual network environment. [Gemalto integration guides](https://safenet.gemalto.com/partners/microsoft/) and how-to guides for deciding deployment architecture are also a great resource.
 
 * [High Availability](high-availability.md)
 * [Physical Security](physical-security.md)
