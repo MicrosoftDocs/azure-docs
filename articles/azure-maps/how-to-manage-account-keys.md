@@ -48,5 +48,5 @@ You will then see a confirmation page. You can confirm the deletion of your acco
 
 ## Next steps
 
-* Learn how to use Azure Maps search APIs at [search for an address](./how-to-search-for-address.md).
-* Learn how to use Azure maps [JavaScript map control](./how-to-use-map-control.md).
+* Learn how to manage Azure Maps account Pricing tier at [Manage Pricing Tier](./how-to-manage-pricing-tier.md).
+* Learn how to see the API usage metrics for your Azure Maps account at [View usage metrics](./how-to-view-api-usage.md).
