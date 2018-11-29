@@ -310,14 +310,14 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
+[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
+[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
+[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
+[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
 
-[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
+[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
 
-[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
+[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
+[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
+[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
+[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png
