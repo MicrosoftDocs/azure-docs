@@ -193,9 +193,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     * On the **Security** page, perform the following steps:
 
-      ![Security](../media/zendesk-tutorial/ic773089.png "Security")
+      ![Security](././media/zendesk-tutorial/ic773089.png "Security")
 
-      ![Single sign-on](../media/zendesk-tutorial/ic773090.png "Single sign-on")
+      ![Single sign-on](././media/zendesk-tutorial/ic773090.png "Single sign-on")
 
       a. Click the **Admin & Agents** tab.
 
@@ -249,10 +249,10 @@ The objective of this section is to create a user called Britta Simon in Zendesk
 
 3. Select the **User** tab, and click **Add**.
 
-    ![Add user](../media/zendesk-tutorial/ic773632.png "Add user")
+    ![Add user](././media/zendesk-tutorial/ic773632.png "Add user")
 4. Type the **Name** and **Email** of an existing Azure AD account you want to provision, and then click **Save**.
 
-    ![New user](../media/zendesk-tutorial/ic773633.png "New user")
+    ![New user](././media/zendesk-tutorial/ic773633.png "New user")
 
 > [!NOTE]
 > You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts.
