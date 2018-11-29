@@ -13,3 +13,9 @@ ms.author: tulasim88
 ---
 
 # Get answer from knowledge base
+
+## Publish to get endpoint
+
+## Use endpoint with Postman
+
+## Use endpoint with CURL
