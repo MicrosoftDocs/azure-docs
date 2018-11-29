@@ -16,7 +16,7 @@ ms.date: 12/04/2018
 ms.author: kraigb
 ---
 
-# An overview of Azure Notebooks
+# Overview of Azure Notebooks
 
 Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](http://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the *notebook* (image courtesy of jupyter.org):
 
@@ -26,7 +26,7 @@ Because of this powerful combination of code, graphics, and explanatory text, Ju
 
 ## Hassle-free experience
 
-Azure Notebooks help you to get started quickly on prototyping, data science, academic research, or learning to program Python:
+Azure Notebooks helps you to get started quickly on prototyping, data science, academic research, or learning to program Python:
 
 - A data scientist has instant access to a full Anaconda environment with no installation.
 - A teacher can provide a hassle-free Python environment to students.
@@ -35,7 +35,7 @@ Azure Notebooks help you to get started quickly on prototyping, data science, ac
 
 Notebooks become even more powerful when people can collaborate on them through a browser-accessible cloud service like Azure Notebooks (in Preview). In the cloud, users need not install Jupyter locally or concern themselves with maintaining an environment. The cloud also makes it simple to share notebooks (and associated data files) with other authorized users, avoiding the complications of sharing notebooks through external means like source-control repositories. With Azure Notebooks, users can also copy (or "clone") notebooks into their own account for modification or experimentation, which is especially useful for instruction purposes.
 
-Because Azure notebooks is a general code authoring, execution and sharing platform, you can use it for many diverse scenarios:
+Because Azure Notebooks is a general code authoring, execution and sharing platform, you can use it for many diverse scenarios:
 
 - Learn a new programming language – try one of the [frontpage tutorials](https://notebooks.azure.com/Microsoft/projects/samples/html/Introduction%20to%20Python.ipynb)
 - Learn Data Science – try [Jake VanderPlas' book](https://notebooks.azure.com/jakevdp/projects/PythonDataScienceHandbook)
@@ -51,7 +51,7 @@ In short, Azure Notebooks helps you accomplish your work more efficiently and th
 
 ## Pricing and quotas
 
-Azure Notebooks is a free service but each project is limited to 4GB memory and 1GB data to prevent abuse. Legitimate users that exceed these limits see a Captcha challenge to continue running notebooks.
+Azure Notebooks is a free service but each project is limited to 4-GB memory and 1-GB data to prevent abuse. Legitimate users that exceed these limits see a Captcha challenge to continue running notebooks.
 
 To release all limits, associate your account with an Azure subscription, which enables you to select premium compute tiers.
 
