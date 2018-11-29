@@ -19,7 +19,7 @@ ms.author: spelluru
 
 # Message expiration (Time to Live)
 
-The payload inside of a message, or a command or inquiry that a message conveys to a receiver, is almost always subject to some form of application-level expiration deadline. After such a deadline, the content is no longer delivered, or the requested operation is no longer executed.
+The payload in a message, or a command or inquiry that a message conveys to a receiver, is almost always subject to some form of application-level expiration deadline. After such a deadline, the content is no longer delivered, or the requested operation is no longer executed.
 
 For development and test environments in which queues and topics are often used in the context of partial runs of applications or application parts, it's also desirable for stranded test messages to be automatically garbage collected so that the next test run can start clean.
 
@@ -48,9 +48,9 @@ Service Bus queues, topics, and subscriptions can be created as temporary entiti
  
 Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and are not cleaned up after use, due to some interruption of the test or debugging run. It is also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it is difficult to reliably clean up those entities when the object instance disappears.
 
-The feature is enabled using the [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) property, which is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum duration is 5 minutes.
+The feature is enabled using the [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) property. This property is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum value for this property is 5.
  
-The **autoDeleteOnIdle** property must be set through an Azure Resource Manager operation or via the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. It cannot be set through the portal.
+The **autoDeleteOnIdle** property must be set through an Azure Resource Manager operation or via the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. You can't set it in the portal.
 
 ## Idleness
 
