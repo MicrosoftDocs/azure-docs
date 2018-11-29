@@ -358,8 +358,8 @@ Navigate in **Solution Explorer** to the **ToDoService** project and open **Serv
 
 ![Figure 1 - The ToDoService service.yaml file](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* The service name, `ToDoService`, is found under `services:` after `name:` See (1) in the figure above.
-* The port, `20008`, is found under `endpoints:` after `port:` See (2) in the figure above. Your project's port number will probably be different.
+* The service name, `ToDoService`, is found under `services:` See (1) in the figure above.
+* The port, `80`, is found under `endpoints:` See (2) in the figure above. Your project's port number will probably be different.
 
 Next, we need to define environment variables representing the service name and port number in the WebFrontEnd project so it can call the back-end service.
 

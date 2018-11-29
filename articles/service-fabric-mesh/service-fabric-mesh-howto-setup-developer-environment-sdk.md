@@ -86,8 +86,7 @@ After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docke
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-4. Reboot.
-5. To start the local cluster manager tool, run the following PowerShell command:
+4. To start the local cluster manager tool, run the following PowerShell command:
 
     ```powershell
 . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
