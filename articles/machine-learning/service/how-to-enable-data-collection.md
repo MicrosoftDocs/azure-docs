@@ -228,6 +228,4 @@ To quickly access the data from your blob:
 
 The [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) notebook demonstrates concepts in this article.  
 
-Get this notebook:
- 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
