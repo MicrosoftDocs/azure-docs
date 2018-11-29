@@ -12,15 +12,14 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-You can easily adopt DevOps with your Azure IoT Edge applications with [Azure IoT Edge For Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge). This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge) on your Jenkins server. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines and Azure DevOps Server to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution.
-* Install Azure IoT Edge extension for your Azure DevOps.
 * Configure continuous integration (CI) to build the solution.
 * Configure continuous deployment (CD) to deploy the solution and view responses.
 
-It will take 30 minutes to complete the steps in this article.
+It will take 20 minutes to complete the steps in this article.
 
 ![CI and CD](./media/how-to-ci-cd/cd.png)
 
@@ -50,10 +49,6 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![Check-in code](./media/how-to-ci-cd/init-project.png)
 
-1. Visit [Azure IoT Edge For Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on Azure DevOps Marketplace. Click **Get it free** and follow the wizard to install this extension to your Azure DevOps organization or download to your TFS.
-
-    ![Install extension](./media/how-to-ci-cd/install-extension.png)
-
 1. In your Azure Pipelines, open the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. Then select **New build pipeline**.
 
     ![New pipeline](./media/how-to-ci-cd/add-new-build.png)
@@ -78,11 +73,11 @@ In this section, you will create a build pipeline that is configured to run auto
     
     ![Add tasks](./media/how-to-ci-cd/add-tasks.png)
 
-1. In the first **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Build module images**, and in the **Action** dropdown list, select **Build module images**. In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform as your IoT Edge device. This task will build all modules in the solution with the target platform you specified. And also generate the **deployment.json** file, you can find the file path in Output Variables.
+1. In the first **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Build module images**, and in the **Action** dropdown list, select **Build module images**. In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform as your IoT Edge device. This task will build all modules in the solution with the target platform you specified. And also generate the **deployment.json** file, you can find the file path in Output Variables. Setup the alias to `edge` for this variable.
     
     ![Build and push](./media/how-to-ci-cd/build-and-push.png)
 
-1. In the second **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Push module images**, and in the **Action** dropdown list, select **Push module images**. Choose Container Registry Type, make sure you configure and select the same registry in your code(module.json). In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform for your built module images. This task will push all module images to the container registry you selected. And also add container registry credentials in the **deployment.json** file, you can find the file path in Output Variables. If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
+1. In the second **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Push module images**, and in the **Action** dropdown list, select **Push module images**. Choose Container Registry Type, make sure you configure and select the same registry in your code(module.json). In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform for your built module images. This task will push all module images to the container registry you selected. And also add container registry credentials in the **deployment.json** file, you can find the file path in Output Variables. Setup the alias to `edge` for this variable. If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
 
     ![Push](./media/how-to-ci-cd/push.png)
 
