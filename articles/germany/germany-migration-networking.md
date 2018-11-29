@@ -69,7 +69,7 @@ Get-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 
 ### Next steps
 
-- Refresh your [knowledge about Network Security Groups](/virtual-network/security-overview.md#network-security-groups).
+- Refresh your [knowledge about Network Security Groups](../virtual-network/security-overview.md#network-security-groups).
 
 ### References
 

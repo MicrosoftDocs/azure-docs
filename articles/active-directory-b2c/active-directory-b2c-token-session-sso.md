@@ -22,9 +22,9 @@ This feature gives you fine-grained control, on a [per-policy basis](active-dire
 - Formats of important claims in the security tokens emitted by Azure AD B2C.
 - Single sign-on (SSO) behavior across multiple apps and policies in your Azure AD B2C tenant.
 
-For built-in policies, you can use this feature in your Azure AD B2C directory as follows:
+You can use this feature on any policy type, but this example show how to use the feature with a sign-up or sign-in policy. For built-in policies, you can use this feature in your Azure AD B2C directory as follows:
 
-1. Click **Sign-up or sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies***.
+1. Click **Sign-up or sign-in policies**.
 2. Open a policy by clicking it. For example, click on **B2C_1_SiUpIn**.
 3. Click **Edit** at the top of the menu.
 4. Click **Token, session & single sign-on config**.

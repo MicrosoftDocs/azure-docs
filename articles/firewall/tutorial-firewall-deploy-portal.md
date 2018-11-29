@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/9/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -73,7 +73,7 @@ This VNet will contain three subnets.
 11. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /25.
+> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
@@ -92,46 +92,36 @@ Create another subnet named **Jump-SN**, address range **10.0.3.0/24**.
 
 Now create the jump and workload virtual machines, and place them in the appropriate subnets.
 
-1. From the Azure portal home page, click **All services**.
-2. Under **Compute**, click **Virtual machines**.
-3. Click **Add** > **Windows Server** > **Windows Server 2016 Datacenter** > **Create**.
+1. On the Azure portal, click **Create a resource**.
+2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+3. Enter these values for the virtual machine:
 
-**Basics**
+    - *Test-FW-RG* for the resource group.
+    - *Srv-Jump* - for the name of the virtual machine.
+    - *azureuser* - for the administrator user name.
+    - *Azure123456!* for the password.
 
-1. For **Name**, type **Srv-Jump**.
-5. Type a username and password.
-6. For **Subscription**, select your subscription.
-7. For **Resource group**, click **Use existing** > **Test-FW-RG**.
-8. For **Location**, select the same location that you used previously.
-9. Click **OK**.
+4. Under **Inbound port rules**, for **Public inbound ports**, click **Allow selected ports**.
+5. For **Select inbound ports**, select **RDP (3389)**.
 
-**Size**
-
-1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (8 GB RAM, 16 GB storage).
-2. Click **Select**.
-
-**Settings**
-
-1. Under **Network**, for **Virtual network**, select **Test-FW-VN**.
-2. For **Subnet**, select **Jump-SN**.
-3. For **Select public inbound ports**, select **RDP (3389)**. 
-
-    You'll want to limit the access to your public IP address, but you need to open port 3389 so you can connect a remote desktop to the jump server. 
-2. Leave the other default settings and click **OK**.
-
-**Summary**
-
-Review the summary, and then click **Create**. This will take a few minutes to complete.
+6. Accept the other defaults and click **Next: Disks**.
+7. Accept the disk defaults and click **Next: Networking**.
+8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Jump-SN**.
+9. For **Public IP**, click **Create new**.
+10. Type **Srv-Jump-PIP** for the public IP address name and click **OK**.
+11. Accept the other defaults and click **Next: Management**.
+12. Click **Off** to disable boot diagnostics. Accept the other defaults and click **Review + create**.
+13. Review the settings on the summary page, and then click **Create**.
 
 Repeat this process to create another virtual machine named **Srv-Work**.
 
-Use the information in the following table to configure the **Settings** for the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
+Use the information in the following table to configure the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
 
 |Setting  |Value  |
 |---------|---------|
 |Subnet|Workload-SN|
-|Public IP address|None|
-|Select public inbound ports|No public inbound ports|
+|Public IP|None|
+|Public inbound ports|None|
 
 ## Deploy the firewall
 

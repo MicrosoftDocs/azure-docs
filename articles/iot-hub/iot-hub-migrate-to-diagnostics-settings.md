@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 11/19/2018
 ms.author: kgremban
 ---
 
@@ -44,6 +44,10 @@ Also, diagnostics settings offers tracking for five new categories. After you up
 * Direct Methods
 
 For the specific schema structures, see [Understand the schema for diagnostics settings](iot-hub-monitor-resource-health.md#understand-the-logs).
+
+## Monitoring device connect and disconnect events with low latency
+
+To monitor device connect and disconnect events, we recommend subscribing to the [**device disconnected** event](iot-hub-event-grid.md#event-types) on Event Grid to get alerts and monitor the device connection state. Use this [tutorial](iot-hub-how-to-order-connection-state-events.md) to learn how to integrate Device Connected and Device Disconnected events from IoT Hub in your IoT solution.
 
 ## Next steps
 

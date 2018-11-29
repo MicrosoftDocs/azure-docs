@@ -94,7 +94,7 @@ There is no extra charge for using the Shared Image Gallery service. You will be
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -name Microsoft.Compute
+az provider register --name Microsoft.Compute
 ```
 
 **PowerShell**: 

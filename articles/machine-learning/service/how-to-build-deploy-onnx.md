@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # ONNX and Azure Machine Learning: Create and deploy interoperable AI models
 
-The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a [community of partners](http://onnx.ai/supported-tools), including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
+The [Open Neural Network Exchange](https://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a [community of partners](https://onnx.ai/supported-tools), including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
 
 + Use the framework of their choice to create and train models
 + Deploy models cross-platform with minimal integration work
@@ -204,6 +204,6 @@ Get these notebooks:
 ## More info
 
 Learn more about ONNX or contribute to the project:
-+ [ONNX project website](http://onnx.ai)
++ [ONNX project website](https://onnx.ai)
 
 + [ONNX code on GitHub](https://github.com/onnx/onnx)

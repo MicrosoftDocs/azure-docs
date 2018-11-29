@@ -87,7 +87,7 @@ If an error occurs, the status codes below are used. The response body for the e
 429|Too Many Requests|You have exceeded the quota or rate of requests allowed for your subscription.
 |502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
-For more information on the Text to Speech REST API, see [REST APIs](rest-apis.md#text-to-speech).
+For more information on the Text to Speech REST API, see [REST APIs](rest-apis.md#text-to-speech-api).
 
 ## Next steps
 

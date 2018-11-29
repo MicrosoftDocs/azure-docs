@@ -214,7 +214,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    const containerId = config.container.id;
    ```
 
-   A [database](sql-api-resources.md#databases) can be created by using either the [createIfNotExists](/javascript/api/%40azure/cosmos/databases) or [create](/javascript/api/%40azure/cosmos/databases) function of the **Databases** class. A database is the logical container of items partitioned across containers. 
+   A database can be created by using either the [createIfNotExists](/javascript/api/%40azure/cosmos/databases) or [create](/javascript/api/%40azure/cosmos/databases) function of the **Databases** class. A database is the logical container of items partitioned across containers. 
 
 2. Copy and paste the **createDatabase** and **readDatabase** methods into the app.js file under the ```databaseId``` and ```containerId``` definition. The **createDatabase** function will create a new database with id ```FamilyDatabase```, specified from the ```config``` object if it does not already exist. The **readDatabase** function will read the database's definition to ensure that the database exists.
 
@@ -493,9 +493,9 @@ Congratulations! You have successfully created an Azure Cosmos DB item.
 
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
-Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
+Azure Cosmos DB supports [rich queries](how-to-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
 
-1. Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
+1. Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](how-to-sql-query.md).
 
    ```nodejs
    /**
