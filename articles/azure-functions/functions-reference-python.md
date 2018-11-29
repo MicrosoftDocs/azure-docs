@@ -323,7 +323,7 @@ Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/
 > ```
 > func azure functionapp publish <app_name> --build-native-deps --no-bundler
 > ```
-> If you continue to experience issues, please [open an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and include a description of the problem. 
+> If you continue to experience issues, please let us know by [opening an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and including a description of the problem. 
 
 ## Deploy to Azure using Travis CI 
 
