@@ -13,16 +13,16 @@ ms.date: 09/24/2018
 ---
 # Select and use a compute target to train your model
 
-With the Azure Machine Learning service, you can train your model in different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
+With the Azure Machine Learning service, you can train your model in different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
 
-A compute target is the resource that runs your training script, or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK, Portal or CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
+A compute target is a compute resource where your training script is run, or your model is hosted when deployed as a web service.  You can create and manage a compute target using the Azure Machine Learning SDK, Portal or CLI.  If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
 
-There are three broad categories of compute targets that we support:
+There are three broad categories of compute targets that Azure Machine Learning supports:
 ### Local
 This is your local machine, or a cloud based VM which you use as a dev/experimentation environment. 
 
 ### Managed Compute
-Azure Machine Learning Compute is a managed compute offering that allows you to easily create single to multi-node compute for training, testing and batch inferencing.
+Azure Machine Learning Compute is a managed compute offering that allows you to easily create single- as well as multi-node compute for training, testing and batch inferencing.
 
 ### Attached Compute
 You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
@@ -119,7 +119,7 @@ For a Jupyter Notebook that demonstrates training in a system-managed environmen
 
 Azure Machine Learning Compute (AmlCompute) is managed compute infrastructure that allows the user to easily create single to multi-node compute of the appropriate VM Family. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, can be put behind a VNet and executes in a containerized environment packaging the dependencies as specified by the user. You can use AmlCompute to distribute the training across a cluster of CPU or GPU compute nodes in the cloud.
 
-**Note:** As with other Azure services, there are limits on certain resources (for eg. AmlCompute quota) associated with the Azure Machine Learning service. Please read [this article](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas) on the default limits and how to request more quota.
+**Note:** As with other Azure services, there are limits on certain resources (e.g., AmlCompute quota) associated with the Azure Machine Learning service. Please read [this article](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas) on the default limits and how to request more quota.
 
 There are a few ways to provision Azure Machine Learning Compute based on your scenarios. Lets look at each of them:
 
@@ -151,7 +151,7 @@ run = experiment.submit(script_run_config)
 ```
 
 ### Dedicated compute target (Basic-create)
-You can provision a dedicated AmlCompute resource by simply defining two parameters thanks to smart defaults. By default it autoscales from 0 nodes and provisions dedicated VMs to run your job in a container. This is useful when you want to continously re-use the same target, debug it between jobs or simply share the resource with other users of your workspace.
+You may want to re-use the same compute across multiple jobs, keep the compute around post job execution for debugging, or simply share the compute with other users of your workspace.  You can achieve this by provisioning a dedicated AmlCompute resource by simply specifying two parameters.  Azure Machine Learning auto-fills the rest of the parameters with smart defaults.  E.g., the compute is set to autoscale down to zero nodes when not used and provision dedicated VMs to run your jobs as needed. 
 
 1. **vm_size**: VM family of the nodes provisioned by AmlCompute
 1. **max_nodes**: Maximum nodes to autoscale to while running a job on AmlCompute
@@ -177,7 +177,7 @@ cpu_cluster.wait_for_completion(show_output=True)
 ```
 
 ### Dedicated compute target (Advanced-create)
-You can also specify additional properties or change defaults while provisioning AmlCompute using a more advanced configuration. This is useful when you want a dedicated cluster of 4 nodes (for example you can set the min_nodes and max_nodes to 4), or want the compute to be within an existing VNet in your subscription.
+Azure Machine Learning also enables you to configure several advanced properties while provisioning AmlCompute.  This is useful for example if you want a dedicated cluster of fixed size, say, 4 nodes or want the compute to be within an existing VNet in your subscription.
 In addition to vm_size and max_nodes, you can specify:
 
 1. **min_nodes**: Minimum nodes (default 0 nodes) to downscale to while running a job on AmlCompute
@@ -215,10 +215,10 @@ For a Jupyter Notebook that demonstrates training on Azure Machine Learning Comp
 
 ## <a id="vm"></a>Remote VM
 
-Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is a remote Azure VM which can be used for remote runs, given its IP address, and a username/password or an SSH key. You can either use a system built conda environment, or an already existing Python environment, or a Docker container assuming you have the Docker Engine running on it. This functionality is especially useful when you want a more elastic, cloud-based dev/experimentation environment than your local machine.
+Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service.  Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM  for remote runs.  You can use a system-built conda environment, or an already existing Python environment, or a Docker container.  Execution using Docker container requires that you have Docker Engine running on the VM.  This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
 
 > [!TIP]
-> We recommended using the Data Sceince Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. Read more about how to configure it [here](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#dsvm)
+> We recommended using the Data Science Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. Read more about how to configure it [here](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#dsvm)
 
 > [!WARNING]
 > Azure Machine Learning only supports virtual machines running Ubuntu. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
