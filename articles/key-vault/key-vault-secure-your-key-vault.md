@@ -67,7 +67,7 @@ The management plane consists of operations that affect the key vault itself, su
 Management plane access control uses RBAC.  
 
 ### Role-based access control (RBAC)
-Each Azure subscription has an Azure AD. You grant access to users, groups, and applications from this directory to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as RBAC. To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Each Azure subscription has an Azure AD instance. You grant access to users, groups, and applications from this directory to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as RBAC. To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 You create a key vault in a resource group, and control access to the management plane by using Azure AD. For example, you can grant users or a group the ability to manage key vaults in a resource group.
 
@@ -92,7 +92,7 @@ Key Vault access policies grant permissions to keys, secrets, and certificates s
 In addition to using access policies, you can also restrict data plane access by using [Virtual network service endpoints for Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). You configure [Firewalls and virtual network rules](key-vault-network-security.md) for an additional layer of security.
 
 ## Example
-Let's say you're developing an application that uses a certificate for SSL, Azure Storage for storing data, and an RSA 2048-bit key for sign operations. Let's say this application is running in an Azure Virtual Machine (or a Virtual Machine Scale Set). You can use a key vault to store all the application secrets, and store the bootstrap certificate used by the application to authenticate with Azure AD.
+Let's say you're developing an application that uses a certificate for SSL, Azure Storage for storing data, and an RSA 2048-bit key for sign operations. Let's say this application is running in an Azure virtual machine (or a virtual machine scale set). You can use a key vault to store all the application secrets, and store the bootstrap certificate used by the application to authenticate with Azure AD.
 
 Here's a summary of the types of keys and secrets stored:
 
@@ -199,7 +199,7 @@ This example shows a simple scenario. Real life scenarios can be more complex, a
 > [!NOTE]
 > This example shows how Key Vault access will be locked down in production. The developers should have their own subscription or resource group where they have full permissions to manage their vaults, VMs, and storage account where they develop the application.
 
-It's highly recommended to secure access to your key vault further by [configuring Key Vault firewalls and virtual networks](key-vault-network-security.md).
+We highly recommend that you further secure access to your key vault by [configuring Key Vault firewalls and virtual networks](key-vault-network-security.md).
 
 ## Resources
 * [Azure Active Directory role-based access control](../role-based-access-control/role-assignments-portal.md)
