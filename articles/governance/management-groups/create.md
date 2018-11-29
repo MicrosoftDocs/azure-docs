@@ -9,6 +9,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
+ms.topic: conceptual
 ---
 # Create management groups for resource organization and management
 

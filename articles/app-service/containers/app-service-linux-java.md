@@ -169,7 +169,7 @@ For application-level data sources:
 
 1. Add a `context.xml` file if it does not exist to your web application and add it the `META-INF` directory of your WAR file when the project is built.
 
-2. In this file, add a `Context` path entry to link the data source to a JNDI address. The
+2. In this file, add a `Context` path entry to link the data source to a JNDI address.
 
     ```xml
     <Context>
@@ -193,7 +193,7 @@ For application-level data sources:
 
 For shared server-level resources:
 
-1. Copy the contents of `/usr/local/tomcat/conf` into `/home/tomcat` on your App Service Linux instance using SSH if you don't have a configuration there already.
+1. Copy the contents of `/usr/local/tomcat/conf` into `/home/tomcat/conf` on your App Service Linux instance using SSH if you don't have a configuration there already.
 
 2. Add the context to your `server.xml`
 
@@ -232,7 +232,7 @@ For shared server-level resources:
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
+5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration and classes.
 
 ## Docker containers
 
