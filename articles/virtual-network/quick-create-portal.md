@@ -64,7 +64,7 @@ Create two VMs in the virtual network:
     | Subscription | Select your subscription. |
     | Resource group | Select **MyResourceGroup**. You created it in the last section. |
     | **INSTANCE DETAILS** |  |
-    | Virtual machine name | Enter *myVm1* |
+    | Virtual machine name | Enter *myVm1*. |
     | Region | Select **East US**. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
     | Image | Leave the default **Windows Server 2016 Datacenter**. |
@@ -75,7 +75,7 @@ Create two VMs in the virtual network:
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Leave the default **None**. |
-    | **Save MONEY** |  |
+    | **SAVE MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
 
 1. Select **Next : Disks**.
@@ -205,7 +205,7 @@ After *myVm1* is created, you can connect to it over the internet.
 
     You receive replies from myVm1, because you allowed ICMP through the Windows firewall on the myVm1 VM in a previous step.
 
-1. Close the remote desktop connection to *myVm2.
+1. Close the remote desktop connection to myVm2.
 
 ## Clean up resources
 
