@@ -17,12 +17,12 @@ This article provides an overview of several common use cases for Azure Time Ser
 
 After reading this article, you'll be able to answer the following questions:
 
-* What are the common use cases for Azure TSI? 
+* What are the common use cases for Azure TSI?
 * What are the benefits of using Azure TSI for data exploration and visual anomaly detection?
 * What are the benefits of using Azure TSI for operational analysis and process efficiency?
 * What are the benefits of using Azure TSI for advanced analytics?
 
-This document provides an overview of the use cases that The Azure Time Series Insights (preview) is designed for.
+This document provides an overview of the use cases that the Azure Time Series Insights Private Preview is designed for.
 
 ## Data exploration and visual anomaly detection
 
@@ -72,7 +72,7 @@ Azure TSI bridges the gap between IoT data and advanced analytics in a simple an
 
 * Learn more about the [TSI Explorer](./time-series-insights-update-explorer.md).
 
-* To plan out your TSI (preview) environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
+* To plan out your environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
 
 * Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
 
