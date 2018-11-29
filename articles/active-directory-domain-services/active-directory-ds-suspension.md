@@ -24,7 +24,7 @@ When Azure Active Directory Domain Services (Azure AD DS) is unable to service a
 
 ## States your managed domain can be in
 
-![Suspended domain timeline](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![Suspended domain timeline](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 The preceding graphic outlines the possible states an Azure AD DS managed domain can be in.
 

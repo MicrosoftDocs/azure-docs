@@ -52,7 +52,7 @@ and resources](../monitoring/monitoring-overview.md).
 Configure refers to the initial deployment and configuration of applications and resources and
 their ongoing maintenance with patches and updates. Automation of these tasks through script and
 policy allows you to eliminate redundancy, minimizing your time and effort and increasing your
-accuracy and efficiency. [Azure Automation](..\automation\automation-intro.md) provides the bulk of
+accuracy and efficiency. [Azure Automation](../automation/automation-intro.md) provides the bulk of
 services for automating configuration tasks. In addition to runbooks for automating processes, it
 provides configuration and update management, which assist you in managing configuration through
 policy and in identifying and deploying updates.

@@ -411,7 +411,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      right side of the screen.
 3. Once you have the data flowing into Power BI, you can start visualizing the streaming data. Below is an example dashboard with some hot path visualizations pinned to it. You can create other dashboard tiles based on appropriate datasets. Depending on how long you run your data generator, your numbers on the visualizations may be different.
 
-    ![Dashboard view](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Dashboard view](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Here are some steps to create one of the tiles above –  the "Fleet View of Sensor 11 vs. Threshold 48.26" tile:
    

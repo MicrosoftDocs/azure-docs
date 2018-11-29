@@ -1327,4 +1327,4 @@ Here's the complete HTML and JavaScript example.
 
 ## Next steps
 
-To see how getting insights works using and insights token, see [Bing Visual Search SDK ImageInsightsToken tutorial](.\tutorial-visual-search-insights-token.md).
+To see how getting insights works using and insights token, see [Bing Visual Search SDK ImageInsightsToken tutorial](./tutorial-visual-search-insights-token.md).
