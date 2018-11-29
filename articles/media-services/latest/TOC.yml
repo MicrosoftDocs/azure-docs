@@ -69,6 +69,8 @@
   - name: Streaming live events
     href: live-streaming-overview.md
     items:
+    - name: Using a cloud DVR
+      href: live-event-cloud-dvr.md
     - name: Types comparison
       href: live-event-types-comparison.md
     - name: States and billing
