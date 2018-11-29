@@ -78,8 +78,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
         # Instantiate an instance of the role template
         $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object     {$_.displayName -eq $roleName}
         Enable-AzureADDirectoryRole -RoleTemplateId $roleTemplate.ObjectId
-
-        $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq     $roleName}
+        $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
     }
 
     # Get service principal for managed instance
