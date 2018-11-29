@@ -424,7 +424,7 @@ Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk sp
 
 For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
 
-- The total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
+- The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
 
 This illustrates that under certain circumstance, due to a specific distribution of files, a Managed Instance might reach the 35 TB reserved for attached Azure Premium Disk when you might not expect it to.
@@ -491,7 +491,7 @@ Although this code works with data within the same instance it required MSDTC.
 
 ### CLR modules and linked servers sometime cannot reference local IP address
 
-CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient error.
+CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient issue.
 
 **Workaround**: Use context connections in CLR module if possible.
 

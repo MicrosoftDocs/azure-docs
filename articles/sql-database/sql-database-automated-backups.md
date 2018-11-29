@@ -36,7 +36,7 @@ You can use these backups to:
 
 ## How long are backups kept
 
-Each SQL Database has a default backup retention period between 7 and 35 days that depends on the [purchasing model and service tier](#pitr-retention-period). You can update the backup retention period for a database on Azure Logical Server (this feature will be enabled soon in Managed Instance). For more information, see [Change Backup Retention Period](#how-to-change-backup-retention-period).
+Each SQL Database has a default backup retention period between 7 and 35 days that depends on the [purchasing model and service tier](#pitr-retention-period). You can update the backup retention period for a database on Azure Logical Server. For more information, see [Change Backup Retention Period](#how-to-change-backup-retention-period).
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
