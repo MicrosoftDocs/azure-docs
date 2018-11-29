@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 # Select and use a compute target to train your model
 
