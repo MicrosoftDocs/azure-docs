@@ -14,7 +14,7 @@ metadata:
   ms.date: 12/04/2018
   ms.author: kraigb
 abstract:
-  description: Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. Jupyter (formerly IPython) is an open source project that lets you easily combine markdown text, executable code ( Python, R, and F#), persistent data, graphics, and visualizations onto a single, sharable canvas called a notebook.
+  description: Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. Jupyter (formerly IPython) is an open source project that lets you easily combine markdown text, executable code (Python, R, and F#), persistent data, graphics, and visualizations onto a single, sharable canvas called a notebook.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -60,7 +60,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: Use the following samples to work with Notebooks
+    text: 'Use the following samples to work with Notebooks:'
   - type: list
     style: unordered
     className: spaced noBullet
