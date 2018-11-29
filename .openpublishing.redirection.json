@@ -1323,11 +1323,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/quickstart-linux.experimental.md",
-            "redirect_url": "/azure/iot-edge/quickstart-linux",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/iot-edge/how-iot-edge-works.md",
             "redirect_url": "/azure/iot-edge/about-iot-edge",
             "redirect_document_id": false
@@ -9976,6 +9971,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-introduction.md",
+            "redirect_url": "/azure/cosmos-db/introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-partition-data.md",
+            "redirect_url": "/azure/cosmos-db/partitioning-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/documentdb-sql-query-reference.md",
             "redirect_url": "/azure/cosmos-db/sql-api-sql-query-reference",
             "redirect_document_id": true
@@ -11128,6 +11133,26 @@
         {
             "source_path": "articles/machine-learning/data-science-process-walkthroughs-sql-server.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-aml-with-tdsp.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/predict-twitter-sentiment.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/predict-twitter-sentiment-amltextpackage.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/isic-image-classification.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
             "redirect_document_id": false
         },
         {
