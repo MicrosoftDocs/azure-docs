@@ -67,6 +67,7 @@ Now the Users tool is filtered to this cohort of users:
 ![Users pane filtered to a particular cohort](./media/app-insights-usage-cohorts/004.png)
 
 A few important things to notice:
+
 * You can't create this set through normal filters. The date logic is more advanced.
 * You can further filter this cohort by using the normal filters in the Users tool. So although the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days.
 
@@ -131,7 +132,8 @@ Cohorts and filters are different. Suppose you have a cohort of users from the U
 * The filters version only shows events from the United Kingdom. But if you split by country or region, you see only the United Kingdom.
 
 ## Learn more
-- [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Users, sessions, events](app-insights-usage-segmentation.md)
-- [User flows](app-insights-usage-flows.md)
-- [Usage overview](app-insights-usage-overview.md)
+
+* [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Users, sessions, events](app-insights-usage-segmentation.md)
+* [User flows](app-insights-usage-flows.md)
+* [Usage overview](app-insights-usage-overview.md)
