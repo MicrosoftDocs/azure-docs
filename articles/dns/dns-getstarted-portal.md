@@ -37,7 +37,7 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 
 1. At upper left, select **Create a resource**, then **Networking**, and then **DNS zone**.
    
-1. On the **Create DNS zone** page, select or enter the following values:
+1. On the **Create DNS zone** page, select or type the following values:
    
    - **Name**: Type *contoso.xyz* for this quickstart example. The DNS zone name can be any value that is not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
    - **Resource group**: Select **Create new**, enter *dns-test*, and select **OK**. The resource group name must be unique within the Azure subscription. 
@@ -54,11 +54,11 @@ You create DNS entries or records for your domain inside the DNS zone. Create a 
 
 **To create an 'A' record:**
 
-1. In the Azure portal, under **All resources**, find and open the **contoso.xyz** DNS zone in the **dns-test** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
+1. In the Azure portal, under **All resources**, locate and open the **contoso.xyz** DNS zone in the **dns-test** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
 
 1. At the top of the **DNS zone** page, select **+ Record set**.
 
-1. On the **Add record set** page, select or enter the following values:
+1. On the **Add record set** page, select or type the following values:
 
    - **Name**: *www*. The record name is the host name that you want to resolve to the specified IP address.
    - **Type**: Select **A**. 'A' records are the most common, but there are other record types for mail servers ('MX'), IP v6 addresses ('AAAA'), and so on. 
@@ -74,7 +74,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
 **To test DNS name resolution:**
 
-1. In the Azure portal, under **All resources**, find and open the **contoso.xyz** DNS zone in the **dns-test** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
+1. In the Azure portal, under **All resources**, locate and open the **contoso.xyz** DNS zone in the **dns-test** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
 
 1. Copy one of the name server names from the name server list on the **Overview** page. 
    
@@ -99,7 +99,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
    
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-The host name **www.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This verifies that name resolution is working correctly. 
+The host name **www.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly. 
 
 ## Clean up resources
 
