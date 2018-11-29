@@ -24,6 +24,6 @@ To view your chosen pricing navigate to the `Pricing Tier` option in the setting
 
 ## Change Pricing Tier
 
-Once you have created your Azure Maps account, you can upgrade or downgrade the Pricing Tier for your Azure Maps account. To do this navigate to the `Pricing Tier` option in the settings menu, and select the Pricing Tier that is not highlighted. Click the save button to save your chosen Pricing Tier.
+Once you have created your Azure Maps account, you can upgrade or downgrade the Pricing Tier for your Azure Maps account. To do this navigate to the `Pricing Tier` option in the settings menu, and select the Pricing Tier that is not highlighted. Click the save button to save your chosen Pricing Tier option.
 
 ![Change pricing tier](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
