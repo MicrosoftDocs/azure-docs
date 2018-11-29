@@ -54,46 +54,58 @@ Template parameters:
 
 ```json
 {  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{	  
-		  "namespaceName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the namespace"
-			 }
-		  },
-		  "ipFilterRuleName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the Authorization rule"
-			 }
-		  },
-		  "ipFilterAction":{  
-			 "type":"string",
-			 "allowedValues": ["Reject", "Accept"],
-			 "metadata":{  
-				"description":"IP Filter Action"
-			 }
-		  },
-		  "IpMask":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"IP Mask"
-			 }
-		  }
-	  },
-	"resources": [
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "namespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
+      },
+      "vnetRuleName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "resources": [
         {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.ServiceBus/Namespaces/IPFilterRules",
-            "properties": {
-				"FilterName":"[parameters('ipFilterRuleName')]",
-				"Action":"[parameters('ipFilterAction')]",				
-                "IpMask": "[parameters('IpMask')]"
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('namespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules":[],
+          "ipRules":
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
+          ],
+          "defaultAction": "Deny"
+        }
+      }
     ]
 }
 ```

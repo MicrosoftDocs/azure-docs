@@ -57,37 +57,56 @@ Template:
 
 ```json
 {  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{	  
-		  "namespaceName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the namespace"
-			 }
-		  },
-		  "vnetRuleName":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"Name of the Authorization rule"
-			 }
-		  },
-		  "virtualNetworkSubnetId":{  
-			 "type":"string",
-			 "metadata":{  
-				"description":"subnet Azure Resource Manager ID"
-			 }
-		  }
-	  },
-	"resources": [
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "namespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
+      },
+      "vnetRuleName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "resources": [
         {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.ServiceBus/namespaces/VirtualNetworkRules",			
-            "properties": {			    
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"	
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('namespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules":
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
             }
-        } 
+          ],
+          "ipRules":[],
+          "defaultAction": "Deny"
+        }
+      }
     ]
 }
 ```
