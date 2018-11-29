@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Run the `01.train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-01). Run the `01.train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -104,12 +104,12 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+compute_name = os.environ.get("CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -129,7 +129,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -338,12 +338,12 @@ An estimator object is used to submit the run.  Create your estimator by running
 
 * The name of the estimator object, `est`
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution. 
-* The compute target.  In this case you will use the Batch AI cluster you created
+* The compute target.  In this case you will use the Azure Machine Learning compute cluster you created
 * The training script name, train.py
 * Parameters required from the training script 
 * Python packages needed for training
 
-In this tutorial, this target is the Batch AI cluster. All files in the script folder are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
+In this tutorial, this target is the Azure Machine Learning compute cluster. All files in the script folder are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator

@@ -9,26 +9,31 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/23/2018
+ms.date: 11/27/2018
 ---
 
 # Prepare data for modeling with Azure Machine Learning
- 
-In this article, you learn about the use cases and unique features of the Azure Machine Learning Data Prep SDK. Data preparation is the most important part of a machine learning workflow. Real-world data is often broken, inconsistent, or unable to be used as training data without significant cleansing and transformation. Correcting errors and anomalies in raw data, and building new features that are relevant to the problem you're trying to solve, will increase model accuracy.
+
+In this article, you learn about the use cases and unique features of the Azure Machine Learning Data Prep SDK. Data preparation is the most important part of a machine learning workflow. Real-world data is often broken, inconsistent, or unable to be used as training data without significant cleansing and transformation. Correcting errors and anomalies in raw data, and building new features that are relevant to the problem you're trying to solve, will increase model accuracy. The SDK is designed to be familiar to users of other common data prep libraries, while offering advantages for key scenarios and maintaining interoperability with those other libraries.
 
 You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 ## Use Azure Machine Learning Data Prep SDK
 
-The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Python library that includes:
+The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Python library that offers:
 
-+ Many common data preprocessing tools
-+ Automated feature engineering and transformations derived from examples
+* Intelligent time-saving transformations such as:
+  + Fuzzy Grouping
+  + Derived Column By Example
+  + Auto Split
+  + Smart Read File
+  + Ragged-right schema processing
 
-The SDK streams data rather than loading it into memory, which allows you to avoid performance bottlenecks as your data set size increases. Most importantly, the **exact same code** you write to process data on a small-scale can be used to work with data at a large-scale. For small data sets, the SDK offers you practicality and convenience with small data sets. And for big data applications, the SDK enables you to scale easily.  
+* A single API that works on small data locally and on large data in the cloud with **few-to-no code changes**
 
-The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more
-flexibility. _Other tools_ are typically either:
+* The ability to scale more effectively on a single machine using a streaming approach to data processing rather than loading into memory.
+
+The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more flexibility. _Other tools_ are typically either:
 * Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point
 * Strength in processing large data sets, but carry an overhead that slows work with small data sets
 
@@ -50,9 +55,11 @@ To learn about the modules and functions of this SDK, see the [Data Prep SDK ref
 
 The following examples highlight some of the unique functionality of the SDK, including:
 
-+ Automatic file type detection
-+ Automated feature engineering
-+ Summary statistics
+* Automatic file type detection
+* Intelligent transforms
+* Summary statistics
+* Cross-environment functionality
+
 
 ### Automatic file type detection
 
@@ -62,7 +69,11 @@ Use the `smart_read_file()` function to load your data without having to specify
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
+<<<<<<< HEAD
 ### Automated feature engineering
+=======
+#### Intelligent transforms
+>>>>>>> ba3eaa775b9e661812cc861bc8426273edb4d7a4
 
 Use the SDK to split and derive columns by both example and inference to automate feature engineering. Assume you have a field in your dataflow object called `datetime` with a value of `2018-09-15 14:30:00`.
 

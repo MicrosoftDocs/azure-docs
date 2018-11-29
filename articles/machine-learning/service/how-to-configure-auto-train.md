@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ---
 
 # Configure your automated machine learning experiment
@@ -339,7 +339,7 @@ There are two ways to generate feature importance.
 You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook.  
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)

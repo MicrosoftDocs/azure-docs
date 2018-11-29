@@ -18,7 +18,7 @@ ms.date: 12/04/2018
 In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, you'll learn about the different ways to add logging to your training script, how to submit the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run. 
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.80
 
 ## List of training metrics 
 
@@ -218,7 +218,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 1. View the Jupyter widget while waiting for the run to complete.
 
   ```python
-  from azureml.train.widgets import RunDetails
+  from azureml.widgets import RunDetails
   RunDetails(run).show()
   ```
 
