@@ -52,7 +52,7 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs](../virtual-machines/windows/n-series-driver-setup.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012* (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012* (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
 | [NC, NCv2, NCv3, ND, NDv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers| N/A | 
 | [NV, NVv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
@@ -77,7 +77,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
   * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-  * [Data Science Virtual Machine](~/machine-learning/data-science-virtual-machine/overview.mf) for Linux or Windows. The DSVM images include pre-installed NVIDIA CUDA drivers.
+  * [Data Science Virtual Machine](~/machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows. The DSVM images include pre-installed NVIDIA CUDA drivers.
 
   Or, create a [custom Windows or Linux VM image](batch-custom-images.md) on which you have installed drivers, software, or other settings required for the VM size. 
 
