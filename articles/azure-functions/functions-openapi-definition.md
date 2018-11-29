@@ -9,13 +9,14 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ---
 
 # Create an OpenAPI definition for a function
+
 REST APIs are often described using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
 
 In this tutorial, you create a function that determines whether an emergency repair on a wind turbine is cost-effective. You then create an OpenAPI definition for the function app so that the function can be called from other apps and services.
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 > * Test the definition by calling the function
 
 > [!IMPORTANT]
-> The OpenAPI preview feature is only available today in the 1.x runtime. Information on how to create a 1.x function app [can be found here](./functions-versions.md#creating-1x-apps).
+> The OpenAPI feature is currently in preview and is only available for version 1.x of the Azure Functions runtime.
 
 ## Create a function app
 
@@ -37,6 +38,11 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## Set the Functions runtime version
+
+By default, the function app you create uses version 2.x of the runtime. You must set the runtime version back to 1.x before you create your function.
+
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 ## Create the function
 
@@ -46,33 +52,27 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
 
     ![Functions quickstart page in the Azure portal](media/functions-openapi-definition/add-first-function.png)
 
-2. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
- 
+1. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
+
     ![Choose the HTTP trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
+1. Type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
 
     ![Create the HTTP triggered function](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
     ```csharp
-    #r "Newtonsoft.Json"
-
     using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
 
-    const double revenuePerkW = 0.12; 
-    const double technicianCost = 250; 
+    const double revenuePerkW = 0.12;
+    const double technicianCost = 250;
     const double turbineCost = 100;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {   
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
         //Get request body
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        dynamic data = await req.Content.ReadAsAsync<object>();
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -88,13 +88,14 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
             repairTurbine = "No";
         }
 
-        return (ActionResult) new OkObjectResult(new{
+        return req.CreateResponse(HttpStatusCode.OK, new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
-            costToFix = "$"+ costToFix         
-        }); 
+            costToFix = "$"+ costToFix
+        });
     }
     ```
+
     This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective, as well as the revenue opportunity that the turbine represents, and the cost to fix the turbine. 
 
 1. To test the function, click **Test** at the far right to expand the test tab. Enter the following value for the **Request body**, and then click **Run**.
@@ -127,7 +128,7 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
     1. In **Selected HTTP methods**, clear every option except **POST**, then click **Save**.
 
         ![Selected HTTP methods](media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. Click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
 
     ![API definition](media/functions-openapi-definition/api-definition.png)
@@ -180,7 +181,8 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
     This definition is described as a _template_ because it requires more metadata to be a full OpenAPI definition. You'll modify the definition in the next step.
 
 ## Modify the OpenAPI definition
-Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. In **API definition**, delete the generated definition from `post` to the bottom of the definition, paste in the content below, and click **Save**.
+
+Now that you have a template definition, you modify it to provide additional metadata about the API operations and data structures. In **API definition**, delete the generated definition from `post` to the bottom of the definition, paste in the content below, and click **Save**.
 
 ```yaml
     post:
@@ -244,15 +246,15 @@ securityDefinitions:
 
 In this case you could just paste in updated metadata, but it's important to understand the types of modifications we made to the default template:
 
-+ Specified that the API produces and consumes data in a JSON format.
+* Specified that the API produces and consumes data in a JSON format.
 
-+ Specified the required parameters, with their names and data types.
+* Specified the required parameters, with their names and data types.
 
-+ Specified the return values for a successful response, with their names and data types.
+* Specified the return values for a successful response, with their names and data types.
 
-+ Provided friendly summaries and descriptions for the API, and its operations and parameters. This is important for people who will use this function.
+* Provided friendly summaries and descriptions for the API, and its operations and parameters. This is important for people who will use this function.
 
-+ Added x-ms-summary and x-ms-visibility, which are used in the UI for Microsoft Flow and Logic Apps. For more information, see [OpenAPI extensions for custom APIs in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
+* Added x-ms-summary and x-ms-visibility, which are used in the UI for Microsoft Flow and Logic Apps. For more information, see [OpenAPI extensions for custom APIs in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
 
 > [!NOTE]
 > We left the security definition with the default authentication method of API key. You would change this section of the definition if you used a different type of authentication.
@@ -260,6 +262,7 @@ In this case you could just paste in updated metadata, but it's important to und
 For more information about defining API operations, see the [Open API specification](https://swagger.io/specification/#operationObject).
 
 ## Test the OpenAPI definition
+
 Before you use the API definition, it's a good idea to test it in the Azure Functions UI.
 
 1. On the **Manage** tab of your function, under **Host Keys**, copy the **default** key.
@@ -300,5 +303,6 @@ In this tutorial, you learned how to:
 > * Test the definition by calling the function
 
 Advance to the next topic to learn how to create a PowerApps app that uses the OpenAPI definition you created.
+
 > [!div class="nextstepaction"]
 > [Call a function from PowerApps](functions-powerapps-scenario.md)

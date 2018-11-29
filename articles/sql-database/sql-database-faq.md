@@ -21,11 +21,11 @@ The current version of SQL Database is V12. Version V11 has been retired.
 
 ## What is the SLA for SQL Database
 
-We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. 0.01% is reserved for patches, upgrades, and failovers. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/). For information about the availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
+We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. 0.01% is reserved for patches, upgrades, and failovers. For more information, see [SLA](https://azure.microsoft.com/support/legal/sla/). For information about the availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
 
 ## Can I control when patching downtime occurs
 
-No. The impact of patching is generally not noticable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
+No. The impact of patching is generally not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
 
 ## What is the new vCore-based purchasing model for Azure SQL Database
 

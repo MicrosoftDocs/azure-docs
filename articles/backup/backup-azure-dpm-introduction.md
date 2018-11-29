@@ -1,5 +1,5 @@
 ---
-title: Prepeare the DPM server to back up workloads to Azure
+title: Prepare the DPM server to back up workloads to Azure
 description: An introduction to backing up DPM data to an Azure Recovery Services vault.
 services: backup
 author: adigan
@@ -33,7 +33,7 @@ The article provides:
 The business benefits of backing up DPM servers to Azure include:
 
 * For on-premises DPM, Azure Backup provides an alternative to long-term deployment to tape.
-* For DPM running on an Azure VM, Azure Backup allows you to offload storage from the Azure disk. Storing older data in a Backup vault vault allows you to scale up your business by storing new data to disk.
+* For DPM running on an Azure VM, Azure Backup allows you to offload storage from the Azure disk. Storing older data in a Backup vault allows you to scale up your business by storing new data to disk.
 
 ## Prerequisites and limitations
 
@@ -48,7 +48,7 @@ Supported apps | [Learn](https://docs.microsoft.com/system-center/dpm/dpm-protec
 Supported file types | These file types can be backed up with Azure Backup: Encrypted (full backups only); Compressed (incremental backups supported); Sparse (incremental backups supported); Compressed and sparse (treated as sparse).
 Unsupported file types | Servers on case-sensitive file systems; hard links (skipped); reparse points (skipped); encrypted and compressed (skipped); encrypted and sparse (skipped); Compressed stream; parse stream.
 Local storage | Each machine you want to back up must have local free storage that's at least 5 % of the size of the data that is being backed up.  For example, backing up 100 GB of data requires a minimum of 5 GB of free space in the scratch location.
-Vault storage | There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54400 GB.
+Vault storage | There’s no limit to the amount of data you can back up to an Azure Backup vault, but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54400 GB.
 Azure Backup agent | If DPM is running on System Center 2012 SP1, install Rollup 2 or later for DPM SP1. This is required for agent installation.<br/><br/> This article describes how to deploy the latest version of the Azure Backup agent, also known as the Microsoft Azure Recovery Service (MARS) agent. If you have an earlier version deployed, update to the latest version to ensure that backup works as expected. 
 
 
@@ -154,7 +154,7 @@ Every machines that's backed up by Azure Backup must have the Backup agent (also
 
     - Azure Backup uses this location as a temporary holding area for recovered data.
     - After finishing data recovery, Azure Backup will clean up the data in this area.
-    - The location must have enough space to hold items that you anticipate recovering in paralle.
+    - The location must have enough space to hold items that you anticipate recovering in parallel.
 
     ![Recovery Folder Setting](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 

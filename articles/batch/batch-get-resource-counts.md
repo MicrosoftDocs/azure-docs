@@ -39,7 +39,7 @@ The Get Task Counts operation counts tasks by the following states:
 The following .NET code sample shows how to retrieve task counts by state: 
 
 ```csharp
-var taskCounts = await batchClient.JobOperations.GetTaskCountsAsync("job-1");
+var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
 
 Console.WriteLine("Task count in active state: {0}", taskCounts.Active);
 Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Running);

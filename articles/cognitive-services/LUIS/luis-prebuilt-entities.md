@@ -20,7 +20,7 @@ LUIS includes a set of prebuilt entities for recognizing common types of informa
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Entities** in the left side. 
 
-1. On the **Entities** page, click **Manage prebuilt entities**.
+1. On the **Entities** page, click **Add prebuilt entity**.
 
 1. In **Add prebuilt entities** dialog box, select the datetimeV2 prebuilt entity. 
 

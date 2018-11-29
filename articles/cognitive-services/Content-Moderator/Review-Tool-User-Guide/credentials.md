@@ -15,7 +15,7 @@ ms.author: sajagtap
 Your Content Moderator credentials are created in the following locations:
 
 - [The Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [The Content Moderator review tool](http://contentmoderator.cognitive.microsoft.com/)
+- [The Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/)
 
 This article explains where to find them and how they relate to each other.
 

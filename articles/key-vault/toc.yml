@@ -18,6 +18,24 @@
     href: quick-create-node.md
 - name: Tutorials
   items:
+  - name: Azure Web Apps
+    items:
+    - name: Azure Key Vault with Azure Web App in .NET
+      href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Virtual Machine
+    items:
+    - name: Linux Virtual Machine 
+      items: 
+        - name: .NET
+          href: tutorial-net-linux-virtual-machine.md
+        - name: Python
+          href: tutorial-python-linux-virtual-machine.md
+    - name: Windows Virtual Machine 
+      items: 
+        - name: .NET
+          href: tutorial-net-windows-virtual-machine.md
+        - name: Python
+          href: tutorial-python-windows-virtual-machine.md
   - name: Read a secret from Key Vault
     href: tutorial-web-application-keyvault.md
   - name: Set up key rotation and auditing
@@ -30,16 +48,24 @@
   items:
   - name: What is Key Vault?
     href: key-vault-whatis.md
+  - name: Secure your key vault
+    href: key-vault-secure-your-key-vault.md
   - name: Security worlds
     href: key-vault-ovw-security-worlds.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
-  - name: Storage account keys
+  - name: Managed storage account keys - Azure CLI
     href: key-vault-ovw-storage-keys.md
+  - name: Managed storage account keys - PowerShell
+    href: key-vault-overview-storage-keys-powershell.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
     href: key-vault-overview-vnet-service-endpoints.md
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Common parameters and headers
+    href: common-parameters-and-headers.md
   - name: About keys, secrets and certificates
     href: about-keys-secrets-and-certificates.md
     items:
@@ -67,8 +93,6 @@
     href: key-vault-soft-delete-powershell.md
   - name: Use groups to grant access
     href: key-vault-group-permissions-for-apps.md
-  - name: Secure your key vault
-    href: key-vault-secure-your-key-vault.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
 - name: Reference
@@ -87,12 +111,14 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Authentication, requests and responses
+    href: authentication-requests-and-responses.md
+  - name: Common parameters and headers
+    href: common-parameters-and-headers.md
   - name: Develop
     items:
-    - name: Key Vault developer's guide
+    - name: Developer's guide
       href: key-vault-developers-guide.md
-    - name: Service limits
-      href: key-vault-service-limits.md
     - name: HSM-protected keys
       href: key-vault-hsm-protected-keys.md
     - name: Migrate to .NET 2.0
@@ -101,36 +127,34 @@
       href: vs-secure-secret-appsettings.md
     - name: Service authentication using .NET
       href: service-to-service-authentication.md
-    - name: Working with Visual Studio
-      items:
-      - name: Use the Key Vault Connected Service
-        href: vs-key-vault-add-connected-service.md
-      - name: Get started with ASP.NET projects
-        href: vs-key-vault-aspnet-get-started.md
-      - name: What happened to my ASP.NET project?
-        href: vs-key-vault-aspnet-what-happened.md
-      - name: Get started with ASP.NET Core projects
-        href: vs-key-vault-aspnet-core-get-started.md
-      - name: What happened to my ASP.NET Core project?
-        href: vs-key-vault-aspnet-core-what-happened.md
+    - name: Use the Key Vault Connected Service
+      href: vs-key-vault-add-connected-service.md      
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
-  - name: Service overview
-    href: https://azure.microsoft.com/services/key-vault/
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
   - name: Customer Data 
     href: key-vault-customer-data.md
-  - name: Blog
-    href: http://blogs.technet.com/b/kv/
+  - name: Release Notes
+    href: key-vault-versions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-- name: Release Notes
-  href: key-vault-versions.md
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Service limits
+    href: key-vault-service-limits.md  
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
+    href: http://blogs.technet.com/b/kv/
 - name: Product Feedback
   href: https://feedback.azure.com/forums/906355-azure-key-vault
 

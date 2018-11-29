@@ -1,3 +1,4 @@
+---
 title: API Reference - Face API
 titleSuffix: Azure Cognitive Services
 description: API reference provides information about the Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms APIs.
@@ -11,6 +12,7 @@ ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
+
 # API Reference
 
 The Microsoft Face API is a cloud-based API that provides the most advanced algorithms for face detection and recognition.

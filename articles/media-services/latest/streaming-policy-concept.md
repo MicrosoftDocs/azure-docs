@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -26,17 +26,17 @@ In Azure Media Services v3, Streaming Policies enable you to define streaming pr
 
 The following table shows the StreamingPolicy's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Configuration of CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Configuration of CommonEncryptionCenc|
-|properties.created	|string|Creation time of Streaming Policy|
-|properties.defaultContentKeyPolicyName	|string|Default ContentKey used by current Streaming Policy|
-|properties.envelopeEncryption	|EnvelopeEncryption|Configuration of EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Configurations of NoEncryption|
-|type|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id|Fully qualified resource ID for the resource.|
+|name|The name of the resource.|
+|properties.commonEncryptionCbcs|Configuration of CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Configuration of CommonEncryptionCenc|
+|properties.created	|Creation time of Streaming Policy|
+|properties.defaultContentKeyPolicyName	|Default ContentKey used by current Streaming Policy|
+|properties.envelopeEncryption	|Configuration of EnvelopeEncryption|
+|properties.noEncryption|Configurations of NoEncryption|
+|type|The type of the resource.|
 
 For the full definition, see [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 
@@ -97,7 +97,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/streamingpolicies_list)
+For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 ## Next steps
 

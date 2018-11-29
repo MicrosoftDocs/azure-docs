@@ -1,6 +1,6 @@
 ---
-title: Send guest OS metrics to the Azure Monitor data store for a Windows Virtual Machine (classic)
-description: Send guest OS metrics to the Azure Monitor data store for a Windows Virtual Machine (classic)
+title: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
+description: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
 author: anirudhcavale            
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,46 +10,48 @@ ms.author: ancav
 ms.component: ""
 ---
 
-# Send guest OS metrics to the Azure Monitor data store for a Windows Virtual Machine (classic)
+# Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
 
-The Azure Monitor [Windows Azure Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (WAD) allows you to collect metrics and logs from the Guest Operating System (guest OS) running as part of a Virtual Machine, Cloud Service, or Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.
+The Azure Monitor [Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-This article describes the process to send guest OS performance metrics for a Windows Virtual Machine (classic) to the Azure Monitor metric store. Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store. 
+This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
-The process outlined in this article only works classic Virtual Machines running the Windows operating system.
+Storing them in this location allows you to access the same actions as you do for platform metrics. Actions include near-real time alerting, charting, routing, access from a REST API, and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store. 
 
-## Pre-requisites
+The process that's outlined in this article only works on classic virtual machines that are running the Windows operating system.
 
-- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
+## Prerequisites
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
+- You must be a [service administrator or co-administrator](../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-## Create a Classic Virtual Machine and Storage Account
+- You need to have either  [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
-1. Create a Classic VM using the Azure portal
-   ![Create Clasic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+## Create a classic virtual machine and storage account
 
-1. When creating this VM, choose to create a new classic storage account. We use this storage account in later steps.
+1. Create a classic VM by using the Azure portal.
+   ![Create Classic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
-1. In the Azure portal, navigate to the Storage Account resource blade and choose the **Keys** and note down the storage account name and storage account key. You need these keys in later steps
+1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
+
+1. In the Azure portal, go to the **Storage accounts** resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
    ![Storage access keys](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
 
-## Create a Service Principal
+## Create a service principal
 
-Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
-- Create new client secret for this app  
-- Save the Key and the client id for use in later steps.
+Create a service principle in your Azure Active Directory tenant by using the instructions at [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
+- Create new client secret for this app.
+- Save the key and the client ID for use in later steps.
 
-Give this app “Monitoring Metrics Publisher” permissions to the resource you wish to emit metrics against. You may use a resource group or an entire subscription.  
+Give this app “Monitoring Metrics Publisher” permissions to the resource that you want to emit metrics against. You can use a resource group or an entire subscription.  
 
 > [!NOTE]
-> The Diagnostics Extension will use the service principal to authenticate against Azure Monitor and emit metrics for your classic VM.
+> The Diagnostics extension uses the service principal to authenticate against Azure Monitor and emit metrics for your classic VM.
 
-## Author Diagnostics Extension Configuration
+## Author Diagnostics extension configuration
 
-1. Prepare your WAD diagnostics extension configuration file. This file dictates which logs, and performance counters the diagnostics extension should collect for your Classic VM. Below is a sample.
+1. Prepare your Diagnostics extension configuration file. This file dictates which logs and performance counters the Diagnostics extension should collect for your classic VM. Following is an example:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -95,20 +97,20 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource you
     <IsEnabled>true</IsEnabled>
     </DiagnosticsConfiguration>
     ```
-1. In the “SinksConfig” section of your diagnostics file define a new Azure Monitor sink:
+1. In the “SinksConfig” section of your diagnostics file, define a new Azure Monitor sink, as follows:
 
     ```xml
     <SinksConfig>
         <Sink name="AzMonSink">
             <AzureMonitor>
-                <ResourceId>Provide your Classic VM’s Resource ID </ResourceId>
-                <Region>Region your VM is deployed in</Region>
+                <ResourceId>Provide the resource ID of your classic VM </ResourceId>
+                <Region>The region your VM is deployed in</Region>
             </AzureMonitor>
         </Sink>
     </SinksConfig>
     ```
 
-1. In the section of your configuration file where the list of performance counters to be collected is listed, route the performance counters to the Azure Monitor Sink "AzMonSink".
+1. In the section of your configuration file where the list of performance counters to be collected is listed, route the performance counters to the Azure Monitor sink "AzMonSink".
 
     ```xml
     <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
@@ -117,7 +119,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource you
     </PerformanceCounters>
     ```
 
-1. In the Private configuration define the Azure Monitor account, and add the service principal information to use to emit metrics.
+1. In the private configuration, define the Azure Monitor account. Then add the service principal information to use to emit metrics.
 
     ```xml
     <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -133,15 +135,15 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource you
 
 1. Save this file locally.
 
-## Deploy Diagnostics Extension to your Cloud Service
+## Deploy the Diagnostics extension to your cloud service
 
-1. Launch PowerShell and sign in
+1. Launch PowerShell and sign in.
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. Start by setting the context to your classic VM
+1. Start by setting the context for your classic VM.
 
     ```powershell
     $VM = Get-AzureVM -ServiceName <VM’s Service_Name> -Name <VM Name>
@@ -153,41 +155,42 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource you
     $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
-1.	Set the diagnostics file path to a variable using the below command.
+1.	Set the Diagnostics file path to a variable by using the following command:
 
     ```powershell
     $diagconfig = “<path of the diagnostics configuration file with the Azure Monitor sink configured>”
     ```
 
-1.	Prepare the update to your classic VM with the diagnostics file with the Azure Monitor sink configured
+1.	Prepare the update for your classic VM with the diagnostics file that has the Azure Monitor sink configured.
 
     ```powershell
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $diagconfig -VM $VM -StorageContext $Storage_Context
     ```
 
-1.	Deploy the update to your VM by running the command below
+1.	Deploy the update to your VM by running the following command:
 
     ```powershell
     Update-AzureVM -ServiceName "ClassicVMWAD7216" -Name "ClassicVMWAD" -VM $VM_Update.VM
     ```
 
 > [!NOTE]
-> It is still mandatory to provide a Storage Account as part of the installation of the diagnostics extension. Any logs and/or performance counters specified in the diagnostics config file will be written to the specified storage account.
+> It is still mandatory to provide a storage account as part of the installation of the Diagnostics extension. Any logs or performance counters that are specified in the Diagnostics config file will be written to the specified storage account.
 
 ## Plot the metrics in the Azure portal
 
-1.	Navigate to the Azure portal
+1.	Go to the Azure portal. 
 
-1.	In the left-hand menu click on Monitor
+1.	On the left menu, select **Monitor.**
 
-1.	On the Monitor blade click on the **Metrics**
-   ![Navigate metrics](./media/metrics-store-custom-guestos-classic-vm/navigate-metrics.png)
+1.	On the **Monitor** blade, select **Metrics**.
 
-1. In the resource drop-down select your Classic VM
+    ![Navigate metrics](./media/metrics-store-custom-guestos-classic-vm/navigate-metrics.png)
 
-1. In the namespaces drop-down select **azure.vm.windows.guest**
+1. In the resources drop-down menu, select your classic VM.
 
-1. In the metrics drop down, select **Memory\Committed Bytes in Use**
+1. In the namespaces drop-down menu, select **azure.vm.windows.guest**.
+
+1. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**.
    ![Plot metrics](./media/metrics-store-custom-guestos-classic-vm/plot-metrics.png)
 
 

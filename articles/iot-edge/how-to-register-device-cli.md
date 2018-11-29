@@ -2,7 +2,7 @@
 title: Register a new Azure IoT Edge device (CLI) | Microsoft Docs 
 description: Use the IoT extension for Azure CLI to register a new IoT Edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual

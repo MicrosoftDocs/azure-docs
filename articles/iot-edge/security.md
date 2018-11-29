@@ -2,7 +2,7 @@
 title: Security in Azure IoT Edge | Microsoft Docs 
 description: Security, authentication, and authorization of IoT Edge devices
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Securing the intelligent edge is necessary to confer confidence in the operation
 
 Azure IoT Edge runs on different hardware, supports both Linux and Windows, and is applicable to diverse deployment scenarios.  Assessed risk depends on many considerations including solution ownership, deployment geography, data sensitivity, privacy, application vertical, and regulatory requirements.  Rather than offering concrete solutions to specific scenarios, it makes sense to design an extensible security framework based on well-grounded principles designed for scale. 
  
-This article provides an overview of the security framework. For more information, see [Securing the intelligent edge][lnk-edge-blog].
+This article provides an overview of the security framework. For more information, see [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
 ## Standards
 
@@ -77,7 +77,4 @@ In the end, the highest success in securing the intelligent edge results from co
 
 ## Next steps
 
-Read more about how Azure IoT Edge is [Securing the intelligent edge][lnk-edge-blog].
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 
+Read more about how Azure IoT Edge is [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).

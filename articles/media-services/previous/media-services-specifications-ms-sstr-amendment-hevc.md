@@ -35,7 +35,7 @@ The referenced Smooth Streaming Protocol specification [MS-SSTR] describes the
 wire format used to deliver live and on-demand digital media,
 such as audio and video, in the following manners: from an encoder to a web
 server, from a server to another server, and from a server to an HTTP client.
-The use of an MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787)-based data
+The use of an MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787)-based data
 structure delivery over HTTP allows seamless switching in near real time between
 different quality levels of compressed media content. The result is a constant
 playback experience for the HTTP client end user, even if network and video
@@ -51,13 +51,13 @@ The following terms are specific to this document:
 
 >  **composition time:** The time a sample is presented at the client,
 >   as defined in
->   [[ISO/IEC-14496-12].](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 >   **CENC**: Common Encryption, as defined in [ISO/IEC 23001-7] Second Edition.
 
 >   **decode time:** The time a sample is required to be decoded on the client,
 >   as defined in
->   [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12].](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 **fragment:** An independently downloadable unit of **media** that comprises one
 or more **samples**.
@@ -73,16 +73,16 @@ or more **samples**.
 >   **presentation:** The set of all **streams** and related metadata needed to
 >   play a single movie. **request:** An HTTP message sent from the client to
 >   the server, as defined in
->   [[RFC2616].](http://go.microsoft.com/fwlink/?LinkId=90372) **response:** An
+>   [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **response:** An
 >   HTTP message sent from the server to the client, as defined in
->   [[RFC2616].](http://go.microsoft.com/fwlink/?LinkId=90372)
+>   [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
 >   **sample:** The smallest fundamental unit (such as a frame) in which
 >   **media** is stored and processed.
 
 >   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** These terms (in all caps) are
 >   used as described in
->   [[RFC2119].](http://go.microsoft.com/fwlink/?LinkId=90317) All statements of
+>   [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) All statements of
 >   optional behavior use either MAY, SHOULD, or SHOULD NOT.
 
 ## 1.2 References 
@@ -96,7 +96,7 @@ or more **samples**.
  ### 1.2.1 Normative References 
 
 >  [MS-SSTR] Smooth Streaming Protocol *v20140502*
->   [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+>   [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 >   [ISO/IEC 14496-12] International Organization for Standardization,
 >   "Information technology -- Coding of audio-visual objects -- Part 12: ISO
@@ -123,12 +123,12 @@ or more **samples**.
 >   "Bucket" Media Types” <http://tools.ietf.org/html/rfc6381>
 
 >   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org
->   ](http://go.microsoft.com/fwlink/?LinkId=327787)
+>   ](https://go.microsoft.com/fwlink/?LinkId=327787)
 
 >   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement
 >   Levels", BCP 14, RFC 2119, March 1997,
 >   [http://www.rfc-editor.org/rfc/rfc2119.txt
->   ](http://go.microsoft.com/fwlink/?LinkId=90317)
+>   ](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### 1.2.2 Informative References 
 
@@ -136,12 +136,12 @@ or more **samples**.
 
 >   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data
 >   Encodings", RFC 3548, July 2003, [http://www.ietf.org/rfc/rfc3548.txt
->   ](http://go.microsoft.com/fwlink/?LinkId=90432)
+>   ](https://go.microsoft.com/fwlink/?LinkId=90432)
 
 >   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax
 >   Specifications: ABNF", STD 68, RFC 5234, January 2008,
 >   [http://www.rfc-editor.org/rfc/rfc5234.txt
->   ](http://go.microsoft.com/fwlink/?LinkId=123096)
+>   ](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## 1.3 Overview 
@@ -174,7 +174,7 @@ or more **samples**.
 >   provided by the **FourCC** field, as specified in section *2.2.2.5*.
 >   Implementers can ensure that extensions do not conflict by registering
 >   extension codes with the MPEG4-RA, as specified in [[ISO/IEC-14496-12]
->   ](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   ](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## 1.9 Standards Assignments 
 ----------------------
@@ -241,7 +241,7 @@ Units SHALL be encrypted.
 
 >   The **CodecPrivateData** field SHALL contain a hex-coded string
 >   representation of the following byte sequence, specified in ABNF
->   [[RFC5234]:](http://go.microsoft.com/fwlink/?LinkId=123096) (no change from
+>   [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (no change from
 >   MS-SSTR)
 
 >   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
@@ -314,7 +314,7 @@ Units SHALL be encrypted.
 >   The **TfhdBox** and related fields encapsulate defaults for per sample
 >   metadata in the fragment. The syntax of the **TfhdBox** field is a strict
 >   subset of the syntax of the Track Fragment Header Box defined in
->   [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) section
+>   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) section
 >   8.8.7.
 
 >   **BaseDataOffset (8 bytes):** The offset, in bytes, from the beginning of
@@ -327,7 +327,7 @@ Units SHALL be encrypted.
 >   The **TrunBox** and related fields encapsulate per sample metadata for the
 >   requested fragment. The syntax of **TrunBox** is a strict subset of the
 >   Version 1 Track Fragment Run Box defined in
->   [[ISO/IEC-14496-](http://go.microsoft.com/fwlink/?LinkId=183695)*12]*
+>   [[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12]*
 >   section 8.8.8.
 
 >   **SampleCompositionTimeOffset (4 bytes):** The Sample Composition Time
@@ -336,7 +336,7 @@ Units SHALL be encrypted.
 >   decoded sample. Negative video sample composition offsets SHALL be used,
 
 >   as defined in
->   [[ISO/IEC-14496-12].](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 >   Note: This avoids a video synchronization error caused by video lagging
 >   audio equal to the largest decoded picture buffer removal delay, and
@@ -344,7 +344,7 @@ Units SHALL be encrypted.
 >   different removal delays.
 
 >   The syntax of the fields defined in this section, specified in ABNF
->   [[RFC5234],](http://go.microsoft.com/fwlink/?LinkId=123096) remains the
+>   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) remains the
 >   same, except as follows:
 
 >   SampleCompositionTimeOffset = SIGNED_INT32
@@ -362,7 +362,7 @@ Units SHALL be encrypted.
 #### 2.2.7.1 FileType 
 
 >   **FileType (variable):** specifies the subtype and intended use of the
->   MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) file,
+>   MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) file,
 >   and high-level attributes.
 
 >   **MajorBrand (variable):** The major brand of the media file. MUST be set to
@@ -375,7 +375,7 @@ Units SHALL be encrypted.
 >   MUST include "ccff" and "iso8."
 
 >   The syntax of the fields defined in this section, specified in ABNF
->   [[RFC5234],](http://go.microsoft.com/fwlink/?LinkId=123096) is as follows:
+>   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) is as follows:
 
     FileType = MajorBrand MinorVersion CompatibleBrands
     MajorBrand = STRING_UINT32

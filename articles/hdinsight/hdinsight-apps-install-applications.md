@@ -1,20 +1,20 @@
 ---
-title: Install third-party Hadoop applications on Azure HDInsight 
+title: Install third-party applications on Azure HDInsight 
 description: Learn how to install third-party Hadoop applications on Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 
 ---
-# Install third-party Hadoop applications on Azure HDInsight
+# Install third-party Apache Hadoop applications on Azure HDInsight
 
-Learn how to install a third-party Hadoop application on Azure HDInsight. For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+Learn how to install a third-party [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 An HDInsight application is an application that users can install on an HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
@@ -23,15 +23,20 @@ The following list shows the published applications:
 * **AtScale Intelligence Platform** turns your HDInsight cluster into a scale-out OLAP server. The application allows you to query billions of rows of data interactively using the BI tools from Microsoft Excel, PowerBI, Tableau Software to QlikView.
 * **Cask CDAP for HDInsight** provides the first unified integration platform for big data that cuts down the time to production for data applications and data lakes by 80%. This application only supports Standard HBase 3.4 clusters.
 * **DATAIKU DDS on HDInsight** allows data professionals to prototype, build, and deploy highly specific services that transform raw data into impactful business predictions.
+* **Datameer** is a self-service scalable platform for preparing, exploring, and governing your data for analytics accelerates turning complex multisource data into valuable business-ready information, delivering faster, smarter insights at an enterprise-scale.
 * **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water supports the following distributed algorithms: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, and Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is an enterprise-ready data warehouse powered by Apache Kylin and Apache Hadoop; it provides sub-second query latency on massive scale dataset, and simplifies data analytics for business users and analysts. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is an enterprise-ready data warehouse powered by Apache Kylin and Apache Hadoop; it provides subsecond query latency on massive scale dataset, and simplifies data analytics for business users and analysts. 
 * **Paxata Self-service Data Preparation**
 * **Spark Job Server for KNIME Spark Executor** Spark Job Server for KNIME Spark Executor is used to connect the KNIME Analytics Platform to HDInsight clusters.
+* **Starburst Presto** Presto is a fast and scalable distributed SQL query engine. Architected for the separation of storage and compute, Presto is perfect for querying data in Azure Data Lake Storage, Azure Blob Storage, SQL and NoSQL databases, and other data sources.
 * **Streamsets Data Collector for HDnsight** provides a full-featured integrated development environment (IDE) that lets you design, test, deploy, and manage any-to-any ingest pipelines that mesh stream and batch data, and include a variety of in-stream transformations—all without having to write custom code. 
-* **[Trifacta](http://www.trifacta.com/)** enables data engineers and analysts to more efficiently explore and prepare the diverse data of today by utilizing machine learning to provide a breakthrough user experience, workflow and architecture.
+* **Striim** (pronounced "stream") is an end-to-end streaming data integration + intelligence platform, enabling continuous ingestion, processing, and analytics of disparate data streams.
+* **[Trifacta](http://www.trifacta.com/)** enables data engineers and analysts to more efficiently explore and prepare the diverse data of today by utilizing machine learning to provide a breakthrough user experience, workflow, and architecture.
+* **Unifi Data Platform** is a seamlessly integrated suite of self-service data tools designed to empower the business user to tackle data challenges that drive incremental revenue, reduce costs or operational complexity. 
 * **WANdisco Fusion HDI App** enables continuous consistent connectivity to data as it changes wherever it is located. It provides you with access to your data anytime and anywhere with no downtime and no disruption.
+* **Waterline** catalogs, organizes, and governs data using AI to autotag data with business terms. Waterline’s business literate catalog is a critical, success component for self-service analytics, compliance and governance, and IT management initiatives.
 
-The instructions provided in this article use Azure portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure Classic CLI to deploy the template.  See [Create Hadoop clusters on HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The instructions provided in this article use Azure portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure Classic CLI to deploy the template.  See [Create Apache Hadoop clusters on HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Prerequisites
 If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
@@ -90,6 +95,6 @@ See [Troubleshoot the installation](hdinsight-apps-install-custom-applications.m
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
 * [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
-* [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
+* [Create Linux-based Apache Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.
 

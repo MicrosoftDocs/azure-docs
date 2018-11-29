@@ -2,7 +2,7 @@
 title: How to install Azure IoT Edge on Linux | Microsoft Docs
 description: Azure IoT Edge installation instructions on Linux
 author: kgremban
-manager: timlt
+manager: philmea
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -55,7 +55,7 @@ sudo apt-get upgrade
 
 ## Install the container runtime 
 
-Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
+Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container runtime. For production scenarios, it is highly recommended you use the [Moby-based](https://mobyproject.org/) engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
 
 Update apt-get.
 
@@ -103,7 +103,7 @@ A single IoT Edge device can be provisioned manually using a device connections 
 
 ### Option 1: Manual provisioning
 
-To manually provision a device, you need to provide it with a [device connection string][lnk-dcs] that you can create by registering a new device in your IoT hub.
+To manually provision a device, you need to provide it with a [device connection string](how-to-register-device-portal.md) that you can create by registering a new device in your IoT hub.
 
 
 Open the configuration file. 
@@ -138,7 +138,7 @@ sudo systemctl restart iotedge
 
 ### Option 2: Automatic provisioning
 
-To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID][lnk-dps] (DPS). Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
+To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID](how-to-auto-provision-simulated-device-linux.md). Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
 
 Open the configuration file. 
 
@@ -196,17 +196,11 @@ sudo iotedge list
 
 You need elevated privileges to run `iotedge` commands. After installing the runtime, sign out of your machine and sign back in to update your permissions automatically. Until then, use **sudo** in front of any `iotedge` the commands.
 
-On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
+On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide](troubleshoot.md).
 
 If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
 ## Next steps
 
-If you are having problems with the Edge runtime installing properly, check out the [troubleshooting][lnk-trouble] page.
+If you are having problems with the Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
 
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md

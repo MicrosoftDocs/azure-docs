@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 
@@ -27,15 +27,17 @@ ms.reviewer: xiaofmao
 ## Compute quota types 
 | **Type** | **Default value** | **Description** |
 | --- | --- | --- |
-| Max number of virtual machines | 20 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores | 50 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets | 10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets | 20 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Maximum number of virtual machines | 50 | The maximum number of virtual machines that a subscription can create in this location. |
+| Maximum number of virtual machine cores | 100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
+| Maximum number of availability sets | 10 | The maximum number of availability sets that can be created in this location. |
+| Maximum number of virtual machine scale sets | 100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Maximum capacity (in GB) of standard managed disk | 2048 | The maximum capacity of standard managed disks that can be created in this location. |
+| Maximum capacity (in GB) of premium managed disk | 2048 | The maximum capacity of premium managed disks that can be created in this location. |
 
 ## Storage quota types 
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
+| Maximum capacity (GB) |2048 |Total storage capacity that can be consumed by a subscription in this location. |
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 > [!NOTE]  
@@ -45,13 +47,13 @@ ms.reviewer: xiaofmao
 ## Network quota types
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Maximum public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
+| Maximum virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
+| Maximum virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
+| Maximum network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
+| Maximum load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
+| Maximum NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
+| Maximum network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
 
 ## View an existing quota
 1. On the default dashboard of the Admin portal, find the **Resource providers** tile.

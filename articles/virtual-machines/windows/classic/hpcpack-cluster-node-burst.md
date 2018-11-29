@@ -85,7 +85,7 @@ subscription. To upload the certificate in the [Azure portal](https://portal.azu
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
-Deployments](http://technet.microsoft.com/library/gg481759.aspx).
+Deployments](https://technet.microsoft.com/library/gg481759.aspx).
 
 ## Step 3: Deploy Azure nodes to the cluster
 The steps to add and start
@@ -101,7 +101,7 @@ After you add and start the nodes, they are ready for you to use to run cluster 
 
 If you encounter problems when deploying Azure nodes, see [Troubleshoot
 Deployments of Azure Nodes with Microsoft HPC
-Pack](http://technet.microsoft.com/library/jj159097.aspx).
+Pack](https://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
 * To use a compute-intensive instance size for the burst nodes, see the considerations in 

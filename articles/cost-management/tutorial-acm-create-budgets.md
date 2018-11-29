@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -14,11 +14,11 @@ ms.custom:
 
 # Tutorial: Create and manage Azure budgets
 
-Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. You can see how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
+Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
 
-Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
+Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
 
-The examples in this tutorial walk you though creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
+The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
 In this tutorial, you learn how to:
 
@@ -28,13 +28,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Budgets are available to all Azure EA customers. You must have read access to an Azure EA subscription to create and manage budgets. EA billing accounts are not supported by budgets.
+Budgets are available to all Azure EA customers. You must have read access to an Azure EA subscription view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you cannot create budgets for EA billing accounts.
 
-Budgets are created at either the subscription or resource group level, individually. The following Azure permissions are supported per subscription for budgets by user and group:
+The following Azure permissions are supported per subscription for budgets by user and group:
 
 - Owner – Can create, modify, or delete budgets for a subscription.
-- Contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
-- Reader – Can view budgets that they have permission to.
+- Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
+- Reader and Cost Management reader – Can view budgets that they have permission to.
+
+For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -72,7 +74,7 @@ In the preceding example, you created a budget for a subscription. However, you 
 
 ## Edit a budget
 
-Depending on the level of access that you have, you can edit a budget to change its properties. In the follow example, some of the properties are read-only because the user has only Contributor permission to the subscription. Currently, the **Expiration date** is disabled and can't be modified once set.
+Depending on the level of access that you have, you can edit a budget to change its properties. In the following example, some of the properties are read-only because the user has only Contributor permission to the subscription. Currently, the **Expiration date** is disabled and can't be modified once set.
 
 ![Edit budget – contributor permission](./media/tutorial-acm-create-budgets/edit-budget.png)
 

@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Connect security solutions | Microsoft
 description: Azure Security Center Quickstart - Connect security solutions
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: yurid
+ms.author: rkarlin
 ---
 
 # Quickstart: Connect security solutions to Security Center

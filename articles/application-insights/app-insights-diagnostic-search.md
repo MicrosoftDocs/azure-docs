@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 services: application-insights
@@ -19,7 +19,7 @@ ms.author: mbullwin
 # Using Search in Application Insights
 Search is a feature of [Application Insights](app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-(For more complex queries over your data, use [Analytics](app-insights-analytics-tour.md).)
+(For more complex queries over your data, use [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
 
 ## Where do you see Search?
 
@@ -98,7 +98,7 @@ Find all the items with the same property value:
 ## Search the data
 
 > [!NOTE]
-> To write more complex queries, open [**Analytics**](app-insights-analytics-tour.md) from the top of the Search blade.
+> To write more complex queries, open [**Analytics**](../log-analytics/query-language/get-started-analytics-portal.md) from the top of the Search blade.
 > 
 
 You can search for terms in any of the property values. This is particularly useful if you have written [custom events](app-insights-api-custom-events-metrics.md) with property values. 
@@ -160,7 +160,7 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Next steps
-* [Write complex queries in Analytics](app-insights-analytics-tour.md)
+* [Write complex queries in Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](app-insights-monitor-web-app-availability.md)
 * [Troubleshooting](app-insights-troubleshoot-faq.md)

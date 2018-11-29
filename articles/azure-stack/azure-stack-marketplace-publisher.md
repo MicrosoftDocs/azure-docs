@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/26/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
 
@@ -25,11 +25,11 @@ Adding your content to the [Azure Stack Marketplace](azure-stack-marketplace.md)
 
 ## Prerequisites
 
- - You must run the toolkit on the Azure Stack host or have [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) connectivity from the machine on which you run the tool.
+ - You must run the toolkit on the Azure Stack host or have [VPN](.\asdk\asdk-connect.md#connect-with-vpn) connectivity to the ASDK host from the machine on which you run the tool.
 
  - Download the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) and extract.
 
- - Download the [Azure Gallery Packaging tool](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Download the [Azure Gallery Packaging tool](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
  - Publishing to the marketplace requires icons and a thumbnail file. You can use your own, or save the [sample](azure-stack-marketplace-publisher.md#support-files) files locally for this example.
 

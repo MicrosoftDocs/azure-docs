@@ -138,12 +138,7 @@ You can find more samples [here](https://github.com/Azure/azure-event-hubs-node/
 
 ## Next steps
 
-Visit the following pages to learn more about Event Hubs:
-
-* [Send events using Node.js](event-hubs-go-get-started-send.md)
-* [Event Hubs samples](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [Capture events to Azure Storage or Data Lake Store](event-hubs-capture-overview.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you created a Node.js application that received messages from an event hub. To learn how to send events to an event hub using Node.js, see [Send events from event hub - Node.js](event-hubs-node-get-started-send.md).
 
 <!-- Links -->
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
 
 ---
@@ -87,8 +87,32 @@ Follow instructions from the previous section that displays lab accounts in a li
 3. Type **Yes** for confirmation.
 4. Select **Delete**. 
 
-## Next steps
-Get started with setting up a lab using Azure Lab Services:
+## View and manage labs in the lab account
 
-- [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
+1. On the **Lab Account** page, select **Labs** on the left menu.
+
+    ![Labs in the account](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. You see a **list of labs** in the account with the following information: 
+    1. Name of the lab.
+    2. The date on which the lab was created. 
+    3. Email address of the user who created the lab. 
+    4. Maximum number of users allowed into the lab. 
+    5. Status of the lab. 
+
+## Delete a lab in the lab account
+Follow instructions in the previous section to see a list of the labs in the lab account.
+
+1. Select **... (ellipsis)**, and select **Delete**. 
+
+    ![Delete a lab - button](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Select **Yes** on the warning message. 
+
+
+
+## Next steps
+See the following articles:
+
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
+- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)

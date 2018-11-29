@@ -153,5 +153,5 @@ Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing t
 
 ## Next steps
 * See the optimized result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
-* Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
+* Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

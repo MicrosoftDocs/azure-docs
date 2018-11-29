@@ -196,7 +196,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 ### Tools and utilities
 * [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Azure CLI Cmdlets for Storage](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
+* [AzCopy Command-Line Utility](https://aka.ms/downloadazcopy)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](../storage-explorers.md)
 * [Azure Developer Tools](https://azure.microsoft.com/tools/)

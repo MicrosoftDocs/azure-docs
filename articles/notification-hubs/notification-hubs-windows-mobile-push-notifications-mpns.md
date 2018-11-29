@@ -58,7 +58,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
     > [!NOTE]
-    > This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) by allowing you to upload your certificate.
+    > This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) by allowing you to upload your certificate.
 
 ## Create a Windows Phone application
 In this section, you create a Windows Phone application that registers itself with your notification hub. 

@@ -128,18 +128,18 @@ If the Tracking Database is deleted and the database needs recovered, a previous
 </table>
 
 ## Next
-To create Azure BizTalk Services, go to [BizTalk Services: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+To create Azure BizTalk Services, go to [BizTalk Services: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## See Also
-* [Backup BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Restore BizTalk Service from Backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Backup BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Restore BizTalk Service from Backup](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Provisioning Status Chart](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Dashboard, Monitor and Scale tabs](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Issuer Name and Issuer Key](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

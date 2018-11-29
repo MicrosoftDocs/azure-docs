@@ -1,4 +1,4 @@
-﻿---
+---
 title: Receive activity log alerts on Azure service notifications
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 author: shawntabrizi
@@ -31,7 +31,7 @@ You also can configure who the alert should be sent to:
 
 To learn more about action groups, see [Create and manage action groups](monitoring-action-groups.md).
 
-For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](alert-activity-log.md).
 
 ## Create an alert on a service health notification for a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
@@ -65,7 +65,7 @@ For information on how to configure service health notification alerts by using 
 
 1. Define a list of receivers by providing the receiver's:
 
-    a. **Name**: Enter the receiver’s name, alias, or identifier.
+    a. **Name**: Enter the receiver's name, alias, or identifier.
 
     b. **Action Type**: Select SMS, email, webhook, Azure app, and more.
 

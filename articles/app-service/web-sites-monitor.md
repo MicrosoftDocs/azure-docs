@@ -18,7 +18,7 @@ ms.author: byvinyal
 
 ---
 # How to: Monitor Apps in Azure App Service
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) provides
+[App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
 built in monitoring functionality in the [Azure portal](https://portal.azure.com).
 The Azure portal includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**

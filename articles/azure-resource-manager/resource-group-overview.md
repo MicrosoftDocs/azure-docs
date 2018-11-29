@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 ---
 # Azure Resource Manager overview
-The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and third-party services. You don't see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
+The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and third-party services. You may not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
 
 ## Consistent management layer
 Resource Manager provides a consistent management layer to perform tasks through Azure PowerShell, Azure CLI, Azure portal, REST API, and client SDKs. All capabilities that are available in the Azure portal are also available through Azure PowerShell, Azure CLI, the Azure REST APIs, and client SDKs. Functionality initially released through APIs will be represented in the portal within 180 days of initial release.
@@ -61,29 +61,7 @@ For guidance on how enterprises can use Resource Manager to effectively manage s
 
 For recommendations on creating Resource Manager templates that you can use across global Azure, Azure sovereign clouds, and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
 
-## Quickstarts and tutorials
-
-Use the following quickstarts and tutorials to learn how to develop resource manager templates:
-
-- Quickstarts
-
-    |Title|Description|
-    |------|-----|
-    |[Use the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generate a template using the portal, and the process of editing and deploying the template.|
-    |[Use Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Use Visual Studio Code to create and edit templates, and how to use the Azure Cloud shell to deploy templates.|
-    |[Use Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Use Visual Studio to create, edit, and deploy templates.|
-
-- Tutorials
-
-    |Title|Description|
-    |------|-----|
-    |[Utilize template reference](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilize the template reference documentation to develop templates. In the tutorial, you find the storage account schema, and use the information to create an encrypted storage account.|
-    |[Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)|Create multiple instances of Azure resources. In the tutorial, you create multiple instances of storage account.|
-    |[Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Define resource dependencies. In the tutorial, you create a virtual network, a virtual machine, and the dependent Azure resources. You learn how the dependencies are defined.|
-    |[Use conditions](./resource-manager-tutorial-use-conditions.md)|Deploy resources based on some parameter values. In the tutorial, you define a template to create a new storage account or use an existing storage account based on the value of a parameter.|
-    |[Integrate key vault](./resource-manager-tutorial-use-key-vault.md)|Retrieve secrets/passwords from Azure Key Vault. In the tutorial, you create a virtual machine.  The virtual machine administrator password is retrieved from a Key Vault.|
-    |[Create linked templates](./resource-manager-tutorial-create-linked-templates.md)|Modularize templates, and call other templates from a template. In the tutorial, you create a virtual network, a virtual machine, and the dependent resources.  The dependent storage account is defined in a linked template. |
-    |[Use safe deployment practices](./deployment-manager-tutorial.md)|Use Azure Deployment manager. |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## Resource groups
 There are some important factors to consider when defining your resource group:

@@ -12,12 +12,85 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/15/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November 2018 Guest OS
+
+>[!NOTE]
+>The November Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the November Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | November 13, 2018 |
+| Rel 18-11 | [4467106] | Windows Security | 2.80 | November 13, 2018 |
+| Rel 18-11 | [4467678] | Windows Security | 3.67 | November 13, 2018 |
+| Rel 18-11 | [4467703] | Windows Security | 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467691] | Windows 10 Security | 5.25 | November 13, 2018 |
+| N/A | [3173426] | Servicing Stack Update | 3.67 | July 12, 2016 |
+| N/A | [4465659] | Servicing Stack Update | 5.25 | November 13, 2018 |
+| N/A | [4462923] | October Non-Security rollup | 2.80 | October 9, 2018 |
+| N/A | [4462929] | October Non-Security rollup | 3.67 | October 9, 2018 |
+| N/A | [4462926] | October Non-Security rollup | 4.60 | October 9, 2018 |
+| N/A | [3109976] | App compat shims | 4.60 | April 12, 2016 |
+| N/A | [4457037] | App compat shims | 4.60| June 12, 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
+
+## October 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-10 | [4462917] | Windows 10 Security | 5.24 | October 9, 2018 |
+| Rel 18-10 | [4462915] | Windows Security | 2.79 | October 9, 2018 |
+| Rel 18-10 | [4462931] | Windows Security | 3.66 | October 9, 2018 |
+| Rel 18-10 | [4462941] | Windows Security | 4.59 | October 9, 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | October 9, 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | October 9, 2018 |
+| N/A | [4339284] | Time zone update | 2.79, 3.66, 4.59 | July 24, 2018 |
+| N/A | [4457144] | September Non-Security rollup | 2.79 | September 11, 2018 |
+| N/A | [4457044] | September Non-Security .NET 3.5 rollup | 2.79 | September 11, 2018 |
+| N/A | [4457038] | September Non-Security .NET 4.5.2 rollup | 2.79 | September 11, 2018 |
+| N/A | [4457135] | September Non-Security rollup | 3.66 | September 11, 2018 |
+| N/A | [4457042] | September Non-Security .NET 3.5 rollup | 3.66 | September 11, 2018 |
+| N/A | [4457037] | September Non-Security .NET 4.5.2 rollup | 3.66 | September 11, 2018 |
+| N/A | [4457129] | September Non-Security rollup | 4.59 | September 11, 2018 |
+| N/A | [4457045] | September Non-Security .NET 3.5 rollup | 4.59 | September 11, 2018 |
+| N/A | [4457036] | September Non-Security .NET 4.5.2 rollup | 4.59 | September 11, 2018 |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## September 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |

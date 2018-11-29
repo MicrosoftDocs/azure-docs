@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -45,6 +45,7 @@ To plan your hybrid Azure AD implementation, you should familiarize yourself wit
 |---|---|
 |![Check][1]|Review supported devices|
 |![Check][1]|Review things you should know|
+|![Check][1]|Review how to control the hybrid Azure AD join of your devices|
 |![Check][1]|Select your scenario|
 
 
@@ -91,13 +92,13 @@ If you are relying on the System Preparation Tool (Sysprep), make sure you creat
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure you use a VM snapshot that has not been configured for hybrid Azure AD join.
 
-The registration of Windows down-level devices is not supported for devices configured for user profile roaming or credential roaming. If you are relying on roaming of profiles or settings, use Windows 10.
+Hybrid Azure AD join of Windows down-level devices:
 
-- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+- **Is** supported in non-federated environments through [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+- **Is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+
+- **Is not** supported when using credential roaming or user profile roaming or when using virtual desktop infrastructure (VDI).
 
 
 The registration of Windows Server running the Domain Controller (DC) role is not supported.
@@ -108,6 +109,11 @@ If your organization requires access to the Internet via an authenticated outbou
 Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
 
 
+## Review how to control the hybrid Azure AD join of your devices
+
+Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. This is for example true, during the initial rollout to verify that everything works as expected.
+
+For more information, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 ## Select your scenario
 

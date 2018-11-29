@@ -82,7 +82,7 @@ Perform the following steps to create an export job in the Azure portal.
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you recieve notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
    
 5. In **Summary**:
 
@@ -109,7 +109,7 @@ If you do not know the number of drives you need, go to the [Check the number of
 When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available on the portal.
 
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab. 
-2. Select and cick your export job from the list. Go to **BitLocker keys** and copy the keys.
+2. Select and click your export job from the list. Go to **BitLocker keys** and copy the keys.
    
    ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 

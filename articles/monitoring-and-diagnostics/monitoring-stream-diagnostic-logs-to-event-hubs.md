@@ -38,7 +38,7 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
 You can enable streaming of diagnostic logs programmatically, via the portal, or using the [Azure Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Either way, you create a diagnostic setting in which you specify an Event Hubs namespace and the log categories and metrics you want to send in to the namespace. An event hub is created in the namespace for each log category you enable. A diagnostic **log category** is a type of log that a resource may collect.
 
 > [!WARNING]
-> Enabling and streaming diagnostic logs from Compute resources (for example, VMs or Service Fabric) [requires a different set of steps](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> Enabling and streaming diagnostic logs from Compute resources (for example, VMs or Service Fabric) [requires a different set of steps](azure-diagnostics-streaming-event-hubs.md).
 
 The Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are part of the same AAD tenant.
 
@@ -185,10 +185,10 @@ You can view a list of all resource providers that support streaming to Event Hu
 
 ## Stream data from Compute resources
 
-You can also stream diagnostic logs from Compute resources using the Windows Azure Diagnostics agent. [See this article](../event-hubs/event-hubs-streaming-azure-diags-data.md) for how to set that up.
+You can also stream diagnostic logs from Compute resources using the Windows Azure Diagnostics agent. [See this article](azure-diagnostics-streaming-event-hubs.md) for how to set that up.
 
 ## Next steps
 
-* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
-* [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

@@ -46,7 +46,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Create new intents and their utterances
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. On the **Intents** page, select **Create new intent**. 
 
@@ -86,7 +86,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Caution about example utterance quantity
 
-[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
+[!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
 ## Train
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Python to translate text - Translator Text API"
+title: "Quickstart: Translate text, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll translate text from one language to another using the Translator Text API with Python in less than 10 minutes.
 services: cognitive-services
@@ -98,7 +98,7 @@ body = [{
 }]
 ```
 
-Next, we'll create a post request using the `requests` module. It takes three arguments: the concatenated URL, the request headers, and the request body:
+Next, we'll create a POST request using the `requests` module. It takes three arguments: the concatenated URL, the request headers, and the request body:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -110,7 +110,7 @@ response = request.json()
 The last step is to print the results. This code snippet prettifies the results by sorting the keys, setting indentation, and declaring item and key separators.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## Put it all together

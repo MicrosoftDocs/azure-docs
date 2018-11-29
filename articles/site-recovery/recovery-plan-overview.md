@@ -1,14 +1,11 @@
 ---
-title: Using recovery plans in Azure Site Recovery | Microsoft Docs
-description: Learn about recovery plans in Azure Site Recovery. 
-services: site-recovery
-documentationcenter: ''
+title: Using recovery plans in disaster recovery with Azure Site Recovery | Microsoft Docs
+description: Learn about using recovery plans for disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
 
 ---
@@ -17,8 +14,6 @@ ms.author: raynew
 This article describes recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
 A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.
-
-
 
 
 

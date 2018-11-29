@@ -2,22 +2,22 @@
 title: Troubleshoot issues with Apache Spark cluster in Azure HDInsight 
 description: Learn about issues related to Apache Spark clusters in Azure HDInsight and how to work around those.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Known issues for Apache Spark cluster on HDInsight
 
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
-## Livy leaks interactive session
-When Livy restarts (from Ambari or because of headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session is leaked. As a result, new jobs can be stuck in the Accepted state.
+## Apache Livy leaks interactive session
+When [Apache Livy](https://livy.incubator.apache.org/) restarts (from [Apache Ambari](https://ambari.apache.org/) or because of headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session is leaked. As a result, new jobs can be stuck in the Accepted state.
 
 **Mitigation:**
 
@@ -29,7 +29,7 @@ Use the following procedure to work around the issue:
    
         yarn application –list
    
-    The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified. For the Livy session started by Jupyter notebook, the job name starts with remotesparkmagics_*. 
+    The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified. For the Livy session started by [Jupyter Notebook](https://jupyter.org/), the job name starts with remotesparkmagics_*. 
 3. Run the following command to kill those jobs. 
    
         yarn application –kill <Application ID>
@@ -108,20 +108,20 @@ When Spark cluster is out of resources, the Spark and PySpark kernels in the Jup
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
+* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 

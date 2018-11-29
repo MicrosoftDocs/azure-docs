@@ -55,7 +55,7 @@ For more information on Azure Instance Metadata Service, see [IMDS documentation
 
 All Linux distributions supported by Azure IaaS can be used with managed identities for Azure resources via the IMDS endpoint. 
 
-Note: The managed identities for Azure resources VM Extension (planned for deprecation in January 2019) only supports the following Linux distributions:
+The managed identities for Azure resources VM Extension (planned for deprecation in January 2019) only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -119,16 +119,23 @@ Once the VM is started, the tag can be removed by using following command:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## Known issues with user-assigned Identities
+### VM extension provisioning fails
 
-- user-assigned Identity assignments are only available for VM and VMSS. IMPORTANT: user-assigned Identity assignments will change in the upcoming months.
-- Duplicate user-assigned Identities on the same VM/VMSS, will cause the VM/VMSS to fail. This includes identities that are added with different casing. e.g. MyUserAssignedIdentity and myuserassignedidentity. 
-- Provisioning of the VM extension (planned for deprecation in January 2019) to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
-- Adding a 'non-existent' user-assigned identity will cause the VM to fail. 
-- Creating a user-assigned identity with special characters (i.e. underscore) in the name, is not supported.
-- user-assigned identity names are restricted to 24 characters for end to end scenario. user-assigned identities with names longer than 24 characters will fail to be assigned.
+Provisioning of the VM extension might fail due to DNS lookup failures. Restart the VM, and try again.
+ 
+> [!NOTE]
+> The VM extension is planned for deprecation by January 2019. We recommend you move to using the IMDS endpoint.
+
+### Transferring a subscription between Azure AD directories
+
+Managed identities do not get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
+
+As a workaround once the subscription has been moved, you can disable system-assigned managed identities and re-enable them. Similarly, you can delete and recreate any user-assigned managed identities. 
+
+## Known issues with user-assigned managed identities
+
+- Creating a user-assigned managed identity with special characters (i.e. underscore) in the name, is not supported.
+- User-assigned identity names are restricted to 24 characters. If the name is longer than 24 characters, the identity will fail to be assigned to a resource (i.e. Virtual Machine.)
 - If using the managed identity virtual machine extension (planned for deprecation in January 2019), the supported limit is 32 user-assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
-- When adding a second user-assigned identity, the clientID might not be available to requests tokens for the VM extension. As a mitigation, restart the managed identities for Azure resources VM extension with the following two bash commands:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- When a VM has a user-assigned identity but no system-assigned identity, the portal UI will show managed identities for Azure resources as disabled. To enable the system-assigned identity, use an Azure Resource Manager template, an Azure CLI, or an SDK.
+- Moving a user-assigned managed identity to a different resource group will cause the identity to break. As a result, you will not be able to request tokens for that identity. 
+- Transferring a subscription to another directory will break any existent user-assigned managed identities. 

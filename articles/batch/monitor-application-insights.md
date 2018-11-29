@@ -30,6 +30,10 @@ custom dashboards. For Application Insights support in other languages, look at 
 
 A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes. 
 
+> [!TIP]
+> As an alternative, configure your Batch solution to display Application Insights data such as VM performance counters in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows. See the [batch-insights repo](https://github.com/Azure/batch-insights) for quick steps to enable Application Insights data in Batch Explorer. 
+>
+
 ## Prerequisites
 * [Visual Studio 2017](https://www.visualstudio.com/vs)
 

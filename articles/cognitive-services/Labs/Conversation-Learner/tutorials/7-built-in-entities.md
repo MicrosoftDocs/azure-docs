@@ -17,7 +17,7 @@ This tutorial shows how to add "pre-built" entities to your Conversation Learner
 
 ## Video
 
-[![Tutorial 7 Preview](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![Tutorial 7 Preview](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -39,27 +39,28 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 
 1. Click Entities, then New Entity.
 2. Click on EntityType drop-down, and select datetimev2.
-	- Programmable and Negatable options are disabled, because they do not apply to pre-build entities.
+	- Programmable and Negatable options are disabled, because they do not apply to pre-built entities.
 3. Click Create.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### Create two actions
 
-1. Click Actions, then New Action
-2. In Response, type 'The date is $luis-datetimev2'.
-3. Click Create.
+1. Click Actions, then New Action.
+1. In Response, type 'The date is $builtin-datetimev2'.
+1. In Required Entities, enter '$builtin-datetimev2'.
+1. Click Create.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 Then create the second action:
 
 1. Click Actions, then New Action to create a second action.
-3. In Response, type 'What's the date?'.
-4. In Disqualifying Entities, enter 'luis-datetimev2'.
-4. Click Create
+1. In Response, type 'What's the date?'.
+1. In Disqualifying Entities, enter '$builtin-datetimev2'.
+1. Click Create.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 Now you have two actions.
 
@@ -70,11 +71,11 @@ Now you have two actions.
 3. Click Score Actions, and Select 'What's the date?'
 2. Enter 'today'. 
 	- Notice today is tagged, and shows up in the second line since it is a pre-built entity and non-editable.
-5. Click Score Actions
+5. Click Score Actions.
 	- Notice the date now appears in Entity Memory section. 
 	- If you mouse over the date, you will see the additional data provided by LUIS, which is usable and can further be manipulated in code. 
-6. Select 'The date is $luis-datetimev2'.
-7. Click Done Teaching
+6. Select 'The date is $builtin-datetimev2'.
+7. Click Done Teaching.
 
 ## Next steps
 

@@ -36,25 +36,26 @@
   - name: Analyzing content
     href: analyzing-video-audio-files-concept.md
   - name: Encoding content
+    href: encoding-concept.md
     items:
-    - name: Overview
-      href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities
     items:
+    - name: Account and Asset filters 
+      href: filters-dynamic-manifest-overview.md      
     - name: Assets
-      href: assets-concept.md
+      href: assets-concept.md        
     - name: Content key policies
-      href: content-key-policy-concept.md
+      href: content-key-policy-concept.md 
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
       href: streaming-locators-concept.md
     - name: Streaming policies
       href: streaming-policy-concept.md
-    - name: Transforms and jobs
-      href: transform-concept.md
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md
   - name: Examining storage accounts
     href: storage-account-concept.md
   - name: Handling Event Grid events
@@ -65,8 +66,17 @@
       href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Streaming live 
+  - name: Streaming live events
     href: live-streaming-overview.md
+    items:
+    - name: Using a cloud DVR
+      href: live-event-cloud-dvr.md
+    - name: Types comparison
+      href: live-event-types-comparison.md
+    - name: States and billing
+      href: live-event-states-billing.md
+    - name: Latency
+      href: live-event-latency.md
 - name: How-to guides
   items:
   - name: Migrate from v2 to v3
@@ -81,6 +91,14 @@
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
+  - name: Create filters
+    items:
+    - name: With .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: With REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: With CLI
+      href: filters-dynamic-manifest-cli-howto.md
   - name: Encode 
     items:
     - name: Customize Transform presets - .NET Core
@@ -97,22 +115,30 @@
       href: protect-with-aes128.md    
     - name: With DRM - .NET
       href: protect-with-drm.md
+  - name: Configure Postman
+    href: media-rest-apis-with-postman.md
+  - name: Scale Media Reserved Units - CLI
+    href: media-reserved-units-cli-how-to.md
 - name: Reference
   items:
-  - name: REST
-    href: https://aka.ms/ams-v3-rest-ref
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
-  - name: .NET
-    href: https://aka.ms/ams-v3-dotnet-ref
-  - name: Java
-    href: https://aka.ms/ams-v3-java-ref
-  - name: Python
-    href: https://aka.ms/ams-v3-python-ref
-  - name: Node .js
-    href: https://aka.ms/ams-v3-nodejs-ref
-  - name: Go
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media      
+  - name: OpenAPI Specification (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
+  - name: SDKs/Tools
+    items:
+    - name: REST
+      href: https://aka.ms/ams-v3-rest-ref
+    - name: Azure CLI
+      href: https://aka.ms/ams-v3-cli-ref
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-ref
+    - name: Java
+      href: https://aka.ms/ams-v3-java-ref
+    - name: Python
+      href: https://aka.ms/ams-v3-python-ref
+    - name: Node.js
+      href: https://aka.ms/ams-v3-nodejs-ref
+    - name: Go
+      href: https://aka.ms/ams-v3-go-ref
   - name: Event schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
@@ -133,19 +159,19 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-  - name: SDKs
+  - name: OpenAPI Specification (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk  
+  - name: SDKs/Tools
     items:
     - name: Azure CLI
       href: https://aka.ms/ams-v3-cli
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-sdk
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-sdk
     - name: Java
       href: https://aka.ms/ams-v3-java-sdk
     - name: Python
       href: https://aka.ms/ams-v3-python-sdk
-    - name: Node .js
+    - name: Node.js
       href: https://aka.ms/ams-v3-nodejs-sdk   
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
@@ -155,4 +181,3 @@
     href: limits-quotas-constraints.md
   - name: FAQ
     href: frequently-asked-questions.md
-  

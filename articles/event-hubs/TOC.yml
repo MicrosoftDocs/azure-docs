@@ -4,7 +4,7 @@
   items:
   - name: What is Event Hubs?
     href: event-hubs-about.md
-  - name: Event Hubs for Apache Kafka (preview)
+  - name: Event Hubs for Apache Kafka
     href: event-hubs-for-kafka-ecosystem-overview.md
   - name: Event Hubs Capture
     href: event-hubs-capture-overview.md
@@ -70,8 +70,12 @@
     items:
       - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
+      - name: Connect Apache Spark to an Apache Kafka-enabled event hub
+        href: event-hubs-kafka-spark-tutorial.md
       - name: Connect Apache Flink to an Apache Kafka-enabled event hub 
         href: event-hubs-kafka-flink-tutorial.md
+      - name: Integrate Apache Kafka Connect with a Kafka-enabled event hub (Preview) 
+        href: event-hubs-kafka-connect-tutorial.md
       - name: Connect Akka Streams to an Apache Kafka-enabled event hub
         href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Samples
@@ -96,13 +100,13 @@
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Availability and consistency
     href: event-hubs-availability-and-consistency.md
-  - name: Diagnostic logs
-    href: event-hubs-diagnostic-logs.md
   - name: AMQP 1.0 protocol guide
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true
 - name: How-to guides
   items:
+  - name: Set up diagnostic logs
+    href: event-hubs-diagnostic-logs.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs
@@ -123,6 +127,12 @@
       href: event-hubs-metrics-azure-monitor.md
     - name: Event Hubs management libraries
       href: event-hubs-management-libraries.md
+  - name: Get Event Hubs connection string
+    href: event-hubs-get-connection-string.md
+  - name: Troubleshoot
+    items:
+    - name: Exceptions
+      href: event-hubs-messaging-exceptions.md
   - name: Use firewalls
     href: event-hubs-ip-filtering.md
   - name: Use virtual network service endpoints
@@ -131,6 +141,8 @@
     href: event-hubs-auto-inflate.md
   - name: Stream Azure Diagnostics data using Event Hubs
     href: event-hubs-streaming-azure-diags-data.md
+  - name: Exchange events between applications using different protocols
+    href: event-hubs-exchange-events-different-protocols.md    
 - name: Reference
   items:
   - name: Java
@@ -153,8 +165,6 @@
       href: /dotnet/api/microsoft.azure.management.eventhub
   - name: REST
     href: /rest/api/eventhub
-  - name: Exceptions
-    href: event-hubs-messaging-exceptions.md
   - name: Quotas
     href: event-hubs-quotas.md
 - name: Resources

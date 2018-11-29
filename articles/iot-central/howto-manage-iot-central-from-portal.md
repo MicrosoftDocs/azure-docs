@@ -31,14 +31,14 @@ Now, click the "Create" button to see the form that you'll need to fill out.
 
 ![Management portal: IoT Central resource](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Fill in all the fields in the form. This form is similar to the form you need to fill out to create applications from the IoT Central website. To learn more about how to fill out each field, you can refer to the [Create an IoT Central application](https://docs.microsoft.com/ azure/iot-central/howto-create-application) document. 
+Fill in all the fields in the form. This form is similar to the form you need to fill out to create applications from the IoT Central website. To learn more about how to fill out each field, check out the [Create an IoT Central application](quick-deploy-iot-central.md) quickstart. 
 
 ![Management portal: create IoT Central resource](media\howto-manage-iot-central-from-portal\image1.png)  
 
 After filling out all fields, click the "Create" button.
 
 ## Manage existing IoT Central applications
-If you already have an Azure IoT Central application you can delete it, move it to a different subscription or resource group in the Azure portal. You can't see 7-day trial applications in the Azure portal since no subscription backs those trials.
+If you already have an Azure IoT Central application you can delete it, move it to a different subscription or resource group in the Azure portal. You can't see Trial applications in the Azure portal since no subscription backs those trials.
 
 To get started, click "All resources" in the main navigation menu on the left. Use the search box to type in the name of your application and find it in your list of resources. Then click on the IoT Central application you'd like to manage.
 

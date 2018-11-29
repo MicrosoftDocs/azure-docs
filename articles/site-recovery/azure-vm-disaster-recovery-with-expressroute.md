@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using Azure Site Recovery  | Microsoft Docs
+title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using the Azure Site Recovery service | Microsoft Docs
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -180,7 +180,7 @@ In our example, we're using the following topology:
 - The target recovery region is Azure SouthEast Asia.
 - A secondary ExpressRoute circuit connection is established through a partner edge in Singapore.
 
-For a simple topology that uses a single ExpressRoute circuit, with same IP address after failover, [review this article](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+For a simple topology that uses a single ExpressRoute circuit, with same IP address after failover, [review this article](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
 
 ### Example steps
 To automate recovery in this example, here's what you need to do:

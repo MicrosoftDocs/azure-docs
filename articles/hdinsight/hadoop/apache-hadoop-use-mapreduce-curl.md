@@ -1,20 +1,20 @@
 ---
-title: Use MapReduce and Curl with Hadoop in HDInsight - Azure 
-description: Learn how to remotely run MapReduce jobs with Hadoop on HDInsight using Curl.
+title: Use MapReduce and Curl with Apache Hadoop in HDInsight - Azure 
+description: Learn how to remotely run MapReduce jobs with Apache Hadoop on HDInsight using Curl.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run MapReduce jobs with Hadoop on HDInsight using REST
+# Run MapReduce jobs with Apache Hadoop on HDInsight using REST
 
-Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
+Learn how to use the WebHCat REST API to run MapReduce jobs on a Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see the [What you need to know about Linux-based Hadoop on HDInsight](../hdinsight-hadoop-linux-information.md) document.

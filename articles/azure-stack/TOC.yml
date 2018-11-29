@@ -8,6 +8,8 @@
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md#update-package-release-cadence 
+    - name: 1809 update 
+      href: azure-stack-update-1809.md
     - name: 1808 update 
       href: azure-stack-update-1808.md 
     - name: 1807 update 
@@ -27,12 +29,10 @@
     href: azure-stack-tutorial-sql-server.md
   - name: Offer highly available SQL databases
     href: azure-stack-tutorial-sql.md
-  - name: Offer highly available MyQL databases
+  - name: Offer highly available MySQL databases
     href: azure-stack-tutorial-mysql.md
   - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
-  - name: Deploy Ethereum
-    href: azure-stack-ethereum.md
 - name: Concepts
   items:
   - name: Capacity Planning
@@ -127,8 +127,6 @@
       href: azure-stack-region-management.md
     - name: Using the administrator portal
       href: azure-stack-manage-portals.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN
@@ -231,6 +229,8 @@
       href: azure-stack-add-vm-image.md
     - name: Offer a virtual machine scale set
       href: azure-stack-compute-add-scalesets.md
+    - name: Windows Server in Marketplace FAQ
+      href: azure-stack-windows-server-faq.md
     - name: Offer Linux virtual machines
       href: azure-stack-linux.md
     - name: Add a Red Hat virtual machine
@@ -254,6 +254,10 @@
         href: azure-stack-sql-resource-provider-maintain.md                  
       - name: Remove the SQL Server resource provider
         href: azure-stack-sql-resource-provider-remove.md 
+      - name: SQL resource provider release notes
+        items:
+        - name: SQL resource provider 1.1.30.0 release notes
+          href: azure-stack-sql-resource-provider-11300.md 
   - name: Offer MySQL as PaaS
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -269,6 +273,10 @@
       href: azure-stack-mysql-resource-provider-maintain.md
     - name: Remove the MySQL Server resource provider
       href: azure-stack-mysql-resource-provider-remove.md
+    - name: MySQL resource provider release notes
+      items:
+      - name: MySQL resource provider 1.1.30.0 release notes
+        href: azure-stack-mysql-resource-provider-11300.md
   - name: Offer App Service as PaaS
     href: azure-stack-app-service-overview.md
     items:
@@ -298,6 +306,8 @@
         href: azure-stack-app-service-release-notes-update-two.md
       - name: App Service on Azure Stack update 3 release notes
         href: azure-stack-app-service-release-notes-update-three.md
+      - name: App Service on Azure Stack update 4 release notes
+        href: azure-stack-app-service-release-notes-update-four.md
   - name: Create plans, offers, and quotas
     items:
     - name: Plan, offer, quota, and subscription overview
