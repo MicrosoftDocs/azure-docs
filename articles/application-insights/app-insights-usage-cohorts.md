@@ -55,7 +55,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 5. Select **Save**.
 
    > [!TIP]
-   >  Give your cohort a name, like “Engaged Users (5+ Days).” Save it to “My reports” or “Shared reports,” depending on whether you want other people who have access to this Application Insights resource to see this cohort.
+   > Give your cohort a name, like “Engaged Users (5+ Days).” Save it to “My reports” or “Shared reports,” depending on whether you want other people who have access to this Application Insights resource to see this cohort.
 
 6. Select **Back to Gallery**.
 
