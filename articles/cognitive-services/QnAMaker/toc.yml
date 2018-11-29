@@ -94,10 +94,8 @@
     - name: Get answer from knowledge base
       href: How-To/use-knowledge-base.md
     - name: Use metadata with GenerateAnswer API
-      href: How-To/metadata-generateanswer-usage.md    
-  - name: Integrate with other services
-    items:
-    - name: Integrate QnA Maker and LUIS
+      href: How-To/metadata-generateanswer-usage.md  
+    - name: With a bot  
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Manage service
     items:
