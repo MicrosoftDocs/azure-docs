@@ -56,7 +56,7 @@ You can create the service principal in the [Azure portal](#azure-portal) or usi
 
 1. Create a service principal. Set an appropriate scope and a role type of `reader`.
 
-    ```Azure CLI
+    ```azurecli
     az ad sp create-for-rbac --name "https://{UrlToYourGrafana}:{PortNumber}" --role "reader" \
                              --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroup1}
     ```
@@ -65,7 +65,7 @@ You can create the service principal in the [Azure portal](#azure-portal) or usi
 
 1. The command returns a result set like the following. Copy the three property values: **appID**, **password**, and **tenant**.
 
-    ```JSON
+    ```json
     {
       "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
       "displayName": "{UrlToYourGrafana}:{PortNumber}",
@@ -77,7 +77,7 @@ You can create the service principal in the [Azure portal](#azure-portal) or usi
 
 1. Get a list of your subscriptions.
 
-    ```Azure CLI
+    ```azurecli
     az account list --output table
     ```
 
@@ -95,7 +95,7 @@ Now that you have a service principal, you add it to the *viewers* role in the A
 
 1. Run the following command in the query window. Use the application ID and tenant ID from the Azure portal or CLI.
 
-    ```Kusto
+    ```kusto
     .add database {TestDatabase} viewers ('aadapp={ApplicationID};{TenantID}')
     ```
 
@@ -134,7 +134,7 @@ With the service principal assigned to the *viewers* role, you now specify prope
 
 ## Visualize data
 
-```Kusto
+```kusto
 StormEvents
 | summarize event_count=count() by bin(StartTime, 1d)
 ```
