@@ -78,15 +78,7 @@ The following members of Azure AD can be provisioned in Azure SQL server or SQL 
 - Imported members from other Azure AD's who are native or federated domain members.
 - Active Directory groups created as security groups.
 
-Azure AD limitations related to Managed Instance:
-
-- Only Azure AD admin can create databases, Azure AD users are scoped to a single DB and do not have this permission
-- Database ownership:
-  - Azure AD principal cannot change ownership of the database (ALTER AUTHORIZATION ON DATABASE) and cannot be set as owner.
-  - For databases created by Azure AD admin no ownership is set (owner_sid field in sys.sysdatabases is 0x1).
-- SQL Agent cannot be managed when logged in using Azure AD principals.
-- Azure AD admin cannot be impersonated using EXECUTE AS
-- DAC connection is not supported with Azure AD principals.
+Azure AD logins and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md)
 
 These system functions return NULL values when executed under Azure AD principals:
 
