@@ -47,8 +47,8 @@ ms.author: mtillman
                                                                     <h3><a href="fundamentals/index.yml">Learn the fundamentals</a></h3> 
 																	<p>
 																	    <a href="fundamentals/active-directory-whatis.md">What is Azure AD?</a><br>
-                                                                        <a href=”fundamentals/add-custom-domain.md”>Add a custom domain name</a><br>
-                                                                        <a href=”fundamentals/customize-branding.md”>Add company branding</a><br>
+                                                                        <a href="fundamentals/add-custom-domain.md">Add a custom domain name</a><br>
+                                                                        <a href="fundamentals/customize-branding.md">Add company branding</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Create a group and add members</a><br>
 																	    <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Assign roles to users</a><br>
                                                                         <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Associate an Azure subscription</a><br>
@@ -158,7 +158,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-overview">What is Azure AD Domain Services?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Enable Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administer group policy</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administer group policy</a><br>
 												            <a href="/azure/active-directory-domain-services/index"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
@@ -191,7 +191,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="governance/create-access-review.md">Create an access review</a><br>
                                                             <a href="governance/perform-access-review.md">Start an access review</a><br>
-                                                            <a href="governance/active-directory-tou.md">Terms of use</a><br>
+                                                            <a href="governance/active-directory-tou.md">Using Terms of use</a><br>
 												            <a href="governance/index.yml"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
