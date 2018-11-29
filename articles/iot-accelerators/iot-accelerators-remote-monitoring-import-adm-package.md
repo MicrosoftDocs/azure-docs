@@ -26,13 +26,15 @@ A developer creates and tests an automatic device management configuration in a 
 Use the Azure portal to export the automatic device management configuration from your development environment:
 
 1. In the Azure portal, navigate to the IoT hub you're using to develop and test your IoT devices. Click **IoT device configuration**:
-    ![IoT device configuration](media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration.png)
+
+    [![IoT device configuration](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
 1. Click the configuration you want to use. The **Device Configuration Details** page displays:
-    ![IoT device configuration](media/iot-accelerators-remote-monitoring-import-adm-package/configurationdetails.png)
 
+    [![IoT device configuration detail](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
 1. Click **Download configuration file**:
-    ![Download configuration file](media/iot-accelerators-remote-monitoring-import-adm-package/download.png)
+
+    [![Download configuration file](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
 1. Save the JSON file as a local file called **configuration.json**.
 

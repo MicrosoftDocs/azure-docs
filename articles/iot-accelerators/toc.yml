@@ -87,6 +87,8 @@
       href: iot-accelerators-remote-monitoring-add-edge-device.md
     - name: Import an IoT Edge package
       href: iot-accelerators-remote-monitoring-import-edge-package.md
+    - name: Import automatic device management package
+      href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Create a simulated device
