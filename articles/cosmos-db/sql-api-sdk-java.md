@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/29/2018
+ms.date: 11/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -44,7 +44,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-java-application.md)</td></tr>
 
-<tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Minimum supported runtime**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## Release notes
