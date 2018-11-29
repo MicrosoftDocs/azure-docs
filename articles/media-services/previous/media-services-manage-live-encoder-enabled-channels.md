@@ -211,7 +211,7 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 Note that if you need custom presets, you should contact  amslived@microsoft.com.
 
-**Default720p** will encode the video into the following 7 layers.
+**Default720p** will encode the video into the following 6 layers.
 
 #### Output Video Stream
 | BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
