@@ -51,7 +51,7 @@ ms.author: mtillman
                                                                         <a href=”fundamentals/customize-branding.md”>Add company branding</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Create a group and add members</a><br>
 																	    <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Assign roles to users</a><br>
-                                                                        <a href=" fundamentals/active-directory-how-subscriptions-associated-directory.md">Associate an Azure subscription</a><br>
+                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Associate an Azure subscription</a><br>
 												                        <a href="fundamentals/index.yml"><i>See more &gt;</i></a>
 																	</p>
 																</div>
@@ -99,9 +99,9 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="authentication/index.yml">Authentication</a></h3>
                                                         <p>
-                                                            <a href="authentication/concept-mfa-howitworks">How it works: Azure MFA</a><br>
-                                                            <a href="authentication/concept-sspr-howitworks">Azure AD self-service password reset</a><br>
-                                                            <a href="authentication/concept-password-ban-bad">Azure AD password protection</a><br>
+                                                            <a href="authentication/concept-mfa-howitworks.md">How it works: Azure MFA</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks.md">Azure AD self-service password reset</a><br>
+                                                            <a href="authentication/concept-password-ban-bad.md">Azure AD password protection</a><br>
 												            <a href="authentication/index.yml"><i>See more &gt;</i></a>
 															</p>
 														<br><br>
@@ -109,7 +109,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="b2b/what-is-b2b.md">What is Azure AD B2B?</a><br>
                                                             <a href="b2b/add-users-administrator.md">Add guest users in the portal</a><br>
-                                                            <a href="b2b/o365-external-user">B2B and Office 365 sharing</a><br>
+                                                            <a href="b2b/o365-external-user.md">B2B and Office 365 sharing</a><br>
 												            <a href="b2b/index.yml"><i>See more &gt;</i></a>
 															</p>
 														<br><br>
@@ -141,8 +141,8 @@ ms.author: mtillman
 														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">About Microsoft identity platform</a><br>
-                                                            <a href="develop/v2-oauth2-auth-code-flow">OAuth 2.0 code flow grant</a><br>
-                                                            <a href="develop/quickstart-register-app">Register an app with the Microsoft identity platform</a><br>
+                                                            <a href="develop/v2-oauth2-auth-code-flow.md">OAuth 2.0 code flow grant</a><br>
+                                                            <a href="develop/quickstart-register-app.md">Register an app with the Microsoft identity platform</a><br>
 												            <a href="develop/index.yml"><i>See more &gt;</i></a>
 															</p>
 														<br><br>
