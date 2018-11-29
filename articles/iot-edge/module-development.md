@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand the requirements and tools for developing IoT Edge modules
+# Develop your own IoT Edge modules
 
 This article explains what functionalities are available when writing applications that run as IoT Edge module, and how to take advantage of them.
 
