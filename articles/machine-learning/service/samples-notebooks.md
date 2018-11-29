@@ -13,7 +13,7 @@ ms.date: 12/4/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
-# Use Example Jupyter notebooks to explore the Azure Machine Learning service
+# Use example Jupyter notebooks to explore the Azure Machine Learning service
 
 For your convenience, we have developed a series of Jupyter Python notebooks you can use to explore the Azure Machine Learning service. 
 
