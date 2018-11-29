@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
+ms.date: 11/29/2018
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
