@@ -14,8 +14,9 @@ ms.author: v-jansko
 
 # How to prevent translation of content with the Translator Text API
 
-The Translator Text API allows you to tag content so that it isn't translated. For example, you may want to tag code, a brand name, or a word/phrase that doesn't make sense when localized. There are a few ways you can do this: 
+The Translator Text API allows you to tag content so that it isn't translated. For example, you may want to tag code, a brand name, or a word/phrase that doesn't make sense when localized. 
 
+## Methods for preventing translation
 1. Escape to a Twitter tag @somethingtopassthrough or #somethingtopassthrough. Un-escape after translation.
 
 2. Tag your content with `notranslate`.

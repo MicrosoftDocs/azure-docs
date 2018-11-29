@@ -27,7 +27,7 @@ Version 3 of the Translator Text API provides a modern JSON-based Web API. It im
 
 ## Base URLs
 
-Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions):
+Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure regions](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americas:** West US 2 and West Central US 
 * **Asia Pacific:** Southeast Asia and Korea South
