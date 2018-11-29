@@ -44,7 +44,7 @@ When you link from your promotional campaigns to your free Word, Excel, or Power
 
 - **mktcmpid** - Your marketing campaign ID, which can include up to 16 characters (any letter, number, \_, and -). For example, blogpost_12. This value will be used to provide a breakdown in the Acquisitions report.
 - **src** - This is an optional parameter that declares the source of the user traffic.
- 
+
 The following example shows a URL that includes the two query parameters: 
 
 ```
@@ -61,7 +61,6 @@ When the document loads for the targeted user, the  _mktcmpid_ parameter is avai
 if (Office.context.document.settings) { 
                return Office.context.document.settings.get("Microsoft.Office.CampaignId"); 
                 } 
-
 ```
 
 The value that is sent to the document is the value of the  _mktcmpid_ parameter.
@@ -72,6 +71,6 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 - [Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
-    
- 
+
+
 

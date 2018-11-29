@@ -1,4 +1,3 @@
-
 {
   "build": {
     "content": [
@@ -47,6 +46,7 @@
     },
     "fileMetadata": {},
     "template": [],
-    "dest": "office-store"
+    "dest": "office-store",
+    "markdownEngineName": "markdig"
   }
 }

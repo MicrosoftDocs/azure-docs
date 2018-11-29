@@ -73,7 +73,7 @@ This attribute does not apply to content and task pane Office Add-ins.<p/><stron
 String that represents the deployment ID of the Exchange deployment to which this add-in license applies. This value should be set to the primary authoritative domain for the Exchange deployment.<p/>
 <strong>For SharePoint Add-ins:</strong><p/> 
 GUID that represents the deployment ID of the SharePoint deployment to which this add-in license applies.<p/>
-For test licenses for SharePoint Add-ins, you don't need to specify the deployment ID in the add-in license XML. The ImportAppLicense method supplies the correct deployment ID to the license token XML.</td>
+For test licenses for SharePoint Add-ins, you don&#39;t need to specify the deployment ID in the add-in license XML. The ImportAppLicense method supplies the correct deployment ID to the license token XML.</td>
 </tr>
 <tr>
 <td>ts</td>
@@ -174,7 +174,7 @@ When you submit a test add-in license token to the AppSource verification web se
 
 > [!IMPORTANT]
 > When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., changes the literal value of the `<t>` element and therefore causes the license verification check to fail.
-
+> 
 > When you submit a test add-in license token to the AppSource verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting or generating the encryption signature for the `<d>` element.
 
 <a name="SP15applicense_example"> </a>
