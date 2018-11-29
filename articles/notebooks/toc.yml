@@ -1,4 +1,4 @@
-- name: Notebooks Documentation
+- name: Azure Notebooks Documentation
   href: index.yml
 - name: Overview
   href: azure-notebooks-overview.md
