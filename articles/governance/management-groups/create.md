@@ -30,7 +30,7 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in portal
 
-1. Log into the [Azure portal](http://portal.azure.com).
+1. Log into the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** > **Management groups**.
 
