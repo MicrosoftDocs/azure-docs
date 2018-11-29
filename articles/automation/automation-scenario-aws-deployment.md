@@ -35,7 +35,7 @@ Your VM provisioning runbook leverages the AWS PowerShell module to do its work.
 Once the AWS PowerShell Module has been deployed, you can now author a runbook to automate provisioning a virtual machine in AWS using a PowerShell script. The steps below demonstrate how to leverage native PowerShell script in Azure Automation.  
 
 > [!NOTE]
-> For further options and information regarding this script, please visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> For further options and information regarding this script, please visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. Download the PowerShell script New-AwsVM from the PowerShell Gallery by opening a PowerShell session and typing the following:<br>

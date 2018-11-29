@@ -101,6 +101,8 @@
       href: concepts-connection-libraries.md
     - name: Connection resiliency
       href: concepts-connectivity.md
+    - name: Develop with Azure Kubernetes Service (AKS)
+      href: concepts-aks.md
 - name: How-to guides
   items:
   - name: Create users 

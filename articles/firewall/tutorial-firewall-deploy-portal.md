@@ -73,7 +73,7 @@ This VNet will contain three subnets.
 11. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /25.
+> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
