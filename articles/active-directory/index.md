@@ -51,7 +51,7 @@ ms.author: mtillman
                                                                         <a href=”fundamentals/customize-branding.md”>Add company branding</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Create a group and add members</a><br>
 																	    <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Assign roles to users</a><br>
-                                                                        <a href=" fundamentals/active-directory-how-subscriptions-associated-directory.md">Assosciate an Azure subscription</a><br>
+                                                                        <a href=" fundamentals/active-directory-how-subscriptions-associated-directory.md">Associate an Azure subscription</a><br>
 												                        <a href="fundamentals/index.yml"><i>See more &gt;</i></a>
 																	</p>
 																</div>
@@ -91,8 +91,8 @@ ms.author: mtillman
                                                     <div class="cardText">
 														<h3><a href="manage-apps/index.yml">Application management</a></h3>
                                                         <p>
-                                                            <a href="manage-apps/what-is-single-sign-on.md">What is single sign-on?</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on (SSO)</a><br>
+                                                            <a href="manage-apps/what-is-single-sign-on.md">What is single sign-on (SSO)?</a><br>
+                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on</a><br>
 												            <a href="manage-apps/application-proxy.md">Application Proxy for on-premises apps</a><br>
 												            <a href="manage-apps/index.yml"><i>See more &gt;</i></a>
 														</p>
@@ -107,7 +107,7 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
                                                         <p>
-                                                            <a href="b2b/what-is-b2b.md">What is Azure Active Directory B2B?</a><br>
+                                                            <a href="b2b/what-is-b2b.md">What is Azure AD B2B?</a><br>
                                                             <a href="b2b/add-users-administrator.md">Add guest users in the portal</a><br>
                                                             <a href="b2b/o365-external-user">B2B and Office 365 sharing</a><br>
 												            <a href="b2b/index.yml"><i>See more &gt;</i></a>
@@ -115,9 +115,9 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">What is Azure Active Directory B2C?</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">What is Azure AD B2C?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an Azure AD B2C tenant</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Get started with custom policies in Azure AD B2C</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Custom policies in Azure AD B2C</a><br>
 												            <a href="/azure/active-directory-b2c/index"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
