@@ -37,11 +37,11 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 
 ## Apply policy to Azure subscription
 
-You can use the following command to apply a default Azure Stack policy against your Azure subscription. Before running this command, replace *Azure Subscription Name* with your Azure subscription.
+You can use the following command to apply a default Azure Stack policy against your Azure subscription. Before running this command, replace `Azure Subscription Name` with the name of your Azure subscription.
 
 ```PowerShell
 Add-AzureRmAccount
-$s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
@@ -50,21 +50,20 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## Apply policy to a resource group
 
-You may want to apply policies that are more granular. As an example, you might have other resources running in the same subscription. You can scope the policy application to a specific resource group, which lets you test your apps for Azure Stack using Azure resources. Before running the following command, replace *Azure Subscription Name* with your Azure subscription name.
+You may want to apply policies that are more granular. As an example, you might have other resources running in the same subscription. You can scope the policy application to a specific resource group, which lets you test your apps for Azure Stack using Azure resources. Before running the following command, replace `Azure Subscription Name` with the name of your Azure subscription.
 
 ```PowerShell
 Add-AzureRmAccount
 $rgName = 'myRG01'
-$s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
-
 ```
 
 ## Policy in action
 
-Once you've deployed the Azure policy, you receive an error when you try to deploy a resource that prohibited by policy.
+Once you've deployed the Azure policy, you receive an error when you try to deploy a resource that is prohibited by policy.
 
 ![Result of resource deployment failure because of policy constraint](./media/azure-stack-policy-module/image1.png)
 
