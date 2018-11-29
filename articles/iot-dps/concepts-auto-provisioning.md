@@ -59,6 +59,26 @@ The following diagram summarizes the roles and sequencing of operations during d
 > [!NOTE]
 > Optionally, the manufacturer can also perform the "Enroll device identity" operation using Device Provisioning Service APIs (instead of via the Operator). For a detailed discussion of this sequencing and more, see the [Zero touch device registration with Azure IoT video](https://youtu.be/cSbDRNg72cU?t=2460) (starting at marker 41:00)
 
+## Roles and Azure accounts
+
+How each role is mapped to an Azure account is scenario dependent, and there are quite a few scenarios that can be involved. The common pattern below should help provide a general understanding regarding how roles are generally mapped to an Azure account.
+
+#### Chip manufacturer provides security services
+
+In this scenario, manufacturers manage security for their level-one customers. This may be a scenario preferred by these level-one customers as they don't have to manage detailed security. 
+
+Manufacturers introduce security into Hardware Security Modules (HSM). This can include the manufacturer obtaining security information (keys, certificates, etc.) from potential customers who already have DPS instances and enrollment groups setup. The manufacturer could also generate this security information for it's customers.
+
+In this scenario, there may be two Azure accounts involved:
+
+- **Account #1**: Likely shared across the operator and developer roles to some degree. This party may purchase the HSM chips from the manufacturer. These chips are pointed to DPS instances associated with the Account #1. With DPS enrollments this party can lease devices to multiple level-two customers by re-configuring the device enrollment settings in DPS. This party may also have IoT hubs allocated for end user backend systems to interface with in order to access device telemetry etc. In this latter case, a second account may not be needed.
+
+- **Account #2**: End users, level-two customers may have their own IoT hubs. The party associated with Account #1 just points leased devices to the correct hub in this account. This requires linking DPS -> IoT hubs across Azure accounts which can be done with ARM templates.
+
+In another scenario, the manufacturer could be an "All-in-one OEM" where only a single manufacturer account would be needed.
+
+
+
 ## Next steps
 
 You may find it helpful to bookmark this article as a point of reference, as you work your way through the corresponding auto-provisioning Quickstarts. 
