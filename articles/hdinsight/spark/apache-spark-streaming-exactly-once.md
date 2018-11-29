@@ -9,7 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ---
-# Create Spark Streaming jobs with exactly-once event processing
+# Create Apache Spark Streaming jobs with exactly-once event processing
 
 Stream processing applications take different approaches to how they handle re-processing messages after some failure in the system:
 
@@ -19,7 +19,7 @@ Stream processing applications take different approaches to how they handle re-p
 
 This article shows you how to configure Spark Streaming to achieve exactly-once processing.
 
-## Exactly-once semantics with Spark Streaming
+## Exactly-once semantics with Apache Spark Streaming
 
 First, consider how all system points of failure restart after having an issue, and how you can avoid data loss. A Spark Streaming application has:
 
@@ -35,11 +35,11 @@ Exactly-once semantics require that no data is lost at any point, and that messa
 
 The source your Spark Streaming application is reading your events from must be *replayable*. This means that in cases where the message was retrieved but then the system failed before the message could be persisted or processed, the source must provide the same message again.
 
-In Azure, both Azure Event Hubs and Kafka on HDInsight provide replayable sources. Another example of a replayable source is a fault-tolerant file system like HDFS, Azure Storage blobs, or Azure Data Lake Store, where all data is kept forever and at any point you can re-read the data in its entirety.
+In Azure, both Azure Event Hubs and [Apache Kafka](https://kafka.apache.org/) on HDInsight provide replayable sources. Another example of a replayable source is a fault-tolerant file system like [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage blobs, or Azure Data Lake Store, where all data is kept forever and at any point you can re-read the data in its entirety.
 
 ### Reliable receivers
 
-In Spark Streaming, sources like Event Hubs and Kafka have *reliable receivers*, where each receiver keeps track of its progress reading the source. A reliable receiver persists its state into fault-tolerant storage, either within ZooKeeper or in Spark Streaming checkpoints written to HDFS. If such a receiver fails and is later restarted, it can pick up where it left off.
+In Spark Streaming, sources like Event Hubs and Kafka have *reliable receivers*, where each receiver keeps track of its progress reading the source. A reliable receiver persists its state into fault-tolerant storage, either within [Apache ZooKeeper](https://zookeeper.apache.org/) or in Spark Streaming checkpoints written to HDFS. If such a receiver fails and is later restarted, it can pick up where it left off.
 
 ### Use the Write-Ahead Log
 
@@ -83,5 +83,5 @@ Another example is to use a partitioned file system, like Azure Storage blobs or
 
 ## Next steps
 
-* [Spark Streaming Overview](apache-spark-streaming-overview.md)
-* [Creating highly available Spark Streaming jobs in YARN](apache-spark-streaming-high-availability.md)
+* [Apache Spark Streaming Overview](apache-spark-streaming-overview.md)
+* [Creating highly available Apache Spark Streaming jobs in Apache Hadoop YARN](apache-spark-streaming-high-availability.md)
