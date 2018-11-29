@@ -61,25 +61,25 @@ The following diagram summarizes the roles and sequencing of operations during d
 
 ## Roles and Azure accounts
 
-How each role is mapped to an Azure account is scenario dependent, and there are quite a few scenarios that can be involved. The common patterns below should help provide a general understanding regarding how roles are generally mapped to an Azure account.
+How each role is mapped to an Azure account is scenario-dependent, and there are quite a few scenarios that can be involved. The common patterns below should help provide a general understanding regarding how roles are generally mapped to an Azure account.
 
 #### Chip manufacturer provides security services
 
-In this scenario, the manufacturer manages security for level-one customers. This may be a scenario preferred by these level-one customers as they don't have to manage detailed security. 
+In this scenario, the manufacturer manages security for level-one customers. This scenario may be preferred by these level-one customers as they don't have to manage detailed security. 
 
-The manufacturer introduces security into Hardware Security Modules (HSMs). This can include the manufacturer obtaining security information (keys, certificates, etc.) from potential customers who already have DPS instances and enrollment groups setup. The manufacturer could also generate this security information for it's customers.
+The manufacturer introduces security into Hardware Security Modules (HSMs). This security can include the manufacturer obtaining keys, certificates, etc. from potential customers who already have DPS instances and enrollment groups setup. The manufacturer could also generate this security information for its customers.
 
 In this scenario, there may be two Azure accounts involved:
 
-- **Account #1**: Likely shared across the operator and developer roles to some degree. This party may purchase the HSM chips from the manufacturer. These chips are pointed to DPS instances associated with the Account #1. With DPS enrollments this party can lease devices to multiple level-two customers by re-configuring the device enrollment settings in DPS. This party may also have IoT hubs allocated for end user backend systems to interface with in order to access device telemetry etc. In this latter case, a second account may not be needed.
+- **Account #1**: Likely shared across the operator and developer roles to some degree. This party may purchase the HSM chips from the manufacturer. These chips are pointed to DPS instances associated with the Account #1. With DPS enrollments, this party can lease devices to multiple level-two customers by reconfiguring the device enrollment settings in DPS. This party may also have IoT hubs allocated for end-user backend systems to interface with in order to access device telemetry etc. In this latter case, a second account may not be needed.
 
-- **Account #2**: End users, level-two customers may have their own IoT hubs. The party associated with Account #1 just points leased devices to the correct hub in this account. This requires linking DPS -> IoT hubs across Azure accounts which can be done with ARM templates.
+- **Account #2**: End users, level-two customers may have their own IoT hubs. The party associated with Account #1 just points leased devices to the correct hub in this account. This configuration requires linking DPS and IoT hubs across Azure accounts, which can be done with Azure Resource Manager templates.
 
 #### All-in-one OEM
 
 The manufacturer could be an "All-in-one OEM" where only a single manufacturer account would be needed. The manufacturer handles security and provisioning end to end.
 
-The manufacturer may provide a cloud based application to customers who purchase devices. This application would interface with the IoT Hub allocated by the manufacturer.
+The manufacturer may provide a cloud-based application to customers who purchase devices. This application would interface with the IoT Hub allocated by the manufacturer.
 
 Vending machines or automated coffee machines represent examples for this scenario.
 
@@ -93,7 +93,7 @@ You may find it helpful to bookmark this article as a point of reference, as you
 Begin by completing a "Set up auto-provisioning" Quickstart that best suits your management tool preference, which walks you through the "Service configuration" phase:
 
 - [Set up auto-provisioning using Azure CLI](quick-setup-auto-provision-cli.md)
-- [Set up auto-provisioning using the Azure Portal](quick-setup-auto-provision.md)
+- [Set up auto-provisioning using the Azure portal](quick-setup-auto-provision.md)
 - [Set up auto-provisioning using a Resource Manager template](quick-setup-auto-provision-rm.md)
 
 Then continue with an "Auto-provision a simulated device" Quickstart that suits your device attestation mechanism and Device Provisioning Service SDK/language preference. In this Quickstart, you walk through the "Device enrollment" and "Device registration and configuration" phases: 
