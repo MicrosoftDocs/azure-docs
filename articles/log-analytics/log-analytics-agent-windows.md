@@ -54,7 +54,7 @@ To configure use of the [TLS 1.2](https://docs.microsoft.com/windows-server/secu
 
 Configure .NET Framework 4.6 or later to support secure cryptography, as by default it is disabled. The [strong cryptography](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) uses more secure network protocols like TLS 1.2, and blocks protocols that are not secure. 
 
-1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NETFramework\v4.0.30319**.  
+1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319**.  
 2. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**.  
 3. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319**.  
 4. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**. 
