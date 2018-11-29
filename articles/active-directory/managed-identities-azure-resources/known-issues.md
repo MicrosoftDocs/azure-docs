@@ -47,7 +47,6 @@ The security boundary of the identity is the resource to which it is attached to
 ### Should I use the managed identities for Azure resources VM IMDS endpoint or the VM extension endpoint?
 
 When using managed identities for Azure resources with VMs, we encourage using the managed identities for Azure resources IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. Some of the benefits of using managed identities for Azure resources over IMDS are:
-
     - All Azure IaaS supported operating systems can use managed identities for Azure resources over IMDS.
     - No longer need to install an extension on your VM to enable managed identities for Azure resources. 
     - The certificates used by managed identities for Azure resources are no longer present in the VM.
