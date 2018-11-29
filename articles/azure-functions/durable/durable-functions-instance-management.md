@@ -74,7 +74,7 @@ For the durable function to be invoked, the function.json should be modified to 
 > [!NOTE]
 > Use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
-### Using the Functions Core Tools
+### Using Core Tools
 
 It is also possible to start an instance directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` command. It takes the following parameters:
 
@@ -132,7 +132,7 @@ public static async Task Run(
 }
 ```
 
-### Using the Functions Core Tools
+### Using Core Tools
 
 It is also possible to get the status of an orchestration instance directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters: 
 
@@ -176,7 +176,7 @@ public static async Task Run(
 }
 ```
 
-### Using the Core Tools
+### Using Core Tools
 
 It is also possible to query instances directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
 
@@ -252,7 +252,7 @@ public static Task Run(
 > [!NOTE]
 > Instance termination does not currently propagate. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
 
-### Using the Core Tools
+### Using Core Tools
 
 It is also possible to terminate an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
 
@@ -290,7 +290,7 @@ public static Task Run(
 > [!WARNING]
 > If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-### Using the Core Tools
+### Using Core Tools
 
 It is also possible to raise an event to an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
 
@@ -420,7 +420,7 @@ public static Task Run(
 }
 ```
 
-### Using the Core Tools
+### Using Core Tools
 
 It is also possible to rewind an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
 
@@ -468,7 +468,7 @@ public static Task Run(
 > [!NOTE]
 > The *PurgeInstanceHistory* overload accepting time period as parameter will process only orchestration instances in one of the runtime status - Completed, Terminated, or Failed.
 
-### Using the Core Tools
+### Using Core Tools
 
 It is possible to purge an orchestration instance's history using the [Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example above, it purges the history for all orchestration instances created during a specified time interval. The instances purged can be further filtered by runtime status. The command has several parameters:
 
