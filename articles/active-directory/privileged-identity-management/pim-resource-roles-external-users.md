@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 11/20/2018
+ms.date: 11/29/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -28,6 +28,14 @@ Azure Activity Directory (Azure AD) business-to-business (B2B) is a set of capab
 - Utilize alerts and audit logs
 
 This article describes how to invite an external user to your directory and manage their access to Azure resources using PIM.
+
+## When would you invite external users?
+
+Here are some example scenarios when you would invite external users to your directory:
+
+- Allow an external self-employed vendor that only has an email account to access your Azure resources.
+- Allow an external partner in a large organization that uses on-premises Active Directory Federation Services to access your expense application.
+- Allow support engineers not in your organization (such as Microsoft support) to temporarily access your Azure resource to troubleshoot issues.
 
 ## How does external collaboration using B2B work?
 
