@@ -113,24 +113,24 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 ## Register the Microsoft.DataMigration resource provider
 1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
  
-   ![Show portal subscriptions](media\tutorial-mysql-to-azure-mysql-online\portal-select-subscriptions.png)
+   ![Show portal subscriptions](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
        
 2. Select the subscription in which you want to create the instance of the Azure Database Migration Service, and then select **Resource providers**.
  
-    ![Show resource providers](media\tutorial-mysql-to-azure-mysql-online\portal-select-resource-provider.png)
+    ![Show resource providers](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
     
 3.  Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
  
-    ![Register resource provider](media\tutorial-mysql-to-azure-mysql-online\portal-register-resource-provider.png)    
+    ![Register resource provider](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
 
 ## Create a DMS instance
 1.	In the Azure portal, select + **Create a resource**, search for Azure Database Migration Service, and then select **Azure Database Migration Service** from the drop-down list.
 
-    ![Azure Marketplace](media\tutorial-mysql-to-azure-mysql-online\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-mysql-to-azure-mysql-online/portal-marketplace.png)
 
 2.  On the **Azure Database Migration Service** screen, select **Create**.
  
-    ![Create Azure Database Migration Service instance](media\tutorial-mysql-to-azure-mysql-online\dms-create1.png)
+    ![Create Azure Database Migration Service instance](media/tutorial-mysql-to-azure-mysql-online/dms-create1.png)
   
 3.	On the **Create Migration Service** screen, specify a name for the service, the subscription, and a new or existing resource group.
 
@@ -146,7 +146,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     If you need help in choosing the right Azure Database Migration Service tier, refer to the recommendations in the blog posting [Choosing an Azure Database Migration Service (Azure DMS) tier](https://go.microsoft.com/fwlink/?linkid=861067). 
 
-     ![Configure Azure Database Migration Service instance settings](media\tutorial-mysql-to-azure-mysql-online\dms-settings3.png)
+     ![Configure Azure Database Migration Service instance settings](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 7.	Select **Create** to create the service.
 
@@ -155,17 +155,17 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
  
-      ![Locate all instances of the Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-search.png)
+      ![Locate all instances of the Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
 2. On the **Azure Database Migration Services** screen, search for the name of the Azure Database Migration Service instance that you created, and then select the instance.
  
-     ![Locate your instance of the Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-instance-search.png)
+     ![Locate your instance of the Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
  
 3. Select + **New Migration Project**.
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **MySQL**, in the **Target server type** text box, select **AzureDbForMySQL**.
 5. In the **Choose type of activity** section, select **Online data migration**
 
-    ![Create Database Migration Service Project](media\tutorial-mysql-to-azure-mysql-online\dms-create-project4.png)
+    ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
     > Alternately, you can chose **Create project only** to create the migration project now and execute the migration later.
@@ -175,22 +175,22 @@ After the service is created, locate it within the Azure portal, open it, and th
 ## Specify source details
 1. On the **Add Source Details** screen, specify the connection details for the source MySQL instance.
  
-    ![Add Source Details screen](media\tutorial-mysql-to-azure-mysql-online\dms-add-source-details.png)   
+    ![Add Source Details screen](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)   
 
 ## Specify target details
 1. Select **Save**, and then on the **Target details** screen, specify the connection details for the target Azure Database for MySQL server, which is the pre-provisioned instance of Azure Database for MySQL to which the **Employees** schema was deployed by using mysqldump.
 
-    ![Target details screen](media\tutorial-mysql-to-azure-mysql-online\dms-add-target-details.png)
+    ![Target details screen](media/tutorial-mysql-to-azure-mysql-online/dms-add-target-details.png)
 
 2. Select **Save**, and then on the **Map to target databases** screen, map the source and the target database for migration.
 
     If the target database contains the same database name as the source database, the Azure Database Migration Service selects the target database by default.
 
-    ![Map to target databases](media\tutorial-mysql-to-azure-mysql-online\dms-map-target-details.png)
+    ![Map to target databases](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 
 3.	Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 
-    ![Migration Summary](media\tutorial-mysql-to-azure-mysql-online\dms-migration-summary.png)
+    ![Migration Summary](media/tutorial-mysql-to-azure-mysql-online/dms-migration-summary.png)
 
 ## Run the migration
 - Select **Run migration**.
@@ -200,22 +200,22 @@ After the service is created, locate it within the Azure portal, open it, and th
 ## Monitor the migration
 1. On the migration activity screen, select **Refresh** to update the display until the **Status** of the migration shows as **Complete**.
 
-     ![Activity Status - complete](media\tutorial-mysql-to-azure-mysql-online\dms-activity-completed.png)
+     ![Activity Status - complete](media/tutorial-mysql-to-azure-mysql-online/dms-activity-completed.png)
 
 2. Under **Database Name**, select specific database to get to the migration status for **Full data load** and **Incremental data sync** operations.
 
     Full data load will show the initial load migration status while Incremental data sync will show change data capture (CDC) status.
    
-     ![Activity Status - Full load completed](media\tutorial-mysql-to-azure-mysql-online\dms-activity-full-load-completed.png)
+     ![Activity Status - Full load completed](media/tutorial-mysql-to-azure-mysql-online/dms-activity-full-load-completed.png)
 
-     ![Activity Status - Incremental data sync](media\tutorial-mysql-to-azure-mysql-online\dms-activity-incremental-data-sync.png)
+     ![Activity Status - Incremental data sync](media/tutorial-mysql-to-azure-mysql-online/dms-activity-incremental-data-sync.png)
 
 ## Perform migration cutover
 After the initial Full load is completed, the databases are marked **Ready to cutover**.
 
 1. When you're ready to complete the database migration, select **Start Cutover**.
 
-    ![Start cutover](media\tutorial-mysql-to-azure-mysql-online\dms-start-cutover.png)
+    ![Start cutover](media/tutorial-mysql-to-azure-mysql-online/dms-start-cutover.png)
  
 2.	Make sure to stop all the incoming transactions to the source database; wait until the **Pending changes** counter shows **0**.
 3.	Select **Confirm**, and the select **Apply**.

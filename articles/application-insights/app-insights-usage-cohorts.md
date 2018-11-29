@@ -19,7 +19,7 @@ ms.author: daviste
 
 A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
 
-![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
+![Cohorts pane](./media/app-insights-usage-cohorts/001.png)
 
 ## Cohorts versus basic filters
 
@@ -47,7 +47,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 4. Change **UsedAtLeastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
 
-    ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
+    ![Engaged users](./media/app-insights-usage-cohorts/003.png)
 
     Now this cohort represents all user IDs sent with any custom event or page view on 5 separate days in the past 28.
 
@@ -64,7 +64,7 @@ Open the Users tool. In the **Show** drop-down box, choose the cohort you create
 
 Now the Users tool is filtered to this cohort of users:
 
-![Users pane filtered to a particular cohort](.\media\app-insights-usage-cohorts\004.png)
+![Users pane filtered to a particular cohort](./media/app-insights-usage-cohorts/004.png)
 
 A few important things to notice:
 * You can't create this set through normal filters. The date logic is more advanced.
@@ -82,7 +82,7 @@ You can also make cohorts of events. In this section, you define a cohort of the
 
 3. Select **Events Picker**.
 
-    ![Screenshot of events picker](.\media\app-insights-usage-cohorts\006.png)
+    ![Screenshot of events picker](./media/app-insights-usage-cohorts/006.png)
 
 4. In the **Activities** drop-down box, select the events you want to be in the cohort.
 
@@ -92,11 +92,11 @@ You can also make cohorts of events. In this section, you define a cohort of the
 
 The previous two cohorts were defined by using drop-down boxes. But you can also define cohorts by using analytics queries for total flexibility. To see how, create a cohort of users from the United Kingdom.
 
-![Animated image walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Animated image walking through use of Cohorts tool](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Open the Cohorts tool, select the **Template Gallery** tab, and select **Blank Users cohort**.
 
-    ![Blank users cohort](.\media\app-insights-usage-cohorts\001.png)
+    ![Blank users cohort](./media/app-insights-usage-cohorts/001.png)
 
     There are three sections:
     * A Markdown text section, where you describe the cohort in more detail for others on your team.

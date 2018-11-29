@@ -44,7 +44,7 @@ To complete this tutorial, you need to:
 - There are two methods for invoking the CLI:
     - In the upper-right corner of the Azure postal, select the Cloud Shell button:
  
-       ![Cloud Shell button in the Azure portal](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Cloud Shell button in the Azure portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
      
