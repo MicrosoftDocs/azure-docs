@@ -11,7 +11,7 @@ ms.reviewer: antonfr
 ms.component: alerts
 ---
 
-# Alerts with dynamic thresholds in Azure Monitor (Limited Public Preview)
+# Alerts with dynamic thresholds in Azure Monitor (Limited Private Preview)
 
 Alerts with dynamic thresholds are an enhancement to Azure Metric Alerts in Azure Monitor, which leverage advanced Machine Learning (ML) capabilities to learn metrics' historical behavior to automatically calculate baselines and use them as alert thresholds.
 
