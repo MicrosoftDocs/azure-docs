@@ -1,5 +1,5 @@
 ---
-title: ASP.NET MVC tutorial for Azure Cosmos DB: Web Application Development 
+title: Tutorialt to develop an ASP.NET MVC web application with Azure Cosmos DB 
 description: This tutorial describes how to create an ASP .Net MVC web application using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure Websites.
 author: deborahc
 
@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
 ---
+
 # Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB
 
 > [!div class="op_single_selector"]
@@ -110,7 +111,6 @@ Now let's add the models, views, and controllers to this MVC application:
 
 1. Next replace the code in Todoitem class with the following code:
 
-      
    ```csharp
    namespace todo.Models
 	{
@@ -219,7 +219,7 @@ In this section, we'll add code to handle the following:
 * [Add items](#_Toc395637771).
 * [Edit items](#_Toc395637772).
 
-### <a name="_Toc395637770"></a> Run CRUD operations on the data
+### <a name="_Toc395637770"></a> Perform CRUD operations on the data
 
 The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic in to a class called TodoItemService.cs. 
 
@@ -230,7 +230,7 @@ The first thing to do here is add a class that contains the logic to connect to 
    This code Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations on the items.  The first thing we want to be able to do with a todo list application is to display the incomplete items.  Copy and paste the following code snippet anywhere within the **DocumentDBRepository** class.
 
    ```csharp
-   using todo.Models;
+    using todo.Models;
 	
 
 	namespace todo
@@ -317,10 +317,10 @@ The first thing to do here is add a class that contains the logic to connect to 
 	            items = container.Items;
 	        }
 	    }
-	}
+   }
    ```
  
-3. The previous code reads some values from configuration file. Open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
+3. The previous code reads the connection string values from configuration file. To update the connection string values of your Azure Cosmos account, open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
 
    ```csharp
     <add key="endpoint" value="< enter the URI from the Keys blade of the Azure Portal >" />
@@ -340,7 +340,6 @@ The first thing to do here is add a class that contains the logic to connect to 
 	    using System.Threading.Tasks;
 	    using System.Web.Mvc;
 	    using Models;
-	
 
 	    public class ItemController : Controller
 	    {
@@ -369,11 +368,9 @@ The first thing to do here is add a class that contains the logic to connect to 
 	                return RedirectToAction("Index");
 	            }
 	
-
 	            return View(item);
 	        }
 	
-
 	        [HttpPost]
 	        [ActionName("Edit")]
 	        [ValidateAntiForgeryToken]
@@ -385,11 +382,9 @@ The first thing to do here is add a class that contains the logic to connect to 
 	                return RedirectToAction("Index");
 	            }
 	
-
 	            return View(item);
 	        }
 	
-
 	        [ActionName("Edit")]
 	        public async Task<ActionResult> EditAsync(string id, string category)
 	        {
@@ -398,7 +393,6 @@ The first thing to do here is add a class that contains the logic to connect to 
 	                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 	            }
 	
-
 	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
 	            if (item == null)
 	            {
@@ -409,7 +403,6 @@ The first thing to do here is add a class that contains the logic to connect to 
 	            return View(item);
 	        }
 	
-
 	        [ActionName("Delete")]
 	        public async Task<ActionResult> DeleteAsync(string id, string category)
 	        {
@@ -418,18 +411,15 @@ The first thing to do here is add a class that contains the logic to connect to 
 	                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 	            }
 	
-
 	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
 	            if (item == null)
 	            {
 	                return HttpNotFound();
 	            }
 	
-
 	            return View(item);
 	        }
 	
-
 	        [HttpPost]
 	        [ActionName("Delete")]
 	        [ValidateAntiForgeryToken]
@@ -439,7 +429,6 @@ The first thing to do here is add a class that contains the logic to connect to 
 	            return RedirectToAction("Index");
 	        }
 	
-
 	        [ActionName("Details")]
 	        public async Task<ActionResult> DetailsAsync(string id, string category)
 	        {
@@ -460,7 +449,7 @@ The first thing to do here is add a class that contains the logic to connect to 
    TodoItemService.Initialize().GetAwaiter().GetResult();
    ```
 
-At this point your solution should be able to build your project without any errors. If you run the application now, you will go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start. Let's change the routing on this MVC application to alter this behavior.
+   At this point your solution should be able to build your project without any errors. If you run the application now, you will go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start. Let's change the routing on this MVC application to alter this behavior.
 
 7. Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
 
@@ -470,7 +459,7 @@ At this point your solution should be able to build your project without any err
 
   This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
 
-   Now if you run the application, it will call into your **ItemController** which will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
+Now if you run the application, it will call into your **ItemController** which will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
 
 If you build and run this project now, you should now see something that looks this.    
 
@@ -483,16 +472,18 @@ To test the application on your local machine, use the following steps:
 
 1. Hit F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
    
-    ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new item will be added in a completed state and will not appear on the initial list.
    
 3. Click **Create** and you are redirected back to the **Index** view and your item appears in the list. You can add a few more items to your todo list.
-       ![Screen shot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+
+    ![Screen shot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
   
 4. Click **Edit** next to an **Item** on the list and you are taken to the **Edit** view where you can update any property of your object, including the **Completed** flag. If you mark the **Complete** flag and click **Save**, the **Item** is removed from the list of incomplete tasks.
    
-    ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+   ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+
 5. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
 ## <a name="_Toc395637774"></a>Step 7: Deploy the application 
@@ -504,10 +495,11 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
 3. If you have an existing Azure App Service profile, enter your subscription name. Use the **View** filter to sort by resource group or resource type, then select your Azure App Service. 
    
-    ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+   ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+
 4. To create a new Azure App Service profile, click **Create New** in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and the appropriate subscription, resource group, and App Service plan, then select **Create**.
 
-    ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+   ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
 In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your project running in Azure!
 
