@@ -40,10 +40,9 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 
 ## <a name="volumes"></a>Volumes
 
-- A volume is measured by logical capacity consumption and is scalable up to 92 TiB per volume.
+- A volume is measured by logical capacity consumption and is scalable. The minimum size for a single volume is 100 GiB, and the maximum size is 92 TiB.
 - A volume's capacity consumption counts against its pool's provisioned capacity.
--	The minimum size for a single volume is 100 GiB, and the maximum size is 92 TiB.
--	You can have a maximum of 100 volumes per Azure subscription per region.  
+-	You can have a maximum of 100 volumes per Azure subscription per region. 
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
 - Within the same NetApp account, you can move a volume across pools.    
   For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you can move the volumes from Capacity Pool 1 to Capacity Pool 2.
