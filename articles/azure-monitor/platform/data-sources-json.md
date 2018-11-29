@@ -1,6 +1,6 @@
 ---
-title: Collecting custom JSON data in Log Analytics | Microsoft Docs
-description: Custom JSON data sources can be collected into Log Analytics using the Log Analytics Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
+title: Collecting custom JSON data in Azure Monitor | Microsoft Docs
+description: Custom JSON data sources can be collected into Azure Monitor using the Log Analytics Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 11/28/2018
 ms.author: magoedte
 ms.component: 
 ---
 
-# Collecting custom JSON data sources with the Log Analytics agent for Linux in Log Analytics
+# Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Custom JSON data sources can be collected into Log Analytics using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](http://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
+Custom JSON data sources can be collected into [Azure Monitor logs](data-collection.md) using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](http://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
 
 > [!NOTE]
 > Log Analytics agent for Linux v1.1.0-217+ is required for Custom JSON Data
@@ -29,7 +29,7 @@ Custom JSON data sources can be collected into Log Analytics using the Log Analy
 
 ### Configure input plugin
 
-To collect JSON data in Log Analytics, add `oms.api.` to the start of a FluentD tag in an input plugin.
+To collect JSON data in Azure Monitor, add `oms.api.` to the start of a FluentD tag in an input plugin.
 
 For example, following is a separate configuration file `exec-json.conf` in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  This uses the FluentD plugin `exec` to run a curl command every 30 seconds.  The output from this command is collected by the JSON output plugin.
 
@@ -83,13 +83,13 @@ Restart the Log Analytics agent for Linux service with the following command.
 	sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## Output
-The data will be collected in Log Analytics with a record type of `<FLUENTD_TAG>_CL`.
+The data will be collected in Azure Monitor logs with a record type of `<FLUENTD_TAG>_CL`.
 
-For example, the custom tag `tag oms.api.tomcat` in Log Analytics with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log search.
+For example, the custom tag `tag oms.api.tomcat` in Azure Monitor with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log search.
 
 	Type=tomcat_CL
 
-Nested JSON data sources are supported, but are indexed based off of parent field. For example, the following JSON data is returned from a Log Analytics search as `tag_s : "[{ "a":"1", "b":"2" }]`.
+Nested JSON data sources are supported, but are indexed based off of parent field. For example, the following JSON data is returned from a log query as `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -102,5 +102,5 @@ Nested JSON data sources are supported, but are indexed based off of parent fiel
 
 
 ## Next steps
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
  

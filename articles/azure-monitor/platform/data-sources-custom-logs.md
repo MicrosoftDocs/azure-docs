@@ -1,6 +1,6 @@
 ---
-title: Collect custom logs in Azure Log Analytics | Microsoft Docs
-description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in the Log Analytics workspace.
+title: Collect custom logs in Azure Monitor | Microsoft Docs
+description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/27/2018
 ms.author: bwren
 ms.component: 
 ---
 
-# Custom logs in Log Analytics
-The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the login to individual fields using the [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) feature of Log Analytics.
+# Collect custom logs in Azure Monitor
+The Custom Logs data source in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the login to individual fields using the [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) feature of Azure Monitor.
 
 ![Custom log collection](media/data-sources-custom-logs/overview.png)
 
@@ -33,7 +33,7 @@ The log files to be collected must match the following criteria.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
 >[!NOTE]
->If there are duplicate entries in the log file, Log Analytics will collect them.  However, the search results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
+>If there are duplicate entries in the log file, Azure Monitor will collect them.  However, the search results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
 >
   
 >[!NOTE]
