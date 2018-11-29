@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 11/29/2018
 ms.author: juliako
 
 ---
@@ -48,14 +48,23 @@ LiveEvent liveEvent = new LiveEvent(
 
 See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## Pass-through LiveEvents latency
+## LiveEvents latency
 
 The following table shows typical results for latency (when the LowLatency flag is enabled) in Media Services, measured from the time the contribution feed reaches the service to when a player can request playback.
+
+### Pass-through 
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
 |DASH in AMP|10s|8s|
 |HLS on native iOS player|14s|10s|
+
+### Live encoding
+
+||2s GOP low latency enabled|1s GOP low latency enabled|
+|---|---|---|
+|DASH in AMP|14s|10s|
+|HLS on native iOS player|18s|13s|
 
 > [!NOTE]
 > The end-to-end latency can vary depending on local network conditions or by introducing a CDN caching layer. You should test your exact configurations.
