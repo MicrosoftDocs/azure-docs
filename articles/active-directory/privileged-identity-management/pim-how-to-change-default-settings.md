@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/23/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -45,11 +45,7 @@ Use the **Activations** slider to set the maximum time, in hours, that a role st
 
 ## Notifications
 
-Use the **Notifications** switch to specify which administrators will receive email notifications when roles are activated. This can be useful for detecting unauthorized or illegitimate activations.
-
-When set to **Disable**, notifications are sent to:
-
-- Privileged Role Administrator
+Use the **Notifications** switch to specify whether administrators will receive email notifications when roles are activated. This can be useful for detecting unauthorized or illegitimate activations.
 
 When set to **Enable**, notifications are sent to:
 
