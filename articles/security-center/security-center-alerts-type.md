@@ -3,7 +3,7 @@ title: Security alerts by type in Azure Security Center | Microsoft Docs
 description: This article discusses the different kinds of security alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
+ms.date: 11/29/2018
+ms.author: rkarlin
 
 ---
 # Understanding security alerts in Azure Security Center
@@ -188,7 +188,7 @@ If additional information is available, it will be shown in the Security Inciden
 - PNP device plugged from unknown device
 - Alerts which are not actionable
 - New account creation
-- File decoded using certutil tool 
+- File decoded using certutil tool
 
 ![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 
