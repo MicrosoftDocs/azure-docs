@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 07/30/2018
+ms.date: 11/29/2018
 ms.author: lizross
 ---
 
@@ -56,7 +56,7 @@ Your organization might require a PIN to complete your identity verification. Yo
 
 |Article |Description |
 |------|------------|
-|[Download and install the app](microsoft-authenticator-app-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android, iOS, and Windows Phone.|
+|[Download and install the app](microsoft-authenticator-app-how-to.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android, iOS, and Windows Phone.|
 |[Add your accounts](microsoft-authenticator-app-add-work-account.md)|Describes how to add your
 |[Sign-in using the app]()
 |[Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|

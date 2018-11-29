@@ -20,6 +20,8 @@ If your camera is unable to capture the QR code, you can manually add your accou
 >[!Important]
 >Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
+## To manually add your work or school account
+
 1. On your PC, go to the [Additional security verification](https://aka.ms/mfasetup) page.
 
     >[!Note]
@@ -42,6 +44,9 @@ If your camera is unable to capture the QR code, you can manually add your accou
     ![Screen for entering code and URL](./media/microsoft-authenticator-app-how-to/auth-app-code-url.png)
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+
+## To manually add a personal, non-Microsoft account
+[STEPS]
 
 ## Next steps
 
