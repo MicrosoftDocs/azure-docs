@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Azure Stack Policy Module| Microsoft Docs
 description: Learn how to constrain an Azure subscription to behave like an Azure Stack subscription
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/29/2018
 ms.author: sethm
 
 ---
@@ -21,7 +21,7 @@ ms.author: sethm
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack.  The module uses the **New-AzureRMPolicyAssignment** cmdlet to create an Azure policy, which limits the resource types and services available in a subscription.  After configuring the policy, you can use your Azure subscription to develop apps targeted for Azure Stack.
+The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack. The module uses the **New-AzureRmPolicyDefinition** cmdlet to create an Azure policy, which limits the resource types and services available in a subscription. You then create a policy assignment within the appropriate scope by using the **New-AzureRmPolicyAssignment** cmdlet. After configuring the policy, you can use your Azure subscription to develop apps targeted for Azure Stack.
 
 ## Install the module
 
