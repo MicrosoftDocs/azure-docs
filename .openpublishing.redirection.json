@@ -389,7 +389,7 @@
         },
         {
             "source_path": "articles/cosmos-db/indexing-policies.md",
-            "redirect_url": "/azure/cosmos-db/indexing-policy",
+            "redirect_url": "/azure/cosmos-db/index-policy",
             "redirect_document_id": true
         },
         {
@@ -1039,12 +1039,12 @@
         },
         {
             "source_path": "articles/active-directory/msi-howto-assign-access-cli.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-cli",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/howto-assign-access-cli",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/msi-howto-assign-access-portal.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal",
             "redirect_document_id": true
         },
         {
@@ -1059,7 +1059,7 @@
         },
         {
             "source_path": "articles/active-directory/pp/msi-howto-assign-access-powershell.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/howto-assign-access-powershell",
             "redirect_document_id": false
         },
         {
@@ -1323,11 +1323,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/quickstart-linux.experimental.md",
-            "redirect_url": "/azure/iot-edge/quickstart-linux",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/iot-edge/how-iot-edge-works.md",
             "redirect_url": "/azure/iot-edge/about-iot-edge",
             "redirect_document_id": false
@@ -1449,7 +1444,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/troubleshoot-check-disk-boot-error.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error",
             "redirect_document_id": false
         },
         {
@@ -2109,7 +2104,7 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
-            "redirect_url": "/azure/governance/policy/policy/assign-policy-portal",
+            "redirect_url": "/azure/governance/policy/assign-policy-portal",
             "redirect_document_id": false
         },
         {
@@ -10377,7 +10372,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/restart-resize-error-troubleshooting.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-network-interface restart-resize-error-troubleshooting",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/restart-resize-error-troubleshooting",
             "redirect_document_id": false
         },
         {
@@ -11138,6 +11133,26 @@
         {
             "source_path": "articles/machine-learning/data-science-process-walkthroughs-sql-server.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/walkthroughs-aml-with-tdsp.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/predict-twitter-sentiment.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/predict-twitter-sentiment-amltextpackage.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/isic-image-classification.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs",
             "redirect_document_id": false
         },
         {
@@ -14905,7 +14920,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health-version-history.md",
-            "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-version-history",
+            "redirect_url": "/azure/active-directory/hybrid/reference-connect-health-version-history",
             "redirect_document_id": false
         },
 
@@ -15387,7 +15402,7 @@
 },
 {
 "source_path": "articles/active-directory/connect/active-directory-aadconnect-health-version-history.md",
-"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-version-history",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
 "redirect_document_id": false
 },
 {
@@ -30075,7 +30090,7 @@
         },
         {
             "source_path": "articles/azure-policy/scripts/audit-trans-data-enc-status.md",
-            "redirect_url": "/azure/governance/policy/samples/audit-trans-data-enc-status",
+            "redirect_url": "/azure/governance/policy/samples/sql-database-encryption-audit",
             "redirect_document_id": false
         },
         {
@@ -31016,6 +31031,56 @@
             "source_path":  "articles/log-analytics/log-analytics-wire-data.md",
             "redirect_url":  "/azure/azure-monitor/insights/wire-data",
             "redirect_document_id":  true
+        },
+        {
+            "source_path": "articles/azure-stack/partner/azure-stack-partner-update-1802.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/partner/azure-stack-partner-update-1803.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/app-reg-portal-content.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-v2-registration-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-get-jwt-token.md",
+            "redirect_url": "/azure/active-directory/develop/v1-protocols-oauth-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/partner/azure-stack-vaas-known-issues.md",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/partner/azure-stack-vaas-parameters-test.md",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-parameters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/partner/azure-stack-vaas-schedule-your-first-test.md",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/partner/azure-stack-vaas-test-vm.md",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-monitor-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/scripts/create-graph-database-account-cli.md",
+            "redirect_url": "/azure/cosmos-db/scripts/create-gremlin-database-account-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/openshift-origin.md",
+            "redirect_url": "/azure/virtual-machines/linux/openshift-get-started",
+            "redirect_document_id": false
         }
     ]
 }
