@@ -23,6 +23,10 @@ Storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) a
 
 ## Understanding the differences between storefronts
 To choose a storefront, begin by identifying the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.
+
+| Azure Marketplace | AppSource |
+|:--- |:--- |
+| IT Professionals and Developers | Business Decision Makers |
  
 The following table describes the benefits of using a storefront:
 
