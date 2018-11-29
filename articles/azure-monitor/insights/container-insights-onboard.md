@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.author: magoedte
 ---
 
@@ -55,7 +55,7 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 >If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.43 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
-If you are [deploying an AKS cluster using Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), you can also enable Azure Monitor for containers by including the argument [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specifying **oms_agent**.  
+If you are [deploying an AKS cluster using Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), you can also enable Azure Monitor for containers by including the argument [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specifying **oms_agent**. For additional information on how to properly construct the template to specify creating a workspace, see [azurerm_log_analytics_workspace](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) and to include the arguments for this solution, see [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html).    
 
 After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
 
