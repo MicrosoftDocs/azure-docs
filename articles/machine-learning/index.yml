@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/31/2018
+  ms.date: 12/04/2018
   ms.author: jmartens
 
 abstract:
@@ -22,7 +22,7 @@ sections:
 - title: Azure Machine Learning service
   items:
   - type: paragraph
-    text: 'Learn how this service empowers data scientists to develop and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
+    text: 'Learn how this service empowers data scientists to develop, deploy, and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
   - type: list
     style: cards
     className: cardsFTitle
@@ -33,8 +33,6 @@ sections:
         src: media/index/i_machine-learning.svg
         href: /azure/machine-learning/service/overview-what-is-azure-ml
 
-  - type: paragraph
-    text: '<b>Learn more</b>: Learn how to set up an experiment and operationalize your models.'
   - type: list
     style: unordered
     items:
@@ -57,48 +55,22 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: What is Azure Machine Learning service?
+    - title: About Studio
       href: /azure/machine-learning/studio/
       image: 
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
         href: /azure/machine-learning/studio/
 
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-      - image:
-          src: media/index/machine-learning-studio.svg
-    rows:
-      - title: Get started with the service
-        values:
-        - href: /azure/machine-learning/service/quickstart-get-started
-        - href: /azure/machine-learning/studio/create-workspace
-      - title: Prepare data for modeling
-        values:
-        - href: /azure/machine-learning/service/how-to-data-prep
-        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-      - title: Build your own machine learning model
-        values:
-        - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-      - title: Automatically generate and tune algorithms
-        values:
-        - href: /azure/machine-learning/service/tutorial-auto-train-models
-        - href: 
-      - title: Deploy your model as a web service
-        values:
-        - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-        - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-      - title: Consume your machine learning models
-        values:
-        - href: /azure/machine-learning/service/how-to-consume-web-service
-        - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-      - title: Build, optimize, and manage your ML pipelines
-        values:
-        - href: /azure/machine-learning/service/concept-ml-pipelines
-        - href: 
+  - type: paragraph
+    text: '<b>Learn more</b>: Learn how to set up an experiment and operationalize your models.'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/machine-learning/studio/create-workspace"> Create a Studio workspace</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-2-upload-data">Upload data</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment">Create a Studio experiment</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service">Publish a web service</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-6-access-web-service">Consume web services</a>
 
 - title: Other Microsoft Machine Learning Technologies
   items:
