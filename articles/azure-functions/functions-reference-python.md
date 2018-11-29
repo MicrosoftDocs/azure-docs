@@ -301,7 +301,7 @@ protobuf==3.6.1
 six==1.11.0
 ```
 
-### Publishing to Azure
+## Publishing to Azure
 
 If you're using a package that requires a compiler and does not support the installation of manylinux-compatible wheels from PyPI, publishing to Azure will fail with the following error: 
 
@@ -325,7 +325,6 @@ Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/
 > ```
 > If you continue to experience issues, please let us know by [opening an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and including a description of the problem. 
 
-## Deploy to Azure using Travis CI 
 
 To deploy a Python Function App to Azure, you can use a [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/) with your GitHub repo. Below is an example `.travis.yaml` script for the build and publishing process.
 
