@@ -68,19 +68,6 @@ Let's say you have an 8 node D14 cluster.
 	Total YARN memory = 8 nodes * 96GB = 768GB
 	# of YARN containers = 768GB / 3072MB = 256
 
-## Limitations
-
-**Data Lake Storage Gen2 throttling** 
-
-If you hit the limits of bandwidth provided by Data Lake Storage Gen2, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.
-
-To check if you are getting throttled, you need to enable the debug logging on the client side. Here's how you can do that:
-
-1. Put the following property in the log4j properties in Hive config. This can be done from Ambari view: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
-Restart all the nodes/service for the config to take effect.
-
-2. If you are getting throttled, you'll see the HTTP 429 error code in the hive log file. The hive log file is in /tmp/&lt;user&gt;/hive.log
-
 ## Further information on Hive tuning
 
 Here are a few blogs that will help tune your Hive queries:

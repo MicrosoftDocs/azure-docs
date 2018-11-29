@@ -99,20 +99,6 @@ In this example, we are running an I/O intensive job and decide that 3GB of memo
 
 	mapreduce.map.jobs = 256
 
-## Limitations
-
-**Data Lake Storage Gen2 throttling**
-
-As a multi-tenant service, Data Lake Storage Gen2 sets account level bandwidth limits.  If you hit these limits, you will start to see task failures. This can be identified by observing throttling errors in task logs.  If you need more bandwidth for your job, please contact us.   
-
-To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
-
-1. Put the following property in the log4j properties in Ambari > YARN > Config > Advanced yarn-log4j: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
-
-2. Restart all the nodes/service for the config to take effect.
-
-3. If you are getting throttled, you’ll see the HTTP 429 error code in the YARN log file. The YARN log file is in /tmp/&lt;user&gt;/yarn.log
-
 ## Examples to Run
 
 To demonstrate how MapReduce runs on Data Lake Storage Gen2, below is some sample code that was run on a cluster with the following settings:

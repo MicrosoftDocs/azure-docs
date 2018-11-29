@@ -11,14 +11,14 @@ ms.author: rogarana
 ms.component: common
 ---
 
-# Azure Storage security guide
+# Azure Data Lake Storage Gen2 security guide
 
-Azure Storage provides a comprehensive set of security capabilities that together enable developers to build secure applications:
+Azure Data Lake Storage Gen2 Preview, is a set of capabilities built on Azure Storage accounts. As such, any references in this article are meant for an Azure Storage account with hierarchical namespace enabled (Data Lake Storage Gen2 capabilities).
 
 - All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for Azure Storage for both resource management operations and data operations, as follows:
     - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
-    - Azure AD integration is supported in preview for data operations on the Blob and Queue services. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual container or queue to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
+    - Azure AD integration is supported in preview for data operations on Azure Storage. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual filesystem to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
 - Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
 
 This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
@@ -30,21 +30,20 @@ Here are the topics to be covered in this article:
   The management plane consists of the resources used to manage your storage account. This section covers the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. It also addresses managing your storage account keys and how to regenerate them.
 * [Data Plane Security](#data-plane-security) – Securing Access to Your Data
 
-  In this section, we'll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+  In this section, we'll look at allowing access to the actual data objects in your Storage account, i.e. files and directories, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
 * [Encryption in Transit](#encryption-in-transit)
 
-This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS.
+This section discusses how to secure data when you transfer it into or out of a storage account with Data Lake Storage Gen2 enabled. We'll talk about the recommended use of HTTPS.
 
 ## Management Plane Security
+
 The management plane consists of operations that affect the storage account itself. For example, you can create or delete a storage account, get a list of storage accounts in a subscription, retrieve the storage account keys, or regenerate the storage account keys.
 
-When you create a new storage account, you select a deployment model of Classic or Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.
-
-This guide focuses on the Resource Manager model that is the recommended means for creating storage accounts. With the Resource Manager storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
+This guide focuses on the Resource Manager model of deployment, which is the means for creating storage accounts with Data Lake Storage Gen2 capabilities. With the Resource Manager storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
 
 ### How to secure your storage account with Role-Based Access Control (RBAC)
 
-Let's talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This type of security is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the Azure Storage Explorer.
+Let's talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This type of security is referred to as Role-Based Access Control (RBAC). To manage this access, use **Access control (IAM)** in the Azure portal.
 
 With the Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.
 
@@ -54,8 +53,7 @@ Access is granted by assigning the appropriate RBAC role to users, groups, and a
 
 Here are the main points that you need to know about using RBAC to access the management operations of an Azure Storage account:
 
-* When you assign access, you basically assign a role to the account that you want to have access. You can control access to the operations used to manage that storage account, but not to the data objects in the account. For example, you can grant permission to retrieve the properties of the storage account (such as redundancy), but not to a container or data within a container inside Blob Storage.
-* For someone to have permission to access the data objects in the storage account, you can give them permission to read the storage account keys, and that user can then use those keys to access the blobs, queues, tables, and files.
+* For someone to have permission to access the data objects in the storage account, you can give them permission to read the storage account keys, and that user can then use those keys to access the files and directories.
 * Roles can be assigned to a specific user account, a group of users, or to a specific application.
 * Each role has a list of Actions and Not Actions. For example, the Virtual Machine Contributor role has an Action of "listKeys" that allows the storage account keys to be read. The Contributor has "Not Actions" such as updating the access for users in the Active Directory.
 * Roles for storage include (but are not limited to) the following roles:
@@ -127,15 +125,13 @@ Another advantage of using Azure Key Vault is you can also control access to you
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## Data Plane Security
-Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
+Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
 
 You have three options for authorizing access to data objects in Azure Storage, including:
 
-- Using Azure AD to authorize access to containers and queues (Preview). Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md). 
+- Using Azure AD to authorize access to filesystems and queues (Preview). Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md). 
 - Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible. For production applications, or for authorizing access to Azure tables and files, continue using Shared Key while Azure AD integration is in preview.
 - Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
-
-In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
 
 In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.
 
@@ -143,23 +139,23 @@ In addition to limiting access through authorization, you can also use [Firewall
 
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
 
-For example, you can read blobs, write to queues, create tables, and modify files. Many of these actions can be performed through the Azure portal, or using one of many Storage Explorer applications. You can also write code to use the REST API or one of the Storage Client Libraries to perform these operations.
+For example, you can read files. Many of these actions can be performed through the Azure portal, or using one of many Storage Explorer applications. You can also write code to use the REST API to perform these operations.
 
-As discussed in the section on the [Management Plane Security](#management-plane-security), access to the storage keys for a Classic storage account can be granted by giving full access to the Azure subscription. Access to the storage keys for a storage account using the Azure Resource Manager model can be controlled through Role-Based Access Control (RBAC).
+As discussed in the section on the [Management Plane Security](#management-plane-security), access to the storage keys for a storage account using the Azure Resource Manager model can be controlled through Role-Based Access Control (RBAC).
 
 ### How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies
 
 A Shared Access Signature is a string containing a security token that can be attached to a URI that allows you to delegate access to storage objects and specify constraints such as the permissions and the date/time range of access.
 
-You can grant access to blobs, containers, queue messages, files, and tables. With tables, you can actually grant permission to access a range of entities in the table by specifying the partition and row key ranges to which you want the user to have access. For example, if you have data stored with a partition key of geographical state, you could give someone access to just the data for California.
+You can grant access to files or directories.
 
-In another example, you might give a web application a SAS token that enables it to write entries to a queue, and give a worker role application a SAS token to get messages from the queue and process them. Or you could give one customer a SAS token they can use to upload pictures to a container in Blob Storage, and give a web application permission to read those pictures. In both cases, there is a separation of concerns – each application can be given just the access that they require in order to perform their task. This is possible through the use of Shared Access Signatures.
+You could give one customer a SAS token they can use to upload pictures to a filesystem in Blob Storage, and give a web application permission to read those pictures. In both cases, there is a separation of concerns – each application can be given just the access that they require in order to perform their task. This is possible through the use of Shared Access Signatures.
 
 #### Why you want to use Shared Access Signatures
 
 Why would you want to use an SAS instead of just giving out your storage account key, which is so much easier? Giving out your storage account key is like sharing the keys of your storage kingdom. It grants complete access. Someone could use your keys and upload their entire music library to your storage account. They could also replace your files with virus-infected versions, or steal your data. Giving away unlimited access to your storage account is something that should not be taken lightly.
 
-With Shared Access Signatures, you can give a client just the permissions required for a limited amount of time. For example, if someone is uploading a blob to your account, you can grant them write access for enough time to upload the blob (depending on the size of the blob, of course). And if you change your mind, you can revoke that access.
+With Shared Access Signatures, you can give a client just the permissions required for a limited amount of time. For example, if someone is uploading a file to your account, you can grant them write access for enough time to upload the file (depending on the size of the file, of course). And if you change your mind, you can revoke that access.
 
 Additionally, you can specify that requests made using a SAS are restricted to a certain IP address or IP address range external to Azure. You can also require that requests are made using a specific protocol (HTTPS or HTTP/HTTPS). This means if you only want to allow HTTPS traffic, you can set the required protocol to HTTPS only, and HTTP traffic will be blocked.
 
@@ -170,7 +166,7 @@ A Shared Access Signature is a set of query parameters appended to the URL point
 that provides information about the access allowed and the length of time for which the access is permitted. Here is an example; this URI provides read access to a blob for five minutes. SAS query parameters must be URL Encoded, such as %3A for colon (:) or %20 for a space.
 
 ```
-http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
+http://mystorage.dfs.core.windows.net/myfilesystem/myfile.txt (URL to the file)
 ?sv=2015-04-05 (storage service version)
 &st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
 &se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
@@ -189,17 +185,17 @@ For example, with our URL above, if the URL was pointing to a file instead of a 
 
 #### Types of Shared Access Signatures
 
-* A service-level SAS can be used to access specific resources in a storage account. Some examples of this are retrieving a list of blobs in a container, downloading a blob, updating an entity in a table, adding messages to a queue, or uploading a file to a file share.
-* An account-level SAS can be used to access anything that a service-level SAS can be used for. Additionally, it can give options to resources that are not permitted with a service-level SAS, such as the ability to create containers, tables, queues, and file shares. You can also specify access to multiple services at once. For example, you might give someone access to both blobs and files in your storage account.
+* A service-level SAS can be used to access specific resources in a storage account. Some examples of this are retrieving a list of files in a filesystem or downloading a file.
+* An account-level SAS can be used to access anything that a service-level SAS can be used for. Additionally, it can give options to resources that are not permitted with a service-level SAS, such as the ability to create filesystems.
 
 #### Creating a SAS URI
 
 1. You can create a URI on demand, defining all of the query parameters each time.
 
    This approach is flexible, but if you have a logical set of parameters that are similar each time, using a Stored Access Policy is a better idea.
-2. You can create a Stored Access Policy for an entire container, file share, table, or queue. Then you can use this as the basis for the SAS URIs you create. Permissions based on Stored Access Policies can be easily revoked. You can have up to five policies defined on each container, queue, table, or file share.
+2. You can create a Stored Access Policy for an entire filesystem, file share, table, or queue. Then you can use this as the basis for the SAS URIs you create. Permissions based on Stored Access Policies can be easily revoked. You can have up to five policies defined on each filesystem, queue, table, or file share.
 
-   For example, if you were going to have many people read the blobs in a specific container, you could create a Stored Access Policy that says "give read access" and any other settings that will be the same each time. Then you can create an SAS URI using the settings of the Stored Access Policy and specifying the expiration date/time. The advantage of this is that you don't have to specify all of the query parameters every time.
+   For example, if you were going to have many people read the blobs in a specific filesystem, you could create a Stored Access Policy that says "give read access" and any other settings that will be the same each time. Then you can create an SAS URI using the settings of the Stored Access Policy and specifying the expiration date/time. The advantage of this is that you don't have to specify all of the query parameters every time.
 
 #### Revocation
 
@@ -207,7 +203,7 @@ Suppose your SAS has been compromised, or you want to change it because of corpo
 
 If you are using ad hoc URIs, you have three options. You can issue SAS tokens with short expiration policies and wait for the SAS to expire. You can rename or delete the resource (assuming the token was scoped to a single object). You can change the storage account keys. This last option can have a significant impact, depending on how many services are using that storage account, and probably isn't something you want to do without some planning.
 
-If you are using a SAS derived from a Stored Access Policy, you can remove access by revoking the Stored Access Policy – you can just change it so it has already expired, or you can remove it altogether. This takes effect immediately, and invalidates every SAS created using that Stored Access Policy. Updating or removing the Stored Access Policy may impact people accessing that specific container, file share, table, or queue via SAS, but if the clients are written so they request a new SAS when the old one becomes invalid, this will work fine.
+If you are using a SAS derived from a Stored Access Policy, you can remove access by revoking the Stored Access Policy – you can just change it so it has already expired, or you can remove it altogether. This takes effect immediately, and invalidates every SAS created using that Stored Access Policy. Updating or removing the Stored Access Policy may impact people accessing that specific filesystem, file share, table, or queue via SAS, but if the clients are written so they request a new SAS when the old one becomes invalid, this will work fine.
 
 Because using a SAS derived from a Stored Access Policy gives you the ability to revoke that SAS immediately, it is the recommended best practice to always use Stored Access Policies when possible.
 
@@ -253,5 +249,3 @@ You can enforce the use of HTTPS when calling the REST APIs to access objects in
 SSE is enabled for all storage accounts and cannot be disabled. SSE automatically encrypts your data when writing it to Azure Storage. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. SSE enables you to secure your data without having to modify code or add code to any applications.
 
 You can use either Microsoft-managed keys or your own custom keys. Microsoft generates managed keys and handles their secure storage as well as their regular rotation, as defined by internal Microsoft policy. For more information about using custom keys, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
-
-SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File).
