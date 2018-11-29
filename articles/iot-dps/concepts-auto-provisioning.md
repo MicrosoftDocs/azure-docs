@@ -61,13 +61,13 @@ The following diagram summarizes the roles and sequencing of operations during d
 
 ## Roles and Azure accounts
 
-How each role is mapped to an Azure account is scenario dependent, and there are quite a few scenarios that can be involved. The common pattern below should help provide a general understanding regarding how roles are generally mapped to an Azure account.
+How each role is mapped to an Azure account is scenario dependent, and there are quite a few scenarios that can be involved. The common patterns below should help provide a general understanding regarding how roles are generally mapped to an Azure account.
 
 #### Chip manufacturer provides security services
 
-In this scenario, manufacturers manage security for their level-one customers. This may be a scenario preferred by these level-one customers as they don't have to manage detailed security. 
+In this scenario, the manufacturer manages security for level-one customers. This may be a scenario preferred by these level-one customers as they don't have to manage detailed security. 
 
-Manufacturers introduce security into Hardware Security Modules (HSM). This can include the manufacturer obtaining security information (keys, certificates, etc.) from potential customers who already have DPS instances and enrollment groups setup. The manufacturer could also generate this security information for it's customers.
+The manufacturer introduces security into Hardware Security Modules (HSMs). This can include the manufacturer obtaining security information (keys, certificates, etc.) from potential customers who already have DPS instances and enrollment groups setup. The manufacturer could also generate this security information for it's customers.
 
 In this scenario, there may be two Azure accounts involved:
 
@@ -75,7 +75,14 @@ In this scenario, there may be two Azure accounts involved:
 
 - **Account #2**: End users, level-two customers may have their own IoT hubs. The party associated with Account #1 just points leased devices to the correct hub in this account. This requires linking DPS -> IoT hubs across Azure accounts which can be done with ARM templates.
 
-In another scenario, the manufacturer could be an "All-in-one OEM" where only a single manufacturer account would be needed.
+#### All-in-one OEM
+
+The manufacturer could be an "All-in-one OEM" where only a single manufacturer account would be needed. The manufacturer handles security and provisioning end to end.
+
+The manufacturer may provide a cloud based application to customers who purchase devices. This application would interface with the IoT Hub allocated by the manufacturer.
+
+Vending machines or automated coffee machines represent examples for this scenario.
+
 
 
 
