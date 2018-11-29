@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 11/21/2018
 # As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
@@ -32,9 +32,12 @@ You'll learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.79
+
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Run the `03.auto-train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-03). Run the `03.auto-train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
@@ -210,7 +213,7 @@ Explore the results of experiment with a Jupyter widget or by examining the expe
 Use the Jupyter notebook widget to see a graph and a table of all results.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 

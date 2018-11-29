@@ -139,5 +139,5 @@ For PowerShell follow [this article](../backup/backup-azure-vms-automation.md#cr
 
 ### Links
 
-- Export to disk [via API](/rest/api/compute/disks/grantaccess.md) by getting a SAS URI 
-- Create a managed disk [via API](/rest/api/compute/disks/createorupdate.md#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription) from an unmanaged blob
+- Export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a SAS URI 
+- Create a managed disk [via API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) from an unmanaged blob

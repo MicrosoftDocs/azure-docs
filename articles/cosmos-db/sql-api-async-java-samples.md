@@ -130,7 +130,7 @@ The [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/bl
 | --- | --- |
 | [Create an index and set indexing policy](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L394-L410) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._indexing_policy) |
 
-For more information about indexing, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+For more information about indexing, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Query examples
 The [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) file shows how to perform the following tasks:
@@ -143,7 +143,7 @@ The [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/mas
 | [Perform a simple document query and filter the results](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L318-L368) | |
 | [Perform a order-by cross-partition document query](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L410-L457) | [FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._feed_options.setenablecrosspartitionquery) |
 
-For more information about writing queries, see [SQL query within Azure Cosmos DB](sql-api-sql-query.md).
+For more information about writing queries, see [SQL query within Azure Cosmos DB](how-to-sql-query.md).
 
 ## Offer examples
 The [OfferCRUDAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/OfferCRUDAsyncAPITest.java) file shows how to perform the following tasks:

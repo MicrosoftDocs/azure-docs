@@ -44,7 +44,7 @@ When automatic provisioning is On, Security Center provisions the Microsoft Moni
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 1. Under the Security Center main menu, select **Security policy**.
-2. Select the subscription.
+2. Click **Edit settings** in the Settings column of the desired subscription in the list.
 
   ![Select subscription][7]
 
@@ -132,7 +132,7 @@ To select an existing Log Analytics workspace:
 
     a.  In the Security Center main menu, select **Security policy**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
+    b.	Select the desired Workspace in which you intend to connect the agent by clicking **Edit settings** in the Settings column of the desired subscription in the list.
         ![Select workspace][8]
     c. Set the pricing tier.
         ![Select pricing tier][9] 

@@ -22,6 +22,8 @@ API Management provides the ability to configure notifications for specific even
 
 If you do not have an API Management service instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="publisher-notifications"> </a>Configure notifications
 
 1. Select your **API MANAGEMENT** instance.

@@ -150,6 +150,8 @@
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
       href: app-service-managed-service-identity.md
+    - name: Reference secrets from Key Vault
+      href: app-service-key-vault-references.md
     - name: Use SSL cert in application code
       href: app-service-web-ssl-cert-load.md
     - name: Configure TLS mutual authentication

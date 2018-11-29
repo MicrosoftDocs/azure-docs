@@ -12,12 +12,7 @@ ms.author: chrande
 
 # Manage consistency levels in Azure Cosmos DB
 
-This article explains the different ways to: 
-
-- Set default consistency. 
-- Override that consistency on the client. 
-- Manually manage session tokens. 
-- Understand the Probabilistically Bounded Staleness (PBS) metric.
+This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
 ## Configure the default consistency level
 
@@ -35,7 +30,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### PowerShell
 
-This example creates a new Azure Cosmos DB account with multi-master enabled in East US and West US regions. The default consistency policy is set as Bounded Staleness. The maximum staleness interval is 10 seconds. The maximum number of stale requests that's tolerated is 200.
+This example creates a new Azure Cosmos DB account with multi-master enabled in East US and West US regions. The default consistency policy is set as Session.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -43,9 +38,7 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 
 $iprangefilter = ""
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
-                       "maxIntervalInSeconds"= "10";
-                       "maxStalenessPrefix"="200"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "locations"=$locations;
@@ -134,7 +127,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## Utilize session tokens
 
-To manage session tokens manually, get them from responses and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token yourself, the SDK uses the most recent session token.
+To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
 ### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
 

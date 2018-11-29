@@ -12,12 +12,7 @@ ms.author: chrande
 
 # Manage database accounts in Azure Cosmos DB
 
-This article describes how to manage your Azure Cosmos DB account to:
-
-- Set up multi-homing. 
-- Add or remove a region. 
-- Configure multiple write regions. 
-- Set up failover priorities. 
+This article describes how to manage your Azure Cosmos DB account. You learn how to set up multi-homing, add or remove a region, configure multiple write regions, and set up failover priorities. 
 
 ## Create a database account
 
@@ -148,7 +143,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
-The following JSON code is an example of a Azure Resource Manager template. You can use it to deploy an Azure Cosmos DB account with a consistency policy of bounded staleness. The maximum staleness interval is set at 5 seconds. The maximum number of stale requests that's tolerated is set at 100. To learn about the Resource Manager template format and syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+The following JSON code is an example of an Azure Resource Manager template. You can use it to deploy an Azure Cosmos DB account with a consistency policy of bounded staleness. The maximum staleness interval is set at 5 seconds. The maximum number of stale requests that's tolerated is set at 100. To learn about the Resource Manager template format and syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
@@ -239,7 +234,7 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 
 3. On the **Automatic Failover** pane, make sure that **Enable Automatic Failover** is set to **ON**. 
 
-4. Select **OK**.
+4. Select **Save**.
 
    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -272,7 +267,7 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 
 4. To modify the failover priority, drag the read regions via the three dots on the left side of the row that appear when you hover over them. 
 
-5. Select **OK**.
+5. Select **Save**.
 
    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
