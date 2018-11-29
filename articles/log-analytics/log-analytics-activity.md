@@ -50,7 +50,7 @@ Unlike most other Log Analytics solutions, data isn't collected for activity log
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-agent-windows.md) | No | The solution does not collect information from Windows agents. |
+| [Windows agents](../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collect information from Azure storage. |
