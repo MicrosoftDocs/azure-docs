@@ -69,6 +69,8 @@ Before you can run the sample, edit the App.config file and, depending on your s
  
 When you run the console application, you are prompted to select a scenario; click **Interactive User Login** by typing its number and pressing ENTER. The application displays a sign-in window, asks for your consent to access Event Hubs, and then uses the service to run through the send/receive scenario using the sign-in identity.
 
+The app uses `ServiceAudience.EventHubsAudience` as the token audience. When using other languages or SDKs where the audience is not available as a constant, the right value to use is `https://eventhubs.azure.net/`.
+
 ## Next steps
 
 For more information about Event Hubs, visit the following links:
