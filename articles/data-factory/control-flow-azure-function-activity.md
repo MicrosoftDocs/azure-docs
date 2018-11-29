@@ -25,8 +25,8 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
 | type   | The type property must be set to: **AzureFunction** | yes |
-| funtion app url | URL for the Azure Function App. Format is . This will be the value under 'URL' section when viewing your Function App in Azure Portal  | yes |
-| function key | Access key for the Azure Function. Click on the 'Manage' section for the respective function, and copy either the 'Function Key' or the 'Host key'. Find out more here : [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | yes |
+| function app url | URL for the Azure Function App. Format is . This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
+| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | yes |
 |   |   |   |
 
 ## Azure Function Activity
@@ -36,10 +36,10 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 | name  | Name of the activity in the pipeline  | String | yes |
 | type  | Type of activity is ‘AzureFunctionActivity’ | String | yes |
 | linked service | The Azure Function linked service for the corresponding Azure Function App  | Linked service reference | yes |
-| function name  | Name of the function in the Azure Function App this activity will call | String | yes |
+| function name  | Name of the function in the Azure Function App that this activity calls | String | yes |
 | method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | yes |
-| header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
-| body  | body that will be sent along with the request to the function api method  | String (or expression with resultType of string).   | Required for 'PUT'/'POST' methods |
+| header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
+| body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string).   | Required for PUT/POST methods |
 |   |   |   | |
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
