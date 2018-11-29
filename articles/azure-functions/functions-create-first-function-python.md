@@ -54,10 +54,19 @@ env\scripts\activate
 
 You can now create a local Functions project. This directory is the equivalent of a Function App in Azure. It can contain multiple functions that share the same local and hosting configuration.
 
-In the terminal window or from a command prompt, run the following command, and when prompted choose **python** as the desired worker runtime language:
+In the terminal window or from a command prompt, run the following command:
 
 ```bash
 func init MyFunctionProj
+```
+
+Pick **python** as the desired runtime.
+
+```output
+Select a worker runtime:
+1. dotnet
+2. node
+3. python
 ```
 
 You see something like the following output.
@@ -81,9 +90,31 @@ cd MyFunctionProj
 
 ## Create a function
 
-To create a function, run the following command, choosing `HTTP Trigger` as the desired template, and using a **function name** of `HttpTrigger`:
+To create a function, run the following command:
 
-You will see something like the following output.
+```bash
+func new
+```
+
+Choose `HTTP Trigger` as the template and provide a **function name** of `HttpTrigger`.
+
+```output
+Select a template:
+1. Blob trigger
+2. Cosmos DB trigger
+3. Event Grid trigger
+4. Event Hub trigger
+5. HTTP trigger
+6. Queue trigger
+7. Service Bus Queue trigger
+8. Service Bus Topic trigger
+9. Timer trigger
+
+Choose option: 5
+Function name: HttpTrigger
+```
+
+You see something like the following output.
 
 ```output
 Writing /MyFunctionProj/HttpTrigger/sample.dat
