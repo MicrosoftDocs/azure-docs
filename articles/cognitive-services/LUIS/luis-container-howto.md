@@ -40,7 +40,7 @@ This container supports minimum and recommended values for the settings:
 
 The `--cpus` and `--memory` settings are used as part of the `docker run` command.
 
-## Get the container image
+## Get the container image with `docker pull`
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
@@ -64,18 +64,20 @@ For a full description of available tags, such as `latest` used in the preceding
 
 Once the container is on the host computer, use the following process to work with the container.
 
-1. [Get LUIS app package](#get-packaged-app) from Azure.
+![Process for using Language Understanding (LUIS) container](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
+
+1. [Export package](#get-packaged-app) for container from LUIS portal or LUIS APIs.
 1. Move package file into the required **input** directory on the host computer. Do not rename, alter, or decompress LUIS package file.
-1. [Run the container](#run-the-container) from the host, with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
-1. Use container, [querying the container's prediction endpoint](#query-the-container). 
-1. When you are done with the container, [upload the query log](#upload-logs-for-active-learning) to the LUIS portal and [stop](#stop-the-container) the container.
+1. [Run the container](#run-the-container), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Querying the container's prediction endpoint](#query-the-container). 
+1. When you are done with the container, [import the endpoint logs](#upload-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
 1. Use LUIS portal's [active learning](luis-how-to-review-endoint-utt.md) on the **Review endpoint utterances** page to improve the app.
 
 The app running in the container can't be altered. In order the change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
 
 The LUIS app inside the container can't be exported back to the LUIS service. Only the query logs can be uploaded. 
 
-## Get packaged app
+## Export packaged app from LUIS
 
 The LUIS container requires a trained or published LUIS app to answer prediction queries of user utterances. In order to get the LUIS app, use either the trained or published package API. 
 
@@ -107,11 +109,11 @@ Before packaging a LUIS application, you must have the following:
 |Trained or published LUIS app|With no [unsupported dependencies](#unsupported-dependencies). |
 |Access to the host computer's file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
   
-### Get app package from LUIS portal
+### Export app package from LUIS portal
 
 The LUIS [portal](https://www.luis.ai) provides the ability to export the trained or published app's package. 
 
-### Get published app's package from LUIS portal
+### Export published app's package from LUIS portal
 
 The published app's package is available from the **My Apps** list page. 
 
@@ -124,7 +126,7 @@ The published app's package is available from the **My Apps** list page.
 
 ![Export the published package for the container from the App page's Export menu](./media/luis-container-how-to/export-published-package-for-container.png)
 
-### Get trained app's package from LUIS portal
+### Export trained app's package from LUIS portal
 
 The trained app's package is available from the **Versions** list page. 
 
@@ -140,7 +142,7 @@ The trained app's package is available from the **Versions** list page.
 ![Export the trained package for the container from the Versions page's Export menu](./media/luis-container-how-to/export-trained-package-for-container.png)
 
 
-### Get published app's package from API
+### Export published app's package from API
 
 Use the following REST API method, to package a LUIS app that you've already [published](luis-how-to-publish-app.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
@@ -168,7 +170,7 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APP
 
 If successful, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
 
-### Get trained app's package from API
+### Export trained app's package from API
 
 Use the following REST API method, to package a LUIS application that you've already [trained](luis-how-to-train.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
@@ -196,7 +198,7 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APP
 
 If successful, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
 
-## Run the container 
+## Run the container with `docker run`
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. The command uses the following parameters:
 
@@ -234,7 +236,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
 
-## Query the container
+## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
@@ -279,7 +281,7 @@ curl -X GET \
 ```
 The version name has a maximum of 10 characters and contains only characters allowed in a URL. 
 
-## Upload logs for active learning
+## Import the endpoint logs for active learning
 
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
 
@@ -341,8 +343,6 @@ You can use a LUIS application if it **doesn't include** any of the following de
 |X|X|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
 |X|X|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
 |X|X|Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
-|X|X|Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) and [PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entities|
-|X|X|Unsupported entities for Chinese (zh-CN) culture|[PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entity for Chinese| 
 ||X|Speech priming|External dependencies are not supported in the container.|
 ||X|Sentiment analysis|External dependencies are not supported in the container.|
 ||X|Bing spell check|External dependencies are not supported in the container.|
