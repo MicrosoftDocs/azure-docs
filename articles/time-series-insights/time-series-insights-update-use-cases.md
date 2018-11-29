@@ -1,6 +1,6 @@
----
-title: Azure Time Series Insights V2 Update use cases | Microsoft Docs
-description: Understanding Azure Time Series Insights V2 Update use cases
+﻿---
+title: Azure Time Series Insights (preview) use cases | Microsoft Docs
+description: Understanding Azure Time Series Insights (preview) use cases
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Azure Time Series Insights update use cases
+# Azure Time Series Insights (preview) use cases
 
 This article provides an overview of several common use cases for Azure Time Series Insights (TSI). The recommendations in this article serve as a starting point as you develop applications and solutions with TSI.
 
@@ -22,7 +22,7 @@ After reading this article, you'll be able to answer the following questions:
 * What are the benefits of using Azure TSI for operational analysis and process efficiency?
 * What are the benefits of using Azure TSI for advanced analytics?
 
-This document provides an overview of the use cases that The Azure Time Series Insights V2 Update is designed for.
+This document provides an overview of the use cases that The Azure Time Series Insights (preview) is designed for.
 
 ## Data exploration and visual anomaly detection
 
@@ -72,7 +72,7 @@ Azure TSI bridges the gap between IoT data and advanced analytics in a simple an
 
 * Learn more about the [TSI Explorer](./time-series-insights-update-explorer.md).
 
-* To plan out your TSI update environment, read [TSI update planning](./time-series-insights-update-plan.md).
+* To plan out your TSI (preview) environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
 
 * Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
 

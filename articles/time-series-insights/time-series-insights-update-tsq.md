@@ -1,6 +1,6 @@
----
+﻿---
 title:  Time Series Query | Microsoft Docs
-description: Axure Time Series Insights V2 Update Time Series Query
+description: Axure Time Series Insights (preview) Time Series Query
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -656,7 +656,7 @@ A full TSQ tutorial will be provided in the future.
 
 ## Next steps
 
-Read the [Azure TSI Update Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
 Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
 
