@@ -19,10 +19,10 @@ abstract:
 
 sections:
 
-- title: Azure Machine Learning service
+- title: Azure Machine Learning Service
   items:
   - type: paragraph
-    text: 'Learn how this service empowers data scientists to develop, deploy, and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
+    text: 'The Azure Machine Learning service empowers data scientists to develop, deploy, and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
   - type: list
     style: cards
     className: cardsFTitle
@@ -36,8 +36,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/machine-learning/service/quickstart-get-started">Get started with the service in Azure portal</a>
-    - html: <a href="/azure/machine-learning/service/quickstart-create-workspace-with-python">Get started with the service in Python</a>
+    - html: <a href="/azure/machine-learning/service/quickstart-get-started">Quickstart using Azure portal</a>
+    - html: <a href="/azure/machine-learning/service/quickstart-create-workspace-with-python">Quickstart using Python</a>
     - html: <a href="/azure/machine-learning/service/how-to-data-prep">Prepare data for modeling</a>
     - html: <a href="/azure/machine-learning/service/tutorial-train-models-with-aml">Build your own machine learning model</a>
     - html: <a href="/azure/machine-learning/service/tutorial-auto-train-models">Automatically generate and tune algorithms</a>
@@ -46,10 +46,10 @@ sections:
     - html: <a href="/azure/machine-learning/service/concept-ml-pipelines">Build, optimize, and manage your ML pipelines</a>
 
 
-- title: Azure Machine Learning Studio (Original service)
+- title: Azure Machine Learning Studio (legacy)
   items:
   - type: paragraph
-    text: 'Learn how this drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. '
+    text: 'Learn how this legacy drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. '
 
   - type: list
     style: cards
@@ -61,8 +61,6 @@ sections:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
         href: /azure/machine-learning/studio/
 
-  - type: paragraph
-    text: '<b>Learn more</b>: Learn how to set up an experiment and operationalize your models.'
   - type: list
     style: unordered
     items:
@@ -84,11 +82,6 @@ sections:
       image:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Cognitive Services
-    - href: /azure/batch-ai/
-      html: <p>Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.</p>
-      image:
-        src: /azure/machine-learning/media/index/batch.png
-      title: Batch AI Training
     - href: /sql/advanced-analytics/r/r-services
       html: <p>In-database analytics with support for both R and Python.</p>
       image:
@@ -99,11 +92,6 @@ sections:
       image:
         src: /azure/machine-learning/media/index/ml-server.png
       title: Microsoft Machine Learning Server
-    - href: /azure/machine-learning/team-data-science-process
-      html: <p>A collaborative data science methodology that helps teams deliver predictive analytics solutions and intelligent applications efficiently.</p>
-      image:
-        src: /azure/machine-learning/media/index/tdsp.png
-      title: Team Data Science Process
     - href: /azure/machine-learning/data-science-virtual-machine/
       html: <p>Experiment without installing or configuring software using the Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
       image:
