@@ -48,7 +48,7 @@ There are several common reasons why you might not see your data in the Azure TS
 
 This may occur because your environment is being throttled.
 
-> {!NOTE]
+> [!NOTE]
 > At this time, Azure TSI supports a maximum ingestion rate of 6 MBps.
 
 ## Problem: My event source's timestamp property name setting doesn't work
