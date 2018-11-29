@@ -66,10 +66,10 @@ The following are the equivalent entities, as described by different concepts. U
 
 The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
 
--   [Hierarchical namespace](data-lake-storage-namespace.md)
+-   [Hierarchical namespace](namespace.md)
 
--   [Create a storage account](data-lake-storage-quickstart-create-account.md)
+-   [Create a storage account](quickstart-create-account.md)
 
--   [Create an HDInsight cluster with Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Create an HDInsight cluster with Azure Data Lake Storage Gen2](quickstart-create-connect-hdi-cluster.md)
 
--   [Use an Azure Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)
+-   [Use an Azure Data Lake Storage Gen2 account in Azure Databricks](quickstart-create-databricks-account.md)
