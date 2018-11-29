@@ -87,7 +87,7 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 }
 ```
 
-Task hub name can be set via the [TaskHub](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html#Microsoft_Azure_WebJobs_OrchestrationClientAttribute_TaskHub) property in the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html). The property supports retrieving directly an app setting value. In the sample below the task hub name will be set to the value of the `MyTaskHub` app setting:
+Here is a precompiled C# example of how to write a function which uses an [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) to work with a task hub that is configured as an App Setting:
 
 ```csharp
 [FunctionName("HttpStart")]
