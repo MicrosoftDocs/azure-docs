@@ -64,6 +64,8 @@
   - name: Stream data into Azure Databricks using Event Hubs
     href: ../azure-databricks/databricks-stream-from-eventhubs.md
     maintainContext: true        
+  - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
+    href: event-hubs-tutorial-virtual-networks-firewalls.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
@@ -121,7 +123,7 @@
       href: event-hubs-metrics-azure-monitor.md
     - name: Event Hubs management libraries
       href: event-hubs-management-libraries.md
-  - name: Use IP filters
+  - name: Use firewalls
     href: event-hubs-ip-filtering.md
   - name: Use virtual network service endpoints
     href: event-hubs-service-endpoints.md
