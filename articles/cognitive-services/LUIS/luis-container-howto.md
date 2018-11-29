@@ -208,7 +208,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 Replace these parameters with your own values in the following example `docker run` command.
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 --mount type=bind,src=c:\input,target=/input \
 --mount type=bind,src=c:\output,target=/output \
 mcr.microsoft.com/azure-cognitive-services/luis \
@@ -223,7 +223,7 @@ This command:
 
 * Runs a container from the LUIS container image
 * Loads LUIS app from input mount at c:\input, located on container host
-* Allocates two CPU cores and 6 gigabytes (GB) of memory
+* Allocates two CPU cores and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Saves container and LUIS logs to output mount at c:\output, located on container host
 * Automatically removes the container after it exits. The container image is still available on the host computer. 

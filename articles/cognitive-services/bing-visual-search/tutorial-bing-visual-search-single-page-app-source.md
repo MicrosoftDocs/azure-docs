@@ -15,6 +15,16 @@ ms.author: v-jerkin
 # Tutorial: Visual Search Single-page Web app
 
 This is the complete source code discussed in the [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app.md) tutorial for Bing Visual Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing-visual-search.html`. Then open the saved file in Microsoft Edge or another popular browser.
+## Prerequisites
+For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
 
 ```html
 <!DOCTYPE html>
