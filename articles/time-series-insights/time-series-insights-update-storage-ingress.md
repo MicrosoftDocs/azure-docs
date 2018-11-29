@@ -117,9 +117,9 @@ The choice of the **Time Series ID** is like selecting a partition key for a dat
 * If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.
 * You can select up to **three** (3) key properties as your **Time Series ID**.  Note – they must all be string properties.  With regards to selecting more than one key property as your **Time Series ID**, see the following scenarios:
 
-    1. You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property ‘deviceId’ and another where the unique property is ‘objectId’.  In both fleets, the other fleet’s unique property is not present.  In this example, you would select two keys, ‘deviceId’ and ‘objectId’ as unique keys.  We accept null values, and the lack of a property’s presence in the event payload will count as a null value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
+    1. You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property ***deviceId** and another where the unique property is **objectId**.  In both fleets, the other fleet’s unique property is not present.  In this example, you would select two keys, ‘deviceId’ and ‘objectId’ as unique keys.  We accept null values, and the lack of a property’s presence in the event payload will count as a null value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
 
-    1. You require multiple properties to show uniqueness in the same fleet of assets.  For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for ‘sensorId’, including ‘sensor1’, ‘sensor2’, ‘sensor3’, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property **flrRm**, which contain values like `1a`, `2b`, `3a`, and so on.  Finally, you have a property, **location**, which contains values such as `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
+    1. You require multiple properties to show uniqueness in the same fleet of assets.  For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for `sensorId`, including `sensor1`, `sensor2`, `sensor3`, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property **flrRm**, which contain values like `1a`, `2b`, `3a`, and so on. Finally, you have a property, **location**, which contains values such as `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
 
 ## Your Azure Storage account
 
@@ -139,8 +139,8 @@ You may want to access data stored in Azure TSI (preview) Explorer to use in con
 
 There are three general paths to access your data:
 
-* The V2 TSI (preview) Explorer.
-* The V2 TSI (preview) APIs.
+* The Azure TSI (preview) Explorer.
+* The Azure TSI (preview) APIs.
 * Directly from an Azure Storage account.
 
 ![three-ways][3]
@@ -167,14 +167,14 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
 ### Blob storage considerations
 
 * Azure storage does have read and write limits based on how heavy your TSI (preview) usage is.  
-* The Azure TSI update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
+* The Azure TSI Private Preview does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
 * Customers will need to read the Azure blobs partitioned by time to be able to process the data.
-* The TSI (preview) performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
+* The Azure TSI Private Preview performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
 * Your TSI (preview) data may be duplicated across blobs.
 
 ### Data deletion
 
-The Azure TSI (preview) does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
+The Azure TSI Private Preview does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
 
 Do not delete blobs since Time Series Insights (preview) maintains metadata about the blobs inside of TSI update.
 
@@ -182,7 +182,7 @@ Do not delete blobs since Time Series Insights (preview) maintains metadata abou
 
 ### Azure Time Series Insights ingress policies
 
-The Azure TSI update supports the same event sources and file types that it does today.
+The Azure TSI Private Preview supports the same event sources and file types that it does today.
 
 Supported event sources include:
 
@@ -197,7 +197,7 @@ Supported file types include:
 
 ### Data availability
 
-The Azure TSI (preview) indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+The Azure TSI Private Preview indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
 
 > [!IMPORTANT]
 > * Public Preview TSI will make data available within 60 seconds of it hitting an event source.  
