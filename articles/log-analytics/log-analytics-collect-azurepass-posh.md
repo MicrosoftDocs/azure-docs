@@ -80,4 +80,4 @@ You will be prompted to answer the same information as when you ran the script t
 
 * Use [Custom Fields](log-analytics-custom-fields.md)( to parse the event records into individual fields.
 
-* Review [Create a custom dashboard for use in Log Analytics](log-analytics-dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.
+* Review [Create a custom dashboard for use in Log Analytics](../azure-monitor/platform/dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.

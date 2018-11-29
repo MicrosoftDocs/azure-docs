@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Service Fabric - Set up monitoring with Log Analytics | Microsoft Docs
 description: Learn how to set up Log Analytics for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 services: service-fabric
@@ -125,4 +125,4 @@ You can also add other solutions or make other modifications to your Log Analyti
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
-* [Use View Designer to create custom views in Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Use View Designer to create custom views in Log Analytics](../azure-monitor/platform/view-designer.md)
