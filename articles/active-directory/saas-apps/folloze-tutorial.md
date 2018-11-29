@@ -40,11 +40,9 @@ To configure Azure AD integration with Folloze, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-
 * Folloze supports **IDP** initiated SSO
 
 * Folloze supports **Just In Time** user provisioning
-
 
 ## Adding Folloze from the gallery
 
@@ -96,26 +94,19 @@ To configure Azure AD single sign-on with Folloze, perform the following steps:
 
     ![Single sign-on select mode](common/select_saml_option.png)
 
-3. If you need to change to **SAML/WS-Fed** mode from any another mode, click **Change single sign-on mode** on top of the screen.
-
-	  ![Change single sign-on mode](common/change_sso_mode.png)
-
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit_urls.png)
 
-5. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
+4. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
 
     ![Folloze Domain and URLs single sign-on information](common/idp_intiated.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL:
     `https://app.folloze.com/production`.
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL:
     `https://app.folloze.com/users/auth/saml/callback`.
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Folloze Client support team](mailto:support@folloze.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. Folloze application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -123,12 +114,10 @@ To configure Azure AD single sign-on with Folloze, perform the following steps:
 
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Name | Namespace  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| [Attb1] | [Namespace1] | [value1] |
-	| [Attb2] | [Namespace2] | [value2] |
-	| [Attb3] | [Namespace3] | [value3] |
-	| [Attb4] | [Namespace4] | [value4] |
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| Email | `user.othermail` |
+	| Nameasemail | `user.userprincipalname` |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -148,11 +137,11 @@ To configure Azure AD single sign-on with Folloze, perform the following steps:
 
 	g. Click **Save**.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Folloze** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Folloze** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy_configuration_urls.png)
 
@@ -166,7 +155,7 @@ To configure Azure AD single sign-on with Folloze, perform the following steps:
 
 To configure single sign-on on **Folloze** side, you need to send the **Certificate (Base64)** which you have downloaded and the URLs which you have copied from **Set up Folloze** section from Azure portal to [Folloze support team](mailto:support@folloze.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
