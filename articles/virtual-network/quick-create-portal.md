@@ -107,7 +107,7 @@ Create two VMs in the virtual network:
 
 1. Select **OK**
 
-1. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+1. Select **Review + create**. You're taken to the **Review + create** page and Azure validates your configuration.
 
 1. When you see that **Validation passed**, select **Create**.
 
@@ -118,15 +118,15 @@ Create two VMs in the virtual network:
     > [!NOTE]
     > In step 2, for the **Virtual machine name**, enter *myVm2*.
     >
-    > In step 7, for **Diagnosis storage account**, make sure **myvmstorageaccount** is selected.
+    > In step 7, for **Diagnosis storage account**, make sure you select **myvmstorageaccount**.
 
-1. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+1. Select **Review + create**. You're taken to the **Review + create** page and Azure validates your configuration.
 
 1. When you see that **Validation passed**, select **Create**.
 
 ## Connect to a VM from the internet
 
-After *myVm1* is created, you can connect to it over the internet.
+After you've created *myVm1*, connect to it over the internet.
 
 1. In the portal's search bar, enter *myVm1*.
 
@@ -136,7 +136,7 @@ After *myVm1* is created, you can connect to it over the internet.
 
     After selecting the **Connect** button, **Connect to virtual machine** opens.
 
-1. Select **Download RDP File**. A Remote Desktop Protocol (*.rdp*) file is created and downloaded to your computer.
+1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
 1. Open the downloaded *.rdp* file.
 
