@@ -29,12 +29,13 @@ In this part of the tutorial, you will:
 > * Create the Hero service to get Hero data.
 > * Run the app locally.
 
-<!-- Remove heading. 
+<!-- The video is extraneous to the purpose of the tutorial and should be removed.
 ## Video walkthrough
--->
+
 Watch the following video to quickly learn the steps described in this article: 
 
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
+-->
 
 <!-- Include a link to add a free Azure account here. -->
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
