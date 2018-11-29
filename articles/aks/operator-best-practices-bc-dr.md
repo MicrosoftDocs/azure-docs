@@ -46,7 +46,7 @@ When you deploy your application, you must also add another step to your CI/CD p
 
 With multiple AKS clusters in different regions, you need to control how traffic is directed to the applications that run in each cluster. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) is a DNS-based traffic load balancer that can distribute network traffic across regions. You can route users based on cluster response time, or based on geography.
 
-![AKS with Azure Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.jpg)
+![AKS with Azure Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
 With a single AKS cluster, customers typically connect to the *Service IP* or DNS name of a given application. In a multi-cluster deployment, customers should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. These services are defined using Traffic Manager endpoints. Each endpoint is the *Service Load Balancer IP*. This configuration lets you direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
 
@@ -127,7 +127,7 @@ There is currently no Kubernetes-native implementation for application-based asy
 
 This article focused on business continuity and disaster recovery considerations in AKS clusters. For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Multi-tenancy and cluster isolation][aks-best-practices-cluster-isolation]
 * [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
 
 <!-- INTERNAL LINKS -->
