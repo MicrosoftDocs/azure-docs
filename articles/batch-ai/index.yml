@@ -1,19 +1,20 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Batch AI Documentation (Preview)
+title: Azure Batch AI Documentation (RETIRING)
 metadata:
-  title: Azure Batch AI Documentation (Preview)
+  title: Azure Batch AI Documentation (RETIRING)
   meta.description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
   services: batch-ai
-  author: dlepow 
-  manager: jeconnock
+  author: j-martens  
+  manager: cjgronlun
   layout: LandingPage
   ms.service: batch-ai
   ms.topic: landing-page
-  ms.date: 08/16/2018
-  ms.author: danlep
+  ms.date: 12/14/2018
+  ms.author: jmartens
 abstract:
-  description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
+  description: <div class="NOTE"><p>Note</p><p><strong>Azure Batch AI is being retired.</strong> Support for this service will be retired incrementally. The capabilities of Azure Batch AI are now available as a managed compute target in Azure Machine Learning service. For more information, see <a href="overview-what-happened-to-batch-ai" data-linktype="relative-path">What&#39;s happening to Batch AI?</a></p></div>
+
 sections:
 - title: 5-Minute Quickstarts
   items:
