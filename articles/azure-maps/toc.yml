@@ -46,6 +46,8 @@
     items:
     - name: Manage accounts and keys
       href: how-to-manage-account-keys.md
+     - name: Manage pricing tiers
+      href: how-to-manage-pricing-tier.md
     - name: View usage metrics
       href: how-to-view-api-usage.md
   - name: Get map data from REST APIs
