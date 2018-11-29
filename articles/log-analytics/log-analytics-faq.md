@@ -195,14 +195,14 @@ Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 
 ### Q: Why am I getting an error when I try to move my workspace from one Azure subscription to another?
 
-A: To move a workspace to different subscription or resource group, you must first unlink the Automation account in the workspace. Unlinking an Automation requires the removal these solutions if they are installed in the workspace: Update Management, Change Tracking, or Start/Stop VMs during off-hours are removed After these solutions are removed, unlink Automation account by selecting Linked workspaces on the left pane in Automation account resource and click Unlink workspace on the ribbon.
- > Removed solutions need to be re-installed in the workspace and Automation link to the workspace needs to be re-stated after the move
+A: To move a workspace to a different subscription or resource group, you must first unlink the Automation account in the workspace. Unlinking an Automation account requires the removal of these solutions if they are installed in the workspace: Update Management, Change Tracking, or Start/Stop VMs during off-hours are removed. After these solutions are removed, unlink the Automation account by selecting **Linked workspaces** on the left pane in the Automation account resource and click **Unlink workspace** on the ribbon.
+ > Removed solutions need to be reinstalled in the workspace, and the Automation link to the workspace needs to be restated after the move.
 
 Ensure you have permission in both Azure subscriptions.
 
 ### Q: Why am I getting an error when I try to update a SavedSearch?
 
-A: You need to add ‘etag’ in the body of the API, or ARM template properties:
+A: You need to add 'etag' in the body of the API, or the Azure Resource Manager template properties:
 ```
 "properties": {
    "etag": "*",
