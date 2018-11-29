@@ -40,7 +40,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Managed Instance](/cli/azure/sql/mi) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows.
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44). 
+> For an Azure CLI quickstart, see [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 >
 
 | Cmdlet | Description |
@@ -57,7 +57,6 @@ To create and manage Azure SQL Database Managed Instance database after the Mana
 
 > [!TIP]
 > For quickstarts showing you have to configure and connect to a Managed Instance using SQL Server Management Studio on Microsoft Windows, see [Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) and [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
-
 > [!IMPORTANT]
 > You cannot create or delete a Managed Instance using Transact-SQL.
 
