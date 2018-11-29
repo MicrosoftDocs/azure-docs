@@ -38,6 +38,12 @@ No, managed identities for Azure resources is not yet integrated with ADAL or MS
 
 The security boundary of the identity is the resource to which it is attached to. For example, the security boundary for a Virtual Machine with managed identities for Azure resources enabled, is the Virtual Machine. Any code running on that VM, is able to call the managed identities for Azure resources endpoint and request tokens. It is the similar experience with other resources that support managed identities for Azure resources.
 
+### What identity will IMDS default to if don't specify the identity in the request?
+
+- If system assigned managed identity is enabled and no identity is specified in the request, IMDS will default to the system assigned managed identity.
+- If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS will default to that single user assigned managed identity. 
+- If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then specifying a managed identity in the request is required.
+
 ### Should I use the managed identities for Azure resources VM IMDS endpoint or the VM extension endpoint?
 
 When using managed identities for Azure resources with VMs, we encourage using the managed identities for Azure resources IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. Some of the benefits of using managed identities for Azure resources over IMDS are:
@@ -50,6 +56,16 @@ When using managed identities for Azure resources with VMs, we encourage using t
 The managed identities for Azure resources VM extension is still available to be used today; however, moving forward we will default to using the IMDS endpoint. The managed identities for Azure resources VM extension will be deprecated in January 2019. 
 
 For more information on Azure Instance Metadata Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### Will managed identities be recreated automatically if I move a subscription to another directory?
+
+No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure RBAC role assignments again.
+    - For system assigned managed identities: disable and re-enable.
+    - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. Virtual Machines)
+
+### Can I use a managed identity to access a resource in a different directory/tenant?
+
+No. Managed identities do not currently support cross-directory scenarios. 
 
 ### What are the supported Linux distributions?
 
