@@ -9,13 +9,13 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
 ---
-# Build a Docker Python and PostgreSQL web app in Azure
+# Build a Python and PostgreSQL web app in Azure App Service
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python web app, using PostgreSQL as the database back end. When you are done, you have a Django application running within a Docker container in App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python web app, using PostgreSQL as the database back end. When you are done, you have a Django application running in App Service on Linux.
 
 ![Python Django app in App Service on Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -37,8 +37,8 @@ You can follow the steps in this article on macOS. Linux and Windows instruction
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
-1. [Install Python](https://www.python.org/downloads/)
-1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
+2. [Install Python](https://www.python.org/downloads/)
+3. [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
 ## Test local PostgreSQL installation and create a database
 
@@ -79,46 +79,44 @@ Open the terminal window, and `CD` to a working directory.
 Run the following commands to clone the sample repository.
 
 ```bash
-git clone https://github.com/cephalin/djangoapp
+git clone https://github.com/Azure-Samples/djangoapp.git
 cd djangoapp
 ```
 
 This sample repository contains a [Django](https://www.djangoproject.com/) application. It's the same data-driven app you would get by following the [getting started tutorial in the Django documentation](https://docs.djangoproject.com/en/2.1/intro/tutorial01/). This tutorial doesn't teach you Django, but shows you how to take deploy and run a Django app (or another data-driven Python app) to App Service.
 
-### Run the app locally
+### Configure environment
 
-Run the following commands to install the required packages, [run Django migrations](https://docs.djangoproject.com/en/2.1/topics/migrations/), and [create an admin user](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user).
+Create a Python virtual environment and use a script to set the database connection settings.
 
 ```bash
 # Bash
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-DBHOST="localhost" DBUSER="manager" DBNAME="pollsdb" DBPASS="supersecretpass" ./manage.py migrate
-DBHOST="localhost" DBUSER="manager" DBNAME="pollsdb" DBPASS="supersecretpass" ./manage.py createsuperuser
+source ./env.sh
 
 # PowerShell
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
-$Env:DBHOST = "localhost"; $Env:DBUSER = "manager"; $Env:DBNAME = "pollsdb"; $Env:DBPASS = "supersecretpass"
-python3 manage.py migrate
-python3 manage.py createsuperuser
+py -3 -m venv venv
+venv\scripts\activate
+.\env.ps1
 ```
 
-> [!NOTE]
-> The environment variables `DBHOST`, `DBUSER`, `DBNAME`, and `DBPASS` are used in _azuresite/settings.py_ to define the database settings.
->
+The environment variables defined in *env.sh* and *env.ps1* are used in _azuresite/settings.py_ to define the database settings.
+
+### Run app locally
+
+Install the required packages, [run Django migrations](https://docs.djangoproject.com/en/2.1/topics/migrations/) and [create an admin user](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user).
+
+```bash
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+```
 
 Once the admin user is created, run the Django server.
 
 ```bash
-# Bash
-DBHOST="localhost" DBUSER="manager" DBNAME="pollsdb" DBPASS="supersecretpass" ./manage.py runserver
-
-# PowerShell
-python3 manage.py runserver
+python manage.py runserver
 ```
 
 When the app is fully loaded, you see something similar to the following message:
@@ -213,7 +211,7 @@ In this step, you connect your Django sample app to the Azure Database for Postg
 
 ### Create empty database and user access
 
-In the local terminal window, connect to the database by running the command below. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
+In the Cloud Shell, connect to the database by running the command below. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
@@ -234,17 +232,33 @@ Type `\q` to exit the PostgreSQL client.
 
 ### Test app connectivity to production database
 
-Back in the local terminal window, run the following commands to run Django migration and create an admin user.
+In the local terminal window, change the database environment variables (which you configured earlier by running *env.sh* or *env.ps1*):
 
 ```bash
-DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="pollsdb" DBPASS="supersecretpass" ./manage.py migrate
-DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="pollsdb" DBPASS="supersecretpass" ./manage.py createsuperuser
+# Bash
+export DBHOST="<postgresql_name>.postgres.database.azure.com"
+export DBUSER="manager@<postgresql_name>"
+export DBNAME="pollsdb"
+export DBPASS="supersecretpass"
+
+# PowerShell
+$Env:DBHOST = "<postgresql_name>.postgres.database.azure.com"
+$Env:DBUSER = "manager@<postgresql_name>"
+$Env:DBNAME = "pollsdb"
+$Env:DBPASS = "supersecretpass"
+```
+
+Run Django migration to the Azure database and create an admin user.
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
 ```
 
 Once the admin user is created, run the Django server.
 
 ```bash
-DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="pollsdb" DBPASS="supersecretpass" ./manage.py runserver
+python manage.py runserver
 ```
 
 Navigate to `http://localhost:8000` in again. You should see the message `No polls are available.` again. 
@@ -264,7 +278,7 @@ In this step, you deploy the Postgres-connected Python application to Azure App 
 Django validates the `HTTP_HOST` header in incoming requests. For your Django app to work in App Service, you need to add the full-qualified domain name of the app to the allowed hosts. Open _azuresite/settings.py_ and find the `ALLOWED_HOSTS` setting. Change the line to:
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 Next, Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), so you need to enable this manually. For this tutorial, you use [WhiteNoise](http://whitenoise.evans.io/en/stable/). The WhiteNoise package is already included in _requirements.txt_. You just need to configure Django to use it. 
@@ -289,17 +303,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 For more information on configuring WhiteNoise, see the [WhiteNoise documentation](http://whitenoise.evans.io/en/stable/).
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > The database settings section already follows the security best practice of using environment variables. For the complete deployment recommendations, see [Django Documentation: deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
->
 
-<!-- The Git deployment engine in App Service invokes `pip` automation when there's an _application.py_ in the repository root. In this tutorial, you'll let the deployment engine run the automation for you. In the local terminal window, navigate to the repository root, create a dummy _application.py_, and commit your changes.
+
+Commit your changes into the repository.
 
 ```bash
-touch application.py
-git add .
-git commit -m "ensure azure automation"
-``` -->
+git commit -am "configure for App Service"
+```
 
 ### Configure a deployment user
 
@@ -373,34 +385,17 @@ Navigate to `<app_name>.azurewebsites.net` and sign in using same admin user you
 
 ## Access diagnostic logs
 
-Because the Python app is running in a container, App Service on Linux lets you access the console logs generated from within the container. To find the logs, navigate to this URL:
+In App Service on Linux, apps are run inside a container from a default Docker image. You can access the console logs generated from within the container. To get the logs, first turn on container logging by running the following command in the Cloud Shell:
 
-```
-https://<app_name>.scm.azurewebsites.net/api/logs/docker
-```
-
-You should see two JSON objects, each with an `href` property. One `href` points to the Docker console logs (ends with `_docker.log`), and another `href` points to the console logs generated from inside the Python container. 
-
-```json
-[  
-   {  
-      "machineName":"RD0003FF61ACD0_default",
-      "lastUpdated":"2018-09-27T16:48:17Z",
-      "size":4766,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"
-   },
-   {  
-      "machineName":"RD0003FF61ACD0",
-      "lastUpdated":"2018-09-27T16:48:19Z",
-      "size":2589,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"
-   }
-]
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
 ```
 
-Copy the `href` value you want into a browser window to navigate to the logs. The logs are not streamed, so you may experience some delay. To see new logs, refresh the browser page.
+Once container logging is turned on, run the following command to see the log stream:
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
 
 ## Manage your web app in the Azure Portal
 
