@@ -21,17 +21,8 @@ sections:
 
 - title: Azure Machine Learning Service
   items:
-  - type: list
+  - type: paragraph
     text: 'With Azure Machine Learning service, train, deploy, automate, and manage your ML models in the Azure cloud. '
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: What is Azure Machine Learning service?
-      href: /azure/machine-learning/service/overview-what-is-azure-ml
-      image: 
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/overview-what-is-azure-ml
   - type: list
     style: cards
     className: cardsB
