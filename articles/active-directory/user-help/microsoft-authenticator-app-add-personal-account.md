@@ -32,7 +32,7 @@ You can add your personal accounts, such as for Outlook.com, Xbox LIVE, Google, 
 
 5. Select **Add account** from the **Customize and control** icon in the upper-right, and then select **Personal account**.
 
-6. Enter the email address for your personal account, (such as alain@outlook.com) and then choose **Next**.
+6. Enter the email address for your personal account (such as alain@outlook.com), and then choose **Next**.
 
     >[!Note]
     >If you don't have a personal Microsoft account, you have the ability to create one here.

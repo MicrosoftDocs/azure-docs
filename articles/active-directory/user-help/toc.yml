@@ -46,8 +46,6 @@
   items:
   - name: Overview
     href: user-help-auth-app-overview.md
-  - name: 'How-to guides'
-  items:
   - name: Download and install the app
     href: microsoft-authenticator-app-how-to.md
   - name: Add your work or school account
