@@ -2,14 +2,14 @@
 title: Query Azure Log Analytics to monitor Azure HDInsight clusters 
 description: Learn how to run queries on Azure Log Analytics to monitor jobs running in an HDInsight cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: jasonh
+ms.date: 11/05/2018
+ms.author: hrasheed
 
 ---
 # Query Azure Log Analytics to monitor HDInsight clusters
@@ -28,7 +28,7 @@ Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HD
 
 Learn how to look for specific metrics for your HDInsight cluster.
 
-1. Open the OMS workspace that is associated to your HDInsight cluster from the Azure portal.
+1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Log Search** tile.
 3. Type the following query in the search box to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Log Analytics, and then select **RUN**.
 
@@ -61,7 +61,7 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
 Learn how to  look error messages during a specific time window. The steps here are just one example on how you can arrive at the error message you are interested in. You can use any property that is available to look for the errors you are trying to find.
 
-1. Open the OMS workspace that is associated to your HDInsight cluster from the Azure portal.
+1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Log Search** tile.
 3. Type the following query to search for all error messages for all HDInsight clusters configured to use Azure Log Analytics, and then select **RUN**. 
 
@@ -113,7 +113,7 @@ To edit or delete an existing alert:
 3. Select the alert you want to edit or delete.
 4. You have the following options: **Save**, **Discard**, **Disable**, and **Delete**.
 
-    ![HDInsight Log Analytics OMS alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Log Analytics alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 For more information, see [Working with alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 

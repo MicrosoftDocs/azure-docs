@@ -182,7 +182,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceSource**. | Yes |
-| query |Use the custom query to read data. You can use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query or SQL-92 query. See more tips in [query tips](#query-tips) section. | No (if "tableName" in the dataset is specified) |
+| query |Use the custom query to read data. You can use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query or SQL-92 query. See more tips in [query tips](#query-tips) section. If query is not specified, all the data of the Salesforce object specified in "objectApiName" in dataset will be retrieved. | No (if "objectApiName" in the dataset is specified) |
 | readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | No |
 
 > [!IMPORTANT]

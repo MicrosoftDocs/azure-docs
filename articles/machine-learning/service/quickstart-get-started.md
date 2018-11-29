@@ -13,9 +13,11 @@ ms.date: 09/24/2018
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
 
-In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. This quickstart uses cloud resources and requires no installation. To configure your own Jupyter notebook server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
-In this tutorial, you:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+In this quickstart, you:
 
 * Create a workspace in your Azure subscription.
 * Try it out with Python in an Azure notebook, and log values across multiple iterations.
@@ -30,7 +32,7 @@ The following Azure resources are added automatically to your workspace when the
 
 The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is Azure Batch AI cluster size. For information on default limits and how to increase your quota, see [this article](how-to-manage-quotas.md).
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 
 ## Create a workspace 
@@ -71,32 +73,9 @@ Along with two notebooks, you see a `config.json` file. This config file contain
 
 Select `01.run-experiment.ipynb` to open the notebook.
 
-To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. After the code for that cell finishes, a number appears.
+To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. After the code for that cell finishes, a number appears. 
 
-You might be prompted to sign in. Copy the code in the message. Then select the link, and paste the code into the new window. Be sure not to copy a space before or after the code. Sign in with the same account you used in the Azure portal.
-
- ![Log in](./media/quickstart-get-started/login.png)
-
-In the notebook, the second cell reads from `config.json` to connect to your workspace.
-```
-ws = Workspace.from_config()
-```
-
-The third cell of code starts an experiment with the name "my-first-experiment." Use this name to look up information about the run back in your workspace.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-In the last cell of the notebook, notice the values that are written to a log file.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-You can view these values in your workspace after the code runs.
+After you've completed running all of the cells in the notebook, you can view the logged values in your workspace.
 
 ## View logged values
 
@@ -114,11 +93,11 @@ See information about the run you just performed. Scroll down the page to find t
 
  ![Run history link](./media/quickstart-get-started/report.png)
 
-You see plots that were automatically created of the logged values.  
+You see plots that were automatically created of the logged values. Whenever you log multiple values with the same name parameter, a plot is automatically generated for you.
 
    ![View history](./media/quickstart-get-started/plots.png)
 
-Since the code to approximate pi uses random values, your plots will show different values.
+Since the code to approximate pi uses random values, your plots will show different values.  
 
 ## Clean up resources 
 

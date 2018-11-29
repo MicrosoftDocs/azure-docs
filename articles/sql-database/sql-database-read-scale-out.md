@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/19/2018
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
@@ -25,7 +25,7 @@ Each database in the Premium tier ([DTU-based purchasing model](sql-database-ser
 
 These replicas are provisioned with the same compute size as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
-To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) method.
+To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) method.
 
 After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
@@ -112,7 +112,7 @@ Body:
 }
 ```
 
-For more information, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate).
+For more information, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
 ## Using Read Scale-Out with geo-replicated databases
 
@@ -124,4 +124,4 @@ If you are using read scale-out to load balance read-only workloads on a databas
 ## Next steps
 
 - For information about using PowerShell to set read scale-out, see the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets.
-- For information about using the REST API to set read scale-out, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate).
+- For information about using the REST API to set read scale-out, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).

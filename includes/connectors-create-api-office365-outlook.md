@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 #### Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An [Office 365](https://office365.com) account  

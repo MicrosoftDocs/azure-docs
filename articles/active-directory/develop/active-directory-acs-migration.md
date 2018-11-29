@@ -1,5 +1,5 @@
 ---
-title: Migrate from the Azure Access Control service | Microsoft Docs
+title: Migrate from the Azure Access Control Service | Microsoft Docs
 description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
@@ -19,7 +19,7 @@ ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ---
 
-# How to: Migrate from the Azure Access Control service
+# How to: Migrate from the Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
@@ -109,7 +109,7 @@ As of November 2017, all Access Control components are fully supported and opera
 
 Here's the schedule for deprecating Access Control components:
 
-- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
+- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `https://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
 - **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://\<namespace\>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
 - **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
@@ -135,7 +135,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | Azure Backup | [Upgrade the Azure Backup agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
-<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
 <!-- Exchange push notifications are moving, customers don't need to move -->
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
@@ -221,7 +221,7 @@ To use WS-Federation or WIF to integrate with Azure AD, we recommend following t
 
 An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions for setting up WS-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and don't require an Azure AD Premium license. 
 
-If you choose this approach, you need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
+If you choose this approach, you need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
 
 If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](https://aka.ms/aaddev).
 

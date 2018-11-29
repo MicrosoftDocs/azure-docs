@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
 
 ---
@@ -58,6 +58,19 @@ When you enable replication for a virtual machine either starting [from the virt
 
 > [!Note] 
 > Both the options will notify you of the automation account that is used for managing the updates. If you are enabling this feature for the first time in a vault, a new automation account will be created. All subsequent enable replications in the same vault will use the previously created one.
+
+### Manage manually
+
+1. If there are new updates available for the Mobility Service installed on your Azure VMs, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
+
+     ![Replicated items window](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Select the notification to open the virtual machine selection page.
+4. Select the virtual machines you want to upgrade mobility service on, and select **OK**.
+
+     ![Replicated items VM list](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+The Update Mobility Service job starts for each of the selected virtual machines.
+
 
 ## Common issues & troubleshooting
 

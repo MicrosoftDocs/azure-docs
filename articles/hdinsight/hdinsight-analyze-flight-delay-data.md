@@ -1,22 +1,22 @@
 ---
-title: Analyze flight delay data with Hadoop in HDInsight - Azure 
+title: Analyze flight delay data with Apache Hadoop in HDInsight - Azure 
 description: Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Analyze flight delay data by using Hive in HDInsight
-Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.
+# Analyze flight delay data by using Apache Hive in HDInsight
+[Apache Hive](https://hive.apache.org/) provides a means of running [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.
 
 > [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 One of the major benefits of Azure HDInsight is the separation of data storage and compute. HDInsight uses Azure Blob storage for data storage. A typical job involves three parts:
 
@@ -40,7 +40,7 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
 > [!NOTE]
-> The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### Prerequisites
 Before you begin this tutorial, you must have the following items:
@@ -75,7 +75,7 @@ The following table lists the files used in this tutorial:
 ## Create cluster and run Hive/Sqoop jobs
 Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to create a cluster for the job,
 and delete the job after the job is completed. The following script covers the whole process.
-For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].
+For more information on creating an HDInsight cluster and running Hive jobs, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision] and [Use Apache Hive with HDInsight][hdinsight-use-hive].
 
 **To run the Hive queries by Azure PowerShell**
 
@@ -87,7 +87,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -236,10 +236,10 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
 - - -
 
 ## <a id="appendix-a"></a>Appendix A - Upload flight delay data to Azure Blob storage
-Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-b)) requires some planning. The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job. You have two options:
+Uploading the data file and the [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script files (see [Appendix B](#appendix-b)) requires some planning. The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job. You have two options:
 
 * **Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.** Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.
-* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in [Create HDInsight cluster and run Hive/Sqoop jobs](#runjob) to link the Storage account as an additional Storage account. For instructions, see [Create Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
+* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in [Create HDInsight cluster and run Apache Hive/Sqoop jobs](#runjob) to link the Storage account as an additional Storage account. For instructions, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
 
 > [!NOTE]
 > The Blob storage path for the data file is hard coded in the HiveQL script file. You must update it accordingly.
@@ -358,7 +358,7 @@ The path tutorials/flightdelay/data is the virtual folder you created when you u
 - - -
 
 ## <a id="appendix-b"></a>Appendix B - Create and upload a HiveQL script
-Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file. This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell. Hive requires the HiveQL scripts to be stored in Azure Blob storage.
+Using Azure PowerShell, you can run multiple [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements one at a time, or package the HiveQL statement into a script file. This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell. Hive requires the HiveQL scripts to be stored in Azure Blob storage.
 
 The HiveQL script will perform the following:
 
@@ -368,7 +368,7 @@ The HiveQL script will perform the following:
 4. **Create the delays table**. It is helpful to clean up the data before further processing. This query creates a new table, *delays*, from the delays_raw table. Note that the TEMP columns (as mentioned previously) are not copied, and that the **substring** function is used to remove quotation marks from the data.
 5. **Compute the average weather delay and groups the results by city name.** It will also output the results to Blob storage. Note that the query will remove apostrophes from the data and will exclude rows where the value for **weather_delay** is null. This is necessary because Sqoop, used later in this tutorial, doesn't handle those values gracefully by default.
 
-For a full list of the HiveQL commands, see [Hive Data Definition Language][hadoop-hiveql]. Each HiveQL command must terminate with a semicolon.
+For a full list of the HiveQL commands, see [Apache Hive Data Definition Language][hadoop-hiveql]. Each [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) command must terminate with a semicolon.
 
 **To create a HiveQL script file**
 
@@ -448,7 +448,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -639,7 +639,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     catch{Connect-AzureRmAccount}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }
@@ -712,13 +712,13 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 5. Validate the script output. Make sure the script ran successfully.
 
 ## <a id="nextsteps"></a> Next steps
-Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database. To learn more, see the following articles:
+Now you understand how to upload a file to Azure Blob storage, how to populate an Apache Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) to an Azure SQL database. To learn more, see the following articles:
 
 * [Get started with HDInsight][hdinsight-get-started]
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Oozie with HDInsight][hdinsight-use-oozie]
-* [Use Sqoop with HDInsight][hdinsight-use-sqoop]
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Apache Hive with HDInsight][hdinsight-use-hive]
+* [Use Apache Oozie with HDInsight][hdinsight-use-oozie]
+* [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop]
+* [Use Apache Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -29,7 +29,7 @@ In this quickstart, you learn how to download the sign-in data for your tenant f
 You need:
 
 * An Azure Active Directory tenant, with a Premium license to view the sign-in activity report. 
-* A user, who is in the Security Administrator, Security Reader, Report Reader or Global Administrator role for the tenant. In addition, any user in the tenant can access their own sign-ins.
+* A user, who is in the **Security Administrator**, **Security Reader**, **Report Reader** or **Global Administrator** role for the tenant. In addition, any user in the tenant can access their own sign-ins.
 
 ## Quickstart: Download a sign-in report
 

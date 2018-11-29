@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/14/2018
 ms.author: sethm
 ms.reviewer: jeffgo
 
@@ -26,11 +26,11 @@ You can use Azure Resource Manager templates to deploy and provision all the res
 
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
 
-The following quickstart templates are available on [GitHub](http://aka.ms/azurestackgithub):
+The following quickstart templates are available on [GitHub](https://aka.ms/azurestackgithub):
 
 ## Deploy SharePoint Server (non-high-availability deployment)
 
-Use the PowerShell DSC extension to [create a SharePoint Server 2013 farm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) that includes the following resources:
+Use the PowerShell DSC extension to [create a SharePoint Server 2013 farm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) that includes the following resources:
 
 * A virtual network
 * Three storage accounts
@@ -41,7 +41,7 @@ Use the PowerShell DSC extension to [create a SharePoint Server 2013 farm](https
 
 ## Deploy AD (non-high-availability-deployment)
 
-Use the PowerShell DSC extension to [create an AD domain controller server](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) that includes the following resources:
+Use the PowerShell DSC extension to [create an AD domain controller server](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha) that includes the following resources:
 
 * A virtual network
 * One storage account
@@ -50,7 +50,7 @@ Use the PowerShell DSC extension to [create an AD domain controller server](http
 
 ## Deploy AD/SQL (non-high-availability-deployment)
 
-Use the PowerShell DSC extension to [create a SQL Server 2014 stand-alone server](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) that includes the following resources:
+Use the PowerShell DSC extension to [create a SQL Server 2014 stand-alone server](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha) that includes the following resources:
 
 * A virtual network
 * Two storage accounts
@@ -64,11 +64,11 @@ Use the PowerShell DSC extension to configure an existing virtual machine Local 
 
 ## Create a virtual machine from a user image
 
-[Create a virtual machine from a custom user image](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). This template also deploys a virtual network (with DNS), public IP address, and a network interface.
+[Create a virtual machine from a custom user image](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image). This template also deploys a virtual network (with DNS), public IP address, and a network interface.
 
 ## Basic virtual machine
 
-[Deploy a Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) that includes a virtual network (with DNS), public IP address, and a network interface.
+[Deploy a Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) that includes a virtual network (with DNS), public IP address, and a network interface.
 
 ## Cancel a running template deployment
 

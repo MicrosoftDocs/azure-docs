@@ -32,7 +32,7 @@ The diagram illustrates what you build in the tutorial.
 
 ## Prerequisites
 
-The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
@@ -116,7 +116,7 @@ Add the other SQL Server to the cluster.
 
 ### Add a cluster quorum file share
 
-In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](http://technet.microsoft.com/library/cc731739.aspx).
+In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Connect to the file share witness member server with a remote desktop session.
 
@@ -165,7 +165,7 @@ Next, set the cluster quorum.
 1. On **Select Quorum Witness**, click **Configure a file share witness**.
 
    >[!TIP]
-   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
+   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
 
 1. On **Configure File Share Witness**, type the path for the share you created. Click **Next**.
 
@@ -512,7 +512,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
 > [!TIP]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx).
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## Next steps
 

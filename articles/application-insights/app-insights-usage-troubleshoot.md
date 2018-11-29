@@ -3,17 +3,17 @@ title: Troubleshoot user behavior analytics tools in Azure Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.reviewer: daviste
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 
 ---
 # Troubleshoot user behavior analytics tools in Application Insights

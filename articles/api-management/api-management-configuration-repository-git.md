@@ -39,6 +39,8 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Access Git configuration in your service
 
 To view and configure your Git configuration settings, you can click the **Security** menu and navigate to the **Configuration repository** tab.
@@ -79,7 +81,7 @@ The following examples use the Git Bash tool from [Git for Windows](http://www.g
 Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the Azure portal.
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 Provide the user name and password when prompted.
@@ -87,7 +89,7 @@ Provide the user name and password when prompted.
 If you receive any errors, try modifying your `git clone` command to include the user name and password, as shown in the following example.
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
@@ -99,7 +101,7 @@ If this provides an error, try URL encoding the password portion of the command.
 Use the encoded password along with your user name and repository location to construct the git command.
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
 Once the repository is cloned, you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
@@ -115,7 +117,7 @@ git pull
 Before running `git pull` ensure that you are in the folder for your local repository. If you have just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## To push changes from your local repo to the server repo
@@ -185,7 +187,8 @@ The root `api-management` folder contains a `configuration.json` file that conta
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -195,10 +198,11 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 
 | Identity setting | Maps to |
 | --- | --- |
-| RegistrationEnabled |**Redirect anonymous users to sign-in page** checkbox |
+| RegistrationEnabled |Presence of **Username and password** identity provider |
 | UserRegistrationTerms |**Terms of use on user signup** textbox |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** checkbox |
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
+| RequireUserSigninEnabled |**Redirect anonymous users to sign-in page** checkbox |
 
 The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
 

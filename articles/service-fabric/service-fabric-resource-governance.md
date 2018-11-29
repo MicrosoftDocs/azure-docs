@@ -3,7 +3,7 @@ title: Azure Service Fabric resource governance for containers and services | Mi
 description: Azure Service Fabric allows you to specify resource limits for services running inside or outside containers.
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
+ms.author: twhitney, subramar
 ---
 
 # Resource governance 

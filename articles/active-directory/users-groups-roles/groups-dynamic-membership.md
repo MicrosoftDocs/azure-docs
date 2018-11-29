@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -313,7 +313,7 @@ The “All Devices” rule is constructed using single expression using the -ne 
 device.objectid -ne null
 ```
 
-### Extension properties and custom extension properties
+## Extension properties and custom extension properties
 
 Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
@@ -332,11 +332,13 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name.
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app.
 
 ## Rules for devices
 
-You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The following device attributes can be used.
+You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
+
+The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
@@ -347,14 +349,14 @@ You can also create a rule that selects device objects for membership in a group
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
+ deviceOwnership | Personal, Corporate, Unknown | (device.deviceOwnership -eq "Corporate")
  domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
- organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains “M365Managed”)
 
 ## Next steps
 

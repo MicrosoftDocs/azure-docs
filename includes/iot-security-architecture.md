@@ -10,35 +10,35 @@
  ms.custom: include file
 ---
 
-# Internet of Things security architecture
+# Internet of Things (IoT) security architecture
 
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning.
 
 ## Security starts with a threat model
 
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modeling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+Microsoft has long used threat models for its products and has made the company’s threat modeling process publicly available. The company experience demonstrates that the modeling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
 
 The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and leaves customers at risk.
 
 Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling inform and drive testing of your Internet of Things (IoT) solution.
 
-### When to threat model
+### When to do threat modeling
 
 [Threat modeling](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) offers the greatest value when you incorporate it into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn ultimately requires more work and a lot harder tradeoffs than threat modeling early on in the development.
 
-### What to threat model
+### What to consider for threat modeling
 
-You should threat model the solution as a whole and also focus in the following areas:
+You should look at the solution as a whole and also focus on the following areas:
 
 * The security and privacy features
 * The features whose failures are security relevant
 * The features that touch a trust boundary
 
-### Who threat models
+### Who performs threat modeling
 
 Threat modeling is a process like any other. It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
 
-### How to threat model
+### How to perform threat modeling
 
 The threat modeling process is composed of four steps; the steps are:
 
@@ -52,16 +52,21 @@ The threat modeling process is composed of four steps; the steps are:
 Three rules of thumb to keep in mind when building a threat model:
 
 1. Create a diagram out of reference architecture.
-1. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving. This approach helps ensure that you deep-dive in the right places.
-1. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it! Don’t feel you need to follow these steps slavishly.
+
+2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving. This approach helps ensure that you deep-dive in the right places.
+
+3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it! Don’t feel you need to follow these steps slavishly.
 
 #### Threats
 
 The four core elements of a threat model are:
 
 * Processes such as web services, Win32 services, and *nix daemons. Some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill-down in these areas is not possible.
+
 * Data stores (anywhere data is stored, such as a configuration file or database)
+
 * Data flow (where data moves between other elements in the application)
+
 * External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
 
 All elements in the architectural diagram are subject to various threats; this article the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
@@ -96,11 +101,11 @@ The components depicted within each boundary are also subjected to STRIDE, enabl
 
 The following sections discuss standard components typically found in these zones.
 
-### The Device Zone
+### The device zone
 
 The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
 
-### The Field Gateway Zone
+### The field gateway zone
 
 Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and has limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is.
 
@@ -130,7 +135,7 @@ Connected special-purpose devices have a significant number of potential interac
 
 As you explore the interaction patterns, look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
 
-## Threat modeling the Azure IoT reference architecture
+## Performing threat modeling for the Azure IoT reference architecture
 
 Microsoft uses the framework outlined previously to do threat modeling for Azure IoT. The following section uses the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modeling for IoT and how to address the threats identified. This example identifies four main areas of focus:
 
@@ -248,7 +253,7 @@ Every device and field gateway has some form of storage (temporary for queuing t
 
 A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure. A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is not a device control system or a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service.
+Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Follow [SDL](https://www.microsoft.com/sdl) process for designing and building this service.
 
 #### Services zone
 

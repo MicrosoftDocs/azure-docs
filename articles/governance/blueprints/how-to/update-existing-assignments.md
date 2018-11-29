@@ -4,7 +4,7 @@ description: Learn about the mechanism for updating an existing assignment in Az
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -20,11 +20,11 @@ an existing assignment, including:
 
 ## Updating assignments
 
-1. Launch the Azure Blueprints service in the Azure portal by clicking on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
 
 1. Select **Assigned Blueprints** from the page on the left.
 
-1. In the list of blueprints, left-click the blueprint assignment and then click the **Update Assignment** button OR right-click the blueprint assignment and select **Update Assignment**.
+1. In the list of blueprints, left-click the blueprint assignment. Then click the **Update Assignment** button OR right-click the blueprint assignment and select **Update Assignment**.
 
    ![Update assignment](../media/update-existing-assignments/update-assignment.png)
 
@@ -41,29 +41,32 @@ an existing assignment, including:
 ## Rules for updating assignments
 
 The deployment of the updated assignments follows a few important rules. These rules determine what
-happens to an existing resource depending on the requested change and the type of artifact resource being deployed or updated.
+happens to already deployed resources. The requested change and the type of artifact resource being
+deployed or updated determine which actions are taken.
 
 - Role Assignments
-  - If the role or the role assignee (user, group, or app) changes, a new role assignment is created. The previously deployed role assignment is left in place.
+  - If the role or the role assignee (user, group, or app) changes, a new role assignment is created. Role assignments previously deployed are left in place.
 - Policy Assignments
   - If the parameters of the policy assignment are changed, the existing assignment is updated.
-  - If the definition of the policy assignment are changed, a new policy assignment is created. The previously deployed policy assignment is left in place.
-  - If the policy assignment artifact is removed from the blueprint, the previously deployed policy assignment is left in place.
+  - If the definition of the policy assignment is changed, a new policy assignment is created. Policy assignments previously deployed are left in place.
+  - If the policy assignment artifact is removed from the blueprint, deployed policy assignments are left in place.
 - Azure Resource Manager templates
-  - The template is processed through Resource Manager as a **PUT**. As each resource type handles this differently, review the documentation for each included resource to determine the impact of this action when run by Blueprints.
+  - The template is processed through Resource Manager as a **PUT**. As each resource type handles this action differently, review the documentation for each included resource to determine the impact of this action when run by Blueprints.
 
 ## Possible errors on updating assignments
 
-When updating assignments, it is possible to make changes that break when executed. An example of
-this is changing the location of a resource group after it has already been deployed. Any change
-that are supported by [Azure Resource
-Manager](../../../azure-resource-manager/resource-group-overview.md) can be made, but any change
-that would result in an error through Azure Resource Manager will also result in the failure of the
-assignment.
+When updating assignments, it's possible to make changes that break when executed. An example is
+changing the location of a resource group after it has already been deployed. Any change that are
+supported by [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md)
+can be made, but any change that would result in an error through Azure Resource Manager will also
+result in the failure of the assignment.
 
-There is no limit on how many times an assignment can be updated. Thus, if an error occurs, either
-due to a bad parameter, an already existing object, or a change disallowed by Azure Resource
-Manager, determine the error and make another update to the assignment.
+There's no limit on how many times an assignment can be updated. If an error occurs, determine the
+error and make another update to the assignment.  Example error scenarios:
+
+- A bad parameter
+- An already existing object
+- A change not supported by Azure Resource Manager
 
 ## Next steps
 

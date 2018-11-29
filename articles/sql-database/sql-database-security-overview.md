@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/11/2018
+ms.date: 10/22/2018
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -26,7 +26,11 @@ For a complete overview of security features available on all flavors of SQL, se
 SQL Database secures your data by providing encryption for data in motion with [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest with [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 > [!IMPORTANT]
-> All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure portal), otherwise the connection does not verify the identity of the server and is susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Azure SQL Database enforces encryption (SSL/TLS) at all times for all connections, which ensures all data is encrypted "in transit" between the database and the client. This will happen irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
+>
+> In your application's connection string, ensure that you specify an encrypted connection and *not* to trust the server certificate (For the ADO.NET driver this is **Encrypt=True** and **TrustServerCertificate=False**). This helps to prevent your application from a man in the middle attack, by forcing the application to verify the server and enforcing encryption. If you obtain your connection string from the Azure portal, it will have the correct settings.
+>
+> For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 For other ways to encrypt your data, consider:
 
@@ -38,7 +42,7 @@ For other ways to encrypt your data, consider:
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, PII, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
-- Controlling access to, and hardening the security of, databases containing highly-sensitive data.
+- Controlling access to, and hardening the security of, databases containing highly sensitive data.
 - Helping meet data privacy standards and regulatory compliance requirements.
 
 For more information, see [Get started with SQL DB Data Discovery & Classification](sql-database-data-discovery-and-classification.md).
@@ -72,7 +76,7 @@ Authorization refers to what a user can do within an Azure SQL Database, and thi
 
 ### Row-level security
 
-Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context). For more information, see [Row-Level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
+Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (for example, group membership or execution context). For more information, see [Row-Level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
 
 ### Dynamic data masking
 
@@ -84,11 +88,11 @@ SQL Database secures your data by providing auditing and threat detection capabi
 
 ### Auditing
 
-SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing.md).  
+SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see [Get started with SQL Database Auditing](sql-database-auditing.md).  
 
 ### Threat detection
 
-Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Threat Detection costs $15/server/month. It is free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
+Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Threat Detection costs $15/server/month. It is free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
 
 ## Compliance
 
@@ -98,7 +102,7 @@ In addition to the above features and functionality that can help your applicati
 
 SQL Database helps you manage your data security by providing database scans and a centralized security dashboard using [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
 
-**Vulnerability Assessment**: [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (currently in preview) is an easy to configure tool built into Azure SQL Database that can help you discover, track, and remediate potential database vulnerabilities. The assessment executes a vulnerability scan on your database, and generates a report that gives you visibility into your security state, including actionable steps to resolve security issues and enhance your database security. The assessment report can be customized for your environment, by setting an acceptable baseline for permission configurations, feature configurations, and database settings. This can help you to:
+**[SQL Vulnerability Assessment](sql-vulnerability-assessment.md)** is an easy to configure tool built into Azure SQL Database that can help you discover, track, and remediate potential database vulnerabilities. The assessment executes a vulnerability scan on your database, and generates a report that gives you visibility into your security state, including actionable steps to resolve security issues and enhance your database security. The assessment report can be customized for your environment, by setting an acceptable baseline for permission configurations, feature configurations, and database settings. This can help you to:
 
 - Meet compliance requirements that require database scan reports.
 - Meet data privacy standards.

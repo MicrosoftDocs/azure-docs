@@ -4,7 +4,7 @@ description: Azure Resource Graph is a service in Azure that enables complex que
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
@@ -15,13 +15,13 @@ ms.custom: mvc
 Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across
 all subscriptions and management groups so that you can effectively govern your environment. These
-queries provide the following capabilities:
+queries provide the following features:
 
 - Ability to query resources with complex filtering, grouping, and sorting by resource properties.
 - Ability to iteratively explore resources based on governance requirements and convert the resulting expression into a policy definition.
 - Ability to assess the impact of applying policies in a vast cloud environment.
 
-In this documentation, you'll go over each capability in detail.
+In this documentation, you'll go over each feature in detail.
 
 > [!NOTE]
 > Azure Resource Graph is used by Azure portal's new browse 'All resources' experience. It is
@@ -29,10 +29,10 @@ In this documentation, you'll go over each capability in detail.
 
 ## How does Resource Graph complement Azure Resource Manager
 
-Azure Resource Manager currently sends data to a limited resource cache that exposes several
-resource fields, specifically – Resource name, ID, Type, Resource Group, Subscriptions, and
-Location. Today, if you wanted to work with more resource properties, you would have to make calls
-to each individual resource provider and request property details for each resource.
+Azure Resource Manager currently sends data to a limited resource cache that makes available
+several resource fields, specifically – Resource name, ID, Type, Resource Group, Subscriptions, and
+Location. Previously, working with various resource properties required calls to each individual
+resource provider and request property details for each resource.
 
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider.
@@ -50,18 +50,15 @@ Graph query language](./concepts/query-language.md). To browse resources, see [e
 
 ## Permissions in Azure Resource Graph
 
-To use Resource Graph, you must be authorized through [Role-based access
+To use Resource Graph, you must have appropriate rights in [Role-based access
 control](../../role-based-access-control/overview.md) (RBAC) with at least read access to the
-resources you want to query. If you don't have `read` permissions on the management group,
-subscription, resource group, or individual resource, it won't be returned in the results of a
-Resource Graph query.
+resources you want to query. Without at least `read` permissions to the Azure object or object
+group, results won't be returned.
 
 ## Running your first query
 
-Resource Graph supports both Azure CLI and Azure PowerShell. The query component is structured the
-same regardless of which language is used. Support for Azure Resource Graph isn't yet available by
-default in either SDK, so an extension or module must be loaded to provide the needed commands.
-Learn how to enable Resource Graph in [Azure
+Resource Graph supports both Azure CLI and Azure PowerShell. The query is structured the same for
+both languages. Learn how to enable Resource Graph in [Azure
 CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
 PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 

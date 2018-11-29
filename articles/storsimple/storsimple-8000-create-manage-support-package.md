@@ -89,7 +89,7 @@ To edit a support package before uploading it on the Microsoft Support site, fir
 #### To edit a support package in Windows PowerShell for StorSimple
 
 1. Generate a support package as described earlier, in [To create a support package in Windows PowerShell for StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Download the script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
+2. [Download the script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
 3. Import the Windows PowerShell module. Specify the path to the local folder in which you downloaded the script. To import the module, enter:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`

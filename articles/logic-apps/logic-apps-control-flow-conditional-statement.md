@@ -130,7 +130,7 @@ Here's the high-level code definition behind a conditional statement:
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on features and suggestions, visit the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

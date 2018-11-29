@@ -22,7 +22,7 @@ ms.author: cherylmc
 
 Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 This article walks you through configuring forced tunneling for virtual networks created using the classic deployment model. Forced tunneling can be configured by using PowerShell, not through the portal. If you want to configure forced tunneling for the Resource Manager deployment model, select classic article from the following dropdown list:
 
@@ -62,7 +62,7 @@ Verify that you have the following items before beginning configuration.
 ## Configure forced tunneling
 The following procedure will help you specify forced tunneling for a virtual network. The configuration steps correspond to the VNet network configuration file.
 
-```
+```xml
 <VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>

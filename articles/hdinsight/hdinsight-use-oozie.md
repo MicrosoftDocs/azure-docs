@@ -2,9 +2,9 @@
 title: Use Hadoop Oozie in HDInsight 
 description: Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -57,7 +57,7 @@ Before you begin this tutorial, you must have the following item:
 
 ## Define Oozie workflow and the related HiveQL script
 Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you use in this tutorial.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -112,7 +112,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
         <end name="end"/>
     </workflow-app>
-
+```
 There are two actions defined in the workflow. The start-to action is *RunHiveScript*. If the action runs successfully, the next action is *RunSqoopExport*.
 
 The RunHiveScript has several variables. You pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.
@@ -185,7 +185,7 @@ The PowerShell script in this section performs the following steps:
     To examine the OOzie job results, use Visual Studio or other tools to connect to the Azure SQL Database.
 
 Here is the script.  You can run the script from Windows PowerShell ISE. You only need to configure the first 7 variables.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -194,7 +194,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -237,7 +237,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     }
     #endregion
 
-    #region - Create Azure resouce group
+    #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
@@ -523,8 +523,8 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -564,7 +564,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **To re-run the tutorial**
 
@@ -574,7 +574,7 @@ To re-run the workflow, you must delete the following items:
 * The data in the log4jLogsCount table
 
 Here is a sample PowerShell script that you can use:
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -604,6 +604,7 @@ Here is a sample PowerShell script that you can use:
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## Next steps
 In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job by using PowerShell. To learn more, see the following articles:
@@ -641,7 +642,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

@@ -521,8 +521,8 @@ routing of all events from any source to any destination, providing:
 ### Azure Alerts
 - [Alerts offer a method of monitoring Azure services and allow you to configure conditions over data. Alerts also provide notifications when an alert condition matches the monitoring data.
 
-### Operations Management Suite (OMS)
-[Operations Management Suite (also known as OMS)](/azure/operations-management-suite/operations-management-suite-overview) is a collection of management services.
+### Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) is a collection of management services.
 
 -   Workspace is enabled for Security Center
 

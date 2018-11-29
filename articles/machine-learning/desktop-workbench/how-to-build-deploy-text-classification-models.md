@@ -433,7 +433,7 @@ Typically, you set the parameters before you fit a model.
 
 The following code samples show you how to train the model using the default pipeline and model parameters. 
 
-To see what parameters are included for "text_word_ngrams", use [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). This function returns the parameters such as lowercase, input_col, output_col and so on. 
+To see what parameters are included for "text_word_ngrams", use [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). This function returns the parameters such as lowercase, input_col, output_col and so on. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -622,7 +622,7 @@ Apply the trained text classifier on the test dataset to generate class predicti
 </div>
 
 ## Evaluate model performance
-The [evaluation module](https://docs.microsoft.com/python/api/tatk.evaluation) evaluates the accuracy of the trained text classifier on the test dataset. The evaluate function generates a confusion matrix and provides a macro-F1 score.
+The [evaluation module](/python/api/msft-tatk/tatk.evaluation) evaluates the accuracy of the trained text classifier on the test dataset. The evaluate function generates a confusion matrix and provides a macro-F1 score.
 
 ```python
  text_classifier.evaluate(df_test)          

@@ -3,7 +3,7 @@ title: Create and manage a Windows VM in Azure using Python | Microsoft Docs
 description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: cynthn
+ms.author: zarhoads
 ---
 
 # Create and manage Windows VMs in Azure using Python
@@ -49,7 +49,7 @@ You should see in the output windows that the azure packages were successfully i
 
 ## Create credentials
 
-Before you start this step, make sure that you have an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 1. Open *myPythonProject.py* file that was created, and then add this code to enable your application to run:
 

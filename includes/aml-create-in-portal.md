@@ -34,7 +34,7 @@ In the **ML service workspace** pane, configure your workspace.
    Field|Description
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. Here we use docs-ws. Names must be unique across the resource group. Use a name that's easy to recall and differentiate from workspaces created by others.  
-   Subscription |Select the Azure subscription that you want to use. If you have more than one subscription, select the subscription that's used for billing.
+   Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. Here we use docs-aml. 
    Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
 

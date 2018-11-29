@@ -3,7 +3,7 @@ title: Monitor and diagnose Windows containers on Service Fabric in Azure | Micr
 description: In this tutorial, you configure Log Analytics for monitoring and diagnostics of Windows containers on Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: dekapur
+ms.author: twhitney, dekapur
 ms.custom: mvc
 
 ---
@@ -214,7 +214,7 @@ Clicking into any of these panels will take you to the Log Analytics query that 
 
 Another benefit of using the Log Analytics agent is the ability to change the performance counters you want to pick up through the Log Analytics UI experience, rather than having to configure the Azure diagnostics agent and do a Resource Manager template based upgrade each time. To do this, click on **OMS Workspace** on the landing page of your Container Monitoring (or Service Fabric) solution.
 
-This will take you to your Log Analytics Workspace, where you can view your solutions, create custom dashboards, as well as configure the Log Analytics agent. 
+This will take you to your Log Analytics workspace, where you can view your solutions, create custom dashboards, as well as configure the Log Analytics agent. 
 * Click on **Advanced Settings** to open the Advanced Settings menu.
 * Click on **Connected Sources** > **Windows Servers** to verify that you have *5 Windows Computers Connected*.
 * Click on **Data** > **Windows Performance Counters** to search for and add new performance counters. Here you will see a list of recommendations from Log Analytics for performance counters you can collect as well as the option to search for other counters. Verify that **Processor(_Total)\% Processor Time** and **Memory(*)\Available MBytes** counters are being collected.

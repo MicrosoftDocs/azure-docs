@@ -11,21 +11,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
 
 # Tutorial: Use condition in Azure Resource Manager templates
 
-Learn how to deploy Azure resources based on conditions. 
+Learn how to deploy Azure resources based on conditions.
 
-The scenario used in this tutorial is similar to the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In that tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Instead of creating a new storage account, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
+In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a quickstart template
+> * Open a QuickStart template
 > * Modify the template
 > * Deploy the template
 > * Clean up resources
@@ -36,7 +36,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
@@ -49,14 +55,25 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+4. There are five resources defined by the template:
+
+    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Modify the template
 
 Make two changes to the existing template:
 
-* Add a parameter used to provide a storage account name. This parameter gives user the option to specify an existing storage account name. It can be also used as the new storage account name.
+* Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
 * Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
+
+Here is the procedure to make the changes:
 
 1. Open **azuredeploy.json** in Visual Studio Code.
 2. Replace **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.  There are three appearances of **variables('storageAccountName')**.
@@ -68,11 +85,15 @@ Make two changes to the existing template:
 4. Add the following two parameters to the template:
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     The updated parameters definition looks like:
@@ -82,7 +103,7 @@ Make two changes to the existing template:
 5. Add the following line to the beginning of the storage account definition.
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     The condition checks the value of a parameter called **newOrExisting**. If the parameter value is **new**, the deployment creates the storage account.
@@ -90,28 +111,41 @@ Make two changes to the existing template:
     The updated storage account definition looks like:
 
     ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. Update **storageUri** with the following value:
 
-6. Save the changes.
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    ```
+
+    This change is necessary when you use an existing storage account under a different resource group.
+
+7. Save the changes.
 
 ## Deploy the template
 
 Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to deploy the template.
 
-When you deploy the template using Azure PowerShell, you need to specify one additional parameter:
+When you deploy the template using Azure PowerShell, you need to specify one additional parameter. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-$vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin `
+    -adminPassword $vmPassword `
+    -dnsLabelPrefix $dnsLabelPrefix `
+    -storageAccountName $storageAccountName `
+    -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]
@@ -130,7 +164,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop a template that allows users to choose between creating a new storage account and using an existing storage account. The virtual machine created in this tutorial requires an administrator username and password. Instead of passing the password during the deployment, you can pre-store the password using Azure Key Vault, and retrieve the password during the deployment. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
+In this tutorial, you developed a template that allows users to choose between creating a new storage account and using an existing storage account. To learn how to retrieve secrets from Azure Key Vault, and use the secrets as passwords in the template deployment, see:
 
 > [!div class="nextstepaction"]
 > [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)

@@ -4,7 +4,7 @@ description: Use Visual Studio 2017 to develop and debug C# module for Azure IoT
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/24/2018
@@ -32,7 +32,7 @@ Because this article uses Visual Studio 2017 as the main development tool, insta
 
 After your Visual Studio 2017 is ready, you also need:
 
-- Download and install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) from Visual Studio marketplace to create IoT Edge project in Visual Studio 2017.
+- Download and install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) from Visual Studio marketplace to create IoT Edge project in Visual Studio 2017.
 - [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. You need to properly set the Docker CE running in Linux container mode or Windows container mode.
 - To set up local development environment to debug, run, and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal. Make sure your Azure IoT EdgeHub Dev Tool version is greater than 0.3.0.
 
@@ -49,7 +49,7 @@ After your Visual Studio 2017 is ready, you also need:
 
 1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed > Tools** and you can find **Azure IoT Edge** and **Cloud Explorer**.
 
-2. Note the installed version. You can compare this version with the latest version on Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools))
+2. Note the installed version. You can compare this version with the latest version on Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))
 
 3. If your version is older, update your tools in Visual Studio as shown in the following section.
 

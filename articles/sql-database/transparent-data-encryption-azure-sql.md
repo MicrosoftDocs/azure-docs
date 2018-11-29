@@ -107,17 +107,17 @@ To configure transparent data encryption through the REST API, you must be conne
 
 | Command | Description |
 | --- | --- |
-|[Create Or Update Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Adds an Azure Active Directory identity to a SQL Server instance (used to grant access to Key Vault)|
-|[Create Or Update Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Adds a Key Vault key to a SQL Server instance|
-|[Delete Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Removes a Key Vault key from a SQL Server instance|
-|[Get Server Keys](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Gets a specific Key Vault key from a SQL Server instance|
-|[List Server Keys By Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Gets the Key Vault keys for a SQL Server instance |
-|[Create Or Update Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Sets the transparent data encryption protector for a SQL Server instance|
-|[Get Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Gets the transparent data encryption protector for a SQL Server instance|
-|[List Encryption Protectors By Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Gets the transparent data encryption protectors for a SQL Server instance |
-|[Create Or Update Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Enables or disables transparent data encryption for a database|
-|[Get Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Gets the transparent data encryption configuration for a database|
-|[List Transparent Data Encryption Configuration Results](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Gets the encryption result for a database|
+|[Create Or Update Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Adds an Azure Active Directory identity to a SQL Server instance (used to grant access to Key Vault)|
+|[Create Or Update Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Adds a Key Vault key to a SQL Server instance|
+|[Delete Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Removes a Key Vault key from a SQL Server instance|
+|[Get Server Keys](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Gets a specific Key Vault key from a SQL Server instance|
+|[List Server Keys By Server](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Gets the Key Vault keys for a SQL Server instance |
+|[Create Or Update Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Sets the transparent data encryption protector for a SQL Server instance|
+|[Get Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Gets the transparent data encryption protector for a SQL Server instance|
+|[List Encryption Protectors By Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Gets the transparent data encryption protectors for a SQL Server instance |
+|[Create Or Update Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Enables or disables transparent data encryption for a database|
+|[Get Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Gets the transparent data encryption configuration for a database|
+|[List Transparent Data Encryption Configuration Results](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Gets the encryption result for a database|
 
 ## Next steps
 

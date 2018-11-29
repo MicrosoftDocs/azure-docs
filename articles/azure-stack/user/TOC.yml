@@ -43,6 +43,8 @@
         href: azure-stack-solution-cloud-burst.md
       - name: Create a geo-distributed app solution
         href: azure-stack-solution-geo-distributed.md
+      - name: Deploy a hybrid cloud solution
+        href: azure-stack-solution-hybrid-cloud.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
@@ -124,6 +126,8 @@
         href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
+      - name: Deploy Ethereum
+        href: azure-stack-ethereum.md
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
       - name: Add Kubernetes cluster

@@ -31,7 +31,7 @@ Azure Cosmos DB provides the following key capabilities for mobile app developer
 
 ![Azure Cosmos DB capabilities for mobile apps](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* Rich queries over schemaless data. Azure Cosmos DB stores data as schemaless JSON documents in heterogeneous collections. It offers [rich and fast queries](sql-api-sql-query.md) without the need to worry about schemas or indexes.
+* Rich queries over schemaless data. Azure Cosmos DB stores data as schemaless JSON documents in heterogeneous collections. It offers [rich and fast queries](how-to-sql-query.md) without the need to worry about schemas or indexes.
 * Fast throughput. It takes only a few milliseconds to read and write documents with Azure Cosmos DB. Developers can specify the throughput they need, and Azure Cosmos DB honors it with 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.
 * Limitless scale. Your Azure Cosmos DB collections [grow as your app grows](partition-data.md). You can start with small data size and throughput of hundreds of requests per second. Your collections or databases can grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
 * Globally distributed. Mobile app users are on the go, often across the world. Azure Cosmos DB is a [globally distributed database](distribute-data-globally.md). Click the map to make your data accessible to your users.
@@ -81,7 +81,7 @@ Follow these steps to modify the to-do list app to a multiuser to-do list app:
 
   4. Modify the app to authenticate to Resource Token Broker with Facebook, and request the resource tokens for the signed-in Facebook users. You can then access their data in the UserItems collection.  
 
-You can find a complete code sample of this pattern at [Resource Token Broker on GitHub](http://aka.ms/documentdb-xamarin-todouser). This diagram illustrates the solution:
+You can find a complete code sample of this pattern at [Resource Token Broker on GitHub](https://aka.ms/documentdb-xamarin-todouser). This diagram illustrates the solution:
 
 ![Azure Cosmos DB users and permissions broker](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 
@@ -103,7 +103,7 @@ Congratulations. You have completed the solution and have a mobile app with Xama
 * View the source code for [Xamarin and Azure Cosmos DB on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Download the [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
 * Find more code samples for [.NET applications](sql-api-dotnet-samples.md).
-* Learn about [Azure Cosmos DB rich query capabilities](sql-api-sql-query.md).
+* Learn about [Azure Cosmos DB rich query capabilities](how-to-sql-query.md).
 * Learn about [geospatial support in Azure Cosmos DB](geospatial.md).
 
 

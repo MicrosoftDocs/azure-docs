@@ -367,6 +367,6 @@ The Kubernetes tools can be used to verify the newly created cluster.
 In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](http://aka.ms/terraform)  
- [Terraform Azure provider source](http://aka.ms/tfgit)  
- [Terraform Azure modules](http://aka.ms/tfmodules)
+ [Terraform Azure provider documentation](https://aka.ms/terraform)  
+ [Terraform Azure provider source](https://aka.ms/tfgit)  
+ [Terraform Azure modules](https://aka.ms/tfmodules)

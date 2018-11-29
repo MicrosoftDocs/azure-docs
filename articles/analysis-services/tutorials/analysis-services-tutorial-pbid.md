@@ -4,7 +4,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.

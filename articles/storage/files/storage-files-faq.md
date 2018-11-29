@@ -200,7 +200,7 @@ This article answers common questions about Azure Files features and functionali
     If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deploymnet to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.    
     
 * <a id="ad-support-subscription"></a>
-**Can I enable Azure AD authentication over SMB for Azure Files with an Azure AD tenant that is different from the primary tenant with which the file share is assoicated?**
+**Can I enable Azure AD authentication over SMB for Azure Files with an Azure AD tenant that is different from the primary tenant with which the file share is associated?**
 
     No, Azure Files only supports Azure AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
 

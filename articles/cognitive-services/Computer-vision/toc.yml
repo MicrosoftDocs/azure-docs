@@ -7,7 +7,7 @@
     href: Home.md
 - name: Quickstarts
   items:
-  - name: Using REST API
+  - name: Using the REST API
     items:
     - name: Analyze a remote image
       items:
@@ -89,7 +89,7 @@
         href: QuickStarts/php-domain.md
       - name: Python
         href: QuickStarts/python-domain.md
-  - name: Using .NET SDK
+  - name: Using the .NET SDK
     items:
     - name: Analyze an image
       href: quickstarts-sdk/csharp-analyze-sdk.md
@@ -139,6 +139,12 @@
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      href: computer-vision-how-to-install-containers.md
+    - name: Configure containers
+      href: computer-vision-resource-container-config.md
   - name: Use the Computer Vision Connected Service
     href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
@@ -173,15 +179,15 @@
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
-  - name: Pricing
+  - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Category taxonomy
     href: Category-Taxonomy.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services

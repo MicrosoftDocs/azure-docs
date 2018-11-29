@@ -2,7 +2,7 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: About SQL DB
+  - name: What is SQL DB
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md  
@@ -58,20 +58,22 @@
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+    - name: R
+      href: sql-database-connect-query-r.md
 - name: Tutorials
   items:
   - name: 1 - Design DB using SSMS
     href: sql-database-design-first-database.md
   - name: 2 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 3 - Migrate to SQL Server DB using DMA
-    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - Migrate to a single Azure SQL database using DMS
+    href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
   - name: 4 - Secure your SQL DB
     href: sql-database-security-tutorial.md
   - name: 5 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: 6 - Migrate to a Managed Instance using DMS
-    href: ../dms/tutorial-sql-server-to-managed-instance.md
+    href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: 7 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
@@ -139,32 +141,36 @@
   - name: Managed instances
     items:
     - name: Managed instances
+      href: sql-database-managed-instance-index.yml
+    - name: Overview
       href: sql-database-managed-instance.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
-    - name: VNet configuration
-      href: sql-database-managed-instance-vnet-configuration.md
-    - name: Custom DNS
-      href: sql-database-managed-instance-custom-dns.md
-    - name: Sync network configuration
-      href: sql-database-managed-instance-sync-network-configuration.md
-    - name: Connectivity architecture
-      href: sql-database-managed-instance-connectivity-architecture.md
-    - name: Connect applications
-      href: sql-database-managed-instance-connect-app.md
+    - name: VNet Integration
+      items:
+      - name: VNet configuration
+        href: sql-database-managed-instance-vnet-configuration.md
+      - name: Custom DNS
+        href: sql-database-managed-instance-custom-dns.md
+      - name: Sync network configuration
+        href: sql-database-managed-instance-sync-network-configuration.md
+      - name: Connectivity architecture
+        href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Connect applications
+        href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
       href: replication-with-sql-database-managed-instance.md
-  - name: Business continuity
+  - name: Platform as a Service
     items:
+    - name: Platform as a Service
+      href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
     - name: High availability
       href: sql-database-high-availability.md
-    - name: Accelerated database recovery
-      href: sql-database-accelerated-database-recovery.md
-    - name: Database backups
+    - name: Automated backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       items:
@@ -186,6 +192,8 @@
       items:
       - name: Recovery using backups
         href: sql-database-recovery-using-backups.md
+      - name: Accelerated database recovery
+        href: sql-database-accelerated-database-recovery.md
       - name: Outage recovery guidance
         href: sql-database-disaster-recovery.md
       - name: Recovery drills
@@ -201,6 +209,8 @@
   - name: Security   
     items:
     - name: Security
+      href: sql-database-security-index.yml
+    - name: Overview
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
@@ -322,39 +332,37 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Performance and monitoring
+  - name: Monitoring and performance tuning
     items:
-    - name: Intelligent performance   
+    - name: Monitoring and tuning overview
+      href: sql-database-monitor-tune-overview.md
+    - name: Intelligent performance
       items:
-      - name: Querying
+      - name: Tuning advisors
         items:
-        - name: Intelligent query processing
-          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-        - name: Adaptive query processing
-          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: Monitoring and tuning
-        items:
-        - name: Monitoring and tuning overview
-          href: sql-database-monitor-tune-overview.md
-        - name: Database advisor performance recommendations
-          href: sql-database-advisor.md
         - name: Tuning actions and recommendations
           href: sql-database-performance.md
+        - name: Query Performance Insight
+          href: sql-database-query-performance.md
+        - name: Database advisor performance recommendations
+          href: sql-database-advisor.md
         - name: Apply performance recommendations
           href: sql-database-advisor-portal.md
-      - name: Intelligent Insights
+      - name: Advanced monitoring
         items:
-        - name: Intelligent Insights overview
-          href: sql-database-intelligent-insights.md
-        - name: Diagnostic logging
+        - name: Azure SQL Analytics monitoring
+          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
+        - name: Diagnostic telemetry logging
           href: sql-database-metrics-diag-logging.md
-        - name: Use the diagnostics log
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
-        - name: Performance troubleshooting
+      - name: Automated troubleshooting
+        items:
+        - name: Intelligent insights into performance
+          href: sql-database-intelligent-insights.md
+        - name: Troubleshoot performance with Intelligent Insights
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Query Performance Insight
-        href: sql-database-query-performance.md
-      - name: Automatic performance tuning
+        - name: Use Intelligent Insights diagnostics log
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+      - name: Automatic tuning
         items:
         - name: Automatic tuning overview
           href: sql-database-automatic-tuning.md
@@ -362,11 +370,17 @@
           href: sql-database-automatic-tuning-enable.md
         - name: Enable E-mail notifications
           href: sql-database-automatic-tuning-email-notifications.md
+      - name: Intelligent query processing
+        items:
+        - name: Intelligent query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Adaptive query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: Manual tuning
       items:
       - name: Manual tuning
         href: sql-database-performance-guidance.md
-      - name: Use DMVs to monitor perf
+      - name: Use DMVs to monitor performance
         href: sql-database-monitoring-with-dmvs.md
       - name: Operate query store
         href: sql-database-operate-query-store.md
@@ -470,6 +484,8 @@
       items:
       - name: SQL Data Sync
         href: sql-database-sync-data.md
+      - name: Data Sync Agent
+        href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
         href: sql-database-update-sync-schema.md
       - name: Monitor with OMS
@@ -484,6 +500,8 @@
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
   - name: Manage file space
     href: sql-database-file-space-management.md
+  - name: Use Resource Health for connectivity issues
+    href: sql-database-resource-health.md
   - name: Develop apps
     items:
     - name: Connectivity
@@ -595,7 +613,7 @@
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://docs.microsoft.com/sql/tools/sqlpackage
+    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server drivers

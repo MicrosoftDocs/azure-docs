@@ -59,7 +59,7 @@ sections:
     text: 'Deploy applications across both Azure and Azure Stack.'
   - type: list
     style: ordered
-    items:
+    items: 
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Configure hybrid cloud identity with Azure and Azure Stack applications</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Configure hybrid cloud connectivity with Azure and Azure Stack</a>
@@ -67,6 +67,7 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Create a staged data analytics solution with Azure and Azure Stack </a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Create cross-cloud scaling solutions with Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Create a geo-distributed app solution with Azure and Azure Stack</a>
+    - html: <a href="azure-stack-solution-hybrid-cloud.md">Deploy a hybrid cloud solution with Azure and Azure Stack</a>
 - title: Reference
   items:
   - type: list

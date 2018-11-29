@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/11/2018
+ms.date: 11/21/2018
 ms.author: srrengar
 
 ---
@@ -46,9 +46,9 @@ If you are using Windows, continue with the following steps to connect Log Analy
 >[!NOTE]
 >Enabling this experience for Linux clusters is not yet available. 
 
-### Connect the Log Analytics Workspace to your cluster 
+### Connect the Log Analytics workspace to your cluster 
 
-1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the Log Analytics Workspace.
+1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the Log Analytics workspace.
 
 2. On the left navigation menu, under **Workspace Data Sources**, select **Storage accounts logs**.
 
@@ -69,7 +69,7 @@ The account now shows up as part of your storage account logs in your workspace'
 You have added the Service Fabric Analytics solution in an Log Analytics workspace that's now correctly connected to your cluster's platform and application log table. You can add additional sources to the workspace in the same way.
 
 
-## Deploy Log Analytics by using a Resource Manager template
+## Deploy Log Analytics with Azure Resource Manager
 
 When you deploy a cluster by using a Resource Manager template, the template creates a new Log Analytics workspace, adds the Service Fabric solution to the workspace, and configures it to read data from the appropriate storage tables.
 
@@ -77,7 +77,7 @@ You can use and modify [this sample template](https://github.com/Azure-Samples/s
 
 * Creates a 5 node Service Fabric cluster
 * Creates a Log Analytics workspace and Service Fabric solution
-* Configures the OMS Agent to collect and send 2 sample performance counters to the workspace
+* Configures the Log Analytics agent to collect and send 2 sample performance counters to the workspace
 * Configures WAD to collect Service Fabric and sends them to Azure storage tables (WADServiceFabric*EventTable)
 * Configures the Log Analytics workspace to read the events from these tables
 
@@ -90,7 +90,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 Azure Resource Manager detects that this command is an update to an existing resource. It only processes the changes between the template driving the existing deployment and the new template provided.
 
-## Deploy Log Analytics by using Azure PowerShell
+## Deploy Log Analytics with Azure PowerShell
 
 You can also deploy your Log Analytics resource via PowerShell by using the `New-AzureRmOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
 
@@ -123,6 +123,6 @@ When you're done, follow the steps in the preceding section to connect Log Analy
 You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Log Analytics using PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## Next steps
-* [Deploy the Log Analytics Agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
+* [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
 * [Use View Designer to create custom views in Log Analytics](../log-analytics/log-analytics-view-designer.md)

@@ -11,6 +11,21 @@
     href: kubernetes-walkthrough.md
   - name: Create an AKS cluster - Portal
     href: kubernetes-walkthrough-portal.md
+  - name: Develop applications
+    expanded: true
+    items:
+    - name: Use Java (VS Code & CLI)
+      href: ../dev-spaces/quickstart-java.md
+      maintainContext: true
+    - name: Use .NET Core (VS Code & CLI)
+      href: ../dev-spaces/quickstart-netcore.md
+      maintainContext: true
+    - name: Use .NET Core (Visual Studio 2017)
+      href: ../dev-spaces/quickstart-netcore-visualstudio.md
+      maintainContext: true
+    - name: Use Node.js (VS Code & CLI)
+      href: ../dev-spaces/quickstart-nodejs.md
+      maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -41,6 +56,22 @@
     href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
+  - name: Best practices
+    items:
+    - name: For cluster operators
+      items:
+      - name: Multi-tenancy and cluster isolation
+        href: operator-best-practices-cluster-isolation.md
+      - name: Basic scheduler features
+        href: operator-best-practices-scheduler.md
+      - name: Advanced scheduler features
+        href: operator-best-practices-advanced-scheduler.md
+      - name: Authentication and authorization
+        href: operator-best-practices-identity.md
+    - name: For application developers
+      items:
+      - name: Resource management
+        href: developer-best-practices-resource-management.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS
@@ -58,6 +89,8 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Process node OS updates
+      href: node-updates-kured.md
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
@@ -96,6 +129,8 @@
           href: http-application-routing.md
         - name: Use internal network
           href: ingress-internal-ip.md
+        - name: Use TLS with your own certificates
+          href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
           href: ingress-tls.md
           items:
@@ -120,21 +155,57 @@
       href: kubelet-logs.md
   - name: Develop and run applications
     items:
-    - name: Run applications with Helm
-      href: kubernetes-helm.md
     - name: Develop with Dev Spaces
       href: ../dev-spaces/azure-dev-spaces.md
       maintainContext: true
+      items:
+      - name: Java (VS Code & CLI)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-java.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-java.md
+          maintainContext: true
+      - name: .NET Core (VS Code & CLI)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-netcore.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-netcore.md
+          maintainContext: true
+      - name: .NET Core (Visual Studio 2017)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-netcore-visualstudio.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-netcore-visualstudio.md
+          maintainContext: true
+      - name: Node.js (VS Code & CLI)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-nodejs.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-nodejs.md
+          maintainContext: true
+    - name: Run applications with Helm
+      href: kubernetes-helm.md
     - name: Develop applications with Draft
       href: kubernetes-draft.md
-    - name: Open Service Broker for Azure
+    - name: Use Open Service Broker for Azure
       href: integrate-azure.md
-    - name: Using OpenFaaS
+    - name: Use OpenFaaS
       href: openfaas.md
     - name: Run Spark jobs
       href: spark-job.md
-    - name: Using GPUs
+    - name: Use GPUs
       href: gpu-cluster.md
+    - name: Use Azure Database for PostgreSQL
+      href: ../postgresql/concepts-aks.md
+      maintainContext: true
   - name: DevOps
     items:
     - name: Use Ansible to create AKS clusters

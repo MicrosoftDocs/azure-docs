@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
+ms.date: 11/06/2018
+ms.author: arindamc
 ---
 # Monitor cluster performance
 
-Monitoring the health and performance of an HDInsight cluster is essential for maintaining maximum performance and resource utilization. Monitoring can also help you address possible coding or cluster configuration errors.
+Monitoring the health and performance of an HDInsight cluster is essential for maintaining optimal performance and resource utilization. Monitoring can also help you detect and address cluster configuration errors and user code issues.
 
-The following sections describe how to optimize cluster loading, YARN queue efficiency, and storage accessibility.
+The following sections describe how to monitor and optimize the load on your clusters, YARN queues and detect storage throttling issues.
 
-## Cluster loading
+## Monitor cluster load
 
-Hadoop clusters should balance loading across the nodes of the cluster. This balancing prevents processing tasks from being constrained by RAM, CPU, or disk resources.
+Hadoop clusters can deliver the most optimal performance when the load on cluster is evenly distributed across all the nodes. This enables the processing tasks to run without being constrained by RAM, CPU, or disk resources on individual nodes.
 
-To get a high-level look at the nodes of your cluster and their loading, log in to the [Ambari Web UI](hdinsight-hadoop-manage-ambari.md), then select the **Hosts** tab. Your hosts are listed by their fully qualified domain names. Each host's operating status is shown by a colored health indicator:
+To get a high-level look at the nodes of your cluster and their loading, sign in to the [Ambari Web UI](hdinsight-hadoop-manage-ambari.md), then select the **Hosts** tab. Your hosts are listed by their fully qualified domain names. Each host's operating status is shown by a colored health indicator:
 
 | Color | Description |
 | --- | --- |
@@ -42,15 +42,15 @@ See [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-mana
 
 ## YARN queue configuration
 
-Hadoop has various services running across its distributed platform. YARN (Yet Another Resource Negotiator) coordinates these services, allocates cluster resources, and manages access to a common data set.
+Hadoop has various services running across its distributed platform. YARN (Yet Another Resource Negotiator) coordinates these services and allocates cluster resources to ensure that any load is evenly distributed across the cluster.
 
-YARN divides the two responsibilities of the JobTracker, resource management and job scheduling/monitoring, into two daemons: a global ResourceManager, and a per-application ApplicationMaster (AM).
+YARN divides the two responsibilities of the JobTracker, resource management and job scheduling/monitoring, into two daemons: a global Resource Manager, and a per-application ApplicationMaster (AM).
 
-The ResourceManager is a *pure scheduler*, and solely arbitrates available resources between all competing applications. The ResourceManager ensures that all resources are always in use, optimizing for various constants such as SLAs, capacity guarantees, and so forth. The ApplicationMaster negotiates resources from the ResourceManager, and works with the NodeManager(s) to execute and monitor the containers and their resource consumption.
+The Resource Manager is a *pure scheduler*, and solely arbitrates available resources between all competing applications. The Resource Manager ensures that all resources are always in use, optimizing for various constants such as SLAs, capacity guarantees, and so forth. The ApplicationMaster negotiates resources from the Resource Manager, and works with the NodeManager(s) to execute and monitor the containers and their resource consumption.
 
 When multiple tenants share a large cluster, there is competition for the cluster's resources. The CapacityScheduler is a pluggable scheduler that assists in resource sharing by queueing up requests. The CapacityScheduler also supports *hierarchical queues* to ensure that resources are shared between the sub-queues of an organization, before other applications' queues are allowed to use free resources.
 
-YARN allows us to allocate resources to these queues, and shows you whether all of your available resources are assigned. To view information about your queues, log in to the Ambari Web UI, then select **YARN Queue Manager** from the top menu.
+YARN allows us to allocate resources to these queues, and shows you whether all of your available resources are assigned. To view information about your queues, sign in to the Ambari Web UI, then select **YARN Queue Manager** from the top menu.
 
 ![YARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
@@ -58,13 +58,13 @@ The YARN Queue Manager page shows a list of your queues on the left, along with 
 
 ![YARN Queue Manager details page](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-For a more detailed look at your queues, from the Ambari dashboard, select the **YARN** service from the list on the left. Then under the **Quick Links** dropdown menu, select **ResourceManager UI** underneath your active node.
+For a more detailed look at your queues, from the Ambari dashboard, select the **YARN** service from the list on the left. Then under the **Quick Links** dropdown menu, select **Resource Manager UI** underneath your active node.
 
-![ResourceManager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Resource Manager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-In the ResourceManager UI, select **Scheduler** from the left-hand menu. You see a list of your queues underneath *Application Queues*. Here you can see the capacity used for each of your queues, how well the jobs are distributed between them, and whether any jobs are resource-constrained.
+In the Resource Manager UI, select **Scheduler** from the left-hand menu. You see a list of your queues underneath *Application Queues*. Here you can see the capacity used for each of your queues, how well the jobs are distributed between them, and whether any jobs are resource-constrained.
 
-![ResourceManager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## Storage throttling
 

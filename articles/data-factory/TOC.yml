@@ -158,6 +158,8 @@
       href: connector-azure-search.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
+    - name: Azure SQL Database Managed Instance
+      href: connector-azure-sql-database-managed-insance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
@@ -176,14 +178,14 @@
       href: connector-drill.md
     - name: Dynamics 365
       href: connector-dynamics-crm-office-365.md
+    - name: Dynamics AX
+      href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
     - name: File System
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
-    - name: GE Historian
-      href: connector-odbc.md#ge-historian-source
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
@@ -242,7 +244,7 @@
       href: connector-postgresql.md
     - name: Presto
       href: connector-presto.md
-    - name: QuickBooks
+    - name: QuickBooks Online
       href: connector-quickbooks.md
     - name: Salesforce
       href: connector-salesforce.md
@@ -404,6 +406,8 @@
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
+    - name: Shared self-hosted integration runtime
+      href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages with Execute SSIS Package activity

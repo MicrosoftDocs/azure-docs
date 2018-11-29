@@ -40,7 +40,7 @@ This tutorial is for developers who are familiar with the Azure Table storage SD
 
 If you currently use Azure Table storage, you gain the following benefits with Azure Cosmos DB Table API:
 
-- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](regional-failover.md)
+- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](high-availability.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
 - Support for [independent scaling of storage and throughput](partition-data.md), across any number of regions
 - Support for [dedicated throughput per table](request-units.md) that can be scaled from hundreds to millions of requests per second
@@ -288,7 +288,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. The additional functionality will be provided in the Table API in a future service update. See [Azure Cosmos DB query](sql-api-sql-query.md) for an overview of these capabilities. 
+Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. See [Azure Cosmos DB query](how-to-sql-query.md) for an overview of these capabilities. 
 
 ## Replace an entity
 To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. 

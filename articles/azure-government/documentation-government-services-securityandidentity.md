@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/20/2018
+ms.date: 11/01/2018
 ms.author: gsacavdm
 
 ---
@@ -130,7 +130,8 @@ The following features have known limitations in Azure Government:
     - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning. 
 
  - Limitations with Multi-factor Authentication: 
-   - Oath tokens, SMS, and Voice verification can be used as factors, though SMS and Voice traverse outside the Azure Government Cloud.
+   - Authenticator app OTP codes, SMS, and Voice verification can be used as factors, though SMS and Voice traverse outside the Azure Government Cloud.
+      - Hardware OATH tokens are not available in Azure Government.
    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user’s current IP address. 
 
  - Limitations with Azure AD Join: 
@@ -141,6 +142,12 @@ The following features have known limitations in Azure Government:
    
 ## Azure Multi-Factor Authentication
 For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../active-directory/authentication/multi-factor-authentication.md). 
+
+## Azure Information Protection
+
+Azure Information Protection Premium, part of the [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security) suite, is generally available in Azure Government.
+
+For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](https://docs.microsoft.com/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

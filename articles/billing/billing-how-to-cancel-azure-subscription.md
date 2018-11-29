@@ -4,7 +4,7 @@ description: Describes how to cancel your Azure subscription, like the Free Tria
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -40,7 +40,7 @@ If you cancel a paid Azure Support plan, you are still billed for the rest of th
 
 ## What happens after I cancel my subscription?
 
-Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation show in the portal.
+Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal.
 
 After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
@@ -54,6 +54,6 @@ If you cancel your Pay-As-You-Go subscription accidentally, you can [reactivate 
 
 If your subscription is not Pay-As-You-Go, contact support within 90 days of cancellation to reactivate your subscription.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

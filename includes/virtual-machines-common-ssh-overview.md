@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 04/16/2018
+ ms.date: 11/08/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -15,7 +15,7 @@ SSH is an encrypted connection protocol that allows secure sign-ins over unsecur
 
 * The *public key* is placed on your Linux VM, or any other service that you wish to use with public-key cryptography.
 
-* The *private key* is what you present to your Linux VM when you make an SSH connection, to verify your identity. Protect this private key. Do not share it.
+* The *private key* on you local system is used by an SSH client to verify your identity when you connect to your Linux VM. Protect this private key. Do not share it.
 
 Depending on your organization's security policies, you can reuse a single public-private key pair to access multiple Azure VMs and services. You do not need a separate pair of keys for each VM or service you wish to access. 
 

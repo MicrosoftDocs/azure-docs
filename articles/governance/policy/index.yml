@@ -61,4 +61,4 @@ sections:
     - title: PowerShell
       html: <p><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>
     - title: REST API
-      html: <p><a href="/rest/api/policy-insights/policyevents">Events</a></p><p><a href="/rest/api/policy-insights/policystates">States</a></p><p><a href="/rest/api/resources/policyassignments">Assignments</a></p><p><a href="/rest/api/resources/policydefinitions">Policy Definitions</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatives Definitions</a></p>
+      html: <p><a href="/rest/api/policy-insights/policyevents">Events</a></p><p><a href="/rest/api/policy-insights/policystates">States</a></p><p><a href="/rest/api/resources/policyassignments">Assignments</a></p><p><a href="/rest/api/resources/policydefinitions">Policy Definitions</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatives Definitions</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Policy Tracked Resources</a></p><p><a href="/rest/api/policy-insights/remediations">Remediations</a></p>

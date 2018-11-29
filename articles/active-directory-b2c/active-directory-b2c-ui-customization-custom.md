@@ -1,6 +1,6 @@
 ---
-title: Customize a UI by using custom policies in Azure Active Directory B2C | Microsoft Docs
-description: Learn about customizing a user interface (UI) while you use custom policies in Azure AD B2C.
+title: Customize the user interface of your application using a custom policy in Azure Active Directory B2C | Microsoft Docs
+description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,11 +8,11 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
 ---
-# Azure Active Directory B2C: Configure UI customization in a custom policy
+# Customize the user interface of your application using a custom policy in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -20,7 +20,7 @@ After you complete this article, you will have a sign-up and sign-in custom poli
 
 ## Prerequisites
 
-Before you begin, complete [Getting started with custom policies](active-directory-b2c-get-started-custom.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+Complete the steps in [Get started with custom policies](active-directory-b2c-get-started-custom.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
 ## Page UI customization
 
@@ -94,17 +94,13 @@ To create a public container in Blob storage, do the following:
 
 Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
->[!NOTE]
->Want to try out the UI customization feature by using our sample HTML and CSS content? We've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures our sample content on your Blob storage account. If you use the tool, skip ahead to [Modify your sign-up or sign-in custom policy](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. On the **Storage** blade, under **Settings**, open **CORS**.
-2. Click **Add**.
-3. For **Allowed origins**, type an asterisk (\*).
-4. In the **Allowed verbs** drop-down list, select both **GET** and **OPTIONS**.
-5. For **Allowed headers**, type an asterisk (\*).
-6. For **Exposed headers**, type an asterisk (\*).
-7. For **Maximum age (seconds)**, type **200**.
-8. Click **Add**.
+1. In the menu, select **CORS**.
+2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
+4. For **Allowed Headers**, enter an asterisk (*).
+5. For **Exposed Headers**, enter an asterisk (*).
+6. For **Max age**, enter 200.
+7. Click **Save**.
 
 ## Test CORS
 
@@ -114,27 +110,44 @@ Validate that you're ready by doing the following:
 2. Click **Send Request**.  
     If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
-## Modify your sign-up or sign-in custom policy
+## Modify the extensions file
 
-Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingBlocks\>* tag. Within the *\<BuildingBlocks\>* tags, add a *\<ContentDefinitions\>* tag by copying the following example. Replace *your_storage_account* with the name of your storage account.
+To configure UI customization, you copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. Open the base file of your policy. For example, *TrustFrameworkBase.xml*.
+2. Search for and copy the entire contents of the **ContentDefinitions** element.
+3. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
+4. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element. 
+5. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
+6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    Your custom policy should look like the following:
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Save the extensions file.
 
 ## Upload your updated custom policy
 
-1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then open the **Azure AD B2C** blade.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. Select **Identity Experience Framework**.
 2. Click **All Policies**.
 3. Click **Upload Policy**.
-4. Upload `SignUpOrSignin.xml` with the *\<ContentDefinitions\>* tag that you added previously.
+4. Upload the extensions file that you previously changed.
 
 ## Test the custom policy by using **Run now**
 

@@ -25,9 +25,9 @@ The following image shows the different kinds of Azure logs that are available:
 
 ![Different kinds of Azure logs](./media/logging/azurelogging.png)
 
-In the image, the **Compute resources** represent the Azure resources for which you can access the Microsoft Guest OS. For example, Azure Virtual Machines, virtual machine scale sets, Azure Container Service, and so on, are considered compute resources. Compute resources generate Activity Logs, Diagnostic Logs, and Application Logs. To learn more, refer to the [Sources of monitoring data in Azure](../monitoring/monitoring-data-sources.md#) article.
+In the image, the **Compute resources** represent the Azure resources for which you can access the Microsoft Guest OS. For example, Azure Virtual Machines, virtual machine scale sets, Azure Container Service, and so on, are considered compute resources. Compute resources generate Activity Logs, Diagnostic Logs, and Application Logs. To learn more, refer to the [Sources of monitoring data in Azure](../azure-monitor/platform/data-sources.md) article.
 
-The **Non-Compute resources** are resources in which you can't access the underlying OS and work directly with the resource. For example, Network Security Groups, Logic Apps, and so on. Azure Cosmos DB is a non-compute resource. You can view logs for non-compute resources in the Activity Log or enable the Diagnostic Logs option in the portal. To learn more, refer to the [Sources of data in Azure Monitor](../monitoring/monitoring-data-sources.md) article.
+The **Non-Compute resources** are resources in which you can't access the underlying OS and work directly with the resource. For example, Network Security Groups, Logic Apps, and so on. Azure Cosmos DB is a non-compute resource. You can view logs for non-compute resources in the Activity Log or enable the Diagnostic Logs option in the portal. To learn more, refer to the [Sources of data in Azure Monitor](../azure-monitor/platform/data-sources.md) article.
 
 The Activity Log records the operations at a subscription level for Azure Cosmos DB. Operations like ListKeys, Write DatabaseAccounts, and more are logged. Diagnostic Logs provide more granular logging and allow you to log DataPlaneRequests (Create, Read, Query, and so on) and MongoRequests.
 
@@ -352,11 +352,14 @@ Diagnostic Logs are made available in your account for two hours from the time t
 
 If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your container is forwarded to Log Analytics within two hours. When you look at Log Analytics immediately after you turn on logging, you won't see any data. Just wait two hours and try again. 
 
-Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics** on the far left, then select the workspace name as shown in the next image. The **OMS Workspace** page is displayed:
+Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics** on the far left, then select the workspace name as shown in the next image. The **Log Analytics workspace** page is displayed:
 
 ![Log Analytics in the Azure portal](./media/logging/azure-portal.png)
 
-If you see the following message on the **OMS Workspace** page, your workspace hasn't been upgraded to use the new language. For more information on how to upgrade to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>OMS workspaces are now referred to as Log Analytics workspaces.  
+
+If you see the following message on the **Log Analytics workspace** page, your workspace hasn't been upgraded to use the new language. For more information on how to upgrade to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Log Analytics upgrade message](./media/logging/upgrade-notification.png)
 

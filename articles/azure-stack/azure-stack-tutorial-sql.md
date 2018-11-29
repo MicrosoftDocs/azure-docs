@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 ---
@@ -59,30 +59,28 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
 - One VM (Windows Server 2016) configured as the file share witness for the cluster
 - One availability set containing the SQL and file share witness VMs  
 
-1. Sign in to the administration portal:
-    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://adminportal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Select **\+** **Create a resource** > **Custom**, and then **Template deployment**.
 
-   ![Custom template deployment](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Custom template deployment](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. On the **Custom deployment** blade, select **Edit template** > **Quickstart template** and then use the drop-down list of available custom templates to select the **sql-2016-alwayson** template, click **OK**, and then **Save**.
 
-   ![Select quickstart template](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Select quickstart template")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. On the **Custom deployment** blade, select **Edit parameters** and review the default values. Modify the values as necessary to provide all required parameter information and then click **OK**.<br><br> At a minimum:
 
     - Provide complex passwords for the ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD, and SQLAUTHPASSWORD parameters.
     - Enter the DNS Suffix for reverse lookup in all lowercase letters for the DNSSUFFIX parameter (**azurestack.external** for ASDK installations).
     
-    ![Custom deployment parameters](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Edit custom deployment parameters")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. On the **Custom deployment** blade, choose the subscription to use and create a new resource group or select an existing resource group for the custom deployment.<br><br> Next, select the resource group location (**local** for ASDK installations) and then click **Create**. The custom deployment settings will be validated and then the deployment will start.
 
-    ![Custom deployment parameters](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Create custom deployment")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. In the administration portal, select **Resource groups** and then the name of the resource group you created for the custom deployment (**resource-group** for this example). View the status of the deployment to ensure all deployments have completed successfully.<br><br>Next, review the resource group items and select the **SQLPIPsql\<resource group name\>** Public IP address item. Record the public IP address and full FQDN of the load balancer public IP. You will need to provide this to an Azure Stack Operator so they can create a SQL hosting server leveraging this SQL AlwaysOn availability group.
@@ -90,16 +88,16 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
    > [!NOTE]
    > The template deployment will take several hours to complete.
 
-   ![Custom deployment parameters](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Custom deployment complete](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### Enable automatic seeding
 After the template has successfully deployed and configured the SQL AlwaysON availability group, you must enable [automatic seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each instance of SQL Server in the availability group. 
 
 When you create an availability group with automatic seeding, SQL Server automatically creates the secondary replicas for every database in the group without any other manual intervention necessary to ensure high availability of AlwaysOn databases.
 
-Use these SQL commands to configure automatic seeding for the AlwaysOn availability group.
+Use these SQL commands to configure automatic seeding for the AlwaysOn availability group. Replace \<InstanceName\> with the primary instance SQL Server name and <availability_group_name> with the AlwaysOn availability group name as necessary. 
 
-On the primary SQL instance (replace <InstanceName> with the primary instance SQL Server name):
+On the primary SQL instance:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -110,7 +108,7 @@ On the primary SQL instance (replace <InstanceName> with the primary instance SQ
 
 >  ![Primary SQL instance script](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-On secondary SQL instances (replace <availability_group_name> with the AlwaysOn availability group name):
+On secondary SQL instances:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -152,9 +150,8 @@ After the SQL AlwaysOn availability group has been created, configured, and adde
 > [!NOTE]
 > Run these steps from the Azure Stack user portal as a tenant user with a subscription providing SQL Server capabilities (Microsoft.SQLAdapter service).
 
-1. Sign in to the user portal:
-    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Select **\+** **Create a resource** > **Data \+ Storage**, and then **SQL Database**.<br><br>Provide the required database property information including name, collation, maximum size, and the subscription, resource group, and location to use for the deployment. 
 

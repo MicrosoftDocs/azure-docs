@@ -43,13 +43,13 @@ Yes. Even when a machine is shut down backups work and the recovery point is mar
 Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't cancel a job if data transfer from snapshot is in progress**.
 
 ### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
-If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
 
 ### Does Backup policy take Daylight Saving Time(DST) into account?
 No. Be aware that date and time on your local computer is displayed in your local time and with your current daylight saving time bias. So the configured time for scheduled backups can be different from your local time due to DST.
 
 ### Maximum of how many data disks can I attach to a VM to be backed up by Azure Backup?
-Azure Backup now supports backup of virtual machines with up to 32 disks. To get 32 disk support, [upgrade to Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md). All the VMs enabling protection starting 24th Sept, 2018 will get supported.
+Azure Backup now supports backup of virtual machines with up to 16 disks. To get 16 disk support, [upgrade to Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md). All the VMs enabling protection starting 24th Sept, 2018 will get supported.
 
 ### Does Azure backup support Standard SSD managed disk?
 Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure Virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).

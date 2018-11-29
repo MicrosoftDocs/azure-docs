@@ -1,10 +1,11 @@
-﻿---
+---
 author: yashesvi
 ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09-05-2018
+ms.date: 09/05/2018
 ---
+
 # Prepay for Virtual Machines with Azure Reserved VM Instances
 
 Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
@@ -29,7 +30,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions:
   - Constrained vCPU sizes
   - VM Series: A-series, Av2-series, or G-series
   - VMs in Preview: Any VM-series or size that is in preview
-- Clouds: Reservations aren't available for purchase in the Azure US Government, Germany, or China regions.
+- Clouds: Reservations aren't available for purchase in Germany or China regions.
 - Insufficient quota: A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription has a quota limit of 10 vCPUs for D-Series, then you can't buy a reservation for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription has a quota of 10 vCPUs for D-Series and has two standard_D1 instances deployed, then you can buy a reservation for 10 standard_D1 instances in this subscription. 
 - Capacity restrictions: In rare circumstances, Azure limits the purchase of new reservations for subset of VM sizes, due to low capacity in a region.
 
@@ -81,6 +82,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

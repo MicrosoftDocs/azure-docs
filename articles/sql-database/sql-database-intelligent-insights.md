@@ -1,5 +1,5 @@
 ---
-title: Monitor database usage with Intelligent Insights - Azure SQL Database | Microsoft Docs
+title: Monitor database performance with Intelligent Insights - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance.
 services: sql-database
 ms.service: sql-database
@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
 ---
-# Intelligent Insights using artificial intelligence to monitor database usage
+# Intelligent Insights using AI to monitor and troubleshoot database performance
 
 Azure SQL Database Intelligent Insights lets you know what is happening with your SQL Database and Managed Instance database performance.
 
@@ -35,7 +35,7 @@ Intelligent Insights is a unique capability of Azure built-in intelligence that 
 
 Intelligent Insights analyzes database performance by comparing the database workload from the last hour with the past seven-day baseline workload. Database workload is composed of queries determined to be the most significant to the database performance, such as the most repeated and largest queries. Because each database is unique based on its structure, data, usage, and application, each workload baseline that is generated is specific and unique to an individual instance. Intelligent Insights, independent of the workload baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect performance.
 
-After a performance degradation issue is detected from multiple observed metrics by using artificial intelligence, analysis is performed. A diagnostics log is generated with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. Each detected issue is tracked through its lifecycle from initial issue detection and verification of performance improvement to its completion. Updates are provided in the diagnostics log every 15 minutes.
+After a performance degradation issue is detected from multiple observed metrics by using artificial intelligence, analysis is performed. A diagnostics log is generated with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. Each detected issue is tracked through its lifecycle from initial issue detection and verification of performance improvement to its completion.
 
 ![Database performance analysis workflow](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 

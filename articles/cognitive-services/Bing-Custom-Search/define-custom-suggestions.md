@@ -3,14 +3,14 @@ title: Define Custom Autosuggest suggestions - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Describes how to configure Custom Autosuggest with custom suggestions
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
+ms.author: maheshb
 ---
 
 # Configure your custom autosuggest experience
@@ -48,7 +48,7 @@ If you include Bing suggestions, you can add a list of search query strings you 
 
 
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 >[!NOTE]  
 >It may take up to 24 hours for Custom Autosuggest configuration changes to take effect.

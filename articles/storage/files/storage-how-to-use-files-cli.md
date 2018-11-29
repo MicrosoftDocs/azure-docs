@@ -1,33 +1,33 @@
 ---
-title: Manage Azure file shares using Azure CLI
-description: Learn how to use Azure CLI to manage Azure Files.
+title: Quickstart for managing Azure file shares using the Azure CLI
+description: Use this quickstart to learn how to use Azure CLI to manage Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 03/26/2018
+ms.topic: quickstart
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Manage Azure file shares using Azure CLI
-[Azure Files](storage-files-introduction.md) is the easy-to-use cloud file system from Microsoft. Azure file shares can be mounted in Windows, Linux, and macOS. This article walks you through the basics of working with Azure file shares by using Azure CLI. Learn how to: 
-
-> [!div class="checklist"]
-> * Create a resource group and a storage account
-> * Create an Azure file share 
-> * Create a directory
-> * Upload a file 
-> * Download a file
-> * Create and use a share snapshot
+# Quickstart: Create and manage Azure file shares using Azure CLI
+This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with the Azure CLI. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you decide to install and use Azure CLI locally, for the steps in this article, you must be running Azure CLI version 2.0.4 or later. Run **az --version** to find your Azure CLI version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+If you decide to install and use Azure CLI locally, for the steps in this article, you must be running Azure CLI version 2.0.4 or later. Run **az --version** to find your Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 By default, Azure CLI commands return JavaScript Object Notation (JSON). JSON is the standard way to send and receive messages from REST APIs. To facilitate working with JSON responses, some of the examples in this article use the *query* parameter on Azure CLI commands. This parameter uses the [JMESPath query language](http://jmespath.org/) to parse JSON. To learn more about how to use the results of Azure CLI commands by following the JMESPath query language, see the [JMESPath tutorial](http://jmespath.org/tutorial.html).
+
+## Sign in to Azure
+If you are using the Azure CLI locally, open a prompt and sign in to Azure if you haven't done so already.
+
+```bash 
+az login
+```
 
 ## Create a resource group
 A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group#create) command to create one. 
@@ -72,15 +72,26 @@ az storage share create \
     --name "myshare" 
 ```
 
-> [!IMPORTANT]  
-> Share names can contain only lowercase letters, numbers, and single hyphens (but they can't start with a hyphen). For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Share names can contain only lowercase letters, numbers, and single hyphens (but they can't start with a hyphen). For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## Work with the contents of an Azure file share
-Now that you have created an Azure file share, you can mount the file share by using SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share by using Azure CLI. The advantage of using Azure CLI instead of mounting the file share by using SMB is that all requests that are made with Azure CLI are made by using the File REST API. You can use the File REST API to create, modify, and delete files and directories in your file share from these locations:
+## Use your Azure file share
+Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and the [File REST protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
-- The Bash Azure Cloud Shell (which can't mount file shares over SMB)
-- Clients that can't mount SMB shares, such as on-premises clients that don't have port 445 unblocked
-- Serverless scenarios, such as in [Azure Functions](../../azure-functions/functions-overview.md)
+To mount a file share with SMB, see the following document based on your OS:
+- [Linux](storage-how-to-use-files-linux.md)
+- [macOS](storage-how-to-use-files-mac.md)
+- [Windows](storage-how-to-use-files-windows.md)
+
+### Using an Azure file share with the File REST protocol 
+It is possible work directly with the File REST protocol directly (i.e. handcrafting REST HTTP calls yourself), but the most common way to use the File REST protocol is to use the Azure CLI, the [AzureRM PowerShell module](storage-how-to-use-files-powershell.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice.  
+
+We expect most uses of Azure Files will want to work with their Azure file share over the SMB protocol, as this allows them to use the existing applications and tools they expect to be able to use, but there are several reasons why it is advantageous to use the File REST API rather than SMB, such as:
+
+- You are browsing your file share from the Azure Bash Cloud Shell (which cannot mount file shares over SMB).
+- You need to execute a script or application from a client which cannot mount an SMB shares, such as on-premises clients which do not have port 445 unblocked.
+- You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
+
+The following examples show how to use the AzureRM PowerShell module to manipulate your Azure file share with the File REST protocol. 
 
 ### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command:
@@ -171,13 +182,13 @@ az storage file list \
 
 Although the `az storage file copy start` command is convenient for file moves between Azure file shares and Azure Blob storage containers, we recommend that you use AzCopy for larger moves. (Larger in terms of the number or size of files being moved.) Learn more about [AzCopy for Linux](../common/storage-use-azcopy-linux.md) and [AzCopy for Windows](../common/storage-use-azcopy.md). AzCopy must be installed locally. AzCopy isn't available in Cloud Shell. 
 
-## Create and modify share snapshots
+## Create and manage share snapshots
 Another useful task that you can do with an Azure file share is create share snapshots. A snapshot preserves a point-in-time copy of an Azure file share. Share snapshots are similar to some operating system technologies that you might already be familiar with:
+
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems, such as NTFS and ReFS
-
-You can create a share snapshot by using the [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) command:
+ You can create a share snapshot by using the [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) command:
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -220,16 +231,13 @@ az storage file delete \
     --account-key $STORAGEKEY \
     --share-name "myshare" \
     --path "myDirectory/SampleUpload.txt"
-
-# Build the source URI for a snapshot restore
+ # Build the source URI for a snapshot restore
 URI=$(az storage account show \
     --resource-group "myResourceGroup" \
     --name $STORAGEACCT \
     --query "primaryEndpoints.file" | tr -d '"')
-
-URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
-
-# Restore SampleUpload.txt from the share snapshot
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
 az storage file copy start \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
@@ -283,7 +291,6 @@ Alternatively, you can remove resources individually.
     ```
 
 ## Next steps
-- [Manage file shares with the Azure portal](storage-how-to-use-files-portal.md)
-- [Manage file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Manage file shares with Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Plan for an Azure Files deployment](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [What is Azure Files?](storage-files-introduction.md)

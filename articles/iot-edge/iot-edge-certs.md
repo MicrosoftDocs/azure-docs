@@ -2,7 +2,7 @@
 title: Understand Azure IoT Edge certificates | Microsoft Docs 
 description: Learn about Azure IoT Edge certificates and how they are used.
 author: stevebus
-manager: timlt
+manager: philmea
 ms.author: stevebus
 ms.date: 09/13/2018
 ms.topic: conceptual
@@ -73,9 +73,9 @@ Because manufacturer and operator processes are separated, there are a few impli
 
 ## Dev/Test implications
 
-To ease development and test scenarios, Microsoft provides a set of [convenience scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario.
+To ease development and test scenarios, Microsoft provides a set of [convenience scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario. For examples of how the scripts work, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
 
-These scripts generate certificates that follow the certificate chain structure explained in this article. For [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) or [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). The following commands generate the "root CA certificate" and a single "intermediate CA certificate".
+These scripts generate certificates that follow the certificate chain structure explained in this article. The following commands generate the "root CA certificate" and a single "intermediate CA certificate".
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -119,6 +119,4 @@ You can see the hierarchy of certificate depth represented in the screenshot:
 
 [Understand Azure IoT Edge modules](iot-edge-modules.md)
 
-[Use an IoT Edge device as a transparent gateway (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Use an IoT Edge device as a transparent gateway (Windows)](how-to-create-transparent-gateway-windows.md)
+[Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)

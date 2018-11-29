@@ -31,7 +31,7 @@ Combining global and regional services in your application provides an end-to-en
 - Performance routing to send the requestor to the closest backend in terms of latency.
 - Priority routing to direct all traffic to a backend, with other backends as back up.
 - Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each backend.
-- Geographic routing to ensure that requestors located in specific geographic regions are directed to the backends mapped to those regions (for example, all requests from Spain should be directed to the US-East Azure region)
+- Geographic routing to ensure that requestors located in specific geographic regions are directed to the backends mapped to those regions (for example, all requests from Spain should be directed to the France Central Azure region)
 - Subnet routing that allows you to map IP address ranges to backends so that requests coming from those will be sent to the specified backend (for example, all users connecting from your corporate HQ’s IP address range should get different web content than the general users)
 
 The client connects directly to that backend. Azure Traffic Manager detects when a backend is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) documentation to learn more about the service.
@@ -55,7 +55,7 @@ When choosing a global load balancer between Traffic Manager and Azure Front Doo
 | --------------- | ------------------------ |
 |**Any protocol:** Because Traffic Manager works at the DNS layer, you can route any type of network traffic; HTTP, TCP, UDP, etc. | **HTTP acceleration:** With Front Door traffic is proxied at the Edge of Microsoft’s network.  Because of this, HTTP(S) requests see latency and throughput improvements reducing latency for SSL negotiation and using hot connections from AFD to your application.|
 |**On-premise routing:** With routing at a DNS layer, traffic always goes from point to point.  Routing from your branch office to your on-prem datacenter can take a direct path; even on your own network using Traffic Manager. | **Independent scalability:** Because Front Door works with the HTTP request, requests to different URL paths can be routed to different backend / regional service pools (microservices) based on rules and the health of each application microservice.|
-|**Billing format:** DNS-based billing scales with your users and for services with more users, plateaus to reduce cost a higher usage. |**Inline security:** Front Door enables rules such as rate limiting and IP ACL-ing to let you protect your backends before traffic reaches your application. 
+|**Billing format:** DNS-based billing scales with your users and for services with more users, plateaus to reduce cost at higher usage. |**Inline security:** Front Door enables rules such as rate limiting and IP ACL-ing to let you protect your backends before traffic reaches your application. 
 
 </br>Because of the performance, operability and security benefits to HTTP workloads with Front Door, we recommend customers use Front Door for their HTTP workloads.    Traffic Manager and Front Door can be used in parallel to serve all traffic for your application. 
 

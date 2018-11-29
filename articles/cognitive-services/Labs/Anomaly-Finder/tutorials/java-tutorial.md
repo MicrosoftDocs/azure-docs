@@ -25,7 +25,7 @@ The example submits the time series data to the Anomaly Detection API with your 
 ### Platform requirements
 
 This tutorial has been developed using [IntelliJ IDEA](https://www.jetbrains.com/idea). 
-And also you need to install [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) version 1.8+, and an up-to-date [Apache's Maven](http://maven.apache.org/) build tool.
+And also you need to install [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 1.8+, and an up-to-date [Apache's Maven](http://maven.apache.org/) build tool.
 
 ### Subscribe to Anomaly Detection and get a subscription key 
 

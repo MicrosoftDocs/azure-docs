@@ -4,14 +4,20 @@
   expanded: true
   items:
   - name: What is Azure Machine Learning service?
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md    
   - name: What's happening to Workbench?
+    displayName: desktop
     href: overview-what-happened-to-workbench.md 
 - name: Quickstarts
   items:
   - name: Get started - Portal
     href: quickstart-get-started.md
   - name: Get started - Python
+    displayName: create workspace
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
@@ -20,16 +26,17 @@
   - name: 'Deploy models: Part 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Train automated ML models 
+    displayName: automl
     href: tutorial-auto-train-models.md
 - name: Samples
   items:
   - name: Jupyter notebooks (GitHub)
-    href: http://aka.ms/aml-notebooks
+    displayName: example, examples
+    href: https://aka.ms/aml-notebooks
 - name: Concepts   
   items: 
-  - name: How the service works
-    href: concept-azure-machine-learning-architecture.md    
   - name: Model management
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md  
@@ -41,17 +48,18 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Choose an environment 
-      href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
     - name: VS Code Tools for AI
+      displayName: Visual Studio Code, vscode
       items:
       - name: Get started
         href: how-to-vscode-tools.md
       - name: Train and deploy        
         href: how-to-vscode-train-deploy.md
   - name: Prepare data
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md   
     items:
     - name: Load data
@@ -60,41 +68,47 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Access data
-    href: how-to-access-data.md
   - name: Train models
     items:    
-    - name: Set up training environments	
+    - name: Set up training environments
+      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
+    - name: Access data in training
+      href: how-to-access-data.md
     - name: Create estimators
       href: how-to-train-ml-models.md
       items:
       - name: PyTorch
         href: how-to-train-pytorch.md
       - name: TensorFlow
-        href: how-to-train-tensorflow.md
-    - name: Create and deploy ONNX models
-      href: how-to-build-deploy-onnx.md   
-  - name: Tune models
-    items:    
+        href: how-to-train-tensorflow.md  
     - name: Tune hyperparameters
+      displayName: parameter
       href: how-to-tune-hyperparameters.md    
     - name: Track experiments and metrics
       href: how-to-track-experiments.md
   - name: Automate machine learning
+    displayName: automl, auto ml
     href: how-to-automated-ml.md	
     items:
     - name: Configure auto training
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
       href: how-to-auto-train-remote.md
+  - name: ONNX models	
+    items:    
+    - name: Create and deploy
+      href: how-to-build-deploy-onnx.md   
   - name: Deploy models	
     items:    
     - name: Where to deploy models
+      displayName: publish
       href: how-to-deploy-and-where.md
     - name: Deploy to ACI
+      displayName: Azure Container Instances
       href: how-to-deploy-to-aci.md
     - name: Deploy to AKS
+      displayName: Azure Kubernetes
       href: how-to-deploy-to-aks.md
     - name: Deploy to FPGAs
       href: how-to-deploy-fpga-web-service.md  
@@ -104,24 +118,34 @@
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
       href: how-to-secure-web-service.md  
-  - name: Monitor models
+  - name: Consume web services
     items:  
-    - name: Collect data in production  
+    - name: Consume in real-time
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
+  - name: Monitor web services
+    items:  
+    - name: Collect and evaluate data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
+    displayName: limits
     href: how-to-manage-quotas.md
-  - name: Export and delete data
-    href: how-to-export-delete-data.md
+  - name: Use the Machine Learning CLI
+    displayName: cli, command line, command-line, az,
+    href: reference-azure-machine-learning-cli.md
 - name: Reference
   items:    
   - name: Machine learning SDK
-    href: http://aka.ms/aml-sdk
+    displayName: api, core, package
+    href: https://aka.ms/aml-sdk
   - name: Data prep SDK
-    href: http://aka.ms/data-prep-sdk
-  - name: Machine learning CLI
-    href: reference-azure-machine-learning-cli.md   
+    displayName: api, preparation, package
+    href: https://aka.ms/data-prep-sdk
+  - name: Monitoring SDK
+    displayName: api, package
+    href: https://aka.ms/aml-monitoring-sdk 
 - name: Resources
   items:  
   - name: Azure roadmap
@@ -130,19 +154,24 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Export or delete account data
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Release notes
+    displayName: what's new
     href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
+  - name: Export and delete data
+    displayName: gdpr    
+    href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
     - name: How to migrate
-      href: how-to-migrate.md             
-    - name: Workbench quickstart
+      displayName: Workbench, upgrade, update, transfer
+      href: how-to-migrate.md    
+    - name: Export or delete account data (deprecated)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+    - name: Workbench quickstart (deprecated)
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Prepare data'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
@@ -235,7 +264,7 @@
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: Deployment troubleshooting guide
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Real-world how-tos
+    - name: Old examples
       items:
       - name: Document collection analysis
         href: ../desktop-workbench/scenario-document-collection-analysis.md  
@@ -263,7 +292,7 @@
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: Deep Learning for Predictive Maintenance 
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Reference
+    - name: Old Reference
       items:
       - name: Python extensions for data preparation
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -301,12 +330,12 @@
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: Model data collection API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Key concepts
+    - name: Old concepts
       href: ../desktop-workbench/overview-general-concepts.md    
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    
-      - name: Computer vision package
+      - name: Computer vision package deprecated
         items:
         - name: Package install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
@@ -320,7 +349,7 @@
             href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
           - name: Improve model accuracy
             href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Forecasting package
+      - name: Forecasting package deprecated
         items:
         - name: Overview and install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
@@ -330,7 +359,7 @@
         href: reference-fpga-package-overview.md
       - name: Text analytics package
         items:
-        - name: Overview and install
+        - name: Overview and install deprecated
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     

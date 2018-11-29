@@ -149,7 +149,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackEvent(..)` in your app.
 
-If [sampling](app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvent | summarize sum(itemCount)`.
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
 

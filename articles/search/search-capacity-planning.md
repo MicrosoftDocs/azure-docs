@@ -13,7 +13,7 @@ ms.author: heidist
 # Allocate partitions and replicas for query and indexing workloads in Azure Search
 After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billing units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage.
 
-Resource configuration is available when you set up a service at the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For services at these tiers, capacity is purchased in increments of *search units* (SUs) where each partition and replica counts as one SU. 
+Resource configuration is available when you set up a service at the [Basic tier](https://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For services at these tiers, capacity is purchased in increments of *search units* (SUs) where each partition and replica counts as one SU. 
 
 Using fewer SUs results in a proportionally lower bill. Billing is in effect for as long as the service is set up. If you are temporarily not using a service, the only way to avoid billing is by deleting the service and then re-creating it when you need it.
 

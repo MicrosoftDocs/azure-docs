@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 ### <a name="server-auth"></a>How to: Authenticate with a provider (Server Flow)
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.

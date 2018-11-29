@@ -104,9 +104,9 @@ Microsoft uses the data only in order to provide the service to you.
 * No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
 
 ## How secure is my data?
-Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](https://go.microsoft.com/fwlink/?linkid=392408).
 
-The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408).
+The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
@@ -229,7 +229,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](app-insights-customer-data.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../log-analytics/log-analytics-personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.

@@ -1,11 +1,14 @@
 ---
 title: Support and help options
-description: Know how to obtain help and support for questions and problems when you create applications that integrate with Azure Cognitive Services Speech
+titlesuffix: Azure Cognitive Services
+description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma 
 ---
@@ -69,8 +72,41 @@ If you can't find an answer to your problem via search, submit a new question to
 
 Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following list contains links to the sample repositories:
 
-* [Speech SDK](https://aka.ms/csspeech/samples)
-* [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+You can create a bug report, feature request, or ask an general question and share best practices. For bug reports, please follow the provided template:
+
+**Describe the bug**
+
+A clear and concise description of what the bug is.
+
+**To Reproduce**
+
+Steps to reproduce the behavior:
+1. ...
+2. ...
+
+**Expected behavior**
+
+A clear and concise description of what you expected to happen.
+
+**Version of the Cognitive Services Speech SDK**
+
+Which version of the SDK are you using.
+
+**Platform, Operating System, and Programming Language**
+
+ - OS: [e.g. Windows, Linux, Android, iOS, ...] - please be specific
+ - Hardware - x64, x86, ARM, ...
+ - Browser  [e.g. Chrome, Safari] (if applicable)- please be specific
+
+**Additional context**
+
+ - Error messages, log information, stack trace, ...
+ - If you report an error for a specific service interaction, please report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
+ - Any other additional information
+
 
 ## UserVoice forum
 

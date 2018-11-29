@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -35,7 +35,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 * When installing the gateway, the user account you're signed in to your computer with must have Log on as service privileges. When install is complete, the On-premises data gateway service uses the NT SERVICE\PBIEgwService account to log on as a service. A different account can be specified during setup or in Services after setup is complete. Ensure Group Policy settings allow both the account you're signed in with when installing and the service account you choose have Log on as service privileges.
 * Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
-* The (unified) gateway described here is not supported in Azure Government, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. 
+* The (unified) gateway described here is not supported in Azure Germany regions. Instead, use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. 
 
 
 ## <a name="download"></a>Download

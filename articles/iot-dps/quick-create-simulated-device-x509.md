@@ -1,6 +1,6 @@
 ---
 title: This quickstart shows how to provision a simulated X.509 device to Azure IoT Hub using C | Microsoft Docs
-description: In this quickstart you create and provision a simulated X.509 device using C device SDK for Azure IoT Hub Device Provisioning Service
+description: This quickstart uses individual enrollments. In this quickstart, you create and provision a simulated X.509 device using C device SDK for Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/16/2018
@@ -18,7 +18,13 @@ ms.custom: mvc
 
 In this quickstart, you will learn how to create and run an X.509 device simulator on a Windows development machine. You will configure this simulated device to be assigned to an IoT hub using an enrollment with a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to simulate a boot sequence for the device. The device will be recognized based on the enrollment with the provisioning service and assigned to the IoT hub.
 
-If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
+If you're unfamiliar with the process of autoprovisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
+
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article will demonstrate individual enrollments.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

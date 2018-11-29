@@ -7,7 +7,7 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
 ---
 
@@ -23,8 +23,8 @@ The Resource Manager deployment model for the upgrade to virtual machine (VM) ba
 
 * Ability to use an unmanaged VM's original storage accounts, when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
     > [!NOTE]
-    > This ability is not the same as overriding the original VM.
-    >
+    > This ability is not same as replacing the disks of the VM with data from recovery point.
+
 
 ## What's changing in the new stack?
 Currently, the backup job consists of two phases:
@@ -50,7 +50,7 @@ By default, snapshots are kept for seven days. This feature allows the restore t
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 
 > [!NOTE]
-> Upgrade to Azure VM Backup stack V2 to get Azure Backup support for the [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) and virtual machines with up to 32 data disks.
+> Upgrade to Azure VM Backup stack V2 to get Azure Backup support for the [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## Upgrade
 ### The Azure portal
@@ -81,15 +81,42 @@ Run the following cmdlets from an elevated PowerShell terminal:
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### CLI
+Run the following commands from a shell:
+1.	Sign in to your Azure account:
+
+    ```
+    az login
+    ```
+
+2.	Select the subscription that you want to register:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.	Register this subscription:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## Verify that the upgrade is finished
+### PowerShell
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-If it says "Registered," then your subscription is upgraded to VM backup stack Resource Manager deployment model.
+### CLI
+From ashell, run the following command:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+If it says "Registered," then your subscription is upgraded to V2 backup stack.
 
 ## Frequently asked questions
 
@@ -114,4 +141,4 @@ Each day a new snapshot is taken. There are seven individual snapshots. The serv
 Incremental snapshots are used for unmanaged disks. For managed disks, restore point collection created by Azure Backup uses blob snapshots and hence are incremental.
 
 ### How to get standard SSD managed disk support for a virtual machine?
-Upgrade to Azure VM Backup stack V2 to get Azure Backup support for the [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Once upgraded, you can also backup virtual machines with up to 32 data disks.
+Upgrade to Azure VM Backup stack V2 to get Azure Backup support for the [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

@@ -3,7 +3,7 @@ title: Tutorial - Install applications in a scale set with Azure PowerShell | Mi
 description: Learn how to use Azure PowerShell to install applications into virtual machine scale sets with the Custom Script Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
-ms.author: cynthn
+ms.date: 11/08/2018
+ms.author: zarhoads
 ms.custom: mvc
 
 ---
@@ -37,13 +37,13 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
 
-The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+The Custom Script extension integrates with Azure Resource Manager templates. It can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
 
 To see the Custom Script Extension in action, create a scale set that installs the IIS web server and outputs the hostname of the scale set VM instance. The Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
 
 ## Create a scale set
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80. It also allows remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -97,8 +97,60 @@ Update-AzureRmVmss `
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
 
 
+## Allow traffic to application
+
+To allow access to the basic web application, create a network security group with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) and [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](virtual-machine-scale-sets-networking.md).
+
+```azurepowershell-interactive
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+            -ResourceGroupName "myResourceGroup" `
+            -VMScaleSetName "myScaleSet"
+
+#Create a rule to allow traffic over port 80
+$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+  -Name myFrontendNSGRule `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority 200 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 80 `
+  -Access Allow
+
+#Create a network security group and associate it with the rule
+$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+  -ResourceGroupName  "myResourceGroup" `
+  -Location EastUS `
+  -Name myFrontendNSG `
+  -SecurityRules $nsgFrontendRule
+
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName  "myResourceGroup" `
+  -Name myVnet
+
+$frontendSubnet = $vnet.Subnets[0]
+
+$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name mySubnet `
+  -AddressPrefix $frontendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgFrontend
+
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+
+
 ## Test your scale set
-To see your web server in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
+To see your web server in action, get the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example displays the IP address created in the *myResourceGroup* resource group:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
@@ -123,19 +175,15 @@ $customConfigv2 = @{
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension). The *customConfigv2* definition is used to apply the updated version of the application:
+Update the Custom Script Extension configuration to the VM instances in your scale set. The *customConfigv2* definition is used to apply the updated version of the application:
 
 ```azurepowershell-interactive
-# Reapply the Custom Script Extension to install the updated website
-$vmss = Add-AzureRmVmssExtension `
-  -VirtualMachineScaleSet $vmss `
-  -Name "customScript" `
-  -Publisher "Microsoft.Compute" `
-  -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.9 `
-  -Setting $customConfigv2
-
-# Update the scale set and reapply the Custom Script Extension to the VM instances
+$vmss = Get-AzureRmVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+ 
+$vmss.VirtualMachineProfile.ExtensionProfile[0].Extensions[0].Settings = $customConfigv2
+ 
 Update-AzureRmVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `

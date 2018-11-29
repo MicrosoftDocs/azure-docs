@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -77,29 +77,34 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|East US 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|East US 2     |     S8, S9   |    1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|West US     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
-|West US2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
+|West US     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|West US     |    S8, S9   |    2  |
+|West US2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|West US2    |    S8, S9  |    1     |
 
 ### Europe
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West Europe     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
+|UK South     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|West Europe    |   S8, S9  |  1  |
 
 ### Asia Pacific 
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
+|Australia East     |    B1, B2, S0, S1, S2, S4     |    3     |
+|Australia East     |    S8, S9    |    1     |
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Australia East     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
-|Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
@@ -180,10 +185,11 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### SQL Server Data Tools (SSDT) for Visual Studio
+### Visual Studio
 
 Develop and deploy models with the free [SQL Server Data Tools (SSDT) for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT includes Analysis Services project templates that get you up and going quickly. SSDT now includes the modern Get Data datasource query and mashup functionality for tabular 1400 models. If you're familiar with Get Data in Power BI Desktop and Excel 2016, you already know how easy it is to create highly customized data source queries. 
-Microsoft Analysis Services Projects are also available for Visual Studio as an installable package VSIX. [Download from Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+
+If you're using Visual Studio 2017, Microsoft Analysis Services Projects are available as a free installable VSIX package. [Download from Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### Sql Server Management Studio
 

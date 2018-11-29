@@ -29,7 +29,7 @@ When you create a virtual network gateway, you specify the gateway type that you
 
 Each virtual network can have two virtual network gateways, but only one of each type. Depending on the settings that you choose, you can create multiple connections to a single VPN gateway. An example is a Multi-Site connection configuration.
 
-Before you create and configure VPN Gateways for Azure Stack, review the [considerations for Azure Stack networking](/articles/azure-stack/user/azure-stack-network-differences.md) to learn how configurations for Azure Stack differ from Azure.
+Before you create and configure VPN Gateways for Azure Stack, review the [considerations for Azure Stack networking](user/azure-stack-network-differences.md) to learn how configurations for Azure Stack differ from Azure.
 
 >[!NOTE]
 >In Azure, the bandwidth throughput for VPN gateway SKU you choose must be divided across all the Connections that are connected to the gateway. But in Azure Stack, the bandwidth value for the VPN gateway SKU is applied to each Connection resource that is connected to the gateway.
@@ -113,6 +113,10 @@ The following table shows the gateway types and the estimated aggregate throughp
 *Note (1)* - VPN throughput isn't a guaranteed throughput for cross-premises connections across the Internet. It's the maximum possible throughput measurement.  
 *Note (2)* - Max tunnels is the total per Azure Stack deployment for ALL subscriptions.  
 *Note (3)* - BGP routing isn't supported for the Basic SKU.
+
+>[!NOTE]
+>Only one Site-to-Site VPN Connection can be created between two Azure Stack deployments.  This is due to a limitation in the platform that will only allow a single VPN connection to the same IP address.  Since Azure Stack leverages the multi-tenant gateway which uses a single Public IP for all VPN Gateways in the Azure Stack system, there can be only one VPN Connection between two Azure Stack systems.  This limitation also applies to connecting more than one Site-to-Site VPN connections to any VPN Gateway that uses a single IP address.  Azure Stack will not allow more than one Local Network Gateway resource to be created using the same IP address.
+
 
 ## Next steps
 

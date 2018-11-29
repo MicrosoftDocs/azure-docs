@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -27,7 +27,11 @@ Log Analytics allows you to query data to find particular events, analyze trends
  * Compare your Azure AD sign-in logs against security logs published by Azure Security Center
 
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.  
- 
+
+The following video from an Ignite session demonstrates the benefits of using Log Analytics for Azure AD logs in practical user scenarios.
+
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+
 In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Log Analytics using Azure Monitor.
 
 ## Supported reports

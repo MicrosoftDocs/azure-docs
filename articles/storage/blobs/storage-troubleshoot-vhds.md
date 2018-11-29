@@ -6,7 +6,7 @@ author: genlin
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---

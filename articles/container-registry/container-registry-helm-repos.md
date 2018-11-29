@@ -26,7 +26,7 @@ This article shows you how to use a Helm chart repository stored in Azure Contai
 To complete the steps in this article, the following pre-requisites must be met:
 
 - **Azure Container Registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client** to search and install charts. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and use Helm, see [Installing Helm][helm-install].
+- **Helm client version 2.11.0 (not an RC version) or later** - Run `helm version` to find your current version. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
 - **Azure CLI version 2.0.46 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Add a repository to Helm client

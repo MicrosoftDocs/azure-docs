@@ -69,13 +69,14 @@ To set up the appropriate permissions for password writeback to occur, complete 
 3. In the left panel, right-click the object that represents the root of the domain and select **Properties** > **Security** > **Advanced**.
 4. From the **Permissions** tab, select **Add**.
 5. Pick the account that permissions are being applied to (from the Azure AD Connect setup).
-6. In the **Applies to** drop-down list, select **Descendent user** objects.
+6. In the **Applies to** drop-down list, select **Descendant User objects**.
 7. Under **Permissions**, select the boxes for the following options:
-    * **Reset password**
     * **Change password**
+    * **Reset password**
+8. Under **Properties**, select the boxes for the following options:
     * **Write lockoutTime**
     * **Write pwdLastSet**
-8. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+9. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
 
 ## Next steps
 

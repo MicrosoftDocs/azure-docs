@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Dynamics CRM and Azure Application Insights | Microsoft Docs
 description: Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export.
 services: application-insights
@@ -35,11 +35,7 @@ To monitor your application, you add an Application Insights SDK to your applica
     ![Click +, Developer Services, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Choose ASP.NET as the application type.
-3. Open the Getting Started page and open "Monitor and diagnose client side".
-
-    ![Code snippet for insertion in your web page](./media/app-insights-sample-mscrm/03.png)
-
-**Keep the code page open** while you do the next step in another browser window. You'll need the code soon. 
+3. Follow the instructions to [get the JavaScript SDK script for your app](app-insights-javascript.md#set-up-application-insights-for-your-web-page), copy the JavaScript snippet and make sure to replace the Instrumentation Key with the correct value for your Application Insights resource.
 
 ### Create a JavaScript web resource in Microsoft Dynamics CRM
 1. Open your CRM Online instance and login with administrator privileges.
@@ -56,7 +52,7 @@ To monitor your application, you add an Application Insights SDK to your applica
     Give it a name, select **Script (JScript)** and open the text editor.
 
     ![Open the text editor](./media/app-insights-sample-mscrm/00004.png)
-2. Copy the code from Application Insights. While copying, make sure to ignore script tags. Refer below screenshot:
+2. Copy the code from the Application Insights JavaScript SDK in which you configured your Instrumentation Key before. While copying, make sure to ignore script tags. Refer to the screenshot below:
 
     ![Set your instrumentation key](./media/app-insights-sample-mscrm/000005.png)
 
@@ -136,4 +132,4 @@ You can do even deeper analysis if you [export the data to Microsoft Power BI](a
 ## Learn more
 * [What is Application Insights?](app-insights-overview.md)
 * [Application Insights for web pages](app-insights-javascript.md)
-* [More samples and walkthroughs](app-insights-code-samples.md)
+* [More samples and walkthroughs](app-insights-overview.md)

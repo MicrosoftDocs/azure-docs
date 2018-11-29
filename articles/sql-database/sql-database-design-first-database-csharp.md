@@ -11,18 +11,18 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 06/07/2018
+ms.date: 11/01/2018
 ---
-# Design an Azure SQL database and connect with C&#x23; and ADO.NET
+# Tutorial: Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to:
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
 > * Connect to the database with ADO.NET and Visual Studio
 > * Create tables with ADO.NET
-> * Insert, update, and delete data with ADO.NET 
+> * Insert, update, and delete data with ADO.NET
 > * Query data ADO.NET
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -37,13 +37,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## Next steps
 
@@ -60,4 +58,3 @@ Advance to the next tutorial to learn about migrating your data.
 
 > [!div class="nextstepaction"]
 > [Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
-

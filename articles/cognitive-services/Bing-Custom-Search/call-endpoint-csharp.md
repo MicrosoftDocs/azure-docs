@@ -3,14 +3,14 @@ title: "Quickstart: Call endpoint by using C# - Bing Custom Search"
 titlesuffix: Azure Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
+ms.author: maheshb
 ---
 
 # Quickstart: Call Bing Custom Search endpoint (C#)
@@ -23,7 +23,7 @@ To complete this quickstart, you need:
 
 - A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
 - [.Net Core](https://www.microsoft.com/net/download/core) installed.
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 
 ## Run the code

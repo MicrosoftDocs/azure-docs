@@ -73,7 +73,7 @@ After you create the VM, Azure CLI displays information similar to the following
 To create an SSH session with the VM, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
 ```bash 
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ## Create the database

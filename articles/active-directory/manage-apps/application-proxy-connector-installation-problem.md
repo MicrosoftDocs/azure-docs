@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: asteen
+ms.reviewer: japere
 
 ---
 
@@ -60,13 +60,13 @@ When the installation of a connector fails, the root cause is usually one of the
 
 ## Verify admin is used to install the connector
 
-**Objective:** Verify that the user who tries to install the connector is an administrator with correct credentials. Currently, the user must be a global administrator for the installation to succeed.
+**Objective:** Verify that the user who tries to install the connector is an administrator with correct credentials. Currently, the user must be either an application adminstrator or global administrator for the installation to succeed.
 
 **To verify the credentials are correct:**
 
 Connect to <https://login.microsoftonline.com> and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
 
-Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is “Global administrator”. If you are unable to access any of the pages along these steps, you are not a global administrator.
+Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is "Application Administrator" or “Global administrator”. If you are unable to access any of the pages along these steps, you do not have the required role.
 
 ## Next steps
 [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)

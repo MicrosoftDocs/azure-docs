@@ -1,24 +1,23 @@
 ---
-title: "Quickstart: Identify language from text - Translator Text, Java"
+title: "Quickstart: Identify language from text, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you identify the language of the source text using the Translator Text API with Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Identify language from text with Java
+# Quickstart: Identify language from text with the Translator Text REST API (Java)
 
 In this quickstart, you identify the language of the source text using the Translator Text API.
 
 ## Prerequisites
 
-You'll need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will also work.
+You'll need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will also work.
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 

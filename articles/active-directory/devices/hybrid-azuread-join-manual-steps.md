@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -502,6 +502,9 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Add the Azure AD device authentication end-point to the local Intranet zones to avoid certificate prompts when authenticating the device.
 
+- Control Windows down-level devices 
+
+
 ### Set policy in Azure AD to enable users to register devices
 
 To register Windows down-level devices, you need to make sure that the setting to allow users to register devices in Azure AD is set. In the Azure portal, you can find this setting under:
@@ -515,7 +518,7 @@ The following policy must be set to **All**: **Users may register their devices 
 
 ### Configure on-premises federation service 
 
-Your on-premises federation service must support issuing the **authenticationmethod** and **wiaormultiauthn** claims when receiving an authentication request to the Azure AD relying party holding a resouce_params parameter with an encoded value as shown below:
+Your on-premises federation service must support issuing the **authenticationmethod** and **wiaormultiauthn** claims when receiving an authentication request to the Azure AD relying party holding a resource_params parameter with an encoded value as shown below:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -549,6 +552,12 @@ In AD FS, you must add an issuance transform rule that passes-through the authen
 To avoid certificate prompts when users in register devices authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URL to the Local Intranet zone in Internet Explorer:
 
 `https://device.login.microsoftonline.com`
+
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 
 ## Verify joined devices

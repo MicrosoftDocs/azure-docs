@@ -37,7 +37,7 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: SSL termination
+  - name: End to end SSL
     href: ssl-overview.md
   - name: SSL policy overview
     href: application-gateway-ssl-policy-overview.md
@@ -73,11 +73,11 @@
       href: application-gateway-ilb-arm.md
   - name: Configure SSL termination
     items:
-    - name: SSL termination using the Azure portal
+    - name: SSL termination - portal
       href: create-ssl-portal.md
-    - name: SSL termination using Azure PowerShell
+    - name: SSL termination - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: End-to-end SSL termination using Azure PowerShell
+    - name: End to end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
     - name: Renew certificates
       href: renew-certificates.md
@@ -117,7 +117,6 @@
         href: redirect-external-site-powershell.md
       - name: Azure CLI
         href: redirect-external-site-cli.md
-    items:
     - name: HTTP to HTTPS
       items:
       - name: Azure PowerShell
@@ -130,12 +129,12 @@
         href: redirect-internal-site-powershell.md
       - name: Azure CLI
         href: redirect-internal-site-cli.md
+    - name: Redirect web traffic using Azure PowerShell
+      href: tutorial-url-redirect-powershell.md
   - name: Multi-tenant support
     items:
     - name: Configure multi-tenant support
       href: create-web-app.md
-  - name: Redirect web traffic using Azure PowerShell
-    href: tutorial-url-redirect-powershell.md
   - name: Custom probes
     items:
       - name: Portal
@@ -146,6 +145,8 @@
         href: application-gateway-create-probe-ps.md
   - name: Troubleshoot
     items:
+      - name: Troubleshoot an Application Gateway in Aure – ILB ASE
+        href: create-gateway-internal-load-balancer-app-service-environment.md
       - name: Troubleshoot Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
       - name: Diagnostics

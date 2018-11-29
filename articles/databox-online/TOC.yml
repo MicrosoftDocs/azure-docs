@@ -35,6 +35,8 @@
           href: data-box-gateway-manage-users.md
         - name: Bandwidth schedules
           href: data-box-gateway-manage-bandwidth-schedules.md
+        - name: Access, power, connectivity
+          href: data-box-gateway-manage-access-power-connectivity-mode.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
   - name: Release notes
@@ -59,8 +61,18 @@
       href: data-box-edge-deploy-add-shares.md
     - name: 5 - Configure compute
       href: data-box-edge-deploy-configure-compute.md
+  - name: Concepts
+    items:
+    - name: Review requirements
+      href: data-box-edge-system-requirements.md
+  - name: How to
+    items:
+    - name: Develop C# module
+      href: data-box-edge-create-iot-edge-module.md
 - name: Resources
   items:
+  - name: Data Box Edge C# module samples (.NET)
+    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
   - name: Data Box Edge/Gateway product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing

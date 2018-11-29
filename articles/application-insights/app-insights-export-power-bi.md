@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export to Power BI from Azure Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
 services: application-insights
@@ -37,7 +37,7 @@ To import your Application Insights query, you use the desktop version of Power 
 Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### Export an Analytics query
-1. [Open Analytics and write your query](app-insights-analytics-tour.md).
+1. [Open Analytics and write your query](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Test and refine the query until you're happy with the results. Make sure that the query runs correctly in Analytics before you export it.
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
    
@@ -105,7 +105,6 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
    * Replace **https://management.azure.com/subscriptions/...**
    * with, **https://api.applicationinsights.io/beta/apps/...**
 3. Finally, update the credentials to basic, and use your API key.
-  
 
 **Existing script**
  ```
@@ -151,5 +150,5 @@ After the initial import, the dashboard and the reports continue to update daily
 
 ## Next steps
 * [Power BI - Learn](http://www.powerbi.com/learning/)
-* [Analytics tutorial](app-insights-analytics-tour.md)
+* [Analytics tutorial](../log-analytics/query-language/get-started-analytics-portal.md)
 

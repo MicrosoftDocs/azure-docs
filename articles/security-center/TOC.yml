@@ -42,17 +42,19 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
-  - name: Set security policies
+  - name: Protect App Service
+    href: security-center-app-services.md
+  - name: View security policies
     href: security-center-azure-policy.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
-  - name: Security policy settings
+  - name: Security Center settings
     href: security-center-policies-overview.md
     items:
     - name: Data collection
       href: security-center-enable-data-collection.md
-    - name: Policy definitions
-      href: security-center-policies.md
+    - name: Built-in security policies
+      href: security-center-policy-definitions.md
     - name: Email notifications
       href: security-center-provide-security-contact-details.md
     - name: Pricing tier
@@ -64,43 +66,35 @@
 
   - name: Implement security recommendations
     href: security-center-recommendations.md
-  - name: Monitor security health
-    href: security-center-monitoring.md
     items:
-    - name: Compute & apps security
+    - name: Strengthen security posture
+      href: security-center-monitoring.md
+    - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
       items:
-      - name: VM and computer recommendations
-        href: security-center-virtual-machine-recommendations.md
-        items:
-        - name: Apply disk encryption
-          href: security-center-apply-disk-encryption.md
-        - name: Apply system updates
-          href: security-center-apply-system-updates.md
-        - name: Enable encryption for storage account
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Enable VM Agent
-          href: security-center-enable-vm-agent.md
-        - name: Install Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Reboot after system updates
-          href: security-center-apply-system-updates.md#reboot-after-system-updates
-        - name: Remediate security configurations
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Update OS version
-          href: security-center-update-os-version.md
-        - name: Vulnerability assessment not installed
-          href: security-center-vulnerability-assessment-recommendations.md
-      - name: App recommendations
+      - name: Apply disk encryption
+        href: security-center-apply-disk-encryption.md
+      - name: Apply system updates
+        href: security-center-apply-system-updates.md
+      - name: Enable encryption for storage account
+        href: security-center-enable-encryption-for-storage-account.md
+      - name: Enable VM Agent
+        href: security-center-enable-vm-agent.md
+      - name: Install Endpoint Protection
+        href: security-center-install-endpoint-protection.md
+      - name: Reboot after system updates
+        href: security-center-apply-system-updates.md#reboot-after-system-updates
+      - name: Remediate security configurations
+        href: security-center-remediate-os-vulnerabilities.md
+      - name: Update OS version
+        href: security-center-update-os-version.md
+      - name: Vulnerability assessment not installed
+        href: security-center-vulnerability-assessment-recommendations.md
+      - name: Add a web application firewall
         href: security-center-add-web-application-firewall.md
-        items:
-        - name: Add a web application firewall
-          href: security-center-add-web-application-firewall.md
-        - name: Finalize application protection
-          href: security-center-add-web-application-firewall.md#finalize-application-protection      
-      - name: Container recommendations
-        href: security-center-container-recommendations.md   
-    - name: Network security
+      - name: Finalize application protection
+        href: security-center-add-web-application-firewall.md#finalize-application-protection      
+    - name: Protect network resources
       href: security-center-network-recommendations.md
       items:
       - name: Add a next generation firewall
@@ -111,7 +105,8 @@
         href: security-center-restrict-access-through-internet-facing-endpoints.md
       - name: Route traffic through NGFW only
         href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-    - name: Data & storage security
+  
+    - name: Protect SQL service and data
       href: security-center-sql-service-recommendations.md
       items:
       - name: Enable auditing and threat detection on SQL databases
@@ -123,6 +118,7 @@
  
     - name: Monitor identity and access
       href: security-center-identity-access.md  
+  
     
   - name: Apply cloud defenses
     items:

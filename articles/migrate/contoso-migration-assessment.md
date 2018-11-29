@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/23/2018
 ms.author: raynew
 
 
@@ -122,8 +122,8 @@ Contoso and other users must meet the following prerequisites for the assessment
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-        - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
+    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 
@@ -229,7 +229,7 @@ The Contoso assessment uses dependency mapping. Dependency mapping requires an a
 
 ### Set statistics settings
 
-Before Contoso begins the deployment, it must set the statistics settings for the vCenter Server to level 3. 
+Before Contoso begins the deployment, it must set the statistics settings for the vCenter Server to level 3.
 
 > [!NOTE]
 > - After setting the level, Contoso must wait at least a day before it runs the assessment. Otherwise, the assessment might not work as expected.
@@ -255,7 +255,7 @@ To discover VMs, Contoso creates an Azure Migrate project. Contoso downloads and
 ### Create a project
 
 1. In the [Azure portal](https://portal.azure.com), Contoso searches for **Azure Migrate**. Then, Contoso creates a project.
-2. Contoso specifies a project name (**ContosoMigration**) and the Azure subscription. It creates a new Azure resource group (**ContosoFailoverRG**). 
+2. Contoso specifies a project name (**ContosoMigration**) and the Azure subscription. It creates a new Azure resource group (**ContosoFailoverRG**).
     > [!NOTE]
     > - You can create an Azure Migrate project only in the West Central US or East US region.
     > - You can plan a migration for any target location.
@@ -280,17 +280,17 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
 2. Contoso runs the following command to generate the hash for the OVA file:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Example** 
-    
+
+    **Example**
+
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match these settings (version 1.0.9.14):
+3. The generated hash should match these settings (version 1.0.9.15):
 
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
 ### Create the collector appliance
 
@@ -408,8 +408,8 @@ Contoso runs the installation on each VM.
 3. Contoso installs the MMA:
     - Contoso enters the workspace ID and key in the command.
     - Commands are for 64-bit.
-    - The workspace ID and primary key are located in the Microsoft Operations Management Suite (OMS) portal. Select **Settings**, and then select the **Connected Sources** tab.
-    - Run the following commands to download the OMS agent, validate the checksum, and install and onboard the agent:
+    - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
+    - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

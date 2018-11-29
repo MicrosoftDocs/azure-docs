@@ -1,21 +1,15 @@
 ---
 title: Platforms and tools for data science team projects - Azure  | Microsoft Docs
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 
@@ -150,4 +144,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.
+For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.

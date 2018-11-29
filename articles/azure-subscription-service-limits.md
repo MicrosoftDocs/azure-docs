@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 11/05/2018
 ms.author: byvinyal
 
 ---
@@ -73,7 +73,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Log Analytics](#log-analytics-limits)
 * [Managed Identity](#managed-identity-limits)
 * [Media Services](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
@@ -103,7 +102,7 @@ In the limits below, a new table has been added to reflect any differences in li
 #### Subscription limits - Azure Resource Manager
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
-For information about handling limits on Resource Manager requests, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
+For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -140,6 +139,8 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### Application Gateway limits
+
+The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Network Watcher limits

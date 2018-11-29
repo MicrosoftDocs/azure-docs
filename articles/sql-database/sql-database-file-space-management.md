@@ -117,7 +117,7 @@ Modify the following query to return the amount of elastic pool data space used.
 ```sql
 -- Connect to master
 -- Elastic pool data space used in MB  
-SELECT TOP 1 avg_storage_percent * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
+SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
@@ -210,7 +210,7 @@ For more information about this command, see [SHRINKDATABASE](https://docs.micro
 
 ### Auto-shrink
 
-Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink is less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
+Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
 To enable auto shrink, modify the name of the database in the following command.
 
 
@@ -219,7 +219,7 @@ To enable auto shrink, modify the name of the database in the following command.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-For more information about this command, see [DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) options. 
+For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) options. 
 
 ### Rebuild indexes
 

@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
