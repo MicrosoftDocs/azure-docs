@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/09/2018
+ms.date: 11/28/2018
 ms.author: jdial
 ms.custom: mvc
 ---
 
 # Quickstart: Create a virtual network using the Azure portal
 
-A virtual network enables Azure resources, like virtual machines (VM), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately between the two VMs.
+A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately between the two VMs.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -33,14 +33,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Create a virtual network
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
-1. In **Create virtual network**, enter, or select this information:
+
+1. In **Create virtual network**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter *myVirtualNetwork*. |
     | Address space | Enter *10.1.0.0/16*. |
     | Subscription | Select your subscription.|
-    | Resource group | Select **Create new** > Enter *myResourceGroup* > Select **OK** |
+    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
     | Location | Select **East US**.|
     | Subnet - Name | Enter *myVirtualSubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
@@ -54,7 +55,8 @@ Create two VMs in the virtual network:
 ### Create the first VM
 
 1. On the upper-left side of the screen, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
-1. In **Create a virtual machine - Basics**, enter, or select this information:
+
+1. In **Create a virtual machine - Basics**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -64,9 +66,9 @@ Create two VMs in the virtual network:
     | **INSTANCE DETAILS** |  |
     | Virtual machine name | Enter *myVm1* |
     | Region | Select **East US**. |
-    | Availability options | Leave the default **No infrastructure redundancy required** |
-    | Image | Leave the default **Windows Server 2016 Datacenter** |
-    | Size | Leave the default **Standard DS1 v2** |
+    | Availability options | Leave the default **No infrastructure redundancy required**. |
+    | Image | Leave the default **Windows Server 2016 Datacenter**. |
+    | Size | Leave the default **Standard DS1 v2**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a user name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -77,20 +79,24 @@ Create two VMs in the virtual network:
     | Already have a Windows license? | Leave the default **No**. |
 
 1. Select **Next : Disks**.
+
 1. In **Create a virtual machine - Disks**, leave the defaults and select **Next : Networking**.
+
 1. In **Create a virtual machine - Networking**, select this information:
 
     | Setting | Value |
     | ------- | ----- |
     | Virtual network | Leave the default **myVirtualNetwork**. |
-    | Subnet | Leave the default **myVirtualSubnet (10.1.0.0/24)** |
-    | Public IP | Leave the default **(new) myVm-ip** |
+    | Subnet | Leave the default **myVirtualSubnet (10.1.0.0/24)**. |
+    | Public IP | Leave the default **(new) myVm-ip**. |
     | Network security ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP** and **RDP**.
 
 1. Select **Next : Management**.
+
 1. In **Create a virtual machine - Management**, for **Diagnostics storage account**, select **Create New**.
-1. In **Create storage account** enter or select this information:
+
+1. In **Create storage account**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -100,7 +106,9 @@ Create two VMs in the virtual network:
     | Replication | Leave the default **Locally-redundant storage (LRS)**. |
 
 1. Select **OK**
+
 1. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+
 1. When you see that **Validation passed**, select **Create**.
 
 ### Create the second VM
@@ -113,33 +121,45 @@ Create two VMs in the virtual network:
     > In step 7, for **Diagnosis storage account**, make sure **myvmstorageaccount** is selected.
 
 1. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+
 1. When you see that **Validation passed**, select **Create**.
 
-## Connect to vm1 from the internet
+## Connect to a VM from the internet
 
 After *myVm1* is created, you can connect to it over the internet.
 
 1. In the portal's search bar, enter *myVm1*.
+
 1. Select the **Connect** button.
 
     ![Connect to a virtual machine](./media/quick-create-portal/connect-to-virtual-machine.png)
 
     After selecting the **Connect** button, **Connect to virtual machine** opens.
 
-1. Select **Download RDP File**. A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.
+1. Select **Download RDP File**. A Remote Desktop Protocol (*.rdp*) file is created and downloaded to your computer.
 
-1. Open the downloaded `.rdp` file.
-    1. If prompted, select **Connect**. 
-    1. Enter the user name and password you specified when creating the VM. 
+1. Open the downloaded *.rdp* file.
+
+    1. If prompted, select **Connect**.
+
+    1. Enter the user name and password you specified when creating the VM.
+
+        > [!NOTE]
+        > Information the user should notice even if skimming
+
         > [!NOTE]
         > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
+
 1. Select **OK**.
+
 1. You may receive a certificate warning during the sign in process. If you receive a certificate warning, select **Yes** or **Continue**.
+
 1. Once the VM desktop appears, minimize it to go back to your local desktop.
 
 ## Communicate between VMs
 
 1. In the Remote Desktop of myVm1, open PowerShell.
+
 1. Enter `ping myVm2`.
 
     You'll get back something like this message:
@@ -168,6 +188,7 @@ After *myVm1* is created, you can connect to it over the internet.
 1. Close the remote desktop connection to *myVm1*.
 
 1. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*.
+
 1. From a command prompt, enter `ping myvm1`.
 
     You'll get back something like this message:
@@ -185,17 +206,20 @@ After *myVm1* is created, you can connect to it over the internet.
         Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
+    You receive replies from myVm1, because you allowed ICMP through the Windows firewall on the myVm1 VM in a previous step.
 
-1. Close the remote desktop connection to *myVm2*.
+1. Close the remote desktop connection to *myVm2.
 
 ## Clean up resources
 
 When you're done with the virtual network, and the VMs, delete the resource group and all of the resources it contains:
 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal.
+
 1. When you see **myResourceGroup** in the search results, select it.
+
 1. Select **Delete resource group**.
+
 1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
