@@ -180,7 +180,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating Infor CloudSuite test user
 
-The objective of this section is to create a user called Britta Simon in Infor CloudSuite. Infor CloudSuite supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Infor CloudSuite if it doesn't exist yet.
+The objective of this section is to create a user called Britta Simon in Infor CloudSuite. Infor CloudSuite supports just-in-time provisioning which can be enabled by the tenant admin. There is no action item for you in this section. A new user is created during an attempt to access Infor CloudSuite if it doesn't exist yet.
 
 > [!Note]
 > If you need to create a user manually, contact [Infor CloudSuite support team](mailto:support@infor.com).
