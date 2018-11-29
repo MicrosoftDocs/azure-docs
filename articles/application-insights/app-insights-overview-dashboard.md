@@ -24,17 +24,17 @@ Application Insights has always provided a summary overview pane to allow quick,
 
 The new overview dashboard now launches by default:
 
-![Overview Preview Pane](.\media\app-insights-overview-dashboard\overview.png)
+![Overview Preview Pane](./media/app-insights-overview-dashboard/overview.png)
 
 ## Better performance
 
 Time range selection has been simplified to a simple one-click interface.
 
-![Time range](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Time range](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Overall performance has been greatly increased. You have one-click access to popular features like **Search** and **Analytics**. Each default dynamically updating KPI tile provides insight into corresponding Application Insights features. To learn more about failed requests select **Failures** under the **Investigate** header:
 
-![Failures](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Failures](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## Application dashboard
 
@@ -42,11 +42,11 @@ Application dashboard leverages the existing dashboard technology within Azure t
 
 To access the default dashboard select _Application Dashboard_ in the upper left corner.
 
-![Dashboard view](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Dashboard view](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 If this is your first time accessing the dashboard, it will launch a default view:
 
-![Dashboard view](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Dashboard view](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 You can keep the default view if you like it. Or you can also add, and delete from the dashboard to best fit the needs of your team.
 
@@ -55,7 +55,7 @@ You can keep the default view if you like it. Or you can also add, and delete fr
 
 To navigate back to the overview experience just select:
 
-![Overview Button](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Overview Button](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## Next steps
 
