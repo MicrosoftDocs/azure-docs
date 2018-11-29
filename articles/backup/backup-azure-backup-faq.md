@@ -120,7 +120,7 @@ Windows Storage Server 2012 64 bit | Standard, Workgroup | With the latest servi
 Windows Server 2008 R2 SP1 64 bit | Standard, Enterprise, Datacenter, Foundation | With the latest updates.
 Windows Server 2008 64 bit | Standard, Enterprise, Datacenter | With latest updates.
 
-For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux.  Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
+For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
 
 
 ## Are there size limits for data backup?

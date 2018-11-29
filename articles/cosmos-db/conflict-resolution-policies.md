@@ -27,16 +27,16 @@ For Azure Cosmos DB accounts configured with multiple write regions, update conf
 
 Azure Cosmos DB offers a flexible policy-driven mechanism to resolve update conflicts. You can select from two conflict resolution policies on an Azure Cosmos DB container:
 
-- **Last writer wins (LWW)**: This resolution policy, by default, uses a system-defined timestamp property. It's based on the time-synchronization clock protocol. If you use the SQL API, with Azure Cosmos DB you can specify any other custom numerical property to be used for conflict resolution. A custom numerical property is also referred to as the conflict resolution path. 
+- **Last Write Wins (LWW)**: This resolution policy, by default, uses a system-defined timestamp property. It's based on the time-synchronization clock protocol. If you use the Azure Cosmos DB SQL API, you can specify any other custom numerical property to be used for conflict resolution. A custom numerical property is also referred to as the conflict resolution path. 
 
   If two or more items conflict on insert or replace operations, the item with the highest value for the conflict resolution path becomes the winner. The system determines the winner if multiple items have the same numeric value for the conflict resolution path. All regions are guaranteed to converge to a single winner and end up with the same version of the committed item. When delete conflicts are involved, the deleted version always wins over either insert or replace conflicts. This outcome occurs no matter the value of the conflict resolution path.
 
   > [!NOTE]
-  > Last writer wins is the default conflict resolution policy. It's available for SQL, Azure Cosmos DB Table, MongoDB, Cassandra, and Gremlin API accounts.
+  > Last Write Wins is the default conflict resolution policy. It's available for SQL, Azure Cosmos DB Table, MongoDB, Cassandra, and Gremlin API accounts.
 
   To learn more, see [examples that use LWW conflict resolution policies](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-- **Custom**: This resolution policy is designed for application-defined semantics for reconciliation of conflicts. When you set this policy on your Azure Cosmos DB container, you also need to register a merge stored procedure. This procedure is automatically invoked when update conflicts are detected under a database transaction at the server. The system provides exactly one guarantee for the execution of a merge procedure as part of the commitment protocol.  
+- **Custom**: This resolution policy is designed for application-defined semantics for reconciliation of conflicts. When you set this policy on your Azure Cosmos DB container, you also need to register a merge stored procedure. This procedure is automatically invoked when conflicts are detected under a database transaction at the server. The system provides exactly once guarantee for the execution of a merge procedure as part of the commitment protocol.  
 
   There are two points to remember if you configure your container with the custom resolution option. If you fail to register a merge procedure on the container or the merge procedure throws an exception at runtime, the conflicts are written to the conflicts feed. Your application then needs to manually resolve the conflicts in the conflicts feed. To learn more, see [examples of how to use the custom resolution policy and how to use the conflicts feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 

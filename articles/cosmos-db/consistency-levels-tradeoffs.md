@@ -29,19 +29,19 @@ Each model provides availability and performance tradeoffs and is backed by a co
 
 ## Consistency levels and latency
 
-- The *read latency* for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This read latency is backed by the SLA. The average read latency, at the 50th percentile, is typically 2 milliseconds or less.
+- The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This read latency is backed by the SLA. The average read latency, at the 50th percentile, is typically 2 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
 
--  The *write latency* for the remaining consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. Azure Cosmos DB accounts that span several regions and are configured with strong consistency are an exception to this guarantee. The average write latency, at the 50th percentile, is usually 5 milliseconds or less.
+-  The write latency for the remaining consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. The average write latency, at the 50th percentile, is usually 5 milliseconds or less.
 
--  Accounts might have several regions configured with strong consistency. In this case, the write latency is guaranteed to be less than two times round-trip time (RTT) plus 10 milliseconds at the 99th percentile. This option is currently in preview. The RTT between any of the two farthest regions is associated with your Azure Cosmos DB account. The exact RTT latency is a function of speed-of-light distance and the exact Azure networking topology. Azure networking doesn't provide any latency SLAs for the RTT between any two Azure regions. 
+Some Azure Cosmos accounts might have several regions configured with strong consistency. In this case, the write latency is guaranteed to be less than two times round-trip time (RTT) plus 10 milliseconds at the 99th percentile. The RTT between any of the two farthest regions is associated with your Azure Cosmos account. It's equal to the RTT between any of the two farthest regions associated with your Azure Cosmos account. This option is currently in preview. 
 
-    Replication latencies are displayed in the Azure portal for your account. You can use the portal to monitor the replication latencies between various regions that are associated with your account.
+The exact RTT latency is a function of speed-of-light distance and the Azure networking topology. Azure networking doesn't provide any latency SLAs for the RTT between any two Azure regions. For your Azure Cosmos account, replication latencies are displayed in the Azure portal. You can use the Azure portal to monitor the replication latencies between various regions that are associated with your account.
 
 ## Consistency levels and throughput
 
 - For the same number of request units, the session, consistent prefix, and eventual consistency levels provide about two times the read throughput when compared with strong and bounded staleness.
 
-- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is the same for all consistency levels.
+- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels.
 
 ## Next steps
 

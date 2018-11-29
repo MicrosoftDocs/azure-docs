@@ -16,23 +16,23 @@ ms.custom: H1Hack27Feb2017
 ---
 # Consistency levels in Azure Cosmos DB
 
-Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput. 
+Distributed databases that rely on replication for high availability, low latency, or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: strong consistency and eventual consistency. The [linearizability](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) or the strong consistency model is the gold standard of data programmability. But it adds a steep price of higher latency (in steady state) and reduced availability (during failures). On the other hand, eventual consistency offers higher availability and better performance, but is hard to program applications. 
 
 Azure Cosmos DB approaches data consistency as a spectrum of choices instead of two extremes. Strong consistency and eventual consistency are at the ends, but there are many consistency choices along the spectrum. Developers can use these options to make precise choices and granular tradeoffs with respect to high availability or performance. 
 
-With Azure Cosmos DB, developers can choose from five well-defined consistency models on the consistency spectrum. From strongest to weakest, the models are strong, bounded staleness, session, consistent prefix, and eventual. The models are well-defined and intuitive and can be used for specific real-world scenarios. Each model provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and is backed by comprehensive SLAs. The following image shows different consistency levels as a spectrum.
+With Azure Cosmos DB, developers can choose from five well-defined consistency models on the consistency spectrum. From strongest to weakest, the models are strong, bounded staleness, session, consistent prefix, and eventual. The models are well-defined and intuitive. They can be used for specific real-world scenarios. Each model provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and is backed by comprehensive SLAs. The following image shows different consistency levels as a spectrum.
 
 ![Consistency as a spectrum](./media/consistency-levels/five-consistency-levels.png)
 
-The consistency levels are region-agnostic. The consistency level of your Cosmos DB account, is guaranteed for all read operations regardless of the region from which the reads and writes are served, the number of regions associated with your Cosmos account or whether your account is configured with a single or multiple write regions.
+The consistency levels are region-agnostic. The consistency level of your Azure Cosmos account is guaranteed for all read operations regardless of the region from which the reads and writes are served, the number of regions associated with your Azure Cosmos account, or whether your account is configured with a single or multiple write regions.
 
 ## Scope of the read consistency
 
-Read consistency applies to a single read operation scoped within a partition-key range that's a logical partition. The read operation can be issued by a remote client or a stored procedure.
+Read consistency applies to a single read operation scoped within a partition-key range or a logical partition. The read operation can be issued by a remote client or a stored procedure.
 
 ## Configure the default consistency level
 
-You can configure the default consistency level on your Azure Cosmos DB account at any time. The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level).
+You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## Guarantees associated with consistency levels
 
@@ -49,9 +49,9 @@ The semantics of the five consistency levels are described here:
 
   Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the staleness window. Strong consistency has the same semantics as the ones offered by bounded staleness. The staleness window is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees with the strong consistency.
 
-- **Session**: The reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Session consistency is scoped to a client session.
+- **Session**: The reads are guaranteed to honor the consistent-prefix (assuming a single “writer” session), monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Session consistency is scoped to a client session.
 
-- **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. There's a consistent prefix guarantee that reads never see out-of-order writes.
+- **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix guarantees that reads never see out-of-order writes.
 
 - **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.
 

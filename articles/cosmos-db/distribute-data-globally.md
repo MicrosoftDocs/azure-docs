@@ -12,28 +12,15 @@ ms.date: 10/26/2018
 ms.author: mjbrown
 
 ---
-# Build globally distributed applications with Azure Cosmos DB
+# Global data distribution with Azure Cosmos DB
 
-Many of today’s applications are required to operate in many data centers. These globally distributed applications are always on and accessible to users everywhere. Managing the global distribution of data that's used by these applications is a challenge. The database services must provide low latency, elastic scalability of throughput, and high availability around the world. 
+Today’s applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. These applications are typically deployed in multiple datacenters and are called globally distributed. Globally distributed applications need a globally distributed database that can transparently replicate the data anywhere in the world to enable the applications to operate on a copy of the data that's close to its users. 
 
-Azure Cosmos DB is a globally distributed database service that's designed to provide: 
- 
-- Low latency. 
-- Elastic scalability of throughput. 
-- Well-defined semantics for data consistency. 
-- High availability. 
+Azure Cosmos DB is a globally distributed database service that's designed to provide low latency, elastic scalability of throughput, well-defined semantics for data consistency, and high availability. In short, if your application needs guaranteed fast response time anywhere in the world, if it's required to be always online, and needs unlimited and elastic scalability of throughput and storage, consider building applications by using Azure Cosmos DB.
 
-Consider building applications by using Azure Cosmos DB if your application: 
- 
-- Needs guaranteed fast response time anywhere in the world. 
-- Must always be online. 
-- Needs unlimited and elastic scalability of throughput and storage.
+You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data closer to where your users are. Choosing the required regions depends on the global reach of your application and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the regions associated with your account. It provides a single system image of your globally distributed Azure Cosmos database and containers that your application can read and write to locally. 
 
-Azure Cosmos DB is a foundational Azure service. It's available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) by default. Microsoft operates Azure data centers in more than 54 regions around the world. The number of regions continues to expand to meet the growing needs of customers. When you create an Azure Cosmos DB account, you decide on the regions where it's deployed. Microsoft operates Azure Cosmos DB nonstop so that you can focus on your applications.
-
-You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data close to your users. Choosing the regions you require depends on your application's global reach and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the regions associated with your account. It provides a single system image of your globally distributed Azure Cosmos DB database and containers. Your application can read and write to the image locally. 
-
-With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to pause or redeploy to add or remove a region. It continues to be highly available all the time because of multihoming.
+With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to be paused or redeployed to add or remove a region. It continues to be highly available all the time because of the multihoming capabilities that the service provides.
 
 ## Key benefits of global distribution
 
