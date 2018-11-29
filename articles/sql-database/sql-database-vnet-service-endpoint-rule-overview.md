@@ -169,8 +169,8 @@ If you choose to use this feature with a Storage account that is being used by a
 PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling this scenario, please follow the steps indicated below:
 
 #### Prerequisites
-1.	Install Azure PowerShell SDK using this [guide](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
-2.	If you have a general-purpose v1 storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+2.	If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
  
 #### Steps
 1.	In PowerShell, **register your logical SQL Server** with Azure Active Directory (AAD):
@@ -184,34 +184,40 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
 1.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
     > [!NOTE]
-    > If you have a general-purpose v1 storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
  
 1.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your logical SQL Server.
 
     > [!NOTE] 
-    > Only members with right privileges can perform this step.
+    > Only members with Owner privileges can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1.	**Polybase connectivity to the Azure Storage account:**
 
+    1. Create a database **[master key](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** if you haven't created one earlier:
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
     1. Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
 
-    ```SQL
-    CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-    ```
-    > [!NOTE] 
-    > - Please note that there is no need to specify Azure Storage key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
-    > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.    
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - There is no need to specify Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+        > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.    
     
-    2. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
+    1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
-    ```SQL
-    CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-    ```
-    > [!NOTE] 
-    > For more information on abfs scheme, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-    > For more information on CREATE EXTERNAL DATA SOURCE, please refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
-    
-    3. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE external_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - If you already have an external data source and external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop external data source. Create external data source with abfss scheme connecting to general-purpose v2 storage account as above and then re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) to generate create scripts for all the external tables for ease.
+        > - For more information on abfs scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+        > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+        
+    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
