@@ -51,7 +51,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
-   > [!NOTE] -RequestedServiceObjectiveName "DW300" is changed to - RequestedServiceObjectiveName "DW300**c**"
+   > [!NOTE] 
+   > -RequestedServiceObjectiveName "DW300" is changed to - RequestedServiceObjectiveName "DW300**c**"
    >
 
    Original Gen1 T-SQL command:
@@ -65,7 +66,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    ```sql
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
    ```
-	> [!NOTE] SERVICE_OBJECTIVE = 'DW300' is changed to SERVICE_OBJECTIVE = 'DW300**c**'
+	> [!NOTE] 
+	> SERVICE_OBJECTIVE = 'DW300' is changed to SERVICE_OBJECTIVE = 'DW300**c**'
 
 
 
