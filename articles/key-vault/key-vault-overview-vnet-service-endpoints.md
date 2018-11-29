@@ -13,7 +13,7 @@ ms.topic: conceptual
 ---
 # Virtual network service endpoints for Azure Key Vault
 
-The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your Key Vault from outside those sources is denied access.
+The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.
 
 There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are let through the firewall. For example, these services include Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Azure Active Directory token, and must have permissions (configured as access policies) to perform the requested operation. For more details, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -25,22 +25,22 @@ You can configure [Key Vault firewalls and virtual networks](key-vault-network-s
 > Key Vault firewalls and virtual network rules only apply to the [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules) are not affected by firewalls and virtual network rules.
 
 Here are some examples of how you might use service endpoints:
-* You are using Key Vault to store encryption keys, application secrets, and certificates, and you want to block access to your Key Vault from the public internet.
-* You want to lock down access to your Key Vault so that only your application, or a short list of designated hosts, can connect to your Key Vault.
+* You are using Key Vault to store encryption keys, application secrets, and certificates, and you want to block access to your key vault from the public internet.
+* You want to lock down access to your key vault so that only your application, or a short list of designated hosts, can connect to your key vault.
 * You have an application running in your Azure virtual network, and this virtual network is locked down for all inbound and outbound traffic. Your application still needs to connect to Key Vault to fetch secrets or certificates, or use cryptographic keys.
 
 ## Configure Key Vault firewalls and virtual networks
 
 Here are the steps required to configure firewalls and virtual networks. These steps apply whether you are using PowerShell, the Azure CLI, or the Azure portal.
-1. Enable [Key Vault logging](key-vault-logging.md) to see detailed access logs. This helps in diagnostics, when firewalls and virtual network rules prevent access to a Key Vault. (This step is optional, but highly recommended.)
+1. Enable [Key Vault logging](key-vault-logging.md) to see detailed access logs. This helps in diagnostics, when firewalls and virtual network rules prevent access to a key vault. (This step is optional, but highly recommended.)
 2. Enable **service endpoints for key vault** for target virtual networks and subnets.
-3. Set firewalls and virtual network rules for a Key Vault to restrict access to that Key Vault from specific virtual networks, subnets, and IPv4 address ranges.
-4. If this Key Vault needs to be accessible by any trusted Microsoft services, enable the option to allow **Trusted Azure Services** to connect to Key Vault.
+3. Set firewalls and virtual network rules for a key vault to restrict access to that key vault from specific virtual networks, subnets, and IPv4 address ranges.
+4. If this key vault needs to be accessible by any trusted Microsoft services, enable the option to allow **Trusted Azure Services** to connect to Key Vault.
 
 For more details, see [Configure Azure Key Vault firewalls and virtual networks](key-vault-network-security.md).
 
 > [!IMPORTANT]
-> After firewall rules are in effect, users can only perform Key Vault [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a Key Vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker by other Azure services. Users might be able to see list of Key Vaults, but not list keys, if firewall rules prevent their client machine.
+> After firewall rules are in effect, users can only perform Key Vault [data plane](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker by other Azure services. Users might be able to see list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 
 > [!NOTE]
@@ -51,7 +51,7 @@ For more details, see [Configure Azure Key Vault firewalls and virtual networks]
 > * Only IPv4 addresses are supported at this time.
 
 ## Trusted services
-Here's a list of trusted services that are allowed to access a Key Vault if the **Allow trusted services** option is enabled.
+Here's a list of trusted services that are allowed to access a key vault if the **Allow trusted services** option is enabled.
 
 |Trusted service|Usage scenarios|
 | --- | --- |
@@ -59,7 +59,7 @@ Here's a list of trusted services that are allowed to access a Key Vault if the 
 |Azure Resource Manager template deployment service|[Pass secure values during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
 |Azure Disk Encryption volume encryption service|Allow access to BitLocker Key (Windows VM) or DM Passphrase (Linux VM), and Key Encryption Key, during virtual machine deployment. This enables [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
 |Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
-|Exchange Online & SharePoint Online|Allow access to customer key for Service Encryption with [Customer Key](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online & SharePoint Online|Allow access to customer key for Azure Storage Service Encryption with [Customer Key](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Deploy Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
 |Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
@@ -73,5 +73,5 @@ Here's a list of trusted services that are allowed to access a Key Vault if the 
 
 ## Next steps
 
-* [Secure your Key Vault](key-vault-secure-your-key-vault.md)
+* [Secure your key vault](key-vault-secure-your-key-vault.md)
 * [Configure Azure Key Vault firewalls and virtual networks](key-vault-network-security.md)
