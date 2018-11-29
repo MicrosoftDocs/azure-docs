@@ -172,9 +172,9 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="hybrid/index.yml">Hybrid identity</a></h3>
                                                         <p>
-                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Install Azure AD Connect</a><br>
+                                                            <a href="hybrid/whatis-hybrid-identity.md">What is hybrid identity?</a><br>
                                                             <a href="hybrid/how-to-connect-sso.md">Single sign-on with Azure AD Connect</a><br>
-                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect and federation</a><br>
+                                                            <a href="hybrid/how-to-connect-install-custom.md">Azure AD Connect custom install</a><br>
 												            <a href="hybrid/index.yml"><i>See more &gt;</i></a>
 														</p>
                                                     </div>
