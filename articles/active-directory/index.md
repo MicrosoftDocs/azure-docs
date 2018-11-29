@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 10/29/2018
+ms.date: 11/30/2018
 ms.author: mtillman
 
 ---
@@ -47,11 +47,11 @@ ms.author: mtillman
                                                                     <h3><a href="fundamentals/index.yml">Learn the fundamentals</a></h3> 
 																	<p>
 																	    <a href="fundamentals/active-directory-whatis.md">What is Azure AD?</a><br>
-                                                                        <a href="fundamentals/active-directory-get-started-premium.md">Sign up for Azure AD Premium</a><br>
-                                                                        <a href="fundamentals/active-directory-access-create-new-tenant.md">Access Azure AD and create a tenant</a><br>
+                                                                        <a href=”fundamentals/add-custom-domain.md”>Add a custom domain name</a><br>
+                                                                        <a href=”fundamentals/customize-branding.md”>Add company branding</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Create a group and add members</a><br>
 																	    <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Assign roles to users</a><br>
-                                                                        <a href="fundamentals/license-users-groups.md">Assign licenses to users</a><br>
+                                                                        <a href=" fundamentals/active-directory-how-subscriptions-associated-directory.md">Assosciate an Azure subscription</a><br>
 												                        <a href="fundamentals/index.yml"><i>See more &gt;</i></a>
 																	</p>
 																</div>
@@ -91,7 +91,7 @@ ms.author: mtillman
                                                     <div class="cardText">
 														<h3><a href="manage-apps/index.yml">Application management</a></h3>
                                                         <p>
-                                                            <a href="manage-apps/add-application-portal.md">Add an application</a><br>
+                                                            <a href="manage-apps/what-is-single-sign-on.md">What is single sign-on?</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on (SSO)</a><br>
 												            <a href="manage-apps/application-proxy.md">Application Proxy for on-premises apps</a><br>
 												            <a href="manage-apps/index.yml"><i>See more &gt;</i></a>
@@ -99,25 +99,25 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="authentication/index.yml">Authentication</a></h3>
                                                         <p>
-                                                            <a href="authentication/tutorial-mfa-applications.md">Enable MFA for Azure portal</a><br>
-                                                            <a href="authentication/quickstart-sspr.md">Enable self-service password reset</a><br>
-                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">Converged registration for MFA and SSPR</a><br>
+                                                            <a href="authentication/concept-mfa-howitworks">How it works: Azure MFA</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks">Azure AD self-service password reset</a><br>
+                                                            <a href="authentication/concept-password-ban-bad">Azure AD password protection</a><br>
 												            <a href="authentication/index.yml"><i>See more &gt;</i></a>
 															</p>
 														<br><br>
                                                         <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
                                                         <p>
-                                                            <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Add guest users in the portal</a><br>
-                                                            <a href="b2b/b2b-tutorial-bulk-invite.md">Bulk invite guest users</a><br>
-                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a><br>
+                                                            <a href="b2b/what-is-b2b.md">What is Azure Active Directory B2B?</a><br>
+                                                            <a href="b2b/add-users-administrator.md">Add guest users in the portal</a><br>
+                                                            <a href="b2b/o365-external-user">B2B and Office 365 sharing</a><br>
 												            <a href="b2b/index.yml"><i>See more &gt;</i></a>
 															</p>
 														<br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
                                                         <p>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">What is Azure Active Directory B2C?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an Azure AD B2C tenant</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Enable a web app to authenticate</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Get started with custom policies in Azure AD B2C</a><br>
 												            <a href="/azure/active-directory-b2c/index"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
@@ -141,8 +141,8 @@ ms.author: mtillman
 														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">About Microsoft identity platform</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">v1.0 platform</a><br>
-                                                            <a href="develop/v2-overview.md">v2.0 platform</a><br>
+                                                            <a href="develop/v2-oauth2-auth-code-flow">OAuth 2.0 code flow grant</a><br>
+                                                            <a href="develop/quickstart-register-app">Register an app with the Microsoft identity platform</a><br>
 												            <a href="develop/index.yml"><i>See more &gt;</i></a>
 															</p>
 														<br><br>
@@ -156,17 +156,17 @@ ms.author: mtillman
 														<br><br>
 														<h3><a href="/azure/active-directory-domain-services/index">Domain services</a></h3>
                                                         <p>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-overview">What is Azure AD Domain Services?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Enable Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Join Windows Server VM to managed domain</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configure secure LDAP</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administer group policy</a>
 												            <a href="/azure/active-directory-domain-services/index"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Enterprise users</a></h3>
                                                         <p>
-                                                            <a href="users-groups-roles/directory-assign-admin-roles.md">Assign administrator roles</a><br>
-                                                            <a href="users-groups-roles/licensing-groups-assign.md">Assign licenses to groups</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Create a dynamic group</a><br>
+                                                            <a href="users-groups-roles/groups-settings-v2-cmdlets.md">PowerShell cmdlets for Azure AD groups</a><br>
+                                                            <a href="users-groups-roles/directory-service-limits-restrictions.md">Azure AD service limits and restrictions</a><br>
 												            <a href="users-groups-roles/index.yml"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
@@ -189,8 +189,8 @@ ms.author: mtillman
                                                     <div class="cardText">
                                                         <h3><a href="governance/index.yml">Identity governance</a></h3>
                                                         <p>
-                                                            <a href="governance/manage-user-access-with-access-reviews.md">Manage user access</a><br>
-                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Manage guest access</a><br>
+                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
+                                                            <a href="governance/perform-access-review.md">Start an access review</a><br>
                                                             <a href="governance/active-directory-tou.md">Terms of use</a><br>
 												            <a href="governance/index.yml"><i>See more &gt;</i></a>
 														</p>
@@ -221,9 +221,9 @@ ms.author: mtillman
 														<br><br>
 														<h3><a href="reports-monitoring/index.yml">Reports and monitoring</a></h3>
                                                         <p>
-                                                            <a href="reports-monitoring/howto-find-activity-reports.md">Find activity reports</a><br>
-                                                            <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Use Azure AD logs in Azure Monitor</a><br>
-                                                            <a href="reports-monitoring/concept-reporting-api.md">Programmatic access</a><br>
+                                                            <a href="reports-monitoring/concept-audit-logs.md">Audit logs</a><br>
+                                                            <a href="reports-monitoring/concept-sign-ins.md">Sign-in logs</a><br>
+                                                            <a href="reports-monitoring/reference-sign-ins-error-codes.md">Sign-in error codes reference</a><br>
 												            <a href="reports-monitoring/index.yml"><i>See more &gt;</i></a>
 														</p>
                                                     </div>
