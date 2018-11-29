@@ -50,7 +50,7 @@ See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-se
 
 ## Pass-through LiveEvents latency
 
-The following table shows typical results that you see when using the low latency settings in various players.
+The following table shows typical results for latency (when the LowLatency flag is enabled) in Media Services, measured from the time the contribution feed reaches the service to when a player can request playback.
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
