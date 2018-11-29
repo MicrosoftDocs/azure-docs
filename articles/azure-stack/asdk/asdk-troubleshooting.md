@@ -68,4 +68,3 @@ It may take up to 14 hours for reclaimed capacity to show up in the portal. Spac
 
 ## Next steps
 [Visit the Azure Stack support forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-
