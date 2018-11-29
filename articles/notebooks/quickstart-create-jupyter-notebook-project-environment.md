@@ -20,6 +20,8 @@ ms.author: kraigb
 
 A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
 
+## Create a project
+
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. From your public profile page, select **My Projects** at the top of the page:
@@ -40,6 +42,8 @@ A project in Azure Notebooks is a collection of files, such as notebooks, data f
 1. After a few moments, Azure Notebooks navigates you to the new project. Add a notebook to the project by selecting the **+ New** drop-down (which may appear as only **+**), then selecting **Notebook**.
 
 1. Give the notebook a name like *Custom environment.ipynb*, select **Python 3.6** for the language, and select **New**.
+
+## Add a custom setup step
 
 1. On the project page, select **Project Settings**.
 

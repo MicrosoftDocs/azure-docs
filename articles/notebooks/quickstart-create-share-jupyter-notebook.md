@@ -49,6 +49,8 @@ ms.author: kraigb
 
     ![New notebook appearing in the project's file list](media/quickstarts/new-notebook-created.png)
 
+## Run the notebook
+
 1. Select the new notebook to run it in the editor; the kernel you selected (Python 3.6 in this example) is automatically activated for this notebook:
 
     ![View of a new notebook in Azure Notebooks](media/quickstarts/create-notebook-first-open.png)
@@ -88,6 +90,8 @@ ms.author: kraigb
     ![Save icon on the Jupyter notebook toolbar](media/quickstarts/hello-results-save-icon.png)
 
 1. Select the **File** > **Halt and close** menu command to stop the server and close the browser window.
+
+## Share the notebook
 
 1. To share your notebook, switch back to the project page if needed, right-click the notebook file, select **Copy Link** (keyboard shortcut: y), and paste that link into an appropriate message (email, IM, etc.).
 

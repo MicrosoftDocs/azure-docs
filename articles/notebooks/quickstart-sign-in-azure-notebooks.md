@@ -20,6 +20,8 @@ ms.author: kraigb
 
 Although you can always view Azure Notebooks without signing in, you must sign in to run notebooks, access saved projects and notebooks, and share your notebooks with others.
 
+## Sign in
+
 1. Select **Sign in** on the top right of [notebooks.azure.com](https://notebooks.azure.com/).
 
     ![Location of Sign-in command on Azure Notebooks](media/accounts/sign-in-command.png)
@@ -34,7 +36,9 @@ Although you can always view Azure Notebooks without signing in, you must sign i
 
     ![Account permissions prompt](media/accounts/account-permission-prompt.png)
 
-1. Upon first sign in, you're also assigned a temporary user ID like "anon-idrca3". Whenever you have a user ID that begins with "anon-", Azure Notebooks prompts you to create an ID of your own. Your user ID is used in any URL that you obtain to share your projects and notebooks, so choose something that's unique and meaningful to you.
+## Set a user ID
+
+1. Upon first sign in, you're assigned a temporary user ID like "anon-idrca3". Whenever you have a user ID that begins with "anon-", Azure Notebooks prompts you to create an ID of your own. Your user ID is used in any URL that you obtain to share your projects and notebooks, so choose something that's unique and meaningful to you.
 
     ![Prompt to enter a user ID for Azure Notebooks](media/accounts/create-user-id.png)
 
@@ -43,6 +47,8 @@ Although you can always view Azure Notebooks without signing in, you must sign i
 1. After successfully signing in, Azure Notebooks navigates to your public profile page, on which you can select **Edit Profile Information** to fill out the rest of your information (for more information, see [Your profile and user ID](azure-notebooks-user-profile.md)):
 
     ![Initial view of an Azure Notebooks profile page](media/accounts/profile-page-new.png)
+
+## Sign out
 
 1. To sign out, select your username on the upper right of the page, then select **Sign out**:
 

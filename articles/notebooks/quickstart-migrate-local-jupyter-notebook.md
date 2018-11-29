@@ -24,6 +24,8 @@ By migrating your local or repository-based notebooks to Azure Notebooks, you st
 
 This Quickstart demonstrates the process of migrating a notebook from your local computer or another accessible file URL. To migrate notebooks from a GitHub repository, see [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md).
 
+## Create a project on Azure Notebooks
+
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. From your public profile page, select **My Projects** at the top of the page:
@@ -35,6 +37,8 @@ This Quickstart demonstrates the process of migrating a notebook from your local
     ![New Project command on My Projects page](media/quickstarts/new-project-command.png)
 
 1. In the **Create New Project** popup that appears, enter appropriate values for the notebook you're migrating in the **Project name** and **Project ID** fields, clear the options for **Public project** and **Create a README.md**, then select **Create**.
+
+## Upload the local notebook
 
 1. On the project page, select **Upload** (which may appear as an up arrow only if your browser window is small), then select 1. In the popup that appears, select **From computer** if your notebook is located on your local file system, or **From URL** if your notebook is located online:
 
