@@ -34,10 +34,10 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-10-01
+[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-10-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-10-01
 
 This table is updated when there are service updates and or new supported versions are available
 
@@ -46,7 +46,7 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 ## Usage
 
 ### Versioning
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-04-02`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02)
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01)
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -76,6 +76,7 @@ API | Default Data Format | Other Formats
 --------|---------------------|--------------
 /instance | json | text
 /scheduledevents | json | none
+/attested | json | none
 
 To access a non-default response format, specify the requested format as a querystring parameter in the request. For example:
 
@@ -280,9 +281,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## Instance metadata data categories
 The following data categories are available through the Instance Metadata Service:
 
-Data | Description | Version Introduced 
+Data | Description | Version Introduced
 -----|-------------|-----------------------
-location | Azure Region the VM is running in | 2017-04-02 
+location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image. This value is only present for images deployed from Azure image gallery. | 2017-04-02
 publisher | Publisher of the VM image | 2017-04-02
@@ -300,15 +301,75 @@ placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-ma
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher | 2017-04-02
 publicKeys | Collection of Public Keys[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assigned to the VM and paths | 2017-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
-zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 
+zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
 ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02 
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02 
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 
-macAddress | VM mac address | 2017-04-02 
+subnet/address | Subnet address of the VM | 2017-04-02
+subnet/prefix | Subnet prefix, example 24 | 2017-04-02
+ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
+macAddress | VM mac address | 2017-04-02
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
-identity | (Preview) Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
+identity | (Preview) Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+attested | See [Attested Data](#attested-data) | 2018-10-01
+
+## Attested Data
+
+Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scenario served by Instance Metadata Service is to provide guarantees that the data responded is coming from Azure. To that affect we sign part of this information so that marketplace images can be sure that its their image running on Azure and not a copied image.
+
+### Example Attested Data
+
+> [!NOTE]
+> All API responses are JSON strings. All following example responses are pretty-printed for readability.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2010-10-01&nonce=1234567890"
+
+```
+
+Nonce is an optional 10 digit string provided.
+
+**Response**
+> [!NOTE]
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+```json
+{
+ "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
+}
+```
+
+> The signature blob is a pkcs7 signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce and timeStamp for creation and expiry of the document.
+
+#### Retrieving attested metadata in Windows Virtual Machine
+
+**Request**
+
+Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
+
+```bash
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890 | select -ExpandProperty Content
+```
+
+Or through the `Invoke-RestMethod` cmdlet:
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890 -Method get
+```
+
+**Response**
+
+> [!NOTE]
+> The response is a JSON string. The following example response  is pretty-printed for readability.
+
+```json
+{
+ "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
+}
+```
+
+> The signature blob is a pkcs7 signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce and timeStamp for creation and expiry of the document.
 
 ## Example scenarios for usage  
 
@@ -347,9 +408,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### Getting more information about the VM during support case 
+### Getting more information about the VM during support case
 
-As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure. 
+As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
 
 **Request**
 
@@ -359,7 +420,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 **Response**
 
-> [!NOTE] 
+> [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```json
@@ -380,42 +441,111 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### Getting Azure Environment where the VM is running 
+### Getting Azure Environment where the VM is running
 
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample will show you how you can achieve this.
 
 **Request**
 
-> [!NOTE] 
-> Requires jq to be installed. 
+> [!NOTE]
+> Requires jq to be installed.
 
 ```bash
   metadata=$(curl "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H "Metadata:true")
   endpoints=$(curl "https://management.azure.com/metadata/endpoints?api-version=2017-12-01")
- 
+
   location=$(echo $metadata | jq .location -r)
- 
+
   is_ww=$(echo $endpoints | jq '.cloudEndpoint.public.locations[]' -r | grep -w $location)
   is_us=$(echo $endpoints | jq '.cloudEndpoint.usGovCloud.locations[]' -r | grep -w $location)
   is_cn=$(echo $endpoints | jq '.cloudEndpoint.chinaCloud.locations[]' -r | grep -w $location)
   is_de=$(echo $endpoints | jq '.cloudEndpoint.germanCloud.locations[]' -r | grep -w $location)
- 
+
   environment="Unknown"
   if [ ! -z $is_ww ]; then environment="AzureCloud"; fi
   if [ ! -z $is_us ]; then environment="AzureUSGovernment"; fi
   if [ ! -z $is_cn ]; then environment="AzureChinaCloud"; fi
   if [ ! -z $is_de ]; then environment="AzureGermanCloud"; fi
- 
+
   echo $environment
 ```
 
+### Validating that the VM is running in Azure
 
-### Examples of calling metadata service using different languages inside the VM 
+Marketplace vendors want to enure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise then they should have the ability to detect that. By calling into Instance Metadata Service Marketplace vendors can get signed data that guarantees response only from Azure.
 
-Language | Example 
+**Request**
+
+> [!NOTE]
+> Requires jq to be installed.
+
+```bash
+  # Get the signature
+   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2018-10-01 | jq -r '.["signature"]' > signature
+  # Decode the signature
+  base64 -d signature > decodedsignature
+  #Get PKCS7 format
+  openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  #Get the intermediate certificate
+  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
+  openssl x509 -inform der -in intermediate.cer -out intermediate.pem
+  #Verify the contents
+  openssl smime -verify -in sign.pk7 -inform pem -noverify
+ ```
+
+**Response**
+
+ ```json
+Verification successful
+{"nonce":"20181128-001617",
+  "plan":
+    {
+     "name":"",
+     "product":"",
+     "publisher":""
+    },
+"timeStamp":
+  {
+    "createdOn":"11/28/18 00:16:17 -0000",
+    "expiresOn":"11/28/18 06:16:17 -0000"
+  },
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34"
+}
+```
+
+#### Verifying the signature
+
+Once you get the signature above you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain.
+
+> [!NOTE]
+> The certificate for Public cloud and sovereign cloud will be different.
+
+```bash
+# Verify the subject name for the main certificate
+openssl x509 -noout -subject -in signer.pem
+# Verify the issuer for the main certificate
+openssl x509 -noout -issuer -in signer.pem
+#validate the subject name for intermediate certificate
+openssl x509 -noout -subject -in intermediate.pem
+# Verify the issuer for the intermediate certificate
+openssl x509 -noout -issuer -in intermediate.pem
+# Verify the certificate chain
+openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
+
+ ```
+
+Regions                                        | Certificate-----------------------------------------------|
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
+[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+
+### Examples of calling metadata service using different languages inside the VM
+
+Language | Example
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
@@ -426,11 +556,11 @@ Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
-    
 
 ## FAQ
+
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
-   * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service. 
+   * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
 2. Why am I not getting compute information for my VM?
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
@@ -442,17 +572,16 @@ Puppet | https://github.com/keirans/azuremetadata
 6. Where do I share additional questions/comments?
    * Send your comments on http://feedback.azure.com.
 7. Would this work for Virtual Machine Scale Set Instance?
-   * Yes Metadata service is available for Scale Set Instances. 
+   * Yes Metadata service is available for Scale Set Instances.
 8. How do I get support for the service?
    * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
 9. I get request timed out for my call to the service?
    * Metadata calls must be made from the primary IP address assigned to the network card of the VM , in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
-10. I updated my tags in Virutal Machine Scale set but they dont appear in the instances unlike VMs?
-   * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance. 
+10. I updated my tags in Virtual Machine Scale set but they dont appear in the instances unlike VMs?
+   * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
 
    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
-    
+  
 ## Next steps
 
 - Learn more about [Scheduled Events](scheduled-events.md)
-
