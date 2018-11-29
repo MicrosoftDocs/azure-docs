@@ -5,14 +5,13 @@
  author: jinzh-azureiot
  ms.service: azure-maps
  ms.topic: include
- ms.date: 05/07/2018
+ ms.date: 11/29/2018
  ms.author: jinzh
  ms.custom: include file
 ---
 
+Following is the usage limit for the Azure Maps service **S0 Pricing Tier**. Usage limit depends on the Pricing Tier. For more information on the Azure Maps Pricing Tiers, see [Azure Maps pricing details](https://azure.microsoft.com/pricing/details/azure-maps/).
 
-Here are the usage constraints for the Azure Maps service. For information about the cost, see [Azure Maps pricing details](https://azure.microsoft.com/pricing/details/azure-maps/). [Contact us](https://azure.microsoft.com/overview/sales-number/) to increase maximum request rate for your subscription.
-
-| Resource                              | Limit |
-|---------------------------------------|:-----:|
+| Resource                              | S0 Pricing Tier Limit |
+|---------------------------------------|:---------------------:|
 | Maximum request rate per subscription |   50 requests per second  |
