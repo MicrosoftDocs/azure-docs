@@ -426,5 +426,5 @@ How-to articles:
 - [Install packages from within a notebook](install-packages-jupyter-notebook.md)
 - [Present a slide show](present-jupyter-notebooks-slideshow.md)
 - [Work with data files](work-with-project-data-files.md)
-- [Access data resources](access-data-resources-in-jupyter-notebooks.md)
+- [Access data resources](access-data-resources-jupyter-notebooks.md)
 - [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

@@ -48,7 +48,7 @@ The following steps clone notebooks for Azure Cognitive Services:
 
 1. Once cloning is finished, Azure Notebooks takes you to the new project where you can see the copies of all the files.
 
-    [![](media/quickstarts/media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 1. To share your copy of the cloned project, use the **Share** control or obtain a link, obtain HTML or Markdown code that contains the link, or create an email message with the link:
 
