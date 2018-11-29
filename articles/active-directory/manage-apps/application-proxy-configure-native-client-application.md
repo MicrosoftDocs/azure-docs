@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 
 ---
@@ -95,4 +95,4 @@ Once the ADAL is edited with these parameters, your users should be able to auth
 
 For more information about the native application flow, see [Native application to web API](../develop/native-app.md)
 
-Learn about setting up [Single sign-on for Application Proxy](application-proxy-single-sign-on.md)
+Learn about setting up [Single sign-on for Application Proxy](what-is-single-sign-on.md#single- sign-on-methods)

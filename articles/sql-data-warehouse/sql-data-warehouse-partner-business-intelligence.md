@@ -75,6 +75,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 [qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
+
 <!--[birst_datasheet]:-->
 [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
 [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
@@ -82,7 +83,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
 [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
-<!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family-->
+[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family
 [sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data
 <!--[targit_datasheet]:-->
@@ -91,13 +92,15 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Marketplace Links -->
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
-<!--[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/-->
+[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
+
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 <!--[jinfonet_marketplace]:-->
-<!--[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/--> 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/ 
-<!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
-<!--[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/--> 
+[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
+[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+
+[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
+[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
 [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
@@ -107,19 +110,23 @@ To learn more about some of our other partners, see [Data Integration partners][
 [clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 <!--[dell_statistica_press]:-->
 [dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
+
 <!--[jinfonet_press]:-->
 [logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
 [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
+
 <!--[qlik_press]:-->
 <!--[sisense_press]:-->
 [tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
+
 <!--[targit_press]:-->
 <!--[yellowfin_press]:-->
 
 <!--YouTube links-->
 [birst_youtube]:https://www.youtube.com/user/BirstBI
+
 [clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
-<!--[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo-->
+[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo
 [dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
 [jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware
 [logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog

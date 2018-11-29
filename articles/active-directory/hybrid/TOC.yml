@@ -26,11 +26,11 @@
        href: concept-azure-ad-connect-sync-declarative-provisioning.md
      - name: Understanding Declarative Provisioning Expressions
        href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-     - name: Understanding the defualt configuration
+     - name: Understanding the default configuration
        href: concept-azure-ad-connect-sync-default-configuration.md
      - name: Understanding users and contacts
        href: concept-azure-ad-connect-sync-user-and-contacts.md
-     - name: Understandingr shadow attributes
+     - name: Understanding shadow attributes
        href: how-to-connect-syncservice-shadow-attributes.md
    - name: Identity synchronization and duplicate attribute resiliency
      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
@@ -172,6 +172,8 @@
       href: how-to-connect-pta-quick-start.md
     - name: How pass-through authentication works
       href: how-to-connect-pta-how-it-works.md
+    - name: Pass-through authentication current limitations
+      href: how-to-connect-pta-current-limitations.md
     - name: Security deep dive on pass-through authentication
       href: how-to-connect-pta-security-deep-dive.md
     - name: Pass-through authentication and user privacy
@@ -202,7 +204,7 @@
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
       href: how-to-connect-health-adds.md
-    - name: Health sevice data out-of-date
+    - name: Health service data out-of-date
       href: how-to-connect-health-data-freshness.md
     - name: Diagnose duplicate attribute sync errors
       href: how-to-connect-health-diagnose-sync-errors.md

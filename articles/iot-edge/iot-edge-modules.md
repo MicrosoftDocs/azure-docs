@@ -2,7 +2,7 @@
 title: Understand Azure IoT Edge modules | Microsoft Docs 
 description: Learn about Azure IoT Edge modules and how they are configured
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: conceptual

@@ -7,13 +7,13 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: overview
-ms.date: 12/03/2018
 ms.custom: mvc
+ms.date: 12/03/2018
 ---
 
 # What is Azure Database for MariaDB?
 
-Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) database engine.
+Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) database engine, version 10.2.
 
 Azure Database for MariaDB delivers:
 

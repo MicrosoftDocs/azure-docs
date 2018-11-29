@@ -31,7 +31,7 @@ Download the [C# console application](https://github.com/MicrosoftContentModerat
 
 ## Sample program outputs
 
-Before going further, let's look at the follwing sample outputs from the program:
+Before going further, let's look at the following sample outputs from the program:
 
 - [Console output](#program-output)
 - [Video review](#video-review-default-view)

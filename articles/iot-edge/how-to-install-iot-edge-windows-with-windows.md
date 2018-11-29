@@ -2,7 +2,7 @@
 title: How to install Azure IoT Edge on Windows with Windows containers | Microsoft Docs
 description: Azure IoT Edge installation instructions on Windows with  Windows containers
 author: kgremban
-manager: timlt
+manager: philmea
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge

@@ -18,6 +18,7 @@ Use this quickstart to make your first image search using the Bing Image Search 
 The source code for this sample is available [on Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) with additional error handling and annotations.
 
 ## Prerequisites
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * [Python 2.7 or 3.4](https://www.python.org/) and higher.
 

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 
 ms.author: mimart
 author: msmimart
@@ -42,15 +42,21 @@ First, create a new project in the Google Developers Console to obtain a client 
 
    ![Google API credentials](media/google-federation/google-api.png)
  
-4. Choose the **Oauth consent screen** tab and enter a **Product name shown to users**. (Leave the other settings.) Select **Save**.
+4. Choose the **OAuth consent screen** tab and enter an **Application name**. (Leave the other settings.)
 
    ![Google OAuth consent screen](media/google-federation/google-oauth-consent-screen.png)
 
-5. Choose the **Credentials** tab. In the **Create credentials** menu, choose **OAuth client ID**.
+5. Scroll to the **Authorized domains** section and enter microsoftonline.com.
+
+   ![Authorized domains section](media/google-federation/google-oauth-authorized-domains.png)
+
+6. Select **Save**.
+
+7. Choose the **Credentials** tab. In the **Create credentials** menu, choose **OAuth client ID**.
 
    ![Google API credentials](media/google-federation/google-api-credentials.png)
 
-6. Under **Application type**, choose **Web application**, and then under **Authorized redirect URIs**, enter the following URIs:
+8. Under **Application type**, choose **Web application**, and then under **Authorized redirect URIs**, enter the following URIs:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
    
@@ -59,7 +65,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
    ![Create OAuth client ID](media/google-federation/google-create-oauth-client-id.png)
 
-7. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
+9. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
 
    ![OAuth client ID and client secret](media/google-federation/google-auth-client-id-secret.png)
 

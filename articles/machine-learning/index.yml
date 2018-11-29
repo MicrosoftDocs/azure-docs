@@ -71,7 +71,7 @@ sections:
         - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
       - title: Consume your machine learning models
         values:
-        - href: 
+        - href: /azure/machine-learning/service/how-to-consume-web-service
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
       - title: Build, optimize, and manage your ML pipelines
         values:

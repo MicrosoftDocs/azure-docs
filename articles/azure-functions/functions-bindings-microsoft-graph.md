@@ -830,7 +830,7 @@ This section contains the following subsections:
 * [Example](#outlook-output---example)
 * [Attributes](#outlook-output---attributes)
 * [Configuration](#outlook-output---configuration)
-* [Usage](#outlook-outnput---usage)
+* [Usage](#outlook-output---usage)
 
 ### Outlook output - example
 
