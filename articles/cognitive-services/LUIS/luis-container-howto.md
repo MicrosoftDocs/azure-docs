@@ -343,7 +343,6 @@ You can use a LUIS application if it **doesn't include** any of the following de
 |X|X|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
 |X|X|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
 |X|X|Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
-|X|X|Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2)  prebuilt entities|
 ||X|Speech priming|External dependencies are not supported in the container.|
 ||X|Sentiment analysis|External dependencies are not supported in the container.|
 ||X|Bing spell check|External dependencies are not supported in the container.|
