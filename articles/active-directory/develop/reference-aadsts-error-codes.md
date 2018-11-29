@@ -31,7 +31,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | Error | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - This is an interrupt thrown by Azure AD, which results in UI that allows the user to select from among multiple valid SSO sessions. This error is fairly common and may be returned to the application if `prompt=none` is specified. |
-| AADSTS16001 | UserAccountSelectionInvalid - You'll see this error if the user clicks on a tile that the session select logic has rejected. When triggered, this error allows the user to recover by picking from an updated list of tiles/sessions, or by choosing another account. This error can occur due to a code defect or race condition. |
+| AADSTS16001 | UserAccountSelectionInvalid - You'll see this error if the user clicks on a tile that the session select logic has rejected. When triggered, this error allows the user to recover by picking from an updated list of tiles/sessions, or by choosing another account. This error can occur because of a code defect or race condition. |
 | AADSTS16002 | AppSessionSelectionInvalid - The app-specified SID requirement was not met.  |
 | AADSTS16003 | SsoUserAccountNotFoundInResourceTenant - Indicates that the user hasn't been explicitly added to the tenant. |
 | AADSTS17003 | CredentialKeyProvisioningFailed - Azure AD can't provision the user key. |
@@ -44,10 +44,10 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS50000 | TokenIssuanceError - There's an issue with the sign-in service. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to resolve this issue. |
 | AADSTS50001 | InvalidResource - The resource is disabled or does not exist. Check your app's code to ensure that you have specified the exact resource URL for the resource you are trying to access.  |
-| AADSTS50002 | NotAllowedTenant - Sign-in failed due to restricted proxy access on tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue. |
-| AADSTS50003 | MissingSigningKey - Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the app. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, contact the app owner or an app admin. |
+| AADSTS50002 | NotAllowedTenant - Sign-in failed because of a restricted proxy access on the tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue. |
+| AADSTS50003 | MissingSigningKey - Sign-in failed because of a missing signing key or certificate. This might be because there was no signing key configured in the app. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, contact the app owner or an app admin. |
 | AADSTS50005 | DevicePolicyError - User tried to log in to a device from a platform that's currently not supported through conditional access policy. |
-| AADSTS50006 | InvalidSignature - Signature verification failed due to an invalid signature. |
+| AADSTS50006 | InvalidSignature - Signature verification failed because of an invalid signature. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - The partner encryption certificate was not found for this app. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed. |
 | AADSTS50008 | InvalidSamlToken - SAML assertion is missing or misconfigured in the token. Contact your federation provider. |
 | AADSTS50010 | AudienceUriValidationFailed - Audience URI validation for the app failed since no token audiences were configured. |
@@ -56,9 +56,9 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50013 | InvalidAssertion - Assertion is invalid because of various reasons - The token issuer doesn't match the api version within its valid time range -expired -malformed - Refresh token in the assertion is not a primary refresh token. |
 | AADSTS50014 | GuestUserInPendingState - The user's redemption is in a pending state. The guest user account is not fully created yet. |
 | AADSTS50015 | ViralUserLegalAgeConsentRequiredState - The user requires legal age group consent. |
-| AADSTS50017 | CertificateValidationFailed - Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments due to timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin. |
+| AADSTS50017 | CertificateValidationFailed - Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments because of a timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin. |
 | AADSTS50020 | UserUnauthorized - Users are unauthorized to call this endpoint. |
-| AADSTS50027 | InvalidJwtToken - Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul> |
+| AADSTS50027 | InvalidJwtToken - Invalid JWT token because of the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul> |
 | AADSTS50029 | Invalid URI - domain name contains invalid characters. Contact the tenant admin. |
 | AADSTS50032 | WeakRsaKey - Indicates the erroneous user attempt to use a weak RSA key. |
 | AADSTS50033 | RetryableError - Indicates a transient error not related to the database operations. |
@@ -72,7 +72,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. |
 | AADSTS50056 | Invalid or null password -Password does not exist in store for this user. |
 | AADSTS50057 | UserDisabled - The user account is disabled. The account has been disabled by an administrator. |
-| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a very common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encouraged in an SSO context where the user has just previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
+| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encouraged in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
 | AADSTS50061 | SignoutInvalidRequest - The sign-out request is invalid. |
 | AADSTS50064 | CredentialAuthenticationError - Credential validation has failed. |
@@ -93,7 +93,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50107 | InvalidRealmUri - The requested federation realm object does not exist. Contact the tenant admin. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - Issue with JWT header. Contact the tenant admin. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy. |
-| AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - Sign-in was interrupted due to a password reset or password registration entry. |
+| AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - Sign-in was interrupted because of a password reset or password registration entry. |
 | AADSTS50126 | InvalidUserNameOrPassword - Error validating credentials due to invalid username or password. |
 | AADSTS50127 | BrokerAppNotInstalled - User needs to install a broker app to gain access to this content. |
 | AADSTS50128 | Invalid domain name - No tenant-identifying information found in either the request or implied by any provided credentials. |
@@ -113,7 +113,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50155 | DeviceAuthenticationFailed - Device authentication failed for this user. |
 | AADSTS50158 | ExternalSecurityChallenge - External security challenge was not satisfied. |
 | AADSTS50161 | InvalidExternalSecurityChallengeConfiguration - Claims sent by external provider is not enough or Missing claim requested to external provider. |
-| AADSTS50166 | ExternalClaimsProviderThrottled - Failed to send request to claims provider. |
+| AADSTS50166 | ExternalClaimsProviderThrottled - Failed to send the request to the claims provider. |
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired - The client is capable of obtaining an SSO token through the Windows 10 Accounts extension, but the token was not found in the request or the supplied token was expired. |
 | AADSTS50169 | InvalidRequestBadRealm - The realm is not a configured realm of the current service namespace. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping - The external controls mapping is missing. |
@@ -146,7 +146,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS70007 | UnsupportedResponseMode - The app returned an unsupported value of `response_mode` when requesting a token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - The refresh token has expired due to inactivity. The token was issued on XXX and was inactive for a certain amount of time. |
 | AADSTS70011 | InvalidScope - The scope requested by the app is invalid. |
-| AADSTS70012 | MsaServerError - A server error occurred while authenticating an MSA (consumer) user. Please retry. If it continues to fail, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - A server error occurred while authenticating an MSA (consumer) user. Try again. If it continues to fail, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 device flow error. Authorization is pending. The device will retry polling the request. |
 | AADSTS70018 | BadVerificationCode - Invalid verification code due to User typing in wrong user code for device code flow. Authorization is not approved. |
 | AADSTS70019 | CodeExpired - Verification code expired. Have the user retry the sign-in. |
@@ -176,7 +176,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90005 | InvalidRequestWithMultipleRequirements - Unable to complete the request. The request is not valid because the identifier and login hint can't be used together.  |
 | AADSTS90006 | ExternalServerRetryableError - The service is temporarily unavailable.|
 | AADSTS90007 | InvalidSessionId - Bad request. The passed session ID can't be parsed. |
-| AADSTS90008 | TokenForItselfRequiresGraphPermission - The user or administrator hasn't consented to use the application. At the minimum, the application requires access to Azure AD by specifying the sign in and read user profile permission. |
+| AADSTS90008 | TokenForItselfRequiresGraphPermission - The user or administrator hasn't consented to use the application. At the minimum, the application requires access to Azure AD by specifying the sign-in and read user profile permission. |
 | AADSTS90009 | TokenForItselfMissingIdenticalAppIdentifier - The application is requesting a token for itself. This scenario is supported only if the resource that's specified is using the GUID-based application ID. |
 | AADSTS90010 | NotSupported - Unable to create the algorithm. |
 | AADSTS90012 | RequestTimeout - The requested has timed out. |
@@ -194,7 +194,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90043 | NationalCloudAuthCodeRedirection - The feature is disabled. |
 | AADSTS90051 | InvalidNationalCloudId - The national cloud identifier contains an invalid cloud identifier. |
 | AADSTS90055 | TenantThrottlingError - There are too many incoming requests. This exception is thrown for blocked tenants. |
-| AADSTS90056 | BadResourceRequest - To redeem the code for an access token, the app should send a POST request to the `/token` endpoint. Also, prior to this, you should provide an authorization code and send it in the POST request to the `/token` endpoint. Refer to this article for an overview of OAuth 2.0 authorization code flow: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). You must first direct the user to the `/authorize` endpoint, which will return an authorization_code. By posting a request to the `/token` endpoint, the user gets the access token. Log in the Azure portal, and check **App registrations > Endpoints** to confirm that the two endpoints were configured correctly. |
+| AADSTS90056 | BadResourceRequest - To redeem the code for an access token, the app should send a POST request to the `/token` endpoint. Also, prior to this, you should provide an authorization code and send it in the POST request to the `/token` endpoint. Refer to this article for an overview of OAuth 2.0 authorization code flow: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Direct the user to the `/authorize` endpoint, which will return an authorization_code. By posting a request to the `/token` endpoint, the user gets the access token. Log in the Azure portal, and check **App registrations > Endpoints** to confirm that the two endpoints were configured correctly. |
 | AADSTS90072 | PassThroughUserMfaError - The external account that the user signs in with doesn't exist on the tenant that they signed into; so the user can't satisfy the MFA requirements for the tenant. The account must be added as an external user in the tenant first. Sign out and sign in with a different Azure AD user account. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - An error occurred when the service tried to process a WS-Federation message. The message is not valid. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - The selected authentication policy for the request isn't currently supported. |
