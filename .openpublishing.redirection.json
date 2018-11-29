@@ -1445,7 +1445,7 @@
         {
             "source_path": "articles/virtual-machines/windows/troubleshoot-check-disk-boot-error.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/linux/troubleshooting-throttling-errors.md",
@@ -2105,7 +2105,7 @@
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
             "redirect_url": "/azure/governance/policy/assign-policy-portal",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy.md",
@@ -10373,7 +10373,7 @@
         {
             "source_path": "articles/virtual-machines/windows/restart-resize-error-troubleshooting.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/restart-resize-error-troubleshooting",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/machine-learning-algorithm-choice.md",
@@ -30091,7 +30091,7 @@
         {
             "source_path": "articles/azure-policy/scripts/audit-trans-data-enc-status.md",
             "redirect_url": "/azure/governance/policy/samples/sql-database-encryption-audit",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-policy/scripts/billing-tags-policy-init.md",
