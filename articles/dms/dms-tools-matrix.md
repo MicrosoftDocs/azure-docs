@@ -22,7 +22,7 @@ The following tables identify the service and tools that you can use to plan suc
 > [!NOTE]
 > In the following tables, items marked with an asterisk (*) represent third-party tools.
 
-## Business justification
+## Business justification stage
 
 | **Source** | **Target** | **Discover /**<br/>**Inventory** | **Target and SKU**<br/>**recommendation** | **TCO/ROI and**<br/>**Business case** |
 | --- | --- | --- | --- | --- |
@@ -44,7 +44,7 @@ The following tables identify the service and tools that you can use to plan suc
 | Sybase | Azure SQL DB, MI, VM |  |  |  |
 | | | | | |
 
-## Pre-migration
+## Pre-migration stage
 
 | **Source** | **Target** | **App Data Access**<br/>**Layer Assessment** | **Database**<br/>**Assessment** | **Performance**<br/>**Assessment** |
 | --- | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ The following tables identify the service and tools that you can use to plan suc
 | Sybase | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | | | | | |
 
-## Migration
+## Migration stage
 
 | **Source** | **Target** | **Schema** | **Data**<br/>**(Offline)** | **Data**<br/>**(Online)** |
 | --- | --- | --- | --- | --- |
@@ -88,7 +88,7 @@ The following tables identify the service and tools that you can use to plan suc
 | Sybase | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | | | | | |
 
-## Post migration
+## Post-migration stage
 
 | **Source** | **Target** | **Optimize** |
 | --- | --- | --- |
