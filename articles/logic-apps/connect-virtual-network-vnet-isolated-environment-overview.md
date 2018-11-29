@@ -76,8 +76,8 @@ while the other version runs in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-* Connectors that you configure in your ISE are also 
-available for use in the global Logic Apps service. 
+* Connectors that you set up to run in an ISE also have publicly 
+available versions available in the global Logic Apps service. 
 
 > [!IMPORTANT]
 > Logic apps, built-in actions, and connectors that run in your ISE use 
