@@ -1,6 +1,6 @@
 ---
 title: Scale unit node actions in Azure Stack | Microsoft Docs
-description: Learn how to view node status, and use the power on, power off, drain, and resume node actions on an Azure Stack integrated system.
+description: Learn how to view node status, and use the power on, power off, disable, and resume node actions on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,9 +10,9 @@ editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -22,132 +22,151 @@ ms.reviewer: ppacent
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes how to view the status of a scale unit and its associated nodes, and how to use the available node actions. Node actions include power on, power off, drain, resume, and repair. Typically, you use these node actions during field replacement of parts, or for node recovery scenarios.
+This article describes how to view the status of a scale unit. You can view the unit's nodes. You can run node actions such as power on, power off, shut down, drain, resume, and repair. Typically, you use these node actions during field replacement of parts, or to help recover a node.
 
 > [!Important]  
-> All node actions described in this article should only target one node at a time.
-
+> All node actions described in this article should target one node at a time.
 
 ## View the node status
 
-In the administrator portal, you can easily view the status of a scale unit and its associated nodes.
+In the administrator portal, you can view the status of a scale unit and its associated nodes.
 
 To view the status of a scale unit:
 
 1. On the **Region management** tile, select the region.
 2. On the left, under **Infrastructure resources**, select **Scale units**.
 3. In the results, select the scale unit.
- 
-Here, you can view the following information:
+4. On the left, under **General**, select **Nodes**.
 
-- Region name. The region name is referenced with **-Location** in the PowerShell module.
-- Type of system
-- Total logical cores
-- Total memory
-- The list of individual nodes and their status; either **Running** or **Stopped**
+  View the following information:
 
-![Scale unit tile showing Running status for each node](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+  - The list of individual nodes
+  - Operational Status (see list below)
+  - Power Status (running or stopped)
+  - Server model
+  - IP address of the baseboard management controller (BMC)
+  - Total number of cores
+  - Total amount of memory
 
-## View node information
+![status of a scale unit](media/azure-stack-node-actions/multinodeactions.png)
 
-If you select an individual node, you can view the following information:
+### Node operational states
 
-- Region name
-- Server model
-- IP address of the baseboard management controller (BMC)
-- Operational state
-- Total number of cores
-- Total amount of memory
- 
-![Scale unit tile showing Running status for each node](media/azure-stack-node-actions/NodeActions.PNG)
-
-You can also perform scale unit node actions from here.
+| Status | Description |
+|----------------------|-------------------------------------------------------------------|
+| Running | The node is actively participating in the scale unit. |
+| Stopped | The node is unavailable. |
+| Adding | The node is actively being added to the scale unit. |
+| Repairing | The node is actively being repaired. |
+| Maintenance | The node is paused, and no active user workload is running. |
+| Requires Remediation | An error has been detected that requires the node to be repaired. |
 
 ## Scale unit node actions
 
 When you view information about a scale unit node, you can also perform node actions such as:
-
-- Drain and resume
-- Repair
+ - Start and stop (depending on current power status)
+ - Disable and resume (depending on operations status)
+ - Repair
+ - Shutdown
 
 The operational state of the node determines which options are available.
 
-### Power off
+You will need to install Azure Stack PowerShell modules. These cmdlets are in the **Azs.Fabric.Admin** module. To install or verify your installation of PowerShell for Azure Stack, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-The **Power off** action turns off the node. It’s the same as if you press the power button. It does **not** send a shutdown signal to the operating system. For planned power off operations, make sure you drain a scale unit node first.
+## Stop
+
+The **Stop** action turns off the node. It's the same as if you press the power button. It does not send a shutdown signal to the operating system. For planned stop operations, always try the shutdown operation first. 
 
 This action is typically used when a node is in a hung state and no longer responds to requests.
 
-> [!Important] 
-> This functionality is only available via PowerShell. It will be available in the Azure Stack administrator portal again at a later time.
+To run the stop action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-
-To run the power off action through PowerShell:
-
-````PowerShell
+```PowerShell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-```` 
+```
 
-In the unlikely case that the power off action doesn't work, use the BMC web interface instead.
+In the unlikely case that the stop action doesn't work, retry the operation and if it fails a second time use the BMC web interface instead.
 
-### Power on
+For more information, see [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-The **Power on** action turns on the node. It’s the same as if you press the power button. 
+## Start
 
-> [!Important] 
-> This functionality is only available via PowerShell. It will be available in the Azure Stack administrator portal again at a later time.
+The **start** action turns on the node. It's the same as if you press the power button. 
+ 
+To run the start action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-To run the power on action through PowerShell:
-
-````PowerShell
+```PowerShell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-````
+```
 
-In the unlikely case that the power on action doesn't work, use the BMC web interface instead.
+In the unlikely case that the start action doesn't work, retry the operation and if it fails a second time use the BMC web interface instead.
 
-### Drain
+For more information, see [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
-The **Drain** action evacuates all active workloads by distributing them among the remaining nodes in that particular scale unit.
+## Drain
+
+The **drain** action moves all active workloads to the remaining nodes in that particular scale unit.
 
 This action is typically used during field replacement of parts, such as the replacement of an entire node.
 
-> [!IMPORTANT]  
-> Make sure that you drain a node only during a planned maintenance window, where users have been notified. Under some conditions, active workloads can experience interruptions.
+> [!Important]
+> Make sure that you use a drain operation on a node during a planned maintenance window, where users have been notified. Under some conditions, active workloads can experience interruptions.
 
-To run the drain action through PowerShell:
+To run the drain action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-  ````PowerShell
+```PowerShell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### Resume
+For more information, see [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
-The **Resume** action resumes a drained node and marks it active for workload placement. Earlier workloads that were running on the node do not fail back. (If you drain a node and then power off, when you power the node back on, it's not marked as active for workload placement. When ready, you must use the resume action to mark the node as active.)
+## Resume
 
-To run the resume action through PowerShell:
+The **resume** action resumes a disabled node and marks it active for workload placement. Earlier workloads that were running on the node do not fail back. (If you use a drain operation on a node be sure to power off. When you power the node back on, it's not marked as active for workload placement. When ready, you must use the resume action to mark the node as active.)
 
-  ````PowerShell
+To run the resume action, open an elevated PowerShell prompt, and run the following cmdlet:
+
+```PowerShell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### Repair
+For more information, see [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
-The **Repair** action repairs a node. Use it only for either of the following scenarios:
+## Repair
 
-- Full node replacement (with or without new data disks)
-- After hardware component failure and replacement (if advised in the field replaceable unit (FRU) documentation).
+The **repair** action repairs a node. Use it only for either of the following scenarios:
+ - Full node replacement (with or without new data disks)
+ - After hardware component failure and replacement (if advised in the field replaceable unit (FRU) documentation).
 
-> [!IMPORTANT]  
-> See your OEM hardware vendor’s FRU documentation for exact steps when you need to replace a node or individual hardware components. The FRU documentation will specify whether you need to run the repair action after replacing a hardware component.  
+> [!Important]  
+> See your OEM hardware vendor's FRU documentation for exact steps when you need to replace a node or individual hardware components. The FRU documentation will specify whether you need to run the repair action after replacing a hardware component. 
 
 When you run the repair action, you need to specify the BMC IP address. 
 
-To run the repair action through PowerShell:
+To run the repair action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-  ````PowerShell
+```PowerShell  
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
-  ````
+```
+
+For more information, see [Repair-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/repair-azsscaleunitnode).
+
+## Shutdown
+
+The **shutdown** action first evacuates all active workloads by distributing them among the remaining nodes in that particular scale unit and then does a graceful shutdown.
+
+After starting node that was shut down, you need to resume it. Earlier workloads that were running on the node do not fail back.
+
+If the shutdown operations fail, attempt a disable operation followed by a shutdown operation. This can happen if live migration attempts failed that are automatically initiated when executing the shutdown operation.
+
+To run the resume action, open an elevated PowerShell prompt, and run the following cmdlet:
+
+```PowerShell  
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+```
+
+For more information, see [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/Stop-AzsScaleUnitNode).
 
 ## Next steps
 
-To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).
+To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin).
