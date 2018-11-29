@@ -11,7 +11,7 @@ ms.author: rogarana
 ms.component: common
 ---
 
-# Azure Storage security guide
+# Azure Data Lake Storage Gen2 security guide
 
 Azure Data Lake Storage Gen2 Preview, is a set of capabilities built on Azure Storage accounts. As such, any references in this article are meant for an Azure Storage account with hierarchical namespace enabled (Data Lake Storage Gen2 capabilities).
 
