@@ -10,7 +10,7 @@
  ms.date: 11/21/2018
 ---
 
-## V2 Private Preview Time Series Insights Update documents
+## Private Preview Time Series Insights Update documents
 
 * [Private Preview Explorer](../articles/time-series-insights/time-series-insights-update-tsm.md)
 * [Private Preview Storage and ingress](../articles/time-series-insights/time-series-insights-update-storage-ingress.md)
