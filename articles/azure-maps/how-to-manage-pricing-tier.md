@@ -18,7 +18,7 @@ For more information about choosing the right Pricing Tier, see, [choosing the r
 
 ## View Pricing Tier
 
-To view your chosen pricing Tier, navigate to the `Pricing Tier` option in the settings menu.
+To view your chosen Pricing Tier, navigate to the `Pricing Tier` option in the settings menu.
 
 ![View chosen pricing tier](./media/how-to-manage-pricing-tier/view-pricing-tier.png)
 
@@ -30,5 +30,6 @@ Once you have created your Azure Maps account, you can upgrade or downgrade the 
 
 ## Next steps
 
-* Learn how to see the API usage metrics for your Azure Maps account at [View usage metrics](./how-to-view-api-usage.md).
-* Learn how to use Azure maps [JavaScript map control](./how-to-use-map-control.md).
+> [!div class="nextstepaction"]
+> Learn how to see the API usage metrics for your Azure Maps account at [View usage metrics](./how-to-view-api-usage.md).
+> Learn how to use Azure maps [JavaScript map control](./how-to-use-map-control.md).
