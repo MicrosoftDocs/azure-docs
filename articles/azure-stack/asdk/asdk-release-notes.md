@@ -19,7 +19,7 @@ ms.reviewer: misainat
 ---
 
 # ASDK release notes  
-This article provides information about improvements, fixes, and known issues in Azure Stack Development Kit (ASDK). If you're not sure which version you're running, you can [use the portal to check](././azure-stack-updates.md#determine-the-current-version).
+This article provides information about improvements, fixes, and known issues in Azure Stack Development Kit (ASDK). If you're not sure which version you're running, you can [use the portal to check](../azure-stack-updates.md#determine-the-current-version).
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -199,13 +199,13 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 This build includes the following improvements and fixes for Azure Stack.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](././azure-stack-backup-enable-backup-powershell.md).
+- **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
-- **Added data transfer time into the total backup time.** For more information, see [Enable Backup for Azure Stack with PowerShell](././azure-stack-backup-enable-backup-powershell.md).
+- **Added data transfer time into the total backup time.** For more information, see [Enable Backup for Azure Stack with PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 1702130 | ASDK, IS --> 
-- **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.) For more information, see [Enable Backup for Azure Stack with PowerShell](././azure-stack-backup-enable-backup-powershell.md).
+- **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.) For more information, see [Enable Backup for Azure Stack with PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
@@ -213,7 +213,7 @@ This build includes the following improvements and fixes for Azure Stack.
    You can also use templates to [deploy resources to more than one subscription or resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources. Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release. Please refer to [Considerations for Azure Stack networking](././user/azure-stack-network-differences.md) for functionality differences.
+- **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources. Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release. Please refer to [Considerations for Azure Stack networking](../user/azure-stack-network-differences.md) for functionality differences.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
@@ -241,7 +241,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 <!-- TBD | IS, ASDK -->  
-- **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](././azure-stack-delegated-provider.md).
+- **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](../azure-stack-delegated-provider.md).
  
 <!-- 2536808 IS ASDK --> 
 - **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
@@ -265,7 +265,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - The backup list now refreshes when you manually delete the backup from the external share.
 
 <!-- 2360715 |  ASDK, IS -->  
-- When you set up datacenter integration, you no longer access the AD FS metadata file from a share. For more information, see [Setting up AD FS integration by providing federation metadata file](././azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- When you set up datacenter integration, you no longer access the AD FS metadata file from a share. For more information, see [Setting up AD FS integration by providing federation metadata file](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 <!-- 2388980 | ASDK, IS --> 
 - We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
@@ -288,7 +288,7 @@ This build includes the following improvements and fixes for Azure Stack.
 <!--  TBD ASDK --> 
 - The virtual machine that hosts the privilege endpoint (PEP) has been increased to 4GB. In the ASDK, this virtual machine is named AzS-ERCS01.
 
-- <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](././azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template. 
+- <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](../azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template. 
 
 ### Known issues
 
@@ -302,7 +302,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
 
 <!--2760466 – IS  ASDK --> 
-- When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](././azure-stack-registration.md) is required before you can use marketplace syndication. 
+- When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](../azure-stack-registration.md) is required before you can use marketplace syndication. 
 
 <!-- TBD - IS ASDK --> 
 - The two administrative subscription types that were introduced with version 1804 should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
@@ -436,17 +436,17 @@ This build includes the following improvements and fixes for Azure Stack.
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](././azure-stack-backup-enable-backup-powershell.md).
+- <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS -->  **Added data transfer time into the total backup time.** For more information, see [Enable Backup for Azure Stack with PowerShell](././azure-stack-backup-enable-backup-powershell.md).
+- <!-- 2496385 | ASDK, IS -->  **Added data transfer time into the total backup time.** For more information, see [Enable Backup for Azure Stack with PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
--	<!-- 1702130 | ASDK, IS -->  **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.) For more information, see [Enable Backup for Azure Stack with PowerShell](././azure-stack-backup-enable-backup-powershell.md).
+-	<!-- 1702130 | ASDK, IS -->  **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.) For more information, see [Enable Backup for Azure Stack with PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
 
    You can also use templates to [deploy resources to more than one subscription or resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
-- <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](././user/azure-stack-network-differences.md) for functionality differences.
+- <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](../user/azure-stack-network-differences.md) for functionality differences.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
 
@@ -463,11 +463,11 @@ This build includes the following improvements and fixes for Azure Stack.
 
   Because this feature is still in preview, you don't rely on it in production environments.
 
-  For more information, see [Azure Stack syslog forwarding](././azure-stack-integrate-security.md).
+  For more information, see [Azure Stack syslog forwarding](../azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-- <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](././azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](../azure-stack-delegated-provider.md).
  
 - <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
 
@@ -483,7 +483,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2215948 |  ASDK, IS --> The backup list now refreshes when you manually delete the backup from the external share.
 
-- <!-- 2360715 |  ASDK, IS -->  When you set up datacenter integration, you no longer access the AD FS metadata file from a share. For more information, see [Setting up AD FS integration by providing federation metadata file](././azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- <!-- 2360715 |  ASDK, IS -->  When you set up datacenter integration, you no longer access the AD FS metadata file from a share. For more information, see [Setting up AD FS integration by providing federation metadata file](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 - <!-- 2388980 | ASDK, IS --> We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
 
@@ -530,7 +530,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - You cannot apply driver updates by using an OEM Extension package with this version of Azure Stack.  There is no workaround for this problem.
  
 <!-- TBD - IS ASDK --> 
-- The ability [to open a new support request from the dropdown](././azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
+- The ability [to open a new support request from the dropdown](../azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -624,7 +624,7 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 2292271 - IS ASDK --> 
 - If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased.
 
-  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. For more information, see how to [make an add-on plan available](././azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. For more information, see how to [make an add-on plan available](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 <!-- 2304134 IS ASDK --> 
 - You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription.
