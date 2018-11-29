@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Enable Virtual Networks Integration and Firewalls on Event Hubs namespace
 
-[Virtual Network (VNet) service endpoints](../virtual-network/virtual-network-service-endpoints-overview) extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
+[Virtual Network (VNet) service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
 Firewalls allow you to limit access to the Event Hubs namespace from specific IP addresses (or IP address ranges)
 
