@@ -38,7 +38,7 @@ When you enable an IP access control policy programmatically, you need to add th
 |Germany|51.4.229.218|
 |China|139.217.8.252|
 |US Gov|52.244.48.71|
-|All regions except the above three|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
+|All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 You can enable access to the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot: 
 
