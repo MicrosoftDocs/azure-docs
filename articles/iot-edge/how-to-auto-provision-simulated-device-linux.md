@@ -12,9 +12,9 @@ services: iot-edge
 
 # Create and provision an Edge device with a virtual TPM on a Linux virtual machine
 
-Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing. 
+Azure IoT Edge devices can be autoprovisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of autoprovisioning, review the [autoprovisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing. 
 
-This article shows you how to test auto-provisioning on a simulated Edge device with the following steps: 
+This article shows you how to test autoprovisioning on a simulated Edge device with the following steps: 
 
 * Create a Linux virtual machine (VM) in Hyper-V with a simulated Trusted Platform Module (TPM) for hardware security.
 * Create an instance of IoT Hub Device Provisioning Service (DPS).
@@ -30,7 +30,7 @@ The steps in this article are meant for testing purposes.
 
 ## Create a Linux virtual machine with a virtual TPM
 
-In this section, you create a new Linux virtual machine on Hyper-V that has a simulated TPM so that you can use it for testing how auto-provisioning works with IoT Edge. 
+In this section, you create a new Linux virtual machine on Hyper-V that has a simulated TPM so that you can use it for testing how autoprovisioning works with IoT Edge. 
 
 ### Create a virtual switch
 
@@ -60,7 +60,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
    2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section. 
    3. **Installation Options**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
 
-It may take a view minutes to create the new VM. 
+It may take a few minutes to create the new VM. 
 
 ### Enable virtual TPM
 
@@ -100,7 +100,7 @@ After you have the Device Provisioning Service running, copy the value of **ID S
 
 Retrieve the provisioning information from your virtual machine, and use that to create an individual enrollment in Device Provisioning Service. 
 
-When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
+When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
 
 
 1. In the [Azure portal](https://portal.azure.com), and navigate to your instance of IoT Hub Device Provisioning Service. 
@@ -131,7 +131,7 @@ Know your DPS **ID Scope** and device **Registration ID** before beginning the a
 
 In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM. 
 
-Use the following steps to give TPM access. Alternatively, you can accomplish the same thing by overriding the systemd settings so that the *iotedge* service can run as root. 
+You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the *iotedge* service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access. 
 
 1. Find the file path to the TPM hardware module on your device and save it as a local variable. 
 
@@ -175,8 +175,10 @@ Use the following steps to give TPM access. Alternatively, you can accomplish th
    Successful output looks like the following:
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev. 
 
 8. Open the IoT Edge runtime overrides file. 
 
@@ -219,7 +221,7 @@ Check to see that the IoT Edge runtime is running.
    sudo systemctl status iotedge
    ```
 
-If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon gain. 
+If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again. 
 
    ```bash
    sudo systemctl daemon-reload
@@ -229,7 +231,7 @@ Or, try restarting your virtual machine to see if the changes take effect on a f
 
 ## Verify successful installation
 
-If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned and is ready to run IoT Edge modules. 
+If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules. 
 
 Check the status of the IoT Edge Daemon.
 
@@ -252,4 +254,4 @@ iotedge list
 
 ## Next steps
 
-The Device Provisioning Service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-monitor.md) or [using Azure CLI](how-to-deploy-monitor-cli.md)
+The Device Provisioning Service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-monitor.md) or [using Azure CLI](how-to-deploy-monitor-cli.md).

@@ -2,16 +2,15 @@
 title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 services: functions
-documentationcenter: 
 author: ggailey777
 manager: jeconnoc
 
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-
 ---
+
 # How to target Azure Functions runtime versions
 
 A function app runs on a specific version of the Azure Functions runtime. There are two major versions: [1.x and 2.x](functions-versions.md). By default, function apps that are created version 2.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
@@ -33,23 +32,13 @@ The values you can set in the `FUNCTIONS_EXTENSION_VERSION` app setting to enabl
 
 ## View and update the current runtime version
 
-Use the following procedure to view the runtime version currently used by a function app.
+You can change the runtime version used by you function app. Because of the potential of breaking changes, you should only change the runtime version before you have created any functions in your function app. Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, you should make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.
 
-1. In the [Azure portal](https://portal.azure.com), browse to your function app.
+### From the Azure portal
 
-1. Under **Configured Features**, choose **Function app settings**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![Select function app settings](./media/set-runtime-version/add-update-app-setting.png)
-
-1. In the **Function app settings** tab, locate the **Runtime version**. Note the specific runtime version and the requested major version. In the example below, the version is set to `~2`.
-
-   ![Select function app settings](./media/set-runtime-version/function-app-view-version.png)
-
-1. To pin your function app to the version 1.x runtime, choose **~1** under **Runtime version**. This switch is disabled when you have functions in your app.
-
-1. If you changed the runtime version, go back to the **Overview** tab and choose **Restart** to restart the app.  The function app restarts running on the version 1.x runtime, and the version 1.x templates are used when you create functions.
-
-## View and update the runtime version using Azure CLI
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>From the Azure CLI
 
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.
 

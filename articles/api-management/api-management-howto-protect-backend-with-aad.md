@@ -96,8 +96,6 @@ Now that you have registered two applications to represent the API and the Devel
 
 > [!NOTE]
 > If **Azure Active Directory** is not listed under permissions to other applications, select **Add** to add it from the list.
-> 
-> 
 
 ## Enable OAuth 2.0 user authorization in the Developer Console
 
@@ -116,6 +114,9 @@ In this example, the Developer Console is the client-app. The following steps de
 5. For **Authorization grant types**, select **Authorization code**.
 
 6. Specify the **Authorization endpoint URL** and **Token endpoint URL**. Retrieve these values from the **Endpoints** page in your Azure AD tenant. Browse to the **App registrations** page again, and select **Endpoints**.
+
+    >[!NOTE]
+    > Use the **v1** endpoints here
 
 7. Copy the **OAuth 2.0 Authorization Endpoint**, and paste it into the **Authorization endpoint URL** text box.
 
@@ -150,6 +151,9 @@ The next step is to enable OAuth 2.0 user authorization for your API. This enabl
 5. Select **Save**.
 
 ## Successfully call the API from the developer portal
+
+> [!NOTE]
+> This section does not apply to the **Consumption** tier, which does not support the developer portal.
 
 Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token on behalf of the user, before calling the API.
 
