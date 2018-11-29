@@ -30,7 +30,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
     - The *Name* of your new account.
     - The *Subscription* that you want to use for this account.
     - The *Resource group* for this account. You may choose to *Create new* or *Use existing* resource group.
-    - Select the *Pricing Tier* of you choice.
+    - Select the *Pricing Tier* of your choice.
     - Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     - Finally, click the **Create** button.
 
