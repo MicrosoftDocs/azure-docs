@@ -73,7 +73,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```  
 
-Use the Python annotations included in the [azure.functions.*](https://docs.microsoft.com/en-us/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods. 
+Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods. 
 
 ## Folder structure
 
@@ -96,7 +96,7 @@ The folder structure for a Python Functions project looks like the following:
  | - bin
 ```
 
-There's a shared [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
+There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
 
 Shared code should be kept in a separate folder. To reference modules in the SharedCode folder, you can use the following syntax:
 
