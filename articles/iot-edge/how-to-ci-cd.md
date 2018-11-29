@@ -165,11 +165,11 @@ In this section, you will trigger a build to make the CI/CD pipeline work. Then 
 
     ![Manual trigger](./media/how-to-ci-cd/manual-trigger.png)
 
-2. If the build pipeline is completed successfully, it will trigger a release to **QA** stage. Navigate to build pipeline logs and you should see the following.
+2. If the build pipeline is completed successfully, it will trigger a release to **QA** stage. Navigate to build pipeline logs and you should see the following screenshot.
 
     ![Build logs](./media/how-to-ci-cd/build-logs.png)
 
-3. The successful deployment to **QA** stage would trigger a notification to the approver. Navigate to release pipeline, you can see the following. 
+3. The successful deployment to **QA** stage would trigger a notification to the approver. Navigate to release pipeline, you can see the following screenshot. 
 
     ![Pending approval](./media/how-to-ci-cd/pending-approval.png)
 
