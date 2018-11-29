@@ -301,14 +301,29 @@ protobuf==3.6.1
 six==1.11.0
 ```
 
-If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using the standard package installer (pip), publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
+### Publishing to Azure
+
+If you're using a package that requires a compiler and does not support the installation of manylinux-compatible wheels from PyPI, publishing to Azure will fail with the following error: 
+
+```
+There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
+The terminal process terminated with exit code: 1
+```
+
+To automatically build and configure the required binaries, [install Docker](https://docs.docker.com/install/) on your local machine and run the following command to publish using the [Azure Functions Core Tools](functions-run-local.md#v2) (func). Remember to replace `<app name>` with the name of your function app in Azure. 
 
 ```bash
 func azure functionapp <app name> --build-native-deps
 ```
 
-Replace `<app name>` with the name of your function app in Azure. This command builds the required binaries locally before publishing to Azure.
+Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
+> [!NOTE]
+> Core Tools (func) uses the PyInstaller program to freeze the user's code and dependencies into a single stand-alone executable to run in Azure. This functionality is currently in preview and may not extend to all types of Python packages. If you're unable to import your modules, try publishing again using the `--no-bundler` option. 
+> ```
+> func azure functionapp publish <app_name> --build-native-deps --no-bundler
+> ```
+> If you continue to experience issues, please [open an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and include a description of the problem. 
 
 ## Deploy to Azure using Travis CI 
 
