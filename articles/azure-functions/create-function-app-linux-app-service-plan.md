@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 09/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: azure-functions
 ms.custom: mvc
@@ -45,11 +45,11 @@ If you choose to install and use the CLI locally, this topic requires the Azure 
 
 You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command with a Linux App Service plan.
 
-In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
+In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. You should also set the `<language>` runtime for your function app, from `dotnet` (C#), `node` (JavaScript), or `python`.
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan
+az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
+--name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
 
 After the function app has been created and deployed, the Azure CLI shows information similar to the following example:
@@ -79,7 +79,7 @@ Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to
 
 ## Next Steps
 
-This article shows you how to create a Linux hosted function app in Azure. You can now deploy a function project to this function app. You can use the Azure Functions Core Tools to create a functions project on your local computer and deploy them to your new Linux function app.  
+This article shows you how to create a Linux hosted function app in Azure. You can now [deploy a function project](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) to this function app. You can use the Azure Functions Core Tools to [create a Functions project](functions-run-local.md#create-a-local-functions-project) on your local computer and deploy it to your new Linux function app.  
 
 > [!div class="nextstepaction"] 
 > [Code and test Azure Functions locally](functions-run-local.md)
