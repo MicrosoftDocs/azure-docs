@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/27/2018
 ms.author: azfuncdf
 ---
 
@@ -56,9 +56,10 @@ module.exports = function (context, input) {
     context.done(null);
 };
 ```
-The code above assumes that in the function.json file you have defined an out binding with name as "starter" and type as "orchestrationClient". If the binding is not defined, then the durable function instance will not be created.
 
-For the durable function to be invoked the  function.json should be modified to have a binding for orchestration client as described below
+The code above assumes that in the function.json file you have defined an out binding with name as `starter` and type as `orchestrationClient`. If the binding is not defined, then the durable function instance will not be created.
+
+For the durable function to be invoked, the function.json should be modified to have a binding for orchestration client as described below
 
 ```js
 {
@@ -71,20 +72,20 @@ For the durable function to be invoked the  function.json should be modified to 
 ```
 
 > [!NOTE]
-> We recommend that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
+> Use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is also possible to start an instance directly via the [Azure Functions Core Tools's](../functions-run-local.md) `durable start-new` command. It takes the following parameters:
+It is also possible to start an instance directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` command. It takes the following parameters:
 
 * **`function-name` (required)**: Name of the function to start
-* **`input` (optional)**: Input to the function, either in-line or via a JSON file. For files, prefix the path to the file with @ (e.g. "@path/to/file.json")
+* **`input` (optional)**: Input to the function, either in-line or via a JSON file. For files, prefix the path to the file with `@`, such as `@path/to/file.json`.
 * **`id` (optional)**: ID of the orchestration instance. If not provided, a random GUID is generated.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
 * **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName. 
 
 > [!NOTE]
-> Azure Functions CLI commands assume they are being executed from the root directory of a Function app. If `connection-string-setting` and `task-hub-name` are explicitly provided, the commands can be run from any directory. While these commands can be executed without a Function app host running, some effects may not be observed unless the host is running. For example, the `start-new` command will enqueue a start message into the target task hub, but the orchestration will not actually run unless there is a Function app host process running that can process the message.
+> Core Tools commands assume they are being executed from the root directory of a function app. If `connection-string-setting` and `task-hub-name` are explicitly provided, the commands can be run from any directory. While these commands can be executed without a Function app host running, some effects may not be observed unless the host is running. For example, the `start-new` command will enqueue a start message into the target task hub, but the orchestration will not actually run unless there is a Function app host process running that can process the message.
 
 The following command would start the function named HelloWorld and pass the contents of the file 'counter-data.json' to it:
 ```bash
@@ -115,7 +116,7 @@ The method returns a JSON object with the following properties:
     * **Completed**: The instance has completed normally.
     * **ContinuedAsNew**: The instance has restarted itself with a new history. This is a transient state.
     * **Failed**: The instance failed with an error.
-    * **Terminated**: The instance was abruptly terminated.
+    * **Terminated**: The instance was stopped abruptly.
 * **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
     
 This method returns `null` if the instance either doesn't exist or has not yet started running.
@@ -131,9 +132,9 @@ public static async Task Run(
 }
 ```
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is also possible to get the status of an orchestration instance directly via the [Azure Functions Core Tools's](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters: 
+It is also possible to get the status of an orchestration instance directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters: 
 
 * **`id` (required)**: ID of the orchestration instance
 * **`show-input` (optional)**: If set to `true`, the response will contain the input of the function. The default value is `false`.
@@ -141,7 +142,7 @@ It is also possible to get the status of an orchestration instance directly via 
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
 * **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
 
-The following command would retrieve the status (including input and output) of an instance with an orchestration instance id of 0ab8c55a66644d68a3a8b220b12d209c. It assumes the `func` command is being run from the root directory of the Function app:
+The following command would retrieve the status (including input and output) of an instance with an orchestration instance ID of 0ab8c55a66644d68a3a8b220b12d209c. It assumes the `func` command is being run from the root directory of the Function app:
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
@@ -175,11 +176,11 @@ public static async Task Run(
 }
 ```
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is also possible to query instances directly via the [Azure Functions Core Tools's](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
+It is also possible to query instances directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
 
-* **`top` (optional)**: This command supports paging. This parameters corresponds to the number of instances retrieved per request. The default is 10.
+* **`top` (optional)**: This command supports paging. This parameter corresponds to the number of instances retrieved per request. The default is 10.
 * **`continuation-token` (optional)**: A token to indicate which page/section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
 * **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
@@ -215,7 +216,7 @@ public static async Task Run(
 }
 ```
 
-### Using the Functions CLI
+### Using the Functions Core Tools
 
 The `durable get-instances` command can also be used with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, three filter parameters (`created-after`, `created-before`, and `runtime-status`), can be used. 
 
@@ -251,16 +252,16 @@ public static Task Run(
 > [!NOTE]
 > Instance termination does not currently propagate. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is also possible to terminate an orchestration instance directly via the [Azure Functions Core Tools's](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
+It is also possible to terminate an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
 
 * **`id` (required)**: ID of the orchestration instance to terminate
 * **`reason` (optional)**: Reason for termination
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
 * **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
 
-The following command would terminate an orchestration instance with an id of 0ab8c55a66644d68a3a8b220b12d209c:
+The following command would terminate an orchestration instance with an ID of 0ab8c55a66644d68a3a8b220b12d209c:
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
@@ -289,9 +290,9 @@ public static Task Run(
 > [!WARNING]
 > If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is also possible to raise an event to an orchestration instance directly via the [Azure Functions Core Tools's](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
+It is also possible to raise an event to an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
 
 * **`id` (required)**: ID of the orchestration instance
 * **`event-name` (optional)**: Name of the event to raise. The default is `$"Event_{RandomGUID}"`
@@ -320,9 +321,9 @@ The function can be called with the following line using 2-seconds timeout and 0
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Depending on the time required to get the response from the orchestration instance there are two cases:
+Depending on the time required to get the response from the orchestration instance, there are two cases:
 
-1. The orchestration instances complete within the defined timeout (in this case 2 seconds), the response is the actual orchestration instance output delivered synchronously:
+* The orchestration instances complete within the defined timeout (in this case 2 seconds), the response is the actual orchestration instance output delivered synchronously:
 
     ```http
         HTTP/1.1 200 OK
@@ -338,7 +339,7 @@ Depending on the time required to get the response from the orchestration instan
         ]
     ```
 
-2. The orchestration instances cannot complete within the defined timeout (in this case 2 seconds), the response is the default one described in **HTTP API URL discovery**:
+* The orchestration instances cannot complete within the defined timeout (in this case 2 seconds), the response is the default one described in **HTTP API URL discovery**:
 
     ```http
         HTTP/1.1 202 Accepted
@@ -398,12 +399,12 @@ public static void SendInstanceInfo(
 
 ## Rewinding instances (preview)
 
-A failed orchestration instance can be *rewound* into a previously healthy state using the [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. It works by putting the orchestration back into the *Running* state and re-running the activity and/or sub-orchestration execution failures that caused the orchestration failure.
+A failed orchestration instance can be *rewound* into a previously healthy state using the [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. It works by putting the orchestration back into the *Running* state and rerunning the activity and/or suborchestration execution failures that caused the orchestration failure.
 
 > [!NOTE]
 > This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more details on error handling and retry policies, please see the [Error handling](durable-functions-error-handling.md) topic.
 
-One example use case for *rewind* is a workflow involving a series of [human approvals](durable-functions-overview.md#pattern-5-human-interaction). Suppose there are a series of activity functions that notify someone that their approval is needed and wait out the real-time response. After all of the approval activities have received responses or timed out, another activity fails due to an application misconfiguration (e.g. an invalid database connection string). The result is an orchestration failure deep into the workflow. With the `RewindAsync` API, an application administrator can fix the configuration error and *rewind* the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved and the orchestration can now complete successfully.
+One example use case for *rewind* is a workflow involving a series of [human approvals](durable-functions-overview.md#pattern-5-human-interaction). Suppose there are a series of activity functions that notify someone that their approval is needed and wait out the real-time response. After all of the approval activities have received responses or timed out, another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` API, an application administrator can fix the configuration error and *rewind* the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be reapproved and the orchestration can now complete successfully.
 
 > [!NOTE]
 > The *rewind* feature does not support rewinding orchestration instances that use durable timers.
@@ -419,9 +420,9 @@ public static Task Run(
 }
 ```
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is also possible to rewind an orchestration instance directly via the [Azure Functions Core Tools's](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
+It is also possible to rewind an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
 
 * **`id` (required)**: ID of the orchestration instance
 * **`reason` (optional)**: Reason for rewinding the orchestration instance
@@ -467,9 +468,9 @@ public static Task Run(
 > [!NOTE]
 > The *PurgeInstanceHistory* overload accepting time period as parameter will process only orchestration instances in one of the runtime status - Completed, Terminated, or Failed.
 
-### Using the Functions CLI
+### Using Core Tools
 
-It is possible to purge an orchestration instance's history using the [Azure Functions Core Tools's](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example above, it purges the history for all orchestration instances created during a specified time interval. The instances purged can be further filtered by runtime status. The command has several parameters:
+It is possible to purge an orchestration instance's history using the [Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example above, it purges the history for all orchestration instances created during a specified time interval. The instances purged can be further filtered by runtime status. The command has several parameters:
 
 * **`created-after` (optional)**: Purge the history of instances created after this date/time (UTC). ISO 8601 formatted datetimes accepted.
 * **`created-before` (optional)**: Purge the history of instances created before this date/time (UTC). ISO 8601 formatted datetimes accepted.
@@ -483,7 +484,7 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 ```
 
 ## Deleting a Task Hub
-Using the [Azure Functions Core Tools's](../functions-run-local.md) `durable delete-task-hub` command, it is possible to delete all storage artifacts associated with a particular task hub. This includes Azure storage tables, queues, and blobs. The command has two parameters: 
+Using the [Core Tools](../functions-run-local.md) `durable delete-task-hub` command, it is possible to delete all storage artifacts associated with a particular task hub. This includes Azure storage tables, queues, and blobs. The command has two parameters: 
 
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
 * **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
