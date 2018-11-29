@@ -145,9 +145,6 @@ After *myVm1* is created, you can connect to it over the internet.
     1. Enter the user name and password you specified when creating the VM.
 
         > [!NOTE]
-        > Information the user should notice even if skimming
-
-        > [!NOTE]
         > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
 
 1. Select **OK**.
