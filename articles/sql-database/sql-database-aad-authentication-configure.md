@@ -65,8 +65,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     ```PowerShell
     # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
-            # Can be executed only by a "Company Administrator" or "Global Administrator"     type of user.
-    #
+    # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
 
     $aadTenant = "<YourTenantId>" # Enter your tenant ID
     $managedInstanceName = "MyManagedInstance"
@@ -76,7 +75,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
     $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
     if ($role -eq $null) {
         # Instantiate an instance of the role template
-        $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object     {$_.displayName -eq $roleName}
+        $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object {$_.displayName -eq $roleName}
         Enable-AzureADDirectoryRole -RoleTemplateId $roleTemplate.ObjectId
         $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
     }
