@@ -85,4 +85,4 @@ To complete this sample, make sure you have the following prerequisites:
 
 - [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues)
 
-- [Retry logic example: Connect resiliently to SQL with PHP][/sql/connect/php/step-4-connect-resiliently-to-sql-with-php]
+- [Retry logic example: Connect resiliently to SQL with PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
