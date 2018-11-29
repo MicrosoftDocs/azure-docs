@@ -26,7 +26,7 @@
     href: azure-notebooks-user-account.md
   - name: Profiles
     href: azure-notebooks-user-profile.md
-- name: How-To guides
+- name: How-to guides
   items:
   - name: Create and clone projects
     href: create-clone-jupyter-notebooks.md
