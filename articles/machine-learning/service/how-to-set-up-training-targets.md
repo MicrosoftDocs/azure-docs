@@ -13,16 +13,16 @@ ms.date: 12/04/2018
 ---
 # Select and use a compute target to train your model
 
-With the Azure Machine Learning service, you can train your model in different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
+With the Azure Machine Learning service, you can train your model on different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
 
-A compute target is a compute resource where your training script is run, or your model is hosted when deployed as a web service.  You can create and manage a compute target using the Azure Machine Learning SDK, Portal or CLI.  If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
+A compute target is a resource where your training script is run, or your model is hosted when deployed as a web service. You can create and manage a compute target using the Azure Machine Learning SDK, Portal or CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
 
 There are three broad categories of compute targets that Azure Machine Learning supports:
 ### Local
 This is your local machine, or a cloud based VM which you use as a dev/experimentation environment. 
 
 ### Managed Compute
-Azure Machine Learning Compute is a managed compute offering that allows you to easily create single- as well as multi-node compute for training, testing and batch inferencing.
+Azure Machine Learning Compute is a managed compute offering that allows you to easily create single or multi-node compute for training, testing and batch inferencing.
 
 ### Attached Compute
 You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
@@ -32,7 +32,7 @@ You can also bring your own Azure cloud compute and attach it to Azure Machine L
 
 ## Supported compute targets
 
-Azure Machine Learning service has varying support across the various compute targets:
+Azure Machine Learning service has varying support across the various compute targets. A typical model development lifecycle starts with dev/experimentation on a smaller amount of data where we recommend using the local environment - this could either be your local computer, or a cloud based VM where you submit training runs locally. As you scale up your training on larger data sets or do distributed training, we recommend using Azure Machine Learning Compute to create a single or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 |Compute target| GPU acceleration | Automated hyperparameter tuning | Automated machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
@@ -117,14 +117,14 @@ For a Jupyter Notebook that demonstrates training in a system-managed environmen
 
 ## <a id="amlcompute"></a>Azure Machine Learning Compute
 
-Azure Machine Learning Compute (AmlCompute) is managed compute infrastructure that allows the user to easily create single to multi-node compute of the appropriate VM Family. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, can be put behind a VNet and executes in a containerized environment packaging the dependencies as specified by the user. You can use AmlCompute to distribute the training across a cluster of CPU or GPU compute nodes in the cloud.
+Azure Machine Learning Compute (AmlCompute) is managed compute infrastructure that allows the user to easily create single to multi-node compute of the appropriate VM Family. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, can be put behind a VNet and executes in a __containerized environment__ packaging the user specified dependencies in a Docker container. You can use AmlCompute to distribute the training across a cluster of CPU or GPU compute nodes in the cloud. The GPU VM families are the N-series and you can [read more](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) about the various families and their regional availability.
 
->[!NOTE]
+> [!NOTE]
 > As with other Azure services, there are limits on certain resources (e.g., AmlCompute quota) associated with the Azure Machine Learning service. Please read [this article](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas) on the default limits and how to request more quota.
 
 There are a few ways to provision Azure Machine Learning Compute based on your scenarios. Lets look at each of them:
 
-### Run-time compute target
+### Run based compute provisioning
 You can provision AmlCompute as a compute target at run-time. In this case, the compute is auto-created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes. 
 
 ```python
@@ -134,8 +134,6 @@ from azureml.core.compute import ComputeTarget, AmlCompute
 AmlCompute.supported_vmsizes()
 
 from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core.runconfig import DEFAULT_CPU_IMAGE
 
 # create a new runconfig object
 run_config = RunConfiguration()
@@ -146,12 +144,9 @@ run_config.target = "amlcompute"
 # AmlCompute will be created in the same region as workspace. Set vm size for AmlCompute from the list returned above
 run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
 
-#After specifying the Docker image and the conda environment, you can simply submit a run
-run = experiment.submit(script_run_config)
-
 ```
 
-### Dedicated compute target (Basic-create)
+### Dedicated compute provisioning (Basic)
 You may want to re-use the same compute across multiple jobs, keep the compute around post job execution for debugging, or simply share the compute with other users of your workspace.  You can achieve this by provisioning a dedicated AmlCompute resource by simply specifying two parameters.  Azure Machine Learning auto-fills the rest of the parameters with smart defaults.  E.g., the compute is set to autoscale down to zero nodes when not used and provision dedicated VMs to run your jobs as needed. 
 
 1. **vm_size**: VM family of the nodes provisioned by AmlCompute
@@ -177,14 +172,19 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-### Dedicated compute target (Advanced-create)
+### Dedicated compute provisioning (Advanced)
 Azure Machine Learning also enables you to configure several advanced properties while provisioning AmlCompute.  This is useful for example if you want a dedicated cluster of fixed size, say, 4 nodes or want the compute to be within an existing VNet in your subscription.
 In addition to vm_size and max_nodes, you can specify:
 
 1. **min_nodes**: Minimum nodes (default 0 nodes) to downscale to while running a job on AmlCompute
 1. **vm_priority**: Choose between 'dedicated' (default) and 'lowpriority' VMs when provisioning AmlCompute. Low Priority VMs use Azure's excess capacity and are thus cheaper but risk your run being pre-empted
 1. **idle_seconds_before_scaledown**: Idle time (default 120 seconds) to wait after run completion before auto-scaling to min_nodes
-1. **VNet properties**: Specify the VNet and subnet names for an existing VNet in your subscription within that region. Click here for more details on [AzureML VNets](insert Aashish's VNet article link)
+1. **vnet_resourcegroup_name**: Resource group of the __existing__ VNet within which AmlCompute should be provisioned. 
+1. **vnet_name**: Name of VNet. This should be in the same region as your workspace
+1. **subnet_name**: Name of SubNet within the VNet
+
+> [!TIP]
+> When you create a dedicated AmlCompute resource you also have the ability to update its properties such as the min_nodes or the max_nodes. Simply call the update() function for it.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -216,10 +216,10 @@ For a Jupyter Notebook that demonstrates training on Azure Machine Learning Comp
 
 ## <a id="vm"></a>Remote VM
 
-Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service.  Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM  for remote runs.  You can use a system-built conda environment, or an already existing Python environment, or a Docker container.  Execution using Docker container requires that you have Docker Engine running on the VM.  This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
+Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service. Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM  for remote runs. You can use a system-built conda environment, or an already existing Python environment, or a Docker container. Execution using Docker container requires that you have Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
 
 > [!TIP]
-> We recommended using the Data Science Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. Read more about how to configure it [here](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm)
+> We recommended using the Data Science Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. Read more about how to configure it [here](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
 > [!WARNING]
 > Azure Machine Learning only supports virtual machines running Ubuntu. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
@@ -542,13 +542,12 @@ Follow the above steps to view the list of compute targets, then use the followi
 ## Examples
 The following notebooks demonstrate concepts in this article:
 * [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [getting-started/train-on-amlcompute/train-on-amlcompute.ipynb]
-(https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute)
+* [getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute)
 * [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
-* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
 * [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
 * [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
+Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
