@@ -15,7 +15,7 @@ ms.date: 12/03/2018
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
-This article shows you how to create and populate Azure AD, and then use Azure AD with Azure [SQL Database](sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md), and [Managed Instance](sql-database-managed-instance.md). For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
+This article shows you how to create and populate Azure AD, and then use Azure AD with Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 > [!NOTE]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
@@ -59,7 +59,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4. Select the banner on top of the Active Directory admin page. If you are logged in as Global/Company administrator in Azure AD, you can do it from the Azure portal or using PowerShell.
+4. Select the banner on top of the Active Directory admin page and grant permission to the current user. If you are logged in as Global/Company administrator in Azure AD, you can do it from the Azure portal or using PowerShell with the script below.
 
     ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -325,14 +325,14 @@ To confirm the Azure AD administrator is properly set up, connect to the **maste
 To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
 
 > [!IMPORTANT]
-> Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
+> Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification. Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 
 The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.
 
 >[!IMPORTANT]
->Using Azure AD logins (**public preview**) with SSDT is currently not supported.
+>Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
 
 ### Active Directory integrated authentication
 

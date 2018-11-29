@@ -15,7 +15,7 @@ ms.date: 10/05/2018
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
 
-Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
+Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
