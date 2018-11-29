@@ -15,7 +15,7 @@ ms.date: 12/4/2018
 
 # Tutorial #1: Prepare data for regression modeling
 
-In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep Python SDK. Perform various transformations to filter and combine two different NYC Taxi data sets, with the end goal of predicting the cost of a taxi trip. This tutorial is part one of a two-part tutorial series.
+In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets, with the end goal of predicting the cost of a taxi trip. This tutorial is part one of a two-part tutorial series.
 
 In this tutorial, you:
 
