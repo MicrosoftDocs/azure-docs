@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Upload image data in the cloud with Azure Storage
 
-This tutorial is part one of a series. In this tutorial you will learn how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
+This tutorial is part one of a series. In this tutorial, you will learn how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
 # [\.NET](#tab/net)
 ![Images container view](media/storage-upload-process-images/figure2.png)
@@ -59,7 +59,7 @@ az group create --name myResourceGroup --location southeastasia
 The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 > [!IMPORTANT]
-> In part 2 of the tutorial, you use Event subscriptions for Blob storage. Event subscriptions are currently supported for Blob storage accounts only in the following locations: Asia Southeast, Asia East, Australia East, Australia Southeast, Central US, East US, East US 2, Europe West, Europe North, Japan East, Japan West, West Central US, West US, and West US 2. Because of this restriction, you must create a Blob storage account that's used by the sample app to store images and thumbnails.
+> In part 2 of the tutorial, you use Azure Event Grid with Blob storage. Make sure to create your storage account in an Azure region that supports Event Grid. For a list of supported regions, see [Azure products by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=event-grid&regions=all).
 
 In the following command, replace your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
 
@@ -75,7 +75,7 @@ The app uses two containers in the Blob storage account. Containers are similar 
 
 Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command. Then, use this key to create two containers with the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
 
-In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The *images* container's public access is set to `off`. The *thumbnails* container's public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
+In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The *images* container's public access is set to `off`. The *thumbnails* container's public access is set to `container`. The `container` public access setting permits users who visit the web page to view the thumbnails.
 
 ```azurecli-interactive
 blobStorageAccount=<blob_storage_account>
@@ -93,7 +93,7 @@ echo "Make a note of your Blob storage account key..."
 echo $blobStorageAccountKey
 ```
 
-Make a note of your Blob storage account name and key. The sample app uses these settings to connect to upload images to the chosen storage account. 
+Make a note of your Blob storage account name and key. The sample app uses these settings to connect to the storage account to upload the images. 
 
 ## Create an App Service plan
 
@@ -271,7 +271,7 @@ Verify the image is shown in the container.
 
 ## Test thumbnail viewing
 
-To test thumbnail viewing, you'll upload an image to the **thumbnails** container to check if the app can read the **thumbnails** container.
+To test thumbnail viewing, you'll upload an image to the **thumbnails** container to check whether the app can read the **thumbnails** container.
 
 Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
 
