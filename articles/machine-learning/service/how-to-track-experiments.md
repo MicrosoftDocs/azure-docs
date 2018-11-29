@@ -231,8 +231,7 @@ Model training and monitoring occur in the background so that you can run other 
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
-<a name='view-the-experiment-in-the-web-portal'/>
-## View the experiment in the Azure portal
+## <a name="view-the-experiment-in-the-web-portal"/>View the experiment in the Azure portal
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can do this in two ways:
 
