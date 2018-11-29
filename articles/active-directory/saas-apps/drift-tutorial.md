@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/29/2018
 ms.author: jeedes
 
 ---
@@ -145,7 +145,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/drift-tutorial/tutorial_drift_certificate.png) 
 
-8. To configure single sign-on on **Drift** side, you need to send the downloaded **Federation Metadata XML** to [Drift support team](mailto:integrations@drift.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. In a different web browser window, login to Drift as an Administrator.
+
+9. From the left side of menu bar, click on **Settings icon** > **App Settings** > **Authentication** and perform the following steps:
+
+	![The Admin link](./media/drift-tutorial/tutorial_drift_admin.png)
+
+	a. Upload the **Federation Metadata XML** that you have downloaded from the Azure portal, into the **Upload Identity Provider metadata file** text box.
+
+	b. After uploading the metadata file, the remaining values get auto populated on the page automatically.
+
+	c. Click **Enable SAML**.
 
 ### Creating an Azure AD test user
 

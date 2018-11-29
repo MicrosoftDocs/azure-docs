@@ -19,7 +19,7 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 
 * Connecting HDInsight to data stores in an Azure Virtual network.
 
-* Directly accessing Apache Hadoop services that are not available publicly over the internet. For example, Kafka APIs or the HBase Java API.
+* Directly accessing [Apache Hadoop](https://hadoop.apache.org/) services that are not available publicly over the internet. For example, [Apache Kafka](https://kafka.apache.org/) APIs or the [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!WARNING]
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
@@ -165,11 +165,11 @@ To enable name resolution between the virtual network and resources in joined ne
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
-## Directly connect to Hadoop services
+## Directly connect to Apache Hadoop services
 
 You can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses a public IP, which may not be reachable if you have used NSGs to restrict incoming traffic from the internet. Additionally, when you deploy the cluster in a VNet you can access it using the private endpoint https://CLUSTERNAME-int.azurehdinsight.net. This endpoint resolves to a private IP inside the VNet for cluster access.
 
-To connect to Ambari and other web pages through the virtual network, use the following steps:
+To connect to Apache Ambari and other web pages through the virtual network, use the following steps:
 
 1. To discover the internal fully qualified domain names (FQDN) of the HDInsight cluster nodes, use one of the following methods:
 
@@ -310,7 +310,7 @@ If you plan on using a network **virtual appliance firewall** to secure the virt
 * 11000-11999
 * 14000-14999
 
-For a list of ports for specific services, see the [Ports used by Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
 For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
 
@@ -654,10 +654,10 @@ After completing these steps, you can connect to resources in the virtual networ
 ## Next steps
 
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
-* For configuring Hbase clusters in Azure virtual networks, see [Create HBase clusters on HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
-* For configuring HBase geo-replication, see [Set up HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
+* For configuring Apache Hbase clusters in Azure virtual networks, see [Create Apache HBase clusters on HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* For configuring Apache HBase geo-replication, see [Set up Apache HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 * For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
 
-* For more information on user-defined routes, see [USer-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+* For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Use the sample datasets in Machine Learning Studio | Microsoft Docs
+title: Use the sample datasets - Azure Machine Learning Studio | Microsoft Docs
 description: Descriptions of the datasets used in sample models included in Machine Learning Studio. You can use these sample datasets for your experiments.
 services: machine-learning
 documentationcenter: ''

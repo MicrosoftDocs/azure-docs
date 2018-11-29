@@ -73,7 +73,7 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-      name: Advanced Threat Protection
+    - name: Advanced Threat Protection
       href: concepts-data-access-and-security-threat-protection.md
     - name: VNet
       href: concepts-data-access-and-security-vnet.md 
@@ -97,6 +97,8 @@
       href: concepts-database-application-development.md
     - name: Connection resiliency
       href: concepts-connectivity.md
+    - name: Develop with Azure Kubernetes Service (AKS)
+      href: concepts-aks.md
   - name: Replication
     items:
     - name: Data-in replication

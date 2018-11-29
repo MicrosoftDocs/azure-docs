@@ -19,9 +19,9 @@ You can use Azure file shares on a Windows installation that is running either i
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (preview)<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server semi-annual channel<sup>3</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2019    | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
@@ -29,9 +29,8 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows Server 2019 is available in preview through the [Windows Server Insiders program](https://insider.windows.com/for-business-getting-started-server/). Although Windows Server 2019 is not supported for production use yet, please let us know if you have any issues connecting to Azure file shares beyond what is covered in the [troubleshooting guide for Windows](storage-troubleshoot-windows-file-connection-problems.md).  
-<sup>2</sup>Windows 10, versions 1507, 1607, 1703, 1709, and 1803.  
-<sup>3</sup>Windows Server, version 1709 and 1803.
+<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, and 1809.  
+<sup>2</sup>Windows Server, version 1709 and 1803.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.

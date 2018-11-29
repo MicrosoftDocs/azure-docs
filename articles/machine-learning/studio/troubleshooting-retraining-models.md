@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot retraining an Azure Machine Learning Classic web service | Microsoft Docs
-description: Identify and correct common issues encounted when you are retraining the model for an Azure Machine Learning Web Service.
+title: Troubleshoot retraining a Machine Learning Studio classic web service - Azure | Microsoft Docs
+description: Identify and correct common issues encounted when you are retraining the model for an Azure Machine Learning Studio web service.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ---
-# Troubleshooting the retraining of an Azure Machine Learning Classic web service
+# Troubleshooting the retraining of an Azure Machine Learning Studio classic web service
 ## Retraining overview
 When you deploy a predictive experiment as a scoring web service it is a static model. As new data becomes available or when the consumer of the API has their own data, the model needs to be retrained. 
 
