@@ -201,7 +201,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Create an account using Azure CLI
 
-To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
+To start Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
 If you want to log into your local installation of the CLI, run the login command:
 
