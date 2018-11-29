@@ -1,6 +1,6 @@
----
-title: Data storage and ingress in The Azure Time Series Insights V2 Update | Microsoft Docs
-description: Understanding data storage and ingress in The Azure Time Series Insights V2 Update
+﻿---
+title: Data storage and ingress in The Azure Time Series Insights (preview) | Microsoft Docs
+description: Understanding data storage and ingress in The Azure Time Series Insights (preview)
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Data storage and ingress in the Azure Time Series Insights update
+# Data storage and ingress in the Azure Time Series Insights (preview)
 
-This article describes changes to data storage and ingress from the Azure Time Series Insights (TSI) update. It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
+This article describes changes to data storage and ingress from the Azure Time Series Insights (preview). It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
 
 ## Data storage
 
-The TSI update uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The TSI update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
+The TSI (preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The TSI update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
 
 Like any other Azure Storage blob, you can read and write to your Azure TSI-created blobs to support different integration scenarios.
 
@@ -75,9 +75,9 @@ The **Timestamp** property is never null.  It defaults to **Event Source Enqueue
 
 ## How to partition
 
-Each Azure TSI V2 Update environment must have a **Time Series ID** property and a **Timestamp** property, which uniquely identify it. Your **Time Series ID** acts as a logical partition for your data and provides the Azure TSI Update environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure TSI Update in an Azure Storage account.
+Each Azure TSI (preview) environment must have a **Time Series ID** property and a **Timestamp** property, which uniquely identify it. Your **Time Series ID** acts as a logical partition for your data and provides the Azure TSI (preview) environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure TSI (preview) in an Azure Storage account.
 
-Azure TSI uses dynamic partitioning to optimize storage utilization and query performance by dropping and recreating partitions. The TSI Update dynamic partitioning algorithm strives to avoid a single physical partition having data for multiple different logical partitions. Or in other words the partitioning algorithm’s goal is to keep all data related to a single **Time Series ID** to be exclusively present in Parquet file(s) without being interleaved with other **Time Series IDs**. The dynamic partitioning algorithm also strives to preserve the original order of events within a single **Time Series ID**.
+Azure TSI uses dynamic partitioning to optimize storage utilization and query performance by dropping and recreating partitions. The TSI (preview) dynamic partitioning algorithm strives to avoid a single physical partition having data for multiple different logical partitions. Or in other words the partitioning algorithm’s goal is to keep all data related to a single **Time Series ID** to be exclusively present in Parquet file(s) without being interleaved with other **Time Series IDs**. The dynamic partitioning algorithm also strives to preserve the original order of events within a single **Time Series ID**.
 
 Initially, at ingress time, data is partitioned by the **Timestamp** so a single, logical partition within a given time range might be spread across multiple physical partitions. A single physical partition could also contain many or all logical partitions.  Due to blob size limitations, even with optimal partitioning a single logical partition could occupy multiple physical partitions.
 
@@ -97,18 +97,18 @@ A physical partition is a block blob stored in Azure Storage. The actual size of
 
 ## Logical partition
 
-A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. The TSI Update will logically partition each blob based on two properties:
+A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. The TSI (preview) will logically partition each blob based on two properties:
 
 1. **Time Series ID** - is the partition key for all TSI data within the event stream and the model.
 1. **Timestamp** - based on the initial ingress.
 
-The Azure TSI Update provides performant queries that are based on these two properties. These two properties also provide the most effective method for delivering TSI data quickly.
+The Azure TSI (preview) provides performant queries that are based on these two properties. These two properties also provide the most effective method for delivering TSI data quickly.
 
 ![storage-architecture][2]
 
 ## Best practices when choosing an Azure Time Series Insights ID
 
-The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI Update environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
+The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (preview) environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
 
 * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key supporting many distinct values (hundreds or thousands). For many customers, this will be something like device ID, sensor ID, etc.
 
@@ -133,23 +133,23 @@ Additionally, TSI will repartition the Parquet files to optimize for the Azure T
 
 To ensure query performance and data availability, do not edit or delete any blobs created by TSI.
 
-### Accessing and exporting data from Time Series Insights update
+### Accessing and exporting data from Time Series Insights (preview)
 
-You may want to access data stored in Azure TSI Update Explorer to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform machine learning using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
+You may want to access data stored in Azure TSI (preview) Explorer to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform machine learning using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
 
 There are three general paths to access your data:
 
-* The V2 TSI update Explorer.
-* The V2 TSI update APIs.
+* The V2 TSI (preview) Explorer.
+* The V2 TSI (preview) APIs.
 * Directly from an Azure Storage account.
 
 ![three-ways][3]
 
-### From the Time Series Insights update Explorer
+### From the Time Series Insights (preview) Explorer
 
-You can export data as a CSV file from the TSI update Explorer. Read more about the [the TSI update Explorer](./time-series-insights-update-explorer.md).
+You can export data as a CSV file from the TSI (preview) Explorer. Read more about the [the TSI (preview) Explorer](./time-series-insights-update-explorer.md).
 
-### From the Time Series Insights update APIs
+### From the Time Series Insights (preview) APIs
 
 The API endpoint can be reached at `/getRecorded`. To learn more about this API, read about [Time Series Query](./time-series-insights-update-tsq.md).
 
@@ -166,17 +166,17 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
 
 ### Blob storage considerations
 
-* Azure storage does have read and write limits based on how heavy your TSI update usage is.  
+* Azure storage does have read and write limits based on how heavy your TSI (preview) usage is.  
 * The Azure TSI update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
 * Customers will need to read the Azure blobs partitioned by time to be able to process the data.
-* The TSI update performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
-* Your TSI update data may be duplicated across blobs.
+* The TSI (preview) performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
+* Your TSI (preview) data may be duplicated across blobs.
 
 ### Data deletion
 
-The Azure TSI update does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
+The Azure TSI (preview) does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
 
-Do not delete blobs since Time Series Insights update maintains metadata about the blobs inside of TSI update.
+Do not delete blobs since Time Series Insights (preview) maintains metadata about the blobs inside of TSI update.
 
 ## Ingress
 
@@ -197,7 +197,7 @@ Supported file types include:
 
 ### Data availability
 
-The Azure TSI update Private Preview indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+The Azure TSI (preview) indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
 
 > [!IMPORTANT]
 > * Public Preview TSI will make data available within 60 seconds of it hitting an event source.  
@@ -206,13 +206,13 @@ The Azure TSI update Private Preview indexes data using a blob-size optimization
 
 ### Scale
 
-The Azure Time Series Insights V2 Update will support at least 72,000 events per minute during Private Preview.
+The Azure Time Series Insights (preview) will support at least 72,000 events per minute during Private Preview.
 
 [!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
 
 ## Next steps
 
-Read the [Azure TSI Update Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
 Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
 

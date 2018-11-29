@@ -1,6 +1,6 @@
----
-title: How to diagnose and troubleshoot the Azure Time Series Insights update | Microsoft Docs
-description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights update
+﻿---
+title: How to diagnose and troubleshoot the Azure Time Series Insights (preview) | Microsoft Docs
+description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights (preview) 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -63,9 +63,9 @@ The easiest way to ensure that your timestamp property name is captured and work
 
 ## Problem: My Time Series ID property is incorrect, missing, or null
 
-This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see this article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI update environment to use a different **Time Series ID**.
+This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see this article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
 
-## Problem: All my instances in Time Series Insights Update explorer don’t have a parent
+## Problem: All my instances in Time Series Insights (preview) Explorer don’t have a parent
 
 This may occur if your environment doesn’t have a **Time Series Model** Hierarchy defined. See this article for more information on [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 

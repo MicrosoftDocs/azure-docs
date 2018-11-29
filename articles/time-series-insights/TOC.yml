@@ -12,9 +12,9 @@
     items:
     - name: Explore Time Series Insights
       href: time-series-quickstart.md
-  - name: Azure Time Series Insights update (preview)
+  - name: Azure Time Series Insights (preview)
     items:
-    - name: Explore the Time Series Insights update demo environment
+    - name: Explore the Time Series Insights update
       href: time-series-insights-update-quickstart.md  
 - name: Tutorials
   items:
@@ -26,7 +26,7 @@
     items:
     - name: Create a TSI environment
       href: tutorial-create-populate-tsi-environment.md
-  - name: Azure Time Series Insights update (preview)
+  - name: Azure Time Series Insights (preview)
     items:
     - name: Create a TSI environment
       href: time-series-insights-update-create-environment.md
@@ -42,7 +42,7 @@
       href: time-series-insights-explorer.md
     - name: Understand data retention
       href: time-series-insights-concepts-retention.md
-  - name: Azure Time Series Insights update (preview)
+  - name: Azure Time Series Insights (preview)
     items:
     - name: Plan your environment
       href: time-series-insights-update-plan.md
@@ -94,7 +94,7 @@
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-diagnose-and-solve-problems.md
-  - name: Azure Time Series Insights update (preview)
+  - name: Azure Time Series Insights (preview)
     items:
     - name: Diagnose and troubleshoot
       href: time-series-insights-update-how-to-troubleshoot.md
@@ -116,7 +116,7 @@
           href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
       - name: Reference Data API
         items:
-    - name: Azure Time Series Insights update (preview)
+    - name: Azure Time Series Insights (preview)
       items:
       - name: Time Series Query
         href: /rest/api/time-series-insights/time-series-insights-reference-update-tsq

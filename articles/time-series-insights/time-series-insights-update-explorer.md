@@ -1,4 +1,4 @@
----
+﻿---
 title: Visualize data in the Explorer update | Microsoft Docs
 description: The Azure Time Series Insights update Explorer
 author: ashannon7
@@ -13,36 +13,36 @@ ms.date: 11/28/2018
 
 # Visualize data in the Explorer update
 
-This article describes features and options available within The Azure Time Series Insights (TSI) update Explorer web application.
+This article describes features and options available within The Azure Time Series Insights (preview) Explorer web application.
 
 ## Prerequisites
 
-Before you use the Azure Time Series Insights update Explorer, you must:
+Before you use the Azure Time Series Insights (preview) Explorer, you must:
 
 * Have a Time Series Insights environment provisioned. Learn more about provisioning a Time Series Insights environment here.
 * Provide data access to the Time Series Insights environment you created for the account. Access can be supplied to others as well as yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment.
 
-## Learn about the Azure Time Series Insights update Explorer
+## Learn about the Azure Time Series Insights (preview) Explorer
 
   ![explorer-one][1]
 
-The Azure Time Series Insights update Explorer is broken up into the following seven elements:
+The Azure Time Series Insights (preview) Explorer is broken up into the following seven elements:
 
-1. TSI update navigation bar allows you to switch between analytics and model pages.
-1. TSI update  hierarchy tree select specific data elements to be charted.
-1. TSI update time series well shows all your currently selected data elements.
-1. TSI update chart panel displays your current working chart.
-1. TSI update timeline allows you to modify your working time span.
-1. TSI update app bar contains your user management options (like current tenant), and allows you to change theme and language settings.
+1. TSI (preview) navigation bar allows you to switch between analytics and model pages.
+1. TSI (preview) hierarchy tree select specific data elements to be charted.
+1. TSI (preview) time series well shows all your currently selected data elements.
+1. TSI (preview) chart panel displays your current working chart.
+1. TSI (preview) timeline allows you to modify your working time span.
+1. TSI (preview) app bar contains your user management options (like current tenant), and allows you to change theme and language settings.
 
-## TSI update environment panel
+## TSI (preview) environment panel
 
-The environment panel displays all the TSI environments you have access to. This includes a listing of pay-as-you-go environments (Preview) as well as S1/S2 environments (GA). Simply click the TSI environment you want to use.
+The environment panel displays all the TSI environments you have access to. This includes a listing of pay-as-you-go environments (preview) as well as S1/S2 environments (GA). Simply click the TSI environment you want to use.
 
   ![explorer-two][2]
 
-## Time Series Insights update Navigation Menu
+## Time Series Insights (preview) Navigation Menu
 
   ![explorer-three][3]
 
@@ -60,15 +60,15 @@ This application gives you the ability to perform CRUD operations on your Time S
 * TSM hierarchy - Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your TSI data.
 * TSM instance - Instances are the time series themselves. In most cases, this will be the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
-To learn more about the TSM, read [Azure Time Series update Times Series Models](./time-series-insights-update-tsm.md).
+To learn more about the TSM, read [Times Series Models](./time-series-insights-update-tsm.md).
 
-## Time Series Insights update Model Search Panel
+## Time Series Insights (preview) Model Search Panel
 
 The model search panel allows you to easily search and navigate your TSM hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well.
 
   ![explorer-four][4]
 
-## Time Series Insights update well
+## Time Series Insights (preview) well
 
 The well displays instance fields and other metadata associated with selected time series instances. The checkboxes on the right-hand side allow you to hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by clicking the red x control to the right of the element.
 
@@ -82,7 +82,7 @@ Note: if you see the following icon, the instance does not have any data during 
 
   ![explorer-seven][7]
 
-## Time Series Insights update Chart
+## Time Series Insights (preview) Chart
 
 The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
 
@@ -114,7 +114,7 @@ Here you can see an example of a shared Y-axes.
 
   ![explorer-eleven][11]
 
-## Time Series Insights update Time Editor Panel
+## Time Series Insights (preview) Time Editor Panel
 
 When working with TSI you first will select a time span. The selected time span will control the data set that is available for manipulation with the TSI update widgets. The following web controls are available in the TSI update for selecting your working time span.
 
@@ -136,7 +136,7 @@ When working with TSI you first will select a time span. The selected time span 
 
   ![explorer-thirteen][13]
 
-## Time Series Insights update navigation panel
+## Time Series Insights (preview) navigation panel
 
 The TSI update navigation panel provides the following functionality:
 
@@ -161,7 +161,7 @@ Click the circled link web control to generate a URL to save or share your curre
 
 ### Theme selection
 
-The Azure TSI update supports two themes:
+The Azure TSI (preview) supports two themes:
 
 * **Light Theme**: This is the default theme shown throughout this document.
 * **Dark theme**:  This option renders the explorer into a dark theme as shown below:
@@ -172,15 +172,15 @@ Here you can also change between supported languages.
 
 ## S1/S2 Environment Controls
 
-### Time Series Insights update Terms Panel
+### Time Series Insights (preview) Terms Panel
 
-This section just applies to existing S1/S2 environments attempting to use the explorer in the updated UI. You might want to do this to use the GA product and update (Preview) in conjunction with one another. We’ve added some functionality from the existing UI to the updated explorer, but know you can always get the full UI experience for S1/S2 environment in the existing TSI Explorer.  
+This section just applies to existing S1/S2 environments attempting to use the explorer in the updated UI. You might want to do this to use the GA product and update (preview) in conjunction with one another. We’ve added some functionality from the existing UI to the updated explorer, but know you can always get the full UI experience for S1/S2 environment in the existing TSI Explorer.  
 
 In lieu of the hierarchy, you will see the TSI terms panel. This is where you define queries in your environment. It gives you the ability to filter your data based using a predicate.
 
   ![explorer-eighteen][18]
 
-The TSI update Terms Editor Panel takes the following parameters
+The TSI (preview) Terms Editor Panel takes the following parameters
 
 **Where**: The where clause enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search. Supported operand types include:
 
@@ -208,7 +208,7 @@ You can hide and show elements from the chart panel by clicking on the visible i
 
 ## Next steps
 
-Read the [Azure TSI Update Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
 Read about the new [Time Series Models](./time-series-insights-update-tsm.md).
 

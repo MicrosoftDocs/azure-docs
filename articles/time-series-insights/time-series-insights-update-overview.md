@@ -34,7 +34,7 @@ Typical IoT data flow can be depicted as follows:
 
 Modern IoT landscape includes customers spanning manufacturing, automobile, oil & gas, power & utility, smart buildings, and consulting. Scenarios include ad-hoc data exploration where the shape of the data is unknown, as well as operational analysis over schematized (explicitly modeled) data to drive operational efficiency. These scenarios typically exist side-by-side and support different use cases. Platform capabilities like multi-layered storage (warm and cold) with the ability to store decades worth of time series data, and the ability to explicitly model and optimize queries for asset-based operational intelligence are becoming key to the success of industrial IoT enterprises and their digital revolution.
 
-Time Series Insights is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration as well as operational insights. Time Series Insights offers a fully managed cloud service for analyzing IoT-scale time series data.
+Azure Time Series Insights is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration as well as operational insights. Time Series Insights offers a fully managed cloud service for analyzing IoT-scale time series data.
 
 Customers can store raw data in a schema-less, in-memory store, and perform interactive ad-hoc queries through a distributed query engine and API as well as leverage our rich user experience for visualizing billions of events in seconds. Learn more about our [data exploration capabilities](./time-series-insights-overview.md).
 
@@ -65,19 +65,19 @@ With the introduction of these key industrial IoT capabilities, Azure Time Serie
 
 * Seamless integration with other data solutions
   
-  * Since data in Time Series Insights is stored in open-sourced Apache Parquet files, customers can easily integrate with other data solutions (first or third party) for end-to-end scenarios including business intelligence, advanced machine learning, predictive analytics, etc.
+  * Since data in Azure Time Series Insights is stored in open-sourced Apache Parquet files, customers can easily integrate with other data solutions (first or third party) for end-to-end scenarios including business intelligence, advanced machine learning, predictive analytics, etc.
 
 * Near real-time data exploration
 
-  * Time Series Insights Explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
+  * Azure  Time Series Insights Explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
 
 * Root-cause analysis and anomaly detection
 
-  * Time Series Insights Explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
+  * Azure Time Series Insights Explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
 
 * Build custom applications on Time Series Insights platform
 
-  * Time Series Insights supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of Time Series Insights platform to suit the needs of individual businesses.
+  * Azure Time Series Insights supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of Time Series Insights platform to suit the needs of individual businesses.
   * Customers can also use Time Series Insights query APIs directly to drive data into custom IoT applications.
 
 ## Next Steps

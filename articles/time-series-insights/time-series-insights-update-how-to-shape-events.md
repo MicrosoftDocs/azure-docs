@@ -1,6 +1,6 @@
 ---
-title: How to shape events with the Azure Time Series Insights update | Microsoft Docs
-description: Understanding how to shape events with the Azure Time Series Insights update
+title: How to shape events with Azure Time Series Insights (preview) | Microsoft Docs
+description: Understanding how to shape events with Azure Time Series Insights (preview) 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Shaping events with the Azure Time Series Insights update
+# Shaping events with Azure Time Series Insights (preview) 
 
-This article provides guidance for shaping JSON, to maximize the efficiency of your the Azure Time Series Insights (TSI) update queries.
+This article provides guidance for shaping JSON, to maximize the efficiency of your the Azure Time Series Insights (preview) queries.
 
 ## Best practices
 
 > [!NOTE]
-> For The Azure TSI update, the 600-800 property limits for S1/S2 do not apply.
+> For the Azure TSI (preview), the 600-800 property limits for S1/S2 do not apply.
 
 It's important to think about how you send events to Azure TSI. Namely, you should always:
 
@@ -29,7 +29,7 @@ The following guidance helps ensure the best possible query performance:
 
 1. Don't send unnecessary properties. Exercising prudence in sending properties will help reduce cost.
 * It's a best practice to store and process data that you will query.
-1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances, read about how to [Plan your Azure Time Series Insights update environment](./time-series-insights-update-plan.md).
+1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances, read about how to [Plan your Azure Time Series Insights (preview) environment](./time-series-insights-update-plan.md).
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
 1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.

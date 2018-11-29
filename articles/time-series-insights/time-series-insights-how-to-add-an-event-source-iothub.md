@@ -17,7 +17,7 @@ ms.date: 11/26/2018
 This article describes how to use the Azure portal to add an event source that reads data from an IoT Hub into your Azure Time Series Insights (TSI) environment.
 
 > [!NOTE]
-> These instructions apply to both TSI GA & TSI update environments.
+> These instructions apply to both TSI GA & TSI preview environments.
 
 ## Prerequisites
 

@@ -1,5 +1,5 @@
----
-title: Create an Azure Time Series update environment | Microsoft Docs
+﻿---
+title: Create an Azure Time Series Insights (preview) environment | Microsoft Docs
 description: Learn how to create an Azure Time Series update environment
 author: ashannon7
 ms.author: anshan
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ---
 
-# Provisioning and managing Azure Time Series Insights update
+# Provisioning and managing an Azure Time Series Insights (preview) environment
 
-This document describes how to provision and manage a new Azure Time Series Insights (TSI) update environment in the Azure portal.
+This document describes how to provision and manage a new Azure Time Series Insights (preview) environment in the Azure portal.
 
 ## Overview
 
-A brief description about provisioning following the TSI update:
+A brief description about provisioning following the Time Series Insights update:
 
-* Provision an Azure TSI update environment.
+* Provision an Azure Time Series Insights (TSI) update environment.
 * As part of the creation process you will need to provide a **Time Series ID**. It can be up to **three** (3) keys. Learn more about [Time Series IDs](./time-series-insights-update-tsm.md).
 * When you provision an Azure TSI update environment you create two Azure resources, a TSI update environment and an Azure Storage general-purpose V1 account.  
 * In the future, new Azure customers will by default only be allowed to provision an Azure Storage general-purpose V2 account, therefore we will support it when that change occurs.  
@@ -32,7 +32,7 @@ A brief description about provisioning following the TSI update:
 
 1. Select `PAYG` from the **SKU** dropdown. You’ll also input an environment name, designate which subscription and resource group you wish to create the environment in, and select a supported location for the environment to reside in.  
 
-1. Create a new Azure Storage account by selecting a storage account name and designating a replication choice. Doing so will automatically create a new Azure Storage general-purpose V1 account in the same region as the Azure TSI update environment you previously selected.  
+1. Create a new Azure Storage account by selecting a storage account name and designating a replication choice. Doing so will automatically create a new Azure Storage general-purpose V1 account in the same region as the Azure TSI (preview) environment you previously selected.  
 
 1. Input **Time Series ID** property:
 

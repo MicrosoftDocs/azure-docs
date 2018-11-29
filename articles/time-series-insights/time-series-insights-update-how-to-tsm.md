@@ -13,7 +13,7 @@ ms.date: 11/27/2018
 
 # Data modeling in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following the Azure Time Series Insights (TSI) update. It will detail common several use-cases and customization scenarios.
+This document describes how to work with **Time Series Models** following the Azure Time Series Insights (preview). It will detail common several use-cases and customization scenarios.
 
 ## Types
 
@@ -70,7 +70,7 @@ This document describes how to work with **Time Series Models** following the Az
 
 ### How to bulk upload one or more hierarchies
 
-1. Click on **Upload Json**.
+1. Click on **Upload JSON**.
 1. Choose the file that contains the hierarchy payload.
 1. Click on **Upload**:
 
@@ -123,9 +123,9 @@ This document describes how to work with **Time Series Models** following the Az
 
 ## Next steps
 
-* Read [TIme Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
+* Read Time Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
 
-* View the Azure TSI update Explorer [article](./time-series-insights-update-explorer.md) to learn more about the V2 update.
+* View the Azure TSI (preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

@@ -1,6 +1,6 @@
----
-title: Plan your Azure Time Series Insights update environment | Microsoft Docs
-description: Plan your Azure Time Series Insights update environment 
+﻿---
+title: Plan your Azure Time Series Insights (preview) environment | Microsoft Docs
+description: Plan your Azure Time Series Insights (preview) environment 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Plan your Azure Time Series Insights update environment
+# Plan your Azure Time Series Insights (preview) environment
 
-This article describes best practices to plan and get started quickly using the Azure Time Series Insights (TSI) update.
+This article describes best practices to plan and get started quickly using the Azure Time Series Insights (preview).
 
 ## Best practices for planning and preparation
 
@@ -29,7 +29,7 @@ Having these items ready helps to simplify planning and preparation. Additionall
 > [!TIP]
 > Configure your environment to suit your BCDR needs before and not after you create your instance.
 
-The Azure TSI update employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights).
+The Azure TSI (preview) employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights).
 
 ## Configure your Time Series IDs and Timestamp properties
 
@@ -97,6 +97,6 @@ The specific steps to accomplish this are as follows:
 
 ## Next steps
 
-Read the [Azure TSI Update Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
 Read about the new [Time Series Model](./time-series-insights-update-tsm.md).

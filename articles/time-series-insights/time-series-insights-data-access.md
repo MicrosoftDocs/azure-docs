@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure security to access and manage Azure Time Series Insights | Microsoft Docs
 description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights.
 ms.service: time-series-insights
@@ -14,14 +14,14 @@ ms.date: 11/26/2018
 
 # Grant data access to an environment
 
-This article discusses the two types of Azure Time Series Insights (TSI) update access policies.
+This article discusses the two types of Azure Time Series Insights (preview) access policies.
 
 ## Grant data access
 
 Follow these steps to grant data access for a user principal:
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/).
-1. Locate your TSI environment. Type `Time Series` in the **search** box. Select **Time Series Environment** in the search results.
+1. Locate your Time Series Insights (TSI) environment. Type `Time Series` in the **search** box. Select **Time Series Environment** in the search results.
 1. Select your TSI environment from the list.
 1. Select **Data Access Policies**, then select **+ Add**.
 

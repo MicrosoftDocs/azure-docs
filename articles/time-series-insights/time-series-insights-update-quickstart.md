@@ -1,6 +1,6 @@
----
-title: Explore the Azure Time Series Insights update demo environment | Microsoft Docs
-description: Understand the Azure Time Series Insights update demo environment
+﻿---
+title: Explore the Azure Time Series Insights (preview) demo environment | Microsoft Docs
+description: Understand the Azure Time Series Insights (preview) demo environment
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
@@ -13,9 +13,9 @@ ms.custom: mvc
 ms.date: 11/28/2018
 ---
 
-# Explore the Azure Time Series Insights update demo environment
+# Explore the Azure Time Series Insights (preview) demo environment
 
-This quickstart shows you how to get started with Azure Time Series Insights update explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Time Series Insights update explorer.
+This quickstart shows you how to get started with Azure Time Series Insights (preview) Explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Time Series Insights (preview) Explorer.
 
 Azure Time Series Insights provides an end-to-end Platform-As-A-Service offering to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for ad-hoc data exploration as well as operational analysis. Time Series Insights is a differentiated offering tailored to the unique needs of industrial IoT deployments.
 
@@ -97,10 +97,10 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 ## Next steps
 
-You are ready to create your own Time Series Insights update environment:
+You are ready to create your own Azure Time Series Insights (preview) environment:
 
 > [!div class="nextstepaction"]
-> [Plan your Time Series Insights update environment](time-series-insights-update-plan.md)
+> [Plan your Azure Time Series Insights (preview) environment](time-series-insights-update-plan.md)
 
 <!-- Images -->
 [1]: media/v2-update-quickstart/quickstart-one.png
