@@ -208,7 +208,7 @@ Every time a runbook is started, [a job is created](../../automation/automation-
 
 
 ## Next steps
-- Use [View Designer](../../log-analytics/log-analytics-view-designer.md) to create a view displaying the data that you've collected to the Log Analytics repository.
+- Use [View Designer](../../azure-monitor/platform/view-designer.md) to create a view displaying the data that you've collected to the Log Analytics repository.
 - Package your runbook in a [management solution](../../azure-monitor/insights/solutions-creating.md) to distribute to customers.
 - Learn more about [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Learn more about [Azure Automation](https://docs.microsoft.com/azure/automation/).
