@@ -23,8 +23,7 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how this service empowers data scientists to develop and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
-
-- type: list
+  - type: list
     style: cards
     className: cardsFTitle
     items:
