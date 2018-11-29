@@ -50,7 +50,6 @@ The functionality of Machine Learning Services (with R) in Azure SQL Database is
 
 - R only. Currently there is no support for Python.
 - No need to configure `external scripts enabled` via `sp_configure`.
-- No need to give script execution permission to users.
 - Packages have to be installed via **sqlmlutils**.
 - There is no separate external resource governance. R resources are a certain percentage of the SQL resources, depending on the tier.
 
