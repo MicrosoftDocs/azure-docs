@@ -19,7 +19,7 @@ ms.author: rkarlin
 ---
 # Platforms and features supported by Azure Security Center
 
-Security state monitoring and recommendations are available for virtual machines (VMs), created using both the classic and Resource Manager deployment models, and computers.
+Security state monitoring and recommendations are available for virtual machines (VMs), created by using both the classic and Resource Manager deployment models, and computers.
 
 > [!NOTE]
 > Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
@@ -43,14 +43,14 @@ Supported Windows operating systems:
 ### Supported platforms for Linux computers and VMs
 Supported Linux operating systems:
 
-* Ubuntu versions 12.04 LTS, 14.04 LTS, 16.04 LTS
-* Debian versions 6, 7, 8, 9
-* CentOS versions 5, 6, 7
-* Red Hat Enterprise Linux (RHEL) versions 5, 6, 7
-* SUSE Linux Enterprise Server (SLES) versions 11, 12
-* Oracle Linux versions 5, 6, 7
-* Amazon Linux 2012.09 through 2017
-* Openssl 1.1.0 is only supported on x86_64 platforms (64-bit)
+* Ubuntu versions 12.04 LTS, 14.04 LTS, and 16.04 LTS.
+* Debian versions 6, 7, 8, and 9.
+* CentOS versions 5, 6, and 7.
+* Red Hat Enterprise Linux (RHEL) versions 5, 6, and 7.
+* SUSE Linux Enterprise Server (SLES) versions 11, 12.
+* Oracle Linux versions 5, 6, 7.
+* Amazon Linux 2012.09 through 2017.
+* Openssl 1.1.0 is only supported on x86_64 platforms (64-bit).
 
 > [!NOTE]
 > Virtual machine behavioral analytics are not yet available for Linux operating systems.
