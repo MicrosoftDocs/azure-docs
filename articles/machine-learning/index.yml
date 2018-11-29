@@ -19,64 +19,50 @@ abstract:
 
 sections:
 
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning service
-    - href: /azure/machine-learning/studio/
-      html: <p>Learn how this collaborative, drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. Learn more... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-
 - title: Azure Machine Learning service
   items:
   - type: paragraph
     text: 'Learn how this service empowers data scientists to develop and manage AI solutions using Python tools and libraries and the CLI with a variety of Azure data and compute services. '
 
-  - href: /azure/machine-learning/service/overview-what-is-azure-ml
-    html: <p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
- 
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-    rows:
-      - title: Get started with the service
-        values:
-        - href: /azure/machine-learning/service/quickstart-get-started
-      - title: Prepare data for modeling
-        values:
-        - href: /azure/machine-learning/service/how-to-data-prep
-      - title: Build your own machine learning model
-        values:
-        - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-      - title: Automatically generate and tune algorithms
-        values:
-        - href: /azure/machine-learning/service/tutorial-auto-train-models
-      - title: Deploy your model as a web service
-        values:
-        - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-      - title: Consume your machine learning models
-        values:
-        - href: /azure/machine-learning/service/how-to-consume-web-service
-      - title: Build, optimize, and manage your ML pipelines
-        values:
-        - href: /azure/machine-learning/service/concept-ml-pipelines
+- type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: What is Azure Machine Learning service?
+      href: /azure/machine-learning/service/overview-what-is-azure-ml
+      image: 
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
+
+  - type: paragraph
+    text: '<b>Learn more</b>: Learn how to set up an experiment and operationalize your models.'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/machine-learning/service/quickstart-get-started">Get started with the service in Azure portal</a>
+    - html: <a href="/azure/machine-learning/service/quickstart-create-workspace-with-python">Get started with the service in Python</a>
+    - html: <a href="/azure/machine-learning/service/how-to-data-prep">Prepare data for modeling</a>
+    - html: <a href="/azure/machine-learning/service/tutorial-train-models-with-aml">Build your own machine learning model</a>
+    - html: <a href="/azure/machine-learning/service/tutorial-auto-train-models">Automatically generate and tune algorithms</a>
+    - html: <a href="/azure/machine-learning/service/tutorial-deploy-models-with-aml">Deploy your model as a web service</a>
+    - html: <a href="/azure/machine-learning/service/how-to-consume-web-service">Consume your machine learning models</a>
+    - html: <a href="/azure/machine-learning/service/concept-ml-pipelines">Build, optimize, and manage your ML pipelines</a>
 
 
 - title: Azure Machine Learning Studio (Original service)
   items:
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning service (preview) and Studio:'
+    text: 'Learn how this drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. '
+
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: What is Azure Machine Learning service?
+      href: /azure/machine-learning/studio/
+      image: 
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/
 
   - type: table
     style: dataMatrix
