@@ -33,22 +33,7 @@ In this tutorial, you:
 
 For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Run the `regression-part1-data-prep.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
-### **Azure Notebooks** - Free Jupyter based notebooks in the Azure cloud
-
-The SDK is already installed and configured for you on Azure Notebooks.
-  
-1. Complete the [getting started quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
-1. Go to [Azure Notebooks](https://notebooks.azure.com/)
-1. In the `Getting Started` Library you created during the quickstart, go to the `tutorials` folder
-1. Open the notebook.
-
-### **Your own Jupyter notebook server**
-
-1. [Configure a Python environment](how-to-configure-environment.md) and install the SDK.
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
-1. Start the notebook server from your cloned directory.
-1. Go to the `tutorials` folder.
-1. Open the notebook.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## Import packages
 Begin by importing the Azure DataPrep SDK.
@@ -259,7 +244,7 @@ tmp_df = (yellow_df
 tmp_df.head(5)
 ```
 
-Again, overwite `yellow_df` with `tmp_df`, and then call the `append_rows()` function on the green taxi data to append the yellow taxi data, creating a new combined dataframe.
+Again, overwrite `yellow_df` with `tmp_df`, and then call the `append_rows()` function on the green taxi data to append the yellow taxi data, creating a new combined dataframe.
 
 
 ```python
@@ -639,7 +624,7 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 
-From the data profile ouput of `store_forward`, you see that the data is inconsistent and there are missing/null values. Replace these using the `replace()` and `fill_nulls()` functions, and in both cases change to the string "N".
+From the data profile output of `store_forward`, you see that the data is inconsistent and there are missing/null values. Replace these values using the `replace()` and `fill_nulls()` functions, and in both cases change to the string "N".
 
 
 ```python
@@ -1074,4 +1059,4 @@ In this Azure Machine Learning Data Prep SDK tutorial, you:
 You are ready to use this training data in the next part of the tutorial series:
 
 > [!div class="nextstepaction"]
-> [Tutorial 2 - Automated ML](tutorial-aml-new.md)
+> [Tutorial 2 - Automated Machine Learning](tutorial-aml-new.md)

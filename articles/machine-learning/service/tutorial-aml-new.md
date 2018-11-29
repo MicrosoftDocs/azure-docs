@@ -12,9 +12,9 @@ ms.date: 11/28/2018
 
 ---
 
-# Tutorial #2: Train a classification model with automated machine learning
+# Tutorial #2: Train a regression model with automated machine learning
 
-In this tutorial, you learn how to generate a machine learning model using automated machine learning (automated ML).  Azure Machine Learning can perform algorithm selection and hyperparameter tuning in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.ipynb) tutorial.
+In this tutorial, you learn how to generate a machine learning model using automated machine learning (automated ML).  Azure Machine Learning can perform algorithm selection and hyperparameter tuning in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 ![flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
@@ -37,28 +37,13 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md)
-> * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. To setup automated machine learning click [here](sample-azure-ml-notebooks.md).
+> * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](https://docs.microsoft.com/en-us/azure/machine-learning/service/samples-notebooks) automated machine learning.
 
 ## Get the notebook
 
 For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
-### **Azure Notebooks** - Free Jupyter based notebooks in the Azure cloud
-
-The SDK is already installed and configured for you on Azure Notebooks.
-  
-1. Complete the [getting started quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
-1. Go to [Azure Notebooks](https://notebooks.azure.com/)
-1. In the `Getting Started` Library you created during the quickstart, go to the `tutorials` folder
-1. Open the notebook.
-
-### **Your own Jupyter notebook server**
-
-1. [Configure a Python environment](how-to-configure-environment.md) and install the SDK.
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
-1. Start the notebook server from your cloned directory.
-1. Go to the `tutorials` folder.
-1. Open the notebook.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## Import packages
 Import Python packages you need in this tutorial.
@@ -84,9 +69,9 @@ Once you have a workspace object, specify a name for the experiment and create a
 ```python
 ws = Workspace.from_config()
 # choose a name for the run history container in the workspace
-experiment_name = 'automl-classifier'
+experiment_name = 'automated-ml-regression'
 # project folder
-project_folder = './automl-classifier'
+project_folder = './automated-ml-regression'
 
 import os
 
@@ -565,42 +550,38 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-
-
-You prepare the data for the experiment by adding columns to dflow_x to be features for our model creation. You define dflow_y to be our prediction value; cost.
-
-
+You prepare the data for the experiment by adding columns to `dflow_x` to be features for our model creation. You define `dflow_y` to be our prediction value; cost.
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['vendor','pickup_week','pickup_hour','store_forward','pickup_longitude','pickup_latitude','passengers'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-You now have the necessary packages and data ready for auto training for your model. 
+You now have the necessary packages and data ready for auto training for your model.
 
 ## Auto train a model 
 
-To auto train a model, first define settings for the experiment and then run then submit the experiment for model tuning.
+To auto train a model, first define settings for the experiment run, then submit the experiment for model tuning.
 
 
 ### Define settings for autogeneration and tuning
 
-Define the experiment parameters and models settings for autogeneration and tuning. The full list of settings are available [here](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train?branch=pr-en-us-58377)
+Define the experiment parameters and models settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md).
 
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Time limit in minutes for each iteration|
-|**iterations**|20|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
-|**primary_metric**|AUC Weighted | Metric that you want to optimize.|
+|**iterations**|30|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
+|**primary_metric**| Spearman Correlation | Metric that you want to optimize.|
 |**preprocess**| True | True enables experiment to perform preprocessing on the input.|
-|**verbosity**| True | Controls the level of logging.|
+|**verbosity**| logging.INFO | Controls the level of logging.|
 |**n_cross_validationss**|5|Number of cross validation splits
 
 
 
 ```python
-automl_settings = {
+automated_ml_settings = {
     "iteration_timeout_minutes" : 10,
     "iterations" : 30,
     "primary_metric" : 'spearman_correlation',
@@ -614,16 +595,16 @@ automl_settings = {
 ```python
 from azureml.train.automl import AutoMLConfig
 
-##Local compute 
-Automl_config = AutoMLConfig(task = 'regression',
-                             debug_log = 'automl_errors.log',
+# local compute 
+automated_ml_config = AutoMLConfig(task = 'regression',
+                             debug_log = 'automated_ml_errors.log',
                              path = project_folder,
                              X = dflow_X.take(500),
                              y = dflow_y.take(500),
-                             **automl_settings)
+                             **automated_ml_settings)
 ```
 
-### Run the automatic classifier
+### Run the automatic regression model
 
 Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
 
@@ -631,7 +612,7 @@ Start the experiment to run locally. Define the compute target as local and set 
 ```python
 from azureml.core.experiment import Experiment
 experiment=Experiment(ws, experiment_name)
-local_run = experiment.submit(Automl_config, show_output=True)
+local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
     Parent Run ID: AutoML_83117da4-07e3-473a-b83e-99471bfa9e09
@@ -665,6 +646,8 @@ Use the Jupyter notebook widget to see a graph and a table of all results.
 from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
+
+![Jupyter Widget run details](./media/tutorial-auto-train-models/jup-widget-auto.png)
 
 ### Retrieve all iterations
 
@@ -813,52 +796,6 @@ rundata
 </table>
 </div>
 
-
-
-## Interpret the best model 
-
-Below we select the best pipeline from our iterations. The *get_output* method on automl_classifier returns the best run and the fitted model for the last *fit* invocation. There are overloads on *get_output* that allow you to retrieve the best run and fitted model for *any* logged metric or a particular *iteration*.
-
-
-```python
-# find the run with the highest accuracy value.
-best_run, fitted_model = local_run.get_output()
-print(best_run)
-print(fitted_model)
-```
-
-### Best Model 's explanation
-
-Retrieve the explanation from the best_run. Explanation information includes:
-
-1.	shap_values: The explanation information generated by shap lib
-2.	expected_values: The expected value of the model applied to set of X_train data.
-3.	overall_summary: The model level feature importance values sorted in descending order
-4.	overall_imp: The feature names sorted in the same order as in overall_summary
-5.	per_class_summary: The class level feature importance values sorted in descending order. Only available for the classification case
-6.	per_class_imp: The feature names sorted in the same order as in per_class_summary. Only available for the classification case
-
-
-```python
-from azureml.train.automl.automlexplainer import explain_model
-
-
-X_train = dflow_X.take(500).to_pandas_dataframe() 
-X_test = dflow_X.skip(500).take(500).to_pandas_dataframe() 
-
-shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-    explain_model(fitted_model, X_train.values, X_test.values)
-
-#Overall feature importance
-print(overall_imp)
-print(overall_summary) 
-
-#Class-level feature importance
-print(per_class_imp)
-print(per_class_summary)
-
-```
-
 ## Register the model
 
 Register the model in your Azure Machine Learning Workspace.
@@ -881,9 +818,6 @@ Test the model to see how much our fare would cost for a taxi ride.
 test_X = dflow_X.take(10).to_pandas_dataframe() 
 test_X
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -1005,9 +939,6 @@ test_X
   </tbody>
 </table>
 </div>
-
-
-
 
 ```python
 #result = fitted_model.predict(test_X) 
