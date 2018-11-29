@@ -101,8 +101,6 @@ For a tutorial on single-node PyTorch training, see:
 For a tutorial on distributed PyTorch with Horovod, see:
 * [training/02.distributed-pytorch-with-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
 
-Get these notebooks:
-
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
