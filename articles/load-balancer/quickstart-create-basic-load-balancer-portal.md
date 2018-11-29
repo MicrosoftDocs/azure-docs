@@ -35,13 +35,13 @@ First, create a public Basic load balancer by using the portal. The name and pub
    
 1. In the **Create load balancer** pane, type or select these values:
    
-   - **Name**: Type **MyLoadBalancer**.
+   - **Name**: Type *MyLoadBalancer*.
    - **Type**: Select **Public**. 
    - **SKU**: Select **Basic**.
    - **Public IP address:** Select **Create new**. 
-     - **Public IP Address** field: Type **MyPublicIP**.
+     - **Public IP Address** field: Type *MyPublicIP*.
      - **Configure Public IP address** > **Assignment**: Select **Dynamic**.
-   - **ResourceGroup**: Select **Create new**, then enter **MyResourceGroupLB**, and select **OK**. 
+   - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
    
 1. Select **Create**.
    
@@ -57,9 +57,9 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    
 1. In the **Create virtual network** pane, type or select these values:
    
-   - **Name**: Type **MyVnet**.
+   - **Name**: Type *MyVnet*.
    - **ResourceGroup**: Drop down **Select existing** and select **MyResourceGroupLB**. 
-   - **Subnet** > **Name**: Type **MyBackendSubnet**.
+   - **Subnet** > **Name**: Type *MyBackendSubnet*.
    
 1. Select **Create**.
 
@@ -71,12 +71,12 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    
 1. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Drop down and select **MyResourceGroupLB**.
-   - **Instance Details** > **Virtual machine name**: Type **MyVM1**.
+   - **Instance Details** > **Virtual machine name**: Type *MyVM1*.
    - **Instance Details** > **Availability Options**: 
      1. Drop down and select **Availability set**. 
-     2. Select **Create new**, enter **MyAvailabilitySet**, and select **OK**.
-   - **Administrator Account** > **Username**: Type **azureuser**.
-   - **Administrator Account** > **Password**: Type **Azure1234567**. 
+     2. Select **Create new**, type *MyAvailabilitySet*, and select **OK**.
+   - **Administrator Account** > **Username**: Type *azureuser*.
+   - **Administrator Account** > **Password**: Type *Azure1234567*. 
      Retype the password in the **Confirm password** field.
    
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
@@ -88,7 +88,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    
    To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
    1. In the **Configure network security group** field, select **Create new**. 
-   1. Type **MyNetworkSecurityGroup**, and select **OK**. 
+   1. Type *MyNetworkSecurityGroup*, and select **OK**. 
    
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
    
@@ -96,7 +96,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    
 1. Review the settings, and then select **Create**. 
 
-1. Follow the steps to create a second VM named **MyVM2**, with a **Public IP** address of **MyVM2-ip**, and all the other settings the same as MyVM1. 
+1. Follow the steps to create a second VM named *MyVM2*, with a **Public IP** address of *MyVM2-ip*, and all the other settings the same as MyVM1. 
 
 ### Create NSG rules for the VMs
 
@@ -110,22 +110,22 @@ In this section, you create network security group (NSG) rules for the VMs, to a
    
    - **Source**: Select **Service Tag**.  
    - **Source service tag**: Select **Internet**. 
-   - **Destination port ranges**: Type **80**.
+   - **Destination port ranges**: Type *80*.
    - **Protocol**: Select **TCP**. 
    - **Action**: Select **Allow**.  
-   - **Priority**: Type **100**. 
-   - **Name**: Type **MyHTTPRule**. 
-   - **Description**: Type **Allow HTTP**. 
+   - **Priority**: Type *100*. 
+   - **Name**: Type *MyHTTPRule*. 
+   - **Description**: Type *Allow HTTP*. 
    
 1. Select **Add**. 
    
    ![Create an NSG rule](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
    
 1. Repeat the steps for the inbound RDP rule, with the following differing values:
-   - **Destination port ranges**: Type **3389**.
-   - **Priority**: Type **200**. 
-   - **Name**: Type **MyRDPRule**. 
-   - **Description**: Type **Allow RDP**. 
+   - **Destination port ranges**: Type *3389*.
+   - **Priority**: Type *200*. 
+   - **Name**: Type *MyRDPRule*. 
+   - **Description**: Type *Allow RDP*. 
 
 ## Create resources for the load balancer
 
@@ -143,7 +143,7 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
    
 1. On the **Add a backend pool** page, type or select the following values:
    
-   - **Name**: Type **MyBackEndPool**.
+   - **Name**: Type *MyBackEndPool*.
    - **Associated to**: Drop down and select **Availability set**.
    - **Availability set**: Select **MyAvailabilitySet**.
    
@@ -169,12 +169,12 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
    
 1. On the **Add a health probe** page, type or select the following values:
    
-   - **Name**: Type **MyHealthProbe**.
+   - **Name**: Type *MyHealthProbe*.
    - **Protocol**: Drop down and select **HTTP**. 
-   - **Port**: Type **80**. 
-   - **Path**: Type **/** for the default URI. You can replace this value with any other URI. 
-   - **Interval**: Type **15**. Interval is the number of seconds between probe attempts.
-   - **Unhealthy threshold**: Type **2**. This value is the number of consecutive probe failures that must occur before a VM is considered unhealthy.
+   - **Port**: Type *80*. 
+   - **Path**: Accept */* for the default URI. You can replace this value with any other URI. 
+   - **Interval**: Type *15*. Interval is the number of seconds between probe attempts.
+   - **Unhealthy threshold**: Type *2*. This value is the number of consecutive probe failures that occur before a VM is considered unhealthy.
    
 1. Select **OK**.
    
@@ -195,11 +195,11 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. On the **Add load balancing rule** page, type or select the following values:
    
-   - **Name**: Type **MyLoadBalancerRule**.
-   - **Frontend IP address:** Type **LoadBalancerFrontend**.
+   - **Name**: Type *MyLoadBalancerRule*.
+   - **Frontend IP address:** Type *LoadBalancerFrontend*.
    - **Protocol**: Select **TCP**.
-   - **Port**: Type **80**.
-   - **Backend port**: Type **80**.
+   - **Port**: Type *80*.
+   - **Backend port**: Type *80*.
    - **Backend pool**: Select **MyBackendPool**.
    - **Health probe**: Select **MyHealthProbe**. 
    
@@ -215,7 +215,7 @@ In the portal, on the **Overview** page for **MyLoadBalancer**, find its public 
 
 ### Install IIS on the VMs
 
-You'll install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
+Install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
 
 **To remote desktop (RDP) into the VM:**
 
@@ -227,7 +227,7 @@ You'll install Internet Information Services (IIS) on the virtual machines to he
    
 1. On the Windows Security screen, select **More choices** and then **Use a different account**. 
    
-   Enter username **azureuser** and password **Azure1234567**, and select **OK**.
+   Enter username *azureuser* and password *Azure1234567*, and select **OK**.
    
 1. Respond **Yes** to any certificate prompt. 
    
