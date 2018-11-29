@@ -63,3 +63,8 @@ To edit your profile, use the **Edit Profile Information** command on your profi
 | Social Profiles | Your GItHub, Twitter, and Facebook IDs, if you wish to share them. |
 | Privacy Settings | Provides two commands:<ul><li>**Export My Profile**: creates and downloads a *.zip* file containing all the information that Azure Notebooks saves in your profile, including your photograph, profile information, and security logs.</li><li>**Delete My Account**: Permanently deletes all your personal information stored in Azure Notebooks.</li></ul> |
 | Enable Site Features | Allows you to control aspects of the behavior of Azure Notebooks:<ul><li>**Unified Frontend for Notebooks**: enables faster notebook startup and better persistence.</li><li>**Run in JupyterLab by default**: By default, Azure Notebooks provides a simple user interface that's suitable for most users. JupyterLab provides a richer but more complicated interface for experienced users.</li><li>**VNext Website**: enables the modernized web layout shown in this documentation.</li></ul> |
+
+## Next steps  
+
+> [!div class="nextstepaction"]
+> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

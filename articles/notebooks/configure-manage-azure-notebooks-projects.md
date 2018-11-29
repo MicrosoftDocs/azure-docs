@@ -179,3 +179,8 @@ You can also use the command from a code cell in a Python notebook:
 ```bash
 !cat .nb.log
 ```
+
+## Next steps
+
+- [How to: Work with project data files](work-with-project-data-files.md)
+- [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md)
