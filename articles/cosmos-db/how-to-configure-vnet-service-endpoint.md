@@ -181,7 +181,7 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
 
 1. Enable the service endpoint for a subnet in a virtual network.
 
-1. Update the existing Azure Cosmos DB account with subnet ACLs.
+1. Update the existing Azure Cosmos DB account with subnet access control lists (ACLs).
 
    ```azurecli-interactive
 
@@ -227,7 +227,7 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
      -Name $acctName
    ```
 
-1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the VNET ACL to all Azure Cosmos accounts being accessed from the subnet with `ignoreMissingVNetServiceEndpoint` flag.
+1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the virtual network ACL to all Azure Cosmos DB accounts being accessed from the subnet with `ignoreMissingVNetServiceEndpoint` flag.
 
    ```powershell
    $locations = @()
