@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Convert text-to-speech, .NET Core - Speech Service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to convert text-to-speech with the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response. The REST API also supports plain text (ASCII or UTF-8), however, if plain text is provided the response will be returned in the Speech Service's default voice and language.
+description: In this quickstart, you'll learn how to convert text-to-speech with the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Convert text-to-speech using .NET Core
 
-In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The sample text included in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response. Plain text (ASCII or UTF-8) is supported, however, the response uses the Speech Service's default voice and language.
+In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The sample text included in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -106,7 +106,7 @@ public class Authentication
 > [!NOTE]
 > For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
 
-## Set the access token, host, and route
+## Get an access token and set the host URL
 
 Locate `static void Main(string[] args)` and replace it with `static async Task Main(string[] args)`.
 
@@ -148,15 +148,16 @@ string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 
 ## Build the SSML request
 
-Text is sent as the body of a `POST` request. Plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) are accepted. Plain text requests use the Speech Service's default voice and language. With SSML, you can specify the voice and language.
-
-In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `Guy24kRUS`. Let's construct the SSML for your request (feel free to get creative):
+Text is sent as the body of a `POST` request. With SSML, you can specify the voice and language. In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `ZiraRUS`. Let's construct the SSML for your request:
 
 ```csharp
 string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
               <voice name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" +
               text + "</voice></speak>";
 ```
+
+> [!NOTE]
+> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
 
 ## Instantiate the client, make a request, and save synthesized audio to a file
 
