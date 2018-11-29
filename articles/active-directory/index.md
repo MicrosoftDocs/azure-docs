@@ -165,7 +165,7 @@ ms.author: mtillman
                                                         <h3><a href="users-groups-roles/index.yml">Enterprise users</a></h3>
                                                         <p>
                                                             <a href="users-groups-roles/groups-create-rule.md">Create a dynamic group</a><br>
-                                                            <a href="users-groups-roles/groups-settings-v2-cmdlets.md">PowerShell cmdlets for Azure AD groups</a><br>
+                                                            <a href="users-groups-roles/groups-settings-v2-cmdlets.md">PowerShell for Azure AD groups</a><br>
                                                             <a href="users-groups-roles/directory-service-limits-restrictions.md">Azure AD service limits and restrictions</a><br>
 												            <a href="users-groups-roles/index.yml"><i>See more &gt;</i></a>
 														</p>
