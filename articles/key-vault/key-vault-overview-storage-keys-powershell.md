@@ -38,7 +38,7 @@ The following example shows you how to allow Key Vault to manage your storage ac
 ## Authorize Key Vault to access to your storage account
 
 > [!TIP]
-> Azure AD provides each registered application with a **[service principal](/azure/active-directory/develop/app-objects-and-service-principals)**, which serves as the application's identity. The service principal can then be given authorization to access other Azure resources, such as Key Vault, through role-based access control (RBAC). Because Key Vault is a Microsoft application, it's pre-registered in all Azure AD tenants under Application ID "cfa8b339-82a2-471a-a3c9-0fc0be7a4093".
+> Azure AD provides each registered application with a **[service principal](/azure/active-directory/develop/developer-glossary#service-principal-object)**, which serves as the application's identity. The service principal can then be given authorization to access other Azure resources, such as Key Vault, through role-based access control (RBAC). Because Key Vault is a Microsoft application, it's pre-registered in all Azure AD tenants under Application ID "cfa8b339-82a2-471a-a3c9-0fc0be7a4093".
 
 Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account. The Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the built-in RBAC role [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
