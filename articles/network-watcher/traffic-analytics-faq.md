@@ -26,7 +26,7 @@ Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription.
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
-- An Azure Storage account, to store raw flog logs.
+- An Azure Storage account, to store raw flow logs.
 - An Azure Log Analytics workspace, with read and write access.
 
 Your account must meet one of the following to enable traffic analytics:
