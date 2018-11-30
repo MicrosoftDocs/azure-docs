@@ -23,20 +23,24 @@ Once configured to be bound to at least one virtual network subnet service endpo
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
 
 >[!WARNING]
-> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
 >
-> First party integrations are not supported when Virtual Networks are enabled, and will be made available soon.
-> Common Azure scenarios that don't work with Virtual Networks -
-> - Azure Diagnostics and Logging
+> Trusted Microsoft services are not supported when Virtual Networks are implemented, and will be made available soon.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor
 > - Azure Stream Analytics
-> - Event Grid Integration
-> - Web Apps & Functions are required to be on a Virtual network.
-> - IoT Hub Routes
-> - IoT Device Explorer
-
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+> - Azure Data Explorer
+>
+> The below Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
 
 > [!IMPORTANT]
-> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier. 
+> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier.
 
 ## Advanced security scenarios enabled by VNet integration 
 

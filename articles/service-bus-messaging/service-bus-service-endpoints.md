@@ -1,12 +1,12 @@
 ---
 title: Virtual Network service endpoints and rules for Azure Service Bus | Microsoft Docs
 description: Add a Microsoft.ServiceBus service endpoint to a virtual network. 
-services: event-hubs
+services: service-bus
 documentationcenter: ''
 author: clemensv
 manager: timlt
 
-ms.service: event-hubs
+ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
@@ -24,14 +24,19 @@ The result is a private and isolated relationship between the workloads bound to
 >[!WARNING]
 > Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
 >
-> First party integrations are not supported when Virtual Networks are enabled, and will be made available soon.
-> Common Azure scenarios that don't work with Virtual Networks -
-> - Azure Diagnostics and Logging
+> Trusted Microsoft services are not supported when Virtual Networks are implemented, and will be made available soon.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor
 > - Azure Stream Analytics
-> - Event Grid Integration
-> - Web Apps & Functions are required to be on a Virtual network.
-> - IoT Hub Routes
-> - IoT Device Explorer
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+> - Azure Data Explorer
+>
+> The below Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
 
 > [!IMPORTANT]
 > Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces.
