@@ -20,12 +20,12 @@
     href: azure-netapp-files-create-volumes.md
   - name: Configure export policy for a volume (optional)
     href: azure-netapp-files-configure-export-policy.md
-# Tutorials
-# Samples
-- name: Concepts
-  items:
-  - name: FAQ for networking and security
-    href: azure-netapp-files-faq-for-networking-security.md
+# - name: Tutorials
+# - name: Samples
+# - name: Concepts
+#  items:
+#  - name: FAQ for networking and security
+#    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
   items:
   - name: Manage volumes
@@ -36,7 +36,7 @@
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-- name: Reference
-  items:
-  - name: REST
-    href: https://docs.microsoft.com/en-us/rest/api/
+# - name: Reference
+#  items:
+#  - name: REST
+#    href: https://docs.microsoft.com/en-us/rest/api/
