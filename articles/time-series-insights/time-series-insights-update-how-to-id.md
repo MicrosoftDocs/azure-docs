@@ -15,30 +15,35 @@ ms.date: 11/30/2018
 
 This document covers the Azure Time Series Insights (preview) partition key, the **Time Series ID**, and best practices to choose one.
 
-The choice of the **Time Series ID** is like selecting a partition key for a database and is an important decision that you must plan before you create your environment. You cannot update an existing Time Series Insights update environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate **Time Series ID** is critical. Consider the following properties when selecting a **Time Series ID**:
+## Choose a Time Series ID
 
-* Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **Device ID**, **Sensor ID**, etc.  
+The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (preview) environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.
 
-* It should be unique at the leaf node level of your model.
+> [!IMPORTANT]
+> The **Time Series ID** is case-sensitive immutable and cannot be changed once set.
 
-* A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.
+With that in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
 
-* If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.  
+> [!div class="checklist"]
+> * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **Device ID**, **Sensor ID**, etc.  
+> * It should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
+> * A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.
+> * If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.
 
-* You can select up to 3 key properties as your **Time Series ID**.
+Additionally, you can select up to **three** (3) key properties as your **Time Series ID**.
 
   > [!NOTE]
   > Your three (3) key properties must be Strings.
 
-  The following scenarios describe selecting more than one key property as your **Time Series ID**:  
+The following scenarios describe selecting more than one key property as your **Time Series ID**:  
 
-  * Scenario 1:
+* Scenario 1:
 
-    * You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property **deviceId** and another where the unique property is **objectId**.  In both fleets, the other fleet’s unique property is not present. In this example, you would select two keys, **deviceId**, and **objectId** as unique keys. We accept null values, and the lack of a property’s presence in the event payload will count as a `null` value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
+  * You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property **deviceId** and another where the unique property is **objectId**.  In both fleets, the other fleet’s unique property is not present. In this example, you would select two keys, **deviceId**, and **objectId** as unique keys. We accept null values, and the lack of a property’s presence in the event payload will count as a `null` value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
 
-  * Scenario 2:
+* Scenario 2:
 
-    * You require multiple properties to show uniqueness in the same fleet of assets. For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for **sensorId**, including **sensor1**, **sensor2**, **sensor3**, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property **flrRm** which contain values like `1a`, `2b`, `3a`, and so on. Finally, you have a property, **location** which contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
+  * You require multiple properties to show uniqueness in the same fleet of assets. For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for **sensorId**, including **sensor1**, **sensor2**, **sensor3**, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property **flrRm** which contain values like `1a`, `2b`, `3a`, and so on. Finally, you have a property, **location** which contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
 
 ## Next steps
 

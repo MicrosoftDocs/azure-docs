@@ -37,9 +37,9 @@ A brief description about provisioning following the Time Series Insights update
 1. Input **Time Series ID** property:
 
     > [!IMPORTANT]
-    > The **Time Series ID** is both case sensitive and immutable.
+    > The **Time Series ID** is case-sensitive immutable and cannot be changed once set.
 
-    Learn more details on selecting the appropriate **Time Series ID** by reading about [Best practices for selecting a Time Series ID](./time-series-insights-update-how-to-id.md). **Time Series IDs** can be up to three keys.
+    Learn more details on selecting the appropriate **Time Series ID** by reading about [Best practices for selecting a Time Series ID](./time-series-insights-update-how-to-id.md).
 
     ![environment_details][1]
 
