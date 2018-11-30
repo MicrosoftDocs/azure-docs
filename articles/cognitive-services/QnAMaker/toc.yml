@@ -6,6 +6,14 @@
     href: Overview/overview.md
 - name: Quickstarts
   items:
+  - name: Using QnA Maker portal
+    items: 
+    - name: Create a new knowledge base
+      href: create-knowledge-base-in-portal.md 
+    - name: Publish a knowledge base
+      href: publish-knowledge-base-in-portal.md
+    - name: Get answer from knowledge base
+      href: get-answer-in-portal.md
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
