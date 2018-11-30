@@ -29,7 +29,7 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 
 ## Create an Azure storage account with analytic capabilities
 
-To begin, create a new [storage account with analytic capabilities](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
+To begin, create a new [storage account with analytic capabilities](data-lake-storage-quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
 
 1. Under **Settings**, click  **Access keys**.
 2. Click the **Copy** button next to **key1** to copy the key value.

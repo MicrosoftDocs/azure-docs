@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* **A Linux-based Hadoop cluster on HDInsight**. See [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](./quickstart-create-connect-hdi-cluster.md) for steps on how to create a new Linux-based HDInsight cluster.
+* **A Linux-based Hadoop cluster on HDInsight**. See [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](./data-lake-storage-quickstart-create-connect-hdi-cluster.md) for steps on how to create a new Linux-based HDInsight cluster.
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-get-started.md).
 
