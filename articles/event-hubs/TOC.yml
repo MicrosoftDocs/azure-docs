@@ -103,10 +103,8 @@
     maintainContext: true
 - name: How-to guides
   items:
-  - name: Send and receive events
-    items:
-    - name: Python
-      href: event-hubs-python.md
+  - name: Send, receive, and capture events using Python
+    href: event-hubs-python.md
   - name: Set up diagnostic logs
     href: event-hubs-diagnostic-logs.md
   - name: Event Hubs for Apache Kafka 
