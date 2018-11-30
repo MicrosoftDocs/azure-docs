@@ -53,13 +53,14 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
 11. Enter a name of your choice in the **Name** field and select **Python** as the language.
 12. All other fields can be left as default values.
 13. Select **Create**.
-14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account.
+14. Paste the following code into the **Cmd 1** cell. Remember to replace the placeholders shown in brackets in the sample with your own values:
 
-    ```bash
-    spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfss://<file_system>@<account_name>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+    ```scala
+    spark.conf.set("fs.azure.account.auth.type.<your-account-name>.dfs.core.windows.net": "OAuth")
+    spark.conf.set("fs.azure.account.oauth.provider.type.<your-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+    spark.conf.set("fs.azure.account.oauth2.client.id.<your-account-name>.dfs.core.windows.net": "<your-service-client-id>")
+    spark.conf.set("fs.azure.account.oauth2.client.secret.<your-account-name>.dfs.core.windows.net": "<your-service-credentials>")
+    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<your-account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/common/oauth2/token")
     ```
 
 ## Ingest data

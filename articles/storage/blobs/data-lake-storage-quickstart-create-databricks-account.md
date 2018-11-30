@@ -96,13 +96,14 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-4. In the following code, replace the **ACCOUNT_NAME** and **ACCOUNT_KEY** text with the values you preserved at the start of this quickstart. Also replace the **FILE_SYSTEM_NAME** text with the name you would like your file system to have. Then enter the code into the first cell.
+4. Enter the following code into the first cell and execute the code. Remember to replace the placeholders shown in brackets in the sample with your own values:
 
     ```scala
-    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+    spark.conf.set("fs.azure.account.auth.type.<your-account-name>.dfs.core.windows.net": "OAuth")
+    spark.conf.set("fs.azure.account.oauth.provider.type.<your-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+    spark.conf.set("fs.azure.account.oauth2.client.id.<your-account-name>.dfs.core.windows.net": "<your-service-client-id>")
+    spark.conf.set("fs.azure.account.oauth2.client.secret.<your-account-name>.dfs.core.windows.net": "<your-service-credentials>")
+    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<your-account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/common/oauth2/token")
     ```
 
     Press **SHIFT + ENTER** to run the code cell.
