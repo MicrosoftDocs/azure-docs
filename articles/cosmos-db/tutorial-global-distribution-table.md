@@ -1,18 +1,15 @@
 ---
-title: Azure Cosmos DB global distribution tutorial for Table API | Microsoft Docs
+title: Azure Cosmos DB global distribution tutorial for Table API
 description: Learn how to set up Azure Cosmos DB global distribution using the Table API.
 services: cosmos-db
 keywords: global distribution, Table
 author: SnehaGunda
-manager: kfile
-
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: sngun
 ms.custom: mvc
-
+ms.date: 12/13/2017
 ---
 # Set up Azure Cosmos DB global distribution using the Table API
 
