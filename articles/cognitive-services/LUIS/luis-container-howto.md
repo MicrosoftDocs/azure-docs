@@ -78,11 +78,11 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ![Process for using Language Understanding (LUIS) container](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
-1. [Export package](#get-packaged-app) for container from LUIS portal or LUIS APIs.
+1. [Export package](#export-packaged-app-from-luis) for container from LUIS portal or LUIS APIs.
 1. Move package file into the required **input** directory on the [host computer](#the-host-computer). Do not rename, alter, or decompress LUIS package file.
-1. [Run the container](#run-the-container), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
-1. [Querying the container's prediction endpoint](#query-the-container). 
-1. When you are done with the container, [import the endpoint logs](#upload-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
+1. [Run the container](##run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
+1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
 1. Use LUIS portal's [active learning](luis-how-to-review-endoint-utt.md) on the **Review endpoint utterances** page to improve the app.
 
 The app running in the container can't be altered. In order the change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
@@ -283,7 +283,7 @@ To make queries to the **Staging** environment, change the **staging** query str
 
 `staging=true`
 
-## Query trained app
+### Query trained app
 
 An example CURL command for querying the container for a trained app is: 
 

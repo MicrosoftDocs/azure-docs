@@ -30,7 +30,7 @@ This container has the following configuration settings:
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
-|Yes|[Mounts](#mounts-settings)|Read and write data from [host computer](luis-container-howto.md#the-host-computer) to container and from container back to host computer.|
+|Yes|[Mounts](#mount-settings)|Read and write data from [host computer](luis-container-howto.md#the-host-computer) to container and from container back to host computer.|
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](luis-container-howto.md#billing).
