@@ -88,22 +88,26 @@
   items:
   - name: Purchasing models
     items: 
-    - name: vCore vs. DTU 
+    - name: Overview 
       href: sql-database-service-tiers.md
     - name: vCore-based purchasing model
-      items:
-      - name: Choosing a vCore service tier
-        href: sql-database-service-tiers-vcore.md
-      - name: General Purpose / Business Critical
-        href: sql-database-service-tiers-general-purpose-business-critical.md
-      - name: Hyperscale
-        href: sql-database-service-tier-hyperscale.md
-      - name: Hyperscale FAQ
-        href: sql-database-service-tier-hyperscale-faq.md
+      href: sql-database-service-tiers-vcore.md
     - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
+  - name: Compute & storage
+    items:
+    - name: Overview
+      href: sql-database-service-tiers-general-purpose-business-critical.md
+    - name: General Purpose / Standard
+      href: sql-database-service-tier-general-purpose.md
+    - name: Business Critical / Premium
+      href: sql-database-service-tier-business-critical.md
+    - name: Hyperscale
+      href: sql-database-service-tier-hyperscale.md
+    - name: Hyperscale FAQ
+      href: sql-database-service-tier-hyperscale-faq.md
   - name: Logical servers
     items: 
     - name: Create and manage
