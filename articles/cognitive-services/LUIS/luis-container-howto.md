@@ -16,6 +16,10 @@ ms.author: diberry
  
 The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the Azure LUIS service to improve the app's prediction accuracy.
 
+The following video demonstrates using this container.
+
+[![Container demonstration for Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
