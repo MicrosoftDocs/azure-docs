@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
 
 ---
@@ -29,7 +29,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-To open the FTP dashboard, click **Continuous Delivery (Preview)** > **FTP** > **Dashboard**.
+To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
 
 ![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
