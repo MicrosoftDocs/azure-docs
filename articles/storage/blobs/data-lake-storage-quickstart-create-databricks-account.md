@@ -21,7 +21,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- [Create a storage account with Data Lake Storage Gen2 enabled](quickstart-create-account.md)
+- [Create a storage account with Data Lake Storage Gen2 enabled](data-lake-storage-quickstart-create-account.md)
 
 ## Set aside storage account configuration
 

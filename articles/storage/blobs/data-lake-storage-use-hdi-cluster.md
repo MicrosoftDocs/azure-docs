@@ -14,7 +14,7 @@ To analyze data in an HDInsight cluster, you can store the data either in any co
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage or the hierarchical namespace offered by Data Lake Storage Gen2 as the default file system. Alternatively with HDInsight 3.5, you can select either a container or the hierarchical namespace as the default file system with a few exceptions.
 
-In this article, you learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information about creating an HDInsight cluster, see [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md).
+In this article, you learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information about creating an HDInsight cluster, see [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](data-lake-storage-quickstart-create-connect-hdi-cluster.md).
 
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use Azure Data Lake Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on files in Azure Data Lake Storage.
 
@@ -199,8 +199,8 @@ In this article, you learned how to use HDFS-compatible Azure storage with HDIns
 For more information, see:
 
 * [The ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
-* [Introduction to Azure Data Lake Storage Gen2](introduction.md)
-* [Set up HDInsight clusters using Azure Data Lake Storage Gen2 with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md)
+* [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+* [Set up HDInsight clusters using Azure Data Lake Storage Gen2 with Hadoop, Spark, Kafka, and more](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Ingest data into Azure Data Lake Storage Gen2 using distcp](data-lake-storage-use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs

@@ -44,4 +44,4 @@ Some object store workloads may not gain any benefit by enabling the hierarchica
 
 ## Next steps
 
-- [Create a Storage account](./quickstart-create-account.md)
+- [Create a Storage account](./data-lake-storage-quickstart-create-account.md)

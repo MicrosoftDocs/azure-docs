@@ -15,14 +15,14 @@ ms.author: jamesbak
 ---
 # Quickstart: Set up clusters in HDInsight
 
-In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2 preview](introduction.md) enabled.
+In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2 preview](data-lake-storage-introduction.md) enabled.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
 > [!IMPORTANT]
 >HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
-A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](abfs-driver.md), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
+A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](data-lake-storage-abfs-driver.md), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
 
@@ -93,7 +93,7 @@ You don't need to specify the cluster location explicitly; the cluster is in the
 
 ## Storage endpoints for clusters
 
-Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](abfs-driver.md) or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data.
+Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Data Lake Storage Gen2](data-lake-storage-abfs-driver.md) or [Blobs in Azure Storage](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Storage means you can safely delete the HDInsight clusters used for computation while still retaining your data.
 
 > [!WARNING]
 > Using an additional storage account in a different location from the HDInsight cluster is not supported.
@@ -241,7 +241,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-- [ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](abfs-driver.md)
+- [ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
 - [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
 - [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Get started using Hadoop in HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)

@@ -135,4 +135,4 @@ In addition to the general guidelines above, each application has different para
 | [Storm on HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## See also
-* [Overview of Azure Data Lake Storage Gen2](introduction.md)
+* [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

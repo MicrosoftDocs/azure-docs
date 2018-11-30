@@ -40,7 +40,7 @@ To complete this tutorial:
 
 * Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
 * Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-* [Create a Azure Data Lake Storage Gen2 account](quickstart-create-account.md)
+* [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md)
 
 ## Sign in to the Azure Portal
 
@@ -128,7 +128,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. 
 
 > [!NOTE]
-> If you do not already have an Azure Data Lake Storage Gen2 capable account, follow the [quickstart to create one](./quickstart-create-account.md).
+> If you do not already have an Azure Data Lake Storage Gen2 capable account, follow the [quickstart to create one](./data-lake-storage-quickstart-create-account.md).
 
 1. Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
 
