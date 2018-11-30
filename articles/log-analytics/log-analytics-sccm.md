@@ -33,7 +33,7 @@ The following steps summarize the steps to configure Configuration Manager integ
 4. In Configuration Manager, [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
 5. [Download and install the Microsoft Monitoring Agent](#download-and-install-the-agent) on the computer running the Configuration Manager service connection point site system role. The agent sends Configuration Manager data to the Log Analytics workspace.
 6. In Log Analytics, [import collections from Configuration Manager](#import-collections) as computer groups.
-7. In Log Analytics, view data from Configuration Manager as [computer groups](log-analytics-computer-groups.md).
+7. In Log Analytics, view data from Configuration Manager as [computer groups](../azure-monitor/platform/computer-groups.md).
 
 You can read more about connecting Configuration Manager to Log Analytics at [Sync data from Configuration Manager to the Microsoft Log Analytics](https://technet.microsoft.com/library/mt757374.aspx).
 
@@ -102,7 +102,7 @@ After you have completed initial configuration to import device collections from
    ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## View data from Configuration Manager
-After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to Log Analytics. In Log Analytics, your Configuration Manager collections appear as [computer groups](log-analytics-computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
+After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to Log Analytics. In Log Analytics, your Configuration Manager collections appear as [computer groups](../azure-monitor/platform/computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
 
 After the collections are imported, you can see how many computers with collection memberships have been detected. You can also see the number of collections that have been imported.
 
