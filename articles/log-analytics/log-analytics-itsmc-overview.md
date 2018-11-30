@@ -79,10 +79,10 @@ For creating a connection, you will need to prep your ITSM tool to allow the con
 
 Depending on the ITSM product you are connecting to, use the following steps :
 
-- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [System Center Service Manager (SCSM)](../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 Once you have prepped your ITSM tools, follow the steps below to create a connection:
 
@@ -95,7 +95,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 
     ![Add ITSM connection](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
-4.	Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](log-analytics-itsmc-connections.md).
+4.	Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](../azure-monitor/platform/itsmc-connections.md).
 
     > [!NOTE]
 
@@ -286,7 +286,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.  
     - check if you have sufficient privileges in the corresponding ITSM product to make the connection.  
  - For Service Manager connections,  
-    - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+    - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
 3.	If Log Analytics alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
@@ -296,7 +296,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## Troubleshoot Service Manager Web App deployment
 1.	In case of any issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
 2.	If you get an **"Object reference not set to instance of an object"** error when you run the [script](log-analytics-itsmc-service-manager-script.md), ensure that you entered valid values  under **User Configuration** section.
-3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create service bus relay namespace from the Azure portal. You can also create it while [creating the hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) from the Azure portal.
+3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create service bus relay namespace from the Azure portal. You can also create it while [creating the hybrid connection](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) from the Azure portal.
 
 
 ## Contact us
@@ -304,4 +304,4 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 For any queries or feedback on the IT Service Management Connector, contact us at [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
 ## Next steps
-[Add ITSM products/services to IT Service Management Connector](log-analytics-itsmc-connections.md).
+[Add ITSM products/services to IT Service Management Connector](../azure-monitor/platform/itsmc-connections.md).
