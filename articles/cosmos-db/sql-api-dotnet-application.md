@@ -1,5 +1,5 @@
 ---
-title: Tutorialt to develop an ASP.NET MVC web application with Azure Cosmos DB 
+title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB 
 description: This tutorial describes how to create an ASP .Net MVC web application using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure Websites.
 author: deborahc
 
@@ -62,8 +62,6 @@ We will now walk through how to create a new ASP.NET MVC application.
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application. 
 
 4. Select **Browse** to navigate to the folder where you would like to create the project, and then select **OK**. The **New ASP.NET Web Application** dialog box appears.
-   
-   ![Screen shot of the New ASP.NET Web Application dialog box with the MVC application template highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 
 5. In the templates pane, select **MVC**.
 
@@ -81,9 +79,7 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
    
    The **Manage NuGet Packages** dialog box appears.
 
-2. In the NuGet **Browse** box, type **Azure Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** by Microsoft package. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
-   
-   ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+2. In the NuGet **Browse** box, type **Microsoft.Azure.Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** 3.0.0-preview version. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
    
    Alternatively, you can use the Package Manager Console to install the NuGet package. To do so, on the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. At the prompt, type the following command:
    
@@ -91,7 +87,7 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
    Install-Package Microsoft.Azure.Cosmos -Version 3.0.0-preview
    ```        
 
-3. After the package is installed, your Visual Studio solution should contain the following two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
+3. After the package is installed, your Visual Studio solution should contain the following two new references added, Microsoft.Azure.Cosmos.Client, Microsoft.Azure.Cosmos.Direct, and Newtonsoft.Json.
   
 ## <a name="_Toc395637763"></a>Step 4: Set up the ASP.NET MVC application
 
@@ -121,15 +117,21 @@ Now let's add the models, views, and controllers to this MVC application:
 
    ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
-1. Name your new Controller, **ItemController.**
+1. Name your new controller, **ItemController** and replace the code in that file with the following code:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Controllers/ItemController.cs)]
+
+   **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
+   
+   **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
     
 ### <a name="_Toc395637766"></a>Add views
 
 Now, let's create the views, in this tutorial, you will create the following three view classes:
 
-* [Add an Item Index view](#AddItemIndexView).
-* [Add a New Item view](#AddNewIndexView).
-* [Add an Edit Item view](#_Toc395888515).
+* [Add a list item view](#AddItemIndexView).
+* [Add a new item view](#AddNewIndexView).
+* [Add an edit item view](#_Toc395888515).
 
 #### <a name="AddItemIndexView"></a>Add a list item view
 
@@ -180,47 +182,32 @@ Once this is done, close all the cshtml documents in Visual Studio as we will re
 
 ## <a name="_Toc395637769"></a>Step 5: Connect to Azure Cosmos DB 
 
-Now that the standard MVC stuff is taken care of, let's turn to adding the code to connect to Azure Cosmos DB. 
-
-In this section, we'll add code to handle the following:
-
-* [List the items that are marked incomplete](#_Toc395637770).
-* [Add items](#_Toc395637771).
-* [Edit items](#_Toc395637772).
+Now that the standard MVC stuff is taken care of, let's turn to adding the code to connect to Azure Cosmos DB and perform CRUD operations. 
 
 ### <a name="_Toc395637770"></a> Perform CRUD operations on the data
 
 The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic into a class called TodoItemService.cs. This code reads the Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations such as listing incomplete items, creating, editing and deleting the items. 
 
-1. From **Solution Explorer**, right-click the **Services** folder, select **Add**, and then select **Class**. Name the new class **TodoItemService** and select **Add**.
+1. From **Solution Explorer**, Creates a new folder under your project named **Services**.
 
-2. Add the following code to the **TodoItemService** class and replace the code in that file with the following code:
+1. right-click the **Services** folder, select **Add**, and then select **Class**. Name the new class **TodoItemService** and select **Add**.
+
+1. Add the following code to the **TodoItemService** class and replace the code in that file with the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Services/TodoItemService.cs)]
  
-3. The previous code reads the connection string values from configuration file. To update the connection string values of your Azure Cosmos account, open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Web.config?range=12-15)] 
-
+1. The previous code reads the connection string values from configuration file. To update the connection string values of your Azure Cosmos account, open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
 
    ```csharp
-    <add key="endpoint" value="< enter the URI from the Keys blade of the Azure Portal >" />
-	<add key="primaryKey" value="< enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal >" />
+    <add key="endpoint" value="<enter the URI from the Keys blade of the Azure Portal>" />
+	<add key="primaryKey" value="<enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal>" />
 	<add key="database" value="Tasks" />
 	<add key="container" value="Items" />
    ```
  
-4. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.  This takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
+1. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.  This takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
 
-5. Open the **ItemController** class you added earlier and replace the code in that class with the following code: 
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Controllers/ItemController.cs)]
-
-   **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
-   
-   **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
-6. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
+1. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
    
    ```csharp
    TodoItemService.Initialize().GetAwaiter().GetResult();
@@ -228,7 +215,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
    At this point your solution should be able to build your project without any errors. If you run the application now, you will go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start. Let's change the routing on this MVC application to alter this behavior.
 
-7. Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
+1. Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
 
    ```csharp
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
