@@ -59,7 +59,7 @@ USER = "<Name of the access key. Default name: RootManageSharedAccessKey>"
 KEY = "<The access key>"
 ```
 
-Then, create an Event Hubs client, add a sender, run the client, send teh event using sender, and stop the client when you are done. 
+Then, create an Event Hubs client, add a sender, run the client, send the event using sender, and stop the client when you are done. 
 
 ```python
 # Create an Event Hubs client
