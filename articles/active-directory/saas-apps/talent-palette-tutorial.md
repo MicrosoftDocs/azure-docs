@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with Talent Palette, perform the following 
 
 ### Configure Talent Palette Single Sign-On
 
-To configure single sign-on on **Talent Palette** side, you need to send the **Certificate (Raw)** which you have downloaded and the URLs which you have copied from **Set up Talent Palette** section from Azure portal to [Talent Palette support team](mailto:talent-support@pa-consul.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Talent Palette** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Talent Palette support team](mailto:talent-support@pa-consul.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
