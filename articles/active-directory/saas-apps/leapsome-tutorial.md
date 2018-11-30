@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Leapsome | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Leapsome.
 services: active-directory
@@ -173,7 +173,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Copy the **Login URL (point your users here to start login)** value and paste it into the **Sign-on URL** textbox in **Leapsome Domain and URLs** section on Azure portal.
 
-	c. Copy the **Reply URL (recieves response from your identity provider)** value and paste it into the **Reply URL** textbox in  **Leapsome Domain and URLs** section on Azure portal.
+	c. Copy the **Reply URL (receives response from your identity provider)** value and paste it into the **Reply URL** textbox in  **Leapsome Domain and URLs** section on Azure portal.
 
 	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you copied from the Azure portal.
 

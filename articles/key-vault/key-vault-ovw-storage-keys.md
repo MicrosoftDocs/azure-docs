@@ -1,6 +1,6 @@
 ﻿---
 ms.assetid:
-title: Azure Key Vault Storage Account Keys
+title: Azure Key Vault managed storage account - CLI
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
 services: key-vault
@@ -10,7 +10,7 @@ ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
 ---
-# Azure Key Vault Storage Account Keys
+# Azure Key Vault managed storage account - CLI
 
 > [!NOTE]
 > [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys.

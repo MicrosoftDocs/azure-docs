@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -33,7 +33,7 @@ What you learn how to:
 > * Grant minimal privileges to the managed identity in SQL Database
 
 > [!NOTE]
-> Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure Active Directory use completely different authentication protocols. For more information, see [The difference between Windows Server AD DS and Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+>Azure Active Directory authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure Active Directory use completely different authentication protocols. For more information, see [Azure AD Domain Services documentation](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -169,6 +169,10 @@ If you want to see the full JSON output for each command, drop the parameters `-
 ### Reconfigure Azure AD administrator
 
 Previously, you assigned the managed identity as the Azure AD administrator for your SQL Database. You can't use this identity for interactive sign-in (to add database users), so you need to use your real Azure AD user. To add your Azure AD user, follow the steps at [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+
+> [!IMPORTANT]
+> Once added, don't remove this Azure AD administrator for your SQL Database unless you want to disable Azure AD access to the SQL Database completely (from all Azure AD accounts).
+> 
 
 ### Grant permissions to Azure Active Directory group
 

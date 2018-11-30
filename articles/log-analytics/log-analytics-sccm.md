@@ -10,7 +10,6 @@ ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
@@ -33,7 +32,7 @@ The following steps summarize the steps to configure Configuration Manager integ
 4. In Configuration Manager, [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
 5. [Download and install the Microsoft Monitoring Agent](#download-and-install-the-agent) on the computer running the Configuration Manager service connection point site system role. The agent sends Configuration Manager data to the Log Analytics workspace.
 6. In Log Analytics, [import collections from Configuration Manager](#import-collections) as computer groups.
-7. In Log Analytics, view data from Configuration Manager as [computer groups](log-analytics-computer-groups.md).
+7. In Log Analytics, view data from Configuration Manager as [computer groups](../azure-monitor/platform/computer-groups.md).
 
 You can read more about connecting Configuration Manager to Log Analytics at [Sync data from Configuration Manager to the Microsoft Log Analytics](https://technet.microsoft.com/library/mt757374.aspx).
 
@@ -52,7 +51,7 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 6. Under the **Assign access to** drop-down list, select the Configuration Manager application created in AD earlier, and then click **OK**.  
 
 ## Download and install the agent
-Review the article [Connect Windows computers to the Log Analytics service in Azure](log-analytics-agent-windows.md) to understand the methods available for installing the Microsoft Monitoring Agent on the computer hosting the Configuration Manager service connection point site system role.  
+Review the article [Connect Windows computers to the Log Analytics service in Azure](../azure-monitor/platform/agent-windows.md) to understand the methods available for installing the Microsoft Monitoring Agent on the computer hosting the Configuration Manager service connection point site system role.  
 
 ## Add a Log Analytics connection to Configuration Manager
 In order to add Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://technet.microsoft.com/library/mt627781.aspx) configured for online mode.
@@ -102,7 +101,7 @@ After you have completed initial configuration to import device collections from
    ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## View data from Configuration Manager
-After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to Log Analytics. In Log Analytics, your Configuration Manager collections appear as [computer groups](log-analytics-computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
+After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to Log Analytics. In Log Analytics, your Configuration Manager collections appear as [computer groups](../azure-monitor/platform/computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
 
 After the collections are imported, you can see how many computers with collection memberships have been detected. You can also see the number of collections that have been imported.
 

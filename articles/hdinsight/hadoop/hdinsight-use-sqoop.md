@@ -92,7 +92,7 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
         
         |Name|Value|
         |----|-----|
-        | Default storage account name | &lt;CluterName>store |
+        | Default storage account name | &lt;ClusterName>store |
         | Azure SQL database server name | &lt;ClusterName>dbserver |
         | Azure SQL database name | &lt;ClusterName>db |
      
@@ -104,7 +104,7 @@ If you choose to use existing Azure SQL database or Microsoft SQL Server
 * **Azure SQL database**: You must configure a firewall rule for the Azure SQL database server to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > By default an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you need to enable it from the Azure portal. For instruction about creating an Azure SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue].
+  > By default an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you need to enable it from the Azure portal. For instruction about creating an Azure SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configure].
   > 
   > 
 * **SQL Server**: If your HDInsight cluster is on the same virtual network in Azure as SQL Server, you can use the steps in this article to import and export data to a SQL Server database.
@@ -638,7 +638,7 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

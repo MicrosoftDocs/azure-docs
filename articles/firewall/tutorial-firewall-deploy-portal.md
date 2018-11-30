@@ -5,11 +5,12 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/9/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
+
 # Tutorial: Deploy and configure Azure Firewall using the Azure portal
 
 Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites, or the outbound IP addresses and ports that can be accessed.
@@ -35,7 +36,7 @@ In this tutorial, you learn how to:
 > * Set up a test network environment
 > * Deploy a firewall
 > * Create a default route
-> * Configure an application to allow access to github.com
+> * Configure an application to allow access to msn.com
 > * Configure a network rule to allow access to external DNS servers
 > * Test the firewall
 
@@ -73,7 +74,7 @@ This VNet will contain three subnets.
 11. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /25.
+> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
@@ -92,46 +93,36 @@ Create another subnet named **Jump-SN**, address range **10.0.3.0/24**.
 
 Now create the jump and workload virtual machines, and place them in the appropriate subnets.
 
-1. From the Azure portal home page, click **All services**.
-2. Under **Compute**, click **Virtual machines**.
-3. Click **Add** > **Windows Server** > **Windows Server 2016 Datacenter** > **Create**.
+1. On the Azure portal, click **Create a resource**.
+2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+3. Enter these values for the virtual machine:
 
-**Basics**
+    - *Test-FW-RG* for the resource group.
+    - *Srv-Jump* - for the name of the virtual machine.
+    - *azureuser* - for the administrator user name.
+    - *Azure123456!* for the password.
 
-1. For **Name**, type **Srv-Jump**.
-5. Type a username and password.
-6. For **Subscription**, select your subscription.
-7. For **Resource group**, click **Use existing** > **Test-FW-RG**.
-8. For **Location**, select the same location that you used previously.
-9. Click **OK**.
+4. Under **Inbound port rules**, for **Public inbound ports**, click **Allow selected ports**.
+5. For **Select inbound ports**, select **RDP (3389)**.
 
-**Size**
-
-1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (8 GB RAM, 16 GB storage).
-2. Click **Select**.
-
-**Settings**
-
-1. Under **Network**, for **Virtual network**, select **Test-FW-VN**.
-2. For **Subnet**, select **Jump-SN**.
-3. For **Select public inbound ports**, select **RDP (3389)**. 
-
-    You'll want to limit the access to your public IP address, but you need to open port 3389 so you can connect a remote desktop to the jump server. 
-2. Leave the other default settings and click **OK**.
-
-**Summary**
-
-Review the summary, and then click **Create**. This will take a few minutes to complete.
+6. Accept the other defaults and click **Next: Disks**.
+7. Accept the disk defaults and click **Next: Networking**.
+8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Jump-SN**.
+9. For **Public IP**, click **Create new**.
+10. Type **Srv-Jump-PIP** for the public IP address name and click **OK**.
+11. Accept the other defaults and click **Next: Management**.
+12. Click **Off** to disable boot diagnostics. Accept the other defaults and click **Review + create**.
+13. Review the settings on the summary page, and then click **Create**.
 
 Repeat this process to create another virtual machine named **Srv-Work**.
 
-Use the information in the following table to configure the **Settings** for the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
+Use the information in the following table to configure the Srv-Work virtual machine. The rest of the configuration is the same as the Srv-Jump virtual machine.
 
 |Setting  |Value  |
 |---------|---------|
 |Subnet|Workload-SN|
-|Public IP address|None|
-|Select public inbound ports|No public inbound ports|
+|Public IP|None|
+|Public inbound ports|None|
 
 ## Deploy the firewall
 
@@ -141,7 +132,7 @@ Deploy the firewall into the VNet.
 2. Click **Networking**, and after **Featured**, click **See all**.
 3. Click **Firewall** > **Create**. 
 4. On the **Create a Firewall** page, use the following table to configure the firewall:
-   
+
    |Setting  |Value  |
    |---------|---------|
    |Name     |Test-FW01|
@@ -151,12 +142,12 @@ Deploy the firewall into the VNet.
    |Choose a virtual network     |**Use existing**: Test-FW-VN|
    |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
 
-2. Click **Review + create**.
-3. Review the summary, and then click **Create** to create the firewall.
+5. Click **Review + create**.
+6. Review the summary, and then click **Create** to create the firewall.
 
    This will take a few minutes to deploy.
-4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
-6. Note the private IP address. You'll use it later when you create the default route.
+7. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
+8. Note the private IP address. You'll use it later when you create the default route.
 
 ## Create a default route
 
@@ -187,7 +178,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 
 ## Configure an application rule
 
-This is the application rule that allows outbound access to github.com.
+This is the application rule that allows outbound access to msn.com.
 
 1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
 2. On the **Test-FW01** page, under **Settings**, click **Rules**.
@@ -199,7 +190,7 @@ This is the application rule that allows outbound access to github.com.
 8. Under **Rules**, **Target FQDNs**, for **Name**, type **AllowGH**.
 9. For **Source Addresses**, type **10.0.2.0/24**.
 10. For **Protocol:port**, type **http, https**.
-11. For **Target FQDNS**, type **github.com**
+11. For **Target FQDNS**, type **msn.com**
 12. Click **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
@@ -209,17 +200,17 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 This is the network rule that allows outbound access to two IP addresses at port 53 (DNS).
 
 1. Click the **Network rule collection** tab.
-1. Click **Add network rule collection**.
-2. For **Name**, type **Net-Coll01**.
-3. For **Priority**, type **200**.
-4. For **Action**, select **Allow**.
+2. Click **Add network rule collection**.
+3. For **Name**, type **Net-Coll01**.
+4. For **Priority**, type **200**.
+5. For **Action**, select **Allow**.
 
 6. Under **Rules**, for **Name**, type **AllowDNS**.
-8. For **Protocol**, select **UDP**.
-9. For **Source Addresses**, type **10.0.2.0/24**.
-10. For Destination address, type **209.244.0.3,209.244.0.4**
-11. For **Destination Ports**, type **53**.
-12. Click **Add**.
+7. For **Protocol**, select **UDP**.
+8. For **Source Addresses**, type **10.0.2.0/24**.
+9. For Destination address, type **209.244.0.3,209.244.0.4**
+10. For **Destination Ports**, type **53**.
+11. Click **Add**.
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
@@ -240,12 +231,12 @@ Now test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and from there open a remote desktop connection to the **Srv-Work** private IP address.
 
-5. Open Internet Explorer and browse to http://github.com.
-6. Click **OK** > **Close** on the security alerts.
+3. Open Internet Explorer and browse to http://msn.com.
+4. Click **OK** > **Close** on the security alerts.
 
-   You should see the GitHub home page.
+   You should see the MSN home page.
 
-7. Browse to http://www.msn.com.
+5. Browse to http://www.msn.com.
 
    You should be blocked by the firewall.
 

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
 ---
@@ -44,11 +44,8 @@ SQL Data Warehouse (SQL DW) now enables enhanced insights into analytical worklo
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## Instant Data Movement 
-In addition to Shuffle, Instant Data Movement now extends to Broadcast and Partition move.
-
-## Scale Up Column Store: Columnstore metadata memory management (SQL Server)
-Optimized memory management for column store metadata 
+## Columnstore memory management
+As the number of compressed column store row groups increases, the memory required to manage the internal column segment metadata for those rowgroups increases.  As a result, query performance and queries executed against some of the Columnstore Dynamic Management Views (DMVs) can degrade.  Improvements have made in this release to optimize the size of the internal metadata for these cases, leading to improved experience and performance for such queries. 
 
 ## Azure Data Lake Storage Gen2 integration (GA)
 Azure SQL Data Warehouse (SQL DW) now has native integration with Azure Data Lake Storage Gen2. Customers can now load data using external tables from ABFS into SQL DW. This functionality enables customers to integrate with their data lakes in Data Lake Storage Gen2. 

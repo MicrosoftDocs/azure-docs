@@ -27,11 +27,22 @@ Version 3 of the Translator Text API provides a modern JSON-based Web API. It im
 
 ## Base URLs
 
-Text API v3.0 is available in the following cloud:
+Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure regions](https://azure.microsoft.com/global-infrastructure/regions):
 
-| Description | Region | Base URL                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Global | api.cognitive.microsofttranslator.com           |
+* **Americas:** West US 2 and West Central US 
+* **Asia Pacific:** Southeast Asia and Korea South
+* **Europe:** North Europe and West Europe
+
+Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the region.
+
+To force the request to be handled by a specific datacenter, change the Global endpoint in the API request to the desired regional endpoint:
+
+|Description|Region|Base URL|
+|:--|:--|:--|
+|Azure|Global|	api.cognitive.microsofttranslator.com|
+|Azure|North America|	api-nam.cognitive.microsofttranslator.com|
+|Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
+|Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
 
 
 ## Authentication
@@ -131,6 +142,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|
+| 408001| The custom translation system requested is not yet available. Please retry in a few minutes.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client is sending too many requests. Reduce the frequency of requests to avoid throttling.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|

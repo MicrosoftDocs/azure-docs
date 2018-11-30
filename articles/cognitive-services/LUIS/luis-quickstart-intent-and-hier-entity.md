@@ -53,7 +53,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Remove prebuilt number entity from app
 In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
@@ -79,7 +79,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
     In the [list entity](luis-quickstart-intent-and-list-entity.md) tutorial, an employee is designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance when the origin is not specified.     
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Create a location entity
 LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
