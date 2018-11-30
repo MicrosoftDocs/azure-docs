@@ -20,7 +20,7 @@ ms.component:
 
 # Computer groups in Log Analytics log searches
 
-Computer groups in Log Analytics allow you to scope [log searches](log-analytics-queries.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
+Computer groups in Log Analytics allow you to scope [log searches](../../log-analytics/log-analytics-queries.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
 
 ## Creating a computer group
 You can create a computer group in Log Analytics using any of the methods in the following table.  Details on each method are provided in the sections below. 
@@ -62,7 +62,7 @@ When you configure Log Analytics to import Active Directory group memberships, i
 
 You configure Log Analytics to import Active Directory security groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **Active Directory**, and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
 
-![Computer groups from Active Directory](media/log-analytics-computer-groups/configure-activedirectory.png)
+![Computer groups from Active Directory](media/computer-groups/configure-activedirectory.png)
 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
@@ -71,16 +71,16 @@ When you configure Log Analytics to import WSUS group memberships, it analyzes t
 
 You configure Log Analytics to import WSUS groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **WSUS**, and then **Import WSUS group memberships**.  There is no further configuration required.
 
-![Computer groups from WSUS](media/log-analytics-computer-groups/configure-wsus.png)
+![Computer groups from WSUS](media/computer-groups/configure-wsus.png)
 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### System Center Configuration Manager
 When you configure Log Analytics to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
-Before you can import Configuration Manager collections, you must [connect Configuration Manager to Log Analytics](log-analytics-sccm.md).  You can then configure the import from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
+Before you can import Configuration Manager collections, you must [connect Configuration Manager to Log Analytics](../../log-analytics/log-analytics-sccm.md).  You can then configure the import from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
 
-![Computer groups from SCCM](media/log-analytics-computer-groups/configure-sccm.png)
+![Computer groups from SCCM](media/computer-groups/configure-sccm.png)
 
 When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
@@ -89,7 +89,7 @@ You can view computer groups that were created from a log search or the Log Sear
 
 Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
 
-![Saved computer groups](media/log-analytics-computer-groups/configure-saved.png)
+![Saved computer groups](media/computer-groups/configure-saved.png)
 
 
 ## Using a computer group in a log search
@@ -132,5 +132,5 @@ A record is created in the Log Analytics workspace for each computer group membe
 | TimeGenerated |Date and time the computer group was created or updated. |
 
 ## Next steps
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 
