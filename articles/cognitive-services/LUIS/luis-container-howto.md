@@ -28,9 +28,17 @@ In order to run the LUIS container, you must have the following:
 
 |Required|Purpose|
 |--|--|
-|Docker Engine| To complete this preview, you need Docker Engine installed on a *host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>*The **host** is the computer that runs the docker container. It can be the local computer on your premises or any docker hosting service in Azure including Azure Kubernetes, Azure Container instances, Kubernetes cluster, and Azure Stack.|
+|Docker Engine| To complete this preview, you need Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Language Understanding (LUIS) resource and associated app |In order to use the container, you must have:<br><br>* A [_Language Understanding_ Azure resource](luis-how-to-azure-subscription.md), along with the associated endpoint key and endpoint URI (used as the billing endpoint).<br>* A trained or published app packaged as a mounted input to the container with its associated App ID.<br>* The Authoring Key to download the app package and upload the query logs.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>The [authoring key and endpoint key](luis-boundaries.md#key-limits) have different purposes. Do not use them interchangeably. |
+
+### The host computer
+
+The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
+
+* [Azure Kubernetes Service](/azure/aks/)
+* [Azure Container Instances](/azure/container-instances/)
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 ### Container requirements and recommendations
 
@@ -66,12 +74,12 @@ For a full description of available tags, such as `latest` used in the preceding
 
 ## How to use the container
 
-Once the container is on the host computer, use the following process to work with the container.
+Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
 ![Process for using Language Understanding (LUIS) container](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Export package](#get-packaged-app) for container from LUIS portal or LUIS APIs.
-1. Move package file into the required **input** directory on the host computer. Do not rename, alter, or decompress LUIS package file.
+1. Move package file into the required **input** directory on the [host computer](#the-host-computer). Do not rename, alter, or decompress LUIS package file.
 1. [Run the container](#run-the-container), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Querying the container's prediction endpoint](#query-the-container). 
 1. When you are done with the container, [import the endpoint logs](#upload-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
@@ -93,8 +101,6 @@ Place the package file in a directory and reference this directory as the input 
 
 The input mount directory can contain the **Production**, **Staging**, and **Trained** versions of the app simultaneously. All the packages are mounted. 
 
-
-
 |Package Type|Query Endpoint API|Query availability|Package filename format|
 |--|--|--|--|
 |Trained|Get, Post|Container only|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
@@ -111,7 +117,7 @@ Before packaging a LUIS application, you must have the following:
 |--|--|
 |Azure _Language Understanding_ resource instance|Supported regions include<br><br>West US (```westus```)<br>West Europe (```westeurope```)<br>Australia East (```australiaeast```)|
 |Trained or published LUIS app|With no [unsupported dependencies](#unsupported-dependencies). |
-|Access to the host computer's file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
+|Access to the [host computer](#the-host-computer)'s file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
   
 ### Export app package from LUIS portal
 
@@ -223,7 +229,10 @@ Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY}
 ```
 
-The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
+> [!Note] 
+> The preceding command uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
+> The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your [host computer](#the-host-computer) operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
+
 
 This command:
 

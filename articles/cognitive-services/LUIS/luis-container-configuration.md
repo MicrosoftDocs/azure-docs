@@ -30,7 +30,7 @@ This container has the following configuration settings:
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
-|Yes|[Mounts](#mounts-settings)|Read and write data from host to container and from container back to host.|
+|Yes|[Mounts](#mounts-settings)|Read and write data from [host computer](luis-container-howto.md#the-host-computer) to container and from container back to host computer.|
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](luis-container-howto.md#billing).
@@ -122,7 +122,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The LUIS container doesn't use input or output mounts to store training or service data. 
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host's mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](luis-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 The following table describes the settings supported.
 
@@ -133,7 +133,7 @@ The following table describes the settings supported.
 
 ## Hierarchical settings
 
-Settings for the LUIS container are hierarchical, and all containers on the host computer use a shared hierarchy.
+Settings for the LUIS container are hierarchical, and all containers on the [host computer](luis-container-howto.md#the-host-computer) use a shared hierarchy.
 
 You can use either of the following to specify settings:
 
@@ -191,6 +191,11 @@ Eula=accept \
 Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY}
 ```
+
+> [!Note] 
+> The preceding command uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
+> The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your [host computer](luis-container-howto.md#the-host-computer) operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
+
 
 ### ApplicationInsights example
 
