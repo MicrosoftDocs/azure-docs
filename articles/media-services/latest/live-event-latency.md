@@ -50,7 +50,7 @@ See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-se
 
 ## LiveEvents latency
 
-The following tables shows typical results for latency (when the LowLatency flag is enabled) in Media Services, measured from the time the contribution feed reaches the service to when a player can request playback. To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length. When using higher GOP length, you minimize bandwidth consumption and reduce bitrate under same frame rate. It is especially beneficial in videos with less motion.
+The following tables show typical results for latency (when the LowLatency flag is enabled) in Media Services, measured from the time the contribution feed reaches the service to when a viewer sees the playback on the player. To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length. When using a higher GOP length, you minimize bandwidth consumption and reduce bitrate under same frame rate. It is especially beneficial in videos with less motion.
 
 ### Pass-through 
 
