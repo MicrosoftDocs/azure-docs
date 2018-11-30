@@ -159,22 +159,18 @@ At present there are two ways to enable auditing on your SQL Database. Table aud
 
 Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, it is likely that you will turn off **Allow Azure services to access server** access to your logical server. This will break the Data Sync feature.
 
-### Impact on Azure SQL Data Warehouse connectivity to Azure Storage via PolyBase
-
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. On removing **Allow Azure services to access server**, PolyBase connectivity from Azure SQL Data Warehouse to Azure Storage secured to VNet breaks. Both Polybase import and export scenarios require **Allow Azure services to access server** to be turned on. For more information on the additional steps required to enable PolyBase connectivity from Azure SQL Data Warehouse to Azure Storage secured to VNet, please refer to the section below.
-
 ## Impact of using VNet Service Endpoints with Azure storage
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Storage account.
-If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQL Database features that are impacted by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Storage account. If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
 
 ### Azure SQL Data Warehouse PolyBase
 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling this scenario, please follow the steps indicated below:
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
 
 #### Prerequisites
 1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 2.	If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
  
 #### Steps
 1.	In PowerShell, **register your logical SQL Server** with Azure Active Directory (AAD):
@@ -184,13 +180,13 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
     Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
     ```
- 
-1.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+    
+ 1.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
     > [!NOTE]
     > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
- 
+    
 1.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your logical SQL Server.
 
     > [!NOTE] 
@@ -209,7 +205,7 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
         CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
         ```
         > [!NOTE] 
-        > - There is no need to specify Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+        > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
         > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.    
     
     1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
