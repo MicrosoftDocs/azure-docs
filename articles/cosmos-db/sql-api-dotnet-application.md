@@ -81,7 +81,7 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
    
    The **Manage NuGet Packages** dialog box appears.
 
-2. In the NuGet **Browse** box, type **Azure Cosmos**. (The package name is not yet updated to Azure Cosmos DB, so you will see DocumentDB). From the results, install the **Microsoft.Azure.Cosmos** by Microsoft package. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
+2. In the NuGet **Browse** box, type **Azure Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** by Microsoft package. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
    
    ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
@@ -107,33 +107,9 @@ Now let's add the models, views, and controllers to this MVC application:
 
 1. Name your new class **TodoItem.cs** and select **Add**. 
 
+1. Next replace the code in "Todoitem" class with the following code:
+
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Models/TodoItem.cs)]
-
-1. Next replace the code in Todoitem class with the following code:
-
-   ```csharp
-   namespace todo.Models
-   {
-	using Newtonsoft.Json;
-	public class TodoItem
-	{
-	   [JsonProperty(PropertyName = "id")]
-	    public string Id { get; set; }
-	
-	    [JsonProperty(PropertyName = "name")]
-	    public string Name { get; set; }
-	
-	    [JsonProperty(PropertyName = "description")]
-	    public string Description { get; set; }
-	
-        [JsonProperty(PropertyName = "isComplete")]
-        public bool Completed { get; set; }
-	
-        [JsonProperty(PropertyName = "category")]
-        public string Category { get; set; }
-	 }
-	}
-   ```
    
    The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **TodoItem** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
 
@@ -214,93 +190,18 @@ In this section, we'll add code to handle the following:
 
 ### <a name="_Toc395637770"></a> Perform CRUD operations on the data
 
-The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic in to a class called TodoItemService.cs. 
+The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic into a class called TodoItemService.cs. This code reads the Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations such as listing incomplete items, creating, editing and deleting the items. 
 
 1. From **Solution Explorer**, right-click the **Services** folder, select **Add**, and then select **Class**. Name the new class **TodoItemService** and select **Add**.
 
-2. Add the following code to the **TodoItemService** class and replace the code in that file with the following code to it:
+2. Add the following code to the **TodoItemService** class and replace the code in that file with the following code:
 
-   This code Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations on the items. The first thing we want to be able to do with a todo list application is to display the incomplete items. Copy and paste the following code snippet anywhere within the **TodoItemService** class.
-
-   ```csharp
-    using todo.Models;
-	namespace todo
-	{
-	    using System;
-	    using System.Collections.Generic;
-	    using System.Configuration;
-	    using System.Linq;
-	    using System.Linq.Expressions;
-	    using System.Threading.Tasks;
-	    using Microsoft.Azure.Cosmos;
-
-	    public static class TodoItemService
-	    {
-	       private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"] ?? "Tasks";
-	       private static readonly string ContainerId = ConfigurationManager.AppSettings["container"] ?? "Items";
-	       private static readonly string Endpoint = ConfigurationManager.AppSettings["endpoint"];
-	       private static readonly string PrimaryKey = ConfigurationManager.AppSettings["primaryKey"];
-	       private static CosmosItemSet items;
-	       private static CosmosClient client;
-	
-	       public static async Task<TodoItem> GetTodoItemAsync(string id, string partitionKey)
-	       {
-	          TodoItem item = await items.ReadItemAsync<TodoItem>(partitionKey, id);
-	          return item;
-	       }
-	
-	       public static async Task<IEnumerable<TodoItem>> GetOpenItemsAsync()
-	       {
-	          var queryText = "SELECT* FROM c WHERE c.isComplete != true";
-	          var querySpec = new CosmosSqlQueryDefinition(queryText);
-
-	           // Selecting all tasks that are not completed is a cross partition query. 
-	           // We set the max concurrency to 4, which controls the max number of partitions that our client will query in parallel.
-	           var query = items.CreateItemQuery<TodoItem>(querySpec, maxConcurrency: 4);
-	
-	           List<TodoItem> results = new List<TodoItem>();
-	           while (query.HasMoreResults)
-	           {
-	              var set = await query.FetchNextSetAsync();
-	              results.AddRange(set);
-	           }
-	
-	           return results;
-	       }
-	
-	        public static async Task<TodoItem> CreateItemAsync(TodoItem item)
-	        {
-	           if(item.Id == null)
-	           {
-	            item.Id = Guid.NewGuid().ToString();
-	           }
-	           return await items.CreateItemAsync<TodoItem>(item.Category, item);
-	        }
-	
-	        public static async Task<TodoItem> UpdateItemAsync(TodoItem item)
-	        {
-              return await items.ReplaceItemAsync<TodoItem>(item.Category, item.Id, item);
-	        }
-	
-	        public static async Task DeleteItemAsync(string id, string category)
-	        {
-	            await items.DeleteItemAsync<TodoItem>(category, id);
-	        }
-
-	        public static async Task Initialize()
-	        {
-             CosmosConfiguration config = new CosmosConfiguration(Endpoint, PrimaryKey);
-             client = new CosmosClient(config);
-	
-	          CosmosDatabase database = await client.Databases.CreateDatabaseIfNotExistsAsync(DatabaseId);
-	          CosmosContainer container = await database.Containers.CreateContainerIfNotExistsAsync(ContainerId, "/category");
-	          items = container.Items;
-	        }
-	    }
-   }
-   ```
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Services/TodoItemService.cs)]
  
 3. The previous code reads the connection string values from configuration file. To update the connection string values of your Azure Cosmos account, open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/src/Web.config?range=12-15)] 
+
 
    ```csharp
     <add key="endpoint" value="< enter the URI from the Keys blade of the Azure Portal >" />
