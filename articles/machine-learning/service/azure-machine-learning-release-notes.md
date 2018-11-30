@@ -18,6 +18,17 @@ In this article, learn about the Azure Machine Learning service releases.
 
 Azure Machine Learning service is now generally available.
 
+### Azure Machine Learning Data Prep SDK v1.0.0
++ **Breaking changes** 
+  * `SummaryFunction.N` was renamed to `SummaryFunction.Count`.
+  
++ **Bug Fixes**
+  * Use latest AML Run Token when reading from and writing to datastores on remote runs. Previously, if the AML Run Token is updated in Python, the Data Prep runtime will not be updated with the updated AML Run Token.
+  * Additional clearer error messages
+  * to_spark_dataframe() will no longer crash when Spark uses Kryo serialization
+  * Value Count Inspector can now show more than 1000 unique values
+  * Random Split no longer fails if the original Dataflow doesn’t have a name  
+
 ### ML Pipelines
 
 + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
