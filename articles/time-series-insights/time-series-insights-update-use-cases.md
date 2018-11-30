@@ -22,7 +22,11 @@ After reading this article, you'll be able to answer the following questions:
 * What are the benefits of using Azure TSI for operational analysis and process efficiency?
 * What are the benefits of using Azure TSI for advanced analytics?
 
-This document provides an overview of the use cases that the Azure Time Series Insights Private Preview is designed for.
+This document provides an overview of the use cases that the Azure TSI Private Preview is designed for.
+
+## Introduction
+
+Azure TSI is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 
