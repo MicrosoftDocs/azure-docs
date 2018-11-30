@@ -50,4 +50,6 @@ You will then see a confirmation page. You can confirm the deletion of your acco
 
 > [!div class="nextstepaction"]
 > Learn how to manage Azure Maps account Pricing tier at [Manage Pricing Tier](./how-to-manage-pricing-tier.md).
+
+> [!div class="nextstepaction"]
 > Learn how to see the API usage metrics for your Azure Maps account at [View usage metrics](./how-to-view-api-usage.md).
