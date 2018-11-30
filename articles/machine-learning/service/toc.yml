@@ -36,9 +36,9 @@
       href: tutorial-auto-train-models.md
 - name: Samples
   items:
-  - name: Jupyter notebooks (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  - name: Python notebooks (GitHub)
+    displayName: example, examples, jupyter, azure notebooks
+    href: samples-notebooks.md
 - name: Concepts   
   items: 
   - name: Model management

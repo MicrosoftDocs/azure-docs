@@ -174,8 +174,6 @@ For a tutorial on distributed TensorFlow with Horovod, see:
 For a tutorial on native distributed TensorFlow, see:
 * [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
 
-Get these notebooks:
-
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps

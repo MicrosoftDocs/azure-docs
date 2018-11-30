@@ -120,8 +120,6 @@ For a tutorial on training a sklearn model, see:
 For a tutorial on distributed CNTK using custom docker, see:
 * [training/06.distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
 
-Get these notebooks:
-
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps

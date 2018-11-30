@@ -14,6 +14,26 @@ ms.date: 10/24/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-12-04: General Availability
+
+Azure Machine Learning service is now generally available.
+
+### ML Pipelines
+
++ New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
++ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
++ Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
++ New pipeline steps added to the SDK: 
+  + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+  + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+  + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
++ Updated SDK steps:
+  + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py): now accepts runconfig
+  + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) now copies to and from a SQL datasource
++ Pipelines can be viewed in Azure portal
++ Schedule functionality in SDK to create and update schedules for running published pipelines
+
+
 ## 2018-11-20
 
 ### Azure Machine Learning SDK for Python v0.1.80
