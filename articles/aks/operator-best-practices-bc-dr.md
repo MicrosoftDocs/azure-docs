@@ -110,7 +110,7 @@ Depending on the storage solution use, replication strategies may be different. 
 
 The central approach is a common storage point for applications to write their data. This data is then replicated across regions and then accessed locally.
 
-![Infrastructure-based asynchronous replication](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.jpg)
+![Infrastructure-based asynchronous replication](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
 If you use Azure Managed Disks, available replication and DR solutions include using one of the following approaches:
 
@@ -121,7 +121,7 @@ If you use Azure Managed Disks, available replication and DR solutions include u
 
 There is currently no Kubernetes-native implementation for application-based asynchronous replication. With the loosely coupled nature of containers and Kubernetes, any traditional application or language approach should work. The central approach is for the applications themselves to replicate the storage requests that are then written to each cluster's underlying data storage.
 
-![Application-based Asynchronous Replication](media/operator-best-practices-bc-dr/aks-app-based-async-repl.jpg)
+![Application-based Asynchronous Replication](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
 ## Next steps
 
