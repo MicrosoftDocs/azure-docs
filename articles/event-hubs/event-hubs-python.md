@@ -1,5 +1,5 @@
 ---
-title: Use Python to send and receive messages from Event Hubs | Microsoft Docs
+title: Use Python to send and receive messages from Azure Event Hubs | Microsoft Docs
 description: Learn how to send events to, receive events from, and capture events streaming through Event Hubs using Python. 
 keywords:
 documentationcenter: ''
