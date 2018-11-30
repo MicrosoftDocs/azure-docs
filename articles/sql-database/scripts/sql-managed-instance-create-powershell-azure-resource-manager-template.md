@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer:
 manager: craigg
-ms.date: 27/11/2018
+ms.date: 12/03/2018
 ---
 # Use PowerShell with Azure Resource Manager template to create a Azure SQL Database Managed Instance with specified and configure a firewall rule
 

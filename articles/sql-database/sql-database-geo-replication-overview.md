@@ -211,7 +211,7 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Use read-write listener for OLTP workload**
 
-  When performing OLTP operations, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note, the failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
+  When performing OLTP operations, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
 
 - **Connect directly to geo-replicated secondary for read-only queries**
 
@@ -275,7 +275,7 @@ The above configuration will ensure that the automatic failover will not block c
 
 When you set up a failover groups between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNET. To allow replication traffic between these VNETs follow these steps:
 
-1. Connect them through either Express Route circuit (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings) or a VPN Gateway  (https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+1. Connect them through either Express Route circuit (https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) or a VPN Gateway  (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 2. Setup each NSG such that ports 5022 and the range 11000-12000 are open for inbound connections from the other VNET.
 
 ## Upgrading or downgrading a primary database

@@ -63,7 +63,7 @@ To create and manage Azure SQL Database Managed Instance database after the Mana
 | Command | Description |
 | --- | --- |
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Creates a new Managed Instance database. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifies an Azure SQL Managed Instance database.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifies an Azure SQL Managed Instance database.|
 
 ## REST API: Manage logical servers and databases
 
