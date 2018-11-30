@@ -3378,6 +3378,141 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/durable/index.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-bindings.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-bindings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-checkpointing-and-replay.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-checkpointing-and-replay",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-cloud-backup.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-cloud-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-custom-orchestration-status.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-custom-orchestration-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-diagnostics.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-disaster-recovery-geo-distribution.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-error-handling.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-error-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-eternal-orchestrations.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-eternal-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-event-publishing.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-event-publishing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-external-events.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-external-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-http-api.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-http-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-install.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-instance-management.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-instance-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-overview.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-perf-and-scale.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-perf-and-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-phone-verification.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-phone-verification",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-sequence.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-sequence",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-singletons.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-singletons",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-sub-orchestrations.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-sub-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-task-hubs.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-task-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-timers.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-timers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-types-features-overview.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-types-features-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-unit-testing.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-unit-testing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-versioning.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-versioning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable-functions-webjobs-sdk.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-webjobs-sdk",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/functions-bindings-storage.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
             "redirect_document_id": false
@@ -13869,6 +14004,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/scripts/service-fabric-powershell-create-test-cluster.md",
+            "redirect_url": "/azure/service-fabric/scripts/service-fabric-powershell-create-secure-cluster-cert",
             "redirect_document_id": false
         },
         {
@@ -31030,6 +31170,76 @@
         {
             "source_path":  "articles/log-analytics/log-analytics-wire-data.md",
             "redirect_url":  "/azure/azure-monitor/insights/wire-data",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-linux-support.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-linux-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-manage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-manage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-windows.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agent-windows",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-api-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/api-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-vmext-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/platform/vmext-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-agent-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-analytics-agent",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/platform/dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-connections.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-connections",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-gateway.md",
+            "redirect_url":  "/azure/azure-monitor/platform/gateway",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-solution-alert-management.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alert-management-solution",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer-filters.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer-filters",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer-parts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer-parts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-view-designer-tiles.md",
+            "redirect_url":  "/azure/azure-monitor/platform/view-designer-tiles",
             "redirect_document_id":  true
         },
         {

@@ -71,7 +71,7 @@ You can also get all the datastores for a workspace:
 ```Python
 datastores = ws.datastores()
 for name, ds in datastores.items(),
-    print(name, ds.datastore_type)"
+    print(name, ds.datastore_type)
 ```
 
 For convenience, set one of your registered datastores as the default datastore for your workspace:
