@@ -164,8 +164,6 @@
     items:
     - name: SQL API Docs
       items:
-      - name: Introduction
-        href: sql-api-introduction.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
