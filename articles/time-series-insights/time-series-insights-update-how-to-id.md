@@ -17,12 +17,12 @@ This document covers the Azure Time Series Insights (preview) partition key, the
 
 ## Choose a Time Series ID
 
-The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (preview) environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.
+The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (preview) environment to use a different **Time Series ID**. In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.
 
 > [!IMPORTANT]
 > The **Time Series ID** is case-sensitive and immutable (it cannot be changed once set).
 
-With that in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
+With that in mind, selecting the appropriate **Time Series ID** is critical. Consider the following properties when selecting a **Time Series ID**:
 
 > [!div class="checklist"]
 > * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **Device ID**, **Sensor ID**, etc.  
@@ -39,15 +39,18 @@ The following scenarios describe selecting more than one key property as your **
 
 * Scenario 1:
 
-  * You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property **deviceId** and another where the unique property is **objectId**.  In both fleets, the other fleet’s unique property is not present. In this example, you would select two keys, **deviceId**, and **objectId** as unique keys. We accept null values, and the lack of a property’s presence in the event payload will count as a `null` value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
+  * You have legacy fleets of assets that each have unique keys. 
+  * For example, one fleet is uniquely identified by the property **deviceId** and another where the unique property is **objectId**.  In both fleets, the other fleet’s unique property is not present. In this example, you would select two keys, **deviceId**, and **objectId** as unique keys. 
+  * We accept null values, and the lack of a property’s presence in the event payload will count as a `null` value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
 
 * Scenario 2:
 
-  * You require multiple properties to show uniqueness in the same fleet of assets. For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for **sensorId**, including **sensor1**, **sensor2**, **sensor3**, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property **flrRm** which contain values like `1a`, `2b`, `3a`, and so on. Finally, you have a property, **location** which contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
+  * You require multiple properties to show uniqueness in the same fleet of assets. For example, let’s say you are a smart building manufacturer and deploy sensors in every room. In each room, you typically have the same values for **sensorId**, including **sensor1**, **sensor2**, **sensor3**, and so on.
+  * Additionally, you have overlapping floor and room numbers across sites in the property **flrRm** which contain values like `1a`, `2b`, `3a`, and so on.
+  * Finally, you have a property, **location** which contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
 
 ## Next steps
 
-Learn more about Time Series Models:
+Read more about [Azure Time Series Insights (preview) Time Series Models](./time-series-insights-update-tsm.md).
 
-> [!div class="nextstepaction"]
-> [Azure TSI (preview) TSM](./time-series-insights-update-tsm.md)
+Plan your [Azure Time Series Insights (preview) environment](./time-series-insights-update-plan.md).
