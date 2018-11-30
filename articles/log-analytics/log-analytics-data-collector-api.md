@@ -6,12 +6,10 @@ documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: ''
-
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
