@@ -1038,7 +1038,7 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-At this point, you have a fully transformed and prepared dataflow object to use in a machine learning model. The DataPrep SDK includes object serialization functionality, which is used as follows.
+At this point, you have a fully transformed and prepared dataflow object to use in a machine learning model. The SDK includes object serialization functionality, which is used as follows.
 
 
 ```python
@@ -1053,7 +1053,7 @@ Delete the file `dflow` (whether you are running locally or in Azure Notebooks) 
 
 ## Next steps
 
-In this Azure Machine Learning Data Prep SDK tutorial, you:
+In part one of this tutorial, you:
 
 > [!div class="checklist"]
 > * Set up your development environment
