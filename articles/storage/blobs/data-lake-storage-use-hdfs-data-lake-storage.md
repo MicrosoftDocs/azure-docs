@@ -94,8 +94,6 @@ For more information on Databricks CLI, see the [official documentation](https:/
 
 You set and get access permissions at the file and directory level. Here's a few commands to get you started. 
 
-You can view the complete list of commands on the [Apache Hadoop 2.4.1 File System Shell Guide](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) Website.
-
 To learn more about file and directory level permissions for the Azure Data Lake Gen2 filesystem, see [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
 ### Display the Access Control Lists (ACLs) of files and directories
@@ -135,6 +133,8 @@ See [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-com
     hdfs dfs -chmod [-R] <mode> <URI>
 
 See [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
+
+You can view the complete list of commands on the [Apache Hadoop 2.4.1 File System Shell Guide](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) Website.
 
 ## Next steps
 
