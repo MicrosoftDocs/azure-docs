@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
-description: Create an integration service environment (ISE) so logic apps and integration accounts can access Azure virtual networks, while staying private and isolated from public or "global" Azure
+description: Create an integration service environment (ISE) so logic apps and integration accounts can access Azure virtual networks (VNETs), while staying private and isolated from public or "global" Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -128,7 +128,7 @@ and then choose **Review + create**, for example:
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment | 
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment | 
    | **Capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource | 
-   | **Virtual network** | Yes | <*Azure-VNET-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
+   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
    | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets, which don't have delegation to any service and are used for creating resources in your environment. Each subnet must meet these criteria: <p>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Has a name that doesn't start with a number or a hyphen. <br>- Includes a `/27`, for example, each subnet here specifies a 32-bit address range: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, and `10.0.0.96/27`. <br>- Must not exist in the same address range for your selected virtual network nor any other private IP addresses where the virtual network is connected. <br>- Must be empty. <p><p>**Important**: You *can't change* these IP ranges after you create your environment. |
    |||||
 
