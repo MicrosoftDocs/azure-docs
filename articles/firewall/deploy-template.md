@@ -13,7 +13,7 @@ ms.author: victorh
 
 # Deploy Azure Firewall using a template
 
-The [Create AzureFirewall sandbox setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) creates a test network environment with a firewall. The network has one virtual network (VNet), with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* each have one, 2-core Windows Server virtual machine (VM).
+The [Create AzureFirewall sandbox setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) creates a test network environment with a firewall. The network has one virtual network with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* each have one, 2-core Windows Server virtual machine.
 
 The firewall is in the *AzureFirewallSubnet*, and has an application rule collection with a single rule that allows access to *www.microsoft.com*.
 
