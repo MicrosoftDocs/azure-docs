@@ -31,7 +31,7 @@ To leverage dependency visualization, you need to associate a Log Analytics work
 > You cannot change the workspace associated to a migration project.
 
 ### Download and install the VM agents
-Once you configure a workspace, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
+Once you configure a workspace, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../azure-monitor/platform/gateway.md) on them.
 
 1. In **Overview**, click **Manage** > **Machines**, and select the required machine.
 2. In the **Dependencies** column, click **Install agents**.
