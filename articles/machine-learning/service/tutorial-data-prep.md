@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Use Azure DataPrep SDK to prepare data for machine learning"
-description: This tutorial shows how to use Azure Machine Learning Data Prep SDK to prepare data for machine learning. This tutorial is part one of a two-part series.
+title: "Tutorial #1: Prepare data for modeling with Azure Machine Learning service"
+description: In the first part of this tutorial, you'll learn how to prep data in Python for regression modeling using the Azure ML SDK. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,29 +9,34 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 11/19/2018
-
+ms.date: 12/4/2018
+# As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
 
-# Tutorial: Use Azure DataPrep SDK to prepare data for machine learning
+# Tutorial #1: Prepare data for regression modeling
 
-Prepare data for use as a training data set in a machine learning model with the Azure DataPrep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets. Learn some of the unique features of the DataPrep SDK: 
-
-* Transform data from derived examples 
-* Infer field type from data 
-
-This tutorial is part one of a two-part tutorial series.
+In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets. The end goal of this tutorial set is to predict the cost of a taxi trip by training a model on data features including pickup hour, day of week, number of passengers, and coordinates. This tutorial is part one of a two-part tutorial series.
 
 In this tutorial, you:
-* Load two datasets with different field names 
-* Cleanse the data  
-* Use smart transforms to predict your logic based on an example
-* Use automated feature engineering to build dynamic fields 
-* Merge the two datasets to use for your machine learning training 
 
+> [!div class="checklist"]
+> * Setup a Python environment and import packages
+> * Load two datasets with different field names
+> * Cleanse data to remove anomalies
+> * Transform data using intelligent transforms to create new features
+> * Save your dataflow object to use in a regression model
+
+You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
+
+## Get the notebook
+
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Run the `regression-part1-data-prep.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## Import packages
-Begin by importing the Azure DataPrep SDK.
+
+Begin by importing the SDK.
 
 
 ```python
@@ -39,7 +44,8 @@ import azureml.dataprep as dprep
 ```
 
 ## Load data
-Download two different NYC Taxi data sets into dataflow objects.  These datasets contain slightly different fields. The method `smart_read_file()` automatically recognizes the input file type.
+
+Download two different NYC Taxi data sets into dataflow objects.  These datasets contain slightly different fields. The method `auto_read_file()` automatically recognizes the input file type.
 
 
 ```python
@@ -49,16 +55,16 @@ green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
 green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
-yellow_df = dprep.smart_read_file(path=yellow_path)
+# auto_read_file will automatically identify and parse the file type, and is useful if you don't know the file type
+yellow_df = dprep.auto_read_file(path=yellow_path)
 
 display(green_df.head(5))
 display(yellow_df.head(5))
 ```
 
-## Data transformation
+## Cleanse data
 
 Now you populate some variables with shortcut transforms that will apply to all dataflows. The variable `drop_if_all_null` will be used to delete records where all fields are null. The variable `useful_columns` holds an array of column descriptions that are retained in each dataflow.
-
 
 ```python
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
@@ -239,12 +245,12 @@ tmp_df = (yellow_df
 tmp_df.head(5)
 ```
 
-Again, overwite `yellow_df` with `tmp_df`, and then call the `append_rows()` function on the green taxi data to append the yellow taxi data, creating a new combined dataframe.
+Again, overwrite `yellow_df` with `tmp_df`, and then call the `append_rows()` function on the green taxi data to append the yellow taxi data, creating a new combined dataframe.
 
 
 ```python
 yellow_df = tmp_df
-combined_df = green_df.append_rows(other_activities=[yellow_df])
+combined_df = green_df.append_rows([yellow_df])
 ```
 
 ### Convert types and filter 
@@ -619,7 +625,7 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 
-From the data profile ouput of `store_forward`, you see that the data is inconsistent and there are missing/null values. Replace these using the `replace()` and `fill_nulls()` functions, and in both cases change to the string "N".
+From the data profile output of `store_forward`, you see that the data is inconsistent and there are missing/null values. Replace these values using the `replace()` and `fill_nulls()` functions, and in both cases change to the string "N".
 
 
 ```python
@@ -787,7 +793,7 @@ combined_df = tmp_df_renamed
 combined_df.get_profile()
 ```
 
-## Feature engineering
+## Transform data
 
 Split the pickup and drop-off date further into day of week, day of month, and month. To get day of week, use the `derive_column_by_example()` function. This function takes as a parameter an array of example objects that define the input data, and the desired output. The function then automatically determines your desired transformation. For pickup and drop-off time columns, split into hour, minute, and second using the `split_column_by_example()` function with no example parameter.
 
@@ -993,13 +999,13 @@ From the data above, you see that the pickup and drop-off date and time componen
 tmp_df = tmp_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
 ```
 
-Use the type inference functionality to automatically check the data type of each field, and display the inference results using `inference_info()`.
+Use the type inference functionality to automatically check the data type of each field, and display the inference results.
 
 
 ```python
 type_infer = tmp_df.builders.set_column_types()
 type_infer.learn()
-type_infer.inference_info
+type_infer
 ```
 
 
@@ -1032,7 +1038,7 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-At this point, you have a fully transformed and prepared dataflow object to use in a machine learning model. The DataPrep SDK includes object serialization functionality, which is used as follows.
+At this point, you have a fully transformed and prepared dataflow object to use in a machine learning model. The SDK includes object serialization functionality, which is used as follows.
 
 
 ```python
@@ -1040,3 +1046,22 @@ dflow_prepared = tmp_df
 package = dprep.Package([dflow_prepared])
 package.save(".\dflow")
 ```
+
+## Clean up resources
+
+Delete the file `dflow` (whether you are running locally or in Azure Notebooks) in your current directory if you do not wish to continue with part two of the tutorial. If you continue on to part two, you will need the `dflow` file in the current directory.
+
+## Next steps
+
+In part one of this tutorial, you:
+
+> [!div class="checklist"]
+> * Set up your development environment
+> * Loaded and cleansed data sets
+> * Used smart transforms to predict your logic based on an example
+> * Merged and packaged datasets for machine learning training
+
+You are ready to use this training data in the next part of the tutorial series:
+
+> [!div class="nextstepaction"]
+> [Tutorial #2: Train regression model](tutorial-auto-train-models.md)
