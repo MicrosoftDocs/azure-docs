@@ -104,7 +104,13 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
-## Upgrade your powershell module
+## Create an account using PowerShell
+
+First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+
+Then, upgrade your powershell module, log in to your Azure subscription, create a resource group, and then create a storage account.
+
+### Upgrade your powershell module
 
 To interact with Data Lake Storage Gen2 by using PowerShell, you'll need to install module Az.Storage version **0.7** or later.
 
@@ -138,20 +144,6 @@ Compatibility mode means that any scripts that use the AzureRM.Storage module wi
 
 > [!NOTE]
 > Azure Powershell Az modules are the preferred modules for working with Azure services in Powershell. To learn more, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0).
-
-## Create an account using PowerShell
-
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
-
-Then, upgrade your powershell module, log in to your Azure subscription, create a resource group, and then create a storage account.
-
-### Upgrade your powershell module
-
-In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the PowerShell module Az.Storage version **0.7** or later.
-
-To do that, open an elevated PowerShell and enter the following command: `Install-Module Az.Storage –Repository PSGallery -RequiredVersion 0.7 –AllowClobber –Force `
-
-Then restart your shell.
 
 ### Log in to your Azure Subscription
 
