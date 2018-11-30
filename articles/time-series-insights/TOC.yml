@@ -84,8 +84,6 @@
       href: time-series-insights-how-to-configure-retention.md
     - name: Create a reference data set
       href: time-series-insights-add-reference-data-set.md
-    - name: Choose a time series ID
-      href: time-series-insights-update-how-to-id.md
     - name: Send events
       href: time-series-insights-send-events.md
     - name: Scale your environment
@@ -98,6 +96,8 @@
       href: time-series-insights-diagnose-and-solve-problems.md
   - name: Azure Time Series Insights (preview)
     items:
+    - name: Choose a time series ID
+      href: time-series-insights-update-how-to-id.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-update-how-to-troubleshoot.md
     - name: Data modeling

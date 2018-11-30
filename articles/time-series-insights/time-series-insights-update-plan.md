@@ -38,7 +38,7 @@ To create a new TSI environment, select a **Time Series ID**. Doing so acts as a
 > [!IMPORTANT]
 > **Time Series IDs** are **immutable** and **cannot be changed later**. Verify each before final selection and first use.
 
-You can select up to **three** (3) keys to uniquely differentiate your resources. Read the [Azure TSI Update Storage and Ingress](./time-series-insights-update-storage-ingress.md) article for more information.
+You can select up to **three** (3) keys to uniquely differentiate your resources. Read the [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) article for more information.
 
 Each event source has an optional **Timestamp** property that's used to track event sources over time. **Timestamp** values are case-sensitive and must be formatted to the individual specification of each event source.
 

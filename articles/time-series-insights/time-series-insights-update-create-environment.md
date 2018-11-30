@@ -20,7 +20,7 @@ This document describes how to provision and manage a new Azure Time Series Insi
 A brief description about provisioning following the Time Series Insights update:
 
 * Provision an Azure Time Series Insights (TSI) update environment.
-* As part of the creation process you will need to provide a **Time Series ID**. It can be up to **three** (3) keys. Learn more about [Time Series IDs](./time-series-insights-update-plan.md).
+* As part of the creation process you will need to provide a **Time Series ID**. It can be up to **three** (3) keys. Learn more about [Choosing Time Series IDs](./time-series-insights-update-how-to-id.md).
 * When you provision an Azure TSI update environment you create two Azure resources, a TSI update environment and an Azure Storage general-purpose V1 account.  
 * In the future, new Azure customers will by default only be allowed to provision an Azure Storage general-purpose V2 account, therefore we will support it when that change occurs.  
 * Do not enable cold/archival properties on the storage account you will be using.
