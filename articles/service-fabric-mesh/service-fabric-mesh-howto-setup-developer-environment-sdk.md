@@ -92,8 +92,7 @@ After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docke
 . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
 
-Once the Service cluster manager tool is running (it will appear in your system tray), right-click it and click **Start Local Cluster**.
-
+5. Once the Service cluster manager tool is running (it will appear in your system tray), right-click it and click **Start Local Cluster**.
 ![Figure 1 - Start the local cluster](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 You're now ready to create Service Fabric Mesh applications!
