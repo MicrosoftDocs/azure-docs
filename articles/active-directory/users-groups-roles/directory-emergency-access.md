@@ -58,7 +58,7 @@ During an emergency, you do not want a policy to potentially block your access t
 
 ## Monitor sign-in and audit logs
 
-Monitor the [Azure AD sign-in and audit logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) for any sign-ins and audit activity from the emergency access accounts. Normally, these accounts should not be signing in and should not be making changes, so use of them is likely to be anomalous and require security investigation.
+Monitor the [Azure AD sign-in and audit logs](../reports-monitoring/concept-sign-ins.md) for any sign-ins and audit activity from the emergency access accounts. Normally, these accounts should not be signing in and should not be making changes, so use of them is likely to be anomalous and require security investigation.
 
 ## Validate accounts at regular intervals
 
@@ -78,8 +78,8 @@ These steps should be performed at regular intervals and for key changes:
 ## Next steps
 
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](directory-admin-roles-secure.md)
-- [Add a cloud-based user](../fundamentals/add-users-azure-active-directory.md) and [assign the new user to the global administrator role](../fundamentals/active-directory-users-assign-role-azure-portal.md).
-- [Sign up for Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already.
-- [Require Azure Multi-Factor Authentication for individual users assigned as administrators](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
-- [Configure additional protections for global administrators in Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), if you are using Office 365.
-- [Perform an access review of global administrators](../privileged-identity-management/pim-how-to-start-security-review.md) and [transition existing global administrators to more specific administrator roles](directory-assign-admin-roles.md).
+- [Add users using Azure AD](../fundamentals/add-users-azure-active-directory.md) and [assign the new user to the Global Administrator role](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already
+- [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
+- [Configure additional protections for Global Administrators in Office 365](https://support.officecom/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), if you are using Office 365
+- [Start an access review of Global Administrators](../privileged-identity-management/pim-how-to-start-security-review.md) and [transition existing Global Administrators to more specific administrator roles](directory-assign-admin-roles.md)
