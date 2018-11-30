@@ -48,9 +48,9 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="3.0.2"/>3.0.2
-* Added Support for MultiPolygon Datatype
-* Bug Fix in Session Read Retry Policy
-* Bug Fix for Incorrect padding issues while decoding base 64 strings
+* Added support for MultiPolygon datatype
+* Bug fix in session read retry policy
+* Bug fix for incorrect padding issues while decoding base 64 strings
 
 ### <a name="3.0.1"/>3.0.1
 * Bug fix in LocationCache
