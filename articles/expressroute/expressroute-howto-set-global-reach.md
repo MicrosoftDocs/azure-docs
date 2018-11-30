@@ -17,11 +17,11 @@ This article helps you configure ExpressRoute Global Reach using PowerShell. For
  
 ## Before you begin
 > [!IMPORTANT]
-> This public preview is provided without a service-level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+> This public preview is provided without a service-level agreement and should not be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 
 
-Before you start configuration, confirm the following.
+Before you start configuration, confirm the following:
 
 * That you've installed the latest version of Azure PowerShell. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * That you understand ExpressRoute circuit provisioning [workflows](expressroute-workflows.md).
@@ -50,7 +50,9 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 ```
 
 ### Identify your ExpressRoute circuits for configuration
-You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections. If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
+You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections. 
+
+If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
 
 ## Enable connectivity between your on-premises networks
 
@@ -78,7 +80,7 @@ Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -Exp
 
 
 
-Save the configuration on circuit 1
+Save the configuration on circuit 1 as follows:
 ```powershell
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
@@ -111,7 +113,7 @@ When the previous operation is complete, you should have connectivity between yo
 
 ## Get and verify the configuration
 
-Use the following command to verify the configuration on the circuit where the configuration was made, for example, circuit 1 in the previous example.
+Use the following command to verify the configuration on the circuit where the configuration was made (for example, circuit 1 in the previous example).
 
 ```powershell
 $ckt1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
@@ -121,7 +123,7 @@ If you simply run *$ckt1* in PowerShell, you see *CircuitConnectionStatus* in th
 
 ## Disable connectivity between your on-premises networks
 
-To disable connectivity, run the commands against the circuit where the configuration was made, for example, circuit 1 in the previous example.
+To disable connectivity, run the commands against the circuit where the configuration was made (for example, circuit 1 in the previous example).
 
 ```powershell
 $ckt1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
