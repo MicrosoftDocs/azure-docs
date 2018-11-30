@@ -39,7 +39,7 @@ A brief description about provisioning following the Time Series Insights update
     > [!IMPORTANT]
     > The **Time Series ID** is both case sensitive and immutable.
 
-    Learn more details on selecting the appropriate **Time Series ID**. **Time Series IDs** can be up to three keys.
+    Learn more details on selecting the appropriate **Time Series ID** by reading about [Best practices for selecting a Time Series ID](./time-series-insights-update-how-to-id.md). **Time Series IDs** can be up to three keys.
 
     ![environment_details][1]
 
