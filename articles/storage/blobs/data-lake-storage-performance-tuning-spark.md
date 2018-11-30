@@ -80,7 +80,7 @@ Note while you are in the window, you can also see the default YARN container si
 	num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)   
 Setting a higher number of num-executors does not necessarily increase performance.  You should consider that adding more executors will add extra overhead for each additional executor, which can potentially degrade performance.  Num-executors is bounded by the cluster resources.    
 
-## Example Calculation
+## Example calculation
 
 Let’s say you currently have a cluster composed of 8 D4v2 nodes that is running 2 apps including the one you are going to run.  
 

@@ -74,7 +74,7 @@ Set mapreduce.job.maps/mapreduce.job.reduces to at least the number of available
 
 CPU scheduling and CPU isolation are turned off by default so the number of YARN containers is constrained by memory.
 
-## Example Calculation
+## Example calculation
 
 Let’s assume that we have a cluster composed of 8 D14 nodes, and we want to run an I/O intensive job.  Here are the calculations you should do:
 
@@ -99,7 +99,7 @@ In this example, we are running an I/O intensive job and decide that 3GB of memo
 
 	mapreduce.map.jobs = 256
 
-## Examples to Run
+## Examples to run
 
 To demonstrate how MapReduce runs on Data Lake Storage Gen2, below is some sample code that was run on a cluster with the following settings:
 

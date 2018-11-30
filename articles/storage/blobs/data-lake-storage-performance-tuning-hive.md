@@ -60,7 +60,7 @@ The concurrent number of tasks running or parallelism will be bounded by the tot
 		# of YARN containers = Total YARN memory / Tez container size
 The key to improving performance using Data Lake Storage Gen2 is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
 
-## Example Calculation
+## Example calculation
 
 Let's say you have an 8 node D14 cluster.  
 
