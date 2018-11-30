@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptal
+ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: 
