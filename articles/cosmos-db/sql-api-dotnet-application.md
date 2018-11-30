@@ -200,7 +200,7 @@ The first thing to do here is add a class that contains the logic to connect to 
  
 3. The previous code reads the connection string values from configuration file. To update the connection string values of your Azure Cosmos account, open the **Web.config** file in your project and add the following lines under the `<AppSettings>` section:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/src/Web.config?range=12-15)] 
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Web.config?range=12-15)] 
 
 
    ```csharp
@@ -214,106 +214,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
 5. Open the **ItemController** class you added earlier and replace the code in that class with the following code: 
 
-   ```csharp
-   namespace todo.Controllers
-	{
-      using System.Net;
-      using System.Threading.Tasks;
-	  using System.Web.Mvc;
-	  using Models;
-
-	  public class ItemController : Controller
-	  {
-	    [ActionName("Index")]
-	    public async Task<ActionResult> IndexAsync()
-	    {
-	       var items = await TodoItemService.GetOpenItemsAsync();
-	       return View(items);
-	    }
-	       
-	    [ActionName("Create")]
-	      public async Task<ActionResult> CreateAsync()
-	      {
-	         return View();
-	      }
-	
-        [HttpPost]
-        [ActionName("Create")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
-        {
-            if (ModelState.IsValid)
-            {
-                await TodoItemService.CreateItemAsync(item);
-                return RedirectToAction("Index");
-            }
-	
-	        return View(item);
-	    }
-	
-        [HttpPost]
-        [ActionName("Edit")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
-        {
-            if (ModelState.IsValid)
-            {
-                await TodoItemService.UpdateItemAsync(item);
-                return RedirectToAction("Index");
-            }
-	        return View(item);
-	    }
-	
-	    [ActionName("Edit")]
-	    public async Task<ActionResult> EditAsync(string id, string category)
-	    {
-	        if (id == null)
-	        {
-	          return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-	        }
-	
-	        TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-	        if (item == null)
-	        {
-	          return HttpNotFound();
-	        }
-	
-        return View(item);
-        }
-	
-        [ActionName("Delete")]
-        public async Task<ActionResult> DeleteAsync(string id, string category)
-        {
-            if (id == null)
-            {
-               return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
-        }
-	
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmedAsync([Bind(Include = "Id, Category")] string id, string category)
-        {
-            await TodoItemService.DeleteItemAsync(id, category);
-            return RedirectToAction("Index");
-        }
-	
-        [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(string id, string category)
-	    {
-	        TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-	        return View(item);
-	    }
-	    }
-	}
-   ```
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Controllers/ItemController.cs)]
 
    **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
    
