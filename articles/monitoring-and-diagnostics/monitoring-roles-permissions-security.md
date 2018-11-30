@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ""
 ---
@@ -80,7 +80,7 @@ If the above built-in roles don’t meet the exact needs of your team, you can [
 | Microsoft.Insights/MetricDefinitions/Read |Read metric definitions (list of available metric types for a resource). |
 | Microsoft.Insights/Metrics/Read |Read metrics for a resource. |
 | Microsoft.Insights/Register/Action |Register the Azure Monitor resource provider. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Read/write/delete log alerts for Application Insights. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Read/write/delete log alerts in Azure Monitor. |
 
 
 
@@ -148,7 +148,7 @@ New-AzureRmRoleDefinition -Role $role
 > 
 
 ### Limiting access to monitoring-related event hubs
-A similar pattern can be followed with event hubs, but first you need to create a dedicated Listen authorization rule. If you want to grant access to an application that only needs to listen to monitoring-related event hubs, do the following:
+A similar pattern can be followed with event hubs, but first you need to create a dedicated Listen authorization rule. If you want to grant,  access to an application that only needs to listen to monitoring-related event hubs, do the following:
 
 1. Create a shared access policy on the event hub(s) that were created for streaming monitoring data with only Listen claims. This can be done in the portal. For example, you might call it “monitoringReadOnly.” If possible, you will want to give that key directly to the consumer and skip the next step.
 2. If the consumer needs to be able to get the key ad-hoc, grant the user the ListKeys action for that event hub. This is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an RBAC rule:
