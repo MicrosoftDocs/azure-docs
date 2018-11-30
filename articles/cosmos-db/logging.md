@@ -1,9 +1,8 @@
 ---
-title: Azure Cosmos DB diagnostic logging | Microsoft Docs
+title: Azure Cosmos DB diagnostic logging
 description: Use this tutorial to help you get started with Azure Cosmos DB logging.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 tags: azure-resource-manager
 
 ms.service: cosmos-db

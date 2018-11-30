@@ -1,5 +1,5 @@
 ---
-title: Choosing the right consistency level for your application that uses Azure Cosmos DB | Microsoft Docs
+title: Choosing the right consistency level for your application that uses Azure Cosmos DB
 description: Choosing the right consistency level for your application in Azure Cosmos DB.
 keywords: consistency, performance, azure cosmos db, azure, Microsoft azure
 services: cosmos-db

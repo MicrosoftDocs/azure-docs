@@ -1,9 +1,8 @@
 ---
-title: 'Database encryption at rest: Azure Cosmos DB | Microsoft Docs'
+title: 'Database encryption at rest: Azure Cosmos DB'
 description: Learn how Azure Cosmos DB provides default encryption of all data.
 services: cosmos-db
 author: rafats
-manager: kfile
 
 ms.service: cosmos-db
 ms.topic: conceptual

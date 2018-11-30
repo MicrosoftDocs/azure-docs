@@ -1,9 +1,8 @@
 ---
-title: 'Partitioning in Azure Cosmos DB Gremlin API | Microsoft Docs'
+title: 'Partitioning in Azure Cosmos DB Gremlin API'
 description: Learn how you can use a partitioned Graph in Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-graph

@@ -4,7 +4,6 @@ description: Learn how to use the BulkExecutor library to massively import graph
 services: cosmos-db
 keywords: graph, gremlin, bulk, bulkexecutor, migration, data, cosmosdb, cosmos, database, import
 author: luisbosquez
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
