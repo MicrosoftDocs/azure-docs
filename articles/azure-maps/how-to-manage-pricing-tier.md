@@ -17,7 +17,7 @@ You can manage the Pricing Tier of your Azure Maps account through the Azure por
 For more information about choosing the right Pricing Tier, see, [choosing the right pricing tier](https://docs.microsoft.com/azure/azure-maps/choosing-the-right-pricing-tier)
 
 > [!Note]
-> You do not have to generate new subscription keys if you upgrade or downgrade your Azure Maps account's pricing tier.
+> You do not have to generate new subscription keys if you upgrade or downgrade the pricing tier for your Azure Maps account.
 
 ## View Pricing Tier
 
