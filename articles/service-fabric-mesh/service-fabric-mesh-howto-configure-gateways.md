@@ -30,14 +30,14 @@ Since the Gateway resource serves as a bridge between your application's network
 
 ### Gateway resource metadata
 
-A gateway is declared with the following:
+A gateway is declared with the following metadata:
 * `apiVersion` - needs to be set to "2018-09-01-preview" (or later, in the future)
 * `name` - a string name for this gateway
 * `type` - "Microsoft.ServiceFabricMesh/gateways"
 * `location` - should be set to the location of your app / network; usually will be a reference to the location parameter in your deployment
 * `dependsOn` - the network for which this gateway will serve as an ingress point for
 
-Here's how this looks in an Azure Resource Manager (JSON) deployment template: 
+Here's how it looks in an Azure Resource Manager (JSON) deployment template: 
 
 ```json
 {
@@ -119,10 +119,10 @@ An HTTP routing rule consists of the following properties:
         * `match` - specification of the incoming request structure for this rule to apply, based on a `path`
             * `path` - contains a `value` (incoming URI), `rewrite` (how you want the request to be forwarded), and a `type` (can currently only be "Prefix")
             * `header` - is an optional array of headers values to match in the request's header that if the request matches the path specification (above).
-              * each entry contains `name` (string name of the header to match), `value` (string value of the header in the request) and a `type` (can currently only be "Exact")
+              * each entry contains `name` (string name of the header to match), `value` (string value of the header in the request), and a `type` (can currently only be "Exact")
         * `destination` - if the request matches, it will be routed to this destination, which is specified using an `applicationName`, `serviceName`, and `endpointName`
 
-Here is an example HTTP routing rule that would apply to requests coming on port 80, to any host being served by apps in this network. If the request URL has a structure that matches the path specification, i.e., `<IPAddress>:80/pickme/<requestContent>`, then it will be directed to the `myListener` endpoint.  
+Here is an example HTTP routing rule that would apply to requests coming on port 80, to all hosts served by apps in this network. If the request URL has a structure that matches the path specification, i.e., `<IPAddress>:80/pickme/<requestContent>`, then it will be directed to the `myListener` endpoint.  
 
 ```json
 "properties": {
