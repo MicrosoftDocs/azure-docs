@@ -56,11 +56,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
     compile("com.google.code.gson:gson:2.8.5")
 }
 ```
 
-If you'd like to learn more about build configurations, see [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/).
+Take note that this sample has dependencies on OkHttp for HTTP requests, and Gson to handle and parse JSON. If you'd like to learn more about build configurations, see [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/).
 
 ## Create a Java file
 
@@ -80,17 +81,15 @@ Open `Translate.java` and add these import statements:
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 ```
 
-As you may have noticed when setting up your Gradle configuration, this project requires Gson to handle and parse JSON objects.
-
-## Set the subscription key, host name, and path
+## Add the subscription key and host URL
 
 First, you'll need to create a public class for your project:
 
@@ -100,153 +99,78 @@ public class Translate {
 }
 ```
 
-Add these lines to the `Translate` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
+Add these lines to the `Translate` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
 
 ```java
-static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-static String host = "https://api.cognitive.microsofttranslator.com";
-static String path = "/translate?api-version=3.0";
-// The output languages for translation.
-static String params = "&to=de&to=it";
-// The string to translate. Feel free to adjust.
+String subscriptionKey = "ae3194e69b09498ea39245a8e399e6c0";
+String url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de,it";
 ```
 
-## Add text for translation
+## Instantiate the HTTP client and build a request
 
-// TEXT HERE...
+Add this line to the `Translate` class to instantiate the `OkHttpClient`:
 
 ```java
-static String text = "This is a test in English!";
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-// This class will be used later to create an object list.
-public static class RequestBody {
-    String Text;
+Next, let's build the POST request. Feel free to change the text for translation. The text must be escaped.
 
-    public RequestBody(String text) {
-        this.Text = text;
+```java
+// This function performs a POST request.
+public String Post() throws IOException {
+    MediaType mediaType = MediaType.parse("application/json");
+    RequestBody body = RequestBody.create(mediaType,
+            "[{\n\t\"Text\": \"Welcome to Microsoft Translator. Guess how many languages I speak!\"\n}]");
+    Request request = new Request.Builder()
+            .url(url).post(body)
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
+
+## Create a function to parse the response
+
+This simple function parses and prettifies the JSON response from the Translator Text service.
+
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
+
+## Put it all together
+
+The last step is to make a request and get a response. Add these lines to your project:
+
+```java
+public static void main(String[] args) {
+    try {
+        Translate translateRequest = new Translate();
+        String response = translateRequest.Post();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## Translate request
+## Run the sample app
 
-The following code translates source text from one language to another using the [Translate](./reference/v3-0-translate.md) method.
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
 
-1. Create a new Java project in your favorite code editor.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
-
-```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-/* NOTE: To compile and run this code:
-1. Save this file as Translate.java.
-2. Run:
-    javac Translate.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar Translate
-*/
-
-public class Translate {
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
-
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/translate?api-version=3.0";
-
-    // Translate to German and Italian.
-    static String params = "&to=de&to=it";
-
-    static String text = "Hello world!";
-
-    public static class RequestBody {
-        String Text;
-
-        public RequestBody(String text) {
-            this.Text = text;
-        }
-    }
-
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
-        connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
-
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
-
-        return response.toString();
-    }
-
-    public static String Translate () throws Exception {
-        URL url = new URL (host + path + params);
-
-        List<RequestBody> objList = new ArrayList<RequestBody>();
-        objList.add(new RequestBody(text));
-        String content = new Gson().toJson(objList);
-
-        return Post(url, content);
-    }
-
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            String response = Translate ();
-            System.out.println (prettify (response));
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
-    }
-}
+```console
+gradle build
 ```
 
-## Translate response
-
-A successful response is returned in JSON as shown in the following example:
+## Sample response
 
 ```json
 [
@@ -257,11 +181,11 @@ A successful response is returned in JSON as shown in the following example:
     },
     "translations": [
       {
-        "text": "Hallo Welt!",
+        "text": "Willkommen bei Microsoft Translator. Erraten Sie, wie viele Sprachen ich spreche!",
         "to": "de"
       },
       {
-        "text": "Salve, mondo!",
+        "text": "Benvenuti a Microsoft Translator. Indovinate quante lingue parlo!",
         "to": "it"
       }
     ]
@@ -275,3 +199,11 @@ Explore the sample code for this quickstart and others, including transliteratio
 
 > [!div class="nextstepaction"]
 > [Explore Java examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## See also
+
+* [Transliterate text](quickstart-java-transliterate.md)
+* [Identify the language by input](quickstart-java-detect.md)
+* [Get alternate translations](quickstart-java-dictionary.md)
+* [Get a list of supported languages](quickstart-java-languages.md)
+* [Determine sentence lengths from an input](quickstart-java-sentences.md)
