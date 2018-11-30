@@ -2,7 +2,7 @@
 author: PatAltimore
 ms.service: active-directory-b2c 
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
 ---
 If you want to only enable sign-up on your application, you use a **sign-up** user flow. This user flow describes the experiences that customers go through during sign-up and the contents of tokens that the application receives on successful sign-ups.

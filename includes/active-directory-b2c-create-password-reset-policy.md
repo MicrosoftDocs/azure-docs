@@ -2,7 +2,7 @@
 author: PatAltimore
 ms.service: active-directory-b2c 
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
 ---
 To enable fine-grained password reset on your application, you use a **password reset** user flow. Note that the tenant-wide password reset option is specified [here](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). This user flow describes the experiences that the customers will go through during password reset and the contents of tokens that the application will receive on successful completion.

@@ -2,7 +2,7 @@
 author: PatAltimore
 ms.service: active-directory-b2c 
 ms.topic: include
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: patricka
 ---
 If you want to only enable sign-in on your application, you use a **sign-in** user flow. This user flow describes the experiences that customers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.

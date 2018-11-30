@@ -2,7 +2,7 @@
 author: PatAltimore
 ms.service: active-directory-b2c 
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
 ---
 > [!NOTE]
