@@ -44,7 +44,7 @@ You can create the service principal in the [Azure portal](#azure-portal) or usi
 
 1. To create the service principal, follow the instructions in the [Azure portal documentation](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-    1. In the [Assign the application to a role](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section, select an appropriate scope and a role type of **Reader**.
+    1. In the [Assign the application to a role](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section, assign a role type of **Reader** to your Azure Data Explorer cluster.
 
     1. In the [Get values for signing in](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section, copy the three property values covered in the steps: **Directory ID** (tenant ID), **Application ID**, and **Password**.
 
@@ -99,7 +99,7 @@ Now that you have a service principal, you add it to the *viewers* role in the A
     .add database {TestDatabase} viewers ('aadapp={ApplicationID};{TenantID}')
     ```
 
-    The command returns a result set like the following.
+    The command returns a result set like the following. In this example, the first row is for an existing user in the database, and the second row is for the service principal that was just added.
 
     ![Result set](media/grafana/result-set.png)
 
