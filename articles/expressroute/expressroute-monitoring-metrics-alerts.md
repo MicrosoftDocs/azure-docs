@@ -62,7 +62,8 @@ In the **Alert Criteria**, you can select **Activity Log** for the Signal Type a
   ![another](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   
 ## Next steps
-* Configure your ExpressRoute connection.
+
+Configure your ExpressRoute connection.
   
   * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
   * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
