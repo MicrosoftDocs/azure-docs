@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid:
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
