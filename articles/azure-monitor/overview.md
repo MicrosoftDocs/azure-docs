@@ -54,7 +54,7 @@ Azure Monitor can collect data from a variety of sources. You can think of monit
 
 As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) record when resources are created or modified. [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) tell you how the resource is performing and the resources that it's consuming. 
 
-Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and [adding an agent](../log-analytics/log-analytics-agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](../azure-monitor/platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
+Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and [adding an agent](../azure-monitor/platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](../azure-monitor/platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
@@ -83,7 +83,7 @@ Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### Monitoring solutions
-[Monitoring solutions](../azure-monitor/insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../azure-monitor/insights/solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
+[Monitoring solutions](../azure-monitor/insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../azure-monitor/platform/view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../azure-monitor/insights/solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
 
 ![Monitoring solutions](media/overview/solutions-overview.png)
 
@@ -112,7 +112,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Dashboard](media/overview/dashboard.png)
 
 ### Views
-[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visually present log data in Log Analytics.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
+[Views in Azure Monitor](../azure-monitor/platform/view-designer.md) visually present log data in Log Analytics.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
 
 ![Log Analytics View](media/overview/view.png)
 
