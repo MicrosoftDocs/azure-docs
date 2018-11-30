@@ -53,6 +53,6 @@
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

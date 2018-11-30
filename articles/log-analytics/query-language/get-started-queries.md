@@ -134,7 +134,7 @@ SecurityEvent
 ## Specify a time range
 
 ### Time picker
-The time picker is in the top left corner , which indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
+The time picker is next to the Run button and indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
 
 ![Time Picker](media/get-started-queries/timepicker.png)
 
@@ -222,14 +222,14 @@ Perf
 ### Summarize by a time column
 Grouping results can also be based on a time column, or another continuous value. Simply summarizing `by TimeGenerated` though would create groups for every single millisecond over the time range, since these are unique values. 
 
-To create groups based on continuous values, it is best to break the range into manageable units using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value for each period if 1 hour, over the last 2 days:
+To create groups based on continuous values, it is best to break the range into manageable units using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value for each period if 1 hour, over the last 7 days:
 
 ```Kusto
 Perf 
-| where TimeGenerated > ago(2d)
+| where TimeGenerated > ago(7d)
 | where Computer == "ContosoAzADDS2" 
 | where CounterName == "Available MBytes" 
-| summarize count() by bin(TimeGenerated, 1h)
+| summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
 To make the output clearer, you select to display it as a time-chart, showing the available memory over time:

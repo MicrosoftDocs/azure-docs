@@ -2,21 +2,15 @@
 title: Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Docs
 description: How to explore data stored in various Azure enviromnents.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
 

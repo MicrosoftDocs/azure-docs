@@ -1,22 +1,16 @@
 ---
 title: Sample data in Azure blob storage | Microsoft Docs
 description: Sample data in Azure Blob Storage
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: e8d9ad2c-86c5-43d6-80b8-d355b5c0dccf
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Sample data in Azure blob storage
 
