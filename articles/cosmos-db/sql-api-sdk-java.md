@@ -50,7 +50,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 ## Release notes
 
 ### <a name="2.1.0"/>2.1.0
-* Multi-region write support added for Direct mode.
+* Multi-region write support added for direct mode.
 * Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
 * Fixed a bug in endpoint discovery retry policy.
 * Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
@@ -58,7 +58,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Fixed a bug to ensure large PartitionKey is allowed
 
 ### <a name="2.0.0"/>2.0.0
-* Multi-region write support added for Gateway Mode.
+* Multi-region write support added for gateway mode.
 
 ### <a name="1.16.4"/>1.16.4
 * Fixed a bug in Read partition Key ranges for a query.
