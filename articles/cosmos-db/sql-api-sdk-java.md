@@ -54,7 +54,8 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
 * Fixed a bug in endpoint discovery retry policy.
 * Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
-* Fixed a bug to ensure Query Iterator does not return nulls. 
+* Fixed a bug to ensure Query Iterator does not return nulls.
+* Fixed a bug to ensure large PartitionKey is allowed
 
 ### <a name="2.0.0"/>2.0.0
 * Multi-region write support added for Gateway Mode.
