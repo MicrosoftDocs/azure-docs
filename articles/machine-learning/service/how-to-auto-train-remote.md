@@ -163,12 +163,6 @@ automl_config = AutoMLConfig(task='classification',
 
 ### Enable model explanations
 
-To enable output for model explanations, first install the `explain` variant of the `azureml_sdk` in your environment.
-
-```shell
-pip install azureml_sdk[explain]
-```
-
 Set the optional `model_explainability` parameter in the `AutoMLConfig` constructor. Additionally, a validation dataframe object must be passed as a parameter `X_valid` to use the model explainability feature.
 
 ```python
