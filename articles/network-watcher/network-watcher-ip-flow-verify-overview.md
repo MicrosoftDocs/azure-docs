@@ -23,7 +23,7 @@ IP flow verify checks if a packet is allowed or denied to or from a virtual mach
 
 IP flow verify looks at the rules for all Network Security Groups (NSGs) applied to the network interface (customers have the ability attach a Network Security Group to the subnet or the virtual machine NIC). Traffic flow is then verified based on the configured settings to or from that network interface. IP flow verify is useful in confirming if a rule in a Network Security Group is blocking ingress or egress traffic to or from a virtual machine.
 
-An instance of Network Watcher needs to be created in all regions that you plan to run IP flow verify. Network Watcher is a regional service and can only be ran against resources in the same region. The instance used does not affect the results of IP flow verify, as the route associated with the NIC is still be returned.
+An instance of Network Watcher needs to be created in all regions that you plan to run IP flow verify. Network Watcher is a regional service and can only be ran against resources in the same region. The instance used does not affect the results of IP flow verify, as any route associated with the NIC or subnet is still be returned.
 
 ![1][1]
 
