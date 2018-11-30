@@ -17,7 +17,7 @@ manager: jeconnoc
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-This quickstart article walks you through how to use the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
+This quickstart article walks you through how to use the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). To learn more about preview considerations for running your function apps on Linux, see [this Functions on Linux article](https://aka.ms/funclinux).
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
@@ -69,7 +69,7 @@ Select a worker runtime:
 3. python
 ```
 
-You will see something like the following output.
+You see something like the following output.
 
 ```output
 Installing wheel package
@@ -96,7 +96,7 @@ To create a function, run the following command:
 func new
 ```
 
-Pick `HTTP Trigger` as the desired template and enter a **function name** of `HttpTrigger`.
+Choose `HTTP Trigger` as the template and provide a **function name** of `HttpTrigger`.
 
 ```output
 Select a template:
@@ -114,7 +114,7 @@ Choose option: 5
 Function name: HttpTrigger
 ```
 
-You will see something like the following output.
+You see something like the following output.
 
 ```output
 Writing /MyFunctionProj/HttpTrigger/sample.dat
@@ -179,9 +179,10 @@ The function app provides an environment for executing your function code. It le
 
 Run the following command using a unique function app name in place of the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
 
-```azurecli
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---location "westus" --runtime python --is-linux
+```azurecli-interactive
+az functionapp create --resource-group myResourceGroup --os-type Linux \
+--consumption-plan-location westus  --runtime python \
+--name <app_name> --storage-account  <storage_name>
 ```
 
 > [!NOTE]
