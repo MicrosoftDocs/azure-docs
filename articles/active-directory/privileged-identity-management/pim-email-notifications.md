@@ -57,7 +57,7 @@ The following shows an example email that is sent when a user activates an Azure
 
 ### Weekly PIM digest email for Azure AD roles
 
-A weekly PIM summary email for Azure AD roles is sent to Privileged Role Administrators, Security Administrators, and Global Administrators that have enabled PIM. This weekly email provides a snapshot of PIM activities for the week as well as privileged role assignments. Here's an example email:
+A weekly PIM summary email for Azure AD roles is sent to Privileged Role Administrators, Security Administrators, and Global Administrators that have enabled PIM. This weekly email provides a snapshot of PIM activities for the week as well as privileged role assignments. It is only available for tenants on the public cloud. Here's an example email:
 
 ![Weekly PIM digest email for Azure AD roles](./media/pim-email-notifications/email-directory-weekly.png)
 
