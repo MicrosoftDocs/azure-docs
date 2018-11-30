@@ -121,7 +121,7 @@ After you've installed Docker, use the following settings for your container hos
 
 **For all Linux container hosts except CoreOS:**
 
-- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](log-analytics-agent-overview.md).
+- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](../azure-monitor/platform/log-analytics-agent.md).
 
 **For all Linux container hosts including CoreOS:**
 
@@ -519,9 +519,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 #### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-agent-windows.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-quick-collect-azurevm.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](../azure-monitor/platform/agent-windows.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-quick-collect-azurevm.md).
 
-You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](log-analytics-agent-windows.md) are currently supported for Service Fabric.
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](../azure-monitor/platform/agent-windows.md) are currently supported for Service Fabric.
 
 You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
@@ -538,7 +538,7 @@ The Container Monitoring solution collects various performance metrics and log d
 Data is collected every three minutes by the following agent types.
 
 - [Log Analytics agent for Linux](log-analytics-quick-collect-linux-computer.md)
-- [Windows agent](log-analytics-agent-windows.md)
+- [Windows agent](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM extension](log-analytics-quick-collect-azurevm.md)
 
 
