@@ -19,7 +19,7 @@ storage](https://review.docs.microsoft.com/en-us/azure/storage/blobs/storage-blo
 
 Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
-A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](https://review.docs.microsoft.com/en-us/azure/storage/data-lake-storage/namespace) to the Blob storage service that organizes objects/files into a hierarchy of directories for efficient data access. A common object store naming convention uses slashes in the name to mimic a hierarchical directory structure. This structure becomes real with Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
+A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](./data-lake-storage-namespace.md) to Blob storage. The hierarchical namespace organizes objects/files into a hierarchy of directories for efficient data access. A common object store naming convention uses slashes in the name to mimic a hierarchical directory structure. This structure becomes real with Data Lake Storage Gen2. Operations such as renaming or deleting a directory become single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. Data Lake Storage Gen2 addresses each of these aspects in the following ways:
 
@@ -66,10 +66,7 @@ The following are the equivalent entities, as described by different concepts. U
 
 The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
 
--   [Hierarchical namespace](namespace.md)
-
--   [Create a storage account](quickstart-create-account.md)
-
--   [Create an HDInsight cluster with Azure Data Lake Storage Gen2](quickstart-create-connect-hdi-cluster.md)
-
--   [Use an Azure Data Lake Storage Gen2 account in Azure Databricks](quickstart-create-databricks-account.md)
+-   [Hierarchical namespace](data-lake-storage-namespace.md)
+-   [Create a storage account](data-lake-storage-quickstart-create-account.md)
+-   [Create an HDInsight cluster with Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Use an Azure Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

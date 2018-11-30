@@ -2,21 +2,23 @@
 title: Learn to perform extract, load, and transfer operations using Azure Databricks
 description: Learn to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse.
 services: azure-databricks
-ms.service: azure-databricks
 author: jamesbak
+
+ms.service: azure-databricks
 ms.author: jamesbak
 ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 11/28/2018
 ---
+
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
 In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from an Azure Storage account with Azure Data Lake Storage Gen2 enabled, to Azure SQL Data Warehouse, using Azure Databricks.
 
 The following illustration shows the application flow:
 
-![Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse](./media/handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse")
+![Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse](./media/data-lake-storage-handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse")
 
 This tutorial covers the following tasks:
 
@@ -38,7 +40,7 @@ To complete this tutorial:
 
 * Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
 * Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-* [Create a Azure Data Lake Storage Gen2 account](quickstart-create-account.md)
+* [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md)
 
 ## Sign in to the Azure Portal
 
@@ -50,11 +52,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
-    ![Databricks on Azure portal](./media/handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Databricks on Azure portal](./media/data-lake-storage-handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 2. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
-    ![Create an Azure Databricks workspace](./media/handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
+    ![Create an Azure Databricks workspace](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Provide the following values:
 
@@ -70,7 +72,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 3. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
-    ![Databricks deployment tile](./media/handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
+    ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
 
@@ -78,11 +80,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 2. You are redirected to the Azure Databricks portal. From the portal, select **Cluster**.
 
-    ![Databricks on Azure](./media/handle-data-using-databricks/databricks-on-azure.png "Databricks on Azure")
+    ![Databricks on Azure](./media/data-lake-storage-handle-data-using-databricks/databricks-on-azure.png "Databricks on Azure")
 
 3. In the **New cluster** page, provide the values to create a cluster.
 
-    ![Create Databricks Spark cluster on Azure](./media/handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     Fill in values for the following fields, and accept the default values for the other fields:
 
@@ -100,11 +102,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
-    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Create notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
 
 3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
+    ![Create notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
 
     Select **Create**.
 
@@ -126,7 +128,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. 
 
 > [!NOTE]
-> If you do not already have an Azure Data Lake Storage Gen2 capable account, follow the [quickstart to create one](./quickstart-create-account.md).
+> If you do not already have an Azure Data Lake Storage Gen2 capable account, follow the [quickstart to create one](./data-lake-storage-quickstart-create-account.md).
 
 1. Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
 
@@ -315,17 +317,17 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 6. Connect to the SQL database and verify that you see a **SampleTable**.
 
-    ![Verify sample table](./media/handle-data-using-databricks/verify-sample-table.png "Verify sample table")
+    ![Verify sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
 
 7. Run a select query to verify the contents of the table. It should have the same data as the **renamedColumnsDF** dataframe.
 
-    ![Verify sample table content](./media/handle-data-using-databricks/verify-sample-table-content.png "Verify sample table content")
+    ![Verify sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify sample table content")
 
 ## Clean up resources
 
 After you have finished running the tutorial, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
-![Stop a Databricks cluster](./media/handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Stop a Databricks cluster](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
 If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
 

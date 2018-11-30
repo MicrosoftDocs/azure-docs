@@ -6,7 +6,7 @@ keywords:
 author: jamesbak
 ms.topic: article
 ms.author: jamesbak
-ms.date: 06/27/2018
+ms.date: 11/28/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
@@ -27,7 +27,7 @@ However, there are some functions that the driver must still perform:
 
 ### URI scheme to reference data
 
-Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage Gen2 URI](./introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 Using the above URI format, standard Hadoop tools and frameworks can be used to reference these resources:
 
@@ -58,6 +58,6 @@ The ABFS driver is fully documented in the [Official Hadoop documentation](http:
 
 ## Next steps
 
-- [Setup HDInsight Clusters](./quickstart-create-connect-hdi-cluster.md)
-- [Create an Azure Databricks Cluster](./quickstart-create-databricks-account.md)
-- [Use the Azure Data Lake Storage Gen2 URI](./introduction-abfs-uri.md)
+- [Setup HDInsight Clusters](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+- [Create an Azure Databricks Cluster](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)
