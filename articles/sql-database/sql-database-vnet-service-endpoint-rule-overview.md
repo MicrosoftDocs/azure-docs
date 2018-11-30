@@ -139,7 +139,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## Impact of removing 'Allow Azure services to access server'
 
 Many users want to remove **Allow Azure services to access server** from their Azure SQL Servers and replace it with a VNet Firewall Rule.
-However removing this affects the following Azure SQL Database features:
+However removing this affects the following features:
 
 ### Import Export Service
 
@@ -158,6 +158,10 @@ At present there are two ways to enable auditing on your SQL Database. Table aud
 ### Impact on Data Sync
 
 Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, it is likely that you will turn off **Allow Azure services to access server** access to your logical server. This will break the Data Sync feature.
+
+### Impact on Azure SQL Data Warehouse connectivity to Azure Storage via PolyBase
+
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. On removing **Allow Azure services to access server**, PolyBase connectivity from Azure SQL Data Warehouse to Azure Storage secured to VNet breaks. Both Polybase import and export scenarios require **Allow Azure services to access server** to be turned on. For more information on the additional steps required to enable PolyBase connectivity from Azure SQL Data Warehouse to Azure Storage secured to VNet, please refer to the section below.
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
@@ -226,11 +230,11 @@ Blob auditing pushes audit logs to your own storage account. If this storage acc
 
 ## Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
 
-Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
+Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingVNetServiceEndpoint** flag.
 
-Merely setting a Firewall rule does not help secure the server. You must also turn VNet service endpoints On for the security to take effect. When you turn service endpoints On, your VNet-subnet experiences downtime until it completes the transition from Off to On. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+Merely setting a Firewall rule does not help secure the server. You must also turn VNet service endpoints On for the security to take effect. When you turn service endpoints On, your VNet-subnet experiences downtime until it completes the transition from Off to On. This is especially true in the context of large VNets. You can use the **IgnoreMissingVNetServiceEndpoint** flag to reduce or eliminate the downtime during transition.
 
-You can set the **IgnoreMissingServiceEndpoint** flag by using PowerShell. For details, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+You can set the **IgnoreMissingVNetServiceEndpoint** flag by using PowerShell. For details, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## Errors 40914 and 40615
 
