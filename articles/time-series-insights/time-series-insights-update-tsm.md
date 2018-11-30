@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/30/2018
 ---
 
 # Time Series Model
@@ -187,13 +187,13 @@ The Azure TSI (preview) supports the following variable interpolation: `linear`,
 
 The aggregate function the variable enables part of computation. If variable interpolation is `null` or `none`, then TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**). If variable interpolation is `stepright` or `linear`, then TSI will support **twmin**, **twmax**, **twavg**, and **twsum**. Count cannot be specified in interpolation.
 
-### Time Series Model hierarchies
+## Time Series Model hierarchies
 
 Hierarchies organize instances by specifying property names and their relationships. You might have a single hierarchy or multiple hierarchies. Additionally, these need not be a current part of your data, but each instance should map to a hierarchy. A TSM instance can map to a single hierarchy or multiple hierarchies.
 
-Hierarchies are defined by **hierarchyID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
+Hierarchies are defined by **Hierarchy ID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
 
-## Time Series Model hierarchy JSON request and response example
+### Time Series Model hierarchy JSON request and response example
 
 Given a POST HTTP request:
 
@@ -248,6 +248,22 @@ Response:
     ]
 }
 ```
+
+### Hierarchy definition behavior
+
+Consider the following example:  
+
+Hierarchy H1 has “building”, “floor” and “room” as part of its definition. H1 = [“building”, “floor”, “room”], in the below example depending on the instance fields, the hierarchy experience will vary in the UX. 
+
+| Time Series ID | Instance Fields |
+| --- | --- |
+| ID1 | “building” = “1000”, “floor” = “10”, “room” = “55”  |
+| ID2 | “building” = “1000”, “room” = “55” |
+| ID3 |  “floor” = “10” |
+| ID4 | “building” = “1000”, “floor” = “10”  |
+| ID5 | |
+
+In above example, ID1 show as part of hierarchy H1 in UX, while the rest are classified under ~ Unparented Instances ~.
 
 ## Time Series Model instances
 
