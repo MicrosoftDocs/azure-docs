@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: mbullwin
-
 ---
 # Resources, roles, and access control in Application Insights
 
