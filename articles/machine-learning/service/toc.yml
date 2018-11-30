@@ -1,4 +1,4 @@
-- name: Azure Machine Learning Documentation (Preview)
+- name: Azure Machine Learning Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -21,18 +21,24 @@
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
-  - name: 'Train models: Part 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Deploy models: Part 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Train automated ML models 
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Image classification (MNIST data)
+    items:
+    - name: 1. Train a model
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Deploy a model
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regression (NYC Taxi data)
+    items:
+    - name: 1. Prepare data for modeling
+      href: tutorial-data-prep.md
+    - name: 2. Auto-train an ML model
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Samples
   items:
-  - name: Jupyter notebooks (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  - name: Python notebooks (GitHub)
+    displayName: example, examples, jupyter, azure notebooks
+    href: samples-notebooks.md
 - name: Concepts   
   items: 
   - name: Model management
@@ -48,7 +54,7 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Configure an environment
+    - name: Configure your dev environment
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
     - name: VS Code Tools for AI
@@ -58,6 +64,8 @@
         href: how-to-vscode-tools.md
       - name: Train and deploy        
         href: how-to-vscode-train-deploy.md
+    - name: Use Databricks
+      href: how-to-azure-machine-learning-on-databricks.md
   - name: Prepare data
     displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md   
@@ -71,7 +79,7 @@
   - name: Train models
     items:    
     - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Access data in training
       href: how-to-access-data.md
@@ -118,15 +126,21 @@
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
       href: how-to-secure-web-service.md  
-    - name: Consume a deployed model
+  - name: Consume web services
+    items:  
+    - name: Consume in real-time
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
-  - name: Monitor models
+    - name: Run batch predictions
+      href: how-to-run-batch-predictions.md
+  - name: Monitor web services
     items:  
-    - name: Collect data in production  
+    - name: Collect and evaluate data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
+  - name: Create your first pipeline
+    href: how-to-create-your-first-pipeline.md 
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -333,7 +347,7 @@
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    
-      - name: Computer vision package
+      - name: Computer vision package deprecated
         items:
         - name: Package install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
@@ -347,7 +361,7 @@
             href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
           - name: Improve model accuracy
             href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Forecasting package
+      - name: Forecasting package deprecated
         items:
         - name: Overview and install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
@@ -357,7 +371,7 @@
         href: reference-fpga-package-overview.md
       - name: Text analytics package
         items:
-        - name: Overview and install
+        - name: Overview and install deprecated
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     

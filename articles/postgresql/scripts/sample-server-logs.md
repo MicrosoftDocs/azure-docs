@@ -21,8 +21,8 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI.
 
 ## Sample script
-In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the <log_file_name> in the `az monitor` commands with your own server log file name.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=18-19 "Manipulate with server logs.")]
+In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the &lt;log_file_name&gt; in the `az monitor` commands with your own server log file name.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
 
 ## Clean up deployment
 Use the following command to remove the resource group and all resources associated with it after the script has been run. 

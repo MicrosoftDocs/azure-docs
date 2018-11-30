@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/31/2018
+  ms.date: 12/04/2018
   ms.author: jmartens
 
 abstract:
@@ -19,99 +19,52 @@ abstract:
 
 sections:
 
-- items:
+- title: Azure Machine Learning Service
+  items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsB
+    columns: 1
     items:
-    - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
+    - html: <a href="service/overview-what-is-azure-ml.md">Learn more...</a>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning service (preview)
-    - href: /azure/machine-learning/studio/
-      html: <p>Learn how this collaborative, drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. Learn more... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-
-- title: Quickstarts and Tutorials
-  items:
+      title: Train, deploy, automate, and manage your ML models in the Azure cloud.
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning service (preview) and Studio:'
+    text: 'Start with these tutorials and how-tos:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/machine-learning/service/quickstart-get-started">Quickstart using Azure portal</a>
+    - html: <a href="/azure/machine-learning/service/quickstart-create-workspace-with-python">Quickstart using Python</a>
+    - html: <a href="/azure/machine-learning/service/how-to-data-prep">Prepare data for modeling</a>
+    - html: <a href="/azure/machine-learning/service/tutorial-train-models-with-aml">Build your own machine learning model</a>
+    - html: <a href="/azure/machine-learning/service/tutorial-auto-train-models">Automatically generate and tune algorithms</a>
+    - html: <a href="/azure/machine-learning/service/tutorial-deploy-models-with-aml">Deploy your model as a web service</a>
+    - html: <a href="/azure/machine-learning/service/how-to-consume-web-service">Consume your machine learning models</a>
+    - html: <a href="/azure/machine-learning/service/concept-ml-pipelines">Build, optimize, and manage your ML pipelines</a>
 
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-      - image:
-          src: media/index/machine-learning-studio.svg
-    rows:
-      - title: Get started with the service
-        values:
-        - href: /azure/machine-learning/service/quickstart-get-started
-        - href: /azure/machine-learning/studio/create-workspace
-      - title: Prepare data for modeling
-        values:
-        - href: /azure/machine-learning/service/how-to-data-prep
-        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-      - title: Build your own machine learning model
-        values:
-        - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-      - title: Automatically generate and tune algorithms
-        values:
-        - href: /azure/machine-learning/service/tutorial-auto-train-models
-        - href: 
-      - title: Deploy your model as a web service
-        values:
-        - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-        - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-      - title: Consume your machine learning models
-        values:
-        - href: /azure/machine-learning/service/how-to-consume-web-service
-        - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-      - title: Build, optimize, and manage your ML pipelines
-        values:
-        - href: /azure/machine-learning/service/concept-ml-pipelines
-        - href: 
 
-- title: Other Microsoft Machine Learning Technologies
+
+- title: Azure Machine Learning Studio (legacy)
   items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsB
+    columns: 1
     items:
-    - href: /azure/cognitive-services/
-      html: <p>APIs that supply intelligent algorithms for your apps, websites, and bots.</p>
+    - html: <a href="/azure/machine-learning/studio/">Learn more...</a>
       image:
-        src: /azure/machine-learning/media/index/cognitive-services.png
-      title: Cognitive Services
-    - href: /azure/batch-ai/
-      html: <p>Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.</p>
-      image:
-        src: /azure/machine-learning/media/index/batch.png
-      title: Batch AI Training
-    - href: /sql/advanced-analytics/r/r-services
-      html: <p>In-database analytics with support for both R and Python.</p>
-      image:
-        src: /azure/machine-learning/media/index/logo_sql.png
-      title: SQL Server Machine Learning Services
-    - href: /machine-learning-server/
-      html: <p>Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.</p>
-      image:
-        src: /azure/machine-learning/media/index/ml-server.png
-      title: Microsoft Machine Learning Server
-    - href: /azure/machine-learning/team-data-science-process
-      html: <p>A collaborative data science methodology that helps teams deliver predictive analytics solutions and intelligent applications efficiently.</p>
-      image:
-        src: /azure/machine-learning/media/index/tdsp.png
-      title: Team Data Science Process
-    - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Experiment without installing or configuring software using the Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
-      image:
-        src: /azure/machine-learning/media/index/virtualmachine.svg
-      title: Data Science Virtual Machine
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: A drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data.
+  - type: paragraph
+    text: 'Start with these tutorials and how-tos:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/machine-learning/studio/create-workspace"> Create a Studio workspace</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-2-upload-data">Upload data</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment">Create a Studio experiment</a>
+    - html: <a href="azure/machine-learning/studio/algorithm-choice">How to choose an algorithm</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service">Publish a web service</a>
+    - html: <a href="/azure/machine-learning/studio/walkthrough-6-access-web-service">Consume web services</a>

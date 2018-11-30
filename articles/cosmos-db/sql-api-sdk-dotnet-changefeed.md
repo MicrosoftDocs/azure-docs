@@ -39,8 +39,18 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.4"/>2.2.4
+* Added new property ChangeFeedProcessorOptions.StartContinuation to support starting change feed from request continuation token. This is only used when lease collection is empty or a lease does not have ContinuationToken set. For leases in lease collection that have ContinuationToken set, the ContinuationToken is used and ChangeFeedProcessorOptions.StartContinuation is ignored.
+
+### <a name="2.2.3"/>2.2.3
+* Added support for using custom store to persist continuation tokens per partition.
+  * For example, a custom lease store can be Azure Cosmos DB lease collection partitioned in any custom way.
+  * Custom lease stores can use new extensibility point ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) and ILeaseStoreManager public interface.
+  * Refactored the ILeaseManager interface into multiple role interfaces.
+* Minor breaking change: removed extensibility point ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), use ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) instead.
+
 ### <a name="2.2.2"/>2.2.2
-* Fixed an issue that may occur during processing split when lease collection is partitioned. The issue may lead to leases for gone partitions not being deleted from lease collection. The issue is fixed with this release.
+* This release fixes an issue that occurs during processing a split in monitored collection and using a partitioned lease collection. When processing a lease for split partition, the lease corresponding to that partition may not be deleted. The issue is fixed in this release.
 
 ### <a name="2.2.1"/>2.2.1
 * Fixed Estimator calculation for Multi Master accounts and new Session Token format.

@@ -28,7 +28,7 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual n
 
 **About Azure deployment models**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
 

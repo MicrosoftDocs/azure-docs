@@ -14,6 +14,62 @@ ms.date: 10/24/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-12-04: General Availability
+
+Azure Machine Learning service is now generally available.
+
+### ML Pipelines
+
++ New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
++ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
++ Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
++ New pipeline steps added to the SDK: 
+  + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+  + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+  + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
++ Updated SDK steps:
+  + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py): now accepts runconfig
+  + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) now copies to and from a SQL datasource
++ Pipelines can be viewed in Azure portal
++ Schedule functionality in SDK to create and update schedules for running published pipelines
+
+
+## 2018-11-20
+
+### Azure Machine Learning SDK for Python v0.1.80
+
++ **Breaking changes** 
+  * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you examples on how to use this. We hope you like this simplification and lots of more exciting features to come in a later release!
+
+### Azure Machine Learning Data Prep SDK v0.5.1 
+
+Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/data-prep-sdk).
++ **New Features**
+   * Created a new DataPrep CLI to execute DataPrep packages and view the data profile for a dataset or dataflow
+   * Redesigned SetColumnType API to improve usability
+   * Renamed smart_read_file to auto_read_file
+   * Now includes skew and kurtosis in the Data Profile
+   * Can sample with stratified sampling
+   * Can read from zip files that contain CSV files
+   * Can split datasets row-wise with Random Split (e.g. into test-train sets)
+   * Can get all the column data types from a dataflow or a data profile by calling .dtypes
+   * Can get the row count from a dataflow or a data profile by calling .row_count
+
++ **Bug Fixes**
+   * Fixed long to double conversion 
+   * Fixed assert after any add column 
+   * Fixed an issue with FuzzyGrouping, where it would not detect groups in some cases
+   * Fixed sort function to respect multi-column sort order
+   * Fixed and/or expressions to be similar to how Pandas handles them
+   * Fixed reading from dbfs path
+   * Made error messages more understandable 
+   * Now no longer fails when reading on remote compute target using AML token
+   * Now no longer fails on Linux DSVM
+   * Now no longer crashes when non-string values are in string predicates
+   * Now handles assertion errors when Dataflow should fail correctly
+   * Now supports dbutils mounted storage locations on Azure Databricks
+
 ## 2018-11-05
 
 ### Azure portal 
