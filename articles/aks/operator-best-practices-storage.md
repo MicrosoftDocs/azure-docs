@@ -21,23 +21,30 @@ This best practices article focuses on storage considerations for cluster operat
 
 ## Choose the appropriate storage type
 
+**Best practice guidance** - Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for network-based storage when there is a need for multiple concurrent connections.
+
 Azure Files, Azure Disk, Dysk, BlobFuse
 Storage classes to control fast and slow tiers, available sizes, etc. Tie in with resource quotas
 
 ## Size the nodes for performance and attached disks
 
+**Best practice guidance** - Each node VM size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth. Plan for your application demands to deploy the appropriate sized nodes.
+
 Max number of disks, IOPS per disk, local storage, network bandwidth, etc.
 
 ## Dynamically provision volumes
+
+**Best practice guidance** - To reduce management overhead and let you scale, don't statically create and assign persistent volumes. Use dynamic provisioning. In your storage classes, define the appropriate reclaim policy to minimize unneeded storage costs once pods are deleted.
 
 Don't statically create PVs, use dynamic creation to allow for scale
 Set reclaim policy appropriately using storage classes
 
 ## Secure and backup your data
 
+**Best practice guidance** - Back up your using an appropriate tool for your storage type, such as Heptio Ark or Azure Site Recovery. Verify the integrity, and security, of those backups.
+
 Manually back up volumes by taking snapshot of the volume
 Use Heptio Ark or Azure Site Recovery - flush writes in app before taking snapshot
-Azure Storage Service Encryption automatically encrypts data at rest, cannot currently use Azure Disk Encryption
 Verify security of backups
 
 ## Next steps
