@@ -26,12 +26,12 @@ sections:
     className: cardsB
     columns: 1
     items:
-    - html: <p>Train, deploy, automate, and manage your ML models in the Azure cloud. <br><a href="service/overview-what-is-azure-ml.md">Learn more...</a></p>
+    - html: <a href="service/overview-what-is-azure-ml.md">Learn more...</a>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: 
-
-
+      title: Train, deploy, automate, and manage your ML models in the Azure cloud.
+  - type: paragraph
+    text: 'Start with these tutorials and how-tos:'
   - type: list
     style: unordered
     items:
@@ -53,44 +53,18 @@ sections:
     className: cardsB
     columns: 1
     items:
-    - html: <p>A legacy drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. <br><a href="/azure/machine-learning/studio/">Learn more...</a></p>
+    - html: <a href="/azure/machine-learning/studio/">Learn more...</a>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: 
-
+      title: A drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data.
+  - type: paragraph
+    text: 'Start with these tutorials and how-tos:'
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/machine-learning/studio/create-workspace"> Create a Studio workspace</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-2-upload-data">Upload data</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment">Create a Studio experiment</a>
+    - html: <a href="azure/machine-learning/studio/algorithm-choice">How to choose an algorithm</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service">Publish a web service</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-6-access-web-service">Consume web services</a>
-
-- title: Other Microsoft Machine Learning Technologies
-  items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: /azure/cognitive-services/
-      html: <p>APIs that supply intelligent algorithms for your apps, websites, and bots.</p>
-      image:
-        src: /azure/machine-learning/media/index/cognitive-services.png
-      title: Cognitive Services
-    - href: /sql/advanced-analytics/r/r-services
-      html: <p>In-database analytics with support for both R and Python.</p>
-      image:
-        src: /azure/machine-learning/media/index/logo_sql.png
-      title: SQL Server Machine Learning Services
-    - href: /machine-learning-server/
-      html: <p>Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.</p>
-      image:
-        src: /azure/machine-learning/media/index/ml-server.png
-      title: Microsoft Machine Learning Server
-    - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Experiment without installing or configuring software using the Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
-      image:
-        src: /azure/machine-learning/media/index/virtualmachine.svg
-      title: Data Science Virtual Machine
