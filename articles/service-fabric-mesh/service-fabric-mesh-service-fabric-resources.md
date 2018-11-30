@@ -50,7 +50,7 @@ As alluded earlier, the lifecycle of each Application instance can be managed in
 
 ## Networks
 
-Network resource is individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a private network for your applications. Multiple Services from different Applications can be part of the same network.  Service Fabric Mesh also provides isolated networks, which allow Services to communicate with each other directly.  Service communications do not go through the Azure Load Balancer, making communication faster. For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networks-and-gateways.md).
+Network resource is individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a network for your applications. Multiple Services from different Applications can be part of the same network.  For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networks-and-gateways.md).
 
 > [!NOTE]
 > The current preview only supports a one to one mapping between applications and networks
