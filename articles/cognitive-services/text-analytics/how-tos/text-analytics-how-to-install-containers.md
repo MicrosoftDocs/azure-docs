@@ -38,7 +38,7 @@ Docker must be configured to allow the containers to connect with and send billi
 
 For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server requirements and recommendations
+### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 

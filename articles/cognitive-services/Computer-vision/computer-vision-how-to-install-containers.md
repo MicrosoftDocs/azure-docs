@@ -34,7 +34,7 @@ Docker must be configured to allow the containers to connect with and send billi
 
 For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server requirements and recommendations
+### Container requirements and recommendations
 
 The Recognize Text container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 8 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 8 GB of allocated memory.
 
