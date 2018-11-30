@@ -26,7 +26,7 @@ Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blob
 You can use multipart requests to upload blobs to specific endpoints and their respective functionalities.
 
 > [!IMPORTANT]
-> Multipart requests require three pieces of information. For Azure Digital Twins:
+> Multipart requests require three pieces of information:
 > * A **Content-Type** header:
 >   * `application/json; charset=utf-8`
 >   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
