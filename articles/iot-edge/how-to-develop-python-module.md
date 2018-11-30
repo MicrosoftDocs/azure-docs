@@ -105,7 +105,7 @@ In each module folder, there are several Docker files for different container ty
     ptvsd.break_into_debugger()
     ```
 
-   For example, if you want to debug `receive_message_callback` method. You can insect the single line of code like below.
+   For example, if you want to debug `receive_message_callback` method. You can insert the single line of code like below.
 
     ```python
     def receive_message_callback(message, hubManager):
