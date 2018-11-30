@@ -7,8 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
-ms.reviewer: shwinne
-ms.date: 11/29/2018
+
 ---
 # Azure Machine Learning for VS Code(Preview): Get started with Azure Machine Learning for Visual Studio Code
 

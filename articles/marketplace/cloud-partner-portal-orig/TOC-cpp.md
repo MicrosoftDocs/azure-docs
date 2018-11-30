@@ -1,6 +1,6 @@
 <!-- This TOC just covers the migrated CPP files. Relative path to files might have to be adjusted. -->
 
-# [Cloud Partner Portal](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+# [Cloud Partner Portal](/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal) 
 ## Virtual machines
 ### [Dev center account registration](./cloud-partner-portal-dev-center-accounts-registration.md)
 ### [Author virtual machine offer](./cloud-partner-portal-publish-virtual-machine.md)

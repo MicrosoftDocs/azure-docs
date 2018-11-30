@@ -219,6 +219,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "aml-sdk-samples",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "sdk-codetest",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",
@@ -258,12 +264,6 @@
       "path_to_root": "cognitive-services-java-sdk-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-java-sdk-samples",
       "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "aml-sdk-samples",
-      "url": "https://github.com/Azure/MachineLearningNotebooks",
-      "branch": "sdk-codetest",
       "branch_mapping": {}
     },
     {

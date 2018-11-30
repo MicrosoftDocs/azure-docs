@@ -166,8 +166,6 @@ Azure Machine Learning models running on FPGAs provide SSL support and key-based
 
 Concepts in this article are demonstrated in the [project-brainwave/project-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) notebook.
 
-Get this notebook:
-
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps

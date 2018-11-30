@@ -19,7 +19,7 @@ In this document, learn how to configure a development environment to work with 
 This document focuses on the following specific environments and tools:
 
 * [Azure Notebooks](#aznotebooks): A Jupyter Notebooks service hosted in the Azure cloud. It is __the easiest__ way to get started, as the Azure Machine Learning SDK is already installed.
-* [The Data Science Virtual Machine](#dsvm): A virtual machine in the Azure cloud that is __designed for data science work__. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular ML frameworks, tools, and editors for developing ML solutions. It is probably __the most complete__ development environment for ML on the Azure platform.
+* [The Data Science Virtual Machine](#dsvm): A __pre-configured development/experimentation environment__ in the Azure cloud that is __designed for data science work__ and can be deployed to either CPU only VM instances or GPU based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular ML / deep learning frameworks, tools, and editors for developing ML solutions. It is probably __the most complete__ development environment for ML on the Azure platform.
 * [Jupyter Notebooks](#jupyter): If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 * [Visual Studio Code](#vscode): If you use Visual Studio Code, there are some useful extensions that you can install.
 
@@ -52,20 +52,43 @@ To get started developing with Azure Notebooks, follow the [Get started with Azu
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
-The Data Science Virtual Machine (DSVM) is a customized virtual machine (VM) image **designed for data science work**. It includes:
+The Data Science Virtual Machine (DSVM) is a customized virtual machine (VM) image **designed for data science work** that is pre-configured with:
 
-  - Popular data science tools
-  - Integrated development environments (IDEs) such as PyCharm and RStudio
-  - Packages such as Jupyter Notebooks and Tensorflow
+  - Packages such as Tensorflow, Pytorch, scikit-learn, Xgboost and Azure ML SDK
+  - Popular data science tools like Spark standalone, Drill
+  - Azure tools such as the CLI, Azcopy and Storage explorer
+  - Integrated development environments (IDEs) such as Visual Studio Code, PyCharm and RStudio
+  - Jupyter Notebook Server 
 
 The Azure Machine Learning SDK works on either the Ubuntu or Windows version of DSVM. To use DSVM as a development environment, follow these steps:
 
 1. To create a Data Science Virtual Machine, follow the steps in one of the following documents:
 
-    * [Create an Ubuntu Data Science Virtual machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-    * [Create a Windows Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+### Create an Ubuntu Data Science Virtual machine
 
-1. The Azure Machine Learning SDK is **already installed** on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
+   * [Using the Azure Portal](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+   * __Using the Azure Command Line interface (CLI)__
+   
+        Run the following command in a bash shell or command prompt on a machine where you have Azure CLI installed after you have authenticated to the CLI. In this command, replace YOUR-RESOURCE-GROUP-NAME, YOUR-VM-NAME, YOUR-USERNAME, YOUR-PASSWORD with your  actual values. 
+```
+# create a Ubuntu DSVM in your resource group
+# note you need to be at least a contributor to the resource group in order to execute this command successfully
+# If you need to create a new resource group you can run the command: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-PREFERRED-REGION (For example: westus2)"
+az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+```
+
+### Create a Windows Data Science Virtual Machine
+   * [Using the Azure Portal](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+   * __Using the Azure CLI__
+   
+        Run the following command in a bash shell or command prompt on a machine where you have Azure CLI installed and you have authenticated to the CLI. In this command, replace YOUR-RESOURCE-GROUP-NAME, YOUR-VM-NAME, YOUR-USERNAME, YOUR-PASSWORD with your  actual values. 
+```
+# create a Windows Server 2016 DSVM in your resource group
+# note you need to be at least a contributor to the resource group in order to execute this command successfully
+az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+```    
+
+2. The Azure Machine Learning SDK is **already installed** on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
 
     * On __Ubuntu__ DSVM, use this command:
 
@@ -145,17 +168,11 @@ The steps in the [Local computer](#local) section install optional components fo
 
 1. Open a command prompt or shell.
 
-1. To install a conda-aware Jupyter Notebook server and enable experiment widgets, use the following commands:
+1. To install a conda-aware Jupyter Notebook server using the following command:
 
     ```shell
     # install Jupyter
     conda install nb_conda
-
-    # install experiment widget
-    jupyter nbextension install --py --user azureml.train.widgets
-
-    # enable experiment widget
-    jupyter nbextension enable --py --user azureml.train.widgets
     ```
 
 1. Open Jupyter Notebook with the following command:

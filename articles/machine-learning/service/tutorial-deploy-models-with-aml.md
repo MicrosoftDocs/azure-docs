@@ -19,7 +19,7 @@ This tutorial is **part two of a two-part tutorial series**. In the [previous tu
 
 Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
-In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
+In this part of the tutorial, you use Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Set up your testing environment
@@ -32,7 +32,7 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Run the `02.deploy-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-02). Run the `tutorials/02.deploy-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

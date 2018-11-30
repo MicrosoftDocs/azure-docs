@@ -61,7 +61,6 @@ Run the application locally so that you see how it should look when you deploy i
 Restore the NuGet packages and run the app.
 
 ```bash
-dotnet restore
 dotnet run
 ```
 

@@ -10,9 +10,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ---
-# Write to HDFS from Apache Storm on HDInsight
+# Write to Apache Hadoop HDFS from Apache Storm on HDInsight
 
-Learn how to use Storm to write data to the HDFS-compatible storage used by Apache Storm on HDInsight. HDInsight can use both Azure Storage and Azure Data Lake store as HDFS-compatible storage. Storm provides an [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component that writes data to HDFS. This document provides information on writing to either type of storage from the HdfsBolt. 
+Learn how to use [Apache Storm](http://storm.apache.org/) to write data to the HDFS-compatible storage used by Apache Storm on HDInsight. HDInsight can use both Azure Storage and Azure Data Lake store as HDFS-compatible storage. Storm provides an [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component that writes data to HDFS. This document provides information on writing to either type of storage from the HdfsBolt. 
 
 > [!IMPORTANT]
 > The example topology used in this document relies on components that are included with Storm on HDInsight. It may require modification to work with Azure Data Lake Store when used with other Apache Storm clusters.
@@ -123,7 +123,7 @@ This YAML defines the following items:
 * `rotationPolicy`: Defines when to rotate files. In this example, no rotation is performed.
 * `hdfs-bolt`: Uses the previous components as configuration parameters for the `HdfsBolt` class.
 
-For more information on the Flux framework, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+For more information on the Flux framework, see [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ## Configure the cluster
 
@@ -214,5 +214,5 @@ Storm topologies run until stopped, or the cluster is deleted. To stop the topol
 
 ## Next steps
 
-Now that you have learned how to use Storm to write to Azure Storage and Azure Data Lake Store, discover other [Storm examples for HDInsight](apache-storm-example-topology.md).
+Now that you have learned how to use Apache Storm to write to Azure Storage and Azure Data Lake Store, discover other [Apache Storm examples for HDInsight](apache-storm-example-topology.md).
 
