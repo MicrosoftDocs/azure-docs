@@ -33,7 +33,7 @@ With that in mind, selecting the appropriate **Time Series ID** is critical. Con
 Additionally, you can select up to **three** (3) key properties as your **Time Series ID**.
 
   > [!NOTE]
-  > Your three (3) key properties must be Strings.
+  > Your **three** (3) key properties must be Strings.
 
 The following scenarios describe selecting more than one key property as your **Time Series ID**:  
 
