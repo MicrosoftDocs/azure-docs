@@ -234,7 +234,7 @@ You can use the **Add Roles and Features Wizard**, or PowerShell, to install and
 
 **To install IIS and update the default web page with PowerShell:**
 
-1. On MyVM2, launch **Windows PowerShell** from the **Start** menu, and run the following commands to install IIS and replace the default IIS web page:.
+1. On MyVM2, launch **Windows PowerShell** from the **Start** menu, and run the following commands to install IIS and replace the default IIS web page:
    
    ```powershell-interactive
     # Install IIS
