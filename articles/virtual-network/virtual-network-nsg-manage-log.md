@@ -128,7 +128,7 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 Diagnostics data can be:
 - [Written to an Azure Storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
 - [Streamed to an Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
-- [Written to Azure Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Written to Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## Log categories
 
