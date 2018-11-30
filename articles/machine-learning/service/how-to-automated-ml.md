@@ -8,19 +8,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: krishnan
 author: krishnaanumalasetty
-ms.date: 9/24/2018
+ms.date: 11/30/2018
 
 ---
 
 # What is automated machine learning?
 
-In this article, you can learn about automated machine learning. The Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it. Automated machine learning helps save you time by using the parameters and criteria you provide to select the best algorithm for your model.
+In this article, you can learn about automated machine learning. The Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it. Automated machine learning helps save you time by generating tuned models from the goals and contraints you define for your experiment. For example time for the experiment to run or which models to blacklist.
 
 ## How it works
 
-1. You configure the type of machine learning problem you are trying to solve. Two categories of supervised learning are supported:
+1. You configure the type of machine learning problem you are trying to solve. Categories of supervised learning are supported:
    + Classification
    + Regression
+   + Forecasting
 
    See the [list of models](how-to-configure-auto-train.md#select-your-experiment-type) Azure Machine Learning can try when training.
 
