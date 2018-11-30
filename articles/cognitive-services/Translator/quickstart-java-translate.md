@@ -109,7 +109,23 @@ static String path = "/translate?api-version=3.0";
 // The output languages for translation.
 static String params = "&to=de&to=it";
 // The string to translate. Feel free to adjust.
+```
+
+## Add text for translation
+
+// TEXT HERE...
+
+```java
 static String text = "This is a test in English!";
+
+// This class will be used later to create an object list.
+public static class RequestBody {
+    String Text;
+
+    public RequestBody(String text) {
+        this.Text = text;
+    }
+}
 ```
 
 ## Translate request
