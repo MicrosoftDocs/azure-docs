@@ -31,9 +31,9 @@ This article describes how to invite an external user to your directory and mana
 
 ## When would you invite external users?
 
-Here are some example scenarios when you would invite external users to your directory:
+Here are a couple example scenarios when you might invite external users to your directory:
 
-- Allow an external self-employed vendor that only has an email account to access your Azure resources.
+- Allow an external self-employed vendor that only has an email account to access your Azure resources for a project.
 - Allow an external partner in a large organization that uses on-premises Active Directory Federation Services to access your expense application.
 - Allow support engineers not in your organization (such as Microsoft support) to temporarily access your Azure resource to troubleshoot issues.
 
