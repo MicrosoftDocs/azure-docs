@@ -13,19 +13,56 @@ ms.author: erhopf
 ---
 # Quickstart: Translate text with the Translator Text REST API (Java)
 
-In this quickstart, you translate text from one language to another using the Translator Text API.
+In this quickstart, you'll learn how to translate a text string from English to Italian and German using Java and the Translator Text REST API.
 
-## Prerequisites
-
-You'll need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will also work.
-
-To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ## Prerequisites
 
 * [JDK 7 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
 * An Azure subscription key for Translator Text
+
+## Create a project with Gradle
+
+Let's start by creating a working directory for this project. From the command line (or terminal), run this command:
+
+```console
+mkdir translator-sample
+cd translator-sample
+```
+
+Next, you're going to initialize a Gradle project. This command will create essential build files for Gradle, most importantly, the `build.gradle.kts`, which is used at runtime to create and configure your application. Run this command from your working directory:
+
+```console
+gradle init --type basic
+```
+
+When prompted to choose a **DSL**, select **Kotlin**.
+
+## Configure your build file
+
+Locate `build.gradle.kts` and open it with your favorite IDE or text editor. Then copy in this build configuration:
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "Translate"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+If you'd like to learn more about Gradle builds, see [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/).
+
+
 
 ## Translate request
 
