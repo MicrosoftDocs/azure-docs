@@ -1,5 +1,5 @@
 ---
-title: Using Azure Machine Learning for Visual Studio Code (Preview) 
+title: Using Azure Machine Learning for Visual Studio Code (Preview). 
 description: Learn about Azure Machine Learning for Visual Studio Code and how to start training and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
 services: machine-learning
 ms.service: machine-learning
@@ -43,9 +43,9 @@ This extension supports several different remote compute targets for Azure Machi
 
 4. Choose the compute target type from the list. 
 
-6. Specify any advanced properties in the JSON config file that opens in a new tab. You can specify a unique name for the compute     target in this file.
+5. Specify any advanced properties in the JSON config file that opens in a new tab. You can specify a unique name for the compute     target in this file.
 
-7. When you are done configuring your compute target, click **Submit** in the lower right.
+6. When you are done configuring your compute target, click **Submit** in the lower right.
 
 Here is an example for Azure Machine Learning Compute (AMLCompute):
 [![Create AML Compute in VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
