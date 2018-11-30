@@ -19,7 +19,7 @@ This quickstart walks through how to create a server-level firewall rule for an 
 
 ## Prerequisites
 
-This quickstart uses as its starting point the resources created in this quickstart: [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
+This quickstart uses the resources created in [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md) as its starting point.
 
 ## Sign in to the Azure portal
 
@@ -27,13 +27,15 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level firewall rule
 
-The SQL Database service creates a firewall at the server level that prevents applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall. For a connection from an IP address outside of Azure, create a firewall rule for a specific IP address or range of addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only.
+The SQL Database service creates a firewall at the server level. This firewall prevents applications and tools from connecting to the server or any server databases unless you create a firewall rule to open the firewall. For a connection from an IP address outside Azure, create a firewall rule for a specific IP address or range of addresses. For more information about firewall rules, see [SQL Database server-level firewall rule](sql-database-firewall-configure.md).
 
 > [!NOTE]
 > SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you can't connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, select **SQL databases** from the left-hand menu and then choose **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration.
+Follow these steps to create a server-level firewall rule for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only.
+
+1. After the [prerequisite Azure SQL database](#prerequisites) deployment completes, select **SQL databases** from the left-hand menu and then choose **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration.
 
 2. Copy this fully qualified server name to use when connecting to your server and its databases in other quickstarts.
 
