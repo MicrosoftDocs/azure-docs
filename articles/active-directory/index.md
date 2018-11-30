@@ -123,9 +123,9 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="conditional-access/index.yml">Conditional access</a></h3>
                                                         <p>
+                                                            <a href="conditional-access/overview.md">What is conditional access?</a><br>
                                                             <a href="conditional-access/app-based-mfa.md">Require MFA for specific apps</a><br>
-                                                            <a href="conditional-access/require-tou.md">Require terms of use to be accepted</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Block access when a session risk is detected</a><br>
+                                                            <a href="conditional-access/location-condition.md">Access according to location</a><br>
 												            <a href="conditional-access/index.yml"><i>See more &gt;</i></a>
 															</p>
                                                     </div>
@@ -148,9 +148,9 @@ ms.author: mtillman
 														<br><br>
 														<h3><a href="devices/index.yml">Device management</a></h3>
                                                         <p>
-                                                            <a href="devices/hybrid-azuread-join-managed-domains.md">Configure hybrid join for managed domains</a><br>
-                                                            <a href="devices/hybrid-azuread-join-federated-domains.md">Configure hybrid join for federated domains</a><br>
-                                                            <a href="devices/azuread-joined-devices-frx.md">Configure Windows 10 first-run experience</a><br>
+                                                            <a href="devices/overview.md">What is device management?</a><br>
+                                                            <a href="devices/hybrid-azuread-join-plan.md">Plan a hybrid Azure AD join</a><br>
+                                                            <a href="devices/azureadjoin-plan.md">Deploy a hybrid Azure AD join</a><br>
                                                             <a href="devices/index.yml"><i>See more &gt;</i></a><br>
 														</p>
 														<br><br>
@@ -197,9 +197,9 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="identity-protection/index.yml">Identity protection</a></h3>
                                                         <p>
-                                                            <a href="identity-protection/enable.md">Enable</a><br>
-                                                            <a href="identity-protection/playbook.md">Simulate risk events</a><br>
-                                                            <a href="identity-protection/howto-unblock-user.md">Unblock users</a><br>
+                                                            <a href="identity-protection/overview.md">What is identity protection?</a><br>
+                                                            <a href="identity-protection/quickstart-sign-in-risk-policy.md">Configure sign-in risk policy</a><br>
+                                                            <a href="identity-protection/howto-unblock-user.md">Unblock blocked users</a><br>
 												            <a href="identity-protection/index.yml"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
