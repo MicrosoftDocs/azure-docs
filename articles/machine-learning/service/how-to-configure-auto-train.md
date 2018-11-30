@@ -19,9 +19,9 @@ To view examples of an automated machine learning, see [Tutorial: Train a classi
 
 Configuration options available in automated machine learning:
 
-* Select your experiment type, for example,  Classification, Regression 
+* Select your experiment type: Classification, Regression or Forecasting
 * Data source, formats, and fetch data
-* Choose your compute target (local or remote)
+* Choose your compute target: local or remote
 * Automated machine learning experiment settings
 * Run an automated machine learning experiment
 * Explore model metrics
@@ -62,12 +62,9 @@ Examples:
 *	Pandas dataframe
 
     ```python
-    Import pandas as pd
+    import pandas as pd
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
     # get integer labels 
-    le = LabelEncoder() 
-    le.fit(df["Label"].values) 
-    y = le.transform(df["Label"].values) 
     df = df.drop(["Label"], axis=1) 
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
@@ -81,8 +78,7 @@ Here is an example of `get_data`:
 ```python
 %%writefile $project_folder/get_data.py 
 import pandas as pd 
-from sklearn.model_selection 
-import train_test_split 
+from sklearn.model_selection import train_test_split 
 from sklearn.preprocessing import LabelEncoder 
 def get_data(): # Burning man 2016 data 
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
@@ -180,7 +176,7 @@ This table lists parameter settings available for your experiment and their defa
 
 Property |	Description	| Default Value
 --|--|--
-`task`	|Specify the type of machine learning problem. Allowed values are <li>classification</li><li>regression</li>	| None |
+`task`	|Specify the type of machine learning problem. Allowed values are <li>Classification</li><li>Regression</li><li>Forecasting</li>	| None |
 `primary_metric` |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, automated machine learning looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score	 </li> | For Classification: accuracy <br/>For Regression: spearman_correlation <br/> |
 `exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, automated machine learning will stop iterating and the experiment terminates. If this value is not set (default), Automated machine learning experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then Automated machine learning will continue until it reaches the number of iterations specified in iterations.|	None
 `iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. To get a high-quality model, use 250 or more	| 100
@@ -200,7 +196,7 @@ Property |	Description	| Default Value
 `sample_weight_valid`	| 	_Optional_ A weight value for each validation sample. If not specified, sample_weight is split between train and validate	| None
 `run_configuration` |	RunConfiguration object.  Used for remote runs. |None
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
-`model_explainability` | _Optional_ Used to for feature engineering explainability | False
+`model_explainability` | _Optional_ Used for feature engineering explainability | False
 `enable_ensembling`|Flag to enable an ensembling iteration after all the other iterations complete.|
 `ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.|
 
@@ -241,7 +237,7 @@ The following metrics are saved in each iteration for a classification task.
 
 |Primary Metric|Description|Calculation|Extra Parameters
 --|--|--|--|--|
-AUC_Macro| AUC is the Area under the Receiver Operating Characteristic Curve. Macro is the arithmetic mean of the AUC for each class. [Scikit Learn Definition](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | [Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
+AUC_Macro| AUC is the Area under the Receiver Operating Characteristic Curve. Macro is the arithmetic mean of the AUC for each class.  | [Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC is the Area under the Receiver Operating Characteristic Curve. Micro is computed globably by combining the true positives and false positives from each class| [Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | AUC is the Area under the Receiver Operating Characteristic Curve. Weighted is the arithmetic mean of the score for each class, weighted by the number of true instances in each class| [Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
 accuracy|Accuracy is the percent of predicted labels that exactly match the true labels. |[Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
