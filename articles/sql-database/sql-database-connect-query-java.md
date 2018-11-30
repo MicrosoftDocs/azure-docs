@@ -38,13 +38,13 @@ To complete this sample, make sure you have the following prerequisites:
 
 ## Create the project
 
-1. From the terminal, create a new Maven project called *sqltest*.
+1. From the command prompt, create a new Maven project called *sqltest*.
 
     ```bash
     mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
 
-1. Change directory to *sqltest* and open *pom.xml* with your favorite text editor. Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code.
+1. Change the folder to *sqltest* and open *pom.xml* with your favorite text editor. Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code.
 
     ```xml
     <dependency>
@@ -133,14 +133,14 @@ To complete this sample, make sure you have the following prerequisites:
 
 ## Run the code
 
-1. At the command prompt, run the program.
+1. At the command prompt, run the app.
 
     ```bash
     mvn package -DskipTests
     mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
     ```
 
-1. Verify the top 20 rows are returned and close the application window.
+1. Verify the top 20 rows are returned and close the app window.
 
 ## Next steps
 

@@ -69,13 +69,13 @@ To complete this sample, make sure you have the following prerequisites:
 
 ## Run the code
 
-1. At the command prompt, run the program.
+1. At the command prompt, run the app.
 
    ```bash
    php sqltest.php
    ```
 
-1. Verify the top 20 rows are returned and close the application window.
+1. Verify the top 20 rows are returned and close the app window.
 
 ## Next steps
 
