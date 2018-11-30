@@ -157,7 +157,7 @@ The trained app's package is available from the **Versions** list page.
 Use the following REST API method, to package a LUIS app that you've already [published](luis-how-to-publish-app.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
-GET /luis/webapi/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip HTTP/1.1
+GET /luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip HTTP/1.1
 Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
@@ -173,7 +173,7 @@ Use the following CURL command to download the published package, substituting y
 
 ```bash
 curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
+https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
  -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
  -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
 ```
@@ -185,7 +185,7 @@ If successful, the response is a LUIS package file. Save the file in the storage
 Use the following REST API method, to package a LUIS application that you've already [trained](luis-how-to-train.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
-GET /luis/webapi/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip HTTP/1.1
+GET /luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip HTTP/1.1
 Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
@@ -201,7 +201,7 @@ Use the following CURL command to download the trained package:
 
 ```bash
 curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
+https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
  -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
  -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
 ```
