@@ -58,7 +58,6 @@ Before you begin, make sure that:
 ### For the Data Box Edge device
 
 Before you deploy a physical device, make sure that:
-
 - You have a 1 U slot available in a standard 19” rack in your datacenter for rack mounting the device. 
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
@@ -79,7 +78,7 @@ Perform the following steps to create a new Data Box Edge resource.
 
 If you have an existing Data Box Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-To create a Data Box resource, take the following steps in the Azure portal .
+To create a Data Box resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
