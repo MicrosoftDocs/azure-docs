@@ -108,7 +108,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/SecretToken2.png)
 	
-	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, click Save to save the settings. Copy the **Base UR**L to **Tenant URL** and **Bearer Token**  to **Secret Tokne**.
+	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, click Save to save the settings. Copy the **Base UR**L to **Tenant URL** and **Bearer Token**  to **Secret Token**.
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
 
