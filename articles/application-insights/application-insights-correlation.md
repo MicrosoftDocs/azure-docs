@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: .net
 author: lgayhardt
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-
 ---
 # Telemetry correlation in Application Insights
 

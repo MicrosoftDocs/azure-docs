@@ -20,33 +20,33 @@ ms.component:
 
 # Create a data pipeline with the Data Collector API
 
-The [Log Analytics Data Collector API](log-analytics-data-collector-api.md) allows you to import any custom data into Log Analytics. The only requirements are that the data be JSON-formatted and split into 30 MB or less segments. This is a completely flexible mechanism that can be plugged into in many ways: from data being sent directly from your application, to one-off adhoc uploads. This article will outline some starting points for a common scenario: the need to upload data stored in files on a regular, automated basis. While the pipeline presented here will not be the most performant or otherwise optimized, it is intended to serve as a starting point towards building a production pipeline of your own.
+The [Log Analytics Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) allows you to import any custom data into Log Analytics. The only requirements are that the data be JSON-formatted and split into 30 MB or less segments. This is a completely flexible mechanism that can be plugged into in many ways: from data being sent directly from your application, to one-off adhoc uploads. This article will outline some starting points for a common scenario: the need to upload data stored in files on a regular, automated basis. While the pipeline presented here will not be the most performant or otherwise optimized, it is intended to serve as a starting point towards building a production pipeline of your own.
 
 ## Example problem
 For the remainder of this article, we will examine page view data in Application Insights. In our hypothetical scenario, we want to correlate geographical information collected by default by the Application Insights SDK to custom data containing the population of every country in the world, with the goal of identifying where we should be spending the most marketing dollars. 
 
 We use a public data source such as the [UN World Population Prospects](https://esa.un.org/unpd/wpp/) for this purpose. The data will have the following simple schema:
 
-![Example simple schema](./media/log-analytics-create-pipeline-datacollector-api/example-simple-schema-01.png)
+![Example simple schema](./media/create-pipeline-datacollector-api/example-simple-schema-01.png)
 
 In our example, we assume that we will upload a new file with the latest year’s data as soon as it becomes available.
 
 ## General design
 We are using a classic ETL-type logic to design our pipeline. The architecture will look as follows:
 
-![Data collection pipeline architecture](./media/log-analytics-create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
+![Data collection pipeline architecture](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
 
-This article will not cover how to create data or [upload it to an Azure Blob Storage account](../storage/blobs/storage-upload-process-images.md). Rather, we pick the flow up as soon as a new file is uploaded to the blob. From here:
+This article will not cover how to create data or [upload it to an Azure Blob Storage account](../../storage/blobs/storage-upload-process-images.md). Rather, we pick the flow up as soon as a new file is uploaded to the blob. From here:
 
-1. A process will detect that new data has been uploaded.  Our example uses an [Azure Logic App](../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
+1. A process will detect that new data has been uploaded.  Our example uses an [Azure Logic App](../../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
 
-2. A processor reads this new data and converts it to JSON, the format required by Log Analytics.  In this example, we use an [Azure Function](../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect a the new data.
+2. A processor reads this new data and converts it to JSON, the format required by Log Analytics.  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect a the new data.
 
 3. Finally, once the JSON object is available, it is sent to Log Analytics. The same Logic App sends the data to Log Analytics using the built in Log Analytics Data Collector activity.
 
 While the detailed setup of the blob storage, Logic App, or Azure Function is not outlined in this article, detailed instructions are available on the specific products’ pages.
 
-To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../azure-functions/functions-monitoring.md), and Log Analytics to monitor our Logic App [details here](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Log Analytics to monitor our Logic App [details here](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
 ## Setting up the pipeline
 To set the pipeline, first make sure you have your blob container created and configured. Likewise, make sure that the Log Analytics workspace where you’d like to send the data to is created.
@@ -54,7 +54,7 @@ To set the pipeline, first make sure you have your blob container created and co
 ## Ingesting JSON data
 Ingesting JSON data is trivial with Logic Apps, and since no transformation needs to take place, we can encase the entire pipeline in a single Logic App. Once both the blob container and the Log Analytics workspace have been configured, create a new Logic App and configure it as follows:
 
-![Logic apps workflow example](./media/log-analytics-create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
+![Logic apps workflow example](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
 
 Save your Logic App and proceed to test it.
 
@@ -66,7 +66,7 @@ In this example, we parse a CSV file, but any other file type can be similarly p
 1.  Create a new Azure Function, using the Function runtime v1 and consumption-based when prompted.  Select the **HTTP trigger** template targeted at C# as a starting point that configures your bindings as we require. 
 2.  From the **View Files** tab on the right pane, create a new file called **project.json** and paste the following code from NuGet packages that we are using:
 
-    ![Azure Functions example project](./media/log-analytics-create-pipeline-datacollector-api/functions-example-project-01.png)
+    ![Azure Functions example project](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     
     ``` JSON
     {
@@ -127,11 +127,11 @@ In this example, we parse a CSV file, but any other file type can be similarly p
 4. Save your function.
 5. Test the function to make sure the code is working correctly. Switch to the **Test** tab in the right pane, configuring the test as follows. Place a link to a blob with sample data into the **Request body** textbox. After clicking **Run**, you should see JSON output in the **Output** box:
 
-    ![Function Apps test code](./media/log-analytics-create-pipeline-datacollector-api/functions-test-01.png)
+    ![Function Apps test code](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
 Now we need to go back and modify the Logic App we started building earlier to include the data ingested and converted to JSON format.  Using View Designer, configure as follows and then save your Logic App:
 
-![Logic Apps workflow complete example](./media/log-analytics-create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
+![Logic Apps workflow complete example](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## Testing the pipeline
 Now you can upload a new file to the blob configured earlier and have it monitored by your  Logic App. Soon, you should see a new instance of the Logic App kick off, call out to your Azure Function, and then successfully send the data to Log Analytics. 
@@ -154,7 +154,7 @@ app("fabrikamprod").pageViews
 
 The output should show the two data sources now joined.  
 
-![Correlating disjoined data in a search result example](./media/log-analytics-create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
+![Correlating disjoined data in a search result example](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
 
 ## Suggested improvements for a production pipeline
 This article presented a working prototype, the logic behind which can be applied towards a true production-quality solution. For such a production-quality solution, the following improvements are recommended:
@@ -169,4 +169,4 @@ This article presented a working prototype, the logic behind which can be applie
 
 
 ## Next steps
-Learn more about the  [Data Collector API](log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.
+Learn more about the  [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.
