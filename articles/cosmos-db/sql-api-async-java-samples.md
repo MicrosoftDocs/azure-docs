@@ -3,11 +3,9 @@ title: 'Azure Cosmos DB: Async Java examples for the SQL API | Microsoft Docs'
 description: Find Async Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 documentationcenter: java
 
 ms.service: cosmos-db
-ms.workload: data-services
 ms.devlang: java
 ms.topic: sample
 ms.date: 06/18/2018

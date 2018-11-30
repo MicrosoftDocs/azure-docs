@@ -3,8 +3,6 @@ title: How to use Azure Table Storage and the Azure Cosmos DB Table API with Rub
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table

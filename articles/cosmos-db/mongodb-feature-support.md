@@ -3,11 +3,9 @@ title: 'Azure Cosmos DB feature support for MongoDB | Microsoft Docs'
 description: Learn about the feature support the Azure Cosmos DB MongoDB API provides for MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys

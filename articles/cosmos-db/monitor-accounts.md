@@ -3,10 +3,8 @@ title: Monitor Azure Cosmos DB requests and storage | Microsoft Docs
 description: Learn how to monitor your Azure Cosmos DB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: sngun

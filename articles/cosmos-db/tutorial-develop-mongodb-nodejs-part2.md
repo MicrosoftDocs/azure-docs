@@ -3,8 +3,6 @@ title: "MongoDB, Angular, and Node tutorial for Azure - Part 2 | Microsoft Docs"
 description: Part 2 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB.
 services: cosmos-db
 author: johnpapa 
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo

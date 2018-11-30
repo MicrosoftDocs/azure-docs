@@ -3,11 +3,9 @@ title: "Azure Cosmos DB: SQL syntax query reference | Microsoft Docs"
 description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
 author: LalithaMV
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na 
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa

@@ -4,11 +4,9 @@ description: 'Learn how to use Robomongo with an Azure Cosmos DB: API for MongoD
 keywords: robomongo
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: sngun

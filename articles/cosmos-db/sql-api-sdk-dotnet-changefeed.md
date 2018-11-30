@@ -3,7 +3,6 @@ title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources | Micro
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 services: cosmos-db
 author: ealsur
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

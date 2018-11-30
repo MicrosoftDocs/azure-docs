@@ -4,10 +4,8 @@ description: Learn how to use Azure Cosmos DB to write stored procedures, databa
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, azure, Microsoft azure
 services: cosmos-db
 author: aliuy
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl

@@ -4,7 +4,6 @@ description: Find Java examples on GitHub for common tasks using the Azure Cosmo
 keywords: NoSQL example
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

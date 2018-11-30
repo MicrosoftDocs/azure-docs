@@ -4,11 +4,9 @@ description: Learn how to set up Azure Cosmos DB global distribution using the M
 services: cosmos-db
 keywords: global distribution, MongoDB
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: sngun

@@ -4,7 +4,6 @@ description: Find Python examples on github for common tasks in Azure Cosmos DB,
 keywords: python examples
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

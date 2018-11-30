@@ -4,11 +4,8 @@ description: Learn how to perform scale and performance testing with Azure Cosmo
 keywords: performance testing
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun

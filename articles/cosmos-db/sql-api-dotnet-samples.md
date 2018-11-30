@@ -4,11 +4,9 @@ description: Find C# .NET examples on github for common tasks using the Azure Co
 keywords: NoSQL example
 services: cosmos-db
 author: rnagpal
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal

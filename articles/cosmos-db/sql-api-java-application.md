@@ -4,7 +4,6 @@ description: This Java web application tutorial shows you how to use the Azure C
 keywords: Application development, database tutorial, java application, java web application tutorial, azure, Microsoft azure
 services: cosmos-db
 author: tknandu
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

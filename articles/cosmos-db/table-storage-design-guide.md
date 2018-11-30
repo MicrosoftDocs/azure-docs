@@ -3,11 +3,9 @@ title: Azure Storage Table Design Guide | Microsoft Docs
 description: Design Scalable and Performant Tables in Azure Table Storage
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun

@@ -5,7 +5,6 @@ services: cosmos-db
 author: markjbrown
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown

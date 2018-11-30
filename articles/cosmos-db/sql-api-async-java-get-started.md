@@ -4,7 +4,6 @@ description: This tutorial shows you how to use Azure Cosmos DB SQL API accounts
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

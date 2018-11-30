@@ -4,7 +4,6 @@ description: A tutorial that creates an online database and C# console applicati
 keywords: nosql tutorial, online database, c# console application
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

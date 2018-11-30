@@ -4,11 +4,9 @@ description: Learn about how to instrument and debug the SQL query performance o
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun

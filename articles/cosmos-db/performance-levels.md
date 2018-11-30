@@ -3,10 +3,8 @@ title: Retired Azure Cosmos DB performance levels | Microsoft Docs
 description: Learn about the S1, S2, and S3 performance levels previously available in Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun

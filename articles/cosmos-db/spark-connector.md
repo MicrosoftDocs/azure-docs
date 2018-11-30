@@ -4,10 +4,8 @@ description: Learn about the Azure Cosmos DB Spark connector that enables you to
 keywords: apache spark
 services: cosmos-db
 author: tknandu
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris

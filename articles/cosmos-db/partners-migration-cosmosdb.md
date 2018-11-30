@@ -4,7 +4,6 @@ description: Lists Microsoft partners with migration solutions that support Azur
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018

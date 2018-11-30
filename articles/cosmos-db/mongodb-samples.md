@@ -4,8 +4,6 @@ description: A tutorial that creates an online database using the Azure Cosmos D
 keywords: mongodb examples
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
