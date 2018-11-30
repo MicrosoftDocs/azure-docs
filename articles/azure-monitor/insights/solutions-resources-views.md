@@ -22,7 +22,7 @@ ms.author: bwren
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.    
 
 
-[Management solutions](solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../../log-analytics/log-analytics-view-designer.md) and include it in a management solution.  
+[Management solutions](solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../../azure-monitor/platform/view-designer.md) and include it in a management solution.  
 
 > [!NOTE]
 > The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](solutions-creating.md)
@@ -33,7 +33,7 @@ ms.author: bwren
 This article assumes that you're already familiar with how to [create a management solution](solutions-creating.md) and the structure of a solution file.
 
 ## Overview
-To include a view in a management solution, you create a **resource** for it in the [solution file](solutions-creating.md).  The JSON that describes the view's detailed configuration is typically complex though and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../../log-analytics/log-analytics-view-designer.md), export it, and then add its detailed configuration to the solution.
+To include a view in a management solution, you create a **resource** for it in the [solution file](solutions-creating.md).  The JSON that describes the view's detailed configuration is typically complex though and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../../azure-monitor/platform/view-designer.md), export it, and then add its detailed configuration to the solution.
 
 The basic steps to add a view to a solution are as follows.  Each step is described in further detail in the sections below.
 
@@ -42,7 +42,7 @@ The basic steps to add a view to a solution are as follows.  Each step is descri
 3. Add the view details.
 
 ## Export the view to a file
-Follow the instructions at [Log Analytics View Designer](../../log-analytics/log-analytics-view-designer.md) to export a view to a file.  The exported file will be in JSON format with the same [elements as the solution file](solutions-solution-file.md).  
+Follow the instructions at [Log Analytics View Designer](../../azure-monitor/platform/view-designer.md) to export a view to a file.  The exported file will be in JSON format with the same [elements as the solution file](solutions-solution-file.md).  
 
 The **resources** element of the view file will have a resource with a type of **Microsoft.OperationalInsights/workspaces** that represents the Log Analytics workspace.  This element will have a subelement with a type of **views** that represents the view and contains its detailed configuration.  You will copy the details of this element and then copy it into your solution.
 
