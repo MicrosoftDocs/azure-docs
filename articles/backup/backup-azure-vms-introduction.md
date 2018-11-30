@@ -97,14 +97,14 @@ There can be several reasons for the long backup time:
   1. **First backup for a newly added disk to an already protected VM** <br>
     If a VM is already undergoing incremental backup, when a new disk(s) is added then the backup might miss 1 day SLA depending on the first backup size of the new disk.
   2. **Fragmentation** <br>
-    If the customer application is poorly configured that does small fragmented writes.
+    If the customer application is poorly configured that does small fragmented writes.<br>
   3. **Customer storage account overloaded** <br>
-      a. If the backup is scheduled during customer's production application time.  
-      b. If more than 5 to 10 disks are hosted from the same storage account.
+      a. If the backup is scheduled during customer's production application time.<br>  
+      b. If more than 5 to 10 disks are hosted from the same storage account.<br>
   4. **Consistency check(CC) mode** <br>
-      For > 1TB disks, if the backup happens using the CC mode due to the reasons mentioned below:
-        a. The managed disk moves as part of customer VM reboot.
-        b. Customer promotes snapshot to base blob.
+      For > 1TB disks, if the backup happens using the CC mode due to the reasons mentioned below:<br>
+        a. The managed disk moves as part of customer VM reboot.<br>
+        b. Customer promotes snapshot to base blob.<br>
 
 ## Total restore time
 
