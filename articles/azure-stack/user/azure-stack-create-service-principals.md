@@ -48,7 +48,7 @@ The way you configured Active Directory for Azure Stack determines how you creat
 
 The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) by assigning it to a role.
 
-## Create a service principal for Azure AD
+## Create service principal for Azure AD
 
 If your Azure Stack uses Azure AD as the identity store, you can create a service principal using the same steps as in Azure, using the Azure portal.
 

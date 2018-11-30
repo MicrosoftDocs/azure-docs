@@ -170,6 +170,6 @@ To accept a subscription transfer, a credit card or similar payment method must 
 
 If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

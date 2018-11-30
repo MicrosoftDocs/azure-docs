@@ -6,14 +6,12 @@ documentationcenter: na
 author: sethmanheim
 manager: femila
 
-
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 12/06/2018
 ms.author: sethm
 
 ---
@@ -67,6 +65,7 @@ After saving the key, the value of the key is displayed. Copy this value to Note
 Once complete, proceed to [assigning your application a role](#assign-role-to-service-principal).
 
 ## Create service principal for AD FS
+
 If you have deployed Azure Stack with AD FS, you can use PowerShell to create a service principal, assign a role for access, and sign in from PowerShell using that identity.
 
 The script is run from the privileged endpoint on an ERCS virtual machine.
@@ -85,7 +84,6 @@ Certificate Requirements:
 
 The following information is required as input for the automation parameters:
 
-
 |Parameter|Description|Example|
 |---------|---------|---------|
 |Name|Name for the SPN account|MyAPP|
@@ -96,7 +94,7 @@ The following information is required as input for the automation parameters:
 
 1. Open an elevated Windows PowerShell session, and run the following commands:
 
-   > [!NOTE]
+   > [!NOTE]  
    > This example creates a self-signed certificate. When you run these commands in a production deployment, use [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) to retrieve the certificate object for the certificate you want to use.
 
    ```PowerShell  
@@ -170,6 +168,83 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
+
+### Update service principal for AD FS
+
+If you have deployed Azure Stack with AD FS, you can use PowerShell to update the certificate for a service principal.
+
+The script is run from the privileged endpoint on an ERCS virtual machine.
+
+#### Parameters
+
+The following information is required as input for the automation parameters:
+
+|Parameter|Description|Example|
+|---------|---------|---------|
+|Name|Name for the SPN account|MyAPP|
+|ApplicationIdentifier|Unique identifier|S-1-5-21-1634563105-1224503876-2692824315-2119|
+|ClientCertificate|Array of certificate objects|X509 certificate|
+
+### Example of updating service principal for AD FS
+
+The example creates a self-signed certificate. When you run the cmdlets in a production deployment, use [Get-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-Item) to retrieve the certificate object for the certificate you want to use.
+
+1. Open an elevated Windows PowerShell session, and run the following cmdlets:
+
+     ```powershell
+          # Creating a PSSession to the ERCS PrivilegedEndpoint
+          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
+          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+
+          $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $Newcert}
+
+          $session|remove-pssession
+     ```
+
+2. After the automation finishes, it displays the updated thumbprint value required for SPN authentication.
+
+     ```Shell  
+          ClientId              : 
+          Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
+          ApplicationName       : Azurestack-ThomasAPP-3e5dc4d2-d286-481c-89ba-57aa290a4818
+          ClientSecret          : 
+          RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
+     ```
+
+### Remove a service principal for AD FS
+
+If you have deployed Azure Stack with AD FS, you can use PowerShell to delete a service principal.
+
+The script is run from the privileged endpoint on an ERCS virtual machine.
+
+#### Parameters
+
+The following information is required as input for the automation parameters:
+
+|Parameter|Description|Example|
+|---------|---------|---------|
+| Parameter | Description | Example |
+| ApplicationIdentifier | Unique identifier | S-1-5-21-1634563105-1224503876-2692824315-2119 |
+
+> [!Note]  
+> To view a list of all existing service principals and their Application Identifier, the get-graphapplication command can be used.
+
+#### Example of removing the service principal for AD FS
+
+```powershell  
+     Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     $creds = Get-Credential
+
+     # Creating a PSSession to the ERCS PrivilegedEndpoint
+     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+     $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock { Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+
+     $session|remove-pssession
+```
+
 
 ## Assign role to service principal
 To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md).

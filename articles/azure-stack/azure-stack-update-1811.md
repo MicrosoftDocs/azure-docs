@@ -38,7 +38,7 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 This update includes the following improvements for Azure Stack:
 
-- Enhanced Azure Stack operator experience for managing updates.
+- Enhanced Azure Stack operator experience for managing updates from the Update blade.
 
 - Support is added for the following Azure Storage Service API versions: 2017-07-29, 2017-11-09; and the following Azure Storage Resource Provider API versions: 2016-05-01, 2016-12-01, 2017-06-01, 2017-10-01. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
@@ -54,6 +54,8 @@ This update includes the following improvements for Azure Stack:
 
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
 
+- Improved Marketplace management experience for disconnected customers. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
+
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
@@ -61,7 +63,7 @@ This update includes the following improvements for Azure Stack:
 
    For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
 
-- You can now [move the registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
+
 
 ### Fixed issues
 
@@ -145,6 +147,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/).
 
+Seth:  The latest Hotfix for 1809 as of today is https://support.microsoft.com/en-us/help/4477849/azure-stack-hotfix-1-1809-6-102
+
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -164,11 +168,11 @@ For more information about these vulnerabilities, click on the preceding links, 
    The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
    ``` 
  
-- In addition to various quality improvements, the [1.1809.3.96 Hotfix](https://support.microsoft.com/help/4471993/) includes a check for properly imported extension host certificates. You may receive the following warning if you haven't performed the required steps: 
+In addition to various quality improvements, the [1.1809.3.96 Hotfix](https://support.microsoft.com/help/4471993/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you haven't performed the required steps: 
  
-   `Missing SSL certificates. SSL certificates for Extension Host not detected.` 
- 
-   The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails. 
+`
+Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
+`
 
    Once you have properly imported the mandatory extension host certificates, you can simply resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
@@ -177,8 +181,6 @@ For more information about these vulnerabilities, click on the preceding links, 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 - <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.
-
-- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 - <!-- 3139614 | IS --> If you've applied an update to Azure Stack from your OEM, the **Update available** notification may not appear in the Azure Stack Admin portal. To install the Microsoft update, download and import it manually using the instructions located here [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
