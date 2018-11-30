@@ -30,15 +30,15 @@ When ingesting data from a source system to Data Lake Storage Gen2, it is import
 
 It is important to ensure that the data movement is not affected by these factors.
 
-### Source Hardware
+### Source hardware
 
 Whether you are using on-premises machines or VMs in Azure, you should carefully select the appropriate hardware. For Source Disk Hardware, prefer SSDs to HDDs and pick disk hardware with faster spindles. For Source Network Hardware, use the fastest NICs possible.  On Azure, we recommend Azure D14 VMs which have the appropriately powerful disk and networking hardware.
 
-### Network Connectivity to Data Lake Storage Gen2
+### Network connectivity to Data Lake Storage Gen2
 
 The network connectivity between your source data and Data Lake Storage Gen2 can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Storage Gen2 account.
 
-### Configure Data Ingestion tools for maximum parallelization
+### Configure data ingestion tools for maximum parallelization
 
 Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](data-scenarios.md).
 
@@ -60,7 +60,7 @@ In general, organize your data into larger sized files for better performance.  
 
 Sometimes, data pipelines have limited control over the raw data which has lots of small files.  It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
 
-### Organizing Time Series data in folders
+### Organizing time series data in folders
 
 For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data which improves performance.    
 
@@ -86,7 +86,7 @@ Jobs fall into one of the following three categories:
 
 The following guidance is only applicable to I/O intensive jobs.
 
-### General Considerations for an HDInsight cluster
+### General considerations for an HDInsight cluster
 
 * **HDInsight versions.** For best performance, use the latest release of HDInsight.
 * **Regions.** Place the Data Lake Storage Gen2 account in the same region as the HDInsight cluster.  
