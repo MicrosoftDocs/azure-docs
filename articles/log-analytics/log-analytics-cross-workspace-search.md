@@ -1,6 +1,6 @@
 ---
 title: Search across resources with Azure Log Analytics  | Microsoft Docs
-description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription. 
+description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte

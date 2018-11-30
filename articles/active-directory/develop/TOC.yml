@@ -85,7 +85,7 @@
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
-      - name: OAuth 2.0 and OpenID Connect protocol
+      - name: OAuth 2.0 and OpenID Connect protocols
         items:
         - name: OpenID Connect
           href: v1-protocols-openid-connect-code.md
@@ -322,7 +322,8 @@
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
-      - name: OAuth 2.0 and OpenID Connect protocol
+      - name: OAuth 2.0 and OpenID Connect protocols
+        href: active-directory-v2-protocols.md
         items:
         - name: OpenID Connect 
           href: v2-protocols-oidc.md
