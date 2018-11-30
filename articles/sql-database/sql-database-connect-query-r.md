@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default. Send an email to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview.
 
-Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new databases on an R enabled service.
+Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new database on an R enabled service.
 
 Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** are supported. You should not use Machine Learning Services with R for production workloads during the public preview.
 
@@ -81,12 +81,12 @@ You can confirm that Machine Learning Services (with R) is enabled for your SQL 
 
 There are two ways you can run R code in SQL Database:
 
-+ Add a R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
++ Add R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 + From a [remote R client](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute code using the SQL Database as the compute context.
 
 The following exercise is focused on the first interaction model: how to pass R code to a stored procedure.
 
-1. Run a simple script to see how an R script can executed in your SQL database.
+1. Run a simple script to see how an R script executes in your SQL database.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -434,7 +434,7 @@ If you need to use a package that is not already installed in your SQL database,
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    If you are receiving the error like **'R' is not recognized as an internal or external command, operable program or batch file.**, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
+    If you get the following  error, "'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) before running the command.
 
 1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
 
