@@ -72,14 +72,6 @@ To delete a file or a directory:
 
     %sh rm [-skipTrash] URI [URI ...]
  
-To display the Access Control Lists (ACLs) of files and directories:
-
-    hdfs dfs -getfacl [-R] <path>
-
-To set ACLs of files and directories:
-
-    hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
-
 After starting the Spark cluster in Azure Databricks, you'll create a new notebook. The sample notebook script will look as follows:
 
     #Execute basic HDFS commands invoking the shell. Display the hierarchy.
@@ -91,6 +83,52 @@ After starting the Spark cluster in Azure Databricks, you'll create a new notebo
 
 For more information on Databricks CLI, see the [official documentation](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html). For more information on notebooks, see the [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) section of the documentation.
 
+## Set file and directory level permissions
+
+You set and get access permissions at the file and directory level. Here's a few commands to get you started. 
+
+You can view the complete list of commands on the [Apache Hadoop](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) Website.
+
+To learn more about file and directory level permissions for the Azure Data Lake Gen2 filesystem, see [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+
+### Display the Access Control Lists (ACLs) of files and directories
+
+    hdfs dfs -getfacl [-R] <path>
+
+Example:
+
+`hdfs dfs -getfacl -R /dir`
+
+See [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#getfacl)
+
+### Set ACLs of files and directories
+
+    hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
+
+Example:
+
+`hdfs dfs -setfacl -m user:hadoop:rw- /file`
+
+See [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#setfacl)
+
+### Change the owner
+
+    hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
+
+See [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
+
+### Change group association
+
+    hdfs dfs -chgrp [-R] <group> <URI>
+
+See [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
+
+### Change the permissions of files
+
+    hdfs dfs -chmod [-R] <mode> <URI>
+
+See [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
+
 ## Next steps
 
-- [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md) 
+[Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md) 
