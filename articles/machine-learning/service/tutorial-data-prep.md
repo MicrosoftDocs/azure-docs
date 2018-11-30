@@ -15,7 +15,7 @@ ms.date: 12/4/2018
 
 # Tutorial #1: Prepare data for regression modeling
 
-In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets, with the end goal of predicting the cost of a taxi trip. This tutorial is part one of a two-part tutorial series.
+In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets. The end goal of this tutorial set is to predict the cost of a taxi trip by training a model on data features including pickup hour, day of week, number of passengers, and coordinates. This tutorial is part one of a two-part tutorial series.
 
 In this tutorial, you:
 
@@ -36,7 +36,7 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 
 ## Import packages
 
-Begin by importing the Azure DataPrep SDK.
+Begin by importing the SDK.
 
 
 ```python
@@ -65,7 +65,6 @@ display(yellow_df.head(5))
 ## Cleanse data
 
 Now you populate some variables with shortcut transforms that will apply to all dataflows. The variable `drop_if_all_null` will be used to delete records where all fields are null. The variable `useful_columns` holds an array of column descriptions that are retained in each dataflow.
-
 
 ```python
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
@@ -251,7 +250,7 @@ Again, overwrite `yellow_df` with `tmp_df`, and then call the `append_rows()` fu
 
 ```python
 yellow_df = tmp_df
-combined_df = green_df.append_rows(other_activities=[yellow_df])
+combined_df = green_df.append_rows([yellow_df])
 ```
 
 ### Convert types and filter 
@@ -1000,13 +999,13 @@ From the data above, you see that the pickup and drop-off date and time componen
 tmp_df = tmp_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
 ```
 
-Use the type inference functionality to automatically check the data type of each field, and display the inference results using `inference_info()`.
+Use the type inference functionality to automatically check the data type of each field, and display the inference results.
 
 
 ```python
 type_infer = tmp_df.builders.set_column_types()
 type_infer.learn()
-type_infer.inference_info
+type_infer
 ```
 
 

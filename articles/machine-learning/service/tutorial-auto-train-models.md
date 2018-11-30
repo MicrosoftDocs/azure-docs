@@ -553,7 +553,7 @@ dflow_prepared.get_profile()
 You prepare the data for the experiment by adding columns to `dflow_x` to be features for our model creation. You define `dflow_y` to be our prediction value; cost.
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['vendor','pickup_week','pickup_hour','store_forward','pickup_longitude','pickup_latitude','passengers'])
+dflow_X = dflow_prepared.keep_columns(['vendor','pickup_weekday','pickup_hour','store_forward','pickup_longitude','pickup_latitude','passengers'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
