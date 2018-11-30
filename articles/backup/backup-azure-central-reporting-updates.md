@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: adigan;
+ms.author: adigan
 
 ---
 # Update the Azure Backup central reporting content pack 
