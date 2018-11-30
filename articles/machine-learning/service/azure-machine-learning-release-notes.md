@@ -50,7 +50,7 @@ Azure Machine Learning service is now generally available.
 + Virtul network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
 + View real time Azure Machine Learning Compute cluster status.
 + Ability to re-run a published pipeline with existing parameters.
-+ New charts for Automated Machine Learning runs submitted
++ Charts for Classification(Lift, Gains, Calibration, Feature importance chart with model explainability) and regression(Residuals and Feature Importance chart with model explainability) were added  for submitted Automated Machine Learning runs. 
 
 ## 2018-11-20
 
