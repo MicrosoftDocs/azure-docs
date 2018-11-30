@@ -20,7 +20,7 @@ This document covers the Azure Time Series Insights (preview) partition key, the
 The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (preview) environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.
 
 > [!IMPORTANT]
-> The **Time Series ID** is case-sensitive immutable and cannot be changed once set.
+> The **Time Series ID** is case-sensitive and immutable (it cannot be changed once set).
 
 With that in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
 
