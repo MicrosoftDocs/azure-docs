@@ -160,7 +160,7 @@ public static void main(String[] args) {
 
 ## Run the sample app
 
-That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to the root of your working directory and run:
 
 ```console
 gradle build
