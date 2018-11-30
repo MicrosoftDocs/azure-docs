@@ -1,5 +1,5 @@
 ---
-title: Big data applications compatible with Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Open source platforms that work with Azure Data Lake Storage Gen2 | Microsoft Docs
 description: List of open source applications that work with Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store)
 services: storage
 documentationcenter: ''
@@ -13,16 +13,13 @@ ms.date: 11/09/2018
 ms.author: nitinme
 
 ---
-# Open Source Big Data applications that work with Azure Data Lake Storage Gen2
+# Open source platforms that work with Azure Data Lake Storage Gen2
 
-This article lists the open source big data applications that work with Azure Data Lake Storage Gen2. For the applications in the table below, only the versions listed are supported.
+This article lists the open source platforms that support Azure Data Lake Storage Gen2.  Only the versions that appear in this table are supported.
 
-| Software |  Supported version(s) |
-| --- | --- |
-| [HD Insights](https://azure.microsoft.com/services/hdinsight/) | 4.0, 3.6 |
-| [Hadoop](https://hadoop.apache.org/) | 3.0 |
-| [Cloudera](https://www.cloudera.com/) | 6.1 |
-| [HortenWorks](https://hortonworks.com/) | 3.0, 2.6 |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 |
-
-For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../../hdinsight/hdinsight-component-versioning.md).
+| Software |  Supported version(s) | More information |
+| --- | --- | --- |
+| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+| [Hadoop](https://hadoop.apache.org/) | 3.0+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1+ | [Claudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 | [Databricks Runtime Versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
