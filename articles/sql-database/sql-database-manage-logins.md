@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
+ms.date: 11/29/2018
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
@@ -22,7 +22,7 @@ After firewall rules configuration, you can connect to Azure [SQL Database](sql-
 >  This topic applies to Azure SQL server, and to SQL Database and SQL Data Warehouse databases created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
 
 > [!TIP]
-> For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
+> For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). This tutorial does not apply to **Azure SQL Database Managed Instance**.
 
 ## Unrestricted administrative accounts
 There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the properties of your SQL server.
@@ -62,6 +62,10 @@ For a walk-through of creating a server, a database, server-level firewall rules
 
 
 ## Additional server-level administrative roles
+
+>[!IMPORTANT]
+>This section does not apply to **Azure SQL Database Managed Instance** as these roles are specific to **Azure SQL Database**.
+
 In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the master database to which user accounts can be added that grant permissions to either create databases or manage logins.
 
 ### Database creators
