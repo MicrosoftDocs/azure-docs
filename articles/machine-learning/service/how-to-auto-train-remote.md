@@ -101,7 +101,7 @@ Provide the remote resource access to your training data. For automated machine 
 
 To provide access, you must:
 + Create a get_data.py file containing a `get_data()` function 
-* Place that file in the root directory of the folder containing your scripts 
+* Place that file in a directory accessible as an absolute path 
 
 You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
 
@@ -143,12 +143,12 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
-    "max_time_sec": 600,
+    "iteration_timeout_minutes": 10,
     "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
     "preprocess": False,
-    "concurrent_iterations": 10,
+    "max_concurrent_iterations": 10,
     "verbosity": logging.INFO
 }
 
