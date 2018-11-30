@@ -7,13 +7,13 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 38128515-8cdf-4bd1-b2f3-d2cfaa6f951e
+ms.assetid: 839dbf54-b636-477b-9cf8-157374c78e7a
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 11/30/2018
 ms.author: jeedes
 
 ---
@@ -40,7 +40,8 @@ To configure Azure AD integration with Talent Palette, you need the following it
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Talent Palette supports **SP and IDP** initiated SSO
+* Folloze supports **IDP** initiated SSO
+* Folloze supports **Just In Time** user provisioning
 
 ## Adding Talent Palette from the gallery
 
@@ -66,10 +67,10 @@ To configure the integration of Talent Palette into Azure AD, you need to add Ta
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with [Application name] based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in [Application name] needs to be established.
+In this section, you configure and test Azure AD single sign-on with Talent Palette based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Talent Palette needs to be established.
 
-To configure and test Azure AD single sign-on with [Application name], you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Talent Palette, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Talent Palette Single Sign-On](#configure-talent-palette-single-sign-on)** - to configure the Single Sign-On settings on application side.
@@ -82,7 +83,7 @@ To configure and test Azure AD single sign-on with [Application name], you need 
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with [Application name], perform the following steps:
+To configure Azure AD single sign-on with Talent Palette, perform the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Talent Palette** application integration page, select **Single sign-on**.
 
@@ -92,35 +93,26 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
     ![Single sign-on select mode](common/select_saml_option.png)
 
-3. If you need to change to **SAML/WS-Fed** mode from any another mode, click **Change single sign-on mode** on top of the screen.
-
-	  ![Change single sign-on mode](common/change_sso_mode.png)
-
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit_urls.png)
 
-5. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Talent Palette Domain and URLs single sign-on information](common/idp_intiated.png)
+    ![Talent Palette Domain and URLs single sign-on information](common/both_replyurl_signonurl.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://talent-p.net`.
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+	a. In the **Reply URL** text box, type a URL using the following pattern:
     `https://talent-p.net/saml/acs/<tenantID>`.
 
-    c. Click **set additional URLs**.
+	b. Click **set additional URLs**.
 
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://talent-p.net/saml/sso/<tenantID>`.
 
-    ![Talent Palette Domain and URLs single sign-on information](common/metadata_upload_additional_signon.png)
-
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Talent Palette Client support team](mailto:talent-support@pa-consul.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Talent Palette Client support team](mailto:talent-support@pa-consul.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificateraw.png)
 
@@ -171,7 +163,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Enterprise applications blade](common/enterprise_applications.png)
 
-2. In the applications list, select **Talent Palette**.
+2. In the applications list, type and select **Talent Palette**.
 
 	![The Talent Palette link in the Applications list](common/all_applications.png)
 
@@ -193,7 +185,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in Talent Palette. Work with [Talent Palette support team](mailto:talent-support@pa-consul.co.jp) to add the users in the Talent Palette platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -206,4 +198,3 @@ When you click the Talent Palette tile in the Access Panel, you should be automa
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview)
-
