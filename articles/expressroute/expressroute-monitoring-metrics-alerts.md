@@ -20,7 +20,7 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts. 
 
 ## Circuit metrics
 
-To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring** you can view the **Metrics**. Select BitsInPerSecond or BitsOutPerSecond, and the Aggregation. Optionally you can apply splitting which will show the metrics per peering type.
+To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring**, you can view the **Metrics**. Select BitsInPerSecond or BitsOutPerSecond, and the Aggregation. Optionally, you can apply splitting, which will show the metrics per peering type.
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -46,7 +46,6 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 3. Define the alert details.
 
   ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
-
 
 4. Define and add the action group.
 
