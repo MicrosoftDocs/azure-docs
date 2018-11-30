@@ -58,7 +58,7 @@ Create a VM with [`az vm create`](/cli/azure/vm#az_vm_create).
 > [!TIP]
 > If SSH keys don't already exist in a default key location, the command creates them.
 
- To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named myVm1:
+ To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
 
 ```azurecli-interactive
 az vm create \
@@ -71,7 +71,7 @@ az vm create \
 
 ### Create the second VM
 
-Since you used the `--no-wait` option in the previous step, you can go ahead and create the second VM named myVm2.
+Since you used the `--no-wait` option in the previous step, you can go ahead and create the second VM named *myVm2*.
 
 ```azurecli-interactive
 az vm create \
@@ -101,7 +101,7 @@ Take note of the **publicIpAddress**. This address is used to connect to the VM 
 
 ## Connect to a VM from the internet
 
-In this command, replace `<publicIpAddress>` with the public IP address of your myVm2 VM:
+In this command, replace `<publicIpAddress>` with the public IP address of your *myVm2* VM:
 
 ```bash
 ssh <publicIpAddress>
@@ -109,7 +109,7 @@ ssh <publicIpAddress>
 
 ## Communicate between VMs
 
-To confirm private communication between the myVm2 and myVm1 VMs, enter this command:
+To confirm private communication between the *myVm2* and *myVm1* VMs, enter this command:
 
 ```bash
 ping myVm1 -c 4
@@ -117,7 +117,7 @@ ping myVm1 -c 4
 
 You receive four replies from *10.0.0.4*.
 
-Exit the SSH session with the myVm2 VM.
+Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
@@ -131,4 +131,4 @@ az group delete --name myResourceGroup --yes
 
 In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
 
-By default, Azure lets unrestricted private communication between VMs. Conversely, it only lets inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md)tutorial.
+By default, Azure lets unrestricted private communication between VMs. Conversely, it only lets inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
