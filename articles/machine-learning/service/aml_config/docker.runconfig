@@ -1,0 +1,97 @@
+# The script to run.
+script: train.py
+# The arguments to the script file.
+arguments: []
+# The name of the compute target to use for this run.
+target: local
+# Framework to execute inside. Allowed values are "Python" ,  "PySpark", "TensorFlowParameterServer" and "PythonMPI".
+framework: PySpark
+# Automatically prepare the run environment as part of the run itself.
+autoPrepareEnvironment: true
+# Maximum allowed duration for the run.
+maxRunDurationSeconds:
+# Environment details.
+environment:
+# Environment variables set for the run.
+  environmentVariables:
+    EXAMPLE_ENV_VAR: EXAMPLE_VALUE
+# Python details
+  python:
+# user_managed_dependencies=True indicates that the environmentwill be user managed. False indicates that AzureML willmanage the user environment.
+    userManagedDependencies: false
+# The python interpreter path
+    interpreterPath: python
+# Path to the conda dependencies file to use for this run. If a project
+# contains multiple programs with different sets of dependencies, it may be
+# convenient to manage those environments with separate files.
+    condaDependenciesFile: aml_config/conda_dependencies.yml
+# Docker details
+  docker:
+# Set True to perform this run inside a Docker container.
+    enabled: true
+# Base image used for Docker-based runs.
+    baseImage: mcr.microsoft.com/azureml/base:0.1.4
+# Set False if necessary to work around shared volume bugs.
+    sharedVolumes: true
+# Run with NVidia Docker extension to support GPUs.
+    gpuSupport: false
+# Extra arguments to the Docker run command.
+    arguments: []
+# Image registry that contains the base image.
+    baseImageRegistry:
+# DNS name or IP address of azure container registry(ACR)
+      address:
+# The username for ACR
+      username:
+# The password for ACR
+      password:
+# Spark details
+  spark:
+# List of spark repositories.
+    repositories:
+    - https://mmlspark.azureedge.net/maven
+    packages:
+    - group: com.microsoft.ml.spark
+      artifact: mmlspark_2.11
+      version: '0.12'
+    precachePackages: true
+# History details.
+history:
+# Enable history tracking -- this allows status, logs, metrics, and outputs
+# to be collected for a run.
+  outputCollection: true
+# whether to take snapshots for history.
+  snapshotProject: true
+# Spark configuration details.
+spark:
+  configuration:
+    spark.app.name: Azure ML Experiment
+    spark.yarn.maxAppAttempts: 1
+# HDI details.
+hdi:
+# Yarn deploy mode. Options are cluster and client.
+  yarnDeployMode: cluster
+# BatchAI details.
+batchai:
+# Number of nodes to use for running batchai jobs
+  nodeCount: 1
+# Tensorflow details.
+tensorflow:
+# The number of worker tasks.
+  workerCount: 1
+# The number of parameter server tasks.
+  parameterServerCount: 1
+# Mpi details.
+mpi:
+# When using MPI, number of processes per node.
+  processCountPerNode: 1
+# Container instance details.
+containerInstance:
+# Number of cores to allocate for the container
+  cpuCores: 1
+# Memory to allocate for the container in GB
+  memoryGb: 4
+# Azure region for the container; defaults to the same as workspace
+  region:
+# data reference configuration details
+dataReferences: {}

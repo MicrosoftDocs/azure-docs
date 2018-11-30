@@ -1,0 +1,52 @@
+script: train.py
+arguments: []
+target: local
+framework: Python
+autoPrepareEnvironment: false
+maxRunDurationSeconds: null
+environment:
+  environmentVariables:
+    EXAMPLE_ENV_VAR: EXAMPLE_VALUE
+  python:
+    userManagedDependencies: true
+    interpreterPath: 'C:\Users\shwinne\.azureml\envs\myenv2'
+    condaDependenciesFile: aml_config/conda_dependencies.yml
+  docker:
+    enabled: false
+    baseImage: 'mcr.microsoft.com/azureml/base:0.1.4'
+    sharedVolumes: true
+    gpuSupport: false
+    arguments: []
+    baseImageRegistry:
+      address: null
+      username: null
+      password: null
+  spark:
+    repositories:
+      - 'https://mmlspark.azureedge.net/maven'
+    packages:
+      - group: com.microsoft.ml.spark
+        artifact: mmlspark_2.11
+        version: '0.12'
+    precachePackages: true
+history:
+  outputCollection: true
+  snapshotProject: true
+spark:
+  configuration:
+    spark.app.name: Azure ML Experiment
+    spark.yarn.maxAppAttempts: 1
+hdi:
+  yarnDeployMode: cluster
+batchai:
+  nodeCount: 1
+tensorflow:
+  workerCount: 1
+  parameterServerCount: 1
+mpi:
+  processCountPerNode: 1
+containerInstance:
+  cpuCores: 1
+  memoryGb: 4
+  region: null
+dataReferences: {}
