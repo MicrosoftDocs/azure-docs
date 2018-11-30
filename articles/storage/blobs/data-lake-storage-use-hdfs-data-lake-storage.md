@@ -5,7 +5,7 @@ services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 11/28/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
 ---
@@ -93,4 +93,4 @@ For more information on Databricks CLI, see the [official documentation](https:/
 
 ## Next steps
 
-- [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./quickstart-create-databricks-account.md) 
+- [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md) 
