@@ -48,18 +48,22 @@
     href: user-help-auth-app-overview.md
   - name: Download and install the app
     href: microsoft-authenticator-app-how-to.md
-  - name: Add your work or school account
-    href: microsoft-authenticator-app-add-work-account.md
-  - name: Add your personal accounts
-    href: microsoft-authenticator-app-add-personal-account.md
-  - name: Manually add an account
-    href: microsoft-authenticator-app-add-account-manual.md
-  - name: Sign in with your phone
+  - name: Add accounts overview
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+      - name: Add your work or school account
+        href: microsoft-authenticator-app-add-work-account.md
+      - name: Add your personal accounts
+        href: microsoft-authenticator-app-add-personal-account.md
+      - name: Manually add an account
+        href: microsoft-authenticator-app-add-account-manual.md
+  - name: Sign in with the app and your device
     href: microsoft-authenticator-app-phone-signin-faq.md 
-  - name: Backup and recover
+  - name: Backup and recover your accounts
     href: microsoft-authenticator-app-backup-and-recovery.md
   - name: FAQ
     href: microsoft-authenticator-app-faq.md
+
 - name: My Apps portal help
   items:
   - name: Overview
