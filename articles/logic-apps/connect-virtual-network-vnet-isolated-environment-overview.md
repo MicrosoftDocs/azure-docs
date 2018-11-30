@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/29/2018
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
