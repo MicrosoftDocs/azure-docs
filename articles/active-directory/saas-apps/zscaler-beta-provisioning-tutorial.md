@@ -101,13 +101,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Zscaler Beta account as described in Step 6.
 
-6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler Beta portal user interface and click on **SAML** under **Authentication Type**.  	Click on **Configure SAML** to open **Configuration SAML** options. 
+6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler Beta portal user interface and click on **SAML** under **Authentication Type**. 
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/SecretToken1.png)
-
-	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, click Save to save the settings. Copy the **Base UR**L to **Tenant URL** and **Bearer Token**  to **Secret Tokne**.
+	Click on **Configure SAML** to open **Configuration SAML** options. 
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/SecretToken2.png)
+	
+	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, click Save to save the settings. Copy the **Base UR**L to **Tenant URL** and **Bearer Token**  to **Secret Tokne**.
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
 
@@ -155,7 +156,7 @@ This operation starts the initial synchronization of all users and/or groups def
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
 
 ## Connector Limitations
-* ZScaler Beta does not allow removing of the groups having active members.
+* ZScaler Beta does not allow removing of the groups with active members.
   
 ## Additional resources
 
