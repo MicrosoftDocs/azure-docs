@@ -1,0 +1,41 @@
+---
+title: Gen2 now supports lower compute tiers | Microsoft Docs
+description: Azure SQL Data Warehouse Gen2 now supports lower compute tiers
+author: antvgski
+manager: craigg
+ms.service: sql-data-warehouse
+ms.topic: conceptual
+ms.component: design
+ms.date: 11/30/2018
+ms.author: anvang
+ms.reviewer: igorstan
+---
+
+# Azure SQL Data Warehouse Gen2 now supports lower compute tiers.
+ 
+We’re excited to announce that Azure SQL Data Warehouse Gen2 now supports scaling as low as Data Warehouse Units DW100c lowering the entry point to experience the performance, flexibility, and security of the Compute Optimized Gen2.  With the improved flexibility in elasticity, customers can choose SQL Data Warehouse Gen2 to grow with their business or further reduce costs by scaling down compute when the demand is low and scaling up compute up to five times more than Gen1 when the demand is high.  
+ 
+ 
+SQL Data Warehouse Gen2 continues to support pause and resume operations and goes beyond just the flexibility in compute.  Gen2 also supports unlimited column store storage capacity along with 2.5 times more memory per query and adaptive caching features bringing experiences on average of 5 times more performance compared to the same Data Warehouse Unit on Gen1 at the same price.  Geo-redundant backups are standard for Gen2 with built-in guaranteed data protection.
+Upgrade your Azure SQL DW Compute Optimized Gen1 to Gen2 today.
+
+## The following regions will be available for lower compute tiers on Dec 15, 2018
+- East US1 
+- East US2
+- West Europe
+- North Europe
+- West US2
+- Southeast Asia
+- Southcentral US
+- Central US 
+- East Asia
+- Japan East
+- India Central
+- Australia East
+- Canada Central
+- Japan West 
+- Canada Central
+
+## Next steps
+
+- [Learn more](upgrade-to-latest-generation.md) about Optimize performance by upgrading SQL Data Warehouse. 
