@@ -74,9 +74,9 @@ This may occur if your environment doesn’t have a **Time Series Model** Hierar
 
 ## Next steps
 
-* Read [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+Read [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
-* Read [Supported JSON shapes](./how-to-shape-query-json.md).
+Read [Supported JSON shapes](./how-to-shape-query-json.md).
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png

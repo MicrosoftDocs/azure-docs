@@ -74,11 +74,11 @@ Azure TSI bridges the gap between IoT data and advanced analytics in a simple an
 
 ## Next steps
 
-* Learn more about the [TSI Explorer](./time-series-insights-update-explorer.md).
+Learn more about the [TSI Explorer](./time-series-insights-update-explorer.md).
 
-* To plan out your environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
+To plan out your environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
 
-* Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
+Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
 
 <!-- Images -->
 [1]: media/v2-update-use-cases/data-explorer.png
