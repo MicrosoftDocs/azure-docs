@@ -81,14 +81,14 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
    
    The **Manage NuGet Packages** dialog box appears.
 
-2. In the NuGet **Browse** box, type ***Azure DocumentDB***. (The package name is not yet updated to Azure Cosmos DB, so you will see DocumentDB). From the results, install the **Microsoft.Azure.DocumentDB** by Microsoft package. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
+2. In the NuGet **Browse** box, type **Azure Cosmos**. (The package name is not yet updated to Azure Cosmos DB, so you will see DocumentDB). From the results, install the **Microsoft.Azure.Cosmos** by Microsoft package. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
    
    ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure Cosmos DB Client Library highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
    Alternatively, you can use the Package Manager Console to install the NuGet package. To do so, on the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. At the prompt, type the following command:
    
    ```bash
-       Install-Package Microsoft.Azure.DocumentDB
+   Install-Package Microsoft.Azure.Cosmos -Version 3.0.0-preview
    ```        
 
 3. After the package is installed, your Visual Studio solution should contain the following two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
@@ -113,33 +113,26 @@ Now let's add the models, views, and controllers to this MVC application:
 
    ```csharp
    namespace todo.Models
+   {
+	using Newtonsoft.Json;
+	public class TodoItem
 	{
-	    using Newtonsoft.Json;
+	   [JsonProperty(PropertyName = "id")]
+	    public string Id { get; set; }
 	
-
-	    public class TodoItem
-	    {
-	        [JsonProperty(PropertyName = "id")]
-	        public string Id { get; set; }
+	    [JsonProperty(PropertyName = "name")]
+	    public string Name { get; set; }
 	
-
-	        [JsonProperty(PropertyName = "name")]
-	        public string Name { get; set; }
+	    [JsonProperty(PropertyName = "description")]
+	    public string Description { get; set; }
 	
-
-	        [JsonProperty(PropertyName = "description")]
-	        public string Description { get; set; }
+        [JsonProperty(PropertyName = "isComplete")]
+        public bool Completed { get; set; }
 	
-
-	        [JsonProperty(PropertyName = "isComplete")]
-	        public bool Completed { get; set; }
-	
-
-	        [JsonProperty(PropertyName = "category")]
-	        public string Category { get; set; }
-	    }
+        [JsonProperty(PropertyName = "category")]
+        public string Category { get; set; }
+	 }
 	}
-
    ```
    
    The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **TodoItem** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
@@ -162,7 +155,7 @@ Now, let's create the views, in this tutorial, you will create the following thr
 * [Add a New Item view](#AddNewIndexView).
 * [Add an Edit Item view](#_Toc395888515).
 
-#### <a name="AddItemIndexView"></a>Add a list items Index view
+#### <a name="AddItemIndexView"></a>Add a list item view
 
 1. In **Solution Explorer**, expand the **Views**  folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
    
@@ -227,12 +220,10 @@ The first thing to do here is add a class that contains the logic to connect to 
 
 2. Add the following code to the **TodoItemService** class and replace the code in that file with the following code to it:
 
-   This code Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations on the items.  The first thing we want to be able to do with a todo list application is to display the incomplete items.  Copy and paste the following code snippet anywhere within the **DocumentDBRepository** class.
+   This code Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations on the items. The first thing we want to be able to do with a todo list application is to display the incomplete items. Copy and paste the following code snippet anywhere within the **TodoItemService** class.
 
    ```csharp
     using todo.Models;
-	
-
 	namespace todo
 	{
 	    using System;
@@ -242,79 +233,68 @@ The first thing to do here is add a class that contains the logic to connect to 
 	    using System.Linq.Expressions;
 	    using System.Threading.Tasks;
 	    using Microsoft.Azure.Cosmos;
-	
 
 	    public static class TodoItemService
 	    {
-	        private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"] ?? "Tasks";
-	        private static readonly string ContainerId = ConfigurationManager.AppSettings["container"] ?? "Items";
-	        private static readonly string Endpoint = ConfigurationManager.AppSettings["endpoint"];
-	        private static readonly string PrimaryKey = ConfigurationManager.AppSettings["primaryKey"];
-	        private static CosmosItemSet items;
-	        private static CosmosClient client;
+	       private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"] ?? "Tasks";
+	       private static readonly string ContainerId = ConfigurationManager.AppSettings["container"] ?? "Items";
+	       private static readonly string Endpoint = ConfigurationManager.AppSettings["endpoint"];
+	       private static readonly string PrimaryKey = ConfigurationManager.AppSettings["primaryKey"];
+	       private static CosmosItemSet items;
+	       private static CosmosClient client;
 	
-
-	        public static async Task<TodoItem> GetTodoItemAsync(string id, string partitionKey)
-	        {
-	            TodoItem item = await items.ReadItemAsync<TodoItem>(partitionKey, id);
-	            return item;
-	        }
+	       public static async Task<TodoItem> GetTodoItemAsync(string id, string partitionKey)
+	       {
+	          TodoItem item = await items.ReadItemAsync<TodoItem>(partitionKey, id);
+	          return item;
+	       }
 	
+	       public static async Task<IEnumerable<TodoItem>> GetOpenItemsAsync()
+	       {
+	          var queryText = "SELECT* FROM c WHERE c.isComplete != true";
+	          var querySpec = new CosmosSqlQueryDefinition(queryText);
 
-	        public static async Task<IEnumerable<TodoItem>> GetOpenItemsAsync()
-	        {
-	            var queryText = "SELECT* FROM c WHERE c.isComplete != true";
-	            var querySpec = new CosmosSqlQueryDefinition(queryText);
+	           // Selecting all tasks that are not completed is a cross partition query. 
+	           // We set the max concurrency to 4, which controls the max number of partitions that our client will query in parallel.
+	           var query = items.CreateItemQuery<TodoItem>(querySpec, maxConcurrency: 4);
 	
-
-	            // Selecting all tasks that are not completed is a cross partition query. 
-	            // We set the max concurrency to 4, which controls the max number of partitions that our client will query in parallel.
-	            var query = items.CreateItemQuery<TodoItem>(querySpec, maxConcurrency: 4);
+	           List<TodoItem> results = new List<TodoItem>();
+	           while (query.HasMoreResults)
+	           {
+	              var set = await query.FetchNextSetAsync();
+	              results.AddRange(set);
+	           }
 	
-
-	            List<TodoItem> results = new List<TodoItem>();
-	            while (query.HasMoreResults)
-	            {
-	                var set = await query.FetchNextSetAsync();
-	                results.AddRange(set);
-	            }
+	           return results;
+	       }
 	
-
-	            return results;
-	        }
-	
-
 	        public static async Task<TodoItem> CreateItemAsync(TodoItem item)
 	        {
-	            if(item.Id == null)
-	            {
-	                item.Id = Guid.NewGuid().ToString();
-	            }
-	            return await items.CreateItemAsync<TodoItem>(item.Category, item);
+	           if(item.Id == null)
+	           {
+	            item.Id = Guid.NewGuid().ToString();
+	           }
+	           return await items.CreateItemAsync<TodoItem>(item.Category, item);
 	        }
 	
-
 	        public static async Task<TodoItem> UpdateItemAsync(TodoItem item)
 	        {
-	            return await items.ReplaceItemAsync<TodoItem>(item.Category, item.Id, item);
+              return await items.ReplaceItemAsync<TodoItem>(item.Category, item.Id, item);
 	        }
 	
-
 	        public static async Task DeleteItemAsync(string id, string category)
 	        {
 	            await items.DeleteItemAsync<TodoItem>(category, id);
 	        }
-	
 
 	        public static async Task Initialize()
 	        {
-	            CosmosConfiguration config = new CosmosConfiguration(Endpoint, PrimaryKey);
-	            client = new CosmosClient(config);
+             CosmosConfiguration config = new CosmosConfiguration(Endpoint, PrimaryKey);
+             client = new CosmosClient(config);
 	
-
-	            CosmosDatabase database = await client.Databases.CreateDatabaseIfNotExistsAsync(DatabaseId);
-	            CosmosContainer container = await database.Containers.CreateContainerIfNotExistsAsync(ContainerId, "/category");
-	            items = container.Items;
+	          CosmosDatabase database = await client.Databases.CreateDatabaseIfNotExistsAsync(DatabaseId);
+	          CosmosContainer container = await database.Containers.CreateContainerIfNotExistsAsync(ContainerId, "/category");
+	          items = container.Items;
 	        }
 	    }
    }
@@ -336,105 +316,100 @@ The first thing to do here is add a class that contains the logic to connect to 
    ```csharp
    namespace todo.Controllers
 	{
-	    using System.Net;
-	    using System.Threading.Tasks;
-	    using System.Web.Mvc;
-	    using Models;
+      using System.Net;
+      using System.Threading.Tasks;
+	  using System.Web.Mvc;
+	  using Models;
 
-	    public class ItemController : Controller
+	  public class ItemController : Controller
+	  {
+	    [ActionName("Index")]
+	    public async Task<ActionResult> IndexAsync()
 	    {
-	        [ActionName("Index")]
-	        public async Task<ActionResult> IndexAsync()
+	       var items = await TodoItemService.GetOpenItemsAsync();
+	       return View(items);
+	    }
+	       
+	    [ActionName("Create")]
+	      public async Task<ActionResult> CreateAsync()
+	      {
+	         return View();
+	      }
+	
+        [HttpPost]
+        [ActionName("Create")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
+        {
+            if (ModelState.IsValid)
+            {
+                await TodoItemService.CreateItemAsync(item);
+                return RedirectToAction("Index");
+            }
+	
+	        return View(item);
+	    }
+	
+        [HttpPost]
+        [ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
+        {
+            if (ModelState.IsValid)
+            {
+                await TodoItemService.UpdateItemAsync(item);
+                return RedirectToAction("Index");
+            }
+	        return View(item);
+	    }
+	
+	    [ActionName("Edit")]
+	    public async Task<ActionResult> EditAsync(string id, string category)
+	    {
+	        if (id == null)
 	        {
-	            var items = await TodoItemService.GetOpenItemsAsync();
-	            return View(items);
-	        }
-	        
-	        [ActionName("Create")]
-	        public async Task<ActionResult> CreateAsync()
-	        {
-	            return View();
-	        }
-	
-
-	        [HttpPost]
-	        [ActionName("Create")]
-	        [ValidateAntiForgeryToken]
-	        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
-	        {
-	            if (ModelState.IsValid)
-	            {
-	                await TodoItemService.CreateItemAsync(item);
-	                return RedirectToAction("Index");
-	            }
-	
-	            return View(item);
-	        }
-	
-	        [HttpPost]
-	        [ActionName("Edit")]
-	        [ValidateAntiForgeryToken]
-	        public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
-	        {
-	            if (ModelState.IsValid)
-	            {
-	                await TodoItemService.UpdateItemAsync(item);
-	                return RedirectToAction("Index");
-	            }
-	
-	            return View(item);
-	        }
-	
-	        [ActionName("Edit")]
-	        public async Task<ActionResult> EditAsync(string id, string category)
-	        {
-	            if (id == null)
-	            {
-	                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-	            }
-	
-	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-	            if (item == null)
-	            {
-	                return HttpNotFound();
-	            }
-	
-
-	            return View(item);
+	          return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 	        }
 	
-	        [ActionName("Delete")]
-	        public async Task<ActionResult> DeleteAsync(string id, string category)
+	        TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+	        if (item == null)
 	        {
-	            if (id == null)
-	            {
-	                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-	            }
-	
-	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-	            if (item == null)
-	            {
-	                return HttpNotFound();
-	            }
-	
-	            return View(item);
+	          return HttpNotFound();
 	        }
 	
-	        [HttpPost]
-	        [ActionName("Delete")]
-	        [ValidateAntiForgeryToken]
-	        public async Task<ActionResult> DeleteConfirmedAsync([Bind(Include = "Id, Category")] string id, string category)
-	        {
-	            await TodoItemService.DeleteItemAsync(id, category);
-	            return RedirectToAction("Index");
-	        }
+        return View(item);
+        }
 	
-	        [ActionName("Details")]
-	        public async Task<ActionResult> DetailsAsync(string id, string category)
-	        {
-	            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-	            return View(item);
-	        }
+        [ActionName("Delete")]
+        public async Task<ActionResult> DeleteAsync(string id, string category)
+        {
+            if (id == null)
+            {
+               return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+            return View(item);
+        }
+	
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmedAsync([Bind(Include = "Id, Category")] string id, string category)
+        {
+            await TodoItemService.DeleteItemAsync(id, category);
+            return RedirectToAction("Index");
+        }
+	
+        [ActionName("Details")]
+        public async Task<ActionResult> DetailsAsync(string id, string category)
+	    {
+	        TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+	        return View(item);
+	    }
 	    }
 	}
    ```
