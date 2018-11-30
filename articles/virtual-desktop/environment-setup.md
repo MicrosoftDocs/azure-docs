@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Windows Virtual Desktop environment
+# Windows Virtual Desktop environment (Preview)
 
 Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
 

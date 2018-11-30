@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# What is Windows Virtual Desktop?
+# What is Windows Virtual Desktop? (Preview)
 
 Windows Virtual Desktop is a multi-tenant service hosted by Microsoft that manages connections between Remote Desktop clients and isolated Windows Virtual Desktop tenant environments. This service lets users securely access a virtual machine set up by their admin anytime, anywhere, from any computer.
 
