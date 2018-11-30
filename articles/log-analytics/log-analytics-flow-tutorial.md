@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: log-analytics
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
