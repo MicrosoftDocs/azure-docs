@@ -45,11 +45,10 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Image classification tutorial (Part 1)&#58; <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
-    - html: Image classification tutorial (Part 2)&#58; <a href="tutorial-auto-train-models">Let us auto-generate and auto-tune a model for you</a>
-    - html: 
-    - html: Regression tutorial (Part 1)&#58; <a href="tutorial-data-prep">Prepare the NYC City data for modeling</a>
-    - html: Regression tutorial (Part 2)&#58; <a href="tutorial-deploy-models-with-aml">Get a model using automated machine learning</a>
+    - html: Image classification (Part 1)&#58; <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
+    - html: Image classification (Part 2)&#58; <a href="tutorial-deploy-models-with-aml">Deploy that model</a></br>&nbsp;
+    - html: Regression (Part 1)&#58; <a href="tutorial-data-prep">Prepare the NYC City data for modeling</a>
+    - html: Regression (Part 2)&#58; <a href="tutorial-auto-train-models">Generate a model using automated machine learning</a>
   - type: paragraph
     text: '<b>Sample notebooks</b>: Explore Azure Machine Learning with <a href="https://aka.ms/aml-notebooks">these Jupyter notebooks</a>, available on GitHub.'
 
