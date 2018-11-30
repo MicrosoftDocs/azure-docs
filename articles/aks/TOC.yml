@@ -68,6 +68,8 @@
         href: operator-best-practices-advanced-scheduler.md
       - name: Authentication and authorization
         href: operator-best-practices-identity.md
+      - name: Storage
+        href: operator-best-practices-storage.md
     - name: For application developers
       items:
       - name: Resource management
