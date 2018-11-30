@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -37,7 +37,7 @@ The following table compares Azure Files with Azure Blobs.
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
-|Capacity|Up to 500 TiB containers|5 TiB file shares|  
+|Capacity|Up to 2 PiB Account Limit |5 TiB file shares|  
 |Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per share|  
 |Object Size|Up to about 4.75 TiB per block blob|Up to 1 TiB per file|  
 |Billed capacity|Based on bytes written|Based on file size|  

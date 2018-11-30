@@ -27,12 +27,14 @@
       href: iot-accelerators-remote-monitoring-monitor.md
     - name: Detect device issues
       href: iot-accelerators-remote-monitoring-automate.md
-    - name: Configure and manage devices
+    - name: Configure devices
       href: iot-accelerators-remote-monitoring-manage.md
     - name: Conduct a root cause analysis on an alert
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Use alerts and fix device issues
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Update device configuration in bulk
+      href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: Detect anomalies at the edge
       href: iot-accelerators-remote-monitoring-edge.md
   - name: Device Simulation
@@ -85,6 +87,8 @@
       href: iot-accelerators-remote-monitoring-add-edge-device.md
     - name: Import an IoT Edge package
       href: iot-accelerators-remote-monitoring-import-edge-package.md
+    - name: Import automatic device management package
+      href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Create a simulated device

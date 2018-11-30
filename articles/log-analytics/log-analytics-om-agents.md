@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 11/23/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -33,7 +33,7 @@ The following diagram shows the connection between the management servers and ag
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to the Log Analytics service, see [Connect computers to Log Analytics using the Log Analytics gateway](log-analytics-oms-gateway.md).  
+If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to the Log Analytics service, see [Connect computers to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md).  
 
 ## Prerequisites 
 Before starting, review the following requirements.
@@ -45,10 +45,13 @@ Before starting, review the following requirements.
 
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Log Analytics for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
->A new management pack has been released for each version of Operations Manager:  
+>A new management pack has been released for the following versions of Operations Manager:
+>  
 >* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171)  
+>
+>This management pack update is not applicable to System Center Operations Manager 1807, which is an update release from version 1801 and not a full build of the product.   
 
 ### Network
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Log Analytics. Traffic from each component is outbound from your network to the Log Analytics service.   

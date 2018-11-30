@@ -18,7 +18,7 @@ This article gives recommendations for security and DevOps in Azure HDInsight sy
 
 The Enterprise Security Package (ESP) supports Active Directory-based authentication, multiuser support, and role-based access control. With the ESP option chosen, HDInsight cluster is joined to the Active Directory domain and the enterprise admin can configure role-based access control (RBAC) for Hive security by using Apache Ranger. The admin can also audit the data access by employees and any changes done to access control policies.
 
-ESP features are currently in preview and are available only on the following cluster types: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka, and Apache Interactive Query.
+ESP is available on the following cluster types: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka, and Interactive Query (Hive LLAP). 
 
 Use the following steps to deploy the Domain-joined HDInsight cluster:
 

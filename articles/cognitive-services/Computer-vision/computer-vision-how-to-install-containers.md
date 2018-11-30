@@ -56,9 +56,6 @@ Perform the following steps to create and retrieve information from an Azure res
 1. Create an Azure resource in the Azure portal.  
    If you want to use the Recognize Text container, you must first create a corresponding Computer Vision resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
 
-   > [!IMPORTANT]
-   > The Computer Vision resource must use the F0 pricing tier.
-
 1. Get the endpoint URL and subscription key for the Azure resource.  
    Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Recognize Text container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Computer Vision resource on the Azure portal.
 
