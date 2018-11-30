@@ -147,7 +147,9 @@ You should see a list of users in your Azure AD directory as result.
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory (Azure AD). You can install MSAL by running the following command in Visual Studio's **Package Manager Console**:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory (Azure AD). As described, this quickstart request tokens by using the application own identity instead of delegated permissions. The authentication flow used in this case is known as *[client credentials oauth flow](v2-oauth2-client-creds-grant-flow.md)*. For more information on how to use MSAL.NET with client credentials flow, please see [this article](https://aka.ms/msal-net-client-credentials).
+
+ You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
 Install-Package Microsoft.Identity.Client -Pre
@@ -183,7 +185,7 @@ var app = new ConfidentialClientApplication(
 > | `Authority`    | (Optional) The STS endpoint for user to authenticate. Usually https://login.microsoftonline.com/{tenant} for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 > | `redirectUri`  | URL where users are sent after authentication. In this case, because this is a console/non-interactive application, this parameter is not used |
 > | `clientCredentials`  | The client credentials object, containing either the secret or certificate |
-> | `userTokentCache`  | Instance of a token cache for the user. In this case, because this app runs in context of the app, and not the user, this value is null|
+> | `userTokenCache`  | Instance of a token cache for the user. In this case, because this app runs in context of the app, and not the user, this value is null|
 > | `appTokenCache`  | Instance of a token cache for the app|
 
 For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication__ctor_System_String_System_String_System_String_Microsoft_Identity_Client_ClientCredential_Microsoft_Identity_Client_TokenCache_Microsoft_Identity_Client_TokenCache)
@@ -215,3 +217,6 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 client cre
 
 > [!div class="nextstepaction"]
 > [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)
+
+> [!div class="nextstepaction"]
+> [Client credential flows with MSAL.NET](https://aka.ms/msal-net-client-credentials)
