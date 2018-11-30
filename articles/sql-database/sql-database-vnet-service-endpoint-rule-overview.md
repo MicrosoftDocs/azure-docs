@@ -184,12 +184,13 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
 1.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
     > [!NOTE]
-    > If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
  
 1.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your logical SQL Server.
 
     > [!NOTE] 
-    > Only members with Owner privileges can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1.	**Polybase connectivity to the Azure Storage account:**
 
@@ -210,7 +211,7 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
     1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
         ```SQL
-        CREATE EXTERNAL DATA SOURCE external_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
         ```
         > [!NOTE] 
         > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with abfss:// scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) to generate create-scripts for all the external tables for ease.
