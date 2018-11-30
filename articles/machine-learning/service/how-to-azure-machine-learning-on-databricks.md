@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 ## Get the Databricks notebooks
 
-1. Download the [Azure Databricks / Azure Machine Learning notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+1. Download the [Azure Databricks / Azure Machine Learning SDK notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
 
 1.  [Import this archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster.  
 
@@ -64,7 +64,7 @@ Use your imported Databricks notebooks to prepare data, train, and deploy a Spar
         * Provide a scoring file and a conda config file
         * Deploy the model to ACI and test the webservice
 
-    1. Use the image you created on ACI to deploy to Azure Kubernetes Service (AKS) for scalable web service by running the [/04.Deploy_to_AKS_existingImage.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/04.Deploy_to_AKS_existingImage.ipynb) notebook to:
+    1. Use the image you created on ACI to deploy to Azure Kubernetes Service (AKS) for scalable web service by running the [04.Deploy_to_AKS_existingImage.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/04.Deploy_to_AKS_existingImage.ipynb) notebook to:
 
         * Deploy the image created in the ACI notebook to AKS as a scalable web service
         * Monitor the deployed web service and model in Azure portal
