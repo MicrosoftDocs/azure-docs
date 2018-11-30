@@ -34,8 +34,6 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 ### New features
 
-<!-- Will remove this section as they are no longer new features. -->
-
 This update includes the following improvements for Azure Stack:
 
 - Enhanced Azure Stack operator experience for managing updates from the Update blade.
@@ -64,26 +62,25 @@ This update includes the following improvements for Azure Stack:
    For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
 
 
-
 ### Fixed issues
 
 <!-- 2930718 - IS ASDK --> 
-- Fixed: in the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
+- Fixed an issue in which the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name did not appear. The user subscription name now appears.
 
 <!-- 3060156 - IS ASDK --> 
-- Fixed an issue in both the administrator and user portals: clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected. An error notification was displayed. 
+- Fixed an issue in both the administrator and user portals in which clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected. This now works, and the error notification is no longer displayed. 
 
 <!-- 2930799 - IS ASDK --> 
-- Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed. It is not available in Azure Stack.
+- Fixed an issue in both the administrator and user portals under **All services**. The asset **DDoS protection plans** was incorrectly listed as it is not available in Azure Stack. It is no longer listed.
  
 <!--2760466 – IS  ASDK --> 
-- Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.
+- Fixed an issue that occurred when you installed a new Azure Stack environment in which the alert that indicates *Activation Required* did not display. It now correctly displays.
 
 <!--1236441 – IS  ASDK --> 
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
+- Fixed an issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
 
 ### Changes
 
@@ -145,15 +142,12 @@ For more information about these vulnerabilities, click on the preceding links, 
 > [!Important]  
 > Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-- Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/).
-
-Seth:  The latest Hotfix for 1809 as of today is https://support.microsoft.com/en-us/help/4477849/azure-stack-hotfix-1-1809-6-102
+- Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
-
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
