@@ -14,22 +14,20 @@ keywords:
 
 # Data at rest encryption in Azure Stack
 
-Azure Stack protects user and infrastructure data stored in its storage subsystem encryption. All the cluster shared volumes (CSVs) are encrypted with BitLocker and their keys are persisted in an internal secret store. For more information on how BitLocker protects CSVs, see [protecting cluster shared volumes and storage area networks with BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).
+Azure Stack protects user and infrastructure data stored in its storage subsystem using encryption. Azure Stack cluster shared volumes (CSVs) are encrypted with BitLocker using Advanced Encryption Standard (AES) encryption algorithm with a key length of 128 bits. BitLocker keys are persisted in an internal secret store. For more information on how BitLocker protects CSVs, see [protecting cluster shared volumes and storage area networks with BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).
 
-In Azure Stack, BitLocker uses Advanced Encryption Standard (AES) as its encryption algorithm, with key length of 128 bits.
+Beginning with the 1811 release, Azure Stack extends the protection of data at rest encryption to include infrastructure data stored on local disks. By encrypting local disk data, all infrastructure and users data is protected on your Azure Stack.
 
-Beginning with the 1811 release update, Azure Stack extends the protection of data at rest encryption to include all the infrastructure data stored on local disks. By encrypting local disk data, all infrastructure and users data is protected on your Azure Stack.
+Data at rest encryption protects your data on Azure Stack hard drives. For example, if someone gains physical access to one or more hard drives, the data on the hard drives is protected by BitLocker encryption. Data at rest encryption does not protect data in transit over a network or data in use in memory.
 
-It is important to clarify that by design, data at rest encryption protects your data against being accessed by someone that physically stole one or more hard drives. Data at rest encryption does not protect against data being intercepted on the wire (data in transit), data currently being used (data in memory) or more in general, data being exfiltrated while the system is up and running.
-
-Data at rest encryption is a common requirement for many of the major compliance standards (e.g. PCI-DSS, FedRAMP, HIPAA). With its configuration, Azure Stack enables you to meet those requirements out of the box, with no extra work or configurations required. For more information on how Azure Stack helps you meet the most stringent compliance standards, please see the [Microsoft Service Trust Portal](https://aka.ms/AzureStackCompliance).
+Data at rest encryption is a common requirement for many of the major compliance standards (e.g. PCI-DSS, FedRAMP, HIPAA). Azure Stack enables you to meet those requirements with no extra work or configurations required. For more information on how Azure Stack helps you meet compliance standards, see the [Microsoft Service Trust Portal](https://aka.ms/AzureStackCompliance).
 
 ## Retrieving BitLocker recovery keys
 
-Azure Stack is configured in a way that BitLocker keys are internally managed, so that you do not need to provide them during regular operations, like, for instance, during system start up. However, there might be support scenarios in which the system is not able to start up and BitLocker recovery keys are necessary to bring the system online.  
+Azure Stack BitLocker keys are internally managed. You do not required to provide them for regular operation or during system start up. However, some support scenarios may require BitLocker recovery keys to bring the system online.  
 
 > [!IMPORTANT]
-> We strongly require that you retrieve your BitLocker recovery keys and store them in a safe location outside of Azure Stack. The inavailability of the recovery keys migh result in **data loss** and a system restore from a backup image.
+> Retrieve your BitLocker recovery keys and store them in a safe location outside of Azure Stack. If you don't have access to your recovery keys, you may need to restore from a backup image and may encounter **data loss**.
 
 Retrieving the BitLocker recovery keys requires access to the privileged endpoint (PEP). From a PEP session, run the Get-AzsRecoveryKeys cmdlet.
 
