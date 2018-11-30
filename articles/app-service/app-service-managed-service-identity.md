@@ -162,7 +162,7 @@ Creating an app with a user-assigned identity requires that you create the ident
 ### Using the Azure portal
 
 > [!NOTE] 
-> This portal experience is being delployed and may not yet be available in all regions.
+> This portal experience is being deployed and may not yet be available in all regions.
 
 First, you'll need to create a user-assigned identity resource.
 
