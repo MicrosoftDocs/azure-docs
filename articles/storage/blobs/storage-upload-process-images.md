@@ -59,7 +59,7 @@ az group create --name myResourceGroup --location southeastasia
 The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 > [!IMPORTANT]
-> In part 2 of the tutorial, you use Azure Event Grid with Blob storage. Make sure to create your storage account in an Azure region that supports Event Grid. For a list of supported regions, see [Azure products by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=event-grid&regions=all).
+> In part 2 of the tutorial, you use Azure Event Grid with Blob storage. Make sure to create your storage account in an Azure region that supports Event Grid. For a list of supported regions, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 In the following command, replace your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
 
