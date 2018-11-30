@@ -99,7 +99,7 @@ There can be several reasons for the long backup time:
   2. **Fragmentation** <br>
     If the customer application is poorly configured that does small fragmented writes.<br>
   3. **Customer storage account overloaded** <br>
-      a. If the backup is scheduled during customer's production application time.<br>  
+      a. If the backup is scheduled during customer's production application time.  
       b. If more than 5 to 10 disks are hosted from the same storage account.<br>
   4. **Consistency check(CC) mode** <br>
       For > 1TB disks, if the backup happens using the CC mode due to the reasons mentioned below:<br>
