@@ -38,9 +38,9 @@ As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to 
 
 You'll need one of the following things to deploy Windows Virtual Desktop:
 
-* An Office 365 and Windows E3 or E6 license
-* An Office 365 Business F1 license
-* The Azure portal for Windows Virtual Desktop
+* A Windows E3 or E6 license
+* A Microsoft 365 E3, E5, F1, or Business license
+* An Azure subscription
 
 ## How does Windows Virtual Desktop work?
 
