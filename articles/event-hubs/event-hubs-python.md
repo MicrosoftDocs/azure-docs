@@ -108,7 +108,7 @@ client.stop()
 
 For a complete tutorial on how to receive events from an event hub from an application written in Python, see [this article](event-hubs-python-get-started-receive.md)
 
-## Capture Event Hubs data
+## Read capture event data from Azure Storage
 The following code shows you how to read captured event data that's stored in an **Azure blob storage** from a Python application: Enable **Capture** feature for the event hub by following instructions from: [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md). Then, send some events to the event hub before testing the code. 
 
 ```python
