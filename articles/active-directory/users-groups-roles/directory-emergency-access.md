@@ -5,7 +5,7 @@ description: This article describes how to use emergency access accounts to help
 services: active-directory 
 author: markwahl-msft
 ms.author: billmath
-ms.date: 11/27/2018
+ms.date: 11/29/2018
 ms.topic: article-type-from-white-list
 ms.service: active-directory
 ms.workload: identity
@@ -50,7 +50,11 @@ You should make the Global Administrator role assignment permanent for your emer
 
 To reduce the risk of an attack resulting from a compromised password, Azure AD recommends that you require multi-factor authentication for all individual users. This group includes administrators and all others (for example, financial officers) whose compromised account would have a significant impact.
 
-However, emergency access accounts should not have multi-factor authentication enabled. This includes third-party multi-factor authentication solutions. If you have a conditional access policy to require [Multi-Factor Authentication registration for every administrator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) for Azure AD and other connected software as a service (SaaS) apps, you might need to configure policy exclusions to exclude emergency access accounts from this requirement. Additionally, you should make sure the accounts do not have a per-user multi-factor authentication policy.
+However, emergency access accounts should not have multi-factor authentication enabled. This includes third-party multi-factor authentication solutions. If you have a conditional access policy to require [multi-factor authentication for every administrator](../authentication/howto-mfa-userstates.md) for Azure AD and other connected software as a service (SaaS) apps, you should exclude emergency access accounts from this requirement. Additionally, you should make sure the accounts do not have a per-user multi-factor authentication policy.
+
+## Exclude accounts from all conditional access policies
+
+During an emergency, you do not want a policy to potentially block your access to fix an issue. Emergency access accounts should be excluded from all conditional access policies. If you have enabled a [baseline policy](../conditional-access/baseline-protection.md), you should exclude your emergency access accounts.
 
 ## Monitor sign-in and audit logs
 
@@ -63,7 +67,7 @@ To validate the emergency access accounts, perform the following minimum steps:
 - Ensure that the emergency break glass process is documented and current.
 - Ensure that key managers and security officers who might need to perform these steps during an emergency are trained on the process.
 - Validate that the emergency access accounts can sign in.
-- Rotate the emergency access account credentials.
+- Change the usernames and passwords for your emergency access accounts.
 
 These steps should be performed at regular intervals and for key changes:
 
