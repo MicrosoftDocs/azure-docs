@@ -1,6 +1,6 @@
 ---
 title: Create a virtual network - quickstart - Azure portal | Microsoft Docs
-description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network enables Azure resources, such as virtual machines, to communicate privately with each other, and with the internet.
+description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 11/28/2018
+ms.date: 11/30/2018
 ms.author: jdial
 ms.custom: mvc
 ---
@@ -155,7 +155,7 @@ After you've created *myVm1*, connect to it over the internet.
 
 ## Communicate between VMs
 
-1. In the Remote Desktop of myVm1, open PowerShell.
+1. In the Remote Desktop of *myVm1*, open PowerShell.
 
 1. Enter `ping myVm2`.
 
@@ -203,9 +203,9 @@ After you've created *myVm1*, connect to it over the internet.
         Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-    You receive replies from myVm1, because you allowed ICMP through the Windows firewall on the myVm1 VM in a previous step.
+    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
 
-1. Close the remote desktop connection to myVm2.
+1. Close the remote desktop connection to *myVm2*.
 
 ## Clean up resources
 
