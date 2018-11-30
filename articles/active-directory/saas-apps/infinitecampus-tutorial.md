@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-5. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** (step **11.b**), perform the following steps:
+5. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** (please skip to step **11.c**), perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -125,9 +125,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. In the **Sign-on URL** textbox, type a URL using the following pattern (the domain will vary with Hosting Model): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
 	> [!NOTE]
-	> You get the **Service Provider metadata file** on the Infinite Campus SSO Service Provider Configuration page which is explained later in the tutorial.
+	> You get the **Service Provider metadata file** on the Infinite Campus SSO Service Provider Configuration page which is explained later in the tutorial. If you are starting with a new SAML Service Provider configuration in Infinite Campus, you will need to skip to **step 11** now to complete the export of the Service Provider metadata file.
 
-6. If you dont have **Service Provider metadata file**, perform the following steps:
+6. If you dont have **Service Provider metadata file**, perform the following steps (note that the domain will vary with Hosting Model):
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -166,10 +166,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![The sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
 	a. Select **Enable SAML Single Sign On**.
+	
+	b. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL** and paste the **App Federation Metadata Url** in the textbox and then click on **Sync**.
 
-	b. Click on **Service Provider Metadata** link  to save the **Service Provider metadata file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal (refer to step 5).
-
-	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL** and paste the **App Federation Metadata Url** in the textbox and then click on **Sync**.
+	c. Click on **Service Provider Metadata** link  to save the **Service Provider metadata file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal (refer to step 4 for upload and automatic population of values or step 5 for manual entry).
 
 	d. After clicking **Sync** the values get auto-populated in **SSO Service Provider Configuration** page.
 
