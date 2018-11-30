@@ -75,9 +75,10 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Go to your Compute Optimized Gen1 tier data warehouse in the Azure portal and click on the **Upgrade to Gen2** card under the Tasks tab:
     ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
-
-	 ​	[!NOTE]
-	 	If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited 						  in the current region. [Submit a support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) to get your subscription whitelisted.
+    
+    > [!NOTE]
+    > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
+    > [Submit a support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) to get your subscription whitelisted.
 
 2. By default, **select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
