@@ -149,7 +149,7 @@ To configure Azure AD single sign-on with Folloze, perform the following steps:
 
 ### Configure Folloze Single Sign-On
 
-To configure single sign-on on **Folloze** side, you need to send the **Certificate (Base64)** which you have downloaded and the URLs which you have copied from **Set up Folloze** section from Azure portal to [Folloze support team](mailto:support@folloze.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Folloze** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Folloze support team](mailto:support@folloze.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
