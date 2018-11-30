@@ -19,7 +19,7 @@ ms.component: na
 
 # Log Analytics query language differences
 
-While [Log Analytics](../log-analytics-queries.md) is built on [Azure Data Explorer](/azure//data-explorer) and uses the [same query language](/azure/kusto/query), the version of the language does have some differences. This article identifies elements that are different between the version of the language used for Data Explorer and the version used for Log Analytics queries.
+While [Log Analytics](../azure-monitor/log-query/log-query-overview.md) is built on [Azure Data Explorer](/azure//data-explorer) and uses the [same query language](/azure/kusto/query), the version of the language does have some differences. This article identifies elements that are different between the version of the language used for Data Explorer and the version used for Log Analytics queries.
 
 ## Data Explorer elements not supported in Log Analytics
 The following sections describe elements of the Data Explorer query language that aren't supported by Log Analytics.
