@@ -97,26 +97,28 @@ To configure Azure AD single sign-on with Talent Palette, perform the following 
 
 	![Edit Basic SAML Configuration](common/edit_urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Talent Palette Domain and URLs single sign-on information](common/both_replyurl_signonurl.png)
+    ![Talent Palette Domain and URLs single sign-on information](common/both_replyurl.png)
 
-	a. In the **Reply URL** text box, type a URL using the following pattern:
+	In the **Reply URL** text box, type a URL using the following pattern:
     `https://talent-p.net/saml/acs/<tenantID>`.
 
-	b. Click **set additional URLs**.
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    ![Talent Palette Domain and URLs single sign-on information](common/both_signonurl.png)
+   
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://talent-p.net/saml/sso/<tenantID>`.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Talent Palette Client support team](mailto:talent-support@pa-consul.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificateraw.png)
 
-6. On the **Set up Talent Palette** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up Talent Palette** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy_configuration_urls.png)
 
