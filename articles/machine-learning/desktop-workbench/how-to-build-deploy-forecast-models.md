@@ -1382,10 +1382,10 @@ grid_cv_rf = TSGridSearchCV(randomforest_model_for_cv, param_grid_rf, cv=rollcv)
 
 # fit and predict
 randomforest_cv_fitted= grid_cv_rf.fit(train_feature_tsdf, y=train_feature_tsdf.ts_value)
-print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
+print('Best parameter: {}'.format(randomforest_cv_fitted.best_params_))
 ```
 
-    Best paramter: {'estimator__n_estimators': 100}
+    Best parameter: {'estimator__n_estimators': 100}
     
 
 **Model Sweeping**  

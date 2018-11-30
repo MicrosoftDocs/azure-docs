@@ -52,7 +52,7 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 6. Under the **Assign access to** drop-down list, select the Configuration Manager application created in AD earlier, and then click **OK**.  
 
 ## Download and install the agent
-Review the article [Connect Windows computers to the Log Analytics service in Azure](log-analytics-agent-windows.md) to understand the methods available for installing the Microsoft Monitoring Agent on the computer hosting the Configuration Manager service connection point site system role.  
+Review the article [Connect Windows computers to the Log Analytics service in Azure](../azure-monitor/platform/agent-windows.md) to understand the methods available for installing the Microsoft Monitoring Agent on the computer hosting the Configuration Manager service connection point site system role.  
 
 ## Add a Log Analytics connection to Configuration Manager
 In order to add Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://technet.microsoft.com/library/mt627781.aspx) configured for online mode.

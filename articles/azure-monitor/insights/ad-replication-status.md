@@ -28,7 +28,7 @@ The AD Replication Status solution pack regularly monitors your Active Directory
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../log-analytics/log-analytics-agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
 * Add the Active Directory Replication Status solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).  There is no further configuration required.
 
 ## AD Replication Status data collection details
