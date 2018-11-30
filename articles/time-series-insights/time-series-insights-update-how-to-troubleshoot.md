@@ -15,15 +15,21 @@ ms.date: 11/27/2018
 
 This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
 
+## Problem: I can’t find my environment in the Time Series Insights (preview) Explorer
+
+This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in Azure Portal.
+
+  ![environment][1]
+
 ## Problem: No data is seen in the Time Series Insights (preview) Explorer
 
-There are several common reasons why you might not see your data in the Azure TSI Explorer:
+There are several common reasons why you might not see your data in the [Azure TSI Explorer](https://insights.timeseries.azure.com/):
 
 1. Your event source may not be receiving data.
 
     Verify that your event source (Event Hub or IoT Hub) is receiving data from your tags / instances. You can do so by navigating to the overview page of your resource in the Azure portal.
 
-    ![dashboard-insights][1]
+    ![dashboard-insights][2]
 
 1. Your event source data is not in JSON format
 
@@ -31,25 +37,33 @@ There are several common reasons why you might not see your data in the Azure TS
 
 1. Your event source key is missing a required permission
 
-    ![configuration][2]
+    ![configuration][3]
 
     * For an IoT Hub, you need to provide the key that has service connect permission.
     * As shown in the preceding image, either of the policies *iothubowner* and service would work, because both have service connect permission.
     * For an event hub, you need to provide the key that has Listen permission.
-    * As shown in the preceding image, either of the policies read and manage would work, because both have Listen permission.
+    * As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
 
-    ![permissions][3]
+    ![permissions][4]
 
 1. Your consumer group provided is not exclusive to TSI
 
-    During registration of am IoT Hub or an event hub, you specify the consumer group that should be used for reading the data. This consumer group must not be shared. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers randomly. Provide a unique consumer group for TSI to read from.
+    During registration of an IoT Hub or Event Hub, you specify the consumer group that should be used for reading the data. That consumer group must not be shared. If the consumer group is shared, the underlying Event Hub automatically disconnects one of the readers randomly. Provide a unique consumer group for TSI to read from.
+
+1. Your Time Series ID property specified at the time of provisioning is incorrect, missing or null
+
+    This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see the [Best practices for choosing a Time Series ID](./time-series-insights-how-to-id.md). At this time, you cannot update an existing Time Series Insights update environment to use a different **Time Series ID**.
 
 ## Problem: Some data is shown, but some is missing
 
-This may occur because your environment is being throttled.
+1. You may be sending data without the Time Series ID
 
-> [!NOTE]
-> At this time, Azure TSI supports a maximum ingestion rate of 6 MBps.
+    This error may occur when you’re sending events without the Time Series ID field in the payload. See [Supported JSON shapes](./how-to-shape-query-json.md) for more information.
+
+1. This may occur because your environment is being throttled.
+
+    > [!NOTE]
+    > At this time, Azure TSI supports a maximum ingestion rate of 6 MBps.
 
 ## Problem: My event source's timestamp property name setting doesn't work
 
@@ -64,6 +78,8 @@ The easiest way to ensure that your timestamp property name is captured and work
 * Calendar icon, which would indicate TSI is reading the data value as datetime
 * `#`, which would indicate TSI is reading the data values as an integer
 
+Please note that if the **Timestamp** property isn’t explicitly specified, we will leverage an event’s IoT Hub or Event Hub **Enqueued Time** as the default timestamp.
+
 ## Problem: My Time Series ID property is incorrect, missing, or null
 
 This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. See the [TSI preview planning](./time-series-insights-update-plan.md) article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
@@ -72,13 +88,21 @@ This may occur if the **Time Series ID** property is configured incorrectly at t
 
 This may occur if your environment doesn’t have a **Time Series Model** Hierarchy defined. See this article for more information on [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
+  ![tsm][5]
+
 ## Next steps
 
 Read [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
 Read [Supported JSON shapes](./how-to-shape-query-json.md).
 
+For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+
+You can also use [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
+
 <!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[2]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[3]: media/v2-update-diagnose-and-troubleshoot/permissions.png
+[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
+[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
+[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
+[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
+[5]: media/v2-update-diagnose-and-troubleshoot/tsm.png
