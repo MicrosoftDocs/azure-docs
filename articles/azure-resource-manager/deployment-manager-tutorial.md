@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/21/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
 
@@ -19,7 +19,7 @@ ms.author: jgao
 
 # Tutorial: Use Azure Deployment Manager with Resource Manager templates (Private preview)
 
-Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create  two templates:
+Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
 
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
 * **A rollout template**: describes the steps to take when deploying your applications.
@@ -37,6 +37,8 @@ This tutorial covers the following tasks:
 > * Verify the deployment
 > * Deploy the newer version
 > * Clean up resources
+
+The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -196,6 +198,9 @@ The following screenshot only shows some parts of the service topology, services
 - **artifactSourceId** is used to associate the artifact source resource to the service topology resource.
 - **dependsOn**: All the service topology resources depend on the artifact source resource.
 - **artifacts** point to the template artifacts.  Relative paths are used here. The full path is constructed by concatenating artifactSourceSASLocation (defined in the artifact source), artifactRoot (defined in the artifact source), and templateArtifactSourceRelativePath (or parametersArtifactSourceRelativePath).
+
+> [!NOTE]
+> The service unit names must contain 31 characters or less. 
 
 ### Topology parameters file
 

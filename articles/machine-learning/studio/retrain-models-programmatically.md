@@ -1,5 +1,5 @@
 ---
-title: Retrain Machine Learning models programmatically | Microsoft Docs
+title: Retrain Machine Learning Studio models programmatically - Azure | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ---
-# Retrain Machine Learning models programmatically
-In this walkthrough, you will learn how to programmatically retrain an Azure Machine Learning Web Service using C# and the Machine Learning Batch Execution service.
+# Retrain Machine Learning Studio models programmatically
+In this walkthrough, you will learn how to programmatically retrain an Azure Machine Learning Studio web service using C# and the Machine Learning Batch Execution service.
 
 Once you have retrained the model, the following walkthroughs show how to update the model in your predictive web service:
 

@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Collect data in Log Analytics with an Azure Automation runbook
-You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../../log-analytics/log-analytics-data-sources.md) on agents and also [data collected from Azure](../../log-analytics/log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.  In these cases, you can use the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.   
+You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../../azure-monitor/platform/agent-data-sources.md) on agents and also [data collected from Azure](../../log-analytics/log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.  In these cases, you can use the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.   
 
 This tutorial walks through the process for creating and scheduling a runbook in Azure Automation to write data to Log Analytics.
 
@@ -208,7 +208,7 @@ Every time a runbook is started, [a job is created](../../automation/automation-
 
 
 ## Next steps
-- Use [View Designer](../../log-analytics/log-analytics-view-designer.md) to create a view displaying the data that you've collected to the Log Analytics repository.
+- Use [View Designer](../../azure-monitor/platform/view-designer.md) to create a view displaying the data that you've collected to the Log Analytics repository.
 - Package your runbook in a [management solution](../../azure-monitor/insights/solutions-creating.md) to distribute to customers.
 - Learn more about [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Learn more about [Azure Automation](https://docs.microsoft.com/azure/automation/).

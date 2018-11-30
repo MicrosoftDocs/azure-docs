@@ -72,7 +72,7 @@ This article describes how to create a new access review for group members or ap
 1. Use the **Should reviewer not respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
 
     - **No change** - Leave user's access unchanged
-    - **Remove acccess** - Remove user's access
+    - **Remove access** - Remove user's access
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
 
