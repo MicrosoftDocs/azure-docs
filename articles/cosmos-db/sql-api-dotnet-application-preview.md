@@ -76,7 +76,7 @@ We will now walk through how to create a new ASP.NET MVC application.
 
 6. Select **OK** and let Visual Studio do the scaffolding around the empty ASP.NET MVC template. 
 
-7. Once Visual Studio has finished creating the boilerplate MVC application you have an empty ASP.NET application that you can run locally.
+7. Once Visual Studio has finished creating the boilerplate MVC application, you have an empty ASP.NET application that you can run locally.
 
 ## <a name="_Toc395637767"></a>Step 3: Add Azure Cosmos DB NuGet packages to the project
 
@@ -116,7 +116,7 @@ Now let's add the models, views, and controllers to this MVC application:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Models/TodoItem.cs)]
    
-   The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **TodoItem** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
+   The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET, you can use the **JsonProperty** attribute as demonstrated in the **TodoItem** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
 
 ### <a name="_Toc395637765"></a>Add a controller
 
@@ -126,13 +126,13 @@ Now let's add the models, views, and controllers to this MVC application:
 
    ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
-1. Name your new controller, **ItemController** and replace the code in that file with the following code:
+1. Name your new controller, **ItemController, and replace the code in that file with the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Controllers/ItemController.cs)]
 
    **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
    
-   **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+   **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details, please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
     
 ### <a name="_Toc395637766"></a>Add views
 
@@ -195,7 +195,7 @@ Now that the standard MVC stuff is taken care of, let's turn to adding the code 
 
 ### <a name="_Toc395637770"></a> Perform CRUD operations on the data
 
-The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial we'll encapsulate this logic into a class called TodoItemService.cs. This code reads the Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations such as listing incomplete items, creating, editing and deleting the items. 
+The first thing to do here is add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial, we'll encapsulate this logic into a class called TodoItemService.cs. This code reads the Azure Cosmos DB endpoint values form the configuration file and performs CRUD operations such as listing incomplete items, creating, editing, and deleting the items. 
 
 1. From **Solution Explorer**, Creates a new folder under your project named **Services**.
 
@@ -214,7 +214,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 	<add key="container" value="Items" />
    ```
  
-1. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.  This takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
+1. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.  This takes care of wiring up the Azure Cosmos DB repository, now let's add our application logic.
 
 1. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
    
@@ -222,7 +222,7 @@ The first thing to do here is add a class that contains the logic to connect to 
    TodoItemService.Initialize().GetAwaiter().GetResult();
    ```
 
-   At this point your solution should be able to build your project without any errors. If you run the application now, you will go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start. Let's change the routing on this MVC application to alter this behavior.
+   At this point, your solution should be able to build your project without any errors. If you run the application now, you will go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start. Let's change the routing on this MVC application to alter this behavior.
 
 1. Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
 
@@ -232,7 +232,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
   This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
 
-Now if you run the application, it will call into your **ItemController** which will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
+Now if you run the application, it will call into your **ItemController that will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
 
 If you build and run this project now, you should now see something that looks this.    
 
@@ -262,7 +262,7 @@ To test the application on your local machine, use the following steps:
 ## <a name="_Toc395637774"></a>Step 7: Deploy the application 
 Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
 
-1. To publish this application all you need to do is right-click on the project in **Solution Explorer** and select **Publish**.
+1. To publish this application, you need to  right-click on the project in **Solution Explorer** and select **Publish**.
    
 2. In the **Publish** dialog box, select **Microsoft Azure App Service**, then select **Create New** to create an App Service profile, or choose **Select Existing** to use an existing profile.
 
