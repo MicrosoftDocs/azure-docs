@@ -66,7 +66,7 @@ The easiest way to ensure that your timestamp property name is captured and work
 
 ## Problem: My Time Series ID property is incorrect, missing, or null
 
-This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. See the [TSI preview planning](./time-series-insights-update-plan.md) article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
+This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. See the [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) article when choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
 
 ## Problem: All my instances in Time Series Insights (preview) Explorer don’t have a parent
 

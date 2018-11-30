@@ -660,6 +660,8 @@ Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update
 
 Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
 
+Read about [Best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md).
+
 <!-- Images -->
 [1]: media/v2-update-tsq/goal.png
 [2]: media/v2-update-tsq/tsq.png
