@@ -6,13 +6,17 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 
 ---
 # ExpressRoute monitoring, metrics, and alerts
 
- This article helps you understand ExpressRoute monitoring, metrics, and alerts. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
+This article helps you understand ExpressRoute monitoring, metrics, and alerts. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
+ 
+>[!NOTE]
+>Using **Classic Metrics** is not recommended. 
+>
 
 ## Circuit metrics
 
@@ -57,7 +61,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
   ![another](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## Next steps
 * Configure your ExpressRoute connection.
   
