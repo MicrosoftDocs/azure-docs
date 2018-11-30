@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -253,7 +253,11 @@ You can check which modules are running on a device with the command `iotedge li
 6. In the **Review template** page, select **Submit**.
 
 ## Route messages from downstream devices
-The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. The below route would be used to send messages from a downstream device named `sensor` to a module name `ai_insights`.
+The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. 
+
+Currently, the way that you route messages sent by downstream devices is by differentiating them from messages sent by modules. Messages sent by modules all contain a system property called **connectionModuleId** but messages sent by downstream devices do not. You can use the WHERE clause of the route to exclude any messages that contain that system property. 
+
+The below route would be used to send messages from any downstream device to a module name `ai_insights`.
 
 ```json
 {
@@ -264,7 +268,7 @@ The IoT Edge runtime can route messages sent from downstream devices just like m
 }
 ```
 
-For more information about message routing, see [module composition](./module-composition.md).
+For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
