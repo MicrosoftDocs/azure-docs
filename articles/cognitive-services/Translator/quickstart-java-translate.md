@@ -21,6 +21,12 @@ You'll need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
+## Prerequisites
+
+* [JDK 7 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* An Azure subscription key for Translator Text
+
 ## Translate request
 
 The following code translates source text from one language to another using the [Translate](./reference/v3-0-translate.md) method.
