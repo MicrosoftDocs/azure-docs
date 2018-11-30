@@ -82,11 +82,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 import com.google.gson.*;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+import com.squareup.okhttp.*;
 ```
 
 ## Add the subscription key and host URL
