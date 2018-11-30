@@ -141,7 +141,7 @@ As an external user, you first need to accept the invite to the Azure AD directo
 
     ![Activate role](./media/pim-resource-roles-external-users/activate-role.png)
 
-    Unless the administrator is required to approve your request, you should access to the specified resources.
+    Unless the administrator is required to approve your request, you should have access to the specified resources.
 
 ## View activity for an external user
 
@@ -149,7 +149,7 @@ Just like a member user, you can view audit logs to keep track of what external 
 
 1. As an administrator, open PIM and select the resource that has been shared.
 
-1. Click **Resource audit** to view the activity for that resource.
+1. Click **Resource audit** to view the activity for that resource. The following shows an example of the activity for a resource group.
 
     ![Resource audit](./media/pim-resource-roles-external-users/audit-resource.png)
 
