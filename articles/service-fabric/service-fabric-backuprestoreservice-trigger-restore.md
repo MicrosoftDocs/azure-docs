@@ -47,7 +47,7 @@ The restore can be for any of the following scenarios
 ### Data restore in the event of _disaster recovery_ (DR)
 In the event of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Stateful service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
 
-Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
+Let's assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
 
 
 Execute following PowerShell script to invoke the REST API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster. The enumeration API requires storage information, where the backups of an application are stored, for enumerating available backups. 
