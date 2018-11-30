@@ -68,12 +68,12 @@ The completed app is also [available as a .zip file](https://github.com/AzureADQ
 ## Download Node.js for your platform
 To successfully use this sample, you need a working installation of Node.js.
 
-Install Node.js from [nodejs.org](http://nodejs.org).
+Install Node.js from [nodejs.org](https://nodejs.org).
 
 ## Install MongoDB for your platform
 To successfully use this sample, you need a working installation of MongoDB. We use MongoDB to make your REST API persistent across server instances.
 
-Install MongoDB from [mongodb.org](http://www.mongodb.org).
+Install MongoDB from [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > This walk-through assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is `mongodb://localhost`.

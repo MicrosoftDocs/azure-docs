@@ -78,7 +78,7 @@ Note the following features and limitations of the Azure AD Graph Explorer:
 
 ## Using Fiddler to write to the directory
 
-For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger to practice performing ‘write’ operations against your Azure AD directory. For example, you can get and upload a user's profile photo (which is not possible with Azure AD Graph Explorer). For more information and to install Fiddler, see [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
+For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger to practice performing ‘write’ operations against your Azure AD directory. For example, you can get and upload a user's profile photo (which is not possible with Azure AD Graph Explorer). For more information and to install Fiddler, see [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler).
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 

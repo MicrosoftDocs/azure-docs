@@ -21,7 +21,7 @@ Many modern apps have a single-page app front end that primarily is written in J
 * Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.
 * Full-page browser redirects away from the app can be significantly invasive to the user experience.
 
-To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling takes place entirely in the JavaScript client, without additional page redirects.
+To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling takes place entirely in the JavaScript client, without additional page redirects.
 
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. In this article, we show you how to use the implicit flow and Azure AD to implement each of these experiences in your single-page applications. To help you get started, take a look at our [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) and [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) samples.
 
@@ -134,7 +134,7 @@ error=access_denied
 | state |See the full description in the preceding table. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical.|
 
 ## Validate the ID token
-Receiving an ID token is not enough to authenticate the user. You must validate the ID token's signature, and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
+Receiving an ID token is not enough to authenticate the user. You must validate the ID token's signature, and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
 Many open-source libraries are available for validating JWTs, depending on the language you prefer to use. Consider exploring available open-source libraries rather than implementing your own validation logic. You can use the information in this article to help you learn how to properly use those libraries.
 
@@ -157,7 +157,7 @@ After you validate the signature of the ID token, several claims require verific
 * Validate the `aud` claim to ensure that the ID token was issued for your app. Its value should be the application ID of your app.
 * Validate the `iat` and `exp` claims to ensure that the ID token has not expired.
 
-Several more validations that you should perform are described in detail in the [OpenID Connect Core Spec](http://openid.net/specs/openid-connect-core-1_0.html). You might also want to validate additional claims, depending on your scenario. Some common validations include:
+Several more validations that you should perform are described in detail in the [OpenID Connect Core Spec](https://openid.net/specs/openid-connect-core-1_0.html). You might also want to validate additional claims, depending on your scenario. Some common validations include:
 
 * Ensuring that the user or organization has signed up for the app.
 * Ensuring that the user has proper authorization and privileges.

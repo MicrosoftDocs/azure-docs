@@ -18,7 +18,7 @@ ms.component: B2C
 >[!NOTE]
 > This feature is in public preview. Do not use the feature in production environments.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, such as [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your built-in policies.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, such as [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your built-in policies.
 
 ## Add the identity provider
 
@@ -35,13 +35,13 @@ Every OpenID Connect identity providers describes a metadata document that conta
 To allow users to sign in, the identity provider requires developers to register an application in their service. This application has an ID that is referred to as the **client ID** and a **client secret**. Copy these values from the identity provider and enter them into the corresponding fields.
 
 > [!NOTE]
-> The client secret is optional. However, you must enter a client secret if you would like to use the [authorization code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), which uses the secret to exchange the code for the token.
+> The client secret is optional. However, you must enter a client secret if you would like to use the [authorization code flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), which uses the secret to exchange the code for the token.
 
 Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the `openid` scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. Refer to the custom identity provider's documentation to see what other scopes may be available.
 
 The response type describes what kind of information is sent back in the initial call to the `authorization_endpoint` of the custom identity provider. The following response types can be used:
 
-- `code`: As per the [authorization code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), a code will be returned back to Azure AD B2C. Azure AD B2C proceeds to call the `token_endpoint` to exchange the code for the token.
+- `code`: As per the [authorization code flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), a code will be returned back to Azure AD B2C. Azure AD B2C proceeds to call the `token_endpoint` to exchange the code for the token.
 - `token`: An access token is returned back to Azure AD B2C from the custom identity provider.
 - `id_token`: An ID token is returned back to Azure AD B2C from the custom identity provider.
 

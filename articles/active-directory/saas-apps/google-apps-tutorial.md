@@ -143,8 +143,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|--|
 	| `google.com/a/<yourdomain.com>` |
 	| `google.com` |
-	| `http://google.com` |
-	| `http://google.com/a/<yourdomain.com>` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
 
     ![image](./media/google-apps-tutorial/b1-domains_and_urls.png)
 
@@ -183,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/google-apps-tutorial/d1_saml.png) 
 
-10. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
+10. Open a new tab in your browser, and sign into the [G Suite Admin Console](https://admin.google.com/) using your administrator account.
 
 11. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 
