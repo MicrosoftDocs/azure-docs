@@ -706,5 +706,5 @@ The following table provides sample log searches for update records collected by
 
 ## Next steps
 * Use Log Searches in [Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed update data.
-* [Create your own dashboards](../../log-analytics/log-analytics-dashboards.md) to display your favorite Office 365 search queries.
+* [Create your own dashboards](../../azure-monitor/platform/dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to be proactively notified of important Office 365 activities.  
