@@ -114,12 +114,12 @@ Press button B to test the sensors. Continue pressing and releasing the button B
 
 We recommend [Azure IoT Workbench](https://aka.ms/iot-workbench) extension for Visual Studio Code to develop on the DevKit.
 
-Azure IoT Workbench provides an integrated experience to develop IoT solutions. It helps both on device and cloud development using Azure IoT and other services. You can watch this Channel9 video to have an overview of what it does.
+Azure IoT Workbench provides an integrated experience to develop IoT solutions. It helps both on device and cloud development using Azure IoT and other services. You can watch this [Channel 9 video](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code) to have an overview of what it does.
 
 Follow these steps to prepare the development environment for DevKit:
 
 1. Download and install [Arduino IDE](https://www.arduino.cc/en/Main/Software). It provides the necessary toolchain for compiling and uploading Arduino code.
-    * **Windows**: Use Windows Installer version.
+    * **Windows**: Use Windows Installer version. Do not install from the app store.
     * **macOS**: Drag and drop the extracted **Arduino.app** into `/Applications` folder.
     * **Ubuntu**: Unzip it into folder such as `$HOME/Downloads/arduino-1.8.5`
 
@@ -129,15 +129,17 @@ Follow these steps to prepare the development environment for DevKit:
     ![Install Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png)
     Together with the IoT Workbench, other dependent extensions will be installed.
 
-4. Open **File > Preference > Settings** and add following lines to configure Arduino.
+4. Configure Arduino
     * **Windows**:
-
+      On **Windows** Open **File > Preference > Settings** click the **...** and open settings.json then add following lines to configure Arduino. 
+      
     ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
     * **macOS**:
+      On **macOS** Open **Code > Preferences > Settings** click the **...** and open settings.json then add the following lines to configure Arduino
 
     ```json
     "arduino.path": "/Applications",
