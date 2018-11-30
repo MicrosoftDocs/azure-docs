@@ -1,6 +1,6 @@
 ﻿---
-title: Data modelling | Microsoft Docs
-description: Understanding data modelling in the Azure Time Series Insights (preview)
+title: Time Series Model | Microsoft Docs
+description: Understanding Time Series Model
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Data modelling
+# Time Series Model
 
 This document details the **Time Series Model** (TSM) part of the Azure Time Series Insights (TSI) update. It describes the model itself, its capabilities, and how to get started building and updating your own model.
 
