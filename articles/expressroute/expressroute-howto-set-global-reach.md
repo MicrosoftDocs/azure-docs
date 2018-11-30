@@ -50,7 +50,7 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 ```
 
 ### Identify your ExpressRoute circuits for configuration
-You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and they were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections. If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
+You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections. If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
 
 ## Enable connectivity between your on-premises networks
 
