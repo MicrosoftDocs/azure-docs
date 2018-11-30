@@ -37,11 +37,6 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 ## Prerequisites
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-03). Run the `tutorials/03.auto-train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
-
-
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
 > * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](https://docs.microsoft.com/azure/machine-learning/service/samples-notebooks) automated machine learning.
 
