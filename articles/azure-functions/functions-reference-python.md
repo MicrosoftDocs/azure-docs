@@ -72,6 +72,9 @@ def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
 ```  
+
+Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods. 
+
 ## Folder structure
 
 The folder structure for a Python Functions project looks like the following:
@@ -93,7 +96,13 @@ The folder structure for a Python Functions project looks like the following:
  | - bin
 ```
 
-There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). Shared code should be kept in a separate folder.
+There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
+
+Shared code should be kept in a separate folder. To reference modules in the SharedCode folder, you can use the following syntax:
+
+```
+from ..SharedCode import myFirstHelperFunction
+```
 
 Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools) using Azure Functions Core Tools. 
 
@@ -203,7 +212,20 @@ Additional logging methods are available that let you write to the console at di
 | logging.**error(_message_)**   | Writes a message with level ERROR on the root logger.    |
 | logging.**warning(_message_)**    | Writes a message with level WARNING on the root logger.  |
 | logging.**info(_message_)**    | Writes a message with level INFO on the root logger.  |
-| logging.**debug(_message_)** | Writes a message with level CRITICAL on the root logger.  |
+| logging.**debug(_message_)** | Writes a message with level DEBUG on the root logger.  |
+
+## Importing shared code into a function module
+
+Python modules published alongside function modules must be imported using the relative import syntax:
+
+```python
+from . import helpers  # Use more dots to navigate up the folder structure.
+def main(req: func.HttpRequest):
+    helpers.process_http_request(req)
+```
+
+Alternatively, put shared code into a standalone package, publish it to a public or a private
+PyPI instance, and specify it as a regular dependency.
 
 ## Async
 
@@ -252,21 +274,23 @@ ID of the current function invocation.
 
 Currently, Azure Functions only supports Python 3.6.x (official CPython distribution).
 
-When developing locally using the Azure Functions Core Tools or Visual Studio Code, install the required packages to your virtual environment using `pip`.
+When developing locally using the Azure Functions Core Tools or Visual Studio Code, add the names and versions of the required packages to the `requirements.txt` file and install them using `pip`.
 
-For example, the following command installs the latest version of the `requests` package from PyPI.
+For example, the following requirements file and pip command can be used to install the `requests` package from PyPI.
 
 ```bash
 pip install requests
 ```
 
-Once you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file,located at the root of your project. You can automatically generate this file using the `pip freeze` command in your virtual environment.
-
-```bash
-pip freeze > requirements.txt
+```txt
+requests==2.19.1
 ```
 
-To successfully execute your Azure Functions, `requirements.txt` should contain a minimum of the following packages:
+```bash
+pip install -r requirements.txt
+```
+
+When you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file, located at the root of your project directory. To successfully execute your Azure Functions, the requirements file should contain a minimum of the following packages:
 
 ```txt
 azure-functions
@@ -277,13 +301,57 @@ protobuf==3.6.1
 six==1.11.0
 ```
 
-If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using the standard package installer (pip), publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
+## Publishing to Azure
+
+If you're using a package that requires a compiler and does not support the installation of manylinux-compatible wheels from PyPI, publishing to Azure will fail with the following error: 
+
+```
+There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
+The terminal process terminated with exit code: 1
+```
+
+To automatically build and configure the required binaries, [install Docker](https://docs.docker.com/install/) on your local machine and run the following command to publish using the [Azure Functions Core Tools](functions-run-local.md#v2) (func). Remember to replace `<app name>` with the name of your function app in Azure. 
 
 ```bash
 func azure functionapp <app name> --build-native-deps
 ```
 
-Replace `<app name>` with the name of your function app in Azure. This command builds the required binaries locally before publishing to Azure.
+Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
+
+> [!NOTE]
+> Core Tools (func) uses the PyInstaller program to freeze the user's code and dependencies into a single stand-alone executable to run in Azure. This functionality is currently in preview and may not extend to all types of Python packages. If you're unable to import your modules, try publishing again using the `--no-bundler` option. 
+> ```
+> func azure functionapp publish <app_name> --build-native-deps --no-bundler
+> ```
+> If you continue to experience issues, please let us know by [opening an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and including a description of the problem. 
+
+
+To deploy a Python Function App to Azure, you can use a [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/) with your GitHub repo. Below is an example `.travis.yaml` script for the build and publishing process.
+
+```yml
+sudo: required
+
+language: node_js
+
+node_js:
+  - "8"
+
+services:
+  - docker
+
+before_install:
+  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  - sudo apt-get install -y apt-transport-https
+  - sudo apt-get update && sudo apt-get install -y azure-cli
+  - npm i -g azure-functions-core-tools --unsafe-perm true
+
+
+script:
+  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
+  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
+
+```
 
 ## Known issues and FAQ
 
