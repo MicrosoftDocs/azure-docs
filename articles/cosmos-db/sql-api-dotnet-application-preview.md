@@ -15,14 +15,23 @@ ms.author: dech
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
+> * [.NET Preview](sql-api-dotnet-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure Websites. The items are stored as JSON documents in Azure Cosmos DB. The following image shows the web page that you will build by using the sample application: 
-![Screen shot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![Screen shot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 If you're looking for a tutorial to build a console application that can store and access data from Azure Cosmos DB, see [Build an Azure Cosmos DB C# console application](sql-api-get-started.md) article.
+
+This tutorial covers:
+
+> [!div class="checklist"]
+> * Creating an Azure Cosmos DB account
+> * Creating an ASP.NET MVC app
+> * Connecting the app to Azure Cosmos DB 
+> * Perform CRUD operations on the data
 
 > [!TIP]
 > This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend you to download the complete sample project from [GitHub][GitHub] and following the instructions in this sample. Once you build the project, you can review this article to gain insight on the code in the context of the project.
@@ -57,7 +66,7 @@ We will now walk through how to create a new ASP.NET MVC application.
 
 2. In the **Project types** pane, expand **Templates**, **Visual C#**, **Web**, and then select **ASP.NET Web Application**.
 
-   ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+   ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application. 
 
@@ -75,7 +84,7 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
 
 1. The Azure Cosmos DB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then select **Manage NuGet Packages**.
    
-   ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+   ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
    The **Manage NuGet Packages** dialog box appears.
 
@@ -115,7 +124,7 @@ Now let's add the models, views, and controllers to this MVC application:
 
 1. Select **MVC 5 Controller - Empty** and select **Add**.
 
-   ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. Name your new controller, **ItemController** and replace the code in that file with the following code:
 
@@ -137,7 +146,7 @@ Now, let's create the views, in this tutorial, you will create the following thr
 
 1. In **Solution Explorer**, expand the **Views**  folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
    
-   ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+   ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. In the **Add View** dialog box, update the following values:
    
@@ -146,7 +155,7 @@ Now, let's create the views, in this tutorial, you will create the following thr
    * In the **Model class** box, select ***Item (todo.Models)***.
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Screen shot showing the Add View dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Screen shot showing the Add View dialog box](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
 
 3. After you add these values, select **Add** and let Visual Studio create a new template view. Once done, it will open the cshtml file that was created. We can close that file in Visual Studio as we will come back to it later.
 
@@ -227,7 +236,7 @@ Now if you run the application, it will call into your **ItemController** which 
 
 If you build and run this project now, you should now see something that looks this.    
 
-![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="_Toc395637773"></a>Step 6: Run the application locally
@@ -236,17 +245,17 @@ To test the application on your local machine, use the following steps:
 
 1. Hit F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
    
-   ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new item will be added in a completed state and will not appear on the initial list.
    
 3. Click **Create** and you are redirected back to the **Index** view and your item appears in the list. You can add a few more items to your todo list.
 
-    ![Screen shot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    ![Screen shot of the Index view](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
   
 4. Click **Edit** next to an **Item** on the list and you are taken to the **Edit** view where you can update any property of your object, including the **Completed** flag. If you mark the **Complete** flag and click **Save**, the **Item** is removed from the list of incomplete tasks.
    
-   ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+   ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
 
 5. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
@@ -259,11 +268,11 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
 3. If you have an existing Azure App Service profile, enter your subscription name. Use the **View** filter to sort by resource group or resource type, then select your Azure App Service. 
    
-   ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+   ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-app-service.png)
 
 4. To create a new Azure App Service profile, click **Create New** in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and the appropriate subscription, resource group, and App Service plan, then select **Create**.
 
-   ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+   ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-app-service.png)
 
 In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your project running in Azure!
 
