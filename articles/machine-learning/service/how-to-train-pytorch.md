@@ -39,7 +39,7 @@ Parameter | Description
 --|--
 `source_directory` |  Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
 `script_params` |  Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
-`compute_target` |  Remote compute target that your training script will run on, in this case an [AmlCompute](how-to-set-up-training-targets.md#amlcompute) cluster
+`compute_target` |  Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` |  Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages` |  List of Python packages to be installed via conda needed by your training script. The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 `use_gpu` |  Set this flag to `True` to leverage the GPU for training. Defaults to `False`

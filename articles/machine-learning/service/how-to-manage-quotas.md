@@ -57,7 +57,7 @@ Available resources:
 | **Resource** | **Maximum limit** |
 | --- | --- |
 | Maximum workspaces per resource group | 800 |
-| Maximum nodes in a single AmlCompute resource | 100 nodes |
+| Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
 | Maximum job lifetime | 7 days<sup>1</sup> |
