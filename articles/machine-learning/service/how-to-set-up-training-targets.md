@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ---
 # Select and use a compute target to train your model
 
-With the Azure Machine Learning service, you can train your model on different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
+With the Azure Machine Learning service, you can train your model on different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
 A compute target is a resource where your training script is run, or your model is hosted when deployed as a web service. You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, or Azure CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
 
@@ -21,7 +21,7 @@ There are three broad categories of compute targets that Azure Machine Learning 
 
 * __Local__: Your local machine, or a cloud-based VM that you use as a dev/experimentation environment. 
 
-* __Managed Compute__: Azure Machine Learning Compute is a compute offering that is managed by the Azure Machine Learning service. It allows you to easily create single or multi-node compute for training, testing, and batch inferencing.
+* __Managed Compute__: Azure Machine Learning Compute is a compute offering that is managed by the Azure Machine Learning service. It allows you to easily create single- or multi-node compute for training, testing, and batch inferencing.
 
 * __Attached Compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
 
@@ -30,7 +30,7 @@ There are three broad categories of compute targets that Azure Machine Learning 
 
 ## Supported compute targets
 
-Azure Machine Learning service has varying support across the various compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
+Azure Machine Learning service has varying support across the various compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 |Compute target| GPU acceleration | Automated hyperparameter tuning | Automated machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
@@ -67,7 +67,7 @@ Switching from one compute target to another involves creating a [run configurat
 
 ## Training scripts
 
-When you start a training run, the entire directory that contains your training scripts is submitted. A snapshot is created and sent to the compute target. For more information, see [snapshots](concept-azure-machine-learning-architecture.md#snapshot).
+When you start a training run, a snapshot of the directory containing your training scripts is created and sent to the compute target. For more information, see [snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 ## <a id="local"></a>Local computer
 
@@ -115,7 +115,7 @@ For a Jupyter Notebook that demonstrates training in a system-managed environmen
 
 ## <a id="amlcompute"></a>Azure Machine Learning Compute
 
-Azure Machine Learning Compute is a managed compute infrastructure that allows the user to easily create single to multi-node compute. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. It executes in a __containerized environment__, packaging your model's dependencies in a Docker container.
+Azure Machine Learning Compute is a managed compute infrastructure that allows the user to easily create single- to multi-node compute. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. It executes in a __containerized environment__, packaging your model's dependencies in a Docker container.
 
 You can use Azure Machine Learning Compute to distribute the training process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see the [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) documentation.
 
