@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you prefer, you can do these steps using the [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) or [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md) instead of the portal.
 
-To do the steps uaing this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+To do the steps using this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ### Create a virtual network
 
@@ -44,28 +44,7 @@ To do the steps uaing this tutorial, sign in to the Azure portal at [https://por
 
    ![Create a virtual network](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
-## Create a Basic load balancer
-
-Create a Basic internal load balancer by using the portal. The name and IP address you create are automatically configured as the load balancer's front end.
-
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
-   
-1. In the **Create load balancer** pane, type or select these values:
-   
-   - **Name**: Type *MyLoadBalancer*.
-   - **Type**: Select **Internal**. 
-   - **SKU**: Select **Basic**.
-   - **Virtual network**: Select **Choose a virtual network**, and then select **MyVNet**.
-   - **Subnet**: Select **Choose a subnet**, and then select **MyBackendSubnet**.
-   - **IP address assignment**: Select **Static** if not selected.
-   - **Private IP address**: Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.
-   - **ResourceGroup**: Drop down **Select existing** and select **MyResourceGroupLB**. 
-   
-1. Select **Create**.
-   
-![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-## Create back-end server and test VMs
+## Create back-end servers and a test VM
 
 In your virtual network, create two VMs to use for the back-end pool of your Basic load balancer, and a third VM to use for testing the load balancer. 
 
@@ -102,9 +81,30 @@ In your virtual network, create two VMs to use for the back-end pool of your Bas
 
 1. Follow the steps again to create a third VM named *MyTestVM*. 
 
-## Create Basic Load Balancer resources
+## Create a Basic load balancer
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer rules.
+Create a Basic internal load balancer by using the portal. The name and IP address you create are automatically configured as the load balancer's front end.
+
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
+   
+1. In the **Create load balancer** pane, type or select these values:
+   
+   - **Name**: Type *MyLoadBalancer*.
+   - **Type**: Select **Internal**. 
+   - **SKU**: Select **Basic**.
+   - **Virtual network**: Select **Choose a virtual network**, and then select **MyVNet**.
+   - **Subnet**: Select **Choose a subnet**, and then select **MyBackendSubnet**.
+   - **IP address assignment**: Select **Static** if not selected.
+   - **Private IP address**: Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.
+   - **ResourceGroup**: Drop down **Select existing** and select **MyResourceGroupLB**. 
+   
+1. Select **Create**.
+   
+![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
+## Create Basic load balancer resources
+
+In this section, you  configure load balancer settings for a back-end address pool and a health probe, and specify load balancer rules.
 
 ### Create a back-end address pool
 
@@ -123,11 +123,8 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
    - **Availability set**: Select **MyAvailabilitySet**.
    
 1. Select **Add a target network IP configuration**. 
-   1. Add each virtual machine (**MyVM1** and **MyVM2**) that you created to the back-end pool.
+   1. Add **MyVM1** and **MyVM2** to the back-end pool.
    2. After you add each machine, drop down and select its **Network IP configuration**. 
-   
-   >[!NOTE]
-   >Do not add **MyTestVM** to the pool. 
    
 1. Select **OK**.
    
@@ -162,7 +159,7 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
 
 A load balancer rule defines how traffic is distributed to the VMs. The rule defines the front-end IP configuration for incoming traffic, the back-end IP pool to receive the traffic, and the required source and destination ports. 
 
-The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends network traffic to the back-end address pool **MyBackEndPool**, also on port 80. 
+The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends network traffic to the back-end address pool **MyBackendPool**, also on port 80. 
 
 **To create the load balancer rule:**
 
@@ -186,7 +183,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
 
 ## Test the load balancer
 
-Install Internet Information Services (IIS) on the back-end servers, then test the load balancer from MyTestVM by using the private IP address. Each VM will serve a different version of the default IIS web page, so you can see the load balancer distribute requests between the two VMs.
+Install Internet Information Services (IIS) on the back-end servers, then test the load balancer from MyTestVM by using the private IP address. Each back-end VM will serve a different version of the default IIS web page, so you can see the load balancer distribute requests between the two VMs.
 
 In the portal, on the **Overview** page for **MyLoadBalancer**, find its IP address under **Private IP Address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **10.3.0.7**. 
 
