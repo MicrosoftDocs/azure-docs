@@ -125,9 +125,9 @@ Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.m
 
 ## Next steps
 
-* Read Time Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
+Read [Time Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
 
-* View the Azure TSI (preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
+View the Azure TSI (preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png
