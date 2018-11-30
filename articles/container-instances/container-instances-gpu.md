@@ -234,7 +234,7 @@ When you're done working with the container instances you created, delete them w
 ```azurecli
 az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
-
+```
 
 ## Next steps
 
