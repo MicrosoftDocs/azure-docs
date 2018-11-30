@@ -26,7 +26,7 @@ There are three broad categories of compute targets that Azure Machine Learning 
 * __Attached Compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.168 
+> Code in this article was tested with Azure Machine Learning SDK versions > 1.0.1
 
 ## Supported compute targets
 
@@ -220,7 +220,7 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb).
 
-## <a id="vm"></a>Remote VM
+## <a id="vm"></a>Remote Azure VM
 
 Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service. Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM for remote runs. You can use a system-built conda environment, an already existing Python environment, or a Docker container. Execution using Docker container requires that you have Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
 
@@ -379,7 +379,7 @@ except ComputeTargetException:
 > [!TIP]
 > Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
 
-## <a id="hdinsight"></a>Attach an HDInsight cluster 
+## <a id="hdinsight"></a>Azure HDInsight 
 
 HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model.
 
