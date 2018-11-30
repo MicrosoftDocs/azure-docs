@@ -69,6 +69,21 @@ Template parameters:
 * **vnetRuleName**: Name for the Virtual Network rule to be created.
 * **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
+> [!NOTE]
+> While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
+> When making Virtual Network or Firewalls rules, we must change the
+> ***"defaultAction"***
+> 
+> from
+> ```json
+> "defaultAction": "Allow"
+> ```
+> to
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
 {  
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
