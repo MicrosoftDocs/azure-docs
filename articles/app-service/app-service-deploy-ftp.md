@@ -106,6 +106,6 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
-## More Resources
+## More resources
 
 * [Azure App Service Deployment Credentials](app-service-deployment-credentials.md)
