@@ -31,7 +31,7 @@ Virtual networks provide the basic connectivity for AKS nodes and customers to a
 * **Basic networking** - Azure manages the virtual network resources as the cluster is deployed and uses the [kubenet][kubenet] Kubernetes plugin.
 * **Advanced networking** - Deploys into an existing virtual network, and uses the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin. Pods receive individual IPs that can route to other network services or on-premises resources.
 
-The Container Networking Interface (CNI) is a vendor-neutral protocol that lets container runtimes make requests to a network provider. Azure CNI lets your AKS cluster integrate with Azure virtual networks. Each pod resource an IP address in the Azure virtual network, and no additional routing is needed to communicate with other resources or services.
+The Container Networking Interface (CNI) is a vendor-neutral protocol that lets container runtimes make requests to a network provider. Azure CNI lets your AKS cluster integrate with Azure virtual networks. Each pod resource receives an IP address in the Azure virtual network, and no additional routing is needed to communicate with other resources or services.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet](media/operator-best-practices-network/advanced-networking-diagram.png)
 
@@ -112,7 +112,7 @@ An ingress controller that distributes traffic to services and applications is t
 
 ![A web application firewall (WAF) such as Azure App Gateway can protect and distribute traffic for your AKS cluster](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-A web application firewall (WAF) provides an additional layer of security by filtering the incoming traffic. The Open Web Application Security Project (OWASP) provides set of rules to watch for attacks like cross site scripting or cookie poisoning. [Azure Application Gateway][app-gateway] is a WAF that can integrate with AKS clusters to provide these security features, before the traffic reaches your AKS cluster and applications.
+A web application firewall (WAF) provides an additional layer of security by filtering the incoming traffic. The Open Web Application Security Project (OWASP) provides a set of rules to watch for attacks like cross site scripting or cookie poisoning. [Azure Application Gateway][app-gateway] is a WAF that can integrate with AKS clusters to provide these security features, before the traffic reaches your AKS cluster and applications.
 
 Load balancer or ingress resources continue to run in your AKS cluster to further refine the traffic distribution. App Gateway can be centrally managed as an ingress controller with a resource definition. To get started, [create an Application Gateway Ingress controller][app-gateway-ingress].
 
@@ -135,7 +135,7 @@ This article focused on network connectivity and security. For more information 
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
 [nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
-[contor]: https://github.com/heptio/contour
+[contour]: https://github.com/heptio/contour
 [istio]: https://istio.io/
 [traefik]: https://github.com/containous/traefik
 
