@@ -13,7 +13,7 @@
 Bing Statistics provides analytics for Bing Search APIs. Analytics includes call volume, top query strings, geographic distribution, and more. To enable Bing Statistics in your Bing Search paid subscription, navigate to your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), select your paid subscription, and click Enable Bing Statistics. Enabling Bing Statistics increases your subscription rate slightly (see [pricing](https://aka.ms/bingstatisticspricing)).
 
 > [!NOTE]
-> Bing Statistics is available with paid subscriptions only - it is not available with free trial subscriptions. 
+> Bing Statistics is available with paid subscriptions only - it is not available with free trial subscriptions.
 
 > [!NOTE]
 > You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
@@ -34,17 +34,16 @@ By default, the charts and graphs reflect all metrics data that you have access 
   
 - **Endpoints**: The Bing Search API endpoints. The list contains all endpoints for which you have a paid subscription. By default, all endpoints are selected.  
 
-- **Time Frame**: The reporting period. You can specify:  
-  
+- **Time Frame**: The reporting period. You can specify:
   - All&mdash;Includes up to 13 month's worth of data  
   - Past 24 hours&mdash;Includes analytics from the last 24 hours  
   - Past week&mdash;Includes analytics from the previous seven days  
   - Past month&mdash;Includes analytics from the previous 30 days  
   - A custom date range&mdash;Includes analytics from the specified date range, if available  
-  
+
   > [!NOTE]  
   > It may take up to 24 hours for metrics to surface on the dashboard. The dashboard shows the date and time the data was last updated.  
-  
+
   > [!NOTE]  
   > Metrics are available from the time you enable the Bing Statistics Add-in.
 
@@ -61,9 +60,10 @@ The following are the possible metrics. Each metric notes endpoint restrictions.
 - **Call Volume**: Shows the number of calls made during the reporting period. If the reporting period is for a day, the chart shows the number of calls made per hour. Otherwise, the chart shows the number of calls made per day of the reporting period.  
   
   > [!NOTE]
-  > The call volume may differ from billing reports, which generally includes only successful calls. 
-  
+  > The call volume may differ from billing reports, which generally includes only successful calls.
+
 - **Top Queries**: Shows the top queries and the number of occurrences of each query during the reporting period. You can configure the number of queries shown. For example, you can show the top 25, 50, or 75 queries. Top Queries is not available for the following endpoints:  
+
   - /images/trending
   - /images/details
   - /images/visualsearch
