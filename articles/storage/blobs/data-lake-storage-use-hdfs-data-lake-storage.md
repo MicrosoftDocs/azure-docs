@@ -5,7 +5,7 @@ services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 11/30/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
 ---
@@ -21,18 +21,22 @@ HDInsight provides access to the distributed file system that is locally attache
 >[!IMPORTANT]
 >HDInsight cluster billing starts after a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. To learn how to delete a cluster, see our [article on the topic](../../hdinsight/hdinsight-delete-cluster.md). However, data stored in a storage account with Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
-To get a list of files or directories:
+### Get a list of files or directories
 
     hdfs dfs -ls <args>
-To create a directory:
+
+### Create a directory
 
     hdfs dfs -mkdir [-p] <paths>
-To delete a file or a directory:
+
+### Delete a file or a directory
 
     hdfs dfs -rm [-skipTrash] URI [URI ...]
 
+### Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
-Let's now take HDInsight Hadoop cluster on Linux as an example. To use the HDFS CLI, you first need to establish [remote access to services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
+First, establish [remote access to services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
+
 ```PowerShell
 #Connect to the cluster via SSH.
 ssh sshuser@clustername-ssh.azurehdinsight.net
@@ -41,7 +45,6 @@ hdfs dfs -ls /
 #Create a sample directory.
 hdfs dfs -mkdir /samplefolder
 ```
-
 The connection string can be found at the "SSH + Cluster login" section of the HDInsight cluster blade in Azure portal. SSH credentials were specified at the time of the cluster creation.
 
 For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). To learn more about the ACLs in Databricks, see the [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
@@ -50,28 +53,32 @@ For more information on HDFS CLI, see the [official documentation](https://hadoo
 
 The Databricks provides an easy-to-use CLI built on top of the Databricks REST API. The open-source project is hosted on [GitHub](https://github.com/databricks/databricks-cli). Below are the commonly used commands.
 
-To get a list of files or directories:
+### Get a list of files or directories
 
     dbfs ls [-l]
-To create a directory:
+
+### Create a directory
 
     dbfs mkdirs
-To delete a file:
+
+### Delete a file
 
     dbfs rm [-r]
 
 Another way of interacting with Databricks are notebooks. While a notebook has a primary language, you can mix languages by specifying the language magic command %language at the beginning of a cell. Specifically, %sh allows you to execute shell code in your notebook much like in the HDInsight example earlier in this article.
 
-To get a list of files or directories:
+### Get a list of files or directories
 
     %sh ls <args>
-To create a directory:
+
+### Create a directory
 
     %sh mkdir [-p] <paths>
-To delete a file or a directory:
+
+### Delete a file or a directory
 
     %sh rm [-skipTrash] URI [URI ...]
- 
+
 After starting the Spark cluster in Azure Databricks, you'll create a new notebook. The sample notebook script will look as follows:
 
     #Execute basic HDFS commands invoking the shell. Display the hierarchy.
@@ -87,7 +94,7 @@ For more information on Databricks CLI, see the [official documentation](https:/
 
 You set and get access permissions at the file and directory level. Here's a few commands to get you started. 
 
-You can view the complete list of commands on the [Apache Hadoop](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) Website.
+You can view the complete list of commands on the [Apache Hadoop 2.4.1 File System Shell Guide](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) Website.
 
 To learn more about file and directory level permissions for the Azure Data Lake Gen2 filesystem, see [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
@@ -111,13 +118,13 @@ Example:
 
 See [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#setfacl)
 
-### Change the owner
+### Change the owner of files
 
     hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
 
 See [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
 
-### Change group association
+### Change group association of files
 
     hdfs dfs -chgrp [-R] <group> <URI>
 
