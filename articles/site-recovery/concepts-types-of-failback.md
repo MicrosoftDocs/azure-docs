@@ -7,7 +7,7 @@ manager: guaravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
-ms.author: rajanki
+ms.author: rajanaki
 ---
 
 # Overview of failback
