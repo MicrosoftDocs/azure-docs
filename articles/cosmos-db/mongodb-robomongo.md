@@ -1,5 +1,5 @@
 ---
-title: Use Robomongo for Azure Cosmos DB | Microsoft Docs
+title: Use Robomongo for Azure Cosmos DB
 description: 'Learn how to use Robomongo with an Azure Cosmos DB: API for MongoDB account'
 keywords: robomongo
 services: cosmos-db

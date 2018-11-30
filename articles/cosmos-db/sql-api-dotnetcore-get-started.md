@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL API getting started with .NET Core tutorial | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL API getting started with .NET Core tutorial'
 description: A tutorial that creates an online database and C# console application using the Azure Cosmos DB SQL API .NET Core SDK. 
 services: cosmos-db
 author: SnehaGunda

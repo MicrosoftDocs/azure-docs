@@ -1,5 +1,5 @@
 ---
-title: Node.js examples for Azure Cosmos DB | Microsoft Docs
+title: Node.js examples for Azure Cosmos DB
 description: Find Node.js examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
 services: cosmos-db
 author: deborahc

@@ -1,5 +1,5 @@
 ---
-title: Power BI tutorial for Azure Cosmos DB connector | Microsoft Docs
+title: Power BI tutorial for Azure Cosmos DB connector
 description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB and Power BI connector.
 keywords: power bi tutorial, visualize data, power bi connector
 services: cosmos-db

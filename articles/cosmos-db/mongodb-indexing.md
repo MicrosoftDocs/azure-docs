@@ -1,5 +1,5 @@
 ---
-title: Indexing in Azure Cosmos DB MongoDB API | Microsoft Docs
+title: Indexing in Azure Cosmos DB MongoDB API
 description: Presents an overview of the indexing capabilities in Azure Cosmos DB MongoDB API.
 services: cosmos-db
 author: orestis-ms

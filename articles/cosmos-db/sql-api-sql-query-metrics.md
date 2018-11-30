@@ -1,5 +1,5 @@
 ---
-title: SQL query metrics for Azure Cosmos DB SQL API | Microsoft Docs
+title: SQL query metrics for Azure Cosmos DB SQL API
 description: Learn about how to instrument and debug the SQL query performance of Azure Cosmos DB requests.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db

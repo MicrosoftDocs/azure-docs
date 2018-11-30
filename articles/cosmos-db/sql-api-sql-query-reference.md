@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: SQL syntax query reference | Microsoft Docs"
+title: "Azure Cosmos DB: SQL syntax query reference"
 description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
 author: LalithaMV

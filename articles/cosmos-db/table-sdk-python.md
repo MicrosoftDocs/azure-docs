@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Table API for Python | Microsoft Docs
+title: Azure Cosmos DB Table API for Python
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 author: SnehaGunda

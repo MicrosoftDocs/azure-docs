@@ -1,5 +1,5 @@
 ---
-title: Server-side JavaScript programming for Azure Cosmos DB | Microsoft Docs
+title: Server-side JavaScript programming for Azure Cosmos DB
 description: Learn how to use Azure Cosmos DB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more.
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, azure, Microsoft azure
 services: cosmos-db

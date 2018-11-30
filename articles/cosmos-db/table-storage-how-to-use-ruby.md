@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby | Microsoft Docs
+title: How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
 author: SnehaGunda

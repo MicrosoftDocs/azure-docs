@@ -1,5 +1,5 @@
 ---
-title: Use mongoimport and mongorestore with the Azure Cosmos DB API for MongoDB | Microsoft Docs
+title: Use mongoimport and mongorestore with the Azure Cosmos DB API for MongoDB
 description: 'Learn how to use mongoimport and mongorestore to import data to an API for MongoDB account'
 keywords: mongoimport, mongorestore
 services: cosmos-db

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB performance tips for Async Java | Microsoft Docs
+title: Azure Cosmos DB performance tips for Async Java
 description: Learn client configuration options to improve Azure Cosmos DB database performance
 keywords: how to improve database performance
 services: cosmos-db

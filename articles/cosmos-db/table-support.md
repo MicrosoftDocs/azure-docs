@@ -1,5 +1,5 @@
 ---
-title: Azure Table Storage support in Azure Cosmos DB | Microsoft Docs
+title: Azure Table Storage support in Azure Cosmos DB
 description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work together.
 services: cosmos-db
 author: SnehaGunda

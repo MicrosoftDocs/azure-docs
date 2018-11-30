@@ -1,5 +1,5 @@
 ---
-title: Import data for use with the Azure Cosmos DB Table API | Microsoft Docs
+title: Import data for use with the Azure Cosmos DB Table API
 description: Learn how import data to use with the Azure Cosmos DB Table API.
 services: cosmos-db
 author: SnehaGunda
