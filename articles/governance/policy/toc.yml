@@ -23,8 +23,10 @@
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
 - name: Samples
-  href: ./samples/index.md
   items:
+  - name: Index
+    displayName: list, examples
+    href: ./samples/index.md
   - name: General
     items:
     - name: Naming

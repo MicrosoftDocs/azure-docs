@@ -43,7 +43,7 @@ Configuring Azure Diagnostics for PaaS resources is accomplished by executing th
 * Specifying a resource related to a specific resource group in a subscription  
 * Reconfigure a resource to forward to a different workspace
 
-Only resources that support collecting metrics with Azure diagnostics and send directly to Log Analytics are supported.  For a detailed list, review [Collect Azure service logs and metrics for use in Log Analytics](log-analytics-azure-storage.md) 
+Only resources that support collecting metrics with Azure diagnostics and send directly to Log Analytics are supported.  For a detailed list, review [Collect Azure service logs and metrics for use in Log Analytics](collect-azure-metrics-logs.md) 
 
 Perform the following steps to download and execute the script.
 
@@ -56,15 +56,15 @@ Perform the following steps to download and execute the script.
 
 3. Run `Connect-AzureRmAccount` to create a connection with Azure.   
 4. Run the following script `.\Enable-AzureRmDiagnostics.ps1` without any parameters to enable data collection from a specific resource in your subscription or with the parameter `-ResourceGroup <myResourceGroup>` to specify a resource in a specific resource group.   
-5. Select the appropriate subscription from the list if you have more than one, by entering the correct value.<br><br> ![Select subscription returned by script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Otherwise, it automatically selects the single subscription available.
-6. Next, the script returns a list of Log Analytics workspaces registered in the subscription.  Select the appropriate one from the list.<br><br> ![Select workspace returned by script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
-7. Select the Azure resource that you would like to enable collection from. For example, if you type 5, you enable data collection for SQL Azure Databases.<br><br> ![Select resource type returned by script](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
+5. Select the appropriate subscription from the list if you have more than one, by entering the correct value.<br><br> ![Select subscription returned by script](./media/collect-azurepass-posh/script-select-subscription.png)<br> Otherwise, it automatically selects the single subscription available.
+6. Next, the script returns a list of Log Analytics workspaces registered in the subscription.  Select the appropriate one from the list.<br><br> ![Select workspace returned by script](./media/collect-azurepass-posh/script-select-workspace.png)<br> 
+7. Select the Azure resource that you would like to enable collection from. For example, if you type 5, you enable data collection for SQL Azure Databases.<br><br> ![Select resource type returned by script](./media/collect-azurepass-posh/script-select-resource.png)<br>
    You can only select resources that support collecting metrics with Azure Diagnostics and sending directly to a Log Analytics.  The script will show a value of **True** under the **Metrics** column for the list of resources it discovers in your subscription or specified resource group.    
 8. You are prompted to confirm your selection.  Enter **Y** to enable metrics logging for all selected resources for the scope defined, which in our example are all SQL databases in the subscription.  
 
 The script will run against each and every resource matching selected criteria and enable metrics collection for them. After it’s finished, you will see a message indicating configuration is complete.  
 
-Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](log-analytics-azure-sql.md) and [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md) management solutions.   
+Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../../log-analytics/log-analytics-azure-sql.md) and [Azure Web Apps Analytics](../../log-analytics/log-analytics-azure-web-apps-analytics.md) management solutions.   
 
 ## Update a resource to send data to another workspace
 If you have a resource that is already sending data to a Log Analytics workspace and you later decide to reconfigure it to reference another workspace, you can run the script with the `-Update` parameter.  
@@ -76,8 +76,8 @@ You will be prompted to answer the same information as when you ran the script t
 
 ## Next steps
 
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 
-* Use [Custom Fields](log-analytics-custom-fields.md)( to parse the event records into individual fields.
+* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md)( to parse the event records into individual fields.
 
-* Review [Create a custom dashboard for use in Log Analytics](../azure-monitor/platform/dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.
+* Review [Create a custom dashboard for use in Log Analytics](../../azure-monitor/platform/dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.
