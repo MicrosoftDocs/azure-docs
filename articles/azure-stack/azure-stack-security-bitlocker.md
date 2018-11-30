@@ -31,12 +31,18 @@ Azure Stack is configured in a way that BitLocker keys are internally managed, s
 > [!IMPORTANT]
 > We strongly require that you retrieve your BitLocker recovery keys and store them in a safe location outside of Azure Stack. The inavailability of the recovery keys migh result in **data loss** and a system restore from a backup image.
 
-Retrieving the BitLocker recovery keys requires access to the privileged endpoint (PEP). 
-
+Retrieving the BitLocker recovery keys requires access to the privileged endpoint (PEP). From a PEP session, run the Get-AzsRecoveryKeys cmdlet.
 
 ```powershell
-##TODO add cmdlet to retrieve BitLocker keys
+##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
+Get-AzsRecoveryKeys
 ```
+
+Optional parameters for *Get-AzsRecoveryKeys* cmdlet:
+
+| Parameter | Description | Type | Required |
+|---------|---------|---------|---------|
+|*raw* | returns raw data of mapping between recovery key, computer name and password id(s) of each encrypted volume  | switch | no (Designed for support scenarios)| 
 
 ## Hardware protection for data at rest
 
@@ -52,8 +58,8 @@ In extreme circumstances, a BitLocker unlock request could fail, resulting in a 
 > [!IMPORTANT]
 > Have you already retrieved, and stored in a secure place, the BitLocker recovery keys for your environment(s)? If not, stop everything you are doing, and do it immediately. Not having the recovery keys could result in **data loss**.
 
-If you suspect that your system is experiencing issues with BitLocker (e.g. the system is unable to come up), contact support and have your recovery keys handy. The majority of the BitLocker-related issues can be resolved with a FRU operation for that specific VM/Host/volume. For the more complicated cases (that is, all domain controllers are unavailable), if the recovery keys are provided, a manual unlocking procedure can be performed. If keys are not available, the only option is restore from a backup image, which, depending on when the last backup was performed, it could result in data loss.
+If you suspect that your system is experiencing issues with BitLocker (e.g. the system is unable to come up), contact support. Support requires your recovery keys. The majority of the BitLocker-related issues can be resolved with a FRU operation for that specific VM/Host/volume. For the more complicated cases (that is, all domain controllers are unavailable), if the recovery keys are provided, a manual unlocking procedure can be performed. If keys are not available, the only option is restore from a backup image, which, depending on when the last backup was performed, it could result in data loss.
 
 ## Next steps
 
-[Servicing policy](azure-stack-servicing-policy.md) (@pat please update this with the right link)
+[Learn more about Azure Stack security](azure-stack-security-foundations.md)
