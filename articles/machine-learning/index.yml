@@ -30,8 +30,8 @@ sections:
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Train, deploy, automate, and manage your ML models in the Azure cloud.
-
-
+  - type: paragraph
+    text: 'Start with these tutorials and how-tos:'
   - type: list
     style: unordered
     items:
@@ -57,12 +57,14 @@ sections:
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: A drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data.
-
+  - type: paragraph
+    text: 'Start with these tutorials and how-tos:'
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/machine-learning/studio/create-workspace"> Create a Studio workspace</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-2-upload-data">Upload data</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment">Create a Studio experiment</a>
+    - html: <a href="azure/machine-learning/studio/algorithm-choice">How to choose an algorithm</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service">Publish a web service</a>
     - html: <a href="/azure/machine-learning/studio/walkthrough-6-access-web-service">Consume web services</a>
