@@ -46,7 +46,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |-----------|---------|-------------|
 |Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
 |Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 8 GB memory | 1 core, 8 GB memory |
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
 
 ## Download container images from Microsoft Container Registry
 
