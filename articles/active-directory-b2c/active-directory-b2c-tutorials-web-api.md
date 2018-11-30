@@ -6,7 +6,7 @@ author: davidmu1
 manager: mtillman
 
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
