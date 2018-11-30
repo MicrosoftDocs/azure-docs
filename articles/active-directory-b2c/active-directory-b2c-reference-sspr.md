@@ -17,7 +17,7 @@ ms.component: B2C
 With the self-service password reset feature, your customers who have signed up for local accounts can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of customers using it on a regular basis. Currently, using a verified email address is the only supported recovery method.
 
 > [!NOTE]
-> This article applies to self-service password reset used in the context of the **Sign in** (version 1) user flow, which uses **Local Account SignIn** as the identity provider. If you need fully customizable password reset user flows invoked from your app, see [this article](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> This article applies to self-service password reset used in the context of the V1 **Sign in** user flow, which uses **Local Account SignIn** as the identity provider. If you need fully customizable password reset user flows invoked from your app, see [this article](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 > 
 > 
 
