@@ -8,7 +8,6 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: sngun

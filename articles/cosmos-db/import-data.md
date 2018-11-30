@@ -5,9 +5,7 @@ keywords: csv to json, database migration tools, convert csv to json
 services: cosmos-db
 author: deborahc
 manager: kfile
-editor: monicar
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech

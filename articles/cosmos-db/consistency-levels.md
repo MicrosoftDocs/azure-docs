@@ -7,7 +7,6 @@ author: aliuy
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl

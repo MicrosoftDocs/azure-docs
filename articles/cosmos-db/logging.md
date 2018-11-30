@@ -7,7 +7,6 @@ manager: kfile
 tags: azure-resource-manager
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun

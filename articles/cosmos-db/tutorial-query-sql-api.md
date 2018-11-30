@@ -4,12 +4,10 @@ description: Learn to query with SQL in Azure Cosmos DB
 services: cosmos-db
 author: rafats
 manager: kfile
-editor: ''
 tags: ''
 
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats

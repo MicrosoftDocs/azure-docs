@@ -5,10 +5,8 @@ services: cosmos-db
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
 manager: kfile
-editor: ''
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: danoble
