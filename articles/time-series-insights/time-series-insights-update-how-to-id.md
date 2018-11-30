@@ -1,6 +1,6 @@
 ---
-title: Best practices when choosing a Time Series ID | Microsoft Docs
-description: Understanding best practices when choosing a Time Series ID
+title: Best practices when choosing a Time Series ID in Azure Time Series Insights | Microsoft Docs
+description: Understanding best practices when choosing a Time Series ID in Azure Time Series Insights
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data

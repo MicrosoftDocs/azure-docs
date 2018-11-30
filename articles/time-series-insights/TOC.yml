@@ -96,7 +96,7 @@
       href: time-series-insights-diagnose-and-solve-problems.md
   - name: Azure Time Series Insights (preview)
     items:
-    - name: Choose a time series ID
+    - name: Choose a Time Series ID
       href: time-series-insights-update-how-to-id.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-update-how-to-troubleshoot.md
