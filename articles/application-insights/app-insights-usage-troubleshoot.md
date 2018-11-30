@@ -8,13 +8,11 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-
 ---
 # Troubleshoot user behavior analytics tools in Application Insights
 Have questions about the [user behavior analytics tools in Application Insights](app-insights-usage-overview.md): [Users, Sessions, Events](app-insights-usage-segmentation.md), [Funnels](usage-funnels.md), [User Flows](app-insights-usage-flows.md), [Retention](app-insights-usage-retention.md), or Cohorts? Here are some answers.

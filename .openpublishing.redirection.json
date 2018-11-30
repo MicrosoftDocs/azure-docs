@@ -31291,6 +31291,46 @@
             "source_path": "articles/virtual-machines/linux/openshift-origin.md",
             "redirect_url": "/azure/virtual-machines/linux/openshift-get-started",
             "redirect_document_id": false
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-activity.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-activity-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-activity-logs-subscriptions.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-activity-logs-subscriptions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-app-insights-connector.md",
+            "redirect_url":  "/azure/azure-monitor/platform/app-insights-connector",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-storage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-azure-metrics-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-storage-iis-table.md",
+            "redirect_url":  "/azure/azure-monitor/platform/azure-storage-iis-table",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-collect-azurepass-posh.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-azurepass-posh",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-computer-groups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/computer-groups",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-create-pipeline-datacollector-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/create-pipeline-datacollector-api",
+            "redirect_document_id":  true
         }
     ]
 }
