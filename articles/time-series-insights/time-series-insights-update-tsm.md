@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/30/2018
 ---
 
 # Time Series Model
@@ -187,13 +187,13 @@ The Azure TSI (preview) supports the following variable interpolation: `linear`,
 
 The aggregate function the variable enables part of computation. If variable interpolation is `null` or `none`, then TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**). If variable interpolation is `stepright` or `linear`, then TSI will support **twmin**, **twmax**, **twavg**, and **twsum**. Count cannot be specified in interpolation.
 
-### Time Series Model hierarchies
+## Time Series Model hierarchies
 
 Hierarchies organize instances by specifying property names and their relationships. You might have a single hierarchy or multiple hierarchies. Additionally, these need not be a current part of your data, but each instance should map to a hierarchy. A TSM instance can map to a single hierarchy or multiple hierarchies.
 
-Hierarchies are defined by **hierarchyID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
+Hierarchies are defined by **Hierarchy ID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
 
-## Time Series Model hierarchy JSON request and response example
+### Time Series Model hierarchy JSON request and response example
 
 Given a POST HTTP request:
 
@@ -249,11 +249,31 @@ Response:
 }
 ```
 
+### Hierarchy definition behavior
+
+Consider the following example where hierarchy H1 has “building”, “floor” and “room” as part of its definition:
+
+```plaintext
+ H1 = [“building”, “floor”, “room”]
+```
+
+Depending on the instance fields, the hierarchy attributes and values will appear will show: 
+
+| Time Series ID | Instance Fields |
+| --- | --- |
+| ID1 | “building” = “1000”, “floor” = “10”, “room” = “55”  |
+| ID2 | “building” = “1000”, “room” = “55” |
+| ID3 |  “floor” = “10” |
+| ID4 | “building” = “1000”, “floor” = “10”  |
+| ID5 | |
+
+In above example, ID1 shows as part of hierarchy H1 in the UI/UX, while the rest are classified under `Unparented Instances` since they do not conform to the specified data hierarchy.
+
 ## Time Series Model instances
 
-Instances are the time series themselves. In most cases this will be the *deviceID* or *assetID* that is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
+Instances are the time series themselves. In most cases this will be the *deviceId* or *assetId* that is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
 
-Instances are defined by *timeSeriesID*, *typeID*, *hierarchyID*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, while additional *instanceFields* can be added for further instance property definition.
+Instances are defined by *timeSeriesId*, *typeId*, *hierarchyId*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, while additional *instanceFields* can be added for further instance property definition.
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
 
