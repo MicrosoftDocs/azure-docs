@@ -38,13 +38,13 @@ This document describes how to work with **Time Series Models** following the Az
 
 ### How to edit a single type
 
-1. Select the type and click on **Edit** button. Make required changes and click **Save**:
+* Select the type and click on **Edit** button. Make required changes and click **Save**:
 
     ![portal_four][4]
 
 ### How to delete a type
 
-1. Select the type and click on **Delete** button. If no instances are associated to the types, it will be deleted:
+* Select the type and click on **Delete** button. If no instances are associated to the types, it will be deleted:
 
     ![portal_five][5]
 
@@ -78,13 +78,13 @@ This document describes how to work with **Time Series Models** following the Az
 
 ### How to edit a single hierarchy
 
-1. Select the Hierarchy and click on the **Edit** button. Make required changes and click **Save**:
+* Select the Hierarchy and click on the **Edit** button. Make required changes and click **Save**:
 
     ![portal_eleven][11]
 
 ### How to delete a hierarchy
 
-1. Select the hierarchy and click on **Delete** button. If no instances are associated to the hierarchy, it will be deleted.
+* Select the hierarchy and click on **Delete** button. If no instances are associated to the hierarchy, it will be deleted.
 
     ![portal_twelve][12]
 
@@ -113,13 +113,13 @@ This document describes how to work with **Time Series Models** following the Az
 
 ### How to edit a single instance
 
-1. Select the instance and click on the **Edit** button. Make required changes and click **Save**:
+* Select the instance and click on the **Edit** button. Make required changes and click **Save**:
 
     ![portal_sixteen][16]
 
 ### How to delete an instance
 
-1. Select the instance and click on **Delete** button. If no events are associated to the instances, it will be deleted.
+* Select the instance and click on **Delete** button. If no events are associated to the instances, it will be deleted.
 
 ## Next steps
 

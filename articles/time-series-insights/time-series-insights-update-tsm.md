@@ -1,6 +1,6 @@
 ﻿---
-title: Data storage and ingress in the Azure Time Series Insights (preview) | Microsoft Docs
-description: Understanding data storage and ingress in the Azure Time Series Insights (preview)
+title: Data modelling | Microsoft Docs
+description: Understanding data modelling in the Azure Time Series Insights (preview)
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Time Series Model
+# Data modelling
 
 This document details the **Time Series Model** (TSM) part of the Azure Time Series Insights (TSI) update. It describes the model itself, its capabilities, and how to get started building and updating your own model.
 
