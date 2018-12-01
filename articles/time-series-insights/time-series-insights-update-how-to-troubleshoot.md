@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/30/2018
 ---
 
 # How to diagnose and troubleshoot
@@ -37,14 +37,16 @@ There are several common reasons why you might not see your data in the [Azure T
 
 1. Your event source key is missing a required permission
 
+    * For an IoT Hub, you need to provide the key that has service connect permission.
+
     ![configuration][3]
 
-    * For an IoT Hub, you need to provide the key that has service connect permission.
     * As shown in the preceding image, either of the policies *iothubowner* and service would work, because both have service connect permission.
     * For an event hub, you need to provide the key that has Listen permission.
-    * As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
-
+  
     ![permissions][4]
+
+    * As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
 
 1. Your consumer group provided is not exclusive to TSI
 
@@ -80,15 +82,23 @@ The easiest way to ensure that your timestamp property name is captured and work
 
 Please note that if the **Timestamp** property isn’t explicitly specified, we will leverage an event’s IoT Hub or Event Hub **Enqueued Time** as the default timestamp.
 
-## Problem: My Time Series ID property is incorrect, missing, or null
+## Problem: I can’t edit or view my Time Series Model
 
-This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. See the [TSI preview planning](./time-series-insights-update-plan.md) article for best practices on choosing a **Time Series ID**. At this time, you cannot update an existing TSI (preview) environment to use a different **Time Series ID**.
+1. You may be accessing a Time Series Insights S1 or S2 environment
+
+Time Series Models are supported only in `PAYG` environments. Please see this article for more information on accessing your S1/S2 environment from the Time Series Insights Update Explorer.
+
+  ![access][5]
+
+1. You may not have permissions to view & edit the model
+
+Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
 
 ## Problem: All my instances in Time Series Insights (preview) Explorer don’t have a parent
 
 This may occur if your environment doesn’t have a **Time Series Model** Hierarchy defined. See this article for more information on [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
-  ![tsm][5]
+  ![tsm][6]
 
 ## Next steps
 
@@ -105,4 +115,5 @@ You can also use [Azure support](https://azure.microsoft.com/support/options/) f
 [2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
 [3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
 [4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
-[5]: media/v2-update-diagnose-and-troubleshoot/tsm.png
+[5]: media/v2-update-diagnose-and-troubleshoot/access.png
+[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png
