@@ -600,7 +600,7 @@
     - name: Hierarchical Namespace Service
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Best practices
-      href: storage-data-lake-storage-best-practices.md
+      href: data-lake-storage-best-practices.md
     - name: Security
       items:
         - name: Big data analytics security guide
