@@ -44,7 +44,7 @@
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
-  - name: Built-in policies
+  - name: User flows
     href: active-directory-b2c-reference-policies.md
   - name: Identity Experience Framework
     items:

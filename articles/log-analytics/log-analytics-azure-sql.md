@@ -5,7 +5,6 @@ services: log-analytics
 ms.service: log-analytics
 ms.subservice: performance
 ms.custom: 
-ms.devlang: na
 ms.topic: conceptual
 author: danimir
 ms.reviewer: carlrab
