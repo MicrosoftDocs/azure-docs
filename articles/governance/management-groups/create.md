@@ -9,6 +9,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
+ms.topic: conceptual
 ---
 # Create management groups for resource organization and management
 
@@ -29,7 +30,7 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in portal
 
-1. Log into the [Azure portal](http://portal.azure.com).
+1. Log into the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** > **Management groups**.
 

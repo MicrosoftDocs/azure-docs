@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Functions
+  - name: About Azure Functions
     href: functions-overview.md
+  - name: Durable Functions
+    href: durable/durable-functions-overview.md 
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
@@ -97,45 +99,7 @@
   - name: IP addresses
     href: ip-addresses.md 
   - name: On-premises functions
-    href: functions-runtime-overview.md
-  - name: Durable Functions
-    items:
-    - name: Overview 
-      href: durable-functions-overview.md
-    - name: Function types and features
-      href: durable-functions-types-features-overview.md
-    - name: Bindings
-      href: durable-functions-bindings.md
-    - name: Checkpoint and replay 
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Custom orchestration status
-      href: durable-functions-custom-orchestration-status.md
-    - name: Instance management
-      href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
-    - name: Error handling
-      href: durable-functions-error-handling.md
-    - name: Diagnostics
-      href: durable-functions-diagnostics.md
-    - name: Timers
-      href: durable-functions-timers.md
-    - name: External events
-      href: durable-functions-external-events.md
-    - name: Eternal orchestrations
-      href: durable-functions-eternal-orchestrations.md
-    - name: Singleton orchestrations
-      href: durable-functions-singletons.md
-    - name: Sub-orchestrations
-      href: durable-functions-sub-orchestrations.md
-    - name: Task hubs
-      href: durable-functions-task-hubs.md
-    - name: Versioning
-      href: durable-functions-versioning.md
-    - name: Performance and scale
-      href: durable-functions-perf-and-scale.md
-    - name: Disaster recovery and geo-distribution
-      href: durable-functions-disaster-recovery-geo-distribution.md      
+    href: functions-runtime-overview.md 
 - name: How-to guides
   items:
   - name: Develop
@@ -222,24 +186,8 @@
       href: functions-powerapps-scenario.md
     - name: Call a function from Microsoft Flow 
       href: functions-flow-scenario.md
-  - name: Durable Functions
-    items:
-    - name: Install 
-      href: durable-functions-install.md
-    - name: Chaining 
-      href: durable-functions-sequence.md
-    - name: Fan-out/fan-in 
-      href: durable-functions-cloud-backup.md
-    - name: Monitors
-      href: durable-functions-monitor.md
-    - name: Human interaction 
-      href: durable-functions-phone-verification.md
-    - name: Unit testing
-      href: durable-functions-unit-testing.md
-    - name: Event publishing
-      href: durable-functions-event-publishing.md
-    - name: Use WebJobs SDK
-      href: durable-functions-webjobs-sdk.md  
+    - name: Use a managed identity
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
@@ -323,6 +271,8 @@
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Azure Functions GitHub repository
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates

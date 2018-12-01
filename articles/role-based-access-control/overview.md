@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -48,13 +48,14 @@ The way you control access to resources using RBAC is to create role assignments
 
 ### Security principal
 
-A *security principal* is an object that represents a user, group, or service principal that is requesting access to Azure resources.
+A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources.
 
 ![Security principal for a role assignment](./media/overview/rbac-security-principal.png)
 
 - User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
+- Managed identity - An identity in Azure Active Directory that that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
 ### Role definition
 
@@ -89,7 +90,7 @@ When you grant access at a parent scope, those permissions are inherited to the 
 
 ### Role assignments
 
-A *role assignment* is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
+A *role assignment* is the process of attaching a role definition to a user, group, service principal, or managed identity at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
 The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
 
@@ -99,9 +100,7 @@ You can create role assignments using the Azure portal, Azure CLI, Azure PowerSh
 
 ## Deny assignments
 
-Previously, RBAC was an allow-only model with no deny, but now RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* binds a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that are *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments.
-
-Currently, deny assignments are **read-only** and can only be set by Azure. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. To get information about a deny assignment, you must have the `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles](built-in-roles.md#owner). For more information, see [Understand deny assignments](deny-assignments.md).
+Previously, RBAC was an allow-only model with no deny, but now RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, service principal, or managed identity at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that are *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments. Currently, deny assignments are **read-only** and can only be set by Azure. For more information, see [Understand deny assignments](deny-assignments.md) and [View deny assignments using the Azure portal](deny-assignments-portal.md).
 
 ## How RBAC determines if a user has access to a resource
 

@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-
 ---
 # Smart Detection in Application Insights
  Smart Detection automatically warns you of potential performance problems in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.

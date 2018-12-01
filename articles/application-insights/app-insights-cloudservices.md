@@ -8,7 +8,6 @@ author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
-ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.workload: tbd

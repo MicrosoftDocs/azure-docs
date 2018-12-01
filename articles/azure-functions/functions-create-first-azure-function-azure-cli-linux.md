@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 09/12/2018
+ms.date: 11/28/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
@@ -65,6 +65,10 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
+
+## Create a Linux App Service plan
+
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ## Create a Linux function app in Azure
 
