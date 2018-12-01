@@ -14,7 +14,7 @@ ms.date: 11/28/2018
 
 # Azure Time Series Insights overview
 
-Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service (PAAS) to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
 
 ## What is IoT data?
 
