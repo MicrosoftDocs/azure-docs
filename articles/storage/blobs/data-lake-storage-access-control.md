@@ -1,40 +1,56 @@
 ---
 title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Storage Gen2
-services: data-lake-store
-documentationcenter: ''
+services: storage
 author: nitinme
-manager: jhubbard
-editor: cgronlun
 
 ms.component: data-lake-storage-gen2
-ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
-ms.service: data-lake-store
-ms.devlang: na
+ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 11/30/2018
 ms.author: nitinme
-
 ---
+
 # Access control in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen2. 
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure Role Based Access Control (RBAC) and POSIX-compliant access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2. 
+
+## Azure Role-based Access Control (RBAC)
+
+Azure Role-based Access Control (RBAC) uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (*e.g.*, Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the sub-resource of filesystems. 
+
+While using RBAC role assignments is a very powerful mechanism to control user permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the filesystem level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign RBAC permissions on a filesystem, that user or service principal will have that authorization for ALL directories and files in that filesystem, regardless of ACL assignments.
+
+Azure Storage provides three built-in RBAC roles: 
+
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+
+When a user or service principal is granted RBAC data permissions either through one of these built-in roles, or through a custom role, these permissions will be evaluated first when a request is authorized. If the request type (read, write, or super-user) is satisfied by the caller’s RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the caller does not have an RBAC assignment or the request’s operation does not match the assigned permission, then ACL checks are performed to determine if the caller is authorized to perform the requested operation.
+
+A special note should be made of the Storage Blob Data Owner built-in role. If the caller has this RBAC assignment, then the user is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
+
+## Shared Key and Shared Access Signature Authentication
+
+Azure Data Lake Storage Gen2 supports Shared Key and Shared Access Signature methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore permission-based authorization cannot be performed.
+ 
+In the case of Shared Key, the caller effectively gains ‘super-user’ access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
+
+SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
 
 ## Access control lists on files and folders
 
-There are two kinds of access control lists (ACLs), **Access ACLs** and **Default ACLs**.
+There are two kinds of access control lists (ACLs): access ACLs and default ACLs.
 
-* **Access ACLs**: These control access to an object. Files and folders both have Access ACLs.
+* **Access ACLs**: Access ACLs control access to an object. Files and folders both have access ACLs.
 
-* **Default ACLs**: A "template" of ACLs associated with a folder that determine the Access ACLs for any child items that are created under that folder. Files do not have Default ACLs.
+* **Default ACLs**: A template of ACLs associated with a folder that determine the access ACLs for any child items that are created under that folder. Files do not have default ACLs.
 
-
-Both Access ACLs and Default ACLs have the same structure.
-
-
+Both access ACLs and default ACLs have the same structure.
 
 > [!NOTE]
-> Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
+> Changing the default ACL on a parent does not affect the access ACL or default ACL of child items that already exist.
 >
 >
 
@@ -44,7 +60,7 @@ The permissions on a filesystem object are **Read**, **Write**, and **Execute**,
 
 |            |    File     |   Folder |
 |------------|-------------|----------|
-| **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the folder|
+| **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the folder |
 | **Write (W)** | Can write or append to a file | Requires **Write** and **Execute** to create child items in a folder |
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a folder |
 
@@ -189,7 +205,7 @@ def access_check( user, desired_perms, path ) :
 As illustrated in the Access Check Algorithm, the mask limits access for **named users**, the **owning group**, and **named groups**.  
 
 > [!NOTE]
-> For a new Data Lake Storage Gen2 account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
+> For a new Data Lake Storage Gen2 account, the mask for the access ACL of the root folder ("/") defaults to RWX.
 
 ### The sticky bit
 
@@ -199,10 +215,10 @@ The sticky bit is not shown in the Azure portal.
 
 ## Default permissions on new files and folders
 
-When a new file or folder is created under an existing folder, the Default ACL on the parent folder determines:
+When a new file or folder is created under an existing folder, the default ACL on the parent folder determines:
 
-- A child folder’s Default ACL and Access ACL.
-- A child file's Access ACL (files do not have a Default ACL).
+- A child folder’s default ACL and access ACL.
+- A child file's access ACL (files do not have a default ACL).
 
 ### umask
 
@@ -212,11 +228,11 @@ The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. 
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
-| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
-| umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's Access ACL |
+| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's default ACL to the child's access ACL | 
+| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's default ACL to the child's access ACL | 
+| umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's access ACL |
 
-The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
+The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for other is never transmitted by default on new children - regardless of what the default ACL indicates. 
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
@@ -272,7 +288,7 @@ A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this ha
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
 
 ### Where can I learn more about POSIX access control model?
 

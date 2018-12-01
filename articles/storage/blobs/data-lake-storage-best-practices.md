@@ -2,15 +2,12 @@
 title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store) 
 services: storage
-documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
 
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 11/30/2018
 ms.author: sachins
 ---
 # Best practices for using Azure Data Lake Storage Gen2
@@ -21,13 +18,13 @@ In this article, you learn about best practices and considerations for working w
 
 Azure Data Lake Storage Gen2 offers POSIX access controls and detailed auditing for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and folders. The access controls can also be used to create default configurations that can be applied to new files or folders. When permissions are set to existing folders and child objects, the permissions need to be propagated recursively on each object. If there is a large number of files, propagating the permissions can take a long time. The time taken can range between 30 to 50 objects processed per second. Hence, plan the folder structure and user groups appropriately. Otherwise, it can cause unexpected delays and issues when you work with your data.
 
-Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### Use security groups versus individual users
 
 When working with big data in Data Lake Storage Gen2, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you should use Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to folders and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 Access and Default ACLs (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](storage-data-lake-storage-access-control.md#the-owning-user), [the owning group](storage-data-lake-storage-access-control.md#the-owning-group), [the mask](storage-data-lake-storage-access-control.md#the-mask), and other).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 Access and Default ACLs (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-storage-access-control.md#the-owning-user), [the owning group](data-lake-storage-access-control.md#the-owning-group), [the mask](data-lake-storage-access-control.md#the-mask), and other).
 
 ### Security for groups
 
