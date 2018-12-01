@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -23,10 +23,10 @@ Many modern apps have a single-page app front end that primarily is written in J
 
 To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling takes place entirely in the JavaScript client, without additional page redirects.
 
-Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. In this article, we show you how to use the implicit flow and Azure AD to implement each of these experiences in your single-page applications. To help you get started, take a look at our [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) and [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) samples.
+Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In this article, we show you how to use the implicit flow and Azure AD to implement each of these experiences in your single-page applications. To help you get started, take a look at our [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) and [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) samples.
 
-In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our own sample application and policies. You can try the requests yourself by using these values, or you can replace them with your own values.
-Learn how to [get your own Azure AD B2C directory, application, and policies](#use-your-own-b2c-tenant).
+In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our own sample application and user flows. You can try the requests yourself by using these values, or you can replace them with your own values.
+Learn how to [get your own Azure AD B2C directory, application, and user flows](#use-your-own-b2c-tenant).
 
 
 ## Protocol diagram
@@ -36,11 +36,11 @@ The implicit sign-in flow looks something like the following figure. Each step i
 ![OpenID Connect swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## Send authentication requests
-When your web app needs to authenticate the user and execute a policy, it directs the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user takes action, depending on the policy. The user gets an ID token from the Azure AD endpoint.
+When your web app needs to authenticate the user and execute a user flow, it directs the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user takes action, depending on the user flow. The user gets an ID token from the Azure AD endpoint.
 
-In this request, the client indicates in the `scope` parameter the permissions that it needs to acquire from the user. In the `p` parameter, it indicates the policy to execute. The following three examples (with line breaks for readability) each use a different policy. To get a feel for how each request works, try pasting the request into a browser and running it.
+In this request, the client indicates in the `scope` parameter the permissions that it needs to acquire from the user. In the `p` parameter, it indicates the user flow to execute. The following three examples (with line breaks for readability) each use a different user flow. To get a feel for how each request works, try pasting the request into a browser and running it.
 
-### Use a sign-in policy
+### Use a sign-in user flow
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -53,7 +53,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### Use a sign-up policy
+### Use a sign-up user flow
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -66,7 +66,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### Use an edit-profile policy
+### Use an edit-profile user flow
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -88,12 +88,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. (We'll talk about this more later in the article.) The `offline_access` scope is optional for web apps. It indicates that your app needs a refresh token for long-lived access to resources. |
 | state |Recommended |A value included in the request that also is returned in the token response. It can be a string of any content that you want to use. Usually, a randomly generated, unique value is used, to prevent cross-site request forgery attacks. The state is also used to encode information about the user's state in the app before the authentication request occurred, like the page they were on. |
 | nonce |Required |A value included in the request (generated by the app) that is included in the resulting ID token as a claim. The app can then verify this value to mitigate token replay attacks. Usually, the value is a randomized, unique string that can be used to identify the origin of the request. |
-| p |Required |The policy to execute. It's the name of a policy that is created in your Azure AD B2C tenant. The policy name value should begin with **b2c\_1\_**. For more information, see [Azure AD B2C built-in policies](active-directory-b2c-reference-policies.md). |
+| p |Required |The policy to execute. It's the name of a policy (user flow) that is created in your Azure AD B2C tenant. The policy name value should begin with **b2c\_1\_**. For more information, see [Azure AD B2C user flows](active-directory-b2c-reference-policies.md). |
 | prompt |Optional |The type of user interaction that's required. Currently, the only valid value is `login`. This forces the user to enter their credentials on that request. Single sign-on will not take effect. |
 
-At this point, the user is asked to complete the policy's workflow. This might involve the user entering their username and password, signing in with a social identity, signing up for the directory, or any other number of steps. User actions depend on how the policy is defined.
+At this point, the user is asked to complete the policy's workflow. This might involve the user entering their username and password, signing in with a social identity, signing up for the directory, or any other number of steps. User actions depend on how the user flow is defined.
 
-After the user completes the policy, Azure AD returns a response to your app at the value you used for `redirect_uri`. It uses the method specified in the `response_mode` parameter. The response is exactly the same for each of the user action scenarios, independent of the policy that was executed.
+After the user completes the user flow, Azure AD returns a response to your app at the value you used for `redirect_uri`. It uses the method specified in the `response_mode` parameter. The response is exactly the same for each of the user action scenarios, independent of the user flow that was executed.
 
 ### Successful response
 A successful response that uses `response_mode=fragment` and `response_type=id_token+token` looks like the following, with line breaks for legibility:
@@ -138,15 +138,15 @@ Receiving an ID token is not enough to authenticate the user. You must validate 
 
 Many open-source libraries are available for validating JWTs, depending on the language you prefer to use. Consider exploring available open-source libraries rather than implementing your own validation logic. You can use the information in this article to help you learn how to properly use those libraries.
 
-Azure AD B2C has an OpenID Connect metadata endpoint. An app can use the endpoint to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each policy in your Azure AD B2C tenant. For example, the metadata document for the b2c_1_sign_in policy in the fabrikamb2c.onmicrosoft.com tenant is located at:
+Azure AD B2C has an OpenID Connect metadata endpoint. An app can use the endpoint to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your Azure AD B2C tenant. For example, the metadata document for the b2c_1_sign_in user flow in the fabrikamb2c.onmicrosoft.com tenant is located at:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-One of the properties of this configuration document is the `jwks_uri`. The value for the same policy would be:
+One of the properties of this configuration document is the `jwks_uri`. The value for the same user flow would be:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-To determine which policy was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the policy name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the policy in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which policy was used. Either method is valid.
+To determine which user flow was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the user flow name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which user flow was used. Either method is valid.
 
 After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA-256 public keys (located at this endpoint) to validate the signature of the ID token. There might be multiple keys listed at this endpoint at any given time, each identified by a `kid`. The header of `id_token` also contains a `kid` claim. It indicates which of these keys was used to sign the ID token. For more information, including learning about [validating tokens](active-directory-b2c-reference-tokens.md#token-validation), see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
@@ -168,7 +168,7 @@ For more information about the claims in an ID token, see the [Azure AD B2C toke
 After you have completely validated the ID token, you can begin a session with the user. In your app, use the claims in the ID token to obtain information about the user. This information can be used for display, records, authorization, and so on.
 
 ## Get access tokens
-If the only thing your web apps needs to do is execute policies, you can skip the next few sections. The information in the following sections are applicable only to web apps that need to make authenticated calls to a web API, and which are protected by Azure AD B2C.
+If the only thing your web apps needs to do is execute user flows, you can skip the next few sections. The information in the following sections are applicable only to web apps that need to make authenticated calls to a web API, and which are protected by Azure AD B2C.
 
 Now that you've signed the user in to your single-page app, you can get access tokens for calling web APIs that are secured by Azure AD. Even if you have already received a token by using the `token` response type, you can use this method to acquire tokens for additional resources without redirecting the user to sign in again.
 
@@ -270,7 +270,7 @@ To try these requests yourself, complete the following three steps. Replace the 
 
 1. [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md). Use the name of your tenant in the requests.
 2. [Create an application](active-directory-b2c-app-registration.md) to obtain an application ID and a `redirect_uri` value. Include a web app or web API in your app. Optionally, you can create an application secret.
-3. [Create your policies](active-directory-b2c-reference-policies.md) to obtain your policy names.
+3. [Create your user flows](active-directory-b2c-reference-policies.md) to obtain your user flow names.
 
 ## Samples
 
