@@ -43,7 +43,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
 * We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency.
 * Backup data doesn't include network mounted drives attached to a VM.
-* Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
+* **Replace existing** option in the **Restore configuration** helps to replace existing disks in the current VM with the selected restore point. This operation can be only performed if current VM exists. 
 * Cross-region back up and restore are not supported.
 * While configuring back up, make sure the **Firewalls and virtual networks** storage account settings allow access from All networks.
 * For selected networks, after you configure firewall and virtual network settings for your storage account, select **Allow trusted Microsoft services to access this storage account** as an exception to enable Azure Backup service to access the network restricted storage account. Item level recovery is not supported for network restricted storage accounts.

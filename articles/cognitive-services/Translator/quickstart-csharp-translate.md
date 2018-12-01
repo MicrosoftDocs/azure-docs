@@ -23,7 +23,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for the Speech Service
+* An Azure subscription key for Translator Text
 
 ## Create a .NET Core project
 
@@ -35,6 +35,12 @@ cd translate-sample
 ```
 
 The first command does two things. It creates a new .NET console application, and creates a directory named `translate-sample`. The second command changes to the directory for your project.
+
+Next, you'll need to install Json.Net. From your project's directory, run:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
 
 ## Add required namespaces to your project
 
@@ -49,7 +55,7 @@ using Newtonsoft.Json;
 
 ## Create a function to translate text
 
-Within the `Program` class, create a function called `TranslateText`. This class encapsulates the code used to call the Translate resource and print the result to console.
+Within the `Program` class, create a function called `TranslateText`. This class encapsulates the code used to call the Translate resource and prints the result to console.
 
 ```csharp
 static void TranslateText()
@@ -116,7 +122,7 @@ request.Content = new StringContent(requestBody, Encoding.UTF8, "application/jso
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
@@ -136,7 +142,7 @@ Console.ReadLine();
 
 ## Run the sample app
 
-That's it, you're ready to run your text-to-speech sample app. From the command line (or terminal session), navigate to your project directory and run:
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
 
 ```console
 dotnet run
