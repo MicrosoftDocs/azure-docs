@@ -100,41 +100,41 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Each mechanism is shown in an example below. When testing the examples, remember to replace the placeholders shown in brackets in the sample with your own values:
 
-    - **Mount using OAuth**     
+    **Mount using OAuth**     
         
-        ```scala
-        %python%
-        configs = {"fs.azure.account.auth.type": "OAuth",
-            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-            "fs.azure.account.oauth2.client.id": "<service-client-id>",
-            "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-     
-        dbutils.fs.mount(
-            source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-            mount_point = "/mnt/<mount-name>",
-            extra_configs = configs)
-        ```
+    ```scala
+    %python%
+    configs = {"fs.azure.account.auth.type": "OAuth",
+        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+        "fs.azure.account.oauth2.client.id": "<service-client-id>",
+        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
+        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
+    
+    dbutils.fs.mount(
+        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
+        mount_point = "/mnt/<mount-name>",
+        extra_configs = configs)
+    ```
 
-    - **Direct access with OAuth**
+    **Direct access with OAuth**
 
-        ```scala
-        spark.conf.set("fs.azure.account.auth.type.<account-name>.dfs.core.windows.net": "OAuth")
-        spark.conf.set("fs.azure.account.oauth.provider.type.<account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-        spark.conf.set("fs.azure.account.oauth2.client.id.<account-name>.dfs.core.windows.net": "<service-client-id>")
-        spark.conf.set("fs.azure.account.oauth2.client.secret.<account-name>.dfs.core.windows.net": "<service-credentials>")
-        spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+    ```scala
+    spark.conf.set("fs.azure.account.auth.type.<account-name>.dfs.core.windows.net": "OAuth")
+    spark.conf.set("fs.azure.account.oauth.provider.type.<account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+    spark.conf.set("fs.azure.account.oauth2.client.id.<account-name>.dfs.core.windows.net": "<service-client-id>")
+    spark.conf.set("fs.azure.account.oauth2.client.secret.<account-name>.dfs.core.windows.net": "<service-credentials>")
+    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
 
-        dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
-        ```
+    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    ```
         
-    - **Direct access with Shared Key** 
+    **Direct access with Shared Key** 
 
-        ```scala    
-        spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
+    ```scala    
+    spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
 
-        dbutils.fs.ls("abfs://<file-system-name>@<account-name>.dfs.core.windows.net/")
-        ```
+    dbutils.fs.ls("abfs://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    ```
 
 5. Enter the code into the first cell, and press **SHIFT + ENTER** to run it.
 
