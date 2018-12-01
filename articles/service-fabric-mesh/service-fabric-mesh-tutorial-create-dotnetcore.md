@@ -375,7 +375,7 @@ In the service.yaml file, add the following variables under `environmentVariable
 ```
 
 > [!Tip]
-> Notice that the name for `ToDoServiceName` is fully qualified as servicename.appname.
+> Notice that the value for `ToDoServiceName` is a fully qualified name: servicename.appname.
 > Using only servicename will resolve in Mesh in Azure, but not on Windows 10.
 > Using servicename.appname will resolve in Mesh in Azure and on Windows10.
 > It is a good practice to always use fully qualified names for service resolution.
