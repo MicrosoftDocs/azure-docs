@@ -17,6 +17,11 @@ This article describes changes to data storage and ingress from the Azure Time S
 
 ## Data storage
 
+When creating a Time Series Insights update (PAYG Sku) environment, you are creating two resources:
+
+1. A Time Series Insights environment
+1. An Azure storage general purpose V1 account where the data will be stored.  
+
 The TSI (preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The TSI update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
 
 Like any other Azure Storage blob, you can read and write to your Azure TSI-created blobs to support different integration scenarios.
@@ -40,7 +45,7 @@ Parquet is column-oriented data file format that was designed for:
 * Space Efficiency
 * Query Efficiency
 
-It provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
+Azure TSI chose Parquet since it provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
 
 For a better understanding of what the Parquet file format is all about, head over to the [official Parquet page](https://parquet.apache.org/documentation/latest/).
 
@@ -106,17 +111,17 @@ The Azure TSI (preview) provides performant queries that are based on these two 
 
 ![storage-architecture][2]
 
-## Best practices when choosing an Azure Time Series Insights ID
-
-See the [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) article when choosing a **Time Series ID**.
-
 ## Your Azure Storage account
 
 ### Storage
 
+When you create a TSI PAYG environment, you create two resources – the TSI environment and an Azure storage general purpose V1 account where the data will be stored. In the future, Azure Storage general purpose V1 accounts will be limited to existing Azure customers, therefore all new customers to Azure provisioning a TSI (preview) environment will by default create an Azure Storage general purpose V2 ‘Hot’ account.  We chose to make Azure Storage general purpose V1 the default due to its interoperability, price, and performance.  
+
 Azure TSI will publish up to two copies of each event in your Azure Storage account. The initial copy is always preserved to ensure you can query it performantly using other services. Thus, Spark, Hadoop, or other familiar tools can be easily used across **Time Series IDs** over raw Parquet files since these engines support basic file name filtering. Grouping blobs by year and month is useful to collect blob list within specific time range for a custom job.  
 
-Additionally, TSI will repartition the Parquet files to optimize for the Azure TSI APIs, and the most recently repartitioned file will also be saved. During Public Preview, data will be stored indefinitely in your Azure Storage account. The ability to delete data will be added in the future, allowing a greater degree of control of managing old data.
+Additionally, TSI will repartition the Parquet files to optimize for the Azure TSI APIs, and the most recently repartitioned file will also be saved. 
+
+During Public Preview, data will be stored indefinitely in your Azure Storage account. The ability to delete data will be added in the future, allowing a greater degree of control of managing old data.
 
 ### Writing and editing Time Series Insights blobs
 
