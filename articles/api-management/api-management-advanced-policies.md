@@ -871,7 +871,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

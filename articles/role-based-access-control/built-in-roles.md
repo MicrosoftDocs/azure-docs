@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 10/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -35,7 +35,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [AcrImageSigner](#acrimagesigner) | acr image signer |
 | [AcrQuarantineReader](#acrquarantinereader) | acr quarantine data reader |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr quarantine data writer |
-| [API Management Service Contributor](#api-management-service-contributor) | Lets you manage API Management services, but not access to them. |
+| [API Management Service Contributor](#api-management-service-contributor) | Can manage service and the APIs |
 | [API Management Service Operator Role](#api-management-service-operator-role) | Can manage service but not the APIs |
 | [API Management Service Reader Role](#api-management-service-reader-role) | Read-only access to service and APIs |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components |
@@ -49,7 +49,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Backup Contributor](#backup-contributor) | Lets you manage backup service,but can't create vaults and give access to others |
 | [Backup Operator](#backup-operator) | Lets you manage backup services, except removal of backup, vault creation and giving access to others |
 | [Backup Reader](#backup-reader) | Can view backup services, but can't make changes |
-| [Billing Reader](#billing-reader) | Lets you read billing data |
+| [Billing Reader](#billing-reader) | Allows read access to billing data |
 | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. |
 | [CDN Endpoint Contributor](#cdn-endpoint-contributor) | Can manage CDN endpoints, but can’t grant access to other users. |
 | [CDN Endpoint Reader](#cdn-endpoint-reader) | Can view CDN endpoints, but can’t make changes. |
@@ -66,12 +66,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Cost Management Reader](#cost-management-reader) | Can view cost data and configuration (e.g. budgets, exports) |
 | [Data Box Contributor](#data-box-contributor) | Lets you manage everything under Data Box Service except giving access to others. |
 | [Data Box Reader](#data-box-reader) | Lets you manage Data Box Service except creating order or editing order details and giving access to others. |
-| [Data Factory Contributor](#data-factory-contributor) | Lets you manage data factories, but not access to them. |
+| [Data Factory Contributor](#data-factory-contributor) | Create and manage data factories, as well as child resources within them. |
 | [Data Lake Analytics Developer](#data-lake-analytics-developer) | Lets you submit, monitor, and manage your own jobs but not create or delete Data Lake Analytics accounts. |
 | [Data Purger](#data-purger) | Can purge analytics data |
-| [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown virtual machines in your Azure DevTest Labs. |
+| [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. |
 | [DNS Zone Contributor](#dns-zone-contributor) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB. |
+| [EventGrid EventSubscription Contributor (Preview)](#eventgrid-eventsubscription-contributor-preview) | Lets you manage EventGrid event subscription operations. |
+| [EventGrid EventSubscription Reader (Preview)](#eventgrid-eventsubscription-reader-preview) | Lets you read EventGrid event subscriptions. |
 | [HDInsight Domain Services Contributor](#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them. |
 | [Key Vault Contributor](#key-vault-contributor) | Lets you manage key vaults, but not access to them. |
@@ -97,7 +99,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. |
 | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. |
 | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
-| [Security Manager](#security-manager) | Lets you manage security components, security policies and virtual machines |
+| [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Administrator instead |
 | [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes |
 | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment |
 | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations |
@@ -115,7 +117,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. |
 | [Virtual Machine Administrator Login](#virtual-machine-administrator-login) | View Virtual Machines in the portal and login as administrator |
-| [Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to. |
+| [Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
 | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. |
 | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. |
 | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. |
@@ -142,8 +144,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/*/Delete | Can't delete roles and role assignments |
 > | Microsoft.Authorization/*/Write | Can't create roles and role assignments |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
-> | Microsoft.Blueprint/blueprintAssignments/write | Create or Update any Blueprint Artifacts |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Delete any Blueprint Artifacts |
+> | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
 
 ## Reader
 > [!div class="mx-tableFixed"]
@@ -161,8 +163,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | acr image signer |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
+> | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull content trust metadata for a container registry. |
 
 ## AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -171,7 +172,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | acr quarantine data reader |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
 
 ## AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -180,14 +181,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | acr quarantine data writer |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Write/Modify quarantine state of quarantined images |
 
 ## API Management Service Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage API Management services, but not access to them. |
+> | **Description** | Can manage service and the APIs |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Actions** |  |
 > | Microsoft.ApiManagement/service/* | Create and manage API Management service |
@@ -532,7 +533,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you read billing data |
+> | **Description** | Allows read access to billing data |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -809,7 +810,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage data factories, but not access to them. |
+> | **Description** | Create and manage data factories, as well as child resources within them. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role Assignments |
@@ -868,7 +869,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you connect, start, restart, and shutdown virtual machines in your Azure DevTest Labs. |
+> | **Description** | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role Assignments |
@@ -879,13 +880,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Compute/virtualMachines/restart/action | Restarts the virtual machine |
 > | Microsoft.Compute/virtualMachines/start/action | Starts the virtual machine |
 > | Microsoft.DevTestLab/*/read | Read the properties of a lab |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | Create virtual machines in a lab. |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Claim a random claimable virtual machine in the lab. |
+> | Microsoft.DevTestLab/labs/createEnvironment/action | Create virtual machines in a lab. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Delete formulas. |
 > | Microsoft.DevTestLab/labs/formulas/read | Read formulas. |
 > | Microsoft.DevTestLab/labs/formulas/write | Add or modify formulas. |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluates lab policy. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Take ownership of an existing virtual machine |
+> | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Lists the applicable start/stop schedules, if any. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule |
 > | Microsoft.Network/networkInterfaces/*/read | Read the properties of a network interface (for example, all the load balancers that the network interface is a part of) |
@@ -932,6 +934,37 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+
+## EventGrid EventSubscription Contributor (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you manage EventGrid event subscription operations. |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | List global event subscriptions by topic type |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | List regional event subscriptions |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | List regional event subscriptions by topictype |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+
+## EventGrid EventSubscription Reader (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you read EventGrid event subscriptions. |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.EventGrid/eventSubscriptions/read | Read a eventSubscription |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | List global event subscriptions by topic type |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | List regional event subscriptions |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | List regional event subscriptions by topictype |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 
 ## HDInsight Domain Services Contributor
 > [!div class="mx-tableFixed"]
@@ -1085,6 +1118,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | Lets you read and perform actions on Managed Application resources |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Actions** |  |
+> | */read | Read resources of all types, except secrets. |
 > | Microsoft.Solutions/applications/read | Retrieves a list of applications. |
 
 ## Managed Applications Reader
@@ -1181,7 +1215,6 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## Monitoring Metrics Publisher
 > [!div class="mx-tableFixed"]
@@ -1328,15 +1361,17 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Security/locations/tasks/activate/action | Activate a security recommendation |
 > | Microsoft.Security/locations/tasks/dismiss/action | Dismiss a security recommendation |
 > | Microsoft.Security/policies/write | Updates the security policy |
-> | Microsoft.Security/securityContacts/write | Updates the security contact |
+> | Microsoft.Security/pricings/write | Updates the pricing settings for the scope |
+> | Microsoft.Security/pricings/delete | Deletes the pricing settings for the scope |
 > | Microsoft.Security/securityContacts/delete | Deletes the security contact |
+> | Microsoft.Security/securityContacts/write | Updates the security contact |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## Security Manager
+## Security Manager (Legacy)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage security components, security policies and virtual machines |
+> | **Description** | This is a legacy role. Please use Security Administrator instead |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -1555,11 +1590,13 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Create and manage SQL server auditing policies |
 > | Microsoft.Sql/servers/auditingSettings/* | Create and manage SQL server auditing setting |
+> | Microsoft.Sql/servers/extendedAuditingSettings/read | Retrieve details of the extended server blob auditing policy configured on a given server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Create and manage SQL server database auditing policies |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Create and manage SQL server database auditing settings |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Read audit records |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Create and manage SQL server database connection policies |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Create and manage SQL server database data masking policies |
+> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Retrieve details of the extended blob auditing policy configured on a given database |
 > | Microsoft.Sql/servers/databases/read | Return the list of databases or gets the properties for the specified database. |
 > | Microsoft.Sql/servers/databases/schemas/read | Retrieve list of schemas of a database |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Retrieve list of columns of a table |
@@ -1749,7 +1786,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to. |
+> | **Description** | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read authorization |

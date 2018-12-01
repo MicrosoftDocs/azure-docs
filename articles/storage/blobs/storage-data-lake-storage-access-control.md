@@ -276,4 +276,4 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 
 ## See also
 
-* [Overview of Azure Data Lake Storage Gen2](../data-lake-storage/introduction.md)
+* [Overview of Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

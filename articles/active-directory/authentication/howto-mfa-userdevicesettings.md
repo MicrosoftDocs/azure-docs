@@ -51,7 +51,7 @@ This setting deletes all of the app passwords that a user has created. Non-brows
 10. Click **close**.
 
 ## Restore MFA on all remembered devices for a user
-One of the configurable features of Azure Multi-Factor Authentication is giving your users the option to mark devices as trusted. For more information, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md#remember-multi-factor-authentication-for-devices-that-users-trust).
+One of the configurable features of Azure Multi-Factor Authentication is giving your users the option to mark devices as trusted. For more information, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
 
 Users can opt out of two-step verification for a configurable number of days on their regular devices. If an account is compromised or a trusted device is lost, you need to be able to remove the trusted status and require two-step verification again.
 
