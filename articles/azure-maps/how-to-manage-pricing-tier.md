@@ -33,7 +33,7 @@ Once you have created your Azure Maps account, you can upgrade or downgrade the 
 
 ## Next steps
 
-Learn how to see the API usage metrics for your Azure Maps account.
+Learn how to see the API usage metrics for your Azure Maps account:
 
 > [!div class="nextstepaction"]
 > [View usage metrics](./how-to-view-api-usage.md)
