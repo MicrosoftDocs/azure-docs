@@ -48,7 +48,3 @@ The **Manage Permission** prompt that will allow you to manage ACLs for existing
 We recommend creating security groups and maintaining ACLs on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
 
 You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing ACLs on directories and files is the same as described above.
-
-## Set ACLs on a file
-
-If you have a file, you can set ACLs on it the same way you set ACLs on a directory.
