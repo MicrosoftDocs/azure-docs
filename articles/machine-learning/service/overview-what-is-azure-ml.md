@@ -78,7 +78,7 @@ If you aren't a subscriber, you can [open an Azure account for free](https://aka
 
 ## Next steps
 
-- Create a Machine Learning Service Workspace to get started [using Azure portal](quickstart-get-started.md) or [in Python](quickstart-create-workspace-with-python).
+- Create a Machine Learning Service Workspace to get started [using Azure portal](quickstart-get-started.md) or [in Python](quickstart-create-workspace-with-python.md).
 
 - Follow the full-length tutorial, [Train and deploy an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
