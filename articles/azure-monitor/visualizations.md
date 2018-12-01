@@ -6,15 +6,12 @@ manager: carmonm
 editor: ''
 services: azure-monitor
 documentationcenter: azure-monitor
-
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-
 ---
 
 # Visualizing data from Azure Monitor
