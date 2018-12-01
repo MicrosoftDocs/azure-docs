@@ -68,8 +68,9 @@ In your virtual network, create two VMs to use for the back-end pool of your Bas
    - **Virtual network**: **MyVNet**
    - **Subnet**: **MyBackendSubnet**
    
-   >[!NOTE]
-   >By default, the VM already has the **RDP** (Remote Desktop) port open to allow remote desktop access. 
+   Under **Network Security Group**:
+   1. Select **Advanced**. 
+   1. Drop down **Configure network security group** and select **None**. 
    
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
    
@@ -126,6 +127,9 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
    1. Add **MyVM1** and **MyVM2** to the back-end pool.
    2. After you add each machine, drop down and select its **Network IP configuration**. 
    
+   >[!NOTE]
+   >Do not add **MyTestVM** to the pool. 
+   
 1. Select **OK**.
    
    ![Add the back-end address pool](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
@@ -167,7 +171,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Under **Settings**, select **Load balancing rules**, and then select **Add**.
    
-1. On the **Add load balancing rule** page, type or select the following values:
+1. On the **Add load balancing rule** page, type or select the following values, if not already present:
    
    - **Name**: Type *MyLoadBalancerRule*.
    - **Frontend IP address:** Type *LoadBalancerFrontEnd* if not present.
@@ -183,7 +187,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
 
 ## Test the load balancer
 
-Install Internet Information Services (IIS) on the back-end servers, then test the load balancer from MyTestVM by using the private IP address. Each back-end VM will serve a different version of the default IIS web page, so you can see the load balancer distribute requests between the two VMs.
+Install Internet Information Services (IIS) on the back-end servers, then use MyTestVM to test the load balancer using its private IP address. Each back-end VM serves a different version of the default IIS web page, so you can see the load balancer distribute requests between the two VMs.
 
 In the portal, on the **Overview** page for **MyLoadBalancer**, find its IP address under **Private IP Address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **10.3.0.7**. 
 
@@ -191,9 +195,12 @@ In the portal, on the **Overview** page for **MyLoadBalancer**, find its IP addr
 
 First, connect to all three VMs with Remote Desktop (RDP). 
 
+>[!NOTE]
+>By default, the VMs already have the **RDP** (Remote Desktop) port open to allow remote desktop access. 
+
 **To remote desktop (RDP) into the VMs:**
 
-1. In the portal, select **All resources** on the left menu. From the resource list, select **MyVM1** (or **MyVM2** or **MyTestVM**) in the **MyResourceGroupLB** resource group.
+1. In the portal, select **All resources** on the left menu. From the resource list, select each VM in the **MyResourceGroupLB** resource group.
    
 1. On the **Overview** page, select **Connect**, and then select **Download RDP file**. 
    
@@ -207,31 +214,18 @@ First, connect to all three VMs with Remote Desktop (RDP).
    
    The VM desktop opens in a new window. 
 
-### Install IIS on the back-end VMs
+### Install IIS and replace the default IIS page on the back-end VMs
 
-You can use the **Add Roles and Features Wizard**, or PowerShell, to install and configure IIS. 
+On each back-end server, use PowerShell to install IIS and replace the default IIS web page with a customized page.
 
-**To install IIS by using the Add Roles and Features Wizard:**
-
-1. On MyVM1, if **Server Manager** is not already open on the server desktop, browse to **Windows Administrative Tools** > **Server Manager**.
-   
-1. In **Server Manager**, select **Add roles and features**.
-   
-   ![Adding server manager role](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. In the **Add Roles and Features Wizard**:
-   1. On the **Select installation type** page, select **Role-based or feature-based installation**.
-   1. On the **Select destination server** page, select **MyVM1**.
-   1. On the **Select server role** page, select **Web Server (IIS)**. 
-   1. At the prompt to install required tools, select **Add Features**. 
-   1. Accept the defaults, and select **Install**. 
-   1. When the features are finished installing, select **Close**. 
-   
-1. Close the RDP connection with MyVM1 by selecting **Disconnect**. Do not shut down the VM.
+>[!NOTE]
+>You can also use the **Add Roles and Features Wizard** in **Server Manager** to install IIS. 
 
 **To install IIS and update the default web page with PowerShell:**
 
-1. On MyVM2, launch **Windows PowerShell** from the **Start** menu, and run the following commands to install IIS and replace the default IIS web page:
+1. On MyVM1 and on MyVM2, launch **Windows PowerShell** from the **Start** menu. 
+
+2. Run the following commands to install IIS and replace the default IIS web page:
    
    ```powershell-interactive
     # Install IIS
@@ -243,7 +237,7 @@ You can use the **Add Roles and Features Wizard**, or PowerShell, to install and
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
-1. Close the RDP connection with MyVM2 by selecting **Disconnect**. Do not shut down the VM.
+1. Close the RDP connections with MyVM1 and MyVM2 by selecting **Disconnect**. Do not shut down the VMs.
 
 ### Test the load balancer
 
@@ -251,13 +245,13 @@ You can use the **Add Roles and Features Wizard**, or PowerShell, to install and
    
 1. Paste or type the load balancer's private IP address (*10.3.0.7*) into the address bar of the browser. 
    
-   Either the IIS web server default page, or the message **Hello World from MyVM2**, appears in the browser.
+   The customized IIS web server default page appears in the browser. The message reads either **Hello World from MyVM1**, or **Hello World from MyVM2**.
    
 1. Refresh the browser to see the load balancer distribute traffic across VMs. You may also need to clear your browser cache between attempts.
 
-   Sometimes the IIS default page appears, and other times the **Hello World** page appears, as the load balancer distributes the requests to each back-end VM. 
+   Sometimes the **MyVM1** page appears, and other times the **MyVM2** page appears, as the load balancer distributes the requests to each back-end VM. 
 
-   ![IIS default page](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png)  ![New IIS page](./media/tutorial-load-balancer-basic-internal-portal/9-1-load-balancer-test.png)
+   ![New IIS default page](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
    
 ## Clean up resources
 
@@ -265,7 +259,7 @@ To delete the load balancer and all related resources when you no longer need th
 
 ## Next steps
 
-In this tutorial, you created a Basic-tier internal load balancer. You created and configured network resources, back-end servers, a health probe, and rules to use with the load balancer. You installed IIS on the back-end VMs and used a test VM to test the load balancer private IP address in the browser. 
+In this tutorial, you created a Basic-tier internal load balancer. You created and configured network resources, back-end servers, a health probe, and rules for the load balancer. You installed IIS on the back-end VMs and used a test VM to test the load balancer in the browser. 
 
 Next, learn how to load balance VMs across availability zones.
 
