@@ -46,38 +46,21 @@ All the code packages defined as part of a Service resource are deployed and act
 
 If a Mesh Application is composed of more than one Service, they are not guaranteed to run together on the same node. Also, during an upgrade of the Application, failure of upgrading a single Service will result in all Services being rolled back to their previous version.
 
-```yaml
-    services:
-      - name: helloWorldService
-        properties:
-          description: Hello world service.
-          osType: linux
-          codePackages:
-            - name: helloworld
-              image: myapp:1.0-alpine
-              resources:
-                requests:
-                  cpu: 2
-                  memoryInGB: 2
-              endpoints:
-                - name: helloWorldEndpoint
-                  port: 8080
-    replicaCount: 3
-    networkRefs:
-      - name: mynetwork
-```
-
 As alluded earlier, the lifecycle of each Application instance can be managed independently. For example, one Application instance can be upgraded independently from the other Application instances. Typically, you keep the number of services in an application fairly small, as the more services you put into an application, the more difficult it becomes to manage each service independently.
 
 ## Networks
 
-Network resource is individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a private network for your applications. Multiple Services from different Applications can be part of the same network.  Service Fabric Mesh also provides isolated networks, which allow Services to communicate with each other directly.  Service communications do not go through the Azure Load Balancer, making communication faster. For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networks-and-gateways.md).
+Network resource is individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a network for your applications. Multiple Services from different Applications can be part of the same network.  For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networks-and-gateways.md).
 
 > [!NOTE]
 > The current preview only supports a one to one mapping between applications and networks
 
+![Network and gateway][Image2]
+
 ## Gateways
 A Gateway resource connects two networks and routes traffic.  A gateway allows your services to communicate with external clients and provides an ingress into your service(s).  A gateway can also be used to connect your Mesh application with your own, existing virtual network. For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networks-and-gateways.md).
+
+![Network and gateway][Image2]
 
 ## Secrets
 
@@ -85,7 +68,9 @@ Secrets resources are deployable independent of an application or service resour
 
 ## Volumes
 
-Containers often make temporary disks available. Temporary disks are ephemeral, however, so you get a new temporary disk and lose the information when a container crashes. It is also difficult to share information on temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it (either Azure File storage or Service Fabric Volume disk).  For more information, read [storing state](service-fabric-mesh-storing-state.md#volumes).
+Containers often make temporary disks available. Temporary disks are ephemeral, however, so you get a new temporary disk and lose the information when a container crashes. It is also difficult to share information on temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it (either Azure Files Volume or Service Fabric Reliable Volume).  For more information, read [storing state](service-fabric-mesh-storing-state.md#volumes).
+
+![Volumes][Image3]
 
 ## Programming models
 Service resource only requires a container image to run, which is referenced in the code package(s) associated with the resource. You can run any code, written in any language, using any framework inside the container without requiring to know, or use, Service Fabric Mesh specific APIs. 
@@ -102,3 +87,5 @@ To learn more about Service Fabric Mesh, read the overview:
 - [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
 
 [Image1]: media/service-fabric-mesh-service-fabric-resources/AppsAndServices.png
+[Image2]: media/service-fabric-mesh-service-fabric-resources/NetworkAndGateway.png
+[Image3]: media/service-fabric-mesh-service-fabric-resources/volumes.png

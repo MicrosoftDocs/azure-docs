@@ -32,6 +32,8 @@ In the [Service Fabric Resource Model](service-fabric-mesh-service-fabric-resour
 
 A gateway is used to bridge two networks. The Gateway resource deploys an [Envoy proxy](https://www.envoyproxy.io/) that provides L4 routing for any protocol and L7 routing for advanced HTTP(S) application routing. The gateway routes traffic into your network from an external network and determines which service to route traffic to.  The external network could be an open network (essentially, the public internet) or an Azure virtual network, allowing you to connect with your other Azure applications and resources. 
 
+![Network and gateway][Image1]
+
 When the network resource is created with `ingressConfig`, a public IP is assigned to the network resource. The public IP will be tied to the lifetime of the network resource.
 
 When a Mesh application is created, it should reference an existing network resource. New public ports can be added or existing ports can be removed from the ingress configuration. A delete for a network resource will fail if an application resource is referencing it. When the application is deleted, the network resource is removed.
@@ -40,4 +42,4 @@ When a Mesh application is created, it should reference an existing network reso
 To learn more about Service Fabric Mesh, read the overview:
 - [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
 
-[Image2]: media/service-fabric-mesh-networks-and-gateways/Gateway.png
+[Image1]: media/service-fabric-mesh-networks-and-gateways/NetworkAndGateway.png
