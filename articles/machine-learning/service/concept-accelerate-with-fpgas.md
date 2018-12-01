@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ---
 
 # What is FPGA and Project Brainwave?

@@ -8,7 +8,7 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
+ms.date: 12/04/2018
 ---
 # Azure Machine Learning service release notes
 

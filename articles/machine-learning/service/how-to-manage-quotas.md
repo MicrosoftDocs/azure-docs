@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 9/24/2018
+ms.date: 12/04/2018
 ---
 
 # Manage and request quotas for Azure resources

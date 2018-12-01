@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ---
 
 # Run batch predictions on large data sets with Azure Machine Learning service
