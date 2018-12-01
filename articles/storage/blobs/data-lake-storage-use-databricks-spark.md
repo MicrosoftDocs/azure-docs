@@ -68,6 +68,7 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
         mount_point = "/mnt/flightdata",
         extra_configs = configs)
     ```
+15. Press **SHIFT + ENTER** to run the code cell.
 
 ## Ingest data
 

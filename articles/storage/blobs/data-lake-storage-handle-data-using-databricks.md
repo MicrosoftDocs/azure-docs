@@ -126,7 +126,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
             extra_configs = configs)
         ```
 
-    Press **SHIFT + ENTER** to run the code cell.
+5. Press **SHIFT + ENTER** to run the code cell.
 
 Now the file system is created for the storage account.
 

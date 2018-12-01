@@ -25,7 +25,6 @@ This tutorial covers the following tasks:
 > * Create a table in Azure SQL database
 > * Use Sqoop to export data to Azure SQL database
 
-
 The following illustration shows a typical ETL application flow.
 
 ![ETL operation using Apache Hive on Azure HDInsight](./media/data-lake-storage-tutorial-extract-transform-load-hive/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
