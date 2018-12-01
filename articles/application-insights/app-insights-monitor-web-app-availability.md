@@ -3,7 +3,7 @@ title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/20/2018
 ms.reviewer: sdash
-ms.author: mbullwin
+ms.author: lagayhar
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -36,14 +36,14 @@ You can create up to 100 availability tests per application resource.
 
 **Or, if you want to see your reports in a new resource,** go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
-![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
+![Create a resource > Developer Tools > Application Insights](./media/app-insights-monitor-web-app-availability/1create_resource_appinsight.png)
 
 Click **All resources** to open the Overview blade for the new resource.
 
 ## <a name="setup"></a>Create a URL ping test
 Open the Availability blade and add a test.
 
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
+![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/2addtest_url.png)
 
 * **The URL** can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
 * **Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. If the option is not checked, the test only requests the file at the URL you specified.
@@ -87,7 +87,7 @@ Use Visual Studio Enterprise to record a web session.
 
 1. Create a Web performance test project.
 
-    ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/3addtest_web.png)
 
  * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
 
@@ -112,12 +112,10 @@ Use Visual Studio Enterprise to record a web session.
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### 2. Upload the web test to Application Insights
-1. In the Application Insights portal, create a web test.
+1. In the Application Insights portal on the Availability blade add test.
 
-    ![On the web tests blade, choose Add.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
+    ![On the availability blade, choose Add test.](./media/app-insights-monitor-web-app-availability/3addtest_web.png)
 2. Select multi-step test, and upload the .webtest file.
-
-    ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
     Set the test locations, frequency, and alert parameters in the same way as for ping tests.
 
@@ -149,7 +147,7 @@ Now, upload your test to the portal. It uses the dynamic values on every run of 
 
 After a few minutes, click **Refresh** to see test results. 
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+![Scatterplot on detail blade](./media/app-insights-monitor-web-app-availability/4refresh.png)
 
 The scatterplot shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test timestamp, test duration, location, and test name. Click through any dot in the scatter plot to see the details of the test result.  
 
@@ -164,11 +162,15 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
+From the details tab, on a specific test select the ellipsis (3 dots) on the far left to edit, temporarily disable, delete or download web test. 
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+Select View test details from a specific test to see its scatterplot and specific test location details.
 
-You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service. 
+![View test details,Edit and Disable a web test](./media/app-insights-monitor-web-app-availability/5viewdetails.png)
+![Disable a web test](./media/app-insights-monitor-web-app-availability/6disable.png)
+![Edit test](./media/app-insights-monitor-web-app-availability/8edittest.png)
+
+You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
 
 ## <a name="failures"></a>If you see failures
 Click a red dot.
