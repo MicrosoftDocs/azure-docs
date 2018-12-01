@@ -171,15 +171,9 @@ This table lists some well-known strategies that have been used to migrate datab
 
 | Strategy                   | Pros                                                                                  | Cons                                                           | When to use?                                                                                                                                                                                             |
 |--------------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lift-and-shift                 | Simplest.                                                                                 | Requires downtime for                                              | For simpler solutions, where there are not multiple solutions accessing the same Gen1 account and hence can be moved together in a quick controlled fashion.                                                  |
+| Lift-and-shift                 | Simplest.                                                                                 | Requires downtime for copying over data, moving jobs, and moving ingress and egress                                             | For simpler solutions, where there are not multiple solutions accessing the same Gen1 account and hence can be moved together in a quick controlled fashion.                                                  |
 | Copy-once-and-copy incremental | Reduce downtime by performing copy in the background while source system is still active. | Requires downtime for moving ingress and egress.                   | Amount of data to be copied over is large and the downtime associated with life-and-shift is not acceptable. Testing may be required with significant production data on the target system before transition. |
 | Parallel adoption              | Least downtime Allows time for applications to migrate at their own discretion.           | Most elaborate since 2-way sync is needed between the two systems. | For complex scenarios where applications built on Data Lake Storage Gen1 cannot be cutover all at once and must be moved over in an incremental fashion.                                                      |
-
-1.  Copying over data
-
-2.  Moving jobs
-
-3.  Moving ingress and egress
 
 Below are more details on steps involved for each of the strategies. The steps list what you would do with the components involved in the upgrade. This includes the overall source system, overall target system, ingress sources for source system, egress destinations for source system, and jobs running on source system.
 
@@ -187,51 +181,47 @@ These steps are not meant to be prescriptive. They are meant to set the framewor
 
 #### Lift-and-shift
 
-1.  Pause the source system – ingress sources, jobs, egress destinations.
+1. Pause the source system – ingress sources, jobs, egress destinations.
 
-2.  Copy all the data from the source system to the target system.
+2. Copy all the data from the source system to the target system.
 
-3.  Point all the ingress sources, to the target system. Point to the egress
-    destination from the target system.
+3. Point all the ingress sources, to the target system. Point to the egress destination from the target system.
 
-4.  Move, modify, run all the jobs to the target system.
+4. Move, modify, run all the jobs to the target system.
 
-5.  Turn off the source system.
+5. Turn off the source system.
 
 #### Copy-once and copy-incremental
 
-1.  Copy over the data from the source system to the target system.
+1. Copy over the data from the source system to the target system.
 
-2.  Copy over the incremental data from the source system to the target system
-    at regular intervals.
+2. Copy over the incremental data from the source system to the target system at regular intervals.
 
-3.  Point to the egress destination from the target system.
+3. Point to the egress destination from the target system.
 
-4.  Move, modify, run all jobs on the target system.
+4. Move, modify, run all jobs on the target system.
 
-5.  Point ingress sources incrementally to the target system as per your
-    convenience.
+5. Point ingress sources incrementally to the target system as per your convenience.
 
-6.  Once all ingress sources are pointing to the target system.
+6. Once all ingress sources are pointing to the target system.
 
-    1.  Turn off incremental copying.
+    1. Turn off incremental copying.
 
-    2.  Turn off the source system.
+    2. Turn off the source system.
 
 #### Parallel adoption
 
-1.  Set up target system.
+1. Set up target system.
 
-2.  Set up a two-way replication between source system and target system.
+2. Set up a two-way replication between source system and target system.
 
-3.  Point ingress sources incrementally to the target system.
+3. Point ingress sources incrementally to the target system.
 
-4.  Move, modify, run jobs incrementally to the target system.
+4. Move, modify, run jobs incrementally to the target system.
 
-5.  Point to egress destinations incrementally from the target system.
+5. Point to egress destinations incrementally from the target system.
 
-6.  After all the original ingress sources, jobs and egress destination are
-    working with the target system, turn off the source system.
+6. After all the original ingress sources, jobs and egress destination are working with the target system, turn off the source system.
 
 ### Data upgrade
 
@@ -251,15 +241,15 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 #### Considerations
 
-1.  You'll need to manually create the Data Lake Storage Gen2 account first, before you start any part of the upgrade, since the current guidance does not include any automatic Gen2 account process based on your Gen1 account information. Ensure that you compare the accounts creation processes for [Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) and [Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-account).
+1. You'll need to manually create the Data Lake Storage Gen2 account first, before you start any part of the upgrade, since the current guidance does not include any automatic Gen2 account process based on your Gen1 account information. Ensure that you compare the accounts creation processes for [Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) and [Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-account).
 
-2.  Data Lake Storage Gen2, only supports files up to 5 TB in size. To upgrade to Data Lake Storage Gen2, you might need to resize the files in Data Lake Storage Gen1 so that they are larger than 5 TB in size.
+2. Data Lake Storage Gen2, only supports files up to 5 TB in size. To upgrade to Data Lake Storage Gen2, you might need to resize the files in Data Lake Storage Gen1 so that they are larger than 5 TB in size.
 
-3.  If you use a tool that doesn't copy ACLs or you don't want to copy over the ACLs, then you'll need to set the ACLs on the destination manually at the appropriate top level. You can do that by using Storage Explorer. Ensure that those ACLs are the default ACLs so that the files and folders that you copy over inherit them.
+3. If you use a tool that doesn't copy ACLs or you don't want to copy over the ACLs, then you'll need to set the ACLs on the destination manually at the appropriate top level. You can do that by using Storage Explorer. Ensure that those ACLs are the default ACLs so that the files and folders that you copy over inherit them.
 
-4.  In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen1, however, the highest level you can set ACLs is at the root folder in a filesystem, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
+4. In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen1, however, the highest level you can set ACLs is at the root folder in a filesystem, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
 
-5.  File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
+5. File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
 
 ## Application upgrade
 
