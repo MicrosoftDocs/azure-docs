@@ -6,9 +6,9 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: krishnan
-author: krishnaanumalasetty
-ms.date: 11/30/2018
+author: nacharya1
+ms.author: nilesha
+ms.date: 12/04/2018
 
 ---
 
