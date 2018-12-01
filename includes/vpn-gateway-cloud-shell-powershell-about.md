@@ -21,6 +21,4 @@ This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Clou
 
 If you don't want to use Azure Cloud Shell, you can install PowerShell locally instead. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets to get the latest feature functionality.
 
-To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. To update, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
-
-For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. To update, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
