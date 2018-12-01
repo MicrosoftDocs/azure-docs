@@ -31031,11 +31031,6 @@
             "source_path":  "articles/log-analytics/log-analytics-wire-data.md",
             "redirect_url":  "/azure/azure-monitor/insights/wire-data",
             "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/log-analytics/log-analytics-queries.md",
-            "redirect_url":  "/azure/azure-monitor/log-query/log-query-overview",
-            "redirect_document_id":  true
         }
     ]
 }
