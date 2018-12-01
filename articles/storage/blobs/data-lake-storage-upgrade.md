@@ -251,7 +251,7 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 5. File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
 
-## Application upgrade
+### Application upgrade
 
 When you need to build applications on Data Lake Storage Gen1 or Data Lake Storage Gen2, you'll have to first choose an appropriate programming interface. When calling an API on that interface you'll have to provide the appropriate URI and the appropriate credentials. The representation of these three elements, the API, URI, and how the credentials are provided, are different between Data Lake Storage Gen1 and Data Lake Storage Gen2.So, as part of the application upgrade, you'll need to map these three constructs appropriately.
 
