@@ -14060,7 +14060,6 @@
             "source_path": "articles/service-fabric/service-fabric-backuprestoreservice-ondemand-backup.md",
             "redirect_url": "/azure/service-fabric/service-fabric-backup-restore-service-ondemand-backup"
         },
-
         {
             "source_path": "articles/service-fabric/service-fabric-reliable-services-reliable-collections-internals.md",
             "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-introduction",
