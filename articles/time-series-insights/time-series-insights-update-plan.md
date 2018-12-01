@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/30/2018
 ---
 
 # Plan your Azure Time Series Insights (preview) environment
@@ -17,19 +17,26 @@ This article describes best practices to plan and get started quickly using the 
 
 ## Best practices for planning and preparation
 
-It's best to have the following items ready before getting started:
+To get started with Time Series Insights, it’s best if you understand the following:
 
-* You've identified your **Time Series IDs**
-* You have your **Timestamp** property ready
-* You've built your **Time Series Model**
-* You understand how to send events that are efficiently denormalized in JSON
+1. What you are getting when you provision a Time Series Insights (preview) environment.
+1. What your time series ID(s) and time stamp properties are.
+1. What the new time series model is and how to build your own.
+1. How to send events efficiently in JSON.  
+1. Time Series Insights business disaster recovery options.
 
-Having these items ready helps to simplify planning and preparation. Additionally, it's wise to plan ahead and determine your business disaster recovery (BCDR) needs before you create your instance (and not afterwards). Doing so ahead of time helps to ensure your instance is maximally prepared.
+The Time Series Insights update employs a pay-as-you-go business model.  For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-> [!TIP]
-> Configure your environment to suit your BCDR needs before and not after you create your instance.
+## The Time Series Insights update environment
 
-The Azure TSI (preview) employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights).
+When you provision a Time Series Insights update environment you create two Azure resources:
+
+1. Time Series Insights update environment
+1. Azure storage general purpose V1 account
+
+    * In the future, new Azure customers will by default only be allowed to provision an Azure storage general purpose V2 account, therefore we will support it when that change occurs.  
+
+To get going, you’ll need three additional items.  The first is a time series model, the second is an event source connected to Time Series Insights, and the third is events flowing into the event source that are both mapped to the model and are in valid JSON format.  
 
 ## Configure your Time Series IDs and Timestamp properties
 
