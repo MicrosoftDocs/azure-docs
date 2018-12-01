@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 11/30/2018
 ms.author: magoedte
 ---
 
@@ -120,7 +120,11 @@ By default, Performance data is based on the last six hours, but you can change 
 
 ![Percentile selection for data filtering](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-In the following example, note for node *aks-nodepool1-*, the value for **Containers** is 14, which is a roll-up of the total number of containers deployed.
+When you mouse over the bar graph under the **Trend** column, each bar shows the either the CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes.  
+
+![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+
+In the next example, note for node *aks-nodepool1-*, the value for **Containers** is 14, which is a roll-up of the total number of containers deployed.
 
 ![Roll-up of containers per node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
@@ -137,7 +141,7 @@ The information that's presented when you view Nodes is described in the followi
 | Containers | Number of containers. |
 | Uptime | Represents the time since a node started or was rebooted. |
 | Controllers | Only for containers and pods. It shows which controller it is residing in. Not all pods are in a controller, so some might display **N/A**. | 
-| Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Bar graph trend presenting the percentile metric percentage of the controller. |
+| Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Bar graph trend represents the average percentile metric percentage of the controller. |
 
 In the selector, select **Controllers**.
 
@@ -167,7 +171,7 @@ The information that's displayed when you view controllers is described in the f
 | Restarts | Roll-up of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
 | Node | Only for containers and pods. It shows which controller it is residing. | 
-| Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;%| Bar graph trend representing percentile metric of the controller. |
+| Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;%| Bar graph trend represents the average percentile metric of the controller. |
 
 The icons in the status field indicate the online status of the containers:
  
@@ -204,7 +208,7 @@ The information that's displayed when you view containers is described in the fo
 | Node |  Node where the container resides. | 
 | Restarts | Represents the time since a container started. |
 | Uptime | Represents the time since a container was started or rebooted. |
-| Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | A bar graph trend that represents the average metric percentage of the container. |
+| Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Bar graph trend represents the average percentile metric percentage of the container. |
 
 The icons in the status field indicate the online statuses of pods, as described in the following table:
  
@@ -215,6 +219,10 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
+| ![Unauthorized status icon](./media/container-insights-analyze/containers-unauth-icon.png)| User doesn’t have required to  permission to read the data in the workspace |
+| ![Not found status icon](./media/container-insights-analyze/containers-not-found-icon.png)| Either the workspace, the resource group or subscription containing the workspace for this solution has been deleted. |
+| ![Mis-configured status icon](./media/container-insights-analyze/containers-ms-configured-icon.png)| Azure Monitor for containers was not configured correctly in the specified workspace. |
+| ![Error status icon](./media/container-insights-analyze/containers-error-icon.png)| Error occurred reading data from the workspace. |
 
 ## Container data-collection details
 Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
