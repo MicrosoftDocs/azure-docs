@@ -117,7 +117,7 @@ Note the following in the previous example:
 * Static Properties are stored as Time Series Instances to optimize data sent over the network.
 * Time Series Instance Data is joined at query time by using the *timeSeriesId* defined in the Instance.
 * Two layers of nesting are used, which is the maximum amount of nesting supported by TSI. It's critical to avoid deeply nested arrays.
-* Measures are sent as separate properties within same object, since there are few measures. Here, series.Flow Rate psi and series **Engine Oil Pressure** and **ft3/s** are unique columns.
+* Measures are sent as separate properties within same object, since there are few measures. Here, **series.Flow Rate psi** and series **Engine Oil Pressure** and **ft3/s** are unique columns.
 
 ## Next steps
 
