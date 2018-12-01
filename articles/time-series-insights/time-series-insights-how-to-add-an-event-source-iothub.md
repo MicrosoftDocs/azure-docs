@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ---
 
 # How to add an IoT Hub event source to Time Series Insights environment
