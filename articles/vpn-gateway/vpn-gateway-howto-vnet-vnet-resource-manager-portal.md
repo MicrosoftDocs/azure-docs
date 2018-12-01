@@ -186,7 +186,7 @@ When the virtual network gateways for both TestVNet1 and TestVNet4 have complete
 
     - Select the virtual network gateway to which you want to connect.
 
-- **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
+    - **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
     
 4. Select **OK** to save your changes.
 
@@ -195,11 +195,11 @@ Next, create a connection from TestVNet4 to TestVNet1. In the portal, locate the
 
 ## Verify your connections
 
-Locate the virtual network gateway in the Azure portal. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you see the **Status** values change to **Succeeded** and **Connected**. Double-click a connection to open the **Essentials** page and view more information.
+Locate the virtual network gateway in the Azure portal. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Succeeded** and **Connected**. Double-click a connection to open the **Essentials** page and view more information.
 
 ![Succeeded](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
 
-When data begins flowing, you see values for **Data in** and **Data out**.
+When data begins flowing, you'll see values for **Data in** and **Data out**.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 

@@ -11,9 +11,12 @@
 ---
 1. In the **Settings** section of your virtual network page, select **DNS servers** to open the **DNS servers** page.
 
-    ![Specify a DNS server](./media/vpn-gateway-add-dns-rm-portal-include/specify-dns-server.png "Specify a DNS Server")
+2. On the **DNS servers** page, fill in the following values:
 
   - **DNS servers**: Select **Custom**.
+
   - **Add DNS server**: Enter the IP address of the DNS server that you want to use for name resolution.
 
-2. When you're done adding DNS servers, select **Save** at the top of the page.
+2. When you're done adding DNS servers, select **Save**.
+
+    ![Specify a DNS server](./media/vpn-gateway-add-dns-rm-portal-include/specify-dns-server.png "Specify a DNS Server")

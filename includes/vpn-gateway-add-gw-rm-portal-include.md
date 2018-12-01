@@ -9,13 +9,16 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. In the Azure portal, on the left side, select **Create a resource** and enter *virtual network gateway* in search. Locate and select **Virtual network gateway** in the search list. 
 
-2. On the **Virtual network gateway** page, select **Create** to open the **Create virtual network gateway** page.
+1. Sign in to the Azure portal and select **Create a resource**. The **New** page opens.
+
+2. In the **Search the marketplace field**, enter *virtual network gateway*, and select **Virtual network gateway** from the search list. 
+
+3. On the **Virtual network gateway** page, select **Create** to open the **Create virtual network gateway** page.
 
    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Create virtual network gateway page fields")
 
-3. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway:
+4. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway:
 
    - **Name**: Enter a name for the gateway object you're creating. This name is different than the gateway subnet name. 
 
@@ -41,6 +44,6 @@
 
    - **Configure BGP ASN**: Leave this setting unselected, unless your configuration specifically requires it. If you do require this setting, the default ASN is *65515*, which you can change.
      
-3. Verify the settings and select **Create** to begin creating the VPN gateway. The settings are validated and you'll see the **Deploying Virtual network gateway** tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
+5. Verify the settings and select **Create** to begin creating the VPN gateway. The settings are validated and you'll see the **Deploying Virtual network gateway** tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
-4. After you create the gateway, view the IP address that's been assigned to it by viewing the virtual network in the portal. The gateway appears as a connected device. You can select the connected device (your virtual network gateway) to view more information.
+6. After you create the gateway, verify the IP address that's been assigned to it by viewing the virtual network in the portal. The gateway appears as a connected device. You can select the connected device (your virtual network gateway) to view more information.

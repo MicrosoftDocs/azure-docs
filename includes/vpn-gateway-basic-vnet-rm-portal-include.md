@@ -18,15 +18,15 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 
 1. Sign in to the [Azure portal](http://portal.azure.com) and select **Create a resource**. The **New** page opens.
 
-2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page appears.
+2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
 
    ![Locate Virtual Network resource page](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Locate virtual network resource page")
 
-3. From the **Select a deployment model** list near the bottom of the page, select **Resource Manager**, and then select **Create**. The **Create virtual network** page appears.
-
-4. On the **Create virtual network** page, configure the VNet settings. When you fill in the fields, the red exclamation mark becomes a green check mark when the characters you enter in the field are validated. Some values are autofilled, which you can replace with your own values. The **Create virtual network** page looks similar to the following example:
+3. From the **Select a deployment model** list near the bottom of the page, select **Resource Manager**, and then select **Create**. The **Create virtual network** page opens.
 
    ![Create virtual network page](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Create virtual network page")
+
+4. On the **Create virtual network** page, configure the VNet settings. When you fill in the fields, the red exclamation mark becomes a green check mark when the characters you enter in the field are validated. Some values are autofilled, which you can replace with your own values:
 
    - **Name**: Enter the name for your virtual network.
 
