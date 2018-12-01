@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 11/07/2018
+ms.date: 11/30/2018
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
@@ -50,7 +50,6 @@ The functionality of Machine Learning Services (with R) in Azure SQL Database is
 
 - R only. Currently there is no support for Python.
 - No need to configure `external scripts enabled` via `sp_configure`.
-- No need to give script execution permission to users.
 - Packages have to be installed via **sqlmlutils**.
 - There is no separate external resource governance. R resources are a certain percentage of the SQL resources, depending on the tier.
 
@@ -76,6 +75,16 @@ You can confirm that Machine Learning Services (with R) is enabled for your SQL 
     ```
 
 1. If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See how to sign up for the public preview above.
+
+## Grant permissions
+
+If you are an administrator, you can run external code automatically. Everyone else must be granted permission.
+
+Replace `<username>` with a valid database user login before running the command.
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
 
 ## Basic R interaction
 
