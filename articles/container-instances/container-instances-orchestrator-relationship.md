@@ -56,7 +56,7 @@ To rapidly scale application workloads in an [Azure Kubernetes Service](../aks/i
 
 Virtual nodes currently support Linux container instances. Get started with virtual nodes using the [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538&clcid=0x409) or [Azure portal](https://go.microsoft.com/fwlink/?linkid=2047545&clcid=0x409).
 
-Also see the experimental open-source  [Virtual Kubelet][aci-connector-k8s] project, which demonstrates how different container orchestration platforms can integrate with Azure Container Instances.
+Also see the experimental open-source [Virtual Kubelet][aci-connector-k8s] project, which demonstrates how different container orchestration platforms can integrate with Azure Container Instances.
 
 Virtual Kubelet mimics the Kubernetes [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances.
 
