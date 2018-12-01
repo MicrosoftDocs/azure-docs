@@ -6,15 +6,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-
 ---
 # Data ingestion time in Log Analytics
 Azure Log Analytics is a high scale data service in Azure Monitor that serves thousands of customers sending terabytes of data each month at a growing pace. There are often questions about the time it takes for data to become available in Log Analytics after it's collected. This article explains the different factors that affect this latency.
