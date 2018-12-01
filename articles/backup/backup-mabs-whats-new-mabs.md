@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
+ms.author: adigan
 ---
 
 # What's new in Microsoft Azure Backup Server
