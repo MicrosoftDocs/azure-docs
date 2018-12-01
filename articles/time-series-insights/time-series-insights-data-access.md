@@ -78,6 +78,7 @@ Follow these steps to grant guest access to a TSI environment to an AAD user fro
 
     1. Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
     1. Otherwise, select **Reader** to allow user query data in the environment and save personal (not shared) queries in the environment.
+    1. Select **Ok** to confirm the role choice.
 
     ![data-access-ten][10]
 
