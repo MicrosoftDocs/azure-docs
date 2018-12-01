@@ -1,16 +1,8 @@
 ---
-title: "Tutorial: Azure SignalR Service authentication with Azure Functions | Microsoft Docs"
+title: "Tutorial: Azure SignalR Service authentication with Azure Functions"
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-
-ms.assetid: 
 ms.service: signalr
-ms.workload: tbd
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
@@ -37,14 +29,12 @@ The following software is required to build this tutorial.
 * [.NET SDK](https://www.microsoft.com/net/download) (Version 2.x, required for Functions extensions)
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) (Version 2)
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code) with the following extensions
-    * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) - work with Azure Functions in VS Code
-    * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - serve web pages locally for testing
-
+  * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) - work with Azure Functions in VS Code
+  * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - serve web pages locally for testing
 
 ## Sign into the Azure portal
 
 Go to the [Azure portal](https://portal.azure.com/) and sign in with your credentials.
-
 
 ## Create an Azure SignalR Service instance
 
@@ -64,9 +54,8 @@ You will build and test the Azure Functions app locally. The app will access a S
     | Resource group | Create a new resource group |
     | Location | Select a location close to you |
     | Pricing Tier | Free |
-    
-1. Click **Create**.
 
+1. Click **Create**.
 
 ## Initialize the function app
 
@@ -82,7 +71,6 @@ You will build and test the Azure Functions app locally. The app will access a S
 
     ![Create a function app](media/signalr-authenticate-azure-functions/signalr-create-vscode-app.png)
 
-
 ### Install function app extensions
 
 This tutorial uses Azure Functions bindings to interact with Azure SignalR Service. Like most other bindings, the SignalR Service bindings are available as an extension that needs to be installed using the Azure Functions Core Tools CLI before they can be used.
@@ -92,7 +80,8 @@ This tutorial uses Azure Functions bindings to interact with Azure SignalR Servi
 1. Ensure the main project folder is the current directory.
 
 1. Install the SignalR Service function app extension.
-    ```
+
+    ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.SignalRService -v 1.0.0-preview1-10002
     ```
 
@@ -103,6 +92,7 @@ When running and debugging the Azure Functions runtime locally, application sett
 1. In VS Code, select **local.settings.json** in the Explorer pane to open it.
 
 1. Replace the file's contents with the following.
+
     ```json
     {
         "IsEncrypted": false,
@@ -128,7 +118,6 @@ When running and debugging the Azure Functions runtime locally, application sett
 
     ![Update local settings](media/signalr-authenticate-azure-functions/signalr-update-local-settings.png)
 
-
 ## Create a function to authenticate users to SignalR Service
 
 When the chat app first opens in the browser, it requires valid connection credentials to connect to Azure SignalR Service. You'll create an HTTP triggered function named *SignalRInfo* in your function app to return this connection information.
@@ -145,7 +134,7 @@ When the chat app first opens in the browser, it requires valid connection crede
     | Template | HTTP Trigger |
     | Name | SignalRInfo |
     | Authorization level | Anonymous |
-    
+
     A folder named **SignalRInfo** is created that contains the new function.
 
 1. Open **SignalRInfo/function.json** to configure bindings for the function. Modify the content of the file to the following. This adds an input binding that generates valid credentials for a client to connect to an Azure SignalR Service hub named `chat`.
@@ -189,7 +178,6 @@ When the chat app first opens in the browser, it requires valid connection crede
 
     This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body.
 
-
 ## Create a function to send chat messages
 
 The web app also requires an HTTP API to send chat messages. You will create an HTTP triggered function named *SendMessage* that sends messages to all connected clients using SignalR Service.
@@ -206,7 +194,7 @@ The web app also requires an HTTP API to send chat messages. You will create an 
     | Template | HTTP Trigger |
     | Name | SendMessage |
     | Authorization level | Anonymous |
-    
+
     A folder named **SendMessage** is created that contains the new function.
 
 1. Open **SendMessage/function.json** to configure bindings for the function. Modify the content of the file to the following.
@@ -245,17 +233,18 @@ The web app also requires an HTTP API to send chat messages. You will create an 
 1. Save the file.
 
 1. Open **SendMessage/index.js** to view the body of the function. Modify the content of the file to the following.
+
     ```javascript
     module.exports = function (context, req) {
         const message = req.body;
         message.sender = req.headers && req.headers['x-ms-client-principal-name'] || '';
-            
+
         let recipientUserId = '';
         if (message.recipient) {
             recipientUserId = message.recipient;
             message.isPrivate = true;
         }
-    
+
         context.bindings.signalRMessages = [{
             'userId': recipientUserId,
             'target': 'newMessage',
@@ -264,12 +253,12 @@ The web app also requires an HTTP API to send chat messages. You will create an 
         context.done();
     };
     ```
+
     This function takes the body from the HTTP request and sends it to clients connected to SignalR Service, invoking a function named `newMessage` on each client.
 
     The function can read the sender's identity and can accept a *recipient* value in the message body to allow for a message to be sent privately to a single user. These functionalities will be used later in the tutorial.
 
 1. Save the file.
-
 
 ## Create and run the chat client web user interface
 
@@ -289,11 +278,9 @@ The chat application's UI is a simple single page application (SPA) created with
 
 1. The application opens. Enter a message in the chat box and press enter. Refresh the application to see new messages. Because no authentication was configured, all messages will be sent as "anonymous".
 
-
 ## Deploy to Azure and enable authentication
 
 You have been running the function app and chat application locally. You will now deploy them to Azure and enable authentication and private messaging in the application.
-
 
 ### Log into Azure with VS Code
 
@@ -302,7 +289,6 @@ You have been running the function app and chat application locally. You will no
 1. Search for and select the **Azure: Sign in** command.
 
 1. Follow the instructions to complete the sign in process in your browser.
-
 
 ### Configure function app for authentication
 
@@ -326,10 +312,9 @@ When a sending message, the app can decide whether to send it to all connected c
 
 1. Save the file.
 
-
 ### Deploy function app
 
-1. Open the VS Code command palette (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) and select **Azure Functions: Deploy to Function App**. 
+1. Open the VS Code command palette (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) and select **Azure Functions: Deploy to Function App**.
 
 1. When prompted, provide the following information.
 
@@ -343,9 +328,8 @@ When a sending message, the app can decide whether to send it to all connected c
     | Storage account | Select **Create new storage account** |
     | Storage account name | Enter a unique name (3-24 characters, alphanumeric only) |
     | Location | Select a location close to you |
-    
-    A new function app is created in Azure and the deployment begins. Wait for the deployment to complete.
 
+    A new function app is created in Azure and the deployment begins. Wait for the deployment to complete.
 
 ### Upload function app local settings
 
@@ -363,7 +347,6 @@ When a sending message, the app can decide whether to send it to all connected c
     | Function app name | Enter a unique name |
 
 Local settings are uploaded to the function app in Azure. If prompted to overwrite existing settings, select **Yes to all**.
-
 
 ### Enable function app cross origin resource sharing (CORS)
 
@@ -390,7 +373,6 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 > [!NOTE]
 > In a real-world application, instead of allowing CORS on all origins (`*`), a more secure approach is to enter specific CORS entries for each domains that requires it.
 
-
 ### Update the web app
 
 1. In the Azure portal, navigate to the function app's overview page.
@@ -399,13 +381,11 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 
     ![Get URL](media/signalr-authenticate-azure-functions/signalr-get-url.png)
 
-
 1. In VS Code, open **index.html** and replace the value of `apiBaseUrl` with the function app's URL.
 
 1. The application can be configured with authentication using Azure Active Directory, Facebook, Twitter, Microsoft account, or Google. Select the authentication provider that you will use by setting the value of `authProvider`.
 
 1. Save the file.
-
 
 ### Deploy the web application to blob storage
 
@@ -449,7 +429,6 @@ The web application will be hosted using Azure Blob Storage's static websites fe
 
 1. Go back to the **Static website** page. Note the **Primary endpoint**. This is the URL of the web application.
 
-
 ### Enable App Service Authentication
 
 App Service Authentication supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google.
@@ -470,7 +449,6 @@ App Service Authentication supports authentication with Azure Active Directory, 
     - [Microsoft account](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)
     - [Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)
 
-
 ### Try the application
 
 1. In a browser, navigate to the storage account's primary web endpoint.
@@ -485,13 +463,11 @@ Congratulations! You have deployed a real-time, serverless chat app!
 
 ![Demo](media/signalr-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-
 ## Clean up resources
 
 To clean up the resources created in this tutorial, delete the resource group using the Azure portal.
 
-
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with SignalR Service bindings for Azure Functions.
 
