@@ -8,12 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/30/2018
 ---
 
 # Data modeling in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following the Azure Time Series Insights (preview). It will detail common several use-cases and customization scenarios.
+This document describes how to work with **Time Series Models** following the Azure Time Series Insights (preview). It details several common data scenarios.
+
+Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the Private Preview.
 
 ## Types
 
@@ -30,7 +32,7 @@ This document describes how to work with **Time Series Models** following the Az
 
 ### How to bulk upload one or more types
 
-1. Click on **upload Json**.
+1. Click on **upload JSON**.
 1. Choose that file that contains the type payload.
 1. Click on **upload**
 
@@ -123,7 +125,7 @@ This document describes how to work with **Time Series Models** following the Az
 
 ## Next steps
 
-Read Time Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
+Read [Time Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
 
 View the Azure TSI (preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
 

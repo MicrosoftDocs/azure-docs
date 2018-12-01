@@ -90,7 +90,7 @@ Time Series Models are supported only in `PAYG` environments. Please see this ar
 
   ![access][5]
 
-1. You may not have permissions to view & edit the model
+1. You may not have permissions to view and edit the model
 
 Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
 
