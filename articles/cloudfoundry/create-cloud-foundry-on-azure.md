@@ -76,7 +76,7 @@ For more information, see [Use SSH keys with Windows on Azure](https://docs.micr
 
     ![Service principal role assignment](media/deploy/svc-princ.png )
 
-6. Verify that you can successfully log in to your service principal by using the app ID, password, and tenant ID.
+6. Verify that you can successfully sign in to your service principal by using the app ID, password, and tenant ID.
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
