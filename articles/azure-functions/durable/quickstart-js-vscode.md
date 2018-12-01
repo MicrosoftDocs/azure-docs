@@ -107,11 +107,9 @@ We've now created an entry-point into our Durable Function. Let's add an orchest
 
 Next, you create another function to be the orchestrator. We use the HTTP trigger function template for convenience. The function code itself is replaced by the orchestrator code.
 
-1. From **Azure: Functions**, choose the Create Function icon.
+1. Repeat the steps from the previous section to create a function using the HTTP trigger template. But this time name the function `OrchestratorFunction`.
 
-1. Select the folder with your function app project, select the **HTTP trigger** function template, type `OrchestratorFunction` for the function name and press Enter.
-
-1. Choose **Anonymous** authentication, and after the function is created, replace the created index.js file with the following code:
+1. Open the index.js file for the new function and replace the contents with the following code:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
@@ -123,13 +121,9 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
 ## Create an Activity Function
 
-Again, we are using the HTTP trigger template to create the function that becomes the activity function.
+1. Repeat the steps from the sections to create a function using the HTTP trigger template. But this time name the function  `SayHello`.
 
-1. From **Azure: Functions**, choose the Create Function icon.
-
-1. Select the folder with your function app project, select the **HTTP trigger** function template, type `SayHello` for the function name and press Enter.
-
-1. Choose **Anonymous** authentication, and after the function is created, replace the created index.js file with the following code:
+1. Open the index.js file for the new function and replace the contents with the following code:
 
     [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
@@ -137,7 +131,7 @@ Again, we are using the HTTP trigger template to create the function that become
 
     [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
-We've now added all components necessary to start off our orchestration and chain together activity functions.
+We've now added all components needed to start off an orchestration and chain together activity functions.
 
 ## Test the function locally
 
