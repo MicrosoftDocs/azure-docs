@@ -6,11 +6,9 @@ documentationcenter: ''
 author: vinynigam
 manager: agummadi
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam

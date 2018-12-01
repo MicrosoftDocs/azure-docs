@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -17,7 +17,7 @@ ms.component: B2C
 With the self-service password reset feature, your customers who have signed up for local accounts can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of customers using it on a regular basis. Currently, using a verified email address is the only supported recovery method.
 
 > [!NOTE]
-> This article applies to self-service password reset used in the context of a sign-in policy. If you need fully customizable password reset policies invoked from your app, see [this article](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> This article applies to self-service password reset used in the context of the V1 **Sign in** user flow, which uses **Local Account SignIn** as the identity provider. If you need fully customizable password reset user flows invoked from your app, see [this article](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 > 
 > 
 
@@ -28,7 +28,7 @@ By default, your directory doesn't have self-service password reset turned on. U
 4. Set **Self service password reset enabled**  to **All**. 
 5. Click **Save** at the top of the page. You're done!
 
-To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the customer experience.
+To test, use the "Run now" feature on any sign-in user flow that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the customer experience.
 
 > [!NOTE]
 > The self-service password reset pages can be customized by using the [company branding feature](../active-directory/fundamentals/customize-branding.md).
