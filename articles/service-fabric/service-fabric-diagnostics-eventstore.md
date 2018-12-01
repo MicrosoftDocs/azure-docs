@@ -69,7 +69,7 @@ In [fabricSettings.json in your cluster](service-fabric-cluster-fabric-settings.
 
 ### Azure cluster
 
-In your cluster's ARM template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
+In your cluster's Azure Resource Manager template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
 
 ```json
     "fabricSettings": [
