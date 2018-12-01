@@ -21,9 +21,9 @@ Azure Role-based Access Control (RBAC) uses role assignments to effectively appl
 
 While using RBAC role assignments is a powerful mechanism to control user permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the file system level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign RBAC permissions on a file system, that user or service principal will have that authorization for ALL directories and files in that file system, regardless of ACL assignments.
 
-Azure Storage provides three built-in RBAC roles: 
+Azure Storage provides three built-in RBAC roles for Blob storage: 
 
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Storage Blob Data Owner
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
 - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
 
