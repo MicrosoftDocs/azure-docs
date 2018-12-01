@@ -148,13 +148,13 @@ Enter the following code into a notebook cell:
 
     %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-In the cell, press `Shift` + `Enter` to run the code.
+In the cell, press **SHIFT + ENTER** to run the code.
 
 Now in a new cell below this one, enter the following code, replacing the values in brackets with the same values you used earlier:
 
     dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
 
-In the cell, press `Shift` + `Enter` to run the code.
+In the cell, press **SHIFT + ENTER** to run the code.
 
 ## Run a Spark SQL Job
 
