@@ -6,11 +6,9 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren

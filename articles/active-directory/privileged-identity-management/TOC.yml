@@ -59,6 +59,8 @@
     items:
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
+    - name: Invite external users
+      href: pim-resource-roles-external-users.md
     - name: Approve requests
       href: pim-resource-roles-approval-workflow.md
     - name: Extend or renew roles

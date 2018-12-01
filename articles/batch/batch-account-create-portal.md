@@ -87,11 +87,11 @@ When creating your first Batch account in user subscription mode, you need to re
 
     ![Register Microsoft.Batch provider][register_provider]
 
-1. In the **Subscription** page, select **Access control (IAM)** > **Add**.
+1. In the **Subscription** page, select **Access control (IAM)** > **Role assignments** > **Add role assignment**.
 
     ![Subscription access control][subscription_access]
 
-1. On the **Add permissions** page, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
+1. On the **Add role assignment** page, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
