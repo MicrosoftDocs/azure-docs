@@ -365,14 +365,20 @@ Next, we need to define environment variables representing the service name and 
 
 In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
 
-In the service.yaml file, add the following variables under `environmentVariables:` (You will first need to remove the `#` to uncomment `environmentVariables:`). The spacing is important so align the variables you add with the other variables under `environmentVariables:`. It is very important that the value for ApiHostPort match the port value for ToDoServiceListener which was previously seen in the service.yaml file of the ToDoService.
+In the service.yaml file, add the following variables under `environmentVariables:` (You will first need to remove the `#` to uncomment `environmentVariables:`) The spacing is important so align the variables you add with the other variables under `environmentVariables:`. It is very important that the value for ApiHostPort match the port value for ToDoServiceListener which was previously seen in the service.yaml file of the ToDoService.
 
 ```yaml
 - name: ApiHostPort
   value: 
 - name: ToDoServiceName
-  value: ToDoService
+  value: ToDoService.todolistapp
 ```
+
+> [!Tip]
+> Notice that the name for `ToDoServiceName` is fully qualified as servicename.appname.
+> Using only servicename will resolve in Mesh in Azure, but not on Windows 10.
+> Using servicename.appname will resolve in Mesh in Azure and on Windows10.
+> It is a good practice to always use fully qualified names for service resolution.
 
 Your **WebFrontEnd** project's **service.yaml** file should look something like this although your `ApiHostPort` value will probably be different:
 
