@@ -108,9 +108,9 @@ When the schema export functionality becomes available for the managed identitie
 
 If the VM Configuration blade does not appear on your VM, then managed identities for Azure resources has not been enabled in the portal in your region yet.  Check again later.  You can also enable managed identities for Azure resources for your VM using [PowerShell](qs-configure-powershell-windows-vm.md) or the [Azure CLI](qs-configure-cli-windows-vm.md).
 
-### Cannot assign access to virtual machines in the Access Control (IAM) blade
+### Cannot assign access to virtual machines in the Access control (IAM) blade
 
-If **Virtual Machine** does not appear in the Azure portal as a choice for **Assign access to** in **Access Control (IAM)** > **Add permissions**, then managed identities for Azure resources has not been enabled in the portal in your region yet. Check again later.  You can still select the identity for the VM for the role assignment by searching for the managed identities for Azure resources Service Principal.  Enter the name of the VM in the **Select** field, and the Service Principal appears in the search result.
+If **Virtual Machine** does not appear in the Azure portal as a choice for **Assign access to** in **Access control (IAM)** > **Add role assignment**, then managed identities for Azure resources has not been enabled in the portal in your region yet. Check again later.  You can still select the identity for the VM for the role assignment by searching for the managed identities for Azure resources Service Principal.  Enter the name of the VM in the **Select** field, and the Service Principal appears in the search result.
 
 ### VM fails to start after being moved from resource group or subscription
 
