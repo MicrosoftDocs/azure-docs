@@ -19,6 +19,7 @@ In this article, learn about the Azure Machine Learning service releases.
 Azure Machine Learning service is now generally available.
 
 ### Azure Machine Learning Data Prep SDK v1.0.0
+
 + **Breaking changes** 
   * `SummaryFunction.N` was renamed to `SummaryFunction.Count`.
   
@@ -39,18 +40,18 @@ Azure Machine Learning service is now generally available.
   + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
   + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 + Updated SDK steps:
-  + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py): now accepts runconfig
+  + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) now accepts runconfig
   + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) now copies to and from a SQL datasource
 + Pipelines can be viewed in Azure portal
 + Schedule functionality in SDK to create and update schedules for running published pipelines
 
-### Azure portal
-+ Users can now edit Azure Machine Learning Compute types in the portal.
-+ Users can now monitor quota usage and [request quota](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas) for Azure Machine Learning Compute.
-+ Virtul network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
-+ View real time Azure Machine Learning Compute cluster status.
-+ Ability to re-run a published pipeline with existing parameters.
-+ Charts for Classification(Lift, Gains, Calibration, Feature importance chart with model explainability) and regression(Residuals and Feature Importance chart with model explainability) were added  for submitted Automated Machine Learning runs. 
+### Azure portal: new features
++ Create and manage [Azure Machine Learning Compute](concept-azure-machine-learning-architecture.md#amlcompute) types in the portal.
++ Monitor quota usage and [request quota](how-to-manage-quotas.md) for Azure Machine Learning Compute.
++ View Azure Machine Learning Compute cluster status in real-time.
++ Virtual network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
++ Re-run your published pipelines with existing parameters.
++ New [automated machine learning charts](how-to-track-experiments.md#auto) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
 
 ## 2018-11-20
 
