@@ -96,7 +96,6 @@
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
-    href: about-disks-and-vhds.md
     items:
     - name: Managed Disks
       href: managed-disks-overview.md

@@ -21878,6 +21878,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/about-disks-and-vhds.md",
+            "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/about-disks-and-vhds.md",
+            "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-windows-sizes-storage.md",
             "redirect_url": "/azure/virtual-machines/windows/sizes-storage",
             "redirect_document_id": false

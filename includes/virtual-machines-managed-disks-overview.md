@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/03/2018
+ ms.date: 12/04/2018
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -43,53 +43,7 @@ Use Azure Backup service with Managed Disks to create a backup job with time-bas
 
 ## Pricing and Billing
 
-When using Managed Disks, the following billing considerations apply:
-
-* Storage Type
-
-* Disk Size
-
-* Number of transactions
-
-* Outbound data transfers
-
-* Managed Disk Snapshots (full disk copy)
-
-Let's take a closer look at these options.
-
-**Storage Type:** Managed Disks offers 3 performance tiers: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), and [Premium](../articles/virtual-machines/windows/premium-storage.md). The billing of a managed disk depends on which type of storage you have selected for the disk.
-
-**Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
-create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S15 Disk type.
-
-Here are the disk sizes available for a premium managed disk, sizes denoted with an asterisk are currently in preview:
-
-| **Premium SSD Managed <br>Disk Type** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
-
-Here are the disk sizes available for a standard SSD managed disk, sizes denoted with an asterisk are currently in preview:
-
-| **Standard SSD Managed <br>Disk Type** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Size        | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
-
-Here are the disk sizes available for a standard HDD managed disk, sizes denoted with an asterisk are currently in preview:
-
-| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
-
-**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk.
-
-Standard SSD Disks use IO Unit size of 256KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
-
-There is no cost for transactions for a premium managed disk.
-
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
-
-For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
+For a closer look at what disk options are available and the relevant billing, see our article covering our [disk types](../articles/virtual-machines/windows/disks-types.md#Billing).
 
 ## Managed Disk Snapshots
 

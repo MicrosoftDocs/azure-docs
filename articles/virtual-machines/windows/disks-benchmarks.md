@@ -1,13 +1,13 @@
 ---
 title: Benchmarking your application on Azure - Microsoft Azure | Microsoft Docs
 description: Learn about the process of benchmarking your application on Azure.
-services: "virtual-machines-linux,storage"
+services: "virtual-machines-windows,storage"
 author: roygara
 ms.author: rogarana
 ms.date: 12/04/2018
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines-windows
+ms.tgt_pltfrm: windows
 ms.component: disks
 ---
 # Benchmarking
