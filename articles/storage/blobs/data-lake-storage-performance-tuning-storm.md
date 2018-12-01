@@ -49,7 +49,7 @@ In Storm, here are the various components involved, and how they affect the leve
 ### Get the best performance from Data Lake Storage Gen2
 
 When working with Data Lake Storage Gen2, you get the best performance if you do the following:
-* Coalesce your small appends into larger sizes (ideally 4 MB).
+* Coalesce your small appends into larger sizes.
 * Do as many concurrent requests as you can. Because each bolt thread is doing blocking reads, you want to have somewhere in the range of 8-12 threads per core. This keeps the NIC and the CPU well utilized. A larger VM enables more concurrent requests.  
 
 ### Example topology
@@ -79,27 +79,9 @@ You can modify the following settings to tune the spout.
 
  A good calculation to do is to estimate the size of each of your tuples. Then figure out how much memory one spout thread has. The total memory allocated to a thread, divided by this value, should give you the upper bound for the max spout pending parameter.
 
-## Tune the bolt
-When you're writing to Data Lake Storage Gen2, set a size sync policy (buffer on the client side) to 4 MB. A flushing or hsync() is then performed only when the buffer size is the at this value. The Data Lake Storage Gen2 driver on the worker VM automatically does this buffering, unless you explicitly perform an hsync().
-
 The default Data Lake Storage Gen2 Storm bolt has a size sync policy parameter (fileBufferSize) that can be used to tune this parameter.
 
 In I/O-intensive topologies, it's a good idea to have each bolt thread write to its own file, and to set a file rotation policy (fileRotationSize). When the file reaches a certain size, the stream is automatically flushed and a new file is written to. The recommended file size for rotation is 1 GB.
-
-### Handle tuple data
-
-In Storm, a spout holds on to a tuple until it is explicitly acknowledged by the bolt. If a tuple has been read by the bolt but has not been acknowledged yet, the spout might not have persisted into Data Lake Storage Gen2 back end. After a tuple is acknowledged, the spout can be guaranteed persistence by the bolt, and can then delete the source data from whatever source it is reading from.  
-
-For best performance on Data Lake Storage Gen2, have the bolt buffer 4 MB of tuple data. Then write to the Data Lake Storage Gen2 back end as one 4-MB write. After the data has been successfully written to the store (by calling hflush()), the bolt can acknowledge the data back to the spout. This is what the example bolt supplied here does. It is also acceptable to hold a larger number of tuples before the hflush() call is made and the tuples acknowledged. However, this increases the number of tuples in flight that the spout needs to hold, and therefore increases the amount of memory required per JVM.
-
-> [!NOTE]
-Applications might have a requirement to acknowledge tuples more frequently (at data sizes less than 4 MB) for other non-performance reasons. However, that might affect the I/O throughput to the storage back end. Carefully weigh this tradeoff against the bolt’s I/O performance.
-
-If the incoming rate of tuples is not high, so the 4-MB buffer takes a long time to fill, consider mitigating this by:
-* Reducing the number of bolts, so there are fewer buffers to fill.
-* Having a time-based or count-based policy, where an hflush() is triggered every x flushes or every y milliseconds, and the tuples accumulated so far are acknowledged back.
-
-Note that the throughput in this case is lower, but with a slow rate of events, maximum throughput is not the biggest objective anyway. These mitigations help you reduce the total time that it takes for a tuple to flow through to the store. This might matter if you want a real-time pipeline even with a low event rate. Also note that if your incoming tuple rate is low, you should adjust the topology.message.timeout_secs parameter, so the tuples don’t time out while they are getting buffered or processed.
 
 ## Monitor your topology in Storm  
 While your topology is running, you can monitor it in the Storm user interface. Here are the main parameters to look at:

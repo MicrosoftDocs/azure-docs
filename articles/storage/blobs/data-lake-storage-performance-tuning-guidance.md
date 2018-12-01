@@ -20,7 +20,7 @@ Azure Data Lake Storage Gen2 supports high-throughput for I/O intensive analytic
 
 ![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 can scale to provide the necessary throughput for all analytics scenario. By default, a Data Lake Storage Gen2 account provides automatically enough throughput to meet the needs of a broad category of use cases. For the cases where customers run into the default limit, the Data Lake Storage Gen2 account can be configured to provide more throughput by contacting Microsoft support.
+Data Lake Storage Gen2 can scale to provide the necessary throughput for all analytics scenario. By default, a Data Lake Storage Gen2 account provides automatically enough throughput to meet the needs of a broad category of use cases. For the cases where customers run into the default limit, the Data Lake Storage Gen2 account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ## Data ingestion
 
@@ -54,11 +54,9 @@ When data is stored in Data Lake Storage Gen2, the file size, number of files, a
 
 ### File size
 
-Typically, analytics engines such as HDInsight have a per-file overhead.  If you store your data as many small files, this can negatively affect performance.  
+Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance.
 
-In general, organize your data into larger sized files for better performance.  As a rule of thumb, organize data sets in files of 256MB or larger. In some cases such as images and binary data, it is not possible to process them in parallel.  In these cases, it is recommended to keep individual files under 2GB.
-
-Sometimes, data pipelines have limited control over the raw data which has lots of small files.  It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files. It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
 
 ### Organizing time series data in folders
 
