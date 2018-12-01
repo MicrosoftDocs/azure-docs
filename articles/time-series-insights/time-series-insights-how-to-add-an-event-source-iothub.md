@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ---
 
 # How to add an IoT Hub event source to Time Series Insights environment
@@ -17,12 +17,12 @@ ms.date: 11/26/2018
 This article describes how to use the Azure portal to add an event source that reads data from an IoT Hub into your Azure Time Series Insights (TSI) environment.
 
 > [!NOTE]
-> These instructions apply to both TSI GA & TSI preview environments.
+> These instructions apply to both TSI GA and TSI preview environments.
 
 ## Prerequisites
 
-* Create a TSI environment. For more information, see [Create an Azure TSI environment](time-series-insights-get-started.md) 
-* Create an IoT Hub. For more information on IoT Hubs, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
+* Create a TSI environment. For more information, see [Create an Azure TSI environment](time-series-insights-update-create-environment.md).
+* Create an IoT Hub. For more information on IoT Hubs, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * The IoT Hub needs to have active message events being sent in.
 * Create a dedicated consumer group in IoT Hub for the TSI environment to consume from. Each TSI event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
