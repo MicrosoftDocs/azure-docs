@@ -63,7 +63,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add** on top of the page to add a new role assignment for your VM
+3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
 4. Set **Role** to "Storage Account Key Operator Service Role", on the right side of the page. 
 5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  

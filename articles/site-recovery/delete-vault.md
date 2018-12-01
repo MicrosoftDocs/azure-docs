@@ -4,7 +4,6 @@ description: Learn how to delete a Recovery Services vault configured for Azure 
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
