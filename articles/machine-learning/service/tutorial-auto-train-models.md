@@ -1,5 +1,5 @@
 ---
-title: "Tutorial #2:  Train a regression model with automated machine learning"
+title: "Tutorial #2:  Train a regression model with automated machine learning - Azure Machine Learning service"
 description: Learn how to generate a ML model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -63,7 +63,7 @@ import logging
 
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A `Workspace` is an object that accepts your Azure subscription and resource information, and creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information, and creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
 Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment.
 
@@ -561,7 +561,7 @@ dflow_y = dflow_prepared.keep_columns('cost')
 
 ### Split data into train and test sets
 
-Now you split the data into training and test sets using the `train_test_split` function in the `sklearn` library. This function segregates the data into x (features) and y (values to predict) data sets to use separately in training and testing the model. The `test_size` parameter determines the percent of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic.
+Now you split the data into training and test sets using the `train_test_split` function in the `sklearn` library. This function segregates the data into the x (features) data set for model training and the y (values to predict) data set for testing. The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -836,7 +836,7 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## Test the best model accuracy
 
-Use the best model to run predictions on the test data set. The function `predict` will use the best model, and predict the values of y (trip cost) from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
+Use the best model to run predictions on the test data set. The function `predict` uses the best model, and predicts the values of y (trip cost) from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
