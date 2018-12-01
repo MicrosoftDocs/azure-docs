@@ -36,7 +36,7 @@ Since the infrastructure runs on well-defined hardware and software, Azure Stack
 Because Azure Stack is delivered as an integrated system, the security posture of the Azure Stack infrastructure is defined by Microsoft. Just like in Azure, tenants are responsible for defining the security posture of their tenant workloads. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
 ## Data at rest encryption
-All Azure Stack infrastructure and tenant data is encrypted at rest using Bitlocker. This encryption protects against physical loss or theft of Azure Stack storage components. For more information, see [Data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
+All Azure Stack infrastructure and tenant data is encrypted at rest using Bitlocker. This encryption protects against physical loss or theft of Azure Stack storage components. For more information, see [data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
 
 ## Data in transit encryption
 The Azure Stack infrastructure components communicate using channels encrypted with TLS 1.2. Encryption certificates are self-managed by the infrastructure. 
