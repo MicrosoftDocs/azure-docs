@@ -28,7 +28,7 @@ It's important to think about how you send events to Azure TSI. Namely, you shou
 The following guidance helps ensure the best possible query performance:
 
 1. Don't send unnecessary properties. TSI (preview) will bill you on your usage and it's a best practice to store and process data that you will query.
-1. Use instance fields for static data to avoid sending static data over the network. Instance fields, a component of the time series model, work like reference data in the generally available TSI service. To learn more about instance field, read [Time Series Models](./time-series-insights-updates-tsm.md).
+1. Use instance fields for static data to avoid sending static data over the network. Instance fields, a component of the time series model, work like reference data in the generally available TSI service. To learn more about instance field, read [Time Series Models](./time-series-insights-update-tsm.md).
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
 1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.
