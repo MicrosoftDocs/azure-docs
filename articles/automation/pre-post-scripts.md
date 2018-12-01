@@ -214,8 +214,6 @@ if ($summary.Type -eq "Error")
 ## Known issues
 
 * You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
-* Runbooks that are not published are displayed as selectable when choosing a pre or post script. Only runbooks that are published should be chosen as un-published runbooks can not be invoked and will fail.
-* Computers added to a deployment using [Dynamic groups (preview)](automation-update-management.md#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter that is passed into pre and post scripts.
 
 ## Next steps
 
