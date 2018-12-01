@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 
 ---
 
 # Supported metrics with Azure Monitor on Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Applies to: Azure Stack integrated systems*
 
 You can retrieve your metrics from Azure monitor on Azure Stack in the same as global Azure. You can create your measures in the portal, get them from the REST API, or query them with PowerShell or CLI.
 

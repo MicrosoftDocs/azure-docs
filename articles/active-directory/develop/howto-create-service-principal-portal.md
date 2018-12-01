@@ -61,9 +61,9 @@ You can set the scope at the level of the subscription, resource group, or resou
    If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the portal. 
 
 1. Select **Access control (IAM)**.
-1. Select **Add**.
+1. Select **Add role assignment**.
 
-   ![Select add](./media/howto-create-service-principal-portal/select-add.png)
+   ![Select add role assignment](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Select the role you wish to assign to the application. To allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
 

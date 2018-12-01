@@ -10,7 +10,6 @@ ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
