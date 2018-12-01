@@ -26,7 +26,7 @@ You must have registered your subscription for using the NetApp Resource Provide
 
 ## Steps 
 
-1. Locate the preview Azure portal URL from your preview invitation, and log in to the portal. 
+1. Locate the preview Azure portal URL from your preview invitation, and sign in to the portal. 
 2.	Access the Azure NetApp Files blade by using one of the following methods:  
   * Search for **Azure NetApp Files** in the Azure portal search box.  
   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
