@@ -54,7 +54,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
 1. Your Time Series ID property specified at the time of provisioning is incorrect, missing or null
 
-    This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see the [Best practices for choosing a Time Series ID](./time-series-insights-how-to-id.md). At this time, you cannot update an existing Time Series Insights update environment to use a different **Time Series ID**.
+    This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see the [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you cannot update an existing Time Series Insights update environment to use a different **Time Series ID**.
 
 ## Problem: Some data is shown, but some is missing
 
