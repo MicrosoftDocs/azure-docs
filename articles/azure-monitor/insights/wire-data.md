@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: na
 ---
 
 # Wire Data 2.0 (Preview) solution in Log Analytics

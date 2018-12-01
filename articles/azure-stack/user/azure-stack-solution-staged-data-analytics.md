@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -248,7 +248,7 @@ Use the steps and settings outlined above to create another storage account and 
 
 ## Test the queue triggered function
 
-1.  In the Azure portal, browse to the function. Expand the **Logs** at the bottom of the page and ensure log streaming is not paused.
+1.  In the Azure Stack portal, browse to the function. Expand the **Logs** at the bottom of the page and ensure log streaming is not paused.
 
 2.  Open Storage Explorer and connect to the storage account created at the beginning of this section.
 
