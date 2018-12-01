@@ -37,13 +37,17 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Set ACLs on a directory
 
-If you don't already have you, you can create a filesystem by right clicking **Blob containers** and selecting **Create a blob container**. Then, select that container and select **New folder**, enter a name. This will create a directory.
+You can set ACLs at the root of your filesystem, right click your filesystem and select **Manage Permissions**.
 
-Now that you've done that, you may click the folder and select **Manage permissions**.
+This wil bring up the **Manage Permission** prompt.
 
-This will open a prompt that will allow you to manage ACLs for existing users or add new users for whom you can then manage ACLs for. Making selections here will not set ACLs on any existing item inside the directory.
+![Microsoft Azure Storage Explorer - Manage directory ACLs](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
-Setting **default ACLs** on a parent folder will, only on subsequent creation, set those same ACLs on any child or children folder and its contents. You may individually change those ACLs after creating those items.
+The **Manage Permission** prompt that will allow you to manage ACLs for existing users or add new users for whom you can then manage ACLs for. To learn about ACLs, including default ACLs, access ACLs, their behavior, and the permissions, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
+
+We recommend creating security groups and maintaining ACLs on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
+
+You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing ACLs on directories and files is the same as described above.
 
 ## Set ACLs on a file
 
