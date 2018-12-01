@@ -52,7 +52,7 @@
       href: time-series-insights-update-use-cases.md
     - name: Time Series Model
       href: time-series-insights-update-tsm.md
-    - name: Time Series Query
+    - name: Data querying
       href: time-series-insights-update-tsq.md
     - name: Visualize data in the Explorer update
       href: time-series-insights-update-explorer.md
