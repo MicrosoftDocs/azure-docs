@@ -1,6 +1,6 @@
 ---
 title: Manage cost of data in Azure Log Analytics | Microsoft Docs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.   
+description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte

@@ -125,7 +125,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="conditional-access/overview.md">What is conditional access?</a><br>
                                                             <a href="conditional-access/app-based-mfa.md">Require MFA for specific apps</a><br>
-                                                            <a href="conditional-access/location-condition.md">Access according to location</a><br>
+                                                            <a href="conditional-access/location-condition.md">Conditions based on location</a><br>
 												            <a href="conditional-access/index.yml"><i>See more &gt;</i></a>
 															</p>
                                                     </div>
@@ -150,7 +150,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="devices/overview.md">What is device management?</a><br>
                                                             <a href="devices/hybrid-azuread-join-plan.md">Plan a hybrid Azure AD join</a><br>
-                                                            <a href="devices/azureadjoin-plan.md">Deploy a hybrid Azure AD join</a><br>
+                                                            <a href="devices/azureadjoin-plan.md">Plan an Azure AD join</a><br>
                                                             <a href="devices/index.yml"><i>See more &gt;</i></a><br>
 														</p>
 														<br><br>
@@ -198,8 +198,8 @@ ms.author: mtillman
                                                         <h3><a href="identity-protection/index.yml">Identity protection</a></h3>
                                                         <p>
                                                             <a href="identity-protection/overview.md">What is identity protection?</a><br>
-                                                            <a href="identity-protection/quickstart-sign-in-risk-policy.md">Configure sign-in risk policy</a><br>
-                                                            <a href="identity-protection/howto-unblock-user.md">Unblock blocked users</a><br>
+                                                            <a href="identity-protection/quickstart-sign-in-risk-policy.md">Block access when session risk is detected</a><br>
+                                                            <a href="identity-protection/howto-unblock-user.md">How to unblock users</a><br>
 												            <a href="identity-protection/index.yml"><i>See more &gt;</i></a>
 														</p>
 														<br><br>
