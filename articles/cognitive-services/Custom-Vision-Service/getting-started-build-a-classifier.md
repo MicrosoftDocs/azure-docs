@@ -79,7 +79,7 @@ Select __Done__ once the images have been uploaded.
 
 To upload another set of images, return to the top of this section and repeat the steps. Remember to add your no-tag images and apply the "Negative" label to them.
 
-## Train and evaluate the classifier
+## Train the classifier
 
 To train the classifier, select the **Train** button. The classifier uses all of the current images to create a model that identifies the visual qualities of each tag.
 
@@ -89,20 +89,26 @@ The training process should only take a few minutes. During this time, informati
 
 ![The browser window with a training dialog in the main section](./media/getting-started-build-a-classifier/train02.png)
 
-After training has completed, the model calculates its performance. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). 
+## Evaluate the classifier
+
+After training has completed, the model evaluates its performance. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a classifier:
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were 100 images of dogs, and the model identified 99 as dogs, the recall would be 99%.
 
-Together, these figures indicate how effective your classifier is. Also note the **Probability Threshold** slider on the left pane of the **Performance** tab. This indicates what level of confidence should be considered a "real guess" by the model. If you want your model to eventually give answers only with high confidence, you should set a high probability threshold before judging performance.
-
 ![The training results show the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
+
+### Probability Threshold
+
+Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This indicates what level of confidence should be considered a "real guess" by the model. 
+
+Training with a high probability threshold tends to create a model with high precision at the expense of recall; training with a low probability threshold does the opposite. With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
 
 ## Manage training iterations
 
-Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. When you select one, you have the option of making it the _default_ iteration by clicking the **Make default** button at the top. The default iteration is the model that will be used by default when you query it through the Prediction API. 
+Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. When you select one, you have the option of making it the _default iteration_ by clicking the **Make default** button at the top. The _default iteration_ is the model that will be used by default when you query it through the Prediction API (from an app, for instance). If you decline to update the _default iteration_, you can continue to train your model without affecting your app's current behavior; then, once you are satisfied with the improved model, you can update the default.
 
-In this same view, you can also delete an iteration with the **Delete** button if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
 ## Next steps
 
