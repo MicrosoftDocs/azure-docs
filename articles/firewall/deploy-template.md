@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In the portal, on the **Create a sandbox setup of AzureFirewall** page, type or select the following values:
    
-   - ***Resource group**: Select **Create new**, type a name for the resource group, and select **OK**. 
+   - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**. 
    - **Virtual Network Name**: Type a name for the new VNet. 
    - **Admin Username**: Type a username for the administrator user account.
    - **Admin Password**: Type an administrator password. 
