@@ -120,13 +120,15 @@ Follow these steps to assign the User Access Administrator role to the MS-PIM se
 
 1. Choose your subscription.
 
-1. Choose **Access control (IAM)** to see the current list of role assignments at the subscription scope.
+1. Choose **Access control (IAM)**.
+
+1. Choose **Role assignments** to see the current list of role assignments at the subscription scope.
 
    ![Access control (IAM) blade for a subscription](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. Check whether the **MS-PIM** service principal is assigned the **User Access Administrator** role.
 
-1. If not, choose **Add** to open the **Add permissions** pane.
+1. If not, choose **Add role assignment** to open the **Add role assignment** pane.
 
 1. In the **Role** drop-down list, select the **User Access Administrator** role.
 
