@@ -65,14 +65,23 @@ The workflow to enable this connectivity:
 3. Apply the policy when you create a S2S or VNet-to-VNet connection, and **enable the policy-based traffic selectors** on the connection
 4. If the connection is already created, you can apply or update the policy to an existing connection
 
+## Before you begin
+
+Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
+
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+
 ## <a name="enablepolicybased"></a>Enable policy-based traffic selectors on a connection
 
 Make sure you have completed [Part 3 of the Configure IPsec/IKE policy article](vpn-gateway-ipsecikepolicy-rm-powershell.md) for this section. The following example uses the same parameters and steps:
 
 ### Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
-#### 1. Declare your variables & connect to your subscription
-For this exercise, we start by declaring our variables. Be sure to replace the values with your own when configuring for production.
+#### 1. Connect to your subscription and declare your variables
+
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+
+Declare your variables. For this exercise, we use the following variables:
 
 ```azurepowershell-interactive
 $Sub1          = "<YourSubscriptionName>"
@@ -98,18 +107,16 @@ $LNGPrefix61   = "10.61.0.0/16"
 $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
-To use the Resource Manager cmdlets, make sure you switch to PowerShell mode. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-Open your PowerShell console and connect to your account. Use the following sample to help you connect:
+#### 2. Create the virtual network, VPN gateway, and local network gateway
+
+Create a resource group.
 
 ```azurepowershell-interactive
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### 2. Create the virtual network, VPN gateway, and local network gateway
-The following example creates the virtual network, TestVNet1 with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically 'GatewaySubnet'. If you name it something else, your gateway creation fails.
+Use the following example to create the virtual network TestVNet1 with three subnets, and the VPN gateway. If you want to substitute values, it's important that you always name your gateway subnet specifically 'GatewaySubnet'. If you name it something else, your gateway creation fails.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
