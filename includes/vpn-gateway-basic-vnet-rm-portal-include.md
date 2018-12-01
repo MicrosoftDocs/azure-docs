@@ -28,16 +28,16 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 
    ![Create virtual network page](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Create virtual network page")
 
-- **Name**: Enter the name for your virtual network.
+   - **Name**: Enter the name for your virtual network.
 
-- **Address space**: Enter the address space. If you have multiple address spaces to add, enter your first address space here. You can add additional address spaces later, after you create the VNet.
+   - **Address space**: Enter the address space. If you have multiple address spaces to add, enter your first address space here. You can add additional address spaces later, after you create the VNet.
 
-- **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
+   - **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
 
-- **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
 
-- **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
+   - **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
 
-- **Subnet**: Add the subnet **Name** and subnet **Address range**. You can add additional subnets later, after you create the VNet. 
-
+   - **Subnet**: Add the subnet **Name** and subnet **Address range**. You can add additional subnets later, after you create the VNet. 
+     
 5. Select **Create**.

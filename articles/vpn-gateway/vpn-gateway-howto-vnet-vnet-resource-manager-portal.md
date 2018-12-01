@@ -24,7 +24,7 @@ This article helps you connect virtual networks (VNets) by using the VNet-to-VNe
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using one of the following options:
+The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using one of the options described in the following articles:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -66,7 +66,7 @@ You may want to connect virtual networks by using a VNet-to-VNet connection for 
 
 ### Regional multi-tier applications with isolation or administrative boundaries
 
-  * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
+  * Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together due to isolation or administrative requirements.
 
 VNet-to-VNet communication can be combined with multi-site configurations. These configurations lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
@@ -78,43 +78,55 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 
 **Values for TestVNet1:**
 
-* VNet Name: TestVNet1
-* Address space: 10.11.0.0/16
-* Subscription: Select the subscription you want to use
-* Resource Group: TestRG1
-* Location: East US
-* Subnet Name: FrontEnd
-* Subnet Address range: 10.11.0.0/24
-* Gateway Subnet name: GatewaySubnet (this name will autofill in the portal)
-* Gateway Subnet address range: 10.11.255.0/27
-* DNS Server: Use the IP address of your DNS Server
-* Virtual Network Gateway Name: TestVNet1GW
-* Gateway Type: VPN
-* VPN type: Route-based
-* SKU: Select the Gateway SKU you want to use
-* Public IP address name: TestVNet1GWIP
-* Connection Name: TestVNet1toTestVNet4
-* Shared key: You can create the shared key yourself. For this example, we'll use abc123. The important thing is that when you create the connection between the VNets, the value must match.
+- **Virtual network settings**
+    - **Name**: Enter *TestVNet1*.
+    - **Address space**: Enter *10.11.0.0/16*.
+    - **Subscription**: Select the subscription you want to use.
+    - **Resource group**: Enter *TestRG1*.
+    - **Location**: Select **East US**.
+    - **Subnet**
+        - **Name**: Enter *FrontEnd*.
+        - **Address range**: Enter *10.11.0.0/24*.
+    - **Gateway subnet**:
+        - **Name**: *GatewaySubnet* is autofilled.
+        - **Address range**: Enter *10.11.255.0/27*.
+    - **DNS server**: Select **Custom** and enter the IP address of your DNS server.
+
+- **Virtual network gateway settings** 
+    - **Name**: Enter *TestVNet1GW*.
+    - **Gateway type**: Select **VPN**.
+    - **VPN type**: Select **Route-based**.
+    - **SKU**: Select the gateway SKU you want to use.
+    - **Public IP address name**: Enter *TestVNet1GWIP*
+    - **Connection** 
+       - **Name**: Enter *TestVNet1toTestVNet4*.
+       - **Shared key**: Enter *abc123*. You can create the shared key yourself. When you create the connection between the VNets, the values must match.
 
 **Values for TestVNet4:**
 
-* VNet Name: TestVNet4
-* Address space: 10.41.0.0/16
-* Subscription: Select the subscription you want to use
-* Resource Group: TestRG4
-* Location: West US
-* Subnet Name: FrontEnd
-* Subnet Address range: 10.41.0.0/24
-* GatewaySubnet name: GatewaySubnet (this name will autofill in the portal)
-* GatewaySubnet address range: 10.41.255.0/27
-* DNS Server: Use the IP address of your DNS Server
-* Virtual Network Gateway Name: TestVNet4GW
-* Gateway Type: VPN
-* VPN type: Route-based
-* SKU: Select the Gateway SKU you want to use
-* Public IP address name: TestVNet4GWIP
-* Connection Name: TestVNet4toTestVNet1
-* Shared key: You can create the shared key yourself. For this example, we'll use abc123. The important thing is that when you create the connection between the VNets, the value must match.
+- **Virtual network settings**
+   - **Name**: Enter *TestVNet4*.
+   - **Address space**: Enter *10.41.0.0/16*.
+   - **Subscription**: Select the subscription you want to use.
+   - **Resource group**: Enter *TestRG4*.
+   - **Location**: Select **West US**.
+   - **Subnet** 
+      - **Name**: Enter *FrontEnd*.
+      - **Address range**: Enter *10.41.0.0/24*.
+   - **GatewaySubnet** 
+      - **Name**: *GatewaySubnet* is autofilled.
+      - **Address range**: Enter *10.41.255.0/27*.
+   - **DNS server**: Select **Custom** and enter the IP address of your DNS server.
+
+- **Virtual network gateway settings** 
+    - **Name**: Enter *TestVNet4GW*.
+    - **Gateway type**: Select **VPN**.
+    - **VPN type**: Select **Route-based**.
+    - **SKU**: Select the gateway SKU you want to use.
+    - **Public IP address name**: Enter *TestVNet4GWIP*.
+    - **Connection** 
+       - **Name**: Enter *TestVNet4toTestVNet1*.
+       - **Shared key**: Enter *abc123*. You can create the shared key yourself. When you create the connection between the VNets, the values must match.
 
 ## Create and configure TestVNet1
 If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets. After your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
@@ -162,20 +174,20 @@ When the virtual network gateways for both TestVNet1 and TestVNet4 have complete
   ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
 3. On the **Add connection** page, fill in the values for your connection:
 
-- **Name**: Enter a name for your connection. For example, *TestVNet1toTestVNet4*.
+   - **Name**: Enter a name for your connection. For example, *TestVNet1toTestVNet4*.
 
-- **Connection type**: Select **VNet-to-VNet** from the drop-down.
+   - **Connection type**: Select **VNet-to-VNet** from the drop-down.
 
-- **First virtual network gateway**: This field value is automatically filled in because you're creating this connection from the specified virtual network gateway.
+   - **First virtual network gateway**: This field value is automatically filled in because you're creating this connection from the specified virtual network gateway.
 
-- **Second virtual network gateway**: This field is the virtual network gateway of the VNet that you want to create a connection to. Select **Choose another virtual network gateway** to open the **Choose virtual network gateway** page.
+   - **Second virtual network gateway**: This field is the virtual network gateway of the VNet that you want to create a connection to. Select **Choose another virtual network gateway** to open the **Choose virtual network gateway** page.
 
     - View the virtual network gateways that are listed on this page. Notice that only virtual network gateways that are in your subscription are listed. If you want to connect to a virtual network gateway that isn't in your subscription, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
     - Select the virtual network gateway to which you want to connect.
 
 - **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
-
+    
 4. Select **OK** to save your changes.
 
 ## Configure the TestVNet4 gateway connection
