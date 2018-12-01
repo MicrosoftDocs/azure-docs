@@ -38,7 +38,7 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, Extenstion Host is enabled which simplifies network integration and increases the security posture of Azure Stac
+- With this release, Extenstion Host is enabled which simplifies network integration and increases the security posture of Azure Stack
 
 - Enhanced Azure Stack operator experience for managing updates from the Update blade.
 
