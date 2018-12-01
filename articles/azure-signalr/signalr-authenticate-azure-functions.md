@@ -75,7 +75,7 @@ You will build and test the Azure Functions app locally. The app will access a S
 
 This tutorial uses Azure Functions bindings to interact with Azure SignalR Service. Like most other bindings, the SignalR Service bindings are available as an extension that needs to be installed using the Azure Functions Core Tools CLI before they can be used.
 
-1. Open a terminal in VS Code by selecting **View > Integrated Terminal** from the menu (Ctrl-`).
+1. Open a terminal in VS Code by selecting **View > Integrated Terminal** from the menu (Ctrl-\`).
 
 1. Ensure the main project folder is the current directory.
 
