@@ -42,21 +42,21 @@ To complete this tutorial:
 
 ## Create a Starter Function
 
+First, create an HTTP triggered function that starts a durable function orchestration.
+
 1. From **Azure: Functions**, choose the Create Function icon.
 
-    ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
+    ![Create a function](./media/quickstart-js-vscode/create-function.png)
 
 1. Select the folder with your function app project and select the **HTTP trigger** function template.
 
-    ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
+    ![Choose the HTTP trigger template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 1. Type `HttpStart` for the function name and press Enter, then select **Anonymous** authentication.
 
-    ![Choose anonymous authentication](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
+    ![Choose anonymous authentication](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
     A function is created in your chosen language using the template for an HTTP-triggered function.
-
-    ![HTTP triggered function template in Visual Studio Code](../media/functions-create-first-function-vs-code/new-function-full.png)
 
 1. Replace index.js with the below JavaScript:
 
@@ -105,23 +105,17 @@ We've now created an entry-point into our Durable Function. Let's add an orchest
 
 ## Create an Orchestrator Function
 
+Next, you create another function to be the orchestrator. We use the HTTP trigger function template for convenience. The function code itself is replaced by the orchestrator code.
+
 1. From **Azure: Functions**, choose the Create Function icon.
 
-    ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
+1. Select the folder with your function app project, select the **HTTP trigger** function template, type `OrchestratorFunction` for the function name and press Enter.
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template. Since you'll be replacing this code, the trigger itself doesn't matter.
-
-    ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Type `OrchestratorFunction` for the function name and press Enter, then select **Anonymous** authentication.
-
-    ![Choose anonymous authentication](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-1. Replace index.js with the below JavaScript:
+1. Choose **Anonymous** authentication, and after the function is created, replace the created index.js file with the following code:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-1. Replace function.json with the below JSON:
+1. Open the function.json file and replace it with the following JSON:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
@@ -129,19 +123,13 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
 ## Create an Activity Function
 
+Again, we are using the HTTP trigger template to create the function that becomes the activity function.
+
 1. From **Azure: Functions**, choose the Create Function icon.
 
-    ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
+1. Select the folder with your function app project, select the **HTTP trigger** function template, type `SayHello` for the function name and press Enter.
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template. Since you'll be replacing this code, the trigger itself doesn't matter.
-
-    ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Type `SayHello` for the function name and press Enter, then select **Anonymous** authentication.
-
-    ![Choose anonymous authentication](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-1. Replace index.js with the below JavaScript:
+1. Choose **Anonymous** authentication, and after the function is created, replace the created index.js file with the following code:
 
     [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
