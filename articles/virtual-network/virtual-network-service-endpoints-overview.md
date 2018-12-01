@@ -130,11 +130,16 @@ There is no limit on the total number of service endpoints in a virtual network.
 
 For an Azure service resource (such as, an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. Refer to the documentation for various services in [Next steps](#next-steps) for details.
 
+## Data exfilteration protection & service endpoint policies
+
+In addition to the service endpoint policies helping you to secure your critical Azure service resources to only your virtual networks, you might have a need to have more granular access control over the virtual network traffic to Azure srvices, i.e. you might have a need to ensure that the data being exfilterated from your virtual network can only be transferred to allowed Azure services and accounts. [Service endpoint policies](virtual-network-service-endpoint-policies-overview.md) can help you with that level of access control. Please go over the article for more information.
+
 ## Next steps
 
 - Learn how to [configure virtual network service endpoints](tutorial-restrict-network-access-to-resources.md)
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
+- Learn about [Service endpoint policies](virtual-network-service-endpoint-policies-overview.md)
 -  Quick start: [Azure resource manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's subnet and secure an Azure Storage account to that subnet.
 
