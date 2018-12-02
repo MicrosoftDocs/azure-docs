@@ -16,7 +16,7 @@ ms.author: juliako
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges. 
 
-This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. 
+This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
     ![all AAD users](./media/create-account/all-aad-users.png)
 
-### Additional prerequisites for automation flow
+### Additional prerequisites for automatic flow
 
 A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
 
@@ -79,7 +79,7 @@ Locate **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registere
 
     * To manually configure your connection, click the **Switch to manual configuration** link.
 
-        For detailed information, see the [Connect to Azure manually](connect-to-azure-manually) (advanced option) section that follows.
+        For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually) (advanced option) section that follows.
 6. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
