@@ -160,7 +160,7 @@ Once migration is complete, Security Center is not able to collect security data
 
 ### What are the recommended steps when opting out of automatic provisioning?
 
-You should manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../azure/virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../azure/virtual-machines/extensions/oms-linux.md) for guidance on installation.
+You should manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
 
 You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the ‘Security’ or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** blade.
 
@@ -223,7 +223,7 @@ A Security Center solution is installed on the workspace if not present already,
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
 
 ### Does Security Center install solutions on my existing Log Analytics workspaces? What are the billing implications?
-When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing tier. The solutions are applied only to the relevant Azure VMs, via [solution targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), so the billing remains the same.
+When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing tier. The solutions are applied only to the relevant Azure VMs, via [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), so the billing remains the same.
 
 - **Free tier** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You are not billed for the Free tier.
 - **Standard tier** – Security Center installs the 'Security' solution on the workspace.
@@ -231,7 +231,7 @@ When Security Center identifies that a VM is already connected to a workspace yo
    ![Solutions on default workspace][4]
 
 ### I already have workspaces in my environment, can I use them to collect security data?
-If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center uses the existing connected workspace. A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs via [solution targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center uses the existing connected workspace. A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs via [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
 When Security Center installs the Microsoft Monitoring Agent on VMs, it uses the default workspace(s) created by Security Center.
 
