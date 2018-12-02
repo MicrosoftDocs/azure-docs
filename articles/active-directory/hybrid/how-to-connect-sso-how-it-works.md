@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -74,8 +74,8 @@ The sign-in flow on a native client is as follows:
 
 1. The user tries to access a native application (for example, the Outlook client) from a domain-joined corporate device inside your corporate network.
 2. If the user is not already signed in, the native application retrieves the username of the user from the device's Windows session.
-3. The app sends the username to Azure AD, and retrieves your tenant's WS-Trust MEX endpoint.
-4. The app then queries the WS-Trust MEX endpoint to see if integrated authentication endpoint is available.
+3. The app sends the username to Azure AD, and retrieves your tenant's WS-Trust MEX endpoint. This WS-Trust endpoint is used exclusively by the Seamless SSO feature, and is not a general implementation of the WS-Trust protocol on Azure AD.
+4. The app then queries the WS-Trust MEX endpoint to see if integrated authentication endpoint is available. The integrated authentication endpoint is used exclusively by the Seamless SSO feature.
 5. If step 4 succeeds, a Kerberos challenge is issued.
 6. If the app is able to retrieve the Kerberos ticket, it forwards it up to Azure AD's integrated authentication endpoint.
 7. Azure AD decrypts the Kerberos ticket and validates it.

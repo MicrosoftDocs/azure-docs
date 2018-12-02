@@ -95,7 +95,7 @@ When you're using GUIDs/UUIDs and strings, the values are hashed to an Int64. Ho
 ## Next steps
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actors API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet#microsoft_servicefabric_actors)
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

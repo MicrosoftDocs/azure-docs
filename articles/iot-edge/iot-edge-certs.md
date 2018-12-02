@@ -2,7 +2,7 @@
 title: Understand Azure IoT Edge certificates | Microsoft Docs 
 description: Learn about Azure IoT Edge certificates and how they are used.
 author: stevebus
-manager: timlt
+manager: philmea
 ms.author: stevebus
 ms.date: 09/13/2018
 ms.topic: conceptual

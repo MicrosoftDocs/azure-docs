@@ -8,7 +8,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: mjbrown
 
 ---
@@ -49,7 +49,7 @@ You may get stronger consistency guarantees in practice. Consistency guarantees 
 
 * For the remaining three consistency levels, the staleness window is largely dependent on your workload. For example, if there are no write operations on the database, a read operation with **eventual**, **session**, or **consistent prefix** consistency levels is likely to yield the same results as a read operation with strong consistency level.
 
-If your Cosmos DB account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the Probabilistic Bounded Staleness (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [how to use the PBS metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric) article.
+If your Cosmos DB account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the Probabilistic Bounded Staleness (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [Monitor Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you can get a stronger consistency than the consistency level that you have currently configured on your Cosmos DB account. In other words, you can see the probability (measured in milliseconds) of getting strongly consistent reads for a combination of write and read regions.
 
@@ -60,4 +60,4 @@ Read more about the consistency levels in the following articles:
 * [Consistency level mapping across Cosmos DB APIs](consistency-levels-across-apis.md)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
 * [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens)
-* [How to monitor the Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Monitor Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

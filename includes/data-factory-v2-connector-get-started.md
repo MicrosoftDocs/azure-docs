@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->

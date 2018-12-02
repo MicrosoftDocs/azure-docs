@@ -126,7 +126,7 @@ Hence the section below provide details on using Resource Template for Log Alert
 ### Azure Resource Template for Log Analytics
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
 
-Resource template for Log analytics saved search and Log analytics alerts are available in Log Analytics section of documentation. To learn more, see, [Adding Log Analytics saved searches and alerts](../monitoring/monitoring-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
+Resource template for Log analytics saved search and Log analytics alerts are available in Log Analytics section of documentation. To learn more, see, [Adding Log Analytics saved searches and alerts](../azure-monitor/insights/solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
 
 ### Azure Resource Template for Application Insights
 Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -217,7 +217,7 @@ Hence the section below provide details on using API via Powershell or CLI for L
 ### PowerShell, CLI, or API for Log Analytics
 The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.
 
-Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
+Learn more  about [create and manage alert rules in Log Analytics with REST API](../azure-monitor/platform/api-alerts.md); including examples of accessing the API from Powershell.
 
 ### PowerShell, CLI, or API for Application Insights
 [Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.

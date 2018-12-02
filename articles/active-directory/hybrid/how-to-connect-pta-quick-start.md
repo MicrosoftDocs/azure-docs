@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -24,7 +24,7 @@ ms.author: billmath
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications by using the same passwords. Pass-through Authentication signs users in by validating their passwords directly against on-premises Active Directory.
 
 >[!IMPORTANT]
->If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstoPTADPDownload).
 
 Follow these instructions to deploy Pass-through Authentication on your tenant:
 
@@ -39,13 +39,13 @@ Ensure that the following prerequisites are in place.
 
 ### In your on-premises environment
 
-1. Identify a server running Windows Server 2012 R2 or later to run Azure AD Connect. Add the server to the same Active Directory forest as the users whose passwords you need to validate.
+1. Identify a server running Windows Server 2012 R2 or later to run Azure AD Connect. If not enabled already, [enable TLS 1.2 on the server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Add the server to the same Active Directory forest as the users whose passwords you need to validate.
 2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.750.0 or later.
 
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Identify one or more additional servers (running Windows Server 2012 R2 or later) where you can run standalone Authentication Agents. These additional servers are needed to ensure the high availability of requests to sign in. Add the servers to the same Active Directory forest as the users whose passwords you need to validate.
+3. Identify one or more additional servers (running Windows Server 2012 R2 or later, with TLS 1.2 enabled) where you can run standalone Authentication Agents. These additional servers are needed to ensure the high availability of requests to sign in. Add the servers to the same Active Directory forest as the users whose passwords you need to validate.
 
     >[!IMPORTANT]
     >In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 12 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -80,7 +80,7 @@ If you have already installed Azure AD Connect by using the [express installatio
 ![Azure AD Connect: Change user sign-in](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->Pass-through Authentication is a tenant-level feature. Turning it on affects the sign-in for users across _all_ the managed domains in your tenant. If you're switching from Active Directory Federation Services (AD FS) to Pass-through Authentication, you should wait at least 12 hours before shutting down your AD FS infrastructure. This wait time is to ensure that users can keep signing in to Exchange ActiveSync during the transition. For more help on migrating from AD FS to Pass-through Authentication, check out our detailed deployment guide published [here](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Pass-through Authentication is a tenant-level feature. Turning it on affects the sign-in for users across _all_ the managed domains in your tenant. If you're switching from Active Directory Federation Services (AD FS) to Pass-through Authentication, you should wait at least 12 hours before shutting down your AD FS infrastructure. This wait time is to ensure that users can keep signing in to Exchange ActiveSync during the transition. For more help on migrating from AD FS to Pass-through Authentication, check out our detailed deployment plan published [here](https://aka.ms/adfstoptadpdownload).
 
 ## Step 3: Test the feature
 

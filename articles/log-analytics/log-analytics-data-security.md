@@ -10,7 +10,6 @@ ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
@@ -152,7 +151,7 @@ For Operations Manager, the Operations Manager management group establishes a co
 
 All communication between connected systems and the Log Analytics service is encrypted. The TLS (HTTPS) protocol is used for encryption.  The Microsoft SDL process is followed to ensure Log Analytics is up-to-date with the most recent advances in cryptographic protocols.
 
-Each type of agent collects data for Log Analytics. The type of data that is collected is depends on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
+Each type of agent collects data for Log Analytics. The type of data that is collected is depends on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
 
 ## 2. Send data from agents
 You register all agent types with an enrollment key and a secure connection is established between the agent and the Log Analytics service using certificate-based authentication and SSL with port 443. Log Analytics uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices.

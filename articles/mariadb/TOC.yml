@@ -21,6 +21,12 @@
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-cli.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -29,8 +35,6 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
-    - name: Server logs
-      href: concepts-server-logs.md
     - name: High availability
       href: concepts-high-availability.md
   - name: Resources
@@ -45,12 +49,20 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
+  - name: Monitor
+    items:
+    - name: Monitor
+      href: concepts-monitoring.md
+    - name: Server logs
+      href: concepts-server-logs.md
   - name: Development
     items:
     - name: Connection resiliency
@@ -65,10 +77,14 @@
     items:
     - name: Azure portal
       href: howto-manage-firewall-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-cli.md
   - name: Restore a server
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Migrate a database
     items:
     - name: Dump & restore
@@ -85,10 +101,14 @@
     items:
     - name: Azure portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-cli.md
   - name: Access server logs
     items:
     - name: Azure portal
       href: howto-configure-server-logs-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-cli.md
   - name: Replication
     items:
     - name: Configure data-in replication
@@ -99,6 +119,12 @@
       href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-cli.md
 - name: Reference
   items:
   - name: REST API

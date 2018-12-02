@@ -94,17 +94,13 @@ To create a public container in Blob storage, do the following:
 
 Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
->[!NOTE]
->Want to try out the UI customization feature by using our sample HTML and CSS content? We've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures our sample content on your Blob storage account. If you use the tool, skip ahead to [Modify your sign-up or sign-in custom policy](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. On the **Storage** blade, under **Settings**, open **CORS**.
-2. Click **Add**.
-3. For **Allowed origins**, type an asterisk (\*).
-4. In the **Allowed verbs** drop-down list, select both **GET** and **OPTIONS**.
-5. For **Allowed headers**, type an asterisk (\*).
-6. For **Exposed headers**, type an asterisk (\*).
-7. For **Maximum age (seconds)**, type **200**.
-8. Click **Add**.
+1. In the menu, select **CORS**.
+2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
+4. For **Allowed Headers**, enter an asterisk (*).
+5. For **Exposed Headers**, enter an asterisk (*).
+6. For **Max age**, enter 200.
+7. Click **Save**.
 
 ## Test CORS
 

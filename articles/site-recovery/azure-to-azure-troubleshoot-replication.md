@@ -5,7 +5,6 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
@@ -24,7 +23,7 @@ ERROR ID: 153007 </br>
 Azure Site Recovery consistently replicates data from source region to the disaster recovery region and creates crash consistent point every 5 minutes. If Site Recovery is unable to create recovery points for 60 minutes, then it alerts user. Below are the causes that could result in this error:
 
 **Cause 1: [High data change rate on the source virtual machine](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Cause 2: [Network connectivity issue ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Cause 2: [Network connectivity issue ](#Network-connectivity-issue)**
 
 ## Causes and solutions
 
@@ -52,12 +51,6 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
-
-**Source data churn** | **Maximium limit**
----|---
-Average data churn per VM| 25 MB/s
-Peak data churn across all disks on a VM | 54 MB/s
-
 ### Solution
 We must understand that Azure Site Recovery has data change rate limits based on the type of disk. To know if this issue is recurring or momentarily, it is important to find the data change rate  pattern  of the affected  virtual machine.
 To find the  data change rate of the affected virtual machine. Go to the source virtual machine> metrics under Monitoring and add the metrics as shown below.
@@ -78,5 +71,10 @@ This option is only possible if the  disk data churn is less than 10 MB/s. Let s
 
 ### <a name="Network-connectivity-issue"></a>Network connectivity issue
 
+#### Network latency to Cache storage account :
+ Site Recovery sends replicated data to the cache storage account and the issue might happen if uploading the data from Virtual machine to the cache storage account is slower that 4 MB in 3 secs. To check if there is any issue related to latency use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) to upload data from the virtual machine to the cache storage account.<br>
+If the latency is high, check if you are using a network virtual  appliances to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA. We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA. Refer [network virtual appliance configuration](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+
+#### Network connectivity
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.</br>
-Refer to [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+Refer to [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) to make sure all the URLs are connected 

@@ -99,10 +99,10 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 4. In the following code, replace the **ACCOUNT_NAME** and **ACCOUNT_KEY** text with the values you preserved at the start of this quickstart. Also replace the **FILE_SYSTEM_NAME** text with the name you would like your file system to have. Then enter the code into the first cell.
 
     ```scala
-    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
+    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 
     Press **SHIFT + ENTER** to run the code cell.
@@ -148,7 +148,7 @@ Perform the following tasks to run a Spark SQL job on the data.
 2. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
 
     ```sql
-    %sql 
+    %sql
     SELECT * from radio_sample_data
     ```
 
@@ -156,7 +156,7 @@ Perform the following tasks to run a Spark SQL job on the data.
 
     ![Sample JSON data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
 
-    Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**)  and whether their subscription is free or paid (column name, **level**).
+    Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**) and whether their subscription is free or paid (column name, **level**).
 
 4. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
 
@@ -183,7 +183,7 @@ Once finished with this article, you can terminate the cluster. From the Azure D
 
 ![Stop a Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it automatically stops, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. If you set this option the cluster stops after it has been inactive for the designated amount of time.
+If you do not manually terminate the cluster it automatically stops, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. If you set this option the cluster stops after it has been inactive for the designated amount of time.
 
 ## Next steps
 
