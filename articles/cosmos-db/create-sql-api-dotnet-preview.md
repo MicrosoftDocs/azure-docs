@@ -1,23 +1,21 @@
 ---
 title: 'Build an ASP.NET web app with Azure Cosmos DB using the SQL API - V3 SDK Preview | Microsoft Docs'
 description: In this quickstart, use the Azure Cosmos DB SQL API and the Azure portal to create an ASP.NET web app
-services: cosmos-db
 author: deborahc
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/09/2018
-ms.author: sngun
+ms.date: 12/01/2018
+ms.author: dech
 clicktale: true
 
 ---
 # Quickstart: Build an ASP.NET web app with Azure Cosmos DB using the SQL API and the Azure portal
 
 > [!div class="op_single_selector"]
+> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -36,7 +34,7 @@ This quick start uses Version 3.0+ of the Azure Cosmos DB .NET SDK.
 
 ## Prerequisites
 
-If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable the **Azure development** workload during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -82,7 +80,7 @@ Now let's switch to working with code. Let's clone a [SQL API app from GitHub](h
     git clone https://github.com/Azure-Samples/cosmos-dotnet-todo-app.git
     ```
 
-4. Open the todo.sln solution file in Visual Studio. 
+4. Open the **todo.sln** solution file in Visual Studio. 
 
 ## Review the code
 
@@ -148,7 +146,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
-1. Press CTRL + F5 to run the application. Your app displays in your browser. 
+1. Select CTRL + F5 to run the application. Your app displays in your browser. 
 
 1. Select **Create New** in the browser and create a few new tasks in your to-do app. You should also see the tasks you created in [Add sample data](#add-sample-data)
 
