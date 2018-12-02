@@ -186,7 +186,7 @@
             items:
             - name: .NET
               href: sql-api-dotnet-application.md
-            - name: .NET preview - V3
+            - name: .NET preview
               href: sql-api-dotnet-application-preview.md
             - name: Java
               href: sql-api-java-application.md
