@@ -38,7 +38,7 @@ The following Service Bus metadata elements are re-created when you export a Res
 
 ### Keys
 
-The export and re-create steps listed in the preceding section don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzureRmServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in the [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or on [GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018).
+The preceding steps to export and re-create don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzureRmServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in the [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or on [GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018).
 
 ### Usage example
 
@@ -74,7 +74,7 @@ Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyNam
 For more information:
 
 - Refresh your knowledge by completing the [Service Bus tutorials](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
-- Become familiar with how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Become familiar with how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
 - Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 

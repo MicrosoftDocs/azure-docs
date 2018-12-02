@@ -15,15 +15,15 @@ ms.custom: bfmigrate
 
 This article has information that can help you migrate Azure database resources from Azure Germany to global Azure.
 
-## Azure SQL Database
+## SQL Database
 
-To migrate Azure SQL Database resources, for smaller workloads, you can use the export function to create a BACPAC file. BACPAC file is a compressed (zipped) file that contains metadata and the data from the SQL Server database. After you create the BACPAC file, you can copy it to the target environment (for example, by using AzCopy) and use the import function to rebuild the database. Be aware of the following considerations:
+To migrate smaller Azure SQL Database workloads, use the export function to create a BACPAC file. A BACPAC file is a compressed (zipped) file that contains metadata and the data from the SQL Server database. After you create the BACPAC file, you can copy the file to the target environment (for example, by using AzCopy) and use the import function to rebuild the database. Be aware of the following considerations:
 
 - For an export to be transactionally consistent, make sure that one of the following conditions is true:
   - No write activity occurs during the export.
   - You export from a transactionally consistent copy of your SQL database.
 - To export to Azure Blob storage, the BACPAC file size is limited to 200 GB. For a larger BACPAC file, export to local storage.
-- If the export operation from Azure SQL Database takes longer than 20 hours, it might be canceled. Look for hints about how to increase performance in the following links.
+- If the export operation from SQL Database takes longer than 20 hours, the operation might be canceled. Check the following articles for tips about how to increase performance.
 
 > [!NOTE]
 > The connection string changes after the export operation because the DNS name of the server changes during export.
@@ -36,25 +36,25 @@ For more information:
 
 ## SQL Data Warehouse
 
-There are no special migration options for Azure SQL Data Warehouse. To migrate SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in [Azure SQL Database](#azure-sql-database).
+To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in [Azure SQL Database](#azure-sql-database).
 
 ## Azure Cosmos DB
 
-You can use Azure Cosmos DB Data Migration Tool to easily migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
+You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
 
-The tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
+Azure Cosmos DB Data Migration Tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
 
 To migrate Azure Cosmos DB resources, we recommend that you complete the following steps:
 
 1. Review application uptime requirements and account configurations to determine the best action plan.
 1. Clone the account configurations from Azure Germany to the new region by running the data migration tool.
-1. If a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
-1. If a maintenance window isn't possible, copy data from the source to the destination by running the tool and by completing these steps:
-  1. Make changes to read/write in an application by usingc a config-driven approach.
-  1. Perform a first-time sync.
+1. If using a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
+1. If using a maintenance window isn't an option, copy data from the source to the destination by running the tool, and then complete these steps:
+  1. Use a config-driven approach to make changes to read/write in an application.
+  1. Complete a first-time sync.
   1. Set up an incremental sync and catch up with the change feed.
   1. Point reads to the new account and validate the application.
-  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new accounts.
+  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
   1. Stop the tool and delete the old account.
 1. Run the tool to validate that data is consistent across old and new accounts.
 
@@ -69,7 +69,7 @@ You have a few options if you want to migrate an Azure Cache for Redis instance 
 
 ### Option 1: Accept data loss, create a new instance
 
-This approach makes most sense when both of the following conditions are true:
+This approach makes the most sense when both of the following conditions are true:
 
 - You're using Azure Cache for Redis as a transient data cache.
 - Your application will repopulate the cache data automatically in the new region.
@@ -84,12 +84,12 @@ To migrate with data loss and create a new instance:
 
 A member of the Azure Cache for Redis team wrote an open-source tool that copies data from one Azure Cache for Redis instance to another without requiring import or export functionality. See step 4 in the following steps for information about the tool.
 
-To copy date from the source instance to the target instance:
+To copy data from the source instance to the target instance:
 
 1. Create a VM in the source region. If your dataset in Azure Cache for Redis is large, make sure that you select a relatively powerful VM size to minimize copying time.
 1. Create a new Azure Cache for Redis instance in the target region.
 1. Flush data from the **target** instance. (Make sure *not* to flush from the **source** instance. Flushing is required because the copy tool *doesn't overwrite* existing keys in the target location.)
-1. Use a tool like the following to automatically copy data from source Azure Cache for Redis instance to target Azure Cache for Redis instance: [Source](https://github.com/deepakverma/redis-copy) and [download](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip).
+1. Use the following tool to automatically copy data from the source Azure Cache for Redis instance to the target Azure Cache for Redis instance: [Tool source](https://github.com/deepakverma/redis-copy) and [tool download](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip).
 
 > [!NOTE]
 > This process can take a long time depending on the size of your dataset.
@@ -104,11 +104,11 @@ To export from the source instance and import to the destination instance:
 1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzureRmRedisCache PowerShell cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
 
   > [!NOTE]
-  > The export storage account must be in the same region as the cache instance.
+  > The export Azure Storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
 1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzureRmRedisCAche PowerShell cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.4.0).
-1. Reconfigure your application to use the target Redis instance.
+1. Reconfigure your application to use the target Azure Cache for Redis instance.
 
 ### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
 
@@ -119,7 +119,7 @@ For this approach, you must modify your application. The application needs to wr
 
 For more information:
 
-- Review the [overview for Azure Cache for Redis](../redis-cache/cache-overview.md).
+- Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
 
 ## Next steps
 

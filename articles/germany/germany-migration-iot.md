@@ -17,21 +17,21 @@ This article has information that can help you migrate Azure IoT resources from 
 
 ## Azure Cosmos DB
 
-You can use Azure Cosmos DB Data Migration Tool to easily migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
+You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
 
-The tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
+Azure Cosmos DB Data Migration Tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
 
 To migrate Azure Cosmos DB resources, we recommend that you complete the following steps:
 
 1. Review application uptime requirements and account configurations to determine the best action plan.
 1. Clone the account configurations from Azure Germany to the new region by running the data migration tool.
-1. If a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
-1. If a maintenance window isn't possible, copy data from the source to the destination by running the tool and by completing these steps:
-  1. Make changes to read/write in an application by using a config-driven approach.
-  1. Perform a first-time sync.
+1. If using a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
+1. If using a maintenance window isn't an option, copy data from the source to the destination by running the tool, and then complete these steps:
+  1. Use a config-driven approach to make changes to read/write in an application.
+  1. Complete a first-time sync.
   1. Set up an incremental sync and catch up with the change feed.
   1. Point reads to the new account and validate the application.
-  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new accounts.
+  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
   1. Stop the tool and delete the old account.
 1. Run the tool to validate that data is consistent across old and new accounts.
 
@@ -42,15 +42,15 @@ For more information:
 
 ## Functions
 
-Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export the Resource Manager template, change the location, and then redeploy to the target region.
+Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export a Resource Manager template, change the location, and then redeploy to the target region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
+> Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
 For more information:
 
 - Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Learn how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview for [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -74,7 +74,7 @@ For more information:
 Although you can migrate Azure IoT Hub instances from Azure Germany to global Azure, the migration isn't seamless.
 
 > [!NOTE]
-> This migration can cause downtime and data loss to your Azure IoT application. All telemetry messages, C2D commands, and job-related information (schedules and history) are not migrated. You must reconfigure your devices and backend applications to start using the new connection strings.
+> This migration might cause downtime and data loss in your Azure IoT application. All telemetry messages, C2D commands, and job-related information (schedules and history) aren't migrated. You must reconfigure your devices and back-end applications to start using the new connection strings.
 
 ### Step 1: Re-create the IoT hub
 
@@ -84,12 +84,12 @@ IoT Hub doesn’t support cloning natively. However, you can use the Azure Resou
 
 To migrate device identities:
 
-1. In the source tenant in Azure Germany, use the [ExportDevices](../iot-hub/iot-hub-bulk-identity-mgmt.md) Resource Manager API to export all device identities, device twins, and module twins (including the keys) to a storage container. You can use a storage container in Azure Germany or global Azure. Just make sure that the generated shared access signature URI has sufficient permissions. 
+1. In the source tenant in Azure Germany, use the [ExportDevices](../iot-hub/iot-hub-bulk-identity-mgmt.md) Resource Manager API to export all device identities, device twins, and module twins (including the keys) to a storage container. You can use a storage container in Azure Germany or global Azure. Make sure that the generated shared access signature URI has sufficient permissions. 
 1. Run the [ImportDevices](../iot-hub/iot-hub-bulk-identity-mgmt.md) Resource Manager API to import all device identities from the storage container to the cloned IoT hub in global Azure.
 1. Reconfigure your devices and back-end services to start using the new connection strings. The host name changes from **\*.azure-devices.de** to **\*.azure-devices.com**.  
 
 > [!NOTE]
-> The root certificate authority is different in Azure Germany and global Azure. Account for this when you reconfigure your devices and backend applications that interact with the IoT Hub instance.
+> The root certificate authority is different in Azure Germany and global Azure. Account for this when you reconfigure your devices and back-end applications that interact with the IoT Hub instance.
 
 For more information:
 

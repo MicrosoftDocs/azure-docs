@@ -17,15 +17,15 @@ This article has information that can help you migrate Azure identity resources 
 
 ## Azure Active Directory
 
-Azure Active Directory (Azure AD) in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move users from Azure Germany to global Azure.
+Azure Active Directory (Azure AD) in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
 
 Default tenant names in Azure Germany and global Azure are always different because Azure automatically appends a suffix based on the environment. For example, a user name for a member of the **contoso** tenant in global Azure is **user1@contoso.microsoftazure.com**. In Azure Germany, it's **user1@contoso.microsoftazure.de**.
 
-When you use custom domain names in Azure AD (like **contoso.com**), you must register the domain name in Azure. Custom domain names can be defined in *only one* cloud environment at a time. The domain validation fails when the domain is already registered in *any* instance of Azure Active Directory. For example, the user **user1@contoso.com** that exists in Azure Germany can't also exist in global Azure under the same name at the same time. The registration for **contoso.com** would fail.
+When you use custom domain names (like **contoso.com**) in Azure AD, you must register the domain name in Azure. Custom domain names can be defined in *only one* cloud environment at a time. The domain validation fails when the domain is already registered in *any* instance of Azure Active Directory. For example, the user **user1@contoso.com** that exists in Azure Germany can't also exist in global Azure under the same name at the same time. The registration for **contoso.com** would fail.
 
-A "soft" migration, in which some users are already in the new environment and some users are still in the old environment, requires different sign-in names for the different cloud environments.
+A "soft" migration in which some users are already in the new environment and some users are still in the old environment requires different sign-in names for the different cloud environments.
 
-We don't cover each possible migration scenario in this article. A recommendation depends, for example, on how you provision users, what options you have for using different user names or UserPrincipalNames, and other dependencies. But, we've compiled some hints to help you inventory users and groups from your current environment.
+We don't cover each possible migration scenario in this article. A recommendation depends, for example, on how you provision users, what options you have for using different user names or UserPrincipalNames, and other dependencies. But, we've compiled some hints to help you inventory users and groups in your current environment.
 
 To get a list of all cmdlets related to Azure AD, run:
 
@@ -35,25 +35,25 @@ Get-Help Get-AzureAD*
 
 ### Inventory users
 
-To get an overview of all users and groups that exist in your Azure AD instance, use the following PowerShell command:
+To get an overview of all users and groups that exist in your Azure AD instance:
 
 ```powershell
 Get-AzureADUser -All $true
 ```
 
-To list only enabled accounts, use the following filter:
+To list only enabled accounts, add the following filter:
 
 ```powershell
 Get-AzureADUser -All $true | Where-Object {$_.AccountEnabled -eq $true}
 ```
 
-Make a full dump of all attributes, in case you forget something:
+To make a full dump of all attributes, in case you forget something:
 
 ```powershell
 Get-AzureADUser -All $true | Where-Object {$_.AccountEnabled -eq $true} | Format-List *
 ```
 
-Select the attributes you need to re-create the users:
+To select the attributes that you need to re-create the users:
 
 ```powershell
 Get-AzureADUser -All $true | Where-Object {$_.AccountEnabled -eq $true} | select UserPrincipalName,DisplayName,GivenName,Surname
@@ -66,22 +66,21 @@ Get-AzureADUser -All $true | Where-Object {$_.AccountEnabled -eq $true} | select
 ```
 
 > [!NOTE]
-> You can't migrate passwords. You must assign new passwords or use a self-service mechanism, depending on your scenario.
-
-> [!NOTE]
-> Depending on your environment, you might need to collect other information you need to collect, for example, values for **Extensions**, **DirectReport**, or **LicenseDetail**.
+> You can't migrate passwords. Instead, you must assign new passwords or use a self-service mechanism, depending on your scenario.
+>
+>Also, depending on your environment, you might need to collect other information, for example, values for **Extensions**, **DirectReport**, or **LicenseDetail**.
 
 Format your CSV file as needed. Then, follow the steps described in [Import data from CSV](/powershell/azure/active-directory/importing-data) to re-create the users in your new environment.
 
 ### Inventory groups
 
-To document group membership, run:
+To document group membership:
 
 ```powershell
 Get-AzureADGroup
 ```
 
-Walk through the list of groups to get the list of members for each group:
+To get the list of members for each group:
 
 ```powershell
 Get-AzureADGroup | ForEach-Object {$_.DisplayName; Get-AzureADGroupMember -ObjectId $_.ObjectId}
@@ -89,7 +88,7 @@ Get-AzureADGroup | ForEach-Object {$_.DisplayName; Get-AzureADGroupMember -Objec
 
 ### Inventory service principals and applications
 
-Although you must re-create all service principals and applications, it's a good practice to document the status of service principals and applications. You can use the following cmdlets to get an extensive list of all the service principals:
+Although you must re-create all service principals and applications, it's a good practice to document the status of service principals and applications. You can use the following cmdlets to get an extensive list of all service principals:
 
 ```powershell
 Get-AzureADServicePrincipal |Format-List *
@@ -103,7 +102,7 @@ You can get more information by using other cmdlets that start with `Get-AzureAD
 
 ### Inventory directory roles
 
-To document the current role assignment, run:
+To document the current role assignment:
 
 ```powershell
 Get-AzureADDirectoryRole
@@ -125,7 +124,7 @@ For more information:
 
 ## Azure AD Connect
 
-Azure AD Connect is a tool that syncs your identity data between an on-premises Active Directory instance and Azure Active Directory. The current version of Azure AD Connect works both for Azure Germany and global Azure. Azure AD Connect can sync only to one Azure AD instance at the same time. If you want to sync to Azure Germany and global Azure at the same time, consider these options:
+Azure AD Connect is a tool that syncs your identity data between an on-premises Active Directory instance and Azure Active Directory (Azure AD). The current version of Azure AD Connect works both for Azure Germany and global Azure. Azure AD Connect can sync to only one Azure AD instance at a time. If you want to sync to Azure Germany and global Azure at the same time, consider these options:
 
 - Use an additional server for a second instance of Azure AD Connect. You can't have multiple instances of Azure AD Connect on the same server.
 - Define a new sign-in name for your users. The domain part (after **@**) of the sign-in name must be different in each environment.
@@ -133,7 +132,7 @@ Azure AD Connect is a tool that syncs your identity data between an on-premises 
 
 For more information about how to sync in different cloud environments by using Azure AD Connect, see the blog post [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/).
 
-If you already use Azure AD Connect to sync to and from Azure Germany, make sure you migrate any manually created users. The following PowerShell cmdlet lists all users that aren't synced by using Azure AD Connect:
+If you already use Azure AD Connect to sync to and from Azure Germany, make sure that you migrate any manually created users. The following PowerShell cmdlet lists all users that aren't synced by using Azure AD Connect:
 
 ```powershell
 Get-AzureADUser -All $true |Where-Object {$_.DirSyncEnabled -ne "True"}
@@ -145,7 +144,7 @@ For more information:
 
 ## Multi-Factor Authentication
 
-You must re-create users and redefine multi-factor authentication in your new environment. 
+You must re-create users and redefine your Azure Multi-Factor Authentication instance in your new environment. 
 
 To get a list of user accounts for which multi-factor authentication is enabled or enforced:
 
