@@ -160,7 +160,7 @@ Once migration is complete, Security Center is not able to collect security data
 
 ### What are the recommended steps when opting out of automatic provisioning?
 
-You should manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../azure/virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM for guidance on installation](../azure/virtual-machines/extensions/oms-linux.md).
+You should manually install the Microsoft Monitoring Agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../azure/virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../azure/virtual-machines/extensions/oms-linux.md) for guidance on installation.
 
 You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the ‘Security’ or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** blade.
 
