@@ -371,14 +371,14 @@ In the service.yaml file, add the following variables under `environmentVariable
 - name: ApiHostPort
   value: 
 - name: ToDoServiceName
-  value: ToDoService.todolistapp
+  value: ToDoService
 ```
 
 > [!Tip]
-> Notice that the value for `ToDoServiceName` is a fully qualified name: servicename.appname.
-> Using only servicename will resolve in Mesh in Azure, but not on Windows 10.
-> Using servicename.appname will resolve in Mesh in Azure and on Windows10.
-> It is a good practice to always use fully qualified names for service resolution.
+> There are two ways to specify the value for `ToDoServiceName`: 
+> - Just the service name, which will resolve both in a debugging scenario on Windows 10 as well as when deploying the service to Azure Service Fabric Mesh.
+> - Fully qualified as servicename.appname. This will only work when debugging on Windows 10.
+> It is a good practice to only use the service name for service resolution.
 
 Your **WebFrontEnd** project's **service.yaml** file should look something like this although your `ApiHostPort` value will probably be different:
 
