@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 11/14/2018
 ms.author: rkarlin
 ---
 
@@ -51,8 +51,24 @@ The built-in initiative has all of Security Center’s policies enabled by defau
 In the following examples, replace these variables:
 
 - **{scope}** enter the name of the management group or subscription you are applying the policy to.
-- **{poicyAssignmentName}** enter the [name of the relevant policy assignment](#policy-names).
+- **{poicyAssignmentName}** enter the name of the relevant policy assignment.
 - **{name}** enter your name, or the name of the administrator who approved the policy change.
+
+|Policy name in Security Center|Policy name displayed in Azure Policy |Policy effect parameter name|
+|----|----|----|
+|SQL Encryption |Monitor unencrypted SQL database in Azure Security Center |sqlEncryptionMonitoringEffect| 
+|SQL Auditing |Monitor unaudited SQL database in Azure Security Center |sqlAuditingMonitoringEffect|
+|System updates |Monitor missing system updates in Azure Security Center |systemUpdatesMonitoringEffect|
+|Storage encryption |Audit missing blob encryption for storage accounts |storageEncryptionMonitoringEffect|
+|JIT Network access |Monitor possible network Just In Time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Adaptive application controls |Monitor possible app Whitelisting in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Network security groups |Monitor permissive network access in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Endpoint protection |Monitor missing Endpoint Protection in Azure Security Center |endpointProtectionMonitoringEffect |
+|Disk encryption |Monitor unencrypted VM Disks in Azure Security Center |diskEncryptionMonitoringEffect|
+|Vulnerability assessment |Monitor VM Vulnerabilities in Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Web application firewall |Monitor unprotected web application in Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Next generation firewall |Monitor unprotected network endpoints in Azure Security Center| |
 
 This example shows you how to assign the built-in Security Center initiative on a subscription or management group
  
@@ -122,7 +138,7 @@ This example shows you how to assign the built-in Security Center initiative on 
 
       } 
 
-This example shows you how to remove an assignment:
+This example shows you how to remove an assignment :
 
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
@@ -131,7 +147,7 @@ This example shows you how to remove an assignment:
 
 
 ## Assess resource security
-1. After you finish fine-tuning your policies and assigning them as necessary, Security Center will provide a set of correlating security recommendations. You should start by reviewing the virtual machine and computers recommendations. On the Security Center dashboard, select **Overview**, and select **Compute & apps**.
+1. After you finish fine tuning your policies and assigning them as necessary, Security Center will provide a set of correlating security recommendations. You should start by reviewing the virtual machine and computers recommendations. On the Security Center dashboard, select **Overview**, and select **Compute & apps**.
 
   ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
 
@@ -209,25 +225,6 @@ If you want to disable automatic provisioning:
 >[!NOTE]
 > Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
-
-## Policy names reference <a name="policy-names"></a>
-
-|Policy name in Security Center|Policy name displayed in Azure Policy |Policy effect parameter name|
-|----|----|----|
-|SQL Encryption |Monitor unencrypted SQL database in Azure Security Center |sqlEncryptionMonitoringEffect| 
-|SQL Auditing |Monitor unaudited SQL database in Azure Security Center |sqlAuditingMonitoringEffect|
-|System updates |Monitor missing system updates in Azure Security Center |systemUpdatesMonitoringEffect|
-|Storage encryption |Audit missing blob encryption for storage accounts |storageEncryptionMonitoringEffect|
-|JIT Network access |Monitor possible network Just In Time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Adaptive application controls |Monitor possible app Whitelisting in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
-|Network security groups |Monitor permissive network access in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
-|Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Endpoint protection |Monitor missing Endpoint Protection in Azure Security Center |endpointProtectionMonitoringEffect |
-|Disk encryption |Monitor unencrypted VM Disks in Azure Security Center |diskEncryptionMonitoringEffect|
-|Vulnerability assessment |Monitor VM Vulnerabilities in Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
-|Web application firewall |Monitor unprotected web application in Azure Security Center |webApplicationFirewallMonitoringEffect |
-|Next generation firewall |Monitor unprotected network endpoints in Azure Security Center| |
-
 
 ## Next steps
 In this tutorial, you learned about basic policy definition and security assessment of your workload with Security Center, such as:
