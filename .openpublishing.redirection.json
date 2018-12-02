@@ -31331,6 +31331,11 @@
             "source_path":  "articles/log-analytics/log-analytics-create-pipeline-datacollector-api.md",
             "redirect_url":  "/azure/azure-monitor/platform/create-pipeline-datacollector-api",
             "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
+            "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
+            "redirect_document_id":  true
         }
     ]
 }
