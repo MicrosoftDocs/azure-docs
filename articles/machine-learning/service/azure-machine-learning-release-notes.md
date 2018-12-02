@@ -8,7 +8,7 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
+ms.date: 12/04/2018
 ---
 # Azure Machine Learning service release notes
 
@@ -44,6 +44,13 @@ Azure Machine Learning service is now generally available.
 + Pipelines can be viewed in Azure portal
 + Schedule functionality in SDK to create and update schedules for running published pipelines
 
+### Azure portal
++ Users can now edit Azure Machine Learning Compute types in the portal.
++ Users can now monitor quota usage and [request quota](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas) for Azure Machine Learning Compute.
++ Virtul network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
++ View real time Azure Machine Learning Compute cluster status.
++ Ability to re-run a published pipeline with existing parameters.
++ Charts for Classification(Lift, Gains, Calibration, Feature importance chart with model explainability) and regression(Residuals and Feature Importance chart with model explainability) were added  for submitted Automated Machine Learning runs. 
 
 ## 2018-11-20
 

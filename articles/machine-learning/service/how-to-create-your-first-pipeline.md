@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 
 # Create and run a machine learning pipeline using Azure Machine Learning SDK
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  These pipelines help create and manage the workflows that stitch together various machine learning (ML) phases. 
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  These pipelines help create and manage the workflows that stitch together various machine learning phases. 
 Each phase of a pipeline, such as data preparation and model training, can include one or more steps.
 
 The pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
@@ -97,7 +97,7 @@ output_data1 = PipelineData(
 
 ### Set up compute
 
-In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your ML pipeline. For example, you can create an Azure Machine Learning compute for running your steps.
+In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your machine learning pipeline. For example, you can create an Azure Machine Learning Compute for running your steps.
 
 ```python
 compute_name = "aml-compute"
@@ -136,7 +136,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-After you define your steps, you build the pipeline using some or all those steps.
+After you define your steps, you build the pipeline using some or all of those steps.
 
 >[!NOTE]
 >No file or data is uploaded to Azure Machine Learning service when you define the steps or build the pipeline.
@@ -205,7 +205,7 @@ published_pipeline1 = pipeline1.publish(
 
 All published pipelines have a REST endpoint to invoke the run of the pipeline from external systems such as non-Python clients. This endpoint provides a way for "managed repeatability" in batch scoring and retraining scenarios.
 
-Invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

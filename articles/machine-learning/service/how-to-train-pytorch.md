@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # How to train PyTorch models

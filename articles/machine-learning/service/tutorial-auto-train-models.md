@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Train a classification model with automated machine learning - Azure Machine Learning service"
-description: Learn how to generate a machine learning model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
+description: Learn how to generate a ML model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -14,18 +14,19 @@ ms.date: 12/4/2018
 
 # Tutorial #2: Train a regression model with automated machine learning
 
-In this tutorial, you learn how to generate a machine learning model using automated machine learning (automated ML).  Azure Machine Learning can perform algorithm selection and hyperparameter tuning in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [prepared the NYC taxi data for regression modeling](tutorial-data-prep.md).
+
+Now, you're ready to start building your model with Azure Machine Learning service. In part of the tutorial, you will use the prepared data and automatically generate a regression model to predict fare taxi prices. Using the automated ML capabilities of the service, you define your machine learning goals and constraints, launch the automated machine learning process and then sit back and wait for the algorithm selection and hyperparameter-tuning to happen for you. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion. 
 
 ![flow diagram](./media/tutorial-auto-train-models/flow2.png)
-
-This tutorial continues on from the previous [data prep tutorial](tutorial-data-prep.md) to leverage the data prepared from NYC Taxi datasets to predict fare prices. Using automated machine learning you do not need to specify an algorithm or tune hyperparameters. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Setup a Python environment and import packages
-> * Configure a workspace
-> * Auto-train and run a regression model locally with custom parameters
+> * Setup a Python environment and import the SDK packages
+> * Configure an Azure Machine Learning service workspace
+> * Auto-train a regression model 
+> * Run that model locally with custom parameters
 > * Explore the results
 > * Register the best model
 
@@ -38,6 +39,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
+
 > * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](https://docs.microsoft.com/azure/machine-learning/service/samples-notebooks) automated machine learning.
 
 ## Get the notebook
@@ -64,7 +66,7 @@ import logging
 
 Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment and in [Azure portal](https://portal.azure.com).
 
 
 ```python
@@ -560,10 +562,11 @@ dflow_y = dflow_prepared.keep_columns('cost')
 
 You now have the necessary packages and data ready for auto training for your model.
 
-## Auto train a model 
+## Automatically train a model 
 
-To auto train a model, first define settings for the experiment run, then submit the experiment for model tuning.
-
+To automatically train a model:
+1. Define settings for the experiment run
+1. Submit the experiment for model tuning
 
 ### Define settings for autogeneration and tuning
 
@@ -637,9 +640,9 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
 
 Explore the results of automatic training with a Jupyter widget or by examining the experiment history.
 
-### Jupyter widget
+### Option 1: Add a Jupyter widget to see results
 
-Use the Jupyter notebook widget to see a graph and a table of all results.
+If you are using a Juypter notebook, use this Jupyter notebook widget to see a graph and a table of all results.
 
 
 ```python
@@ -650,10 +653,9 @@ RunDetails(local_run).show()
 
 ![Jupyter Widget run details](./media/tutorial-auto-train-models/jup-widget-auto.png)
 
-### Retrieve all iterations
+### Option 2: Get and examine all iterations in Python
 
-View the experiment history and see individual metrics for each iteration run.
-
+Alternatively, you can retrieve all the history of each experiment and explore the individual metrics for each iteration run.
 
 ```python
 children = list(local_run.get_children())
@@ -799,7 +801,7 @@ rundata
 
 ## Register the model
 
-Register the model in your Azure Machine Learning Workspace.
+Register the model in your Azure Machine Learning service workspace.
 
 
 ```python
