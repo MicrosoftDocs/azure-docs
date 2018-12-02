@@ -17,10 +17,10 @@ This article describes changes to data storage and ingress from the Azure Time S
 
 ## Data storage
 
-When creating a Time Series Insights update (PAYG Sku) environment, you are creating two resources:
+When creating a Time Series Insights update (**PAYG Sku**) environment, you are creating two resources:
 
-1. A Time Series Insights environment
-1. An Azure storage general purpose V1 account where the data will be stored.  
+1. An Azure TSI environment.
+1. An Azure storage general purpose V1 account where the data will be stored.
 
 The TSI (preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The TSI update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
 
@@ -38,8 +38,8 @@ For more about the Parquet file type, review [Supported file types in Azure Stor
 Parquet is column-oriented data file format that was designed for:
 
 * Interoperability
-* Space Efficiency
-* Query Efficiency
+* Space efficiency
+* Query efficiency
 
 Azure TSI chose Parquet since it provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
 
@@ -47,12 +47,7 @@ For a better understanding of what the Parquet file format is all about, head ov
 
 ## Event structure in Parquet
 
-Two copies of blobs created by Azure TSI will be stored in the following formats.
-
-> [!NOTE]
-> * `<YYYY>` maps to year.
-> * `<MM>` maps to month.
-> * `<YYYYMMDDHHMMSSfff>` maps to full timestamp in milliseconds.
+Two copies of blobs created by Azure TSI will be stored in the following formats:
 
 1. The first, an initial copy, will be partitioned by arrival time:
 
@@ -63,6 +58,11 @@ Two copies of blobs created by Azure TSI will be stored in the following formats
 
     • `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_< TSI internal suffix >.parquet`
     * Min event timestamp in the blob for blobs partitioned by time series ID.
+
+> [!NOTE]
+> * `<YYYY>` maps to year.
+> * `<MM>` maps to month.
+> * `<YYYYMMDDHHMMSSfff>` maps to full timestamp in milliseconds.
 
 Azure TSI events are mapped to Parquet file contents as follows:
 
