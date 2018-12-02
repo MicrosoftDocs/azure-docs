@@ -91,12 +91,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     using System.Collections.Generic;
     using System.Net;
     ```
-
-    > [!IMPORTANT]
-    > In order to complete the tutorial, make sure you add the dependencies above.
-    > 
-    > 
-
+    
 1. Now, add these constants and variables into your public class ``Program``.
     ```csharp
     public class Program
