@@ -1,6 +1,6 @@
 ---
-title: Add custom html in Azure Maps | Microsoft Docs
-description: How to add custom html to a Javascript map
+title: Add a HTML Marker to Azure Maps | Microsoft Docs
+description: How to add a HTML Marker to the Javascript map
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -11,32 +11,59 @@ manager:
 ms.custom: codepen
 ---
 
-# Add custom HTML to the map
+# Add HTML Markers to the map
 
-This article shows you how to add a custom HTML such as an image file to the map.
+This article shows you how to add a custom HTML such as an image file to the map as a HTML Marker.
 
-## Understand the code
+> [!NOTE]
+> HTML Markers do not connect to data sources. Instead position information is added directly to the marker and the marker is added to the maps `markers` property which is a [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
-<iframe height='466' scrolling='no' title='Add custom html to a map - png' src='//codepen.io/azuremaps/embed/MVoeVw/?height=466&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Add custom html to a map - png</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+> [!IMPORTANT]
+> Unlike most layers in the Azure Maps Web control which use WebGL for rendering, HTML Markers use traditional DOM elements for rendering. As such, the more HTML markers added a page, the more DOM elements there are. Performance can degrade after adding a few hundered HTML markers. For larger data sets consider either clustering your data or using a Symbol or Bubble layer.
+
+## Add a HTML Marker
+
+The HtmlMarker class has a default style. You can customize the marker by setting the color and text options of the marker. The default style of the HtmlMarker class is an SVG template which has a color and text placeholder. Simply set the color and text properties in the HtmlMarker options to a quick customization. 
+
+<iframe height='466' scrolling='no' title='Add a HTML Marker to a map' src='//codepen.io/azuremaps/embed/MVoeVw/?height=466&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Add a HTML Marker to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
 
-The second block of code creates an HTML element from an image.
+The second block of code adds a [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) to the map using the [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) property of the [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) class. The HtmlMarker is added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that it is displayed after the map loads fully.
 
-The last block of code uses [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) function of the map class to add the image to the specified position of the map.
+## Create a SVG Templated HTML Marker
+
+The default `htmlContent` of a Html marker is an SVG template with place folders `{color}` and `{text}` in it. You can create custom SVG strings and add these same placeholders into your SVG such that setting the `color` and `text` options of the marker update these placeholders in your SVG.
+
+<iframe height='500' scrolling='no' title='HTML Marker with Custom SVG Template' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>HTML Marker with Custom SVG Template</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## Add a CSS Styled HTML Marker
+
+One of the benifits of HTML markers is that there is a lot of great customizations that can be achieved using CSS. In this sample the content of the HtmlMarker consists of HTML and CSS that create an animated pin that drops into place and pulses.
+
+<iframe height='500' scrolling='no' title='HTML DataSource' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 
 ## Next steps
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
-> [Show search results](./map-search-location.md)
+> [Add a symbol layer](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Get information from a coordinate](./map-get-information-from-coordinate.md)
+> [Add a bubble layer](./map-add-bubble-layer.md)
