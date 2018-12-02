@@ -1,42 +1,41 @@
 ---
-title: 'Azure Cosmos DB: SQL API getting started tutorial - V3 SDK Preview | Microsoft Docs'
+title: 'Build a .NET console app to manage data in Azure Cosmos DB SQL API account (SDK Version 3 Preview)'
 description: A tutorial that creates an online database and C# console application using the SQL API.
 keywords: nosql tutorial, online database, c# console application
-services: cosmos-db
 author: deborahc
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 12/01/2018
 ms.author: dech
 
 ---
-# Azure Cosmos DB: SQL API getting started with .NET tutorial - V3 SDK Preview
+# Build a .NET console app to manage data in Azure Cosmos DB SQL API account (SDK Version 3 Preview)
 
 > [!div class="op_single_selector"]
+> * [.NET (Preview)](sql-api-get-started-preview.md)
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses Version 3.0+ of the Azure Cosmos DB .NET SDK, which targets [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support)
+Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which targets [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard)
 
 This tutorial covers:
 
-* Creating and connecting to an Azure Cosmos DB account
-* Configuring your project in Visual Studio
-* Creating a database
-* Creating a container
-* Adding items to the container
-* Querying the container
-* Replacing an item
-* Deleting an item
-* Deleting the database
+[!div class="checklist"]
+> * Creating and connecting to an Azure Cosmos account
+> * Configuring your project in Visual Studio
+> * Creating a database and a container
+> * Adding items to the container
+> * Querying the container
+> * CRUD operations on the item
+> * Deleting the database
 
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started). Jump to the [Get the complete tutorial solution section](#GetSolution) for quick instructions.
 
@@ -53,7 +52,7 @@ Now let's get started!
 ## Step 1: Create an Azure Cosmos DB account
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio project](#SetupVS).
 
-[!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 ## <a id="SetupVS"></a>Step 2: Setup your Visual Studio project
 1. Open **Visual Studio 2017** on your computer.
@@ -63,14 +62,14 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
     
     ![Screen shot of the Right Clicked Menu for the Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
-1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box.
+1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box. Be sure to check *Include prelease* to find the preview.
 1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
    ![Screen shot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
-Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started/blob/master/src/Program.cs).
+Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 1. First, replace the references at the beginning of your C# application, in the **Program.cs** file with these references:
@@ -82,12 +81,6 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     using System.Collections.Generic;
     using System.Net;
     ```
-
-    > [!IMPORTANT]
-    > In order to complete the tutorial, make sure you add the dependencies above.
-    > 
-    > 
-
 1. Now, add these constants and variables into your public class ``Program``.
     ```csharp
     public class Program
@@ -113,7 +106,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
         private string containerId = "FamilyContainer";
     }
     ```
-    Note, if you are familiar with the previous version of the .NET SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports multiple API models, version 3.0+ of the .NET SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container.
+    Note, if you are familiar with the previous version of the .NET SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports multiple API models, version 3.0+ of the .NET SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. [Learn more about databases, containers, and items.](databases-containers-items.md)
 
 1. Retrieve your endpoint URL and primary key from the [Azure portal](https://portal.azure.com).
 
@@ -154,7 +147,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
             Program p = new Program();
             await p.GetStartedDemoAsync();
         }
-        catch (CosmosRequestException de)
+        catch (CosmosException de)
         {
             Exception baseException = de.GetBaseException();
             Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
@@ -171,12 +164,12 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     }
     ```
 
-1. Press **F5** to run your application. The console window output displays the message `End of demo, press any key to exit.` confirming that the connection to Azure Cosmos DB was made. You can then close the console window. 
+1. Select **F5** to run your application. The console window output displays the message `End of demo, press any key to exit.` confirming that the connection to Azure Cosmos DB was made. You can then close the console window. 
 
 Congratulations! You have successfully connected to an Azure Cosmos DB account. 
 
 ## Step 4: Create a database
-A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) or [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the ``Databases`` class. A database is the logical container of items partitioned across containers.
+A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) or [**CreateDatabaseAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) function of the ``CosmosDatabases`` class. A database is the logical container of items partitioned across containers.
     
 1. Copy and paste the **CreateDatabase** method below your **GetStartedDemoAsync** method. **CreateDatabase**  will create a new database with id ``FamilyDatabase`` if it does not already exist, with the id specified from the ``databaseId`` field. 
 
@@ -244,7 +237,7 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
                     Program p = new Program();
                     await p.GetStartedDemoAsync();
                 }
-                catch (CosmosRequestException de)
+                catch (CosmosException de)
                 {
                     Exception baseException = de.GetBaseException();
                     Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
@@ -283,7 +276,7 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
     }
     ```
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB database.  
 
@@ -293,7 +286,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 > 
 > 
 
-A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) or [**CreateContainerAsync**](https://aka.ms/CosmosDotnetAPIDocs) function in the **Containers** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript server-side application logic, e.g. stored procedures, user-defined functions, and triggers.
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosContainers** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript server-side application logic, e.g. stored procedures, user-defined functions, and triggers.
 
 1. Copy and paste the **CreateContainer** method below your **CreateDatabase** method. **CreateContainer**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field. 
 
@@ -323,15 +316,15 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
         await this.CreateContainer();
     }
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the **Items** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
-1. Press **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
+1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
 
     ![Screen shot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
@@ -506,7 +499,7 @@ The code checks to make sure an item with the same id does not already exist bef
     }
     ```
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully created two Azure Cosmos DB items.  
 
@@ -559,7 +552,7 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
     }
     ```
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully queried against an Azure Cosmos DB container.
 
@@ -602,7 +595,7 @@ Now, we will update an item in Azure Cosmos DB.
         await this.ReplaceFamilyItem();
     }
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB item.
 
@@ -642,7 +635,7 @@ Now, we will delete an item in Azure Cosmos DB.
     }
     ```
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully deleted an Azure Cosmos DB item.
 
@@ -684,14 +677,14 @@ Now we will delete our database. Deleting the created database will remove the d
     }
     ```
 
-Press **F5** to run your application.
+Select **F5** to run your application.
 
 Congratulations! You have successfully deleted an Azure Cosmos DB database.
 
 ## <a id="Run"></a>Step 11: Run your C# console application all together!
-Hit F5 in Visual Studio to build the application in debug mode.
+Select F5 in Visual Studio to build and run the application in debug mode.
 
-You should see the output of your entire get started app in a console window. The output will show the results of the queries we added and should match the example text below.
+You should see the output of your entire app in a console window. The output will show the results of the queries we added and should match the example text below.
 
 ```
 Beginning operations...
@@ -731,7 +724,7 @@ To build the GetStarted solution, you will need the following:
 
 To restore the references to the Azure Cosmos DB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Restore NuGet Packages**. Next, in the App.config file, update the EndPointUri and PrimaryKey values as described in [Connect to an Azure Cosmos DB account](#Connect).
 
-That's it, build it and you're on your way!
+That's it, build it, and you're on your way!
 
 
 ## Next steps
