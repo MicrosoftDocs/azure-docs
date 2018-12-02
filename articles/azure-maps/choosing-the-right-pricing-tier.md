@@ -3,7 +3,7 @@ title: Choosing the right pricing tier for Azure Maps | Microsoft Docs
 description: Learn about pricing tiers offered by Azure Maps 
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/01/2018
+ms.date: 12/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -60,4 +60,4 @@ See the table with **pricing tier targeted customers** to get a better sense of 
 Learn more about viewing and changing pricing tier:
 
 > [!div class="nextstepaction"]
-> [Manage Pricing Tier](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-pricing-tier)
+> [Manage Pricing Tier](how-to-manage-pricing-tier.md)
