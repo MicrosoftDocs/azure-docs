@@ -46,9 +46,9 @@ This user should be a member in your Azure subscription with either an **Owner**
 
 Register the EventGrid resource provider using the Azure portal.
 
-In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** > [subscription] > **ResourceProviders** > 
+In the [Azure portal](https://portal.azure.com/), go to **Subscriptions**->[subscription]->**ResourceProviders**. 
 
-Locate **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
+Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
 
 ![EventGrid](./media/create-account/event-grid.png)
 
@@ -103,7 +103,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
     ![new AMS account](./media/create-account/create-ams-account1.png)
 
     This may take a few minutes.
-    
+
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You will need it for the steps in the next section.
 
