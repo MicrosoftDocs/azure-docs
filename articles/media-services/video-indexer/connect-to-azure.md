@@ -96,25 +96,21 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 ### Create and configure a Media Services account
 
-1. Use the [Azure])(https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
+1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
 
-    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (RGS)** for replication fields. 
+    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (RGS)** for replication fields.
 
     ![new AMS account](./media/create-account/create-ams-account1.png)
-
-    This may take a few minutes.
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You will need it for the steps in the next section.
 
 2. Adjust the type and number of [Reserved Units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change Reserved Units](../previous/media-services-portal-scale-media-processing.md).
-3. Before you can play your videos in the Video Indexer web application, you must start the Streaming Endpoint of the new Media Services account.
+3. Before you can play your videos in the Video Indexer web application, you must start the default **Streaming Endpoint** of the new Media Services account.
 
     In the new Media Services account, click **Streaming endpoints**. Select the Streaming Endpoint and press start.
 
     ![new AMS account](./media/create-account/create-ams-account2.png)
-
-    It may take several minutes for the streaming endpoint to initialize.
 
 4. For Video Indexer to authenticate with Media Services API, an AD application needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../previous/media-services-portal-get-started-with-aad.md):
 
@@ -129,7 +125,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
         > [!NOTE]
         > Make sure to write down the key value and the Application ID. You will need it for the steps in the next section.
 
-### Perform a manual connection
+### Connect manually
 
 In the **Connect Video Indexer to an Azure subscription** dialog of your [Video Indexer](https://www.videoindexer.ai/) page, select the **Switch to manual configuration** link.
 
