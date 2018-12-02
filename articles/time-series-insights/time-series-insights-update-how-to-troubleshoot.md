@@ -52,7 +52,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
     During registration of an IoT Hub or Event Hub, you specify the consumer group that should be used for reading the data. That consumer group must not be shared. If the consumer group is shared, the underlying Event Hub automatically disconnects one of the readers randomly. Provide a unique consumer group for TSI to read from.
 
-1. Your Time Series ID property specified at the time of provisioning is incorrect, missing or null
+1. Your Time Series ID property specified at the time of provisioning is incorrect, missing, or null
 
     This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see the [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you cannot update an existing Time Series Insights update environment to use a different **Time Series ID**.
 
@@ -80,13 +80,13 @@ The easiest way to ensure that your timestamp property name is captured and work
 * Calendar icon, which would indicate TSI is reading the data value as datetime
 * `#`, which would indicate TSI is reading the data values as an integer
 
-Please note that if the **Timestamp** property isn’t explicitly specified, we will leverage an event’s IoT Hub or Event Hub **Enqueued Time** as the default timestamp.
+If the **Timestamp** property isn’t explicitly specified, we will leverage an event’s IoT Hub or Event Hub **Enqueued Time** as the default timestamp.
 
 ## Problem: I can’t edit or view my Time Series Model
 
 1. You may be accessing a Time Series Insights S1 or S2 environment
 
-Time Series Models are supported only in `PAYG` environments. Please see this article for more information on accessing your S1/S2 environment from the Time Series Insights Update Explorer.
+Time Series Models are supported only in `PAYG` environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update Explorer.
 
   ![access][5]
 

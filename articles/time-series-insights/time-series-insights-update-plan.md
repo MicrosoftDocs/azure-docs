@@ -29,12 +29,12 @@ The Time Series Insights update employs a pay-as-you-go business model.  For mor
 
 ## The Time Series Insights update environment
 
-When you provision a Time Series Insights update environment you create two Azure resources:
+When you provision a Time Series Insights update environment, you create two Azure resources:
 
 1. Time Series Insights update environment
-1. Azure storage general purpose V1 account
+1. Azure storage general-purpose V1 account
 
-    * In the future, new Azure customers will by default only be allowed to provision an Azure storage general purpose V2 account, therefore we will support it when that change occurs.  
+    * In the future, new Azure customers will by default only be allowed to provision an Azure storage general-purpose V2 account, therefore we will support it when that change occurs.  
 
 To get going, you’ll need three additional items.  The first is a [Time Series Model](./time-series-insights-update-tsm.md), the second is an [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), and the third is [events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.  
 
@@ -95,7 +95,7 @@ The specific steps to accomplish this are as follows:
 
 1. Create an environment in a second region. Read about [TSI environments](./time-series-insights-get-started.md).
 1. Create a second dedicated consumer group for your event source and connect that event source to the new environment. Be sure to designate the second, dedicated consumer group. Learn more from the [IoT Hub documentation](./time-series-insights-how-to-add-an-event-source-iothub.md) or the [Event Hub documentation](./time-series-insights-data-access.md).
-1. If your primary region were impacted during a disaster incident, reroute operations to the backup TSI environment.
+1. If your primary region is impacted during a disaster incident, reroute operations to the backup TSI environment.
 
 > [!IMPORTANT]
 > * Note that a delay may be experienced in the event of a failover.

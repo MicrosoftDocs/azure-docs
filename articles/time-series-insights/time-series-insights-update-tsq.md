@@ -13,13 +13,13 @@ ms.date: 11/30/2018
 
 # Data querying
 
-Azure Time Series Insights (TSI) enables data querying on events and metadata stored in the environment via public surface APIs, these are the same set of APIs that are used internally in the TSI Explorer.
+Azure Time Series Insights (TSI) enables data querying on events and metadata stored in the environment via public surface APIs, these APIs are the same as those that are used in the TSI Explorer.
 
 There are three categories of APIs that are available in TSI namely, environment APIs, time series model APIs, and time series query APIs.
 
-* Environment APIs enables querying the TSI environment itself, like list of environments caller has access to, environment metadata, etc.
+* Environment APIs enable querying the TSI environment itself, like list of environments caller has access to, environment metadata, etc.
 
-* Time series model-query (TSM-Q) APIs enables create, read, update and delete operations on metadata stored in the environment part of the time series model. Like instances, types, hierarchies, etc.
+* Time series model-query (TSM-Q) APIs enable create, read, update, and delete operations on metadata stored in the environment part of the time series model. Like instances, types, hierarchies, etc.
 
 * Time series query (TSQ) APIs enables retrieval of events data as it is recorded from source provider, or can perform operations to transform, combine, and perform computations on time series data.
 
@@ -35,31 +35,31 @@ Below are the core APIs we support.
 
 The following are the environment APIs available:
 
-  * Get Environments API – Returns the list of environments that the caller is authorized to access.
-  * Get Environment Availability API – Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events if exist.
-  * Get Event Schema API – Returns the event schema metadata for a given search span. This API help retrieve all metadata/properties available in the schema for the given search span.
+* Get Environments API – Returns the list of environments that the caller is authorized to access.
+* Get Environment Availability API – Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events if exist.
+* Get Event Schema API – Returns the event schema metadata for a given search span. This API helps retrieve all metadata/properties available in the schema for the given search span.
 
 ### Time series model-query (TSM-Q) APIs
 
 The following are the time series model query APIs available:
 
-  * Model Settings API - Enables get and patch on the default type and the model name of the environment.
-  * Types API – Enables CRUD on Time Series Types and their associated Variables.
-  * Hierarchies API – Enables CRUD on Time Series Hierarchies and their associated field paths.
-  * Instances API – Enables CRUD on Time Series Instances and their associated instance fields.
+* Model Settings API - Enables get and patch on the default type and the model name of the environment.
+* Types API – Enables CRUD on Time Series Types and their associated Variables.
+* Hierarchies API – Enables CRUD on Time Series Hierarchies and their associated field paths.
+* Instances API – Enables CRUD on Time Series Instances and their associated instance fields.
 
 ### Time series query (TSQ) APIs
 
 The following are the time series query APIs available:
 
-* Get Events API – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider. The Get Events API takes the following parameters Input payload structure has the following:
+* Get Events API – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider. The Get Events API takes the following parameters has the following input payload structure:
 
   * Time Series ID (mandatory)
   * Search span clause (mandatory – This is from and to search time)
   * Filter clause (optional – For filtering the rows using a predicate. Ex: “Status” = “Good”)
   * Projected Properties (optional – Only the list of properties to be retrieved using the query, if not specified all properties will be retrieved.)
 
-* Get Series API – Enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline. Please note if interpolation and aggregation clause is provided in variable, or interval is specified, it will be ignored. The getSeries API takes the following parameters:
+* Get Series API – Enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline. Note if interpolation and aggregation clause is provided in variable, or interval is specified, it will be ignored. The getSeries API takes the following parameters:
 
   * Time Series ID (mandatory)
   * Search span clause (mandatory)
@@ -67,7 +67,7 @@ The following are the time series query APIs available:
   * Inline Variables (optional – If specified the variable definition stored in the model part of types is overwritten by this definition, only if the name matches.)
   * Projected Variables (optional – If specified only the mentioned variables are retrieved part of the result, else all variables from model are considered for querying.)
 
-Please note aggregation clause is ignored in getSeries, even if specified part of variables in model or provided inline.
+Note aggregation clause is ignored in getSeries, even if specified part of variables in model or provided inline.
 
 The getSeries API returns a TSV (Time Series Value, a format Time Series Insights use for output JSON from query) for each variable for each interval, based on the provided Time Series ID and the set of provided variables.
 
@@ -77,7 +77,7 @@ The getSeries API returns a TSV (Time Series Value, a format Time Series Insight
   * Search span clause (mandatory)
   * Interval (mandatory)
   * Filter clause (optional – For filtering the rows using a predicate. Ex: “Status” = “Good”)
-  * Inline Variables (optional – This enables creation of variables by specifying aggregate functions such as sum, max, etc. If the name of variable matches with variable definition stored in the model part of types, the definition is overwritten)
+  * Inline Variables (optional – these enable creation of variables by specifying aggregate functions such as sum, max, etc. If the name of variable matches with variable definition stored in the model part of types, the definition is overwritten)
   * Projected Variables (optional – If specified only the mentioned variables are retrieved part of the result, else all variables from model are considered for querying)
 
 The aggregateSeries API returns a TSV for each variable for each interval, based on the provided Time Series ID and the set of provided variables. The aggregateSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.

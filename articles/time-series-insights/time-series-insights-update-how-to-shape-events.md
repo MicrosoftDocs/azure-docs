@@ -13,7 +13,7 @@ ms.date: 11/30/2018
 
 # Shaping events with Azure Time Series Insights (preview)
 
-This article provides guidance for shaping JSON, to maximize the efficiency of your the Azure Time Series Insights (preview) queries.
+This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (preview) queries.
 
 ## Best practices
 

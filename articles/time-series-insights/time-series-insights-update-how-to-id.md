@@ -47,7 +47,7 @@ The following scenarios describe selecting more than one key property as your **
 
   * You require multiple properties to show uniqueness in the same fleet of assets. For example, let’s say you are a smart building manufacturer and deploy sensors in every room. In each room, you typically have the same values for **sensorId**, including **sensor1**, **sensor2**, **sensor3**, and so on.
   * Additionally, you have overlapping floor and room numbers across sites in the property **flrRm** which contain values like `1a`, `2b`, `3a`, and so on.
-  * Finally, you have a property, **location** which contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
+  * Finally, you have a property, **location** that contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
 
 ## Next steps
 

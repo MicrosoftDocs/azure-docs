@@ -62,7 +62,7 @@ In this section, you will use a windmill device simulator to send events to your
 
       ![tutorial-seven][7]
 
-  1. Click on **Click to Start** pushing events to your Event Hub. At this stage, a file named `instances.json` will be downloaded to your machine. Please save this file as we will need this later.
+  1. Click on **Click to Start** pushing events to your Event Hub. At this stage, a file named `instances.json` will be downloaded to your machine. Save this file as we will need this later.
 
   1. Go back to your event hub. You should now see the new events being received by the hub.
 
@@ -104,7 +104,7 @@ In this section, you will author a type & hierarchy and associate them with your
 
      ![tutorial-fifteen][15]
 
-  1. In the type editor enter a **Name**, **Description**, and create variables for **Average**, **Min**, and **Max** values as shown below. Click on **Create** to save the type.
+  1. In the type editor, enter a **Name**, **Description**, and create variables for **Average**, **Min**, and **Max** values as shown below. Click on **Create** to save the type.
 
      ![tutorial-sixteen][16]
 
@@ -114,7 +114,7 @@ In this section, you will author a type & hierarchy and associate them with your
 
      ![tutorial-eighteen][18]
 
-  1. In the hierarchy editor enter a **Name** and add hierarchy levels as shown below. Click on **Create** to save the hierarchy.
+  1. In the hierarchy editor, enter a **Name** and add hierarchy levels as shown below. Click on **Create** to save the hierarchy.
 
      ![tutorial-nineteen][19]
 

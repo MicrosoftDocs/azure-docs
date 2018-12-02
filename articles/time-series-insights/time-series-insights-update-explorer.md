@@ -116,7 +116,7 @@ Here you can see an example of a shared Y-axes.
 
 ## Time Series Insights (preview) Time Editor Panel
 
-When working with TSI you first will select a time span. The selected time span will control the data set that is available for manipulation with the TSI update widgets. The following web controls are available in the TSI update for selecting your working time span.
+When working with TSI, you first will select a time span. The selected time span will control the data set that is available for manipulation with the TSI update widgets. The following web controls are available in the TSI update for selecting your working time span.
 
   ![explorer-twelve][12]
 
@@ -126,13 +126,13 @@ When working with TSI you first will select a time span. The selected time span 
 
 1. **Time span collapse control** - This web control allows you to hide all the controls except for the Inner Date range slider tool.
 
-1. **Outer-date range slider control** - Using the endpoint controls select the Outer Date range which will be available for your "Inner Date" range control.
+1. **Outer-date range slider control** - Using the endpoint controls select the Outer Date range, which will be available for your "Inner Date" range control.
 
-1. **Quick times date range drop down** - Gives you the ability to quickly switch between preset time span selections such as the last 30 minutes, the last 12 hours, custom range, etc. Changing this value also changes the available interval ranges discussed in the interval size slider tool next.
+1. **Quick times date range drop-down** - Gives you the ability to quickly switch between preset time span selections such as the last 30 minutes, the last 12 hours, custom range, etc. Changing this value also changes the available interval ranges discussed in the interval size slider tool next.
 
 1. **Interval-size slider tool** - The interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
-1. **Date range to and from web control** - With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different Time Zones. After you make the changes you would like to apply to your current work space click the save button.
+1. **Date range to and from web control** - With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different Time Zones. After you make the changes, you would like to apply to your current work space click the save button.
 
   ![explorer-thirteen][13]
 
@@ -146,7 +146,7 @@ The TSI update navigation panel provides the following functionality:
 
   ![explorer-fifteen][15]
 
-Click the circled link web control to generate a URL to save or share your current Time Series Insights working session which includes:
+Click the circled link web control to generate a URL to save or share your current Azure TSI working session, which includes:
 
 * Currently selected time range
 * Currently selected interval size

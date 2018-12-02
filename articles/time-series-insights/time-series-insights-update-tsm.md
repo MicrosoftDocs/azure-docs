@@ -21,7 +21,7 @@ Traditionally, the data collected from IoT devices lacks contextual information 
 
 ## Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure Time Series Insights (preview):
+With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure TSI (preview):
 
 * The ability to author and manage computations or formulas, to transform data leveraging scalar functions, aggregate operations, etc.
 * Defining parent child relationships to enable navigation and reference to provide context to time series telemetry.
@@ -157,7 +157,7 @@ A **default** *type* JSON response:
 
 ## Variables
 
-Azure TSI types have variables, these are named calculations over values from the events. TSI variable definitions contain formula and computation rules. Variable definitions include kind, value, filter, reduction, and boundaries. Variables are stored in type definition in TSM and can be provided inline via Query APIs to override the stored definition.
+Azure TSI types have variables, which are named calculations over values from the events. TSI variable definitions contain formula and computation rules. Variable definitions include kind, value, filter, reduction, and boundaries. Variables are stored in type definition in TSM and can be provided inline via Query APIs to override the stored definition.
 
 The matrix below works as a legend for variable definitions:
 
@@ -271,7 +271,7 @@ In above example, ID1 shows as part of hierarchy H1 in the UI/UX, while the rest
 
 ## Time Series Model instances
 
-Instances are the time series themselves. In most cases this will be the *deviceId* or *assetId* that is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
+Instances are the time series themselves. In most cases, the *deviceId* or *assetId* will be the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
 
 Instances are defined by *timeSeriesId*, *typeId*, *hierarchyId*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, while additional *instanceFields* can be added for further instance property definition.
 
