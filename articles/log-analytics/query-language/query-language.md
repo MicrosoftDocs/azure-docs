@@ -10,11 +10,9 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.component: na
 ---
 
 # Log Analytics query language
@@ -26,7 +24,7 @@ Log Analytics provides log collection and analysis for Azure Monitor. It's built
 -  [Get started with queries in Log Analytics](get-started-queries.md) is a lesson for writing queries using Log Analytics data.
 
 ## Concepts
-- [Analyze Log Analytics data in Azure Monitor](../log-analytics-queries.md) gives a brief overview of log queries and describes how Log Analytics data is structured.
+- [Analyze Log Analytics data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) gives a brief overview of log queries and describes how Log Analytics data is structured.
 - [Viewing and analyzing data in Log Analytics](../log-analytics-log-search-portals.md) explains the portals where you create and run Log Analytics queries.
 
 ## Reference

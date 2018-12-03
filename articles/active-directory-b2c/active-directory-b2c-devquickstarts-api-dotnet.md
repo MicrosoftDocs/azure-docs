@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -35,17 +35,17 @@ Next, you need to create a web API app in your B2C directory. This gives Azure A
 * Enter an app identifier into **App ID URI**. Copy the full **App ID URI**. You'll need it later.
 * Add permissions through the **Published scopes** menu.
 
-## Create your policies
+## Create your user flows
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). You will need to create a policy to communicate with Azure AD B2C. We recommend using the combined sign-up/sign-in policy, as described in the [policy reference article](active-directory-b2c-reference-policies.md). When you create your policy, be sure to:
+In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). You will need to create a user flow to communicate with Azure AD B2C. We recommend using the combined sign-up/sign-in user flow, as described in the [user flow reference article](active-directory-b2c-reference-policies.md). When you create your user flow, be sure to:
 
-* Choose **Display name** and other sign-up attributes in your policy.
-* Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
-* Copy the **Name** of each policy after you create it. You'll need the policy name later.
+* Choose **Display name** and other sign-up attributes in your user flow.
+* Choose **Display name** and **Object ID** claims as application claims for every user flow. You can choose other claims as well.
+* Copy the **Name** of each user flow after you create it. You'll need the user flow name later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-After you have successfully created the policy, you're ready to build your app.
+After you have successfully created the user flow, you're ready to build your app.
 
 ## Download the code
 
@@ -59,20 +59,20 @@ After you download the sample code, open the Visual Studio .sln file to get star
 
 ### Update the Azure AD B2C configuration
 
-Our sample is configured to use the policies and client ID of our demo tenant. If you would like to use your own tenant, you will need to do the following:
+Our sample is configured to use the user flows and client ID of our demo tenant. If you would like to use your own tenant, you will need to do the following:
 
 1. Open `web.config` in the `TaskService` project and replace the values for
     * `ida:Tenant` with your tenant name
     * `ida:ClientId` with your web API application ID
-    * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
+    * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" user flow name
 
 2. Open `web.config` in the `TaskWebApp` project and replace the values for
     * `ida:Tenant` with your tenant name
     * `ida:ClientId` with your web app application ID
     * `ida:ClientSecret` with your web app secret key
-    * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
-    * `ida:EditProfilePolicyId` with your "Edit Profile" policy name
-    * `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
+    * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" user flow name
+    * `ida:EditProfilePolicyId` with your "Edit Profile" user flow name
+    * `ida:ResetPasswordPolicyId` with your "Reset Password" user flow name
     * `api:ApiIdentifier` with your "App ID URI"
 
 
@@ -165,7 +165,7 @@ public class TasksController : ApiController
 
 ### Get user information from the token
 
-`TasksController` stores tasks in a database where each task has an associated user who "owns" the task. The owner is identified by the user's **object ID**. (This is why you needed to add the object ID as an application claim in all of your policies.)
+`TasksController` stores tasks in a database where each task has an associated user who "owns" the task. The owner is identified by the user's **object ID**. (This is why you needed to add the object ID as an application claim in all of your user flows.)
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -200,6 +200,6 @@ public IEnumerable<Models.Task> Get()
 
 Finally, build and run both `TaskWebApp` and `TaskService`. Create some tasks on the user's to-do list and notice how they are persisted in the API even after you stop and restart the client.
 
-## Edit your policies
+## Edit your user flows
 
-After you have secured an API by using Azure AD B2C, you can experiment with your Sign-in/Sign-up policy and view the effects (or lack thereof) on the API. You can manipulate the application claims in the policies and change the user information that is available in the web API. Any claims that you add will be available to your .NET MVC web API in the `ClaimsPrincipal` object, as described earlier in this article.
+After you have secured an API by using Azure AD B2C, you can experiment with your Sign-in/Sign-up user flow and view the effects (or lack thereof) on the API. You can manipulate the application claims in the user flows and change the user information that is available in the web API. Any claims that you add will be available to your .NET MVC web API in the `ClaimsPrincipal` object, as described earlier in this article.

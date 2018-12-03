@@ -35,7 +35,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
       text: Explore Azure Time Series Insights
-      href: /azure/time-series-insights/time-series-quickstart
+      href: /azure/time-series-insights/time-series-update-quickstart
 - title: Reference
   items:
   - type: list

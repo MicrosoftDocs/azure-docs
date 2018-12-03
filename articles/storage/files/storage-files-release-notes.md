@@ -52,6 +52,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent is supported only on Windows Server 2016 and Windows Server 2012 R2.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
+- A stop error 0x3B or stop error 0x1E may occur when a VSS snapshot is created.
 
 ### Interoperability
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md).
