@@ -11,7 +11,7 @@
       items:
       - name: .NET
         href: create-sql-api-dotnet.md
-      - name: .NET (Preview)
+      - name: .NET Preview
         href: create-sql-api-dotnet-preview.md
       - name: Java
         href: create-sql-api-java.md
@@ -178,11 +178,11 @@
             items:
             - name: .NET
               href: sql-api-get-started.md
-            - name: .NET (Preview)
+            - name: .NET Preview
               href: sql-api-dotnet-get-started-preview.md
             - name: .NET Core
               href: sql-api-dotnetcore-get-started.md
-            - name: .NET Core (Preview)
+            - name: .NET Core Preview
               href: sql-api-dotnet-core-get-started-preview.md
             - name: Java
               href: sql-api-java-get-started.md
@@ -194,7 +194,7 @@
             items:
             - name: .NET
               href: sql-api-dotnet-application.md
-            - name: .NET (Preview)
+            - name: .NET Preview
               href: sql-api-dotnet-application-preview.md   
             - name: Java
               href: sql-api-java-application.md
