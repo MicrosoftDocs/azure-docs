@@ -19,9 +19,6 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 
 [Learn more about Application Insights](../../application-insights/app-insights-overview.md). 
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
-
 
 ## Prerequisites
 * An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.

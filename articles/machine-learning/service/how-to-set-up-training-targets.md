@@ -25,8 +25,6 @@ There are three broad categories of compute targets that Azure Machine Learning 
 
 * __Attached Compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK versions > 1.0.1
 
 ## Supported compute targets
 
