@@ -141,7 +141,7 @@ Azure Automation includes an environment to [test your runbook](../../automation
 	![Post output](media/runbook-datacollect/post-output.png)
 
 ## 5. Verify records in Log Analytics
-Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../../log-analytics/log-analytics-queries.md).
+Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 ![Log output](media/runbook-datacollect/log-output.png)
 
