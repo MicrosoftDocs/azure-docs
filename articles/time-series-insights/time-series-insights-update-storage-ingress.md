@@ -22,7 +22,7 @@ When creating a Time Series Insights update (**PAYG SKU**) environment, you are 
 1. An Azure TSI environment.
 1. An Azure storage general-purpose V1 account where the data will be stored.
 
-The TSI (preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The TSI update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
+The TSI (preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account.
 
 Like any other Azure Storage blob, you can read and write to your Azure TSI-created blobs to support different integration scenarios.
 
@@ -56,7 +56,7 @@ Two copies of blobs created by Azure TSI will be stored in the following formats
 
 1. The second, a repartitioned copy, will be partitioned by dynamic grouping of time series ID:
 
-    • `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_< TSI internal suffix >.parquet`
+    • `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI internal suffix>.parquet`
     * Min event timestamp in the blob for blobs partitioned by time series ID.
 
 > [!NOTE]
@@ -149,17 +149,9 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
     * First make sure your account has the necessary requirements met to export data. Read [Storage import and export requirements](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements) for more information.
     * Learn about other ways to export data from your Azure Storage account by visiting [Storage import and export data from blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)
 
-### Blob storage considerations
-
-* Azure storage does have read and write limits based on how heavy your TSI (preview) usage is.  
-* The Azure TSI Private Preview does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
-* Customers will need to read the Azure blobs partitioned by time to be able to process the data.
-* The Azure TSI Private Preview performs dynamic repartitioning of blob data for better performance. That is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
-* Your TSI (preview) data may be duplicated across blobs.
-
 ### Data deletion
 
-The Azure TSI Private Preview does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
+The Azure TSI (preview) does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
 
 Do not delete blobs since Time Series Insights (preview) maintains metadata about the blobs inside of TSI update.
 
@@ -167,7 +159,7 @@ Do not delete blobs since Time Series Insights (preview) maintains metadata abou
 
 ### Azure Time Series Insights ingress policies
 
-The Azure TSI Private Preview supports the same event sources and file types that it does today.
+The Azure TSI (preview) supports the same event sources and file types that it does today.
 
 Supported event sources include:
 
@@ -182,7 +174,7 @@ Supported file types include:
 
 ### Data availability
 
-The Azure TSI Private Preview indexes data using a blob-size optimization strategy. That means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+The Azure TSI (preview) indexes data using a blob-size optimization strategy. That means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
 
 > [!IMPORTANT]
 > * Public Preview TSI will make data available within 60 seconds of it hitting an event source.  
@@ -191,7 +183,7 @@ The Azure TSI Private Preview indexes data using a blob-size optimization strate
 
 ### Scale
 
-We expect the Azure TSI Private Preview to support up to 6 Mbps per environment. Enhanced scaling support is planned for future releases.
+We expect the Azure TSI (preview) to support up to 6 Mbps per environment. Enhanced scaling support is planned for future releases.
 
 [!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
 

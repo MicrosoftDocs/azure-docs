@@ -214,6 +214,8 @@ Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update
 
 Read about the new [Time Series Models](./time-series-insights-update-tsm.md).
 
+Learn about [Diagnosing and troubleshooting](./time-series-insights-update-how-to-troubleshoot.md).
+
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png
 [2]: media/v2-update-explorer/explorer-two.png

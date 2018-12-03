@@ -60,7 +60,7 @@ You can now configure your TSI environment’s **Time Series Model**. The new mo
 
 The model is dynamic so it can built at any time. However, you’ll be able to get started more quickly if it’s built and uploaded prior to you beginning to push data into TSI. To build your model, review the [How to use TSM](./time-series-insights-update-how-to-tsm.md) article.
 
-For many customers, we expect the **Time Series Model** to map to an existing asset model or ERP system already in place. For those customers that do not have an existing model, a pre-built user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly.
+For many customers, we expect the **Time Series Model** to map to an existing asset model or ERP system already in place. For those customers that do not have an existing model, a pre-built user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. You can envision how a model might help you by viewing our [sample demo environment](https://insights.timeseries.azure.com/preview/demo).  
 
 ## Shaping your events
 

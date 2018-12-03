@@ -106,10 +106,6 @@ Read [How to work with Time Series Models](./time-series-insights-update-how-to-
 
 Read [Supported JSON shapes](./how-to-shape-query-json.md).
 
-For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
-
-You can also use [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
-
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png
 [2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
