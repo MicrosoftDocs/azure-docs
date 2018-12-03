@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # What are the machine learning product options from Microsoft?

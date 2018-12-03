@@ -8,7 +8,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 10/01/2018 
+ms.date: 12/04/2018 
 ---
 # Known issues and troubleshooting Azure Machine Learning service
  

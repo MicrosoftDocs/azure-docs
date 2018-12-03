@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # Use the Azure Machine Learning CLI extension
