@@ -23,7 +23,7 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 
 <br>
 
-##<center>**Pricing tier Capabilities**</center>
+###<center>**Pricing tier Capabilities**</center>
 
 | Capability                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
@@ -47,7 +47,7 @@ See the table with **Pricing tier Targeted customers** to get a better sense of 
 
 <br>
 
-##<center>**Pricing tier Targeted customers**</center>
+###<center>**Pricing tier Targeted customers**</center>
 
 | Pricing Tier  |        Targeted Customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
