@@ -4,13 +4,12 @@ description: Answers to the most frequently asked questions about Microsoft Azur
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: jdial
 
 ---
@@ -289,7 +288,7 @@ The first step is a network side operation and the second step is a service reso
 >[!NOTE]
 > Both the operations described above must be completed before you can limit the Azure Service access to the allowed VNet and subnet. Only turning on service endpoints for Azure Service on the network side does not provide you the limited access. In addition, You must also set up VNet ACLs on the Azure Service side.
 
-Certain services such as SQL, CosmosDB allow exception to above sequence through a flag `IgnoreMissingVnetServiceEndpoint`. Once the flag is set to **True**, VNet ACLs can be set on Azure service side prior to setting up service endpoints on network side. Azure services provide this flag to help customers with cases where specific IP firewalls are configured on Azure Services and turning on service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on Azure service side before setting service endpoints on the network side can help avoid the connectivity drop.
+Certain services such as SQL, CosmosDB allow exception to above sequence through a flag **IgnoreMissingVnetServiceEndpoint**. Once the flag is set to **True**, VNet ACLs can be set on Azure service side prior to setting up service endpoints on network side. Azure services provide this flag to help customers with cases where specific IP firewalls are configured on Azure Services and turning on service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on Azure service side before setting service endpoints on the network side can help avoid the connectivity drop.
 
 ### Do all Azure services reside in the Azure virtual network provided by the customer? How does VNet service endpoint work with Azure services?
 
@@ -324,11 +323,11 @@ To secure Azure services to multiple subnets within a virtual network or across 
 ### How can I filter outbound traffic from a virtual network to Azure services and still use service endpoint feature?
 If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed, and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources, using network virtual appliance filtering. For more information, see egress with network virtual appliances.
 
-## What happens when you access an Azure Service account that has virtual network access control list (ACL) enabled from outside VNet?
+### What happens when you access an Azure Service account that has virtual network access control list (ACL) enabled from outside VNet?
 The HTTP 404 error is returned.
 
-### Are subnets of a virtual network created in different regions allowed to access an Azure Service account in another region? For example, if Azure Cosmos DB account is in West US or East US and virtual networks are in multiple regions, can the virtual network access Azure Cosmos DB?
-Yes, for majority of Azure services, virtual networks created in different regions can access Azure service in different region through VNet service endpoints. Storage and SQL are exceptions and are regional in nature i.e., both virtual network and service need to be in same region.
+### Are subnets of a virtual network created in different regions allowed to access an Azure Service account in another region? 
+Yes, for majority of Azure services, virtual networks created in different regions can access Azure service in different region through VNet service endpoints. For example, if Azure Cosmos DB account is in West US or East US and virtual networks are in multiple regions, the virtual network can access Azure Cosmos DB. Storage and SQL are exceptions and are regional in nature i.e., both virtual network and service need to be in same region.
   
 ### Can an Azure service have both VNet ACL and an IP firewall?
 Yes, VNet ACL and an IP firewall can co-exist. Both features complement each other to ensure isolation and security.
