@@ -114,7 +114,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
     Copy the URI from the portal and paste it into `<your endpoint URL>` in the ```Program.cs``` file. Copy the PRIMARY KEY from the portal and paste it into `<your primary key>`.
 
-   ![Screen shot of the Azure portal used by the NoSQL tutorial to create a C# console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account page, and the URI, PRIMARY KEY, and SECONDARY KEY values highlighted on the Keys page](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Screen shot to get Azure Cosmos DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Next, we'll create a new instance of ```CosmosClient``` and set up some scaffolding for our program.
 

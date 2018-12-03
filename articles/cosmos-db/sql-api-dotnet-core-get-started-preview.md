@@ -125,7 +125,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
     Copy the URI from the portal and paste it into `<your endpoint URL>` in the ```Program.cs``` file. Copy the PRIMARY KEY from the portal and paste it into `<your primary key>`.
 
-   ![Screenshot to get Azure Cosmso DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Screen shot to get Azure Cosmso DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Next, we'll create a new instance of ```CosmosClient``` and set up some scaffolding for our program.
 
