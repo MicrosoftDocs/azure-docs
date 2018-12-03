@@ -125,7 +125,7 @@ Automated machine learning experiments supports data loading and transforms usin
 >* Filtering
 >* Custom Python transforms
 
-To learn about the data prep sdk refer the [How to prepare data for modeling article](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-load-data). 
+To learn about the data prep sdk refer the [How to prepare data for modeling article](how-to-load-data.md). 
 Below is an example loading data using data prep sdk. 
 ```python
 # The data referenced here was pulled from `sklearn.datasets.load_digits()`.
@@ -357,7 +357,7 @@ There are two ways to generate feature importance.
     print(per_class_summary) 
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook. To learn more about the charts refer to the [Sample Azure ML notebooks article.](https://docs.microsoft.com/en-us/azure/machine-learning/service/sample-azure-ml-notebooks)
+You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook. To learn more about the charts refer to the [Sample Azure ML notebooks article.](samples-notebooks.md)
 
 ```python
 from azureml.widgets import RunDetails
