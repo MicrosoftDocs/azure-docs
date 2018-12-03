@@ -13,9 +13,9 @@ ms.date: 12/04/2018
 
 # Configure your automated machine learning experiment
 
-Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. You can download the  model and further customize it as well. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
+Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 
-To view examples of an automated machine learning, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
+To view examples of an automated machine learning experiments , see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
 
 Configuration options available in automated machine learning:
 
@@ -28,24 +28,25 @@ Configuration options available in automated machine learning:
 * Register and deploy model
 
 ## Select your experiment type
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports two categories of supervised learning: Classification and Regression. Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
-Classification | Regression |
---|-- |--
-[Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[C-Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting. Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+
+Classification | Regression | Forecasting
+|-- |-- |--
+[Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[C-Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
+[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
 
 
 ## Data source and format
-Automated machine learning supports data that resides on your local desktop or in the cloud in Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
 * Numpy arrays X (features) and y (target variable or also known as label)
 * Pandas dataframe 
 
@@ -98,6 +99,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 ```
 
 `get_data` script can return:
+
 Key	| Type |	Mutually Exclusive with	| Description
 ---|---|---|---
 X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
@@ -110,6 +112,30 @@ data_train |	Pandas Dataframe |	X, y, X_valid, y_valid |	All data (features+labe
 label |	string	| X, y, X_valid, y_valid |	Which column in data_train represents the label
 columns	| Array of strings	||	_Optional_ Whitelist of columns to use for features
 cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the data for cross validation
+
+### Load and prepare data using DataPrep SDK
+Automated machine learning experiments supports data loading and transforms using the dataprep SDK. Using the SDK provides the ability to
+
+>* Load from many file types with parsing parameter inference (encoding, separator, headers)
+>* Type-conversion using inference during file loading
+>* Connection support for MS SQL Server and Azure Data Lake Storage
+>* Add column using an expression
+>* Impute missing values
+>* Derive column by example
+>* Filtering
+>* Custom Python transforms
+
+To learn about the data prep sdk refer the [How to prepare data for modeling article](how-to-load-data.md). 
+Below is an example loading data using data prep sdk. 
+```python
+# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
+simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
+X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
+# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
+
+# Here we read a comma delimited file and convert all columns to integers.
+y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
+```
 
 ## Train and validation data
 
@@ -131,9 +157,7 @@ Use custom validation dataset if random split is not acceptable (usually time se
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated machine learning training experiment runs on a compute target that you own and manage. 
-
-Compute options supported are:
+Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
 *	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
@@ -180,14 +204,15 @@ Property |	Description	| Default Value
 `primary_metric` |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, automated machine learning looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score	 </li> | For Classification: accuracy <br/>For Regression: spearman_correlation <br/> |
 `experiment_exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, automated machine learning will stop iterating and the experiment terminates. If this value is not set (default), Automated machine learning experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then Automated machine learning will continue until it reaches the number of iterations specified in iterations.|	None
 `iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. To get a high-quality model, use 250 or more	| 100
-`Concurrent_iterations`|	Max number of iterations to run in parallel. This setting works only for remote compute.|	1
+`max_concurrent_iterations`|	Max number of iterations to run in parallel. This setting works only for remote compute.|	1
 `max_cores_per_iteration`	| Indicates how many cores on the compute target would be used to train a single pipeline. If the algorithm can leverage multiple cores, then this increases the performance on a multi-core machine. You can set it to -1 to use all the cores available on the machine.|	1
 `Iteration_timeout_minutes` |	Limits the amount of time (minutes) a particular iteration takes. If an iteration exceeds the specified amount, that iteration gets canceled. If not set, then the iteration continues to run until it is finished. |	None
 `n_cross_validations`	|Number of cross validation splits|	None
 `validation_size`	|Size of validation set as percentage of all training sample.|	None
 `preprocess` | True/False <br/>True enables experiment to perform preprocessing on the input. Following is a subset of preprocessing<li>Missing Data: Imputes the missing data- Numerical with Average, Text with most occurrence </li><li>Categorical Values: If data type is numeric and number of unique values is less than 5 percent, Converts into one-hot encoding </li><li>Etc. for complete list check [the GitHub repository](https://aka.ms/aml-notebooks)</li><br/>Note : if data is sparse you cannot use preprocess = true |	False |	
-`blacklist_algos`	| Automated machine learning experiment has many different algorithms that it tries. Configure to exclude certain algorithms from the experiment. Useful if you are aware that algorithm(s) do not work well for your dataset. Excluding algorithms can save you compute resources and training time.<br/>Allowed values for Classification<br/><li>logistic regression</li><li>SGD classifier</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra trees</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>Allowed values for Regression<br/><li>Elastic net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso lars</li><li>SGD regressor</li><li>RF regressor</li><li>extra trees regressor</li>|	None
-`verbosity`	|Controls the level of logging with INFO being the most verbose and CRITICAL being the least.<br/>Allowed values are:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>	| logging.INFO</li> 
+`blacklist_models`	| Automated machine learning experiment has many different algorithms that it tries. Configure to exclude certain algorithms from the experiment. Useful if you are aware that algorithm(s) do not work well for your dataset. Excluding algorithms can save you compute resources and training time.<br/>Allowed values for Classification<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Allowed values for Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Allowed values for Forecasting<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|	None
+`whitelist_models`	| Automated machine learning experiment has many different algorithms that it tries. Configure to include certain algorithms for the experiment. Useful if you are aware that algorithm(s) do work well for your dataset. <br/>Allowed values for Classification<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Allowed values for Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Allowed values for Forecasting<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|	None
+`verbosity`	|Controls the level of logging with INFO being the most verbose and CRITICAL being the least. Verbosity level takes the same values as defined in the python logging package. Allowed values are:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>	| logging.INFO</li> 
 `X`	| All features to train with |	None
 `y` |	Label data to train with. For classification, should be an array of integers.|	None
 `X_valid`|_Optional_ All features to validate with. If not specified, X is split between train and validate |	None
@@ -196,7 +221,7 @@ Property |	Description	| Default Value
 `sample_weight_valid`	| 	_Optional_ A weight value for each validation sample. If not specified, sample_weight is split between train and validate	| None
 `run_configuration` |	RunConfiguration object.  Used for remote runs. |None
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
-`model_explainability` | _Optional_ Used for feature engineering explainability | False
+`model_explainability` | _Optional_ True/False <br/>  True enables experiment to perform feature importance for every iteration. You can also use explain_model() method on a specific iteration to enable feature importance on-demand for that iteration after experiment is complete. | False
 `enable_ensembling`|Flag to enable an ensembling iteration after all the other iterations complete.|
 `ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.|
 
@@ -258,8 +283,8 @@ recall_score_micro|Recall is the percent of elements actually in a certain class
 recall_score_weighted|Recall is the percent of elements actually in a certain class that are correctly labeled. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
 
-### Regression metrics
-The following metrics are saved in each iteration for a regression task.
+### Regression and forecasting metrics
+The following metrics are saved in each iteration for a regression or forecasting task.
 
 |Primary Metric|Description|Calculation|Extra Parameters
 --|--|--|--|--|
@@ -273,7 +298,7 @@ normalized_median_absolute_error|Normalized median absolute error is median abso
 root_mean_squared_error|Root mean squared error is the square root of the expected squared difference between the target and the prediction|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|None|
 normalized_root_mean_squared_error|Normalized root mean squared error is root mean squared error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divide by range of the data|
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
-normalized_root_mean_squared_log_error|Noramlized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data||
+normalized_root_mean_squared_log_error|Noramlized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
 
 ## Explain the model
 
@@ -332,7 +357,7 @@ There are two ways to generate feature importance.
     print(per_class_summary) 
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook.  
+You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook. To learn more about the charts refer to the [Sample Azure ML notebooks article.](samples-notebooks.md)
 
 ```python
 from azureml.widgets import RunDetails
