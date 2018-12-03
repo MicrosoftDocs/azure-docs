@@ -344,6 +344,9 @@
   - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
+  - name: Dedicated HSM
+    tocHref: /azure/dedicated-hsm/
+    topicHref: /azure/dedicated-hsm/
   - name: Devtest Lab
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/

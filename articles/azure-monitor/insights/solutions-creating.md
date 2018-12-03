@@ -46,7 +46,7 @@ There are a number of ways data sources that can be collected in the Log Analyti
 If you require data that's not accessible through any of the available data sources, then you can use the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) which allows you to write data to the Log Analytics repository from any client that can call a REST API.  The most common means of custom data collection in a management solution is to create a [runbook in Azure Automation](../../automation/automation-runbook-types.md) that collects the required data from Azure or external resources and uses the Data Collector API to write to the repository.  
 
 ### Log searches
-[Log searches](../../log-analytics/log-analytics-queries.md) are used to extract and analyze data in the Log Analytics repository.  They are used by views and alerts in addition to allowing the user to perform ad hoc analysis of data in the repository.  
+[Log searches](../../azure-monitor/log-query/log-query-overview.md) are used to extract and analyze data in the Log Analytics repository.  They are used by views and alerts in addition to allowing the user to perform ad hoc analysis of data in the repository.  
 
 You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include them in a [List of Queries visualization part](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) in your custom view.
 

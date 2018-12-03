@@ -179,7 +179,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../log-analytics/log-analytics-queries.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -204,7 +204,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../log-analytics/log-analytics-queries.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -260,4 +260,4 @@ If you have recommendations that you want to ignore, you can create a text file 
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* [Search logs](../../log-analytics/log-analytics-queries.md) to learn how to analyze detailed SQL Health Check data and recommendations.
+* [Search logs](../../azure-monitor/log-query/log-query-overview.md) to learn how to analyze detailed SQL Health Check data and recommendations.
