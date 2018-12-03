@@ -320,7 +320,6 @@ Going forward, you'll need to reconfigure it to point to Data Lake Storage Gen2 
 
 If you are using any of the other upgrade strategies, you can create a variation of the above steps to meet your requirements.
 
-
 ### Azure ecosystem upgrade
 
 Each of the tools and services called out in [Azure ecosystem](#azure-ecosystem) section of this guide will have to be configured to work with Data Lake Storage Gen2.
