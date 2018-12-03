@@ -52,11 +52,7 @@ Once you've enabled the feature, a new service identity is created in your Azure
 
 Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that has preview support for managed identities for Azure resources: **US East**, **US East 2**, or **West Europe**. 
 
-Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-The managed identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
+Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**. The managed identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
 
 ### Run the app
 
