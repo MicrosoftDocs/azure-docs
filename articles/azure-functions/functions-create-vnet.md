@@ -114,5 +114,4 @@ Azure Functions running on App Service plans are running on the same service as 
 [10]: ./media/functions-create-vnet/Networking-3.png
 [11]: ./media/functions-create-vnet/New-Proxy.png
 [12]: ./media/functions-create-vnet/Create-Proxy.png
-[13]: ./media/functions-create-vnet/Plant.png
 [14]: ./media/functions-create-vnet/VM-Networking.png
