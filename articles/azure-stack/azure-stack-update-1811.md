@@ -44,15 +44,15 @@ This update includes the following improvements for Azure Stack:
 
 - With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
-- Support for Device Authentication with ADFS in particular when using Azure CLI. [@Matt add Link to CLI for ADFS]
+- Support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
 - Support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update and remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update and remove service principles for ADFS. For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-AD-FS).
 
-- New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. [@Matt add link to updated node actions doc]
+- New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
 
-- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
+- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md#update-the-baseboard-management-controller-(BMC)-credential).
 
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
