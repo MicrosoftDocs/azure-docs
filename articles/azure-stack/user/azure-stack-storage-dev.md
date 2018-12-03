@@ -45,7 +45,7 @@ To install via Composer: (take the blob as an example).
 
 1. Create a file named **composer.json** in the root of the project with following code:
 
-    ```php
+    ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.2.0"
@@ -74,7 +74,7 @@ To install via Composer: (take blob as example).
 
 1. Create a file named **composer.json** in the root of the project with following code:
 
-  ```php
+  ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.0.0"
@@ -97,7 +97,7 @@ Contact your cloud administrator if you’re not sure about your endpoint.
 
 For Azure Stack, the endpoint suffix is specified in the app.config file:
 
-```
+```xml
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -107,7 +107,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```
+```java
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -119,7 +119,7 @@ public static final String storageConnectionString =
 
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
-```
+```node
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -128,7 +128,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```
+```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -139,7 +139,7 @@ EndpointSuffix=local.azurestack.external"));
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```
+```php
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -150,7 +150,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
-```
+```python
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -160,7 +160,7 @@ endpoint_suffix='local.azurestack.external')
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```
+```ruby
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;
