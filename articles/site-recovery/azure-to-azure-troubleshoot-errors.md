@@ -5,9 +5,8 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
 
 ---
@@ -56,37 +55,37 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
       ``# cd /etc/ssl/certs``
 
-3. Check if the Symantec root CA cert is present.
+1. Check if the Symantec root CA cert is present.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
+2. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Check if the Baltimore root CA cert is present.
+3. Check if the Baltimore root CA cert is present.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. If the Baltimore root CA cert is not found, download the certificate.  
+4. If the Baltimore root CA cert is not found, download the certificate.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Check if the DigiCert_Global_Root_CA cert is present.
+5. Check if the DigiCert_Global_Root_CA cert is present.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
+6. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
+7. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
 
     ``# c_rehash``
 
-10. Check if the subject hashes as symlinks are created for the certificates.
+8.  Check if the subject hashes as symlinks are created for the certificates.
 
     - Command
 
@@ -115,11 +114,11 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
+9.  Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
+10. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
