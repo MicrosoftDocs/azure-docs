@@ -456,6 +456,8 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
+      - name: Configure Cross Origin Resource Sharing(CORS)
+        href: how-to-configure-cross-origin-resource-sharing.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
