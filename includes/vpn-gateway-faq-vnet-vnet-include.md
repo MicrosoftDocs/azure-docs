@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 11/30/2018
+ ms.date: 12/03/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -59,9 +59,9 @@ No. VNet-to-VNet supports connecting virtual networks. It doesn't support connec
 
 No. A cloud service or a load-balancing endpoint can't span across virtual networks, even if they're connected together.
 
-### Can I used a PolicyBased VPN type for VNet-to-VNet or Multi-Site connections?
+### Can I use a PolicyBased VPN type for VNet-to-VNet or Multi-Site connections?
 
-No. VNet-to-VNet and Multi-Site connections require Azure VPN gateways with RouteBased (previously called Dynamic Routing) VPN types.
+No. VNet-to-VNet and Multi-Site connections require Azure VPN gateways with RouteBased (previously called dynamic routing) VPN types.
 
 ### Can I connect a VNet with a RouteBased VPN Type to another VNet with a PolicyBased VPN type?
 

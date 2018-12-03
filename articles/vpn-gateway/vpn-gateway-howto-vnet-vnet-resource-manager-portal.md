@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ms.author: cherylmc
 
 ---
@@ -24,7 +24,7 @@ This article helps you connect virtual networks (VNets) by using the VNet-to-VNe
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using one of the options described in the following articles:
+The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using options that are described in the following articles:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -66,7 +66,7 @@ You may want to connect virtual networks by using a VNet-to-VNet connection for 
 
 ### Regional multi-tier applications with isolation or administrative boundaries
 
-  * Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together due to isolation or administrative requirements.
+  * Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together because of isolation or administrative requirements.
 
 VNet-to-VNet communication can be combined with multi-site configurations. These configurations lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
@@ -140,7 +140,7 @@ You can add additional address space and create subnets once your VNet has been 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## Create a gateway subnet
-Before creating a virtual network gateway for your virtual network, you first need to create the gateway subnet. The gateway subnet contains the IP addresses that are used by the virtual network gateway. If possible, it's best to create a gateway subnet by using a CIDR block of /28 or /27 to provide enough IP addresses to accommodate additional future configuration requirements.
+Before creating a virtual network gateway for your virtual network, you first need to create the gateway subnet. The gateway subnet contains the IP addresses that are used by the virtual network gateway. If possible, it's best to create a gateway subnet by using a CIDR block of /28 or /27 to provide enough IP addresses to accommodate future additional configuration requirements.
 
 If you're creating this configuration as an exercise, refer to these [Example settings](#example-settings) when creating your gateway subnet.
 
@@ -161,7 +161,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## Create and configure TestVNet4
-After you've configured TestVNet1, create TestVNet4 by repeating the previous steps and replace the values with those values of TestVNet4. You don't need to wait until the virtual network gateway for TestVNet1 has finished creating before you configure TestVNet4. If you're using your own values, make sure the address spaces don't overlap with any of the VNets to which you want to connect.
+After you've configured TestVNet1, create TestVNet4 by repeating the previous steps and replacing the values with TestVNet4 values. You don't need to wait until the virtual network gateway for TestVNet1 has finished creating before you configure TestVNet4. If you're using your own values, make sure the address spaces don't overlap with any of the VNets to which you want to connect.
 
 ## Configure the TestVNet1 gateway connection
 When the virtual network gateways for both TestVNet1 and TestVNet4 have completed, you can create your virtual network gateway connections. In this section, you create a connection from VNet1 to VNet4. These steps work only for VNets in the same subscription. If your VNets are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) to make the connection. However, if your VNets are in different resource groups in the same subscription, you can connect them by using the portal.
@@ -195,7 +195,7 @@ Next, create a connection from TestVNet4 to TestVNet1. In the portal, locate the
 
 ## Verify your connections
 
-Locate the virtual network gateway in the Azure portal. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Succeeded** and **Connected**. Double-click a connection to open the **Essentials** page and view more information.
+Locate the virtual network gateway in the Azure portal. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Succeeded** and **Connected**. Select a connection to open the **Essentials** page and view more information.
 
 ![Succeeded](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
 
