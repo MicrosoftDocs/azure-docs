@@ -13,7 +13,7 @@ ms.date: 12/03/2018
 
 # Visualize data in the explorer (Preview)
 
-This article describes features and options available within The Azure Time Series Insights (Preview) [explorer web application](https://insights.timeseries.azure.com/preview/demo).
+This article describes features and options available within The Azure Time Series Insights (Preview) [explorer web application](https://insights.timeseries.azure.com/preview/samples).
 
 ## Prerequisites
 

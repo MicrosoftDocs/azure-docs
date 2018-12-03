@@ -127,7 +127,7 @@ Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.m
 
 Read about [Data modeling](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
 
-View the Azure TSI (Preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
+View the Azure TSI (Preview) explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
 
 Learn about supported JSON shapes by reading [Supported JSON Shapes](./time-series-insights-send-events.md#json).
 
