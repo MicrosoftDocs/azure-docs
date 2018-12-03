@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/07/2018
+ms.date: 11/21/2018
 ms.author: ramkris
 
 ---
@@ -43,6 +43,6 @@ ms.author: ramkris
 
 <tr><td>**Get started**</td><td>[Get started with the bulk executor library Java SDK](bulk-executor-java.md)</td></tr>
 
-<tr><td>**Minimum supported runtime**</td><td>JDK 7</td></tr>
+<tr><td>**Minimum supported runtime**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
