@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/03/2018
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -98,16 +98,19 @@ your logic apps select your ISE as your apps' location.
 These logic apps can then directly access your virtual 
 network and connect to resources in that network. 
 
-For on-premises systems in a virtual network that's linked to an ISE, 
-logic apps can directly access those systems by using any of these items: 
+For systems that are connected to a virtual network, 
+you can inject an ISE into that virtual network so your logic apps 
+can directly access those systems by using any of these items: 
 
 * ISE connector for that system, for example, SQL Server
+
 * HTTP action 
+
 * Custom connector
 
-For on-premises systems that aren't in a virtual network or 
+For on-premises systems that aren't connected to a virtual network or 
 don't have ISE connectors, you can connect to those systems 
-after you [set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
+by [setting up and using the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
 Before you can select an Azure virtual network for injecting 
 your environment, you must set up Role-Based Access Control (RBAC) 
