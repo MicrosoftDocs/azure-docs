@@ -47,7 +47,7 @@ Before you start a restore, review the following caveats:
 
 ## How does restore work
 
-For devices running Update 4 or later, a heatmap-based restore is implemented. As the host requests to access data reach the device, these requests are tracked and a heatmap is created. High request rate results in data chunks with higher heat whereas lower request rate translates to chunks with lower heat. You must access the data atleast twice to be marked as _hot_. A file that is modified is also marked as _hot_. Once you initiate the restore, then proactive hydration of data occurs based on the heatmap. For versions earlier than Update 4, the data is downloaded during restore based on access only.
+For devices running Update 4 or later, a heatmap-based restore is implemented. As the host requests to access data reach the device, these requests are tracked and a heatmap is created. High request rate results in data chunks with higher heat whereas lower request rate translates to chunks with lower heat. You must access the data at least twice to be marked as _hot_. A file that is modified is also marked as _hot_. Once you initiate the restore, then proactive hydration of data occurs based on the heatmap. For versions earlier than Update 4, the data is downloaded during restore based on access only.
 
 The following caveats apply to heatmap-based restores:
 

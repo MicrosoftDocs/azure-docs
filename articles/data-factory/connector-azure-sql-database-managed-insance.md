@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
 
 ---
@@ -111,7 +111,7 @@ To copy data from/to Azure SQL Database Managed Instance, set the type property 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **SqlServerTable** | Yes |
-| tableName |Name of the table or view in the database instance that linked service refers to. | Yes |
+| tableName |Name of the table or view in the database instance that linked service refers to. | No for source, Yes for sink |
 
 **Example**
 
@@ -151,7 +151,6 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 
 - If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Managed Instance source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 - If you do not specify either "sqlReaderQuery" or "sqlReaderStoredProcedureName" property, the columns defined in the "structure" section of the dataset JSON are used to construct a query (`select column1, column2 from mytable`) to run against the Managed Instance. If the dataset definition does not have the "structure", all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 **Example: Using a SQL query**
 

@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
 ---
 
@@ -21,6 +21,8 @@ Each role assignment includes:
 * **Role definition ID**
 * **Space path**
 * **Tenant ID**: In most cases, an Azure Active Directory tenant ID
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## Role definition identifiers
 
@@ -52,7 +54,7 @@ The supported `ObjectIdTypes`:
 ## Create a role assignment
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Name** | **Required** | **Type** | **Description** |
@@ -103,22 +105,22 @@ All users who are part of a domain receive read access for spaces, sensors, and 
 Use GET to get a role assignment.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Name** | **In** | **Required** |	**Type** |	**Description** |
 | --- | --- | --- | --- | --- |
-| Path | Path | True | String |	The full path to the space |
+| YOUR_PATH | Path | True | String |	The full path to the space |
 
 Use DELETE to delete a role assignment.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Name** | **In** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| ID | Path | True | String |	Role Assignment ID |
+| YOUR_ROLE_ID | Path | True | String |	Role Assignment ID |
 
 ## Next steps
 

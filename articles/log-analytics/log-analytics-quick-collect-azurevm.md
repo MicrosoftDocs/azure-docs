@@ -10,16 +10,15 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: 
 ---
 
 # Collect data about Azure Virtual Machines
-[Azure Log Analytics](log-analytics-queries.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
+[Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
  
 This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
@@ -49,7 +48,7 @@ While the information is verified and the workspace is created, you can track it
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
-For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
+For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension. Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes. Before proceeding, verify the VM is running otherwise the process will fail to complete successfully.  
 
 >[!NOTE]
 >The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. 

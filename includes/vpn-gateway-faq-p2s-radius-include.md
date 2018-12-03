@@ -33,7 +33,7 @@ No. It can only be routed over a Site-to-Site connection.
  
 ### Is there a change in the number of SSTP connections supported with RADIUS authentication? What is the maximum number of SSTP and IKEv2 connections supported?
 
-There is no change in the maximum number of SSTP connections supported on a gateway with RADIUS authentication. It remains 128. The maximum number of connections supported is 128, irrespective of whether the gateway is configured for SSTP, IKEv2, or both.
+There is no change in the maximum number of SSTP connections supported on a gateway with RADIUS authentication. It remains 128 for SSTP, but depends on the gateway SKU for IKEv2. For more information on the number of connections supported, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
  
 ### What is the difference between doing certificate authentication using a RADIUS server vs. using Azure native certificate authentication (by uploading a trusted certificate to Azure).
 

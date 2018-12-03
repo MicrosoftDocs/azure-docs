@@ -32,6 +32,8 @@
     displayName: inventory
 - name: How-to guides
   items:
+    - name: Start/stop VMs during off-hours
+      href: automation-solution-vm-management.md
     - name: Onboarding
       items:
       - name: Onboard multiple VMs from the portal
@@ -133,8 +135,6 @@
           displayName: backup
         - name: Pass a JSON object to an Azure Automation runbook
           href: automation-pass-json-string.md
-        - name: Start/stop VMs during off-hours
-          href: automation-solution-vm-management.md
         - name: Manage Python 2 packages
           href: python-packages.md
     - name: Hybrid Runbook Worker
@@ -245,8 +245,13 @@
     href: troubleshoot/shared-resources.md
     displayName: module, import
   - name: Troubleshoot Update Agent issues
-    href: troubleshoot/update-agent-issues.md
-    displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows
+    items:
+    - name: Windows
+      href: troubleshoot/update-agent-issues.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows
+    - name: Linux
+      href: troubleshoot/update-agent-issues-linux.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux
 - name: Reference
   items:
   - name: Azure PowerShell

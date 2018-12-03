@@ -11,6 +11,8 @@
       items:
       - name: .NET
         href: create-sql-api-dotnet.md
+      - name: .NET Preview
+        href: create-sql-api-dotnet-preview.md
       - name: Java
         href: create-sql-api-java.md
       - name: Node.js
@@ -69,8 +71,6 @@
         href: create-table-python.md
   - name: Concepts
     items:
-    - name: Resource model
-      href: sql-api-resources.md
     - name: Global distribution
       items:
       - name: Overview
@@ -85,12 +85,14 @@
         href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
-      - name: Scale throughput globally
+      - name: Globally scaling provisioned throughput
         href: scaling-throughput.md
-      - name: Conflict resolution policies
+      - name: Conflict types and resolution policies
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
+      - name: Regional presence
+        href: regional-presence.md
     - name: Partitioning
       items:
       - name: Overview
@@ -105,14 +107,38 @@
         href: request-units.md
       - name: Provision throughput on containers and databases
         href: set-throughput.md
-    - name: Indexing
-      href: indexing-policies.md
-    - name: Change feed
-      href: change-feed.md
-    - name: Time to live
-      href: time-to-live.md
-    - name: Unique keys
-      href: unique-keys.md
+    - name: Working with Azure Cosmos account
+      href: account-overview.md
+    - name: Containers and items
+      items:
+      - name: Working with databases, containers, and items
+        href: databases-containers-items.md
+      - name: Indexing
+        items:
+        - name: Overview
+          href: index-overview.md
+        - name: Indexing policy
+          href: index-policy.md
+        - name: Index types
+          href: index-types.md
+        - name: Index paths
+          href: index-paths.md
+      - name: Change feed
+        items:
+        - name: Overview
+          href: change-feed.md
+        - name: Reading change feed
+          href: read-change-feed.md
+        - name: Change feed processor
+          href: change-feed-processor.md
+        - name: Change feed with Azure Functions 
+          href: change-feed-functions.md
+      - name: Time to live
+        href: time-to-live.md
+      - name: Unique key constraints
+        href: unique-keys.md
+      - name: Transactions and optimistic concurrency
+        href: database-transactions-optimistic-concurrency.md
     - name: Security
       items:
         - name: Overview
@@ -121,25 +147,25 @@
           href: database-encryption-at-rest.md
         - name: Secure access to data
           href: secure-access-to-data.md
-        - name: Firewall support
+        - name: IP Firewall
           href: firewall-support.md
-        - name: Setup VNet endpoint
+        - name: Access from virtual networks
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
+    - name: Enterprise readiness 
+      items:
+      - name: Online backup and restore
+        href: online-backup-and-restore.md
+      - name: Compliance
+        href: compliance.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
-    - name : Backup and restore
-      href: online-backup-and-restore.md
   - name: Multi-model APIs
     expanded: true
     items:
     - name: SQL API Docs
       items:
-      - name: Introduction
-        href: sql-api-introduction.md
-      - name: Write SQL queries
-        href: sql-api-sql-query.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
@@ -150,8 +176,12 @@
             items:
             - name: .NET
               href: sql-api-get-started.md
+            - name: .NET Preview
+              href: sql-api-dotnet-get-started-preview.md
             - name: .NET Core
               href: sql-api-dotnetcore-get-started.md
+            - name: .NET Core Preview
+              href: sql-api-dotnet-core-get-started-preview.md
             - name: Java
               href: sql-api-java-get-started.md
             - name: Async Java
@@ -162,6 +192,8 @@
             items:
             - name: .NET
               href: sql-api-dotnet-application.md
+            - name: .NET preview
+              href: sql-api-dotnet-application-preview.md
             - name: Java
               href: sql-api-java-application.md
             - name: Node.js
@@ -196,8 +228,6 @@
           href: sql-api-sql-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
-        - name: SQL data partitioning
-          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
@@ -392,6 +422,46 @@
             href: /rest/api/storageservices/Table-Service-Concepts
   - name: How-to guides
     items:
+    - name: Manage database account
+      href: how-to-manage-database-account.md
+    - name: Configure time to live
+      href: how-to-time-to-live.md
+    - name: Global distribution
+      items:
+      - name: Manage consistency
+        href: how-to-manage-consistency.md
+      - name: Manage conflicts
+        href: how-to-manage-conflicts.md
+    - name: Provisioned throughput
+      items:
+      - name: Provision container throughput
+        href: how-to-provision-container-throughput.md
+      - name: Provision database throughput
+        href: how-to-provision-database-throughput.md
+    - name: Working with containers and items
+      items:
+      - name: Create a container
+        href: how-to-create-container.md
+      - name: Query a container
+        href: how-to-query-container.md
+      - name: Query data with SQL queries
+        href: how-to-sql-query.md
+    - name: Indexing
+      items:
+      - name: Configure indexing
+        href: how-to-manage-indexing-policy.md
+    - name: Security
+      items:
+      - name: Configure IP firewall
+        href: how-to-configure-firewall.md
+      - name: Configure access from virtual networks
+        href: how-to-configure-vnet-service-endpoint.md
+      - name: Configure Cross Origin Resource Sharing(CORS)
+        href: how-to-configure-cross-origin-resource-sharing.md
+    - name: Enterprise readiness 
+      items:
+      - name: Restore data from a backup
+        href: how-to-backup-and-restore.md
     - name : Manage
       items:
       - name: Manage using PowerShell
@@ -402,8 +472,6 @@
         href: storage-explorer.md
       - name: Manage using data explorer
         href: data-explorer.md
-      - name: Manage your account
-        href: manage-account.md
     - name : Logging
       items:
       - name: Diagnostic logging
@@ -426,26 +494,6 @@
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Set up Azure DevOps CI/CD pipeline
       href: tutorial-setup-ci-cd.md
-    - name: Global distribution
-      items:
-      - name: Manage Database Account
-        href: how-to-manage-database-account.md
-      - name: Manage Consistency
-        href: how-to-manage-consistency.md
-      - name: Manage Conflicts
-        href: how-to-manage-conflicts.md
-    - name: Provisioned throughput
-      items:
-      - name: Provision container throughput
-        href: how-to-provision-container-throughput.md
-      - name: Provision database throughput
-        href: how-to-provision-database-throughput.md
-    - name: Working with containers and items
-      items:
-      - name: Create a container
-        href: how-to-create-container.md
-      - name: Query a container
-        href: how-to-query-container.md
     - name: Best practices
       items:
       - name: Performance tips

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
 ---
@@ -21,7 +21,7 @@ ms.custom: mvc
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine.  This article also gives you the steps to:
+You can create an Ubuntu Server 16.04 LTS virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine.  This article also gives you the steps to:
 
 * Connect to the virtual machine with a remote client.
 * Install the NGINX web server and view the default home page.
@@ -43,7 +43,7 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack Po
 
 A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Values are assigned for all the variables in this document, you can use these values or assign new values.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -57,7 +57,7 @@ New-AzureRmResourceGroup `
 
 Create a storage account and then create a storage container for the Ubuntu Server 16.04 LTS image.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -391,7 +391,7 @@ From a client system with SSH installed, use the following command to connect to
 ssh <Public IP Address>
 ```
 
-When prompted, enter azureuser as the login user. If you used a passphrase when you created the SSH keys, you'll have to provide the passphrase.
+When prompted, sign in as **azureuser**. If you used a passphrase when you created the SSH keys, you'll have to provide the passphrase.
 
 ## Install the NGINX web server
 
