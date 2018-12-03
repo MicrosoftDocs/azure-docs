@@ -34,18 +34,27 @@ You can get inventory about in-guest resources for visibility into installed app
 
 Update Windows and Linux systems across hybrid environments with Azure Automation. You get visibility of update compliance across Azure, on-premises, and other clouds. You can create schedule deployments to orchestrate the installation of updates within a defined maintenance window. If an update should not be installed on a machine, you can exclude those updates from a deployment.
 
-### Shared capabilities
+### <a name="shared-resources"></a>Shared resources
 
 Azure Automation consists of a set of shared resources that make it easier to automate and configure your environments at scale.
 
-* **[Role-based access control](automation-role-based-access-control.md)** - Control access to the account with an Automation operator role that enables tasks to be run without giving authoring capabilities.
-* **[Variables](automation-variables.md)** - Provide a way to hold content that can be used across runbooks and configurations. You can change values without having to modify any of the runbooks and configurations that reference them.
-* **[Credentials](automation-credentials.md)** - Securely store sensitive information that can be used by runbooks and configurations at runtime.
-* **[Certificates](automation-certificates.md)** - Store and make available at runtime so they can be used for authentication and securing deployed resources.
-* **[Connections](automation-connections.md)** - Store a name / value pairs of information that contains common information when connecting to systems in connection resources. Connections are defined by the module author for use at runtime in runbooks and configurations.
 * **[Schedules](automation-schedules.md)** - Used in the service to trigger automation on predefined times.
-* **[Integration with source control](automation-source-control-integration.md)** - Promotes configuration as code where runbooks or configurations can be checked into a source control system.
-* **[PowerShell modules](automation-integration-modules.md)** -  Modules are used to manage Azure and other systems. Import into the Automation account for Microsoft, third party, community, or custom defined cmdlets and DSC resources.
+* **[Modules](automation-integration-modules.md)** -  Modules are used to manage Azure and other systems. Import into the Automation Account for Microsoft, third party, community, or custom defined cmdlets and DSC resources.
+* **[Modules gallery](automation-runbook-gallery.md)** - Native integration to the PowerShell Gallery to view runbooks and import them into the Automation Account.
+* **[Python 2 packages](python-packages.md)** - Add Python 2 packages to your automation account to use in your Python runbooks.
+* **[Credentials](automation-credentials.md)** - Securely store sensitive information that can be used by runbooks and configurations at runtime.
+* **[Connections](automation-connections.md)** - Store a name / value pairs of information that contains common information when connecting to systems in connection resources. Connections are defined by the module author for use at runtime in runbooks and configurations.
+* **[Certificates](automation-certificates.md)** - Store and make available at runtime so they can be used for authentication and securing deployed resources.
+* **[Variables](automation-variables.md)** - Provide a way to hold content that can be used across runbooks and configurations. You can change values without having to modify any of the runbooks and configurations that reference them.
+
+### Source control integration
+
+Azure Automation has the ability to [integrate with source control](source-control-integration.md) to promote configuration as code where runbooks or configurations can be checked into a source control system.
+
+### Role based access control
+
+Azure Automation supports Role Based Access Control to control access to the Automation Account and its resources, to learn more about configuration RBAC on your Automation Account, runbooks, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
+
 
 ### Windows and Linux
 
