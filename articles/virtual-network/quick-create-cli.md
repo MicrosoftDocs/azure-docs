@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Quickstart: Create a virtual network using the Azure CLI
 
-A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately between the two VMs.
+A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately over the new virtual network.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -49,11 +49,11 @@ az network vnet create \
 
 ## Create virtual machines
 
-Create two VMs in the virtual network:
+Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [`az vm create`](/cli/azure/vm#az_vm_create). 
+Create a VM with [`az vm create`](/cli/azure/vm#az_vm_create).
 
 > [!TIP]
 > If SSH keys don't already exist in a default key location, the command creates them.
@@ -80,9 +80,10 @@ az vm create \
   --image UbuntuLTS \
   --generate-ssh-keys
 ```
+
 ### Azure CLI output message
 
-The VMs take a few minutes to create. After the VMs are created, the Azure CLI returns output similar to this example:
+The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
 
 ```azurecli
 {
@@ -97,7 +98,7 @@ The VMs take a few minutes to create. After the VMs are created, the Azure CLI r
 }
 ```
 
-Take note of the **publicIpAddress**. This address is used to connect to the VM from the internet in the next step.
+Take note of the **publicIpAddress**. You will use yhis address to connect to the VM from the internet in the next step.
 
 ## Connect to a VM from the internet
 
@@ -115,13 +116,13 @@ To confirm private communication between the *myVm2* and *myVm1* VMs, enter this
 ping myVm1 -c 4
 ```
 
-You receive four replies from *10.0.0.4*.
+You'll receive four replies from *10.0.0.4*.
 
 Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [`az group delete`](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it has:
+When no longer needed, you can use [`az group delete`](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -131,4 +132,4 @@ az group delete --name myResourceGroup --yes
 
 In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
 
-By default, Azure lets unrestricted private communication between VMs. Conversely, it only lets inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
+Azure lets unrestricted private communication between VMs. By default, Azure only lets inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
