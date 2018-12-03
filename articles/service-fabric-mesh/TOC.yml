@@ -65,7 +65,9 @@
   - name: Auto scale services
     href: service-fabric-mesh-howto-auto-scale-services.md
   - name: Store state with Azure Files volume
-    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md  
+    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md   
+  - name: Store state with Service Fabric Reliable Disk volume
+    href: service-fabric-mesh-howto-deploy-app-sfreliabledisk-volume.md  
   - name: Manage secrets
     href: service-fabric-mesh-howto-manage-secrets.md
   - name: Find samples
