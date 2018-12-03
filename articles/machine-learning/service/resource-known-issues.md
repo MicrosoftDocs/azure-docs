@@ -53,6 +53,8 @@ Databricks and Azure Machine Learning issues.
 
    Workaround: import Python library `numpy==1.14.5` to your Databricks cluster using Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
 
+## Azure portal
+If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another worksapce, the workaround is to go directly to the (Azure portal)[https://portal.azure.com] and search for the workspace name.
 
 ## Diagnostic logs
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. 
