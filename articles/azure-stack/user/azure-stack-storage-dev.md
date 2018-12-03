@@ -119,7 +119,7 @@ public static final String storageConnectionString =
 
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
-```node
+```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```

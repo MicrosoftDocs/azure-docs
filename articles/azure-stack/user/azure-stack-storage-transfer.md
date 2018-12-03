@@ -262,7 +262,7 @@ Before you run this script, make sure that you can successfully connect to, and 
 4. Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`
 5. Execute the script. For example, in Bash: `./my_storage_sample.sh`
 
-```bash
+```azurecli
 #!/bin/bash
 # A simple Azure Stack storage example script
 
