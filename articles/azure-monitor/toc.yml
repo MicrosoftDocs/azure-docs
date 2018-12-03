@@ -74,13 +74,13 @@
     - name: Diagnostic logs
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
     - name: Log data ingestion time
-      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json  
+      href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
       href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json       
     - name: Data security
       items:
       - name: Log data
-        href: ../log-analytics/log-analytics-data-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-security.md
       - name: Personal log data handling
         href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
       - name: Application data collection, retention, and storage
@@ -108,7 +108,7 @@
     - name: Log Analytics
       href: log-query/log-query-overview.md
     - name: Log query portals
-      href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
+      href: log-query/portals.md
     - name: OMS portal transition
       items:
         - name: Overview
@@ -138,7 +138,7 @@
   - name: FAQ
     items:
     - name: Log Analytics
-      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+      href: platform/log-faq.md
     - name: Application Insights
       href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
 - name: How-to guides
@@ -256,7 +256,7 @@
       - name: Custom logs
         href: platform/data-sources-custom-logs.md
       - name: Custom fields
-        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
+        href: platform/custom-fields.md
     - name: Configure applications
       items:
       - name: Azure apps
@@ -422,7 +422,7 @@
     - name: Collect custom data 
       items:
       - name: Log Analytics Data collector API 
-        href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: platform/create-pipeline-datacollector-api.md
       - name: Application data
@@ -704,7 +704,7 @@
         - name: Examples
           href: log-query/examples.md
         - name: Cross-resource searches
-          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+          href: platform/cross-workspace-query.md
         - name: app expression
           href: log-query/app-expression.md
         - name: workspace expression
@@ -716,11 +716,11 @@
         - name: Standard properties
           href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results
-        href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
+        href: log-query/take-action.md
       - name: Computer groups
         href: platform/computer-groups.md
       - name: Flow connector
-        href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
+        href: platform/flow-tutorial.md
       - name: Log Search API
         href: https://dev.loganalytics.io/
   - name: Respond to incidents
@@ -820,11 +820,11 @@
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
-        href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-overview.md
       - name: IT Service Management connections
         href: platform/itsmc-connections.md
       - name: Create Service Manager web app
-        href: ../log-analytics/log-analytics-itsmc-service-manager-script.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-service-manager-script.md
   - name: Manage usage and cost
     items:
     - name: Usage and estimated costs
