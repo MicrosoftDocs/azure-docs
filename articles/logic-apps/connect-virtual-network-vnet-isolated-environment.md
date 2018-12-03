@@ -81,8 +81,8 @@ find and select your virtual network.
 
    ![Add roles](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
 
-1. On the **Add role assignment** pane, add the Network Contributor 
-role to the Azure Logic Apps service as described in these steps. 
+1. On the **Add role assignment** pane, add the necessary role 
+to the Azure Logic Apps service as described. 
 
    1. Under **Role**, select **Network Contributor**. 
    
@@ -139,7 +139,7 @@ and then choose **Review + create**, for example:
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment | 
    | **Capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource | 
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
-   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets, which aren't delegated to any service and are used for creating resources in your environment. You *can't change* these IP ranges after you create your environment. <p><p>To create each subnet, follow the steps under this table. Each subnet must meet these criteria: <p>- Must not exist in the same address range for your selected virtual network nor any other private IP addresses where the virtual network is connected. <br>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Includes a `/27`. For example, each subnet here specifies a 32-bit address range: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, and `10.0.0.96/27`. <br>- Must be empty. |
+   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets. These subnets are undelegated to any service and are used for creating resources in your environment. You *can't change* these IP ranges after you create your environment. <p><p>To create each subnet, follow the steps under this table. Each subnet must meet these criteria: <p>- Must not exist in the same address range for your selected virtual network nor any other private IP addresses where the virtual network is connected. <br>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Includes a `/27`. For example, each subnet here specifies a 32-bit address range: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, and `10.0.0.96/27`. <br>- Must be empty. |
    |||||
 
    **Create subnet**
@@ -192,8 +192,8 @@ service environment (ISE), follow the steps in
 [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 but with these differences: 
 
-* When you create your logic app, select your ISE, rather than an Azure region, 
-from the **Location** list from the **Integration service environments** section, 
+* When you create your logic app, under the **Location** property, 
+select your ISE from the **Integration service environments** section, 
 for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
@@ -215,9 +215,9 @@ of these items:
   * HTTP action 
   * Custom connector
 
-  For on-premises systems that aren't in a virtual network 
-  or don't have ISE connectors, first 
-  [set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
+  For on-premises systems that aren't in a virtual 
+  network or don't have ISE connectors, first 
+  [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
 
@@ -229,12 +229,11 @@ account must use the *same environment* as the logic apps.
 Logic apps in an ISE can reference only integration 
 accounts in the same ISE. 
 
-To create an integration account that uses an ISE, follow the usual steps in 
+To create an integration account that uses an ISE, follow the steps in 
 [how to create integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-except for the **Location** property, which now lists 
-your ISEs under **Integration service environments** 
-along with available regions. Select your ISE, 
-rather than a region, for example:
+except for the **Location** property where the 
+**Integration service environments** section now appears. 
+Instead, select your ISE, rather than a region, for example:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
