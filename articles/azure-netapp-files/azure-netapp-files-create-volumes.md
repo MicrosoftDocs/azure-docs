@@ -70,5 +70,5 @@ A volume inherits subscription, resource group, location attributes from its cap
 
 ## Next steps  
 * [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
+* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

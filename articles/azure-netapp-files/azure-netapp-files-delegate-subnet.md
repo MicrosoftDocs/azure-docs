@@ -41,6 +41,6 @@ You can also create and delegate a subnet when you [create a volume for Azure Ne
 
 ## Next steps  
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
+* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 
 
