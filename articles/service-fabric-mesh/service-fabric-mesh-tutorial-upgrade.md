@@ -13,7 +13,7 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2018
+ms.date: 11/29/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to make code changes to my Service Fabric Mesh app and upgrade my app on Azure
@@ -49,38 +49,19 @@ This article shows how to upgrade a microservice within an application. In this 
 
 ## Modify the config
 
-When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yaml** file for each deployment environment (cloud and local). In these files, you can define parameters and their values that can then be referenced from your Mesh *.yaml files such as service.yaml or network.yaml.
+When you create a Service Fabric Mesh app, Visual studio adds a **parameters.yaml** file for each deployment environment (cloud and local). In these files, you can define parameters and their values that can then be referenced from your Mesh *.yaml files such as service.yaml or network.yaml.  Visual Studio provides some variables for you, such as how much CPU the service can use.
 
-We'll define a parameter to update the cpu resources to `1.0` in anticipation that the **WebFrontEnd** service will be more heavily used.
+We'll update the `WebFrontEnd_cpu` parameter to update the cpu resources to `1.5` in anticipation that the **WebFrontEnd** service will be more heavily used.
 
-There are two steps. First, define the parameters you want in the **parameters.yaml** file for the deployment environment you want to affect. Then use those parameters in your service's **service.yaml** file.
-
-1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `1.0`. The parameter name is prefaced with the service name `WebFrontEnd_` as a best practice to distinguish it from parameters of the same name that apply to different services.
+1. In the **todolistapp** project, under **Environments** > **Cloud**, open the **parameters.yaml** file. Modify the `WebFrontEnd_cpu`, value to `1.5`. The parameter name is prefaced with the service name `WebFrontEnd_` as a best practice to distinguish it from parameters of the same name that apply to different services.
 
     ```xml
-    WebFrontEnd_cpu: 1.0
+    WebFrontEnd_cpu: 1.5
     ```
 
-2.  In the **todolistapp** project, under **Environments** > **Local**, open the **parameters.yaml** file. Add the following at the top to define a new parameter, `WebFrontEnd_cpu`, with a value of `0.5`.
+2. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
 
-    ```xml
-    WebFrontEnd_cpu: 0.5
-    ```
-    
-3. Open the **WebFrontEnd** project's **service.yaml** file under **WebFrontEnd** > **Service Resources**.
-
-    In the `resources:` section, change `cpu:` from `0.5` to `"parameters('WebFrontEnd_cpu')]"`. It should now look like this:
-    
-    ```xml
-                  ...
-                  resources:
-                    requests:
-                      cpu: "[parameters('WebFrontEnd_cpu')]"
-                      memoryInGB: 1
-                  ...
-    ```
-    
-If the project is being built for the cloud, the value for `'WebFrontEnd_cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.0`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, instead.
+    Note that the in `resources:` section, `cpu:` is set to `"[parameters('WebFrontEnd_cpu')]"`. If the project is being built for the cloud, the value for `'WebFrontEnd_cpu` will be taken from the **Environments** > **Cloud** > **parameters.yaml** file, and will be `1.5`. If the project is being built to run locally, the value will be taken from the **Environments** > **Local** > **parameters.yaml** file, and will be '0.5'.
 
 > [!Tip]
 > By default, the parameter file that is a peer of the profile.yaml file will be used to supply the values for that profile.yaml file.

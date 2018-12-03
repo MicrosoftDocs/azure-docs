@@ -84,14 +84,16 @@ After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docke
 3. Run the following PowerShell command to create a development cluster:
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-
 4. To start the local cluster manager tool, run the following PowerShell command:
 
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
+5. Once the Service cluster manager tool is running (it appears in your system tray), right-click it and click **Start Local Cluster**.
+
+![Figure 1 - Start the local cluster](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 You're now ready to create Service Fabric Mesh applications!
 
