@@ -27,6 +27,8 @@
       href: storage-files-planning.md
     - name: Azure File Sync 
       href: storage-sync-files-planning.md
+    - name: Understanding cloud tiering
+      href: storage-sync-cloud-tiering.md
   - name: Understanding storage accounts
     href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Data redundancy
