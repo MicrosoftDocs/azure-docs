@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Use Azure Storage Explorer to create a blob in object storage"
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a directory and a blob. Next, you learn how to download the blob to your local computer, and how to view all of the blobs in a directory. You also learn how to create a snapshot of a blob, manage directory access policies, and create a shared access signature.
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a directory and a file. Next, you learn how to download the file to your local computer, and how to view all of the file in a directory. You also learn how to create a snapshot of a file, manage directory access policies, and create a shared access signature.
 services: storage
 author: tamram
 
@@ -23,7 +23,7 @@ This quickstart requires that you install Azure Storage Explorer. To install Azu
 
 ## Log in to Storage Explorer
 
-On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. Storage Explorer provides several ways to connect to storage accounts. The following table lists the different ways you can connect:
+On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
 
 |Task|Purpose|
 |---|---|
@@ -71,19 +71,13 @@ To download blobs using **Azure Storage Explorer**, with a blob selected, select
 
 ## Manage access policies
 
-Storage Explorer provides the ability to manage access policies for directorys within its user interface. There are two types of secure access policies (SAS), service level and account level. Account level SAS targets the storage account and can apply to multiple services and resources. Service level SAS are defined on a resource under a particular service. To generate a service level SAS, right-click any directory and select **Manage Access Policies...**. To generate an account level SAS, right-click on the storage account.
+Storage Explorer provides the ability to manage access policies for directories within its user interface. There are two types of secure access policies (SAS), service level and account level. Account level SAS targets the storage account and can apply to multiple services and resources. Service level SAS are defined on a resource under a particular service. To generate a service level SAS, right-click any directory and select **Manage Access Policies...**. To generate an account level SAS, right-click on the storage account.
 
 Select **Add** to add a new access policy and define the permissions for the policy. When complete select **Save** to save the access policy. This policy is now available for use when configuring a Shared Access Signature.
 
-## Work with Shared Access Signatures
-
-Shared Access Signatures (SAS) can be retrieved through Storage Explorer. Right-click a storage account, directory, or blob and choose **Get Shared Access Signature...**. Choose the start and expiry time, and permissions for the SAS URL and select **Create**. The full URL with the query string as well as the query string by itself are provided and can be copied from the next screen.
-
-![Microsoft Azure Storage Explorer - list blobs in a directory](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
-
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn about how to set ACLs on your files and directories, continue to our How-to on the subject.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-how-to-use-blobs-powershell.md)
+> [How to set ACLs on files and directories](data-lake-storage-how-to-set-acls-storage-explorer.md)
