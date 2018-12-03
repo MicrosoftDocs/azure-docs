@@ -275,6 +275,7 @@ There are various ways to use the logging APIs to record different types of metr
 |Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 
+<a name="auto"></a>
 ## Understanding automated ML charts
 
 After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. 

@@ -9,7 +9,7 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # Transform data with the Azure Machine Learning Data Prep SDK

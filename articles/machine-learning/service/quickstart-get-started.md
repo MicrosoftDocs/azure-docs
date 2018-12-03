@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
-ms.date: 11/30/2018
+ms.date: 12/04/2018
 ---
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
