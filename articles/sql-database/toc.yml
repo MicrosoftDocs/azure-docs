@@ -106,6 +106,8 @@
       href: sql-database-reserved-capacity.md 
   - name: Single databases
     items:
+    - name: Single database
+      href: sql-database-single-index.yml
     - name: Create and manage
       href: sql-database-single-databases-manage.md
     - name: vCore-based resource limits
