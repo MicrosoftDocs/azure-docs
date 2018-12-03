@@ -10,9 +10,9 @@ ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
 
-# Upgrade your big data analytics solutions to Azure Data lake Storage Gen2 Preview
+# Upgrade your big data analytics solutions to Azure Data Lake Storage Gen2 Preview
 
-If you're using Azure Data Lake Storage Gen1 in your big data analytics solutions, this guide helps you to upgrade those solutions to use Azure Data Lake Storage Gen2 Preview. You can use this document to assess the dependencies that your solution has on Data Lake Storage Gen1, and when those dependencies will be available in Data Lake Storage Gen2. This guide also shows you how to plan and perform the upgrade.
+If you're using Azure Data Lake Storage Gen1 in your big data analytics solutions, this guide helps you to upgrade those solutions to use Azure Data Lake Storage Gen2 Preview. You can use this document to assess the dependencies that your solution has on Data Lake Storage Gen1. This guide also shows you how to plan and perform the upgrade.
 
 We'll help you through the following tasks:
 
@@ -25,7 +25,7 @@ We'll help you through the following tasks:
 ## Assess your upgrade readiness
 
 Our goal is that all the capabilities that are present in Data Lake Storage Gen1 will be made available in Data Lake Storage Gen2. How those capabilities are exposed e.g. in SDK, CLI etc., might differ between Data Lake Storage Gen1 and Data Lake Storage Gen2. Applications and services that work with Data Lake Storage Gen1 need to be able to work similarly with Data Lake Storage Gen2. Finally, some of the capabilities won't be available in Data Lake Storage Gen2
-right away, but will be added over time. As they become available, we'll announce them in this document.
+right away. As they become available, we'll announce them in this document.
 
 These next sections will help you decide how best to upgrade to Data Lake Storage Gen2, and when it might make most sense to do so.
 
@@ -42,7 +42,7 @@ In addition, there are cross-cutting components to provision, manage and monitor
 
 **Figure 2** shows an example of how those components will be implemented by using specific technologies.
 
-The Storing functionality in **Figure1** is provided by Data Lake Storage Gen1 (**Figure 2**). Note how the various components in the data flow interact with Data Lake Storage Gen1 by using REST APIs or Java SDK. Also note how the cross-cutting functionality components interact with Data Lake Storage Gen1. The Provisioning component uses ARM templates, whereas the Monitoring component which uses Log Analytics utilizes operational data that comes from Data Lake Storage Gen1.
+The Storing functionality in **Figure1** is provided by Data Lake Storage Gen1 (**Figure 2**). Note how the various components in the data flow interact with Data Lake Storage Gen1 by using REST APIs or Java SDK. Also note how the cross-cutting functionality components interact with Data Lake Storage Gen1. The Provisioning component uses Azure Resource templates, whereas the Monitoring component which uses Log Analytics utilizes operational data that comes from Data Lake Storage Gen1.
 
 To upgrade a solution from using Data Lake Storage Gen1 to Data Lake Storage Gen2, you'll need to copy the data and meta-data, re-hook the data-flows, and then, all of the components will need to be able to work with Data Lake Storage Gen2.
 
@@ -58,7 +58,7 @@ The sections below provide information to help you make better decisions:
 
 :heavy_check_mark: Operational information
 
-In each section, you'll be able to determine the “must-haves” for your upgrade and when those “must haves” will be available. After you are assured that the capabilities are available, or you are assured that there are reasonable workarounds in place, proceed to the *Planning for an upgrade* section of this guide.
+In each section, you'll be able to determine the “must-haves” for your upgrade. After you are assured that the capabilities are available, or you are assured that there are reasonable workarounds in place, proceed to the [Planning for an upgrade](#planning-for-an-upgrade) section of this guide.
 
 ### Platform capabilities
 
@@ -66,7 +66,7 @@ This section describes which Data Lake Storage Gen1 platform capabilities that a
 
 | | Data Lake Storage Gen1 | Data Lake Storage Gen2 - goal | Data Lake Storage Gen2 - availability status  |
 |-----------------------|-----------------|----------------------|----------------------------------|
-| Data organization| Supports data stored as folders and files | Supports data stored as objects/blobs as well as folders and files - [Link](https://docs.microsoft.com/azure/storage/data-lake-storage/namespace) | Supports data stored as folders and file – *Available now* Supports data stored as objects/blobs - TBD|
+| Data organization| Supports data stored as folders and files | Supports data stored as objects/blobs as well as folders and files - [Link](https://docs.microsoft.com/azure/storage/data-lake-storage/namespace) | Supports data stored as folders and file – *Available now* Supports data stored as objects/blobs - *Not yet available* |
 | Namespace| Hierarchical namespace| Flat namespace and Hierarchical namespaces | Flat namespace: *Available now*  |
 | API  | REST API over HTTPS | REST API over HTTP/HTTPS| *Available now* |
 | Server-side API| [WebHDFS-compatible REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) | Azure Blob Service REST API [Data Lake Storage Gen2 REST API](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) | *Data Lake Storage Gen2 REST API – Available now Azure Blob Service REST API – Not yet available*       |
@@ -103,7 +103,7 @@ Management APIs help you to manage accounts, while filesystem APIs help you to o
 | PowerShell - management and filesystem | [Link](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/?view=azurermps-6.3.0)                                                                                                                                                                                                                        | Management – Not supported Filesystem - *Not yet available*        | Management – *Available now -* [Link](https://docs.microsoft.com/powershell/module/azure.storage/?view=azurermps-6.13.0) Filesystem - *Not yet available* |
 | CLI – management                       | [Link](https://docs.microsoft.com/cli/azure/dls/account?view=azure-cli-latest)                                                                                                                                                                                                                                          | Not supported                                                      | *Available now -* [Link](https://docs.microsoft.com/cli/azure/storage?view=azure-cli-latest)                                                              |
 | CLI - filesystem                       | [Link](https://docs.microsoft.com/cli/azure/dls/fs?view=azure-cli-latest)                                                                                                                                                                                                                                               | *Not yet available*                                                | *Not yet available*                                                                                                                                             |
-| ARM templates - management             | [Template1](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/)  [Template2](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/)  [Template3](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/)  | Not supported                                                      | *Available now -* [Link](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)                                         |
+| Azure Resource Manager templates - management             | [Template1](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/)  [Template2](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/)  [Template3](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/)  | Not supported                                                      | *Available now -* [Link](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)                                         |
 
 ### Azure ecosystem
 
@@ -161,7 +161,7 @@ Data Lake Storage Gen1 pushes specific information and data to other services wh
 
 ## Planning for an upgrade
 
-This section assumes that you've reviewed the *Assess your upgrade readiness* section of this guide, and that all of your dependencies are met. If there are capabilities that are still not available in Data Lake Storage Gen2, please proceed only if you know the corresponding workarounds. The following sections provide guidance on how you can plan for upgrade of your pipelines. Performing the actual upgrade will be described in the *Performing the upgrade* section of this guide.
+This section assumes that you've reviewed the [Assess your upgrade readiness](#assess-your-upgrade-readiness) section of this guide, and that all of your dependencies are met. If there are capabilities that are still not available in Data Lake Storage Gen2, please proceed only if you know the corresponding workarounds. The following sections provide guidance on how you can plan for upgrade of your pipelines. Performing the actual upgrade will be described in the [Performing the upgrade](#performing-the-upgrade) section of this guide.
 
 ### Upgrade strategy
 
@@ -225,7 +225,7 @@ These steps are not meant to be prescriptive. They are meant to set the framewor
 
 ### Data upgrade
 
-The overall strategy that you use to perform your upgrade (described in the *Upgrade strategy* section of this guide), will determine the tools that you can use for your data upgrade. The tools listed below are based on current information and are suggestions. We will update the list as more tools become available.
+The overall strategy that you use to perform your upgrade (described in the [Upgrade strategy](#upgrade-strategy) section of this guide), will determine the tools that you can use for your data upgrade. The tools listed below are based on current information and are suggestions. We will update the list as more tools become available.
 
 #### Tools guidance
 
@@ -241,15 +241,15 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 #### Considerations
 
-1. You'll need to manually create the Data Lake Storage Gen2 account first, before you start any part of the upgrade, since the current guidance does not include any automatic Gen2 account process based on your Gen1 account information. Ensure that you compare the accounts creation processes for [Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) and [Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-account).
+* You'll need to manually create the Data Lake Storage Gen2 account first, before you start any part of the upgrade, since the current guidance does not include any automatic Gen2 account process based on your Gen1 account information. Ensure that you compare the accounts creation processes for [Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) and [Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-account).
 
-2. Data Lake Storage Gen2, only supports files up to 5 TB in size. To upgrade to Data Lake Storage Gen2, you might need to resize the files in Data Lake Storage Gen1 so that they are larger than 5 TB in size.
+* Data Lake Storage Gen2, only supports files up to 5 TB in size. To upgrade to Data Lake Storage Gen2, you might need to resize the files in Data Lake Storage Gen1 so that they are larger than 5 TB in size.
 
-3. If you use a tool that doesn't copy ACLs or you don't want to copy over the ACLs, then you'll need to set the ACLs on the destination manually at the appropriate top level. You can do that by using Storage Explorer. Ensure that those ACLs are the default ACLs so that the files and folders that you copy over inherit them.
+* If you use a tool that doesn't copy ACLs or you don't want to copy over the ACLs, then you'll need to set the ACLs on the destination manually at the appropriate top level. You can do that by using Storage Explorer. Ensure that those ACLs are the default ACLs so that the files and folders that you copy over inherit them.
 
-4. In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen1, however, the highest level you can set ACLs is at the root folder in a filesystem, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
+* In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen1, however, the highest level you can set ACLs is at the root folder in a filesystem, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
 
-5. File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
+* File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
 
 ### Application upgrade
 
@@ -305,9 +305,9 @@ As part of the planning process, you'll need to identify your application and fi
 
 Depending on the upgrade strategy you choose, the steps will differ. The current section assumes that you've chosen the “Life-and-shift” strategy. Also, the existing Databricks workspace that used to access data in a Data Lake Storage Gen1 account is expected to work with the data that is copied over to Data Lake Storage Gen2 account.
 
-First, make sure that you've created the Gen2 account, and then copied over data and meta from Gen1 to Gen2 by using an appropriate tool. Those tools are called out in *Data upgrade* section of this guide.
+First, make sure that you've created the Gen2 account, and then copied over data and meta from Gen1 to Gen2 by using an appropriate tool. Those tools are called out in [Data upgrade](#data-upgrade) section of this guide.
 
-The, [upgrade](https://docs.databricks.com/user-guide/clusters/index.html) your existing Databricks cluster to start using Databricks runtime 5.1 or higher, which should support Data Lake Storage Gen2.
+Then, [upgrade](https://docs.databricks.com/user-guide/clusters/index.html) your existing Databricks cluster to start using Databricks runtime 5.1 or higher, which should support Data Lake Storage Gen2.
 
 The steps thereafter are based on how the existing Databricks workspace accesses data in the Data Lake Storage Gen1 account. It can be done either through [mountpoints](https://docs.databricks.com/spark/latest/data-sources/azure/azure-datalake.html#mount-azure-data-lake-store-with-dbfs) or by calling adl:// URIs directly from the notebooks.
 
@@ -326,7 +326,7 @@ Guidance will be made available shortly.
 
 ### Azure ecosystem upgrade
 
-Each of the tools and services called out in *Azure ecosystem* section of this guide will have to be configured to work with Data Lake Storage Gen2.
+Each of the tools and services called out in [Azure ecosystem](#azure-ecosystem) section of this guide will have to be configured to work with Data Lake Storage Gen2.
 
 First, ensure that there is integration available with Data Lake Storage Gen2.
 
@@ -340,7 +340,7 @@ Please work with the partner providing the component and tools to ensure they ca
 
 ### Pre-upgrade
 
-As part of this, you would have gone through the *Assess your upgrade readiness* section and the *Planning for upgrade* section of this guide, you've received all of the necessary information, and you've created a plan that would meet your needs. You probably will have a testing task during this phase.
+As part of this, you would have gone through the *Assess your upgrade readiness* section and the [Planning for an upgrade](#planning-for-an-upgrade) section of this guide, you've received all of the necessary information, and you've created a plan that would meet your needs. You probably will have a testing task during this phase.
 
 ### In-upgrade
 
