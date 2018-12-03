@@ -23,6 +23,7 @@ This best practices article focuses on storage considerations for cluster operat
 
 **Best practice guidance** - Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for network-based storage when there is a need for multiple concurrent connections.
 
+Applications often require different types and speeds of storage.
 
 | Use case | Volume plugin | ReadWriteOnce | ReadOnlyMany | ReadWriteMany |
 |----------|---------------|---------------|--------------|---------------|
@@ -31,24 +32,25 @@ This best practices article focuses on storage considerations for cluster operat
 | App data, read-only shares | Dysk (preview) | Yes | Yes | No  |
 | Unstructured data, file system operations | BlobFuse (preview) | Yes | Yes | Yes |
 
-
 Azure Files, Azure Disk, Dysk, BlobFuse
 Storage classes to control fast and slow tiers, available sizes, etc. Tie in with resource quotas
 
 ## Size the nodes for performance and attached disks
 
-**Best practice guidance** - Each node VM size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth. Plan for your application demands to deploy the appropriate sized nodes.
+**Best practice guidance** - Each node size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth. Plan for your application demands to deploy the appropriate size of nodes.
 
-AKS nodes use Azure VMs, with a choice of different types and sizes available. Each VM size provides a different amount of core resources such as CPU and memory. Different VM sizes also have a maximum number of disks that can be attached. The storage performance varies between VM sizes for the maximum local and attached disk IOPS.
+AKS nodes run as Azure VMs. Different types and sizes of VM are available. Each VM size provides a different amount of core resources such as CPU and memory. These VM sizes have a maximum number of disks that can be attached. Storage performance also varies between VM sizes for the maximum local and attached disk IOPS (input/output operations per second).
 
-If your applications require Azure Disks as their storage solution, plan for and choose an appropriate node VM size. CPU and memory isn't the only factor when you choose a VM size. For example, both the *Standard_B2ms* and *Standard_DS2_v2* VM sizes include a similar amount of CPU and memory resources. Their potential storage performance is quite different, as shown in the following table:
+If your applications require Azure Disks as their storage solution, plan for and choose an appropriate node VM size. The amount of CPU and memory isn't the only factor when you choose a VM size. The storage capabilities are also important. For example, both the *Standard_B2ms* and *Standard_DS2_v2* VM sizes include a similar amount of CPU and memory resources. Their potential storage performance is quite different, as shown in the following table:
 
 | Node type and size | vCPU | Memory (GiB) | Max data disks | Max uncached disk IOPS | Max uncached throughput (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
 | Standard_B2ms      | 2    | 8            | 4              | 1,920                  | 22.5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6,400                  | 96                             |
 
-The *Standard_DS2_v2* allows double the number of 
+Here, the *Standard_DS2_v2* allows double the number of attached disks, and provides three to four times the amount of IOPS and disk throughput. If you only looked at the core compute resources and compared costs, you may choose the *Standard_B2ms* VM size and have poor storage performance and limitations. Work with your application development team to understand their storage capacity and performance needs. Choose the appropriate VM size for the AKS nodes to meet or exceed their performance needs. Regularly baseline applications to adjust VM size as needed.
+
+For more information about available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
 ## Dynamically provision volumes
 
@@ -73,3 +75,4 @@ This article focused on storage best practices in AKS. For more information abou
 
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
+[vm-sizes]: ../virtual-machines/linux/sizes.md
