@@ -1,4 +1,3 @@
-
 ---
 title: Group Policy and MDM settings | Microsoft Docs
 description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices. These policies are applied to the user’s entire device.

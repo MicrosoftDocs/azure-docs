@@ -11,13 +11,13 @@ ms.author: seguler
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 Preview
 
-If you have an HDInsight cluster with access to Azure Data Lake Storage Gen2 Preview, you can use Hadoop ecosystem tools like [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Storage Gen2 capable account. This article provides instructions on how use the Distcp tool.
+If you have an HDInsight cluster and are enrolled in Azure Data Lake Storage Gen2's Preview, you can use Hadoop ecosystem tools like [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) to copy data **to and from** an HDInsight cluster storage (WASB) into a storage account with Data Lake Storage Gen2 enabled. This article provides instructions on how use the Distcp tool.
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2 Preview storage account](quickstart-create-account.md)
-* **Azure HDInsight cluster** with access to a Data Lake Storage account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
+* **An Azure Storage account with Data Lake Storage Gen2 (Preview) feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2 Preview storage account](quickstart-create-account.md)
+* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
 
 ## Use Distcp from an HDInsight Linux cluster
 
@@ -91,4 +91,4 @@ When the size of the dataset to be moved is large (for example, >1 TB) or if you
 
 * DistCp is limited to only one mapper per file. Therefore, you should not have more mappers than you have files. Since DistCp can only assign one mapper to a file, this limits the amount of concurrency that can be used to copy large files.
 
-* If you have a small number of large files, then you should split them into 256 MB file chunks to give you more potential concurrency. 
+* If you have a small number of large files, then you should split them into 256 MB file chunks to give you more potential concurrency.

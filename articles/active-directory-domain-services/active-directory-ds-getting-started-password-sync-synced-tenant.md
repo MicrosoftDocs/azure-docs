@@ -46,7 +46,7 @@ A synced Azure AD tenant is set to synchronize with your organization's on-premi
 ### Install or update Azure AD Connect
 Install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, always use the latest version of Azure AD Connect.
 
-**[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Recommended version: **1.1.614.0** - published on September 5, 2017.
 

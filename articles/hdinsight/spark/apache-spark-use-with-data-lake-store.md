@@ -3,8 +3,8 @@ title: Use Apache Spark to analyze data in Azure Data Lake Store
 description: Run Spark jobs to analyze data stored in Azure Data Lake Store
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.date: 02/21/2018
 
 # Use HDInsight Spark cluster to analyze data in Data Lake Store
 
-In this tutorial, you use Jupyter notebook available with HDInsight Spark clusters to run a job that reads data from a Data Lake Store account.
+In this tutorial, you use [Jupyter Notebook](https://jupyter.org/) available with HDInsight Spark clusters to run a job that reads data from a Data Lake Store account.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 >
 >
 
-If you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
+If you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
 1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
@@ -56,7 +56,7 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
 
 ## Use an HDInsight Spark cluster with Data Lake Store
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Apache Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -110,7 +110,7 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
 			# Register the data fram as a table to run queries against
 			hvacdf.registerTempTable("hvac")
 
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -129,5 +129,5 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
 ## Next steps
 
 * [Create a standalone Scala application to run on Apache Spark cluster](apache-spark-create-standalone-application.md)
-* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for HDInsight Spark Linux cluster](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark Linux cluster](apache-spark-eclipse-tool-plugin.md)
+* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight Spark Linux cluster](apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications for HDInsight Spark Linux cluster](apache-spark-eclipse-tool-plugin.md)

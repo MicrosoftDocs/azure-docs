@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -290,7 +290,7 @@ You can create a service connection using the following mapping:
 | Subscription name | name@contoso.com | User subscription name from Azure Stack. |
 | Service Principal client ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | The principal ID from [this](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article. |
 | Service Principal key | THESCRETGOESHERE= | The key from the same article (or the password if you used the script). |
-| Tenant ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | The tenant ID you retrieve following the instruction at Get the tenant ID. The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Tenant ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Connection: | Not verified | Validate your connection settings to the service principal. |
 
 Now that the endpoint is created, the DevOps to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from DevOps, and then the agent conveys endpoint information for communication with Azure Stack.
@@ -315,7 +315,7 @@ You can create a service connection using the following mapping:
 | Subscription name | name@contoso.com | User subscription name from Azure Stack. |
 | Service Principal client ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | The client ID from the Service Principal you created for AD FS. |
 | Certificate | `<certificate>` |  Convert the certificate file from PFX to PEM. Paste certificate PEM file content into this field. <br> Converting PFX to PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| Tenant ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | The tenant ID you retrieve following the instruction at Get the tenant ID. The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Tenant ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Connection: | Not verified | Validate your connection settings to the service principal. |
 
 Now that the endpoint is created, the Azure DevOps to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure DevOps, and then the agent conveys endpoint information for communication with Azure Stack.

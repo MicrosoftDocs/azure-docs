@@ -2,21 +2,21 @@
 title: Process events from Event Hubs with Storm - Azure HDInsight 
 description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight tools for Visual Studio.
 services: hdinsight,notification hubs
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 ---
-# Process events from Azure Event Hubs with Storm on HDInsight (C#)
+# Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)
 
-Learn how to work with Azure Event Hubs from Apache Storm on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
+Learn how to work with Azure Event Hubs from [Apache Storm](http://storm.apache.org/) on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
 
 > [!NOTE]
-> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> For a Java version of this project, see [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## SCP.NET
 
@@ -110,7 +110,7 @@ You can download a complete version of the project created in this tutorial from
 
 * An [Azure event hub](../../event-hubs/event-hubs-create.md).
 
-* The [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+* The [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
 * The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -220,4 +220,4 @@ In this document, you have learned how to use the Java Event Hubs spout and bolt
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP programming guide](apache-storm-scp-programming-guide.md)
-* [Example topologies for Storm on HDInsight](apache-storm-example-topology.md)
+* [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)

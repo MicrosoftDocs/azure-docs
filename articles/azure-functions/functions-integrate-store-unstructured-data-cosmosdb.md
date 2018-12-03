@@ -103,6 +103,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
         taskDocument = null;
         return (ActionResult)new BadRequestResult();
     }
+}
 ```
 
 # [JavaScript](#tab/nodejs)

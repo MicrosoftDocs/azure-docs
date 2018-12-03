@@ -21,7 +21,7 @@ This demo illustrates a pizza ordering bot. It supports ordering of a single piz
 
 ## Video
 
-[![Demo Pizza Preview](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+[![Demo Pizza Preview](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
 
 ## Requirements
 This tutorial requires that the pizza order bot is running

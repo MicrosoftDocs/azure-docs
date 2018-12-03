@@ -129,7 +129,12 @@ In this tutorial, you learn how to:
 
 To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
 
-* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md)
+- [Connect Apache Flink to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md)
+- [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)

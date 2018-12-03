@@ -1,18 +1,18 @@
 ---
-title: Use Hadoop Hive and Remote Desktop in HDInsight - Azure 
+title: Use Apache Hive and Remote Desktop in HDInsight - Azure 
 description: Learn how to connect to Hadoop cluster in HDInsight by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Use Hive with Hadoop on HDInsight with Remote Desktop
+# Use Apache Hive with Apache Hadoop on HDInsight with Remote Desktop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 In this article, you will learn how to connect to an HDInsight cluster by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface (CLI).

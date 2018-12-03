@@ -155,14 +155,14 @@ app's system-assigned managed identity, follow these steps:
 you want to assign access for your managed identity. 
 
 1. From the resource's menu, select **Access control (IAM)**, 
-and choose **Add**. 
+and choose **Add role assignment**. 
 
-   ![Add permissions](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Add role assignment](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Under **Add permissions**, select the **Role** you want for the identity. 
+1. Under **Add role assignment**, select the **Role** you want for the identity. 
 
 1. In the **Assign access to** property, 
-select **Azure AD user, group, or application**, 
+select **Azure AD user, group, or service principal**, 
 if not already selected.
 
 1. In the **Select** box, starting with the first character 

@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -26,14 +26,14 @@ Azure Migrate helps you to:
 ## Current limitations
 
 - You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
-- If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
+- If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
 -  You can only create an Azure Migrate project in the United States geography. However, you can plan a migration to any target Azure location.
     - Only metadata discovered from the on-premises environment is stored in the migration project region.
-    - Metadata is stored in one of the regions in the geography: West Central US/East US.
-    - If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project.
+    - Metadata is stored in one of the regions in the selected geography: West Central US/East US.
+    - If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
 
 
 ## What do I need to pay for?
@@ -47,18 +47,18 @@ Assessment settings can be customized based on your needs. Assessment properties
 
 **Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to West US 2.
-**Storage type** | the type of disks you want to allocate in Azure. This is applicable when the sizing criterion is **as on-premises**. You specify the target disk type either as premium (the default) or standard managed disks. For performance-based sizing, the disk sizing recommendation is automatically done based on the performance data of the VMs.
-**Sizing criterion** | Sizing can be based on **performance history** of the on-premises VMs, or **as on-premises** (the default), without considering performance history.
+**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 33 regions as migration target locations. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to West US 2.
+**Storage type** | The type of managed disks you want to allocate for all VMs that are part of the assessment. If the sizing criterion is *as on-premises sizing* you can specify the target disk type either as premium disks (the default), standard SSD disks or standard HDD disks. For *performance-based sizing*, along with the above options, you also have the option to select Automatic which will ensure that the disk sizing recommendation is automatically done based on the performance data of the VMs. For example, if you want to achieve a [single instance VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), you may want to specify the storage type as Premium managed disks which will ensure that all disks in the assessment will be recommended as Premium managed disks. Note that Azure Migrate only supports managed disks for migration assessment.
+**Reserved Instances** |  Whether you have [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate estimates the cost accordingly.
+**Sizing criterion** | Sizing can be based on **performance history** of the on-premises VMs (the default), or **as on-premises**, without considering performance history.
+**Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using performance history for the last day, with a 95% percentile value.
+**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
+**VM series** | The VM series used for size estimations. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series. Sizing is based on the selected series only.   
+**Currency** | Billing currency. Default is US dollars.
+**Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%.
+**VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration (number of days per month and number of hours per day) for which they would be running and the cost estimations will be done accordingly. The default value is 31 days per month and 24 hours per day.
 **Azure offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled to. Azure Migrate estimates the cost accordingly.
 **Azure Hybrid Benefit** | Whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) with discounted costs.
-**Reserved Instances** |  Whether you have [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate estimates the cost accordingly.
-**VM uptime** | The duration for which VMs will run in Azure. Cost estimations are done accordingly.
-**Pricing tier** | The [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if you are planning to migrate a production environment, you might consider the standard tier, which provides VMs with low latency, but might cost more. On the other hand, in a test environment, you could use the basic tier with higher latency and lower costs. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
-**Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using performance history for the last day, with a 95% percentile value.
-**VM series** | The VM series used for size estimations. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series. Sizing is based on the selected series only.   
-**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
-
 
 ## How does Azure Migrate work?
 

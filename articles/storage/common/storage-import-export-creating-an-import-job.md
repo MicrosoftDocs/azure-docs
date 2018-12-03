@@ -29,7 +29,7 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 
 The steps to prepare drives for an import job are the same whether you create the jobvia the portal or via the REST API.
 
-Below is a brief overview of drive preparation. Refer to the [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) for complete instructions. You can download the Azure Import/Export Tool [here](http://go.microsoft.com/fwlink/?LinkID=301900).
+Below is a brief overview of drive preparation. Refer to the [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) for complete instructions. You can download the Azure Import/Export Tool [here](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 Preparing your drive involves:
 

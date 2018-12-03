@@ -1,6 +1,6 @@
 ---
 title: Automate custom reports with Azure Application Insights data
-description: Automate custom daily/weekly/monthly reports with Azure Application Insights data 
+description: Automate custom daily/weekly/monthly reports with Azure Application Insights data
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -8,11 +8,10 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
-ms.author:  mbullwin
+ms.author: mbullwin
 ---
 
 # Automate custom reports with Azure Application Insights data

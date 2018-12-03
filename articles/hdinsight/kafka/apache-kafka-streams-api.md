@@ -3,23 +3,23 @@ title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
 description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 11/06/2018
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
 # Tutorial: Apache Kafka streams API
 
-Learn how to create an application that uses the Kafka Streams API and run it with Kafka on HDInsight. 
+Learn how to create an application that uses the Apache Kafka Streams API and run it with Kafka on HDInsight. 
 
 The application used in this tutorial is a streaming word count. It reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
 
 > [!NOTE]
-> Kafka stream processing is often done using Apache Spark or Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. 
+> Kafka stream processing is often done using Apache Spark or Apache Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. 
 >
 > For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A Kafka on HDInsight 3.6 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+* A Kafka on HDInsight 3.6 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
-* Complete the steps in the [Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
+* Complete the steps in the [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
 ## Set up your development environment
 
@@ -80,7 +80,7 @@ The important things to understand in the `pom.xml` file are:
 
 ### Stream.java
 
-The `Stream.java` file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
+The [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
 
 The following code defines the word count application:
 
@@ -154,7 +154,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
    
     Replace `sshuser` with the SSH user for your cluster, and replace `clustername` with the name of your cluster. If prompted, enter the password for the SSH user account. For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Create Kafka topics
+## Create Apache Kafka topics
 
 1. To open an SSH connection to the cluster, use the following command:
 
@@ -171,7 +171,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. To get the Kafka broker hosts and the Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account. You are prompted for the password twice.
+3. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account. You are prompted for the password twice.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -251,7 +251,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 
 ## Next steps
 
-In this document, you learned how to use the Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
+In this document, you learned how to use the Apache Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)

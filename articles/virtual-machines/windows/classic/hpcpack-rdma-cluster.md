@@ -53,19 +53,19 @@ in an Azure VM.
     Download the HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Configure a management certificate in the Azure subscription**
    
-    Configure a certificate to secure the connection between the head node and Azure. For options and procedures, see [Scenarios to Configure the Azure Management Certificate for HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). For test deployments, HPC Pack installs a Default Microsoft HPC Azure Management Certificate you can quickly upload to your Azure subscription.
+    Configure a certificate to secure the connection between the head node and Azure. For options and procedures, see [Scenarios to Configure the Azure Management Certificate for HPC Pack](https://technet.microsoft.com/library/gg481759.aspx). For test deployments, HPC Pack installs a Default Microsoft HPC Azure Management Certificate you can quickly upload to your Azure subscription.
 3. **Create a new cloud service and a storage account**
    
     Use the Azure portal to create a cloud service (classic) and a storage account (classic) for the deployment. Create these resources in a region where the H-series, A8, or A9 size you want to use is available. See [Azure products by region](https://azure.microsoft.com/regions/services/).
 
 4. **Create an Azure node template**
    
-    Use the Create Node Template Wizard in HPC Cluster Manager. For steps, see [Create an Azure node template](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in “Steps to Deploy Azure Nodes with Microsoft HPC Pack”.
+    Use the Create Node Template Wizard in HPC Cluster Manager. For steps, see [Create an Azure node template](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in “Steps to Deploy Azure Nodes with Microsoft HPC Pack”.
    
     For initial tests, we suggest configuring a manual availability policy in the template.
 5. **Add nodes to the cluster**
    
-    Use the Add Node Wizard in HPC Cluster Manager. For more information, see [Add Azure Nodes to the Windows HPC Cluster](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Use the Add Node Wizard in HPC Cluster Manager. For more information, see [Add Azure Nodes to the Windows HPC Cluster](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
     When specifying the size of the nodes, select one of the RDMA-capable instance sizes.
    
@@ -78,7 +78,7 @@ in an Azure VM.
     Select the nodes and use the **Start** action in HPC Cluster Manager. When provisioning is complete, select the nodes and use the **Bring Online** action in HPC Cluster Manager. The nodes are ready to run jobs.
 7. **Submit jobs to the cluster**
    
-   Use HPC Pack job submission tools to run cluster jobs. See [Microsoft HPC Pack: Job Management](http://technet.microsoft.com/library/jj899585.aspx).
+   Use HPC Pack job submission tools to run cluster jobs. See [Microsoft HPC Pack: Job Management](https://technet.microsoft.com/library/jj899585.aspx).
 8. **Stop (deprovision) the nodes**
    
    When you are done running jobs, take the nodes offline and use the **Stop** action in HPC Cluster Manager.

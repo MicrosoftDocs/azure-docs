@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.component: na
 ---
 
 # app() expression in Log Analytics query
@@ -75,4 +74,4 @@ union
 ## Next steps
 
 - See the [workspace expression](workspace-expression.md) to refer to Log Analytics workspace.
-- Read about how [Log Analytics data](../../log-analytics/log-analytics-log-search.md) is stored.
+- Read about how [Log Analytics data](../../azure-monitor/log-query/log-query-overview.md) is stored.

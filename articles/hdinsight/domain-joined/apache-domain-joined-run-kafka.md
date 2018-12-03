@@ -1,5 +1,5 @@
 ---
-title: Configure Kafka policies in HDInsight with Enterprise Security Package - Azure
+title: Configure Apache Kafka policies in HDInsight with Enterprise Security Package - Azure
 description: Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
@@ -10,9 +10,9 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
 
-Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
+Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
 
 In this tutorial, you learn how to:
 
@@ -118,7 +118,7 @@ To create two topics, **salesevents** and **marketingspend**:
 > Before proceeding, you may need to setup your development environment if you have not already done so. You will need components such as the Java JDK, Apache Maven and an SSH client with scp. See these [setup instructions](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) for more details.
 1. Download the [Apache Kafka domain-joined producer consumer examples](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Follow Steps 2 and 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Follow Steps 2 and 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
 
 1. Run the following commands:
 

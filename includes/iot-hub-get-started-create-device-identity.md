@@ -12,7 +12,7 @@
 
 ## Create a device identity
 
-In this section, you use the Azure CLI to create a device identity for this tutorial. The Azure CLI is preinstalled in the [Azure Cloud Shell](https://docs.microsoft.com/zure/cloud-shell/overview), or you can [install it locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Device IDs are case sensitive.
+In this section, you use the Azure CLI to create a device identity for this tutorial. The Azure CLI is preinstalled in the [Azure Cloud Shell](~/articles/cloud-shell/overview.md), or you can [install it locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Device IDs are case sensitive.
 
 1. Run the following command in the command-line environment where you are using the Azure CLI to install the IoT extension:
 

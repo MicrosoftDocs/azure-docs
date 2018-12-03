@@ -34,7 +34,7 @@ Event Hubs receieving data from Azure Diagnostics is supported in Cloud Services
 * Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
 * [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
-  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
@@ -64,7 +64,7 @@ By default, Azure Diagnostics always sends logs and metrics to an Azure Storage 
 
 In this example, the event hub URL is set to the fully qualified namespace of the event hub: Event Hubs namespace  + "/" + event hub name.  
 
-The event hub URL is displayed in the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
+The event hub URL is displayed in the [Azure portal](https://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
 The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file.
 

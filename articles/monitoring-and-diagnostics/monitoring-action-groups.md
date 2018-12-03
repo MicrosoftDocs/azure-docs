@@ -5,21 +5,23 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
-An action group is a collection of notification preferences defined by the user. Azure Monitor and Service Health alerts are configured to use a specific action group when the alert is triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+
+When an action is configured to notify a person by email or SMS the person will receive a confirmation indicating he / she has been added to the action group.
 
 This article shows you how to create and manage action groups in the Azure portal.
 
 Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: Send an Voice call or SMS, send an email, call a webhook, send data to an ITSM tool, call a Logic App, send a push notification to the Azure app, or run an Automation runbook.
-* **Details**: The corresponding phone number, email address, webhook URI, or ITSM Connection Details.
+* **Action type**: The action to perform. Examples include sending a voice call, SMS, email; or triggering various types of automated actions. See types later in this article. 
+* **Details**: The corresponding details which vary by *action type*. 
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -51,64 +53,52 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 1. Select **OK** to create the action group.
 
-## Action specific information
-<dl>
-<dt>Azure app Push</dt>
-<dd>You may have up to 10 Azure app actions in an Action Group.</dd>
-<dd>At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
-
-<dt>Email</dt>
-<dd>Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>You may have up to 1000 email actions in an Action Group</dd>
-<dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
-
-<dt>ITSM</dt>
-<dd>You may have up to 10 ITSM actions in an Action Group</dd>
-<dd>ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).</dd>
-
-<dt>Logic App</dt>
-<dd>You may have up to 10 Logic App actions in an Action Group</dd>
-
-<dt>Runbook</dt>
-<dd>You may have up to 10 Runbook actions in an Action Group</dd>
-<dd>Refer to the [Azure subscription service limits](../azure-subscription-service-limits.md) for limits on Runbook payloads</dd>
-
-<dt>SMS</dt>
-<dd>You may have up to 10 SMS actions in an Action Group</dd>
-<dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
-<dd>See the [SMS alert behavior](monitoring-sms-alert-behavior.md) article</dd>
-
-<dt>Voice</dt>
-<dd>You may have up to 10 Voice actions in an Action Group</dd>
-<dd>See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
-
-<dt>Webhook</dt>
-<dd>You may have up to 10 Webhook actions in an Action Group
-<dd>Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.</dd>
-<dd>Source IP address ranges
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert](./monitoring-service-notifications.md) which monitors for Informational notifications about the Action Groups service.
-</dd>
-</dl>
-
 ## Manage your action groups ##
 After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
+
+## Action specific information
+**Azure app Push** - You may have up to 10 Azure app actions in an Action Group. At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+
+**Email** - Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+You may have up to 1000 email actions in an Action Group. See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article
+
+**ITSM** - You may have up to 10 ITSM actions in an Action Group
+ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).
+
+**Logic App** - You may have up to 10 Logic App actions in an Action Group
+
+**Function App** - The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) for more information.
+
+**Runbook** - You may have up to 10 Runbook actions in an Action Group
+Refer to the [Azure subscription service limits](../azure-subscription-service-limits.md) for limits on Runbook payloads
+
+**SMS** - You may have up to 10 SMS actions in an Action Group
+See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article
+See the [SMS alert behavior](monitoring-sms-alert-behavior.md) article
+
+**Voice** - You may have up to 10 Voice actions in an Action Group</dd>
+See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article</dd>
+
+**Webhook** - You may have up to 10 Webhook actions in an Action Group. 
+Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.
+
+Source IP address ranges
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert](./monitoring-service-notifications.md) which monitors for Informational notifications about the Action Groups service.
+
 
 ## Next steps ##
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  

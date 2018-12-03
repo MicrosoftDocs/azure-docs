@@ -3,7 +3,7 @@ title: Microsoft Azure Storage Explorer release notes
 description: Release notes for Microsoft Azure Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid:

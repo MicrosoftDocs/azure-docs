@@ -8,10 +8,11 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/17/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
+
 
 # Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset
 
@@ -47,27 +48,27 @@ Choose **All services** in the top-left corner of the Azure portal, search for a
 
 When you are done, you will have both an API and a native application in your application settings.
 
-## Create policies on your B2C tenant
+## Create user flows on your B2C tenant
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: **sign-up & sign-in**, **profile edit**, and **password reset**.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md). For each policy, be sure to select the Display name attribute or claim, and to copy down the name of your policy for later use.
+In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). User flows are predefined policies that are available in the Azure AD B2C portal to help you set up the most common identity experiences. This code sample contains three identity experiences: **sign-up & sign-in**, **profile edit**, and **password reset**.  You need to create one user flow of each type, as described in the [user flow reference article](active-directory-b2c-reference-policies.md). For each user flow, be sure to select the Display name attribute or claim, and to copy down the name of your user flow for later use.
 
 ### Add your identity providers
 
 From your settings, select **Identity Providers** and choose Username signup or Email signup.
 
-### Create a sign-up and sign-in policy
+### Create a sign-up and sign-in user flow
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### Create a profile editing policy
+### Create a profile editing user flow
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### Create a password reset policy
+### Create a password reset user flow
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-After you create your policies, you're ready to build your app.
+After you create your user flows, you're ready to build your app.
 
 ## Download the sample code
 
@@ -79,16 +80,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 After you download the sample code, open the Visual Studio .sln file to get started. The solution file contains two projects: `TaskWebApp` and `TaskService`. `TaskWebApp` is the MVC web application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list. This article will only discuss the `TaskWebApp` application. To learn how to build `TaskService` using Azure AD B2C, see [our .NET web api tutorial](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## Update code to use your tenant and policies
+## Update code to use your tenant and user flows
 
-Our sample is configured to use the policies and client ID of our demo tenant. To connect it to your own tenant, you need to open `web.config` in the `TaskWebApp` project and replace the following values:
+Our sample is configured to use the user flows and client ID of our demo tenant. To connect it to your own tenant, you need to open `web.config` in the `TaskWebApp` project and replace the following values:
 
 * `ida:Tenant` with your tenant name
 * `ida:ClientId` with your web app application ID
 * `ida:ClientSecret` with your web app secret key
-* `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
-* `ida:EditProfilePolicyId` with your "Edit Profile" policy name
-* `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
+* `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" user flow name
+* `ida:EditProfilePolicyId` with your "Edit Profile" user flow name
+* `ida:ResetPasswordPolicyId` with your "Reset Password" user flow name
 
 ## Launch the app
 From within Visual Studio, launch the app. Navigate to the To-Do List tab, and note the URl is:
@@ -107,16 +108,16 @@ To add social IDPs to your app, begin by following the detailed instructions in 
 * [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
 * [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
-After you add the identity providers to your B2C directory, edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
+After you add the identity providers to your B2C directory, edit each of your three user flows to include the new IDPs, as described in the [user flow reference article](active-directory-b2c-reference-policies.md). After you save your user flows, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
-You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
+You can experiment with your user flows and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how user flows, authentication requests, and OWIN tie together.
 
 ## Sample code walkthrough
 The following sections show you how the sample application code is configured. You may use this as a guide in your future app development.
 
 ### Add authentication support
 
-You can now configure your app to use Azure AD B2C. Your app communicates with Azure AD B2C by sending OpenID Connect authentication requests. The requests dictate the user experience your app wants to execute by specifying the policy. You can use Microsoft's OWIN library to send these requests, execute policies, manage user sessions, and more.
+You can now configure your app to use Azure AD B2C. Your app communicates with Azure AD B2C by sending OpenID Connect authentication requests. The requests dictate the user experience your app wants to execute by specifying the user flow. You can use Microsoft's OWIN library to send these requests, execute user flows, manage user sessions, and more.
 
 #### Install OWIN
 
@@ -204,11 +205,11 @@ public partial class Startup
 
 In `OpenIdConnectAuthenticationOptions` above, we define a set of callback functions for specific notifications that are received by the OpenID Connect middleware. These behaviors are defined using a `OpenIdConnectAuthenticationNotifications` object and stored into the `Notifications` variable. In our sample, we define three different callbacks depending on the event.
 
-### Using different policies
+### Using different user flows
 
-The `RedirectToIdentityProvider` notification is triggered whenever a request is made to Azure AD B2C. In the callback function `OnRedirectToIdentityProvider`, we check in the outgoing call if we want to use a different policy. In order to do a password reset or edit a profile, you need to use the corresponding policy such as the password reset policy instead of the default "Sign-up or Sign-in" policy.
+The `RedirectToIdentityProvider` notification is triggered whenever a request is made to Azure AD B2C. In the callback function `OnRedirectToIdentityProvider`, we check in the outgoing call if we want to use a different user flow. In order to do a password reset or edit a profile, you need to use the corresponding user flow such as the password reset user flow instead of the default "Sign-up or Sign-in" user flow.
 
-In our sample, when a user wants to reset the password or edit the profile, we add the policy we prefer to use into the OWIN context. That can be done by doing the following:
+In our sample, when a user wants to reset the password or edit the profile, we add the user flow we prefer to use into the OWIN context. That can be done by doing the following:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -243,7 +244,7 @@ The `AuthorizationCodeReceived` notification is triggered when an authorization 
 
 ### Handling errors
 
-The `AuthenticationFailed` notification is triggered when authentication fails. In its callback method, you can handle the errors as you wish. You should however add a check for the error code `AADB2C90118`. During the execution of the "Sign-up or Sign-in" policy, the user has the opportunity to select a **Forgot your password?** link. In this event, Azure AD B2C sends your app that error code indicating that your app should make a request using the password reset policy instead.
+The `AuthenticationFailed` notification is triggered when authentication fails. In its callback method, you can handle the errors as you wish. You should however add a check for the error code `AADB2C90118`. During the execution of the "Sign-up or Sign-in" user flow, the user has the opportunity to select a **Forgot your password?** link. In this event, Azure AD B2C sends your app that error code indicating that your app should make a request using the password reset user flow instead.
 
 ```CSharp
 /*
@@ -354,7 +355,7 @@ public void SignOut()
 }
 ```
 
-In addition to explicitly invoking a policy, you can use a `[Authorize]` tag in your controllers that executes a policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN selects the last policy configured when the `[Authorize]` tag is hit.
+In addition to explicitly invoking a user flow, you can use a `[Authorize]` tag in your controllers that executes a user flow if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN selects the last policy configured when the `[Authorize]` tag is hit.
 
 ```CSharp
 // Controllers\HomeController.cs

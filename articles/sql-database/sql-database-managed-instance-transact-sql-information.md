@@ -281,7 +281,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication
 
-Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### RESTORE statement
 
@@ -421,7 +421,7 @@ The following variables, functions, and views return different results:
 
 Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
 
-For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files each 1 GB ins size that are placed on separate 128 GB disks. In this example:
+For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files each 1 GB in size that are placed on separate 128 GB disks. In this example:
 
 - the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - the total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.

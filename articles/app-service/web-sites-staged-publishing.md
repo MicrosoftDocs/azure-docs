@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
@@ -21,7 +21,7 @@ ms.author: cephalin
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, web app on Linux, mobile back end, and API app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan tier. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, web app on Linux, mobile back end, and API app to [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard**, **Premium**, or **Isolated** App Service plan tier. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
@@ -32,7 +32,7 @@ Each App Service plan tier supports a different number of deployment slots. To f
 <a name="Add"></a>
 
 ## Add a deployment slot
-The app must be running in the **Standard** or **Premium** tier in order for you to enable multiple deployment slots.
+The app must be running in the **Standard**, **Premium**, or **Isolated* tier in order for you to enable multiple deployment slots.
 
 1. In the [Azure Portal](https://portal.azure.com/), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Choose the **Deployment slots** option, then click **Add Slot**.
@@ -40,7 +40,7 @@ The app must be running in the **Standard** or **Premium** tier in order for you
     ![Add a new deployment slot][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > If the app is not already in the **Standard** or **Premium** tier, you will receive a message indicating the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your app before continuing.
+   > If the app is not already in the **Standard**, **Premium**, or **Isolated* tier, you will receive a message indicating the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your app before continuing.
    > 
    > 
 3. In the **Add a slot** blade, give the slot a name, and select whether to clone app configuration from another existing deployment slot. Click the check mark to continue.
@@ -71,6 +71,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Handler mappings
 * Monitoring and diagnostic settings
 * WebJobs content
+* Hybrid connections
 
 **Settings that are not swapped**:
 
@@ -170,12 +171,12 @@ If any errors are identified in production after a slot swap, roll the slots bac
 <a name="Warm-up"></a>
 
 ## Custom warm-up before swap
-Some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
+When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
             <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostname="[app hostname]" />
+            <add initializationPage="/Home/About" hostName="[app hostname]" />
         </applicationInitialization>
     </system.webServer>
 

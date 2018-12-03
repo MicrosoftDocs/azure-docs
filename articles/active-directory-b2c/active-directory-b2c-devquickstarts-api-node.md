@@ -44,7 +44,7 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains two identity experiences: sign up and sign in. You need to create one policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  When you create your three policies, be sure to:
+[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  When you create your three policies, be sure to:
 
 * Choose the **Display name** and other sign-up attributes in your sign-up policy.
 * Choose the **Display name** and **Object ID** application claims in every policy.  You can choose other claims as well.
@@ -68,12 +68,12 @@ The completed app is also [available as a .zip file](https://github.com/AzureADQ
 ## Download Node.js for your platform
 To successfully use this sample, you need a working installation of Node.js.
 
-Install Node.js from [nodejs.org](http://nodejs.org).
+Install Node.js from [nodejs.org](https://nodejs.org).
 
 ## Install MongoDB for your platform
 To successfully use this sample, you need a working installation of MongoDB. We use MongoDB to make your REST API persistent across server instances.
 
-Install MongoDB from [mongodb.org](http://www.mongodb.org).
+Install MongoDB from [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > This walk-through assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is `mongodb://localhost`.

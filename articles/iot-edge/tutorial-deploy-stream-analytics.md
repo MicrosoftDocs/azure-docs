@@ -2,7 +2,7 @@
 title: Tutorial - Deploy ASA jobs to Azure IoT Edge devices | Microsoft Docs 
 description: In this tutorial, you deploy Azure Stream Analytics as a module to an Iot Edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial

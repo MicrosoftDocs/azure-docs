@@ -10,9 +10,8 @@ ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -32,7 +31,7 @@ A: They are the same thing. [Log Analytics is being integrated as a feature in A
 A: Log Search is currently still available in the OMS portal and in the Azure portal under the name **Logs (classic)**. The OMS portal will be officially retired on January 15, 2019. The classic Logs experience in Azure portal will be gradually retired and replaced the new Logs experience. 
 
 ### Q. Can I still use Advanced Analytics Portal? 
-The new Logs experience in the Azure portal is based on the [Advanced Analytics Portal](https://portal.loganalytics.io/), but it still can be accessed outside of the Azure portal. The roadmap for retiring this external portal will be announced soon.
+The new Logs experience in the Azure portal is based on the Advanced Analytics Portal, but it still can be accessed outside of the Azure portal. The roadmap for retiring this external portal will be announced soon.
 
 ### Q. Why can't I see Query Explorer and Save buttons in the new Logs experience?
 
@@ -66,7 +65,7 @@ A: To access a workspace in Azure, you must have Azure permissions assigned. The
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
 
 ### Q. Can I still use the Analytics portal outside of Azure?
-A. Yes, the Logs page in Azure and the [Advanced Analytics portal](https://portal.loganalytics.io) are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -155,9 +154,9 @@ A. No, it is not currently possible to read from arbitrary tables or containers 
 
 ### Q. What IP addresses does the Log Analytics service use? How do I ensure that my firewall only allows traffic to the Log Analytics service?
 
-A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
+A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
-As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](log-analytics-concept-hybrid.md#network-firewall-requirements).
+As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### Q. I use ExpressRoute for connecting to Azure. Does my Log Analytics traffic use my ExpressRoute connection?
 
@@ -167,7 +166,7 @@ Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
 ### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
 
-A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 This change can also be made in the Azure portal.
 
@@ -195,9 +194,22 @@ Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 
 ### Q: Why am I getting an error when I try to move my workspace from one Azure subscription to another?
 
-A: If you are using the Azure portal, ensure only the workspace is selected for the move. Do not select the solutions -- they will automatically move after the workspace moves. 
+A: To move a workspace to a different subscription or resource group, you must first unlink the Automation account in the workspace. Unlinking an Automation account requires the removal of these solutions if they are installed in the workspace: Update Management, Change Tracking, or Start/Stop VMs during off-hours are removed. After these solutions are removed, unlink the Automation account by selecting **Linked workspaces** on the left pane in the Automation account resource and click **Unlink workspace** on the ribbon.
+ > Removed solutions need to be reinstalled in the workspace, and the Automation link to the workspace needs to be restated after the move.
 
 Ensure you have permission in both Azure subscriptions.
+
+### Q: Why am I getting an error when I try to update a SavedSearch?
+
+A: You need to add 'etag' in the body of the API, or the Azure Resource Manager template properties:
+```
+"properties": {
+   "etag": "*",
+   "query": "SecurityEvent | where TimeGenerated > ago(1h) | where EventID == 4625 | count",
+   "displayName": "An account failed to log on",
+   "category": "Security"
+}
+```
 
 ## Agent data
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?

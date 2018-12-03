@@ -1,12 +1,12 @@
 ﻿---
 title: Add Azure Automation runbooks to Site Recovery recovery plans | Microsoft Docs
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery with Azure Site Recovery.
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
+ms.date: 11/27/2018
+ms.author: rajanaki
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -247,8 +247,8 @@ For another example, see the following video. It demonstrates how to recover a t
 
 ## Additional resources
 * [Azure Automation service Run As account](../automation/automation-create-runas-account.md)
-* [Azure Automation overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation overview")
-* [Azure Automation sample scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
+* [Azure Automation overview](https://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation overview")
+* [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
 
 ## Next steps
 [Learn more](site-recovery-failover.md) about running failovers.

@@ -107,7 +107,7 @@ Some HDInsight Hive metastore best practices are as follows:
 - Consider replacing impala-based queries with LLAP queries.
 - Consider replacing MapReduce jobs with Spark jobs.
 - Consider replacing low-latency Spark batch jobs using Spark Structured Streaming jobs.
-- Consider using using Azure Data Factory (ADF) 2.0 for data orchestration.
+- Consider using Azure Data Factory (ADF) 2.0 for data orchestration.
 - Consider Ambari for Cluster Management.
 - Change data storage from on-premises HDFS to WASB or ADLS or ADFS for processing scripts.
 - Consider using Ranger RBAC on Hive tables and auditing.

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
 ---
 
-# Hybrid identity and Microsoft's identity solutions
+# Hybrid identity and Microsoft identity solutions
 [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use managed identities or federated identity. 
 
-- **Managed identities** - User accounts and groups that are synchronized from a on-premises Active Directory and the user authentication is managed by Azure.   
+- **Managed identities** - User accounts and groups are synchronized from an on-premises Active Directory and the user authentication is managed by Azure.   
 - **Federated identities** allow for more control over users by separating user authentication from Azure, and delegating authentication to a trusted, on-premises, identity provider. 
 
 There are several options available for configuring hybrid identity. As you consider which identity model best fits your organization’s needs, you also need to think about time, existing infrastructure, complexity, and cost. These factors are different for every organization, and might change over time. However, if your requirements do change, you also have the flexibility to switch to a different identity model.
@@ -30,14 +30,14 @@ There are several options available for configuring hybrid identity. As you cons
 
 Managed identity is the simplest way to synchronize on-premises directory objects (users and groups) with Azure AD. 
 
-![Synchronized hybrid identity](./media/whatis-hybrid-identity/synchronized-identity.png)
+![Synchronized hybrid identity](./media/whatis-hybrid-identity/managed.png)
 
 While managed identity is the easiest and quickest method, your users still need to maintain a separate password for cloud-based resources. To avoid this, you can also (optionally) [synchronize a hash of user passwords](how-to-connect-password-hash-synchronization.md) to your Azure AD directory. Synchronizing password hashes enables users to log in to cloud-based organizational resources with the same user name and password that they use on-premises. Azure AD Connect periodically checks your on-premises directory for changes and keeps your Azure AD directory synchronized. When a user attribute or password is changed on-premises Active Directory, it is automatically updated in Azure AD. 
 
-For most organizations who only need to enable their users to sign in to Office 365, SaaS applications, and other Azure AD-based resources, the default password synchronization option is recommended. If that doesn’t work for you, you'll need to decide between pass-through authentication and AD FS.
+For most organizations who only need to enable their users to sign in to Office 365, SaaS applications, and other Azure AD-based resources, the default password hash synchronization option is recommended. If that doesn’t work for you, you'll need to decide between pass-through authentication and AD FS.
 
 > [!TIP]
-> User passwords are stored in on-premises Windows Server Active Directory in the form of a hash value that represents the actual user password. A hash value is a result of a one-way mathematical function (the hashing algorithm). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network. When you opt to synchronize passwords, Azure AD Connect extracts password hashes from the on-premises Active Directory and applies extra security processing to the password hash before it is synchronized to Azure AD. Password synchronization can also be used together with password write-back to enable self-service password reset in Azure AD. In addition, you can enable single sign-on (SSO) for users on domain-joined computers that are connected to the corporate network. With single sign-on, enabled users only need to enter a username to securely access cloud resources. 
+> User passwords are stored in on-premises Windows Server Active Directory in the form of a hash value that represents the actual user password. A hash value is a result of a one-way mathematical function (the hashing algorithm). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network. When you opt to synchronize password hashes, Azure AD Connect extracts password hashes from the on-premises Active Directory and applies extra security processing to the password hash before it is synchronized to Azure AD. Password hash synchronization can also be used together with password write-back to enable self-service password reset in Azure AD. In addition, you can enable single sign-on (SSO) for users on domain-joined computers that are connected to the corporate network. With single sign-on, enabled users only need to enter a username to securely access cloud resources. 
 >
 
 ## Pass-through authentication
@@ -62,14 +62,14 @@ For more control over how users access Office 365 and other cloud services, you 
 Also called identity federation, this sign-in method ensures that all user authentication is controlled on-premises and allows administrators to implement more rigorous levels of access control. Identity federation with AD FS is the most complicated option and requires deploying additional servers in your on-premises environment. Identity federation also commits you to providing 24x7 support for your Active Directory and AD FS infrastructure. This high level of support is necessary because if your on-premises Internet access, domain controller, or AD FS servers are unavailable, users can't sign in to cloud services.
 
 > [!TIP]
-> If you decide to use Federation with Active Directory Federation Services (AD FS), you can optionally set up password synchronization as a backup in case your AD FS infrastructure fails.
+> If you decide to use Federation with Active Directory Federation Services (AD FS), you can optionally set up password hash synchronization as a backup in case your AD FS infrastructure fails.
 >
 
 ## Common scenarios and recommendations
 
 Here are some common hybrid identity and access management scenarios with recommendations as to which hybrid identity option (or options) might be appropriate for each.
 
-|I need to:|PWS and SSO<sup>1</sup>| PTA and SSO<sup>2</sup> | AD FS<sup>3</sup>|
+|I need to:|PHS and SSO<sup>1</sup>| PTA and SSO<sup>2</sup> | AD FS<sup>3</sup>|
 |-----|-----|-----|-----|
 |Sync new user, contact, and group accounts created in my on-premises Active Directory to the cloud automatically.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Set up my tenant for Office 365 hybrid scenarios|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
@@ -81,7 +81,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Support smartcard authentication for my users<sup>4</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 |Display password expiry notifications in the Office Portal and on the Windows 10 desktop| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|
 
-> <sup>1</sup> Password synchronization with single sign-on.
+> <sup>1</sup> Password hash synchronization with single sign-on.
 >
 > <sup>2</sup> Pass-through authentication and single sign-on. 
 >
@@ -185,7 +185,7 @@ Azure AD Connect Health for Active Directory Domain Services (AD DS) provides mo
 
 Read more here about [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
 
-## Next Steps
+## Next steps
 
 
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 

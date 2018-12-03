@@ -136,7 +136,7 @@ The response should look similar to the following:
     }
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
-Additional information about the response can be found in [Get Indexer Status](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Additional information about the response can be found in [Get Indexer Status](https://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:

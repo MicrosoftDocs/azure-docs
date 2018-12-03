@@ -64,7 +64,7 @@ The following sample *host.json* files have all possible options specified.
           "default": "None"
         },
         "applicationInsights": {
-            "sampling": {
+            "samplingSettings": {
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 5
             }
@@ -89,7 +89,7 @@ The following sections of this article explain each top-level property. All are 
 
 ## applicationInsights
 
-This setting is a child of [logging](#log).
+This setting is a child of [logging](#logging).
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
@@ -99,7 +99,7 @@ Configuration setting can be found in [Cosmos DB triggers and bindings](function
 
 ## durableTask
 
-Configuration setting can be found in [bindings for Durable Functions](durable-functions-bindings.md#host-json).
+Configuration setting can be found in [bindings for Durable Functions](durable/durable-functions-bindings.md#host-json).
 
 ## eventHub
 

@@ -18,7 +18,7 @@ This tutorial shows how to do end-user testing within the Conversation Learner i
 
 ## Video
 
-[![Tutorial 9 Preview](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+[![Tutorial 9 Preview](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
