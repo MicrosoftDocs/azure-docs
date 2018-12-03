@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use Azure Storage Explorer to create a blob in object storage"
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a container and a blob. Next, you learn how to download the blob to your local computer, and how to view all of the blobs in a container. You also learn how to create a snapshot of a blob, manage container access policies, and create a shared access signature.
+title: "How-to: Set ACLs on files and directories using Azure Storage Explorer"
+description: In this how to, you learn how to set ACLs on files and directories
 services: storage
 author: roygara
 
