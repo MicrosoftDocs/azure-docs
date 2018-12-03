@@ -36,29 +36,27 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, Extenstion Host is enabled which simplifies network integration and increases the security posture of Azure Stack
+- With this release, the Extenstion Host is enabled. The Extension Host simplifies network integration and increases the security posture of Azure Stack.
 
-- Enhanced Azure Stack operator experience for managing updates from the Update blade.
+- Enhanced Azure Stack operator experience for managing updates from the **Update** blade.
 
-- Support is added for the following Azure Storage Service API versions: 2017-07-29, 2017-11-09; and the following Azure Storage Resource Provider API versions: 2016-05-01, 2016-12-01, 2017-06-01, 2017-10-01. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
+- This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
-- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
+- This release adds Azure Stack integrated systems support for configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
-- Support for Device Authentication with ADFS in particular when using Azure CLI. [@Matt add Link to CLI for ADFS]
+- This release adds support for Device Authentication with ADFS in particular when using Azure CLI. [@Matt add Link to CLI for ADFS]
 
-- Support for Azure CLI using Web Browser authentication with ADFS.
+- This release adds support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update and remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update and remove service principals for ADFS. (@Matt add link to updated SPN - ADFS article)
 
-- New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. [@Matt add link to updated node actions doc]
+- Added new scale unit node operations that allow an Azure Stack operator to start, stop, and shut down a scale unit node. [@Matt add link to updated node actions doc]
 
-- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
+- Added new privileged endpoint command to update the BMC credential: the username and password are used to communicate with the physical machines. [@Matt add link to updated bmc doc]
 
-- Improved Marketplace management experience for disconnected customers. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
+- Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
-- Extended data at rest encryption protection to include also all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack.
-For more information, see [this article](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker)
-
+- Added extended data at rest encryption protection to include also all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack.
 
 ### Fixed issues
 
@@ -72,13 +70,13 @@ For more information, see [this article](https://docs.microsoft.com/azure/azure-
 - Fixed an issue in both the administrator and user portals under **All services**. The asset **DDoS protection plans** was incorrectly listed as it is not available in Azure Stack. It is no longer listed.
  
 <!--2760466 – IS  ASDK --> 
-- Fixed an issue that occurred when you installed a new Azure Stack environment in which the alert that indicates *Activation Required* did not display. It now correctly displays.
+- Fixed an issue that occurred when you installed a new Azure Stack environment in which the alert that indicates **Activation Required** did not display. It now correctly displays.
 
 <!--1236441 – IS  ASDK --> 
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed an issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
+- Fixed an issue with infrastructure backups failing due to an inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
 
 ### Changes
 
@@ -114,7 +112,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 ### Prerequisites
 
 > [!Important]  
-> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 - Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/).
 
@@ -125,24 +123,24 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
-  ```PowerShell
-  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+    ```PowerShell
+    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+    ``` 
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
 
-   ```shell
-   Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
-   The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
-   ``` 
+    ```shell
+    Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
+    The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
+    ``` 
  
-In addition to various quality improvements, the [1.1809.3.96 Hotfix](https://support.microsoft.com/help/4471993/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you haven't performed the required steps: 
+- In addition to various quality improvements, the [1.1809.3.96 Hotfix](https://support.microsoft.com/help/4471993/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
  
-`
-Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
-`
+    ```shell
+    Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
+    ```
 
-   Once you have properly imported the mandatory extension host certificates, you can simply resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
+    Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
 ### Known issues with the update process
 
