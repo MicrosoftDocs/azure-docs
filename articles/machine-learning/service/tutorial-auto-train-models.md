@@ -39,7 +39,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
-> * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](https://docs.microsoft.com/azure/machine-learning/service/samples-notebooks) automated machine learning.
+> * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](samples-notebooks.md) automated machine learning.
 
 ## Get the notebook
 
