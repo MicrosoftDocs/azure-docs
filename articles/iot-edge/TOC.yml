@@ -147,6 +147,8 @@
     items:
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
+  - name: Azure DevOps project for IoT Edge
+    href: devops-project.md
   - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot
