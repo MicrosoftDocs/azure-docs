@@ -175,5 +175,5 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 
 ## Next steps
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to support the queries in tiles.
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to support the queries in tiles.
 * Add [visualization parts](view-designer-parts.md) to your custom view.

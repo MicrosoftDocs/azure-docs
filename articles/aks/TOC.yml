@@ -68,6 +68,8 @@
         href: operator-best-practices-advanced-scheduler.md
       - name: Authentication and authorization
         href: operator-best-practices-identity.md
+      - name: Business continuity (BC) and disaster recovery (DR)
+        href: operator-best-practices-multi-region.md
     - name: For application developers
       items:
       - name: Resource management
@@ -259,7 +261,7 @@
   - name: Provide product feedback
     href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ

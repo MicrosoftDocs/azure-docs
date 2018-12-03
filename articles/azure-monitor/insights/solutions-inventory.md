@@ -74,4 +74,4 @@ Explanations of the columns are as follows:
 
 
 ## Next steps
-* Learn how to [create queries](../../log-analytics/log-analytics-queries.md) to analyze data collected by management solutions.
+* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by management solutions.
