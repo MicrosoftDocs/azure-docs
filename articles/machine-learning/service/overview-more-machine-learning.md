@@ -70,9 +70,9 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 ## Azure Data Science Virtual Machine
 
 The [Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
-The Data Science Virtual Machine is supported as a target for Azure Machine Learning service.
 
-The Data Science Virtual Machine is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning service is not supported on Linux CentOS).
+The Data Science Virtual Machine is supported as a target for Azure Machine Learning service.
+It is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning service is not supported on Linux CentOS).
 For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
