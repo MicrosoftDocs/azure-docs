@@ -81,6 +81,47 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 1. Open the notebook.
 
+<a name="auto"></a>
+
+## Automated ML setup 
+
+**These steps apply only to the notebooks in the `automated oml` folder.**
+
+While you can use any of the above options, you can also install the environment and create a workspace at the same time with the following instructions. 
+
+1. Install Mini-code from [here](https://conda.io/miniconda.html). Choose 3.7 or higher. Follow prompts to install. 
+   >[!NOTE]
+   >You can use an existing conda as long as it is version 4.4.10 or later. Use `conda -V` to display the version. You can update a conda version with the command: `conda update conda`. There's no need to install mini-conda specifically.
+
+1. Download the sample notebooks from [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) as a zip and extract the contents to a local directory. The Automated machine learning notebooks are in the `automl` folder.
+
+1. Set up a new Conda environment. 
+   1. Open a Conda prompt on your local machine. 
+   
+   1. Navigate to the files you extracted to your local machine. 
+   
+   1. Open the `automl` folder. 
+   
+   1. Execute `AutoMLSetup` in  the conda prompt. It can take about 10 minutes to execute.
+
+      The automl/automl_setup script:
+      + Creates a new conda environment
+      + Installs the necessary packages
+      + Configures the widget 
+      + Starts a jupyter notebook
+      
+      The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. 
+      
+      Once the script has completed, you will see a Jupyter notebook home page in your browser.
+
+1. Navigate to the path where you saved the notebooks. 
+
+1. Open the AutoML folder, then open the 00.configuration.ipynb notebook. 
+
+1. Execute the cells in the notebook to register Machine Learning Services Resource Provider and create a workspace.
+
+You are now ready to open and run the notebooks saved on your local machine.
+
 
 ## Next steps
 
