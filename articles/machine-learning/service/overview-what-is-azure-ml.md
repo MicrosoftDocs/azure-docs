@@ -49,7 +49,7 @@ For an example, see [Tutorial: Automatically train a classification model with A
 Using the Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep learning models yourself in an Azure Machine Learning service workspace.
 You can choose from many machine learning components available in open-source Python packages, such as the following:
 
-- <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
+- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>

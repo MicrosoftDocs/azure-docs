@@ -167,7 +167,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data through Power BI
 
-1. Download and Open [PowerBi Desktop](http://www.powerbi.com)
+1. Download and Open [PowerBi Desktop](https://www.powerbi.com)
 
 1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
