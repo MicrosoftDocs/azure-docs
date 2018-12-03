@@ -60,9 +60,6 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 
 The Istio `istioctl` client binary runs on your client machine and allows you to manage Istio routing rules and policies.
 
-> [!NOTE]
-> If you are using the Azure Cloud Shell, the Istio `istioctl` client binary is already installed and you can skip to the **Install the Istio Kubernetes components** section.
-
 > [!IMPORTANT]
 > Ensure that you run all of the following steps from the top-level folder of the Istio release you downloaded and extracted earlier.
 
