@@ -6,7 +6,7 @@ author: paulbouwer
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/3/2018
+ms.date: 12/3/2018
 ms.author: pabouwer
 ---
 
@@ -14,7 +14,7 @@ ms.author: pabouwer
 
 [Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices within your Kubernetes cluster. These include traffic management, service identity & security, policy enforcement, and observability. For a deeper conceptual understanding of Istio, see the official [What is Istio?][istio-docs-concepts] documentation.
 
-This article demonstrates how to install Istio. The Istio `istioctl` client binary is installed onto your client machine and the Istio components are installed into a Kubernetes cluster on AKS. These instructions will reference Istio version **1.0.3**. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases].
+This article demonstrates how to install Istio. The Istio `istioctl` client binary is installed onto your client machine and the Istio components are installed into a Kubernetes cluster on AKS. These instructions will reference Istio version **1.0.4**. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases].
 
 You'll need to complete the following tasks to complete the installation of Istio on Azure Kubernetes Service (AKS):
 
@@ -38,7 +38,7 @@ Download and extract the latest Istio release. Use the instructions below that a
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.0.3
+ISTIO_VERSION=1.0.4
 
 # Linux or Windows Subsystem for Linux
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
@@ -49,7 +49,7 @@ curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
-$ISTIO_VERSION="1.0.3"
+$ISTIO_VERSION="1.0.4"
 
 # Windows
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
@@ -71,7 +71,7 @@ The Istio `istioctl` client binary runs on your client machine and allows you to
 Use the following commands to install the Istio `istioctl` client binary in a **bash**-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands will copy the `istioctl` client binary to the standard user program location that is available via your `PATH`.
 
 ```bash
-cd $ISTIO_VERSION
+cd istio-$ISTIO_VERSION
 chmod +x ./bin/istioctl
 sudo mv ./bin/istioctl /usr/local/bin/istioctl
 ```
@@ -93,7 +93,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 To install the Istio `istioctl` client binary in a **bash**-based shell on MacOS, use the following commands. These commands will copy the `istioctl` client binary to the standard user program location that is available via your `PATH`.
 
 ```bash
-cd $ISTIO_VERSION
+cd istio-$ISTIO_VERSION
 chmod +x ./bin/istioctl
 sudo mv ./bin/istioctl /usr/local/bin/istioctl
 ```
@@ -115,7 +115,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands will copy the `istioctl` client binary to a new user program location and make it available via your `PATH`.
 
 ```powershell
-cd $ISTIO_VERSION
+cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:/Program Files/Istio"
 mv ./bin/istioctl.exe "C:/Program Files/Istio/"
 $PATH = [environment]::GetEnvironmentVariable("PATH", "User")

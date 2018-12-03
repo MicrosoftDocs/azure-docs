@@ -6,7 +6,7 @@ author: paulbouwer
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/3/2018
+ms.date: 12/3/2018
 ms.author: pabouwer
 ---
 
@@ -133,7 +133,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.3
+    Image:         docker.io/istio/proxyv2:1.0.4
 ...
 ```
 
