@@ -225,14 +225,14 @@ These steps are not meant to be prescriptive. They are meant to set the framewor
 
 ### Data upgrade
 
-The overall strategy that you use to perform your upgrade (described in the [Upgrade strategy](#upgrade-strategy) section of this guide), will determine the tools that you can use for your data upgrade. The tools listed below are based on current information and are suggestions. We will update the list as more tools become available.
+The overall strategy that you use to perform your upgrade (described in the [Upgrade strategy](#upgrade-strategy) section of this guide), will determine the tools that you can use for your data upgrade. The tools listed below are based on current information and are suggestions. 
 
 #### Tools guidance
 
 | Strategy                       | Tools                                                                                                             | Pros                                                                                                                             | Considerations                                                                                                                                                                                                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Lift-and-shift**                 | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2-from-gen1) | Managed cloud service                                                                                                                | Only copies over data. ACLs cannot be copied over currently.                                                                                                                                                                                                                                                                      |
-|                                    | [Distcp](https://hadoop.apache.org/docs/r1.2.1/distcp.html)                                                           | Well-known Hadoop-provided tool Permissions i.e. ACLs can be copied with this tool                                                   | Requires a cluster which can connect to both Data Lake Storage Gen1 and Gen2 at the same time. More detailed guidance will be published shortly.                                                                                                                                                                                  |
+|                                    | [Distcp](https://hadoop.apache.org/docs/r1.2.1/distcp.html)                                                           | Well-known Hadoop-provided tool Permissions i.e. ACLs can be copied with this tool                                                   | Requires a cluster which can connect to both Data Lake Storage Gen1 and Gen2 at the same time.                                                                                                                                                                                   |
 | **Copy-once-and-copy incremental** | Azure Data Factory                                                                                                    | Managed cloud service                                                                                                                | To support incremental copying in ADF, data needs to be organized in a time-series fashion. Shortest interval between incremental copies is [15 minute](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger)s. For shorter intervals, ADF won't work. ACLs cannot be copied over currently. |
 | **Parallel adoption**              | [WANdisco](http://docs.wandisco.com/bigdata/wdfusion/adls/)                                                           | Support consistent replication If using a pure Hadoop environment connected to Azure Data Lake Storage, supports two-way replication | If not using a pure-Hadoop environment, there may be a delay in the replication.                                                                                                                                                                                                                                                  |
 
@@ -316,13 +316,10 @@ If you are accessing [directly](https://docs.databricks.com/spark/latest/data-so
 If you are using [mountpoints](https://docs.databricks.com/spark/latest/data-sources/azure/azure-datalake.html#mount-azure-data-lake-store-with-dbfs),
 you'll need to go through each notebook and change the configuration to access the corresponding Data Lake Storage Gen2 URI.
 
-Going forward, you'll need to reconfigure it to point to Data Lake Storage Gen2 account. No more changes are needed, and the notebooks should be able to work as before. Stay tuned for that support.
+Going forward, you'll need to reconfigure it to point to Data Lake Storage Gen2 account. No more changes are needed, and the notebooks should be able to work as before. 
 
 If you are using any of the other upgrade strategies, you can create a variation of the above steps to meet your requirements.
 
-#### Azure HDInsight
-
-Guidance will be made available shortly.
 
 ### Azure ecosystem upgrade
 
@@ -334,7 +331,7 @@ Then, the elements called out above (For example: URI and credentials), will hav
 
 ### Partner ecosystem upgrade
 
-Please work with the partner providing the component and tools to ensure they can work with Data Lake Storage Gen2. Additional references will be provided here as we get documented information from partners.
+Please work with the partner providing the component and tools to ensure they can work with Data Lake Storage Gen2. 
 
 ## Performing the upgrade
 
@@ -352,6 +349,6 @@ After you are done with the transition operation, the final steps will involve t
 
 ## Conclusion
 
-The guidance provided in this document should have helped you upgrade your solution to use Data Lake Storage Gen2. As we gather more feedback and learnings, we will update this guidance to be most current. Please come back and check for latest information.
+The guidance provided in this document should have helped you upgrade your solution to use Data Lake Storage Gen2. 
 
 If you have more questions, or have feedback, provide comments below or provide feedback in the [Azure Feedback Forum](https://feedback.azure.com/forums/327234-data-lake).
