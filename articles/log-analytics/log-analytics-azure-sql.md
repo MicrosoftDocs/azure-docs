@@ -5,7 +5,6 @@ services: log-analytics
 ms.service: log-analytics
 ms.subservice: performance
 ms.custom: 
-ms.devlang: na
 ms.topic: conceptual
 author: danimir
 ms.reviewer: carlrab
@@ -24,7 +23,7 @@ By using metrics that you collect with the solution, you can create custom monit
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
->[!VIDEO https://youtu.be/j-NDkN4GIzg]
+>[!VIDEO https://www.youtube.com/embed/j-NDkN4GIzg]
 >
 
 ## Connected sources
@@ -33,8 +32,8 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
-| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics doesn't read the data from a storage account. |
+| [Azure Diagnostics](../azure-monitor/platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
+| [Azure storage account](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Log Analytics doesn't read the data from a storage account. |
 | [Windows agents](../azure-monitor/platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
 | [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
 | [System Center Operations Manager management group](log-analytics-om-agents.md) | No | A direct connection from the Operations Manager agent to Log Analytics is not used by the solution. |
@@ -181,7 +180,7 @@ Automated alerting in the solution is based on writing a Log Analytics query tha
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../monitoring-and-diagnostics/alert-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-queries.md) queries that you can use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/alert-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](../azure-monitor/log-query/log-query-overview.md) queries that you can use with a log alert:
 
 #### High CPU on Azure SQL Database
 
@@ -293,6 +292,6 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 ## Next steps
 
-- Use [Log Searches](log-analytics-queries.md) in Log Analytics to view detailed Azure SQL data.
+- Use [Log Searches](../azure-monitor/log-query/log-query-overview.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](../azure-monitor/platform/dashboards.md) showing Azure SQL data.
 - [Create alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) when specific Azure SQL events occur.
