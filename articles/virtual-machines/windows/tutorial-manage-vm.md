@@ -93,6 +93,12 @@ Use the following command, on your local machine, to create a remote desktop ses
 mstsc /v:<publicIpAddress>
 ```
 
+If you do not need the public IP address and would like to connect to your VM right away, you can use the `Get-AzureRmRemoteDesktopFile` cmdlet as shown below. The RDP file may also be optionally saved using the `-LocalPath` parameter.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
 In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username and password you created for the VM and then click **OK**.
 
 ## Understand marketplace images
