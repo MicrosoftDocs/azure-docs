@@ -11,9 +11,9 @@ ms.tgt_pltfrm: linux
 ms.component: disks
 ---
 
-[!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-common-terms-part-one.md)]
+[!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-managed-disks-common-terms-part-one.md)]
 
 > [!NOTE]
 > For more information about virtual machines capacities, see [Sizes for Linux virtual machines](./sizes.md).
 
-[!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-common-terms-part-two.md)]
+[!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-managed-disks-common-terms-part-two.md)]
