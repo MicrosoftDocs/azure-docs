@@ -1,6 +1,6 @@
 ---
-title: Using Azure Machine Learning for Visual Studio Code (Preview) 
-description: Learn about Azure Machine Learning for Visual Studio Code and how to start training and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
+title: Get started with Azure Machine Learning for Visual Studio Code
+description: Learn how to install Azure Machine Learning for Visual Studio Code and create a simple experiment in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,7 +10,7 @@ author: swinner95
 ms.date: 12/04/2018
 
 ---
-# Azure Machine Learning for VS Code(Preview): Get started with Azure Machine Learning for Visual Studio Code
+# Get started with Azure Machine Learning for Visual Studio Code
 
 In this article, you'll learn about the **Azure Machine Learning** extension for Visual Studio Code (VS Code), and how to start training and deploying machine learning and deep learning models with Azure Machine Learning service in VS Code.
 
