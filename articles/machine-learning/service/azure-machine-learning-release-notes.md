@@ -54,7 +54,10 @@ Azure Machine Learning service is now generally available.
 
 ### Azure Machine Learning Compute
 + With this release we are announcing a new managed compute experience through Azure Machine Learning Compute. This compute can be used for Training and Batch inferencing, is single- to multi-node compute, and does the cluster management and job scheduling for the user. It autoscales by default, has support for both CPU and GPU resources and also allows using Low-Priority VMs for reduced cost.
-+ Azure Machine Learning compute uses a Docker container for your run, and packages your depedencies to replicate the same environment across all your nodes.
++ Azure Machine Learning compute uses a Docker container for your run, and packages your dependencies to replicate the same environment across all your nodes.
++ Azure Machine Learning Compute can only be created in the region of your workspace, and cannot be attached to another workspace.
++ **Breaking change** With this release, we are removing support for creating a VM from Azure Machine Learning. You can still attach an existing cloud VM or a remote on-premises server. We are also removing support for BatchAI, all of which should be supported through Azure Machine Learning Compute now.
++ We also recommend creating a new workspace to use Azure Machine Learning Compute. There is a remote chance that users trying to create Azure Machine Learning Compute from an existing workspace might see an error. Existing compute in your workspace should continue to work unaffected.
 + Our [sample notebooks] (https://aka.ms/aml-notebooks) are now updated to use this new managed compute.
 + You can also create this compute from the portal and the CLI. More information can be found [here](how-to-set-up-training-targets.md#amlcompute)
 
