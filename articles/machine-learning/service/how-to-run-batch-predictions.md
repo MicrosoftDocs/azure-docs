@@ -340,7 +340,7 @@ RunDetails(published_pipeline_run).show()
 
 ## Next steps
 
-To see this working end-to-end, try the batch scoring notebook ([how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring.ipynb) in the [Azure Machine Learning Pipeline Samples](https://aka.ms/aml-pipeline-notebooks).
+To see this working end-to-end, try the batch scoring notebook in ([how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
