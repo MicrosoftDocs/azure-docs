@@ -21,7 +21,7 @@ Azure Time Series Insights provides an end-to-end Platform-As-A-Service offering
 
 The demo environment shows an electricity generation company, Contoso, using Time Series Insights to find actionable insights in their data and conduct a short root-cause analysis. Contoso operates two wind turbine farms, each with 10 turbines, and each turbine has 20 sensors reporting data every minute to Azure IoT Hub. Sensors gather information on weather conditions, blade pitch & yaw position, generator performance, gearbox behavior, and safety monitors.
 
-The Time Series Insights update is used to analyze the ever-growing data set from the last two years – currently at 40 GB – to better understand and predict both critical failures and slow-moving maintenance issues.
+The Time Series Insights (preview) is used to analyze the ever-growing data set from the last two years – currently at 40 GB – to better understand and predict both critical failures and slow-moving maintenance issues.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
