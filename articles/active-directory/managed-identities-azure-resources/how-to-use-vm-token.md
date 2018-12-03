@@ -173,7 +173,7 @@ catch (Exception e)
 
 ## Get a token using Java
 
-To use the following example to retrieve a token using Java, use this external [JSON library](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4)
+Use this [JSON library](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) to retrieve a token using Java.
 
 ```Java
 import java.io.*;
