@@ -20,16 +20,16 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# v2.0 Protocols - OAuth 2.0 & OpenID Connect
+# v2.0 Protocols - OAuth 2.0 and OpenID Connect
 
-The v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
+The v2.0 endpoint can use Azure Active Directory (Azure AD) for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
 
 > [!NOTE]
-> Not all Azure Active Directory (Azure AD) scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> Not all Azure Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## The basics
 
-In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
+In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
 
 ![OAuth 2.0 Roles](../../media/active-directory-v2-flows/protocols_roles.png)
 
@@ -39,7 +39,7 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 * The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
 
 ## App Registration
-Every app that uses the v2.0 endpoint must be registered in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) or through the new **App registrations (Preview)** experience in the [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) before it can interact using OAuth or OpenID Connect. The app registration process will collect & assign a few values to your app:
+Every app that uses the v2.0 endpoint must be registered in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) or through the new **App registrations (Preview)** experience in the [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) before it can interact using OAuth or OpenID Connect. The app registration process will collect and assign a few values to your app:
 
 * An **Application ID** that uniquely identifies your app
 * A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
