@@ -88,19 +88,19 @@ The chart enables you to display time series instances as lines. You can collaps
 
   ![explorer-eight][8]
 
-1. Selected Date range – The currently selected date range for the chart panel, this controls which data elements will be available for visualization.
+1. **Selected Date range** – The currently selected date range for the chart panel, this controls which data elements will be available for visualization.
 
-1. Inner Date range slider tool - Use the two endpoint controls by clicking and dragging them over the desired time span.
+1. **Inner Date range slider tool** - Use the two endpoint controls by clicking and dragging them over the desired time span.
 
-1. Time span collapse control - This control collapses and expands the time span panel editor.
+1. **Time span collapse control** - This control collapses and expands the time span panel editor.
 
-1. Y-Axis format control – Click this control to cycle through the available Y-Axis view options. The available Y-Axis view options are:
+1. **Y-Axis format control** – Click this control to cycle through the available Y-Axis view options. The available Y-Axis view options are:
 
-    * Default  - each line has an individual Y-axis
-    * Stacked – this allows you to stack multiple lines on the same Y-axis, with the Y-axis data changing based on the line selected
-    * Shared – All Y-axis data displayed together
+    * `Default`  - each line has an individual Y-axis
+    * `Stacked` – this allows you to stack multiple lines on the same Y-axis, with the Y-axis data changing based on the line selected
+    * `Shared` – All Y-axis data displayed together
 
-1. Current data element – The currently selected data element and its associated details.
+1. **Current data element** – The currently selected data element and its associated details.
 
 You can further drill into a specific data slice by left-clicking a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click zoom as shown below. You can also:
 

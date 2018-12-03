@@ -20,18 +20,18 @@ This article describes best practices to plan and get started quickly using the 
 To get started with Time Series Insights, it’s best if you understand the following:
 
 1. What you are getting when you provision a Time Series Insights (preview) environment.
-1. What your time series ID(s) and time stamp properties are.
-1. What the new time series model is and how to build your own.
+1. What your **Time Series IDs** and **Timestamp** properties are.
+1. What the new **Time Series Model** is and how to build your own.
 1. How to send events efficiently in JSON.  
 1. Time Series Insights business disaster recovery options.
 
 The Time Series Insights update employs a pay-as-you-go business model.  For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## The Time Series Insights update environment
+## The Time Series Insights (preview) environment
 
-When you provision a Time Series Insights update environment, you create two Azure resources:
+When you provision a Time Series Insights (preview) environment, you create two Azure resources:
 
-1. Time Series Insights update environment
+1. Time Series Insights (preview) environment
 1. Azure storage general-purpose V1 account
 
     * In the future, new Azure customers will by default only be allowed to provision an Azure storage general-purpose V2 account, therefore we will support it when that change occurs.  
