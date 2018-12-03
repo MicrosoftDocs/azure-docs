@@ -13,7 +13,7 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ---
 
-# Explore the Azure Time Series Insights (preview) demo environment
+# Explore the Azure Time Series Insights (Preview) demo environment
 
 This quickstart shows you how to get started with Azure Time Series Insights (preview) explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Time Series Insights (preview) explorer.
 

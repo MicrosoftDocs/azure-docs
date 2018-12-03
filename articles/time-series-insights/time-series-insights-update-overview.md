@@ -82,7 +82,7 @@ With the introduction of these key industrial IoT capabilities, Azure TSI provid
 
 ## Next steps
 
-You are ready to get started with the Azure TSI Private Preview:
+You are ready to get started with the Azure TSI (Preview):
 
 > [!div class="nextstepaction"]
 > [Read the Quickstart guide](./time-series-insights-update-quickstart.md)

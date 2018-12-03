@@ -212,7 +212,7 @@ You can hide and show elements from the chart panel by clicking on the visible i
 
 Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Models](./time-series-insights-update-tsm.md).
+Read about [Data modeling](./time-series-insights-update-tsm.md).
 
 Learn about [Diagnosing and troubleshooting](./time-series-insights-update-how-to-troubleshoot.md).
 

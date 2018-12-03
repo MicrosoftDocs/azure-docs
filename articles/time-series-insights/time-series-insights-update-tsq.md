@@ -52,37 +52,20 @@ The following are the time series model query APIs available:
 
 The following are the time series query APIs available:
 
-* Get Events API – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider. The Get Events API takes the following parameters has the following input payload structure:
+* [GET EVENTS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query) – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider.
 
-  * **Time Series ID** (mandatory)
-  * Search span clause (mandatory – Used to specify the *from* and *to* search time)
-  * Filter clause (optional – For filtering the rows using a predicate. Ex: “Status” = “Good”)
-  * Projected Properties (optional – Only the list of properties to be retrieved using the query, if not specified all properties will be retrieved.)
+* [GET SERIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query)  – Enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline.
 
-* Get Series API – Enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline. Note if interpolation and aggregation clause is provided in variable, or interval is specified, it will be ignored. The getSeries API takes the following parameters:
+    >[!NOTE]
+    > The Aggregation clause is ignored in getSeries, even if specified part of variables in model or provided inline.
 
-  * **Time Series ID** (mandatory)
-  * Search span clause (mandatory)
-  * Filter clause (optional – For filtering the rows using a predicate. Ex: “Status” = “Good”)
-  * Inline Variables (optional – If specified the variable definition stored in the model part of types is overwritten by this definition, only if the name matches.)
-  * Projected Variables (optional – If specified only the mentioned variables are retrieved part of the result, else all variables from model are considered for querying.)
+  The getSeries API returns a TSV (Time Series Value, a format Time Series Insights use for output JSON from query) for each variable for each interval, based on the provided Time Series ID and the set of provided variables.
 
-Note aggregation clause is ignored in getSeries, even if specified part of variables in model or provided inline.
+* [GET AGGREGATE API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query) – Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
 
-The getSeries API returns a TSV (Time Series Value, a format Time Series Insights use for output JSON from query) for each variable for each interval, based on the provided Time Series ID and the set of provided variables.
+  The aggregateSeries API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The aggregateSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
 
-* Get Aggregate API – Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data. The aggregateSeries API takes the following parameters:
-
-  * **Time Series ID** (mandatory)
-  * Search span clause (mandatory)
-  * Interval (mandatory)
-  * Filter clause (optional – For filtering the rows using a predicate. Ex: “Status” = “Good”)
-  * Inline Variables (optional – these enable creation of variables by specifying aggregate functions such as sum, max, etc. If the name of variable matches with variable definition stored in the model part of types, the definition is overwritten)
-  * Projected Variables (optional – If specified only the mentioned variables are retrieved part of the result, else all variables from model are considered for querying)
-
-The aggregateSeries API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The aggregateSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
-
-Supported Aggregate types: `Min`, `Max`, `Sum`, `Count`, `Average`
+  Supported Aggregate types: `Min`, `Max`, `Sum`, `Count`, `Average`
 
 ## Next steps
 

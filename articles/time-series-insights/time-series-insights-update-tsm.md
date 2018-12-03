@@ -363,32 +363,11 @@ Response:
 }
 ```
 
-## Time Series Model Limits
-
-| Parameter |	Limits |
-| --- | --- |
-| Object size for model entities (Types, Hierarchies & Instances)|	32 KB, includes properties |
-| Keys allowed as TSID property configured via Azure Portal |	Max 3 |
-| Max # of Types in an environment |	1000|
-| Max # of variables in a type |	50|
-| Max # of Hierarchies in an environment|	32|
-| Max hierarchy depth |	32|
-| Max # of Hierarchies associated with 1 instance	|21|
-| Max # of Instances in an environment |	500,000|
-| Max # of Instance Fields per Instance |	50|
-| Model objects upsert/update/delete operation per second	|100 per second|
-| Time Series Model API Request Size:  Batch |	8 MB or 1000 model objects (whichever occurs first)|
-| Time Series Model request size:  Search/suggest	| 32 KB|
-| Time Series Model API Request Size:  Batch	| 32 MB|
-| Search/Suggest is 32 MB|	32 MB|
-
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
-
 ## Next steps
 
 Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+Read the about the new [Time series model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

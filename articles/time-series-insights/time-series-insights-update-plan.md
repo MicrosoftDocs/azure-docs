@@ -29,7 +29,7 @@ The Time Series Insights update employs a pay-as-you-go business model.  For mor
 
 ## The Time Series Insights (preview) environment
 
-When you provision a TSI (preview) environment, you create two Azure resources:
+When you provision a TSI (Preview) environment, you create two Azure resources:
 
 * TSI (preview) environment
 * Azure storage general-purpose V1 account
@@ -102,6 +102,6 @@ The specific steps to accomplish this are as follows:
 
 ## Next steps
 
-Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+Read about [Data modeling](./time-series-insights-update-tsm.md).
