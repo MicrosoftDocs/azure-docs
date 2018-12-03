@@ -85,7 +85,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 ## Automated ML setup 
 
-** These steps apply only to the notebooks in the `automated oml` folder.**
+**These steps apply only to the notebooks in the `automated oml` folder.**
 
 While you can use any of the above options, you can also install the environment and create a workspace at the same time with the following instructions. 
 
