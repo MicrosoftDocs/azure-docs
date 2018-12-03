@@ -117,7 +117,7 @@
         - name: Syntax
           href: /rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
-        items: /rest/api/time-series-insights/ga-reference-data-api
+        href: /rest/api/time-series-insights/ga-reference-data-api
     - name: Azure Time Series Insights (Preview)
       items:
       - name: Time Series Environment API
