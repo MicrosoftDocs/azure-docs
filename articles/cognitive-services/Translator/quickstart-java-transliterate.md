@@ -96,7 +96,7 @@ public class Transliterate {
 }
 ```
 
-Add these lines to the `TransliterateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). Make sure you update the subscription key value.
+Add these lines to the `Transliterate` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). Make sure you update the subscription key value.
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";

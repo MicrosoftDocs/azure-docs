@@ -98,7 +98,7 @@ public class Detect {
 }
 ```
 
-Add these lines to the `Detect` function:
+Add these lines to the `Detect` class:
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
