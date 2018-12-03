@@ -17,7 +17,7 @@ The Azure Migrate Collector is a lightweight appliance that can be used to disco
 
 ## Discovery method
 
-There were earlier two options for the collector appliance, one-time discovery, and continuous discovery. The one-time discovery model is now deprecated as it relied on vCenter Server statistics settings for performance data collection (required level 3) and also collected average counters which resulted in under-sizing. The continuous discovery model ensures granular data collection and results in accurate sizing due to collection of peak counters. Below is how it works:
+Previously, there were two options for the collector appliance, one-time discovery, and continuous discovery. The one-time discovery model is now deprecated as it relied on vCenter Server statistics settings for performance data collection (required statistics settings to be set to level 3) and also collected average counters (instead of peak) which resulted in under-sizing. The continuous discovery model ensures granular data collection and results in accurate sizing due to collection of peak counters. Below is how it works:
 
 The collector appliance is continuously connected to the Azure Migrate project and continuously collects performance data of VMs.
 
@@ -29,7 +29,7 @@ The collector appliance is continuously connected to the Azure Migrate project a
 
 **Instant gratification:** With the continuous discovery appliance, once the discovery is complete (it takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
 
-Note that the appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+The appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 
 - Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
 
