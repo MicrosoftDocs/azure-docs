@@ -58,7 +58,7 @@
   - name: Set up development environment 	
     items:    
     - name: Configure your dev environment
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Azure Machine Learning for VS Code
       displayName: Visual Studio Code, vscode
@@ -67,8 +67,6 @@
         href: how-to-vscode-tools.md
       - name: Train and deploy        
         href: how-to-vscode-train-deploy.md
-    - name: Use Databricks
-      href: how-to-azure-machine-learning-on-databricks.md
   - name: Prepare data
     displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md   
