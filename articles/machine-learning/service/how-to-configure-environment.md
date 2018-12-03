@@ -9,7 +9,7 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 11/6/2018
+ms.date: 12/04/2018
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -60,33 +60,39 @@ The Data Science Virtual Machine (DSVM) is a customized virtual machine (VM) ima
   - Integrated development environments (IDEs) such as Visual Studio Code, PyCharm and RStudio
   - Jupyter Notebook Server 
 
-The Azure Machine Learning SDK works on either the Ubuntu or Windows version of DSVM. To use DSVM as a development environment, follow these steps:
+The Azure Machine Learning SDK works on either the Ubuntu or Windows version of DSVM. To use the Data Science Virtual Machine as a development environment, use the following steps:
 
-1. To create a Data Science Virtual Machine, follow the steps in one of the following documents:
+1. To create a Data Science Virtual Machine, use one of the following methods:
 
-### Create an Ubuntu Data Science Virtual machine
+    * Using the Azure Portal:
 
-   * [Using the Azure Portal](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-   * __Using the Azure Command Line interface (CLI)__
-   
-        Run the following command in a bash shell or command prompt on a machine where you have Azure CLI installed after you have authenticated to the CLI. In this command, replace YOUR-RESOURCE-GROUP-NAME, YOUR-VM-NAME, YOUR-USERNAME, YOUR-PASSWORD with your  actual values. 
-```
-# create a Ubuntu DSVM in your resource group
-# note you need to be at least a contributor to the resource group in order to execute this command successfully
-# If you need to create a new resource group you can run the command: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-PREFERRED-REGION (For example: westus2)"
-az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
-```
+        * [Create an __Ubuntu__ Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
-### Create a Windows Data Science Virtual Machine
-   * [Using the Azure Portal](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
-   * __Using the Azure CLI__
-   
-        Run the following command in a bash shell or command prompt on a machine where you have Azure CLI installed and you have authenticated to the CLI. In this command, replace YOUR-RESOURCE-GROUP-NAME, YOUR-VM-NAME, YOUR-USERNAME, YOUR-PASSWORD with your  actual values. 
-```
-# create a Windows Server 2016 DSVM in your resource group
-# note you need to be at least a contributor to the resource group in order to execute this command successfully
-az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
-```    
+        * [Create a __Windows__ Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+
+    * Using the Azure CLI:
+
+        > [!IMPORTANT]
+        > When using the Azure CLI, you must first sign in to your Azure subscription by using the `az login` command.
+        >
+        > When using the commands in this step, you must provide a resource group name, a name for the VM, a username, and a password.
+
+        * To create an __Ubuntu__ Data Science Virtual Machine, use the following command:
+
+            ```azurecli
+            # create a Ubuntu DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+            ```
+
+        * To create a __Windows__ Data Science Virtual Machine, use the following command:
+
+            ```azurecli
+            # create a Windows Server 2016 DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+            ```    
 
 2. The Azure Machine Learning SDK is **already installed** on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
 
@@ -207,9 +213,9 @@ To use Visual Studio Code for development, use the following steps:
     azureml.core.VERSION
     ```
 
-1. To install the Visual Studio code Tools for AI extension, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
+1. To install the Azure Machine Learning extension for Visual Studio Code, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
 
-    For more information, see the [Use VS Code Tools for AI with Azure Machine Learning](how-to-vscode-tools.md) document.
+    For more information, see [Using Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
 
 ## <a id="workspace"></a>Create a workspace configuration file
 

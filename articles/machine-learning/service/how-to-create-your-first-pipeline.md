@@ -1,6 +1,6 @@
 ---
-title: How to create and run your first machine learning pipeline - Azure Machine Learning service
-description: Create and submit your first machine learning pipeline using the Azure Machine Learning SDK.  Pipelines are used to create and manage the workflows that stitch together machine learning (ML) phases such as data preparation, model training, model deployment, and inferencing. 
+title: Create and run your first machine learning pipeline - Azure Machine Learning service
+description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python.  Pipelines are used to create and manage the workflows that stitch together machine learning (ML) phases such as data preparation, model training, model deployment, and inferencing. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 11/08/2018
+ms.date: 12/04/2018
 ---
 
-# Create and run your first machine learning pipeline using Azure Machine Learning SDK
+# Create and run a machine learning pipeline using Azure Machine Learning SDK
 
-In this article, you learn how to create, publish, run, and track a machine learning [pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  These pipelines help create and manage the workflows that stitch together various machine learning phases. 
+Each phase of a pipeline, such as data preparation and model training, can include one or more steps.
 
-Machine learning pipelines help create and manage the workflows that stitch together various machine learning (ML) phases. 
-Each phase could include one or more steps.
+The pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
 
-Pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
-
-Pipelines use remote compute resources to perform the computational steps and to store the (intermediate and final) data associated with that pipeline.  Pipelines can read and write data from and to supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations.
+Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline.  Pipelines can read and write data to and from supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations.
 
 
 ## Prerequisites
 
 * If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
-* Configure your development environment to [install the Azure Machine Learning SDK](how-to-configure-environment.md).
-* Create an [Azure Machine Learning workspace](how-to-configure-environment.md#workspace) that will hold all your pipeline resources.  
+
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK.
+
+* Create an [Azure Machine Learning workspace](how-to-configure-environment.md#workspace) to hold all your pipeline resources. 
 
  ```python
  ws = Workspace.create(
@@ -42,12 +42,14 @@ Pipelines use remote compute resources to perform the computational steps and to
 
 Create the resources required to run a pipeline:
 
-* Set up a datastore to store data to access in the pipeline steps
-* Configure a `DataReference` object to points to data that lives in or is accessible from a datastore
-* Set up  compute machines or clusters to where your pipeline steps will run
+* Set up a datastore used to access the data needed in the pipeline steps.
+
+* Configure a `DataReference` object to point to data that lives in or is accessible in a datastore.
+
+* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-target) on which your pipeline steps will run.
 
 ### Set up a datastore
-A datastore stores the data for the pipeline to access.  Each workspace has a default datastore, and you may register additional datastores. 
+A datastore stores the data for the pipeline to access.  Each workspace has a default datastore. You can register additional datastores. 
 
 When you create your workspace, an [Azure file storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and a [blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default.  Azure file storage is the "default datastore" for a workspace, but you can also use blob storage as a datastore.  Learn more about [Azure storage options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
@@ -95,7 +97,7 @@ output_data1 = PipelineData(
 
 ### Set up compute
 
-In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your ML pipeline. For example, you can create an Azure Machine Learning compute for running your steps.
+In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your machine learning pipeline. For example, you can create an Azure Machine Learning Compute for running your steps.
 
 ```python
 compute_name = "aml-compute"
@@ -134,7 +136,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-After you define your steps, you build the pipeline using some or all those steps.
+After you define your steps, you build the pipeline using some or all of those steps.
 
 >[!NOTE]
 >No file or data is uploaded to Azure Machine Learning service when you define the steps or build the pipeline.
@@ -156,12 +158,12 @@ When you submit the pipeline, the dependencies are checked for each step and a s
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 ```
 
-When a pipeline is first run:
+When you first run a pipeline:
 
 * The project snapshot is downloaded to the compute target from blob storage associated with the workspace.
 * A docker image is built corresponding to each step in the pipeline.
 * The docker image for each step is downloaded to the compute target from the container registry.
-* If a `DataReference` object is specified in a step, the data store is mounted. If mount is not supported, data is instead copied to the compute target.
+* If a `DataReference` object is specified in a step, the data store is mounted. If mount is not supported, the data is instead copied to the compute target.
 * The step runs in the compute target specified in the step definition. 
 * Artifacts such as logs, stdout and stderr, metrics, and output specified by the step are created. These artifacts are then uploaded and kept in the user’s default data store.
 
@@ -179,7 +181,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
      default_value=10)
  ```
 
-2. Use this `PipelineParameter` object as a parameter to any of the steps in the pipeline as shown below:
+2. Add this `PipelineParameter` object as a parameter to any of the steps in the pipeline as follows:
 
  ```python
  compareStep = PythonScriptStep(
@@ -191,7 +193,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
      source_directory=project_folder)
  ```
 
-3. You are ready to publish this pipeline that accepts a parameter when invoked.
+3. Publish this pipeline that will accept a parameter when invoked.
 
 ```python
 published_pipeline1 = pipeline1.publish(
@@ -203,7 +205,7 @@ published_pipeline1 = pipeline1.publish(
 
 All published pipelines have a REST endpoint to invoke the run of the pipeline from external systems such as non-Python clients. This endpoint provides a way for "managed repeatability" in batch scoring and retraining scenarios.
 
-Invoke the run of the above pipeline, you'll need an Azure Active Directory authentication header token as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 
@@ -214,9 +216,11 @@ response = requests.post(published_pipeline1.endpoint,
 ## View results
 
 See the list of all your pipelines and their run details:
-1. Sign in to the [Azure Machine Learning Portal](https://portal.azure.com/).  
+1. Sign in to the [Azure portal](https://portal.azure.com/).  
+
 1. [View your workspace](how-to-manage-workspace.md#view-a-workspace) to find the list of pipelines.
- ![list of pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ 
 1. Select a specific pipeline to see the run results.
 
 ## Next steps

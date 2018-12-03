@@ -17,8 +17,6 @@ ms.date: 12/04/2018
 
 In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, you'll learn about the different ways to add logging to your training script, how to submit the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run. 
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.80
 
 ## List of training metrics 
 
@@ -275,6 +273,7 @@ There are various ways to use the logging APIs to record different types of metr
 |Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 
+<a name="auto"></a>
 ## Understanding automated ML charts
 
 After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. 
@@ -427,9 +426,9 @@ Feature importance gives a score that indicates how valuable each feature was in
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
-* [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
-* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
+* [how-to-use-azureml/training\train-within-notebook\train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training\train-within-notebook\train-within-notebook.ipynb)
+* [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb)
+* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

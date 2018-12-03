@@ -8,7 +8,7 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
+ms.date: 12/04/2018
 ---
 # Azure Machine Learning service release notes
 
@@ -17,6 +17,18 @@ In this article, learn about the Azure Machine Learning service releases.
 ## 2018-12-04: General Availability
 
 Azure Machine Learning service is now generally available.
+
+### Azure Machine Learning Data Prep SDK v1.0.0
+
++ **Breaking changes** 
+  * `SummaryFunction.N` was renamed to `SummaryFunction.Count`.
+  
++ **Bug Fixes**
+  * Use latest AML Run Token when reading from and writing to datastores on remote runs. Previously, if the AML Run Token is updated in Python, the Data Prep runtime will not be updated with the updated AML Run Token.
+  * Additional clearer error messages
+  * to_spark_dataframe() will no longer crash when Spark uses Kryo serialization
+  * Value Count Inspector can now show more than 1000 unique values
+  * Random Split no longer fails if the original Dataflow doesn’t have a name  
 
 ### ML Pipelines
 
@@ -28,11 +40,18 @@ Azure Machine Learning service is now generally available.
   + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
   + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 + Updated SDK steps:
-  + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py): now accepts runconfig
+  + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) now accepts runconfig
   + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) now copies to and from a SQL datasource
 + Pipelines can be viewed in Azure portal
 + Schedule functionality in SDK to create and update schedules for running published pipelines
 
+### Azure portal: new features
++ Create and manage [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) types in the portal.
++ Monitor quota usage and [request quota](how-to-manage-quotas.md) for Azure Machine Learning Compute.
++ View Azure Machine Learning Compute cluster status in real-time.
++ Virtual network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
++ Re-run your published pipelines with existing parameters.
++ New [automated machine learning charts](how-to-track-experiments.md#auto) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
 
 ## 2018-11-20
 

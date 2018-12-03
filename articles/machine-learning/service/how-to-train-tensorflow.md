@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # How to train TensorFlow models
@@ -166,13 +166,13 @@ run = exp.submit(tf_est)
 
 ## Examples
 For a tutorial on single-node TensorFlow training, see:
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 For a tutorial on distributed TensorFlow with Horovod, see:
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
+* [how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-horovod/distributed-tensorflow-with-horovod.ipynb)
 
 For a tutorial on native distributed TensorFlow, see:
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
+* [how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

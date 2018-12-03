@@ -101,7 +101,7 @@ Provide the remote resource access to your training data. For automated machine 
 
 To provide access, you must:
 + Create a get_data.py file containing a `get_data()` function 
-* Place that file in the root directory of the folder containing your scripts 
+* Place that file in a directory accessible as an absolute path 
 
 You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
 
@@ -143,12 +143,12 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
-    "max_time_sec": 600,
+    "iteration_timeout_minutes": 10,
     "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
     "preprocess": False,
-    "concurrent_iterations": 10,
+    "max_concurrent_iterations": 10,
     "verbosity": logging.INFO
 }
 
@@ -162,12 +162,6 @@ automl_config = AutoMLConfig(task='classification',
 ```
 
 ### Enable model explanations
-
-To enable output for model explanations, first install the `explain` variant of the `azureml_sdk` in your environment.
-
-```shell
-pip install azureml_sdk[explain]
-```
 
 Set the optional `model_explainability` parameter in the `AutoMLConfig` constructor. Additionally, a validation dataframe object must be passed as a parameter `X_valid` to use the model explainability feature.
 
@@ -291,7 +285,7 @@ You can also visualize feature importance through the widget UI as well as the w
 
 ## Example
 
-The [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article. 
+The [how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

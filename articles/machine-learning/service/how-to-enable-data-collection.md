@@ -40,8 +40,6 @@ The path to the output data in the blob follows this syntax:
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
 
 ## Prerequisites
 
@@ -167,7 +165,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data through Power BI
 
-1. Download and Open [PowerBi Desktop](http://www.powerbi.com)
+1. Download and Open [PowerBi Desktop](https://www.powerbi.com)
 
 1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
@@ -226,6 +224,6 @@ To quickly access the data from your blob:
 
 ## Example notebook
 
-The [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) notebook demonstrates concepts in this article.  
+The [how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) notebook demonstrates concepts in this article.  
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

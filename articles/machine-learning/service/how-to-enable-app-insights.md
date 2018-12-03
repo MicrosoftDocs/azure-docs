@@ -19,9 +19,6 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 
 [Learn more about Application Insights](../../application-insights/app-insights-overview.md). 
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
-
 
 ## Prerequisites
 * An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
@@ -124,7 +121,7 @@ To learn more about how to use Application Insights, see [What is Application In
 
 ## Example notebook
 
-The [00.Getting Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) notebook demonstrates concepts in this article. 
+The [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

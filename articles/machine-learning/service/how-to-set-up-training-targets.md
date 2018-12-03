@@ -25,8 +25,6 @@ There are three broad categories of compute targets that Azure Machine Learning 
 
 * __Attached Compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK versions > 1.0.1
 
 ## Supported compute targets
 
@@ -63,6 +61,9 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 > [!IMPORTANT]
 > Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch compute targets without having to rewrite the training script.
 
+> [!TIP]
+> Whenever you associate a compute target with your workspace, either by creating managed compute or attaching existing compute, you need to provide a name to your compute. This should be between 2 and 16 characters in length.
+
 Switching from one compute target to another involves creating a [run configuration](concept-azure-machine-learning-architecture.md#run-configuration). The run configuration defines how to run the script on the compute target.
 
 ## Training scripts
@@ -89,7 +90,7 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
 
-For a Jupyter Notebook that demonstrates training in a user-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+For a Jupyter Notebook that demonstrates training in a user-managed environment, see [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
   
 ### System-managed environment
 
@@ -111,7 +112,7 @@ run_config_system_managed.auto_prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-For a Jupyter Notebook that demonstrates training in a system-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+For a Jupyter Notebook that demonstrates training in a system-managed environment, see [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
 
 ## <a id="amlcompute"></a>Azure Machine Learning Compute
 
@@ -122,11 +123,13 @@ You can use Azure Machine Learning Compute to distribute the training process ac
 > [!NOTE]
 > Azure Machine Learning Compute has default limits on things like the number of cores that can be allocated. For more information, see the [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas) document.
 
-You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a dedicated resource.
+You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a persistent resource.
 
 ### Run-based creation
 
 You can create Azure Machine Learning Compute as a compute target at run-time. In this case, the compute is automatically created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes.
+
+This functionality is currently in Preview state, and will not work with Hyperparameter Tuning or Automated Machine Learning jobs.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -147,11 +150,11 @@ run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
 
 ```
 
-### Dedicated compute (Basic)
+### Persistent compute (Basic)
 
-A dedicated Azure Machine Learning Compute can be reused across multiple jobs. It can be shared with other users in the workspace, and is kept between jobs.
+A persistent Azure Machine Learning Compute can be reused across multiple jobs. It can be shared with other users in the workspace, and is kept between jobs.
 
-To create a dedicated Azure Machine Learning Compute resource, you specify the `vm_size` and `max_nodes` parameters. Azure Machine Learning then uses smart defaults for the rest of the parameters.  For example, the compute is set to autoscale down to zero nodes when not used and to create dedicated VMs to run your jobs as needed. 
+To create a persistent Azure Machine Learning Compute resource, you specify the `vm_size` and `max_nodes` parameters. Azure Machine Learning then uses smart defaults for the rest of the parameters.  For example, the compute is set to autoscale down to zero nodes when not used and to create dedicated VMs to run your jobs as needed. 
 
 * **vm_size**: VM family of the nodes created by Azure Machine Learning Compute.
 * **max_nodes**: Maximum nodes to autoscale to while running a job on Azure Machine Learning Compute.
@@ -176,9 +179,9 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-### Dedicated compute (Advanced)
+### Persistent compute (Advanced)
 
-You can also configure several advanced properties when creating Azure Machine Learning Compute.  These properties allow you to create a dedicated cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
+You can also configure several advanced properties when creating Azure Machine Learning Compute.  These properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
 
 In addition to `vm_size` and `max_nodes`, you can use the following properties:
 
@@ -190,7 +193,7 @@ In addition to `vm_size` and `max_nodes`, you can use the following properties:
 * **subnet_name**: Name of subnet within the virtual network. Azure Machine Learning Compute resources will be assigned IP addresses from this subnet range.
 
 > [!TIP]
-> When you create a dedicated Azure Machine Learning Compute resource you also have the ability to update its properties such as the min_nodes or the max_nodes. Simply call the `update()` function for it.
+> When you create a persistent Azure Machine Learning Compute resource you also have the ability to update its properties such as the min_nodes or the max_nodes. Simply call the `update()` function for it.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -218,7 +221,7 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb).
+For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb).
 
 ## <a id="vm"></a>Remote Azure VM
 
@@ -277,7 +280,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
     ```
 
-For a Jupyter Notebook that demonstrates training on a Remote VM, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+For a Jupyter Notebook that demonstrates training on a Remote VM, see [/how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb).
 
 ## <a id="databricks"></a>Azure Databricks
 
@@ -445,7 +448,7 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
-For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb).
 
 ### Submit using a pipeline
 
@@ -547,11 +550,11 @@ Follow the above steps to view the list of compute targets, then use the followi
 
 ## Examples
 The following notebooks demonstrate concepts in this article:
-* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute)
-* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
-* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+* [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb)
+* [how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb)
+* [how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb)
+* [how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

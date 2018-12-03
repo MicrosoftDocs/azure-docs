@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
+ms.date: 12/04/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
@@ -17,7 +17,7 @@ ms.date: 11/21/2018
 
 In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
-This tutorial trains a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning service.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
+This tutorial trains a simple logistic regression using the [MNIST](https://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
 
 Learn how to:
 
@@ -33,7 +33,7 @@ You'll learn how to select a model and deploy it in [part two of this tutorial](
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.79
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.2
 
 ## Get the notebook
 
@@ -41,8 +41,6 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> This tutorial was tested with Azure Machine Learning SDK version 0.1.74 
 
 ## Set up your development environment
 
