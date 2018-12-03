@@ -174,18 +174,19 @@ Supported file types include:
 
 ### Data availability
 
-The Azure TSI (preview) indexes data using a blob-size optimization strategy. That means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+In public preview, Azure TSI (preview) indexes data using a blob-size optimization strategy. That means  data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity).
+
+As we approach GA (General Availability), logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+
 
 > [!IMPORTANT]
-> * Public Preview TSI will make data available within 60 seconds of it hitting an event source.  
-> * During the Private Preview we expect to see a longer period before the data is made available.  
+> * GA TSI will make data available within 60 seconds of it hitting an event source.  
+> * During the preview we expect to see a longer period before the data is made available.  
 >   * If you experience any significant latency, please contact us.
 
 ### Scale
 
-We expect the Azure TSI (preview) to support up to 6 Mbps per environment. Enhanced scaling support is planned for future releases.
-
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
+Azure TSI (preview) will support an initial ingress scale of up to 6 Mbps per environment. Enhanced scaling support is ongoing. Documentation will be updated to reflect those improvements.
 
 ## Next steps
 
