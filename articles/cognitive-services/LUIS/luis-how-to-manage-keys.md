@@ -122,16 +122,14 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
 
+    This POST API requires the following settings:
 
     |Header|Value|
     |--|--|
     |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
     |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
 
-
-    This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. 
-
-    Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
+    This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
 
 1. Assign the token to the LUIS resource with the [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API. 
 
