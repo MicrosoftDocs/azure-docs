@@ -94,7 +94,7 @@ In the latest release, the new Python SDK allows you to interact with the Azure 
 
 ## What about Azure Machine Learning for Visual Studio Code?
 
-With this latest release, the Azure Machine Learning for Visual Studio (VS) Code extension has been expanded and improved to work with the above new features.
+With this latest release, Azure Machine Learning for Visual Studio (VS) Code has been expanded and improved to work with the above new features.
 
 [ ![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png) ]
 (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
