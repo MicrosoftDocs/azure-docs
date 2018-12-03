@@ -165,14 +165,9 @@ run = exp.submit(tf_est)
 ```
 
 ## Examples
-For a tutorial on single-node TensorFlow training, see:
-* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
-For a tutorial on distributed TensorFlow with Horovod, see:
-* [how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-horovod/distributed-tensorflow-with-horovod.ipynb)
-
-For a tutorial on native distributed TensorFlow, see:
-* [how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server)
+For notebooks on distributed deep learning, see:
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

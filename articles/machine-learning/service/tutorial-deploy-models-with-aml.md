@@ -36,6 +36,8 @@ For your convenience, this tutorial is available as a [Jupyter notebook](ttps://
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.2
 
 ## Prerequisites
 

@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-01). Run the `tutorials/01.train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-01). Run the `tutorials/img-classification-part1-training.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -89,11 +89,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create remote compute target
+### Create or attach existing AMlCompute
 
-Azure ML Managed Compute is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Managed Compute cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
+Azure Machine Learning Managed Compute(AmlCompute) is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create AmlCompute as your training environment. This code creates the compute clusters for you if it does not already exist in your workspace.
 
- **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
+ **Creation of the compute takes approximately 5 minutes.** If the compute is already in the workspace this code uses it and skips the creation process.
 
 
 ```python
@@ -102,12 +102,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -127,7 +132,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -316,11 +321,10 @@ Notice how the script gets data and saves models:
 
 + The training script reads an argument to find the directory containing the data.  When you submit the job later, you point to the datastore for this argument:
 `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + The training script saves your model into a directory named outputs. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Anything written in this directory is automatically uploaded into your workspace. You'll access your model from this directory later in the tutorial.
-
 The file `utils.py` is referenced from the training script to load the dataset correctly.  Copy this script into the script folder so that it can be accessed along with the training script on the remote resource.
 
 
@@ -341,7 +345,7 @@ An estimator object is used to submit the run.  Create your estimator by running
 * Parameters required from the training script 
 * Python packages needed for training
 
-In this tutorial, this target is the Azure Machine Learning compute cluster. All files in the script folder are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
+In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
