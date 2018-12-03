@@ -294,8 +294,8 @@ To resolve the problem, make sure that the Azure DNS servers that used on the Az
 This problem may occur if VPN client does not get the routes from Azure VPN gateway.
 
 ### Solution
-
-To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md).
+- Point-to-Site VPN clients must be downloaded again after VNet Peering has been successfully configured to ensure the new routes are downloaded to the client   
+- To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md).
 
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 
