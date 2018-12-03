@@ -166,8 +166,6 @@
     items:
     - name: SQL API Docs
       items:
-      - name: Introduction
-        href: sql-api-introduction.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
@@ -194,8 +192,8 @@
             items:
             - name: .NET
               href: sql-api-dotnet-application.md
-            - name: .NET (Preview)
-              href: sql-api-dotnet-application-preview.md   
+            - name: .NET preview
+              href: sql-api-dotnet-application-preview.md
             - name: Java
               href: sql-api-java-application.md
             - name: Node.js
@@ -230,8 +228,6 @@
           href: sql-api-sql-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
-        - name: SQL data partitioning
-          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
