@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: java
 author: lgayhardt
 manager: carmonm
-
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-
 ---
 # Get started with Application Insights in a Java web project
 

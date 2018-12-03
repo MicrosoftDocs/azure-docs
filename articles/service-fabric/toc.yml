@@ -227,9 +227,9 @@
       - name: Understanding periodic backup configuration
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md
       - name: Triggering restore of partition
-        href: service-fabric-backuprestoreservice-trigger-restore.md
+        href: service-fabric-backup-restore-service-trigger-restore.md
       - name: On-demand backup of partition
-        href: service-fabric-backuprestoreservice-ondemand-backup.md
+        href: service-fabric-backup-restore-service-ondemand-backup.md
   - name: Clusters
     items:
     - name: Clusters overview
@@ -462,6 +462,8 @@
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
+    - name: On-demand backup of partition
+      href: service-fabric-backup-restore-service-ondemand-backup.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in an IDE
