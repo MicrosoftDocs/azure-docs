@@ -90,7 +90,6 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
 
-For a Jupyter Notebook that demonstrates training in a user-managed environment, see [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
   
 ### System-managed environment
 
@@ -111,8 +110,6 @@ run_config_system_managed.auto_prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
-
-For a Jupyter Notebook that demonstrates training in a system-managed environment, see [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
 
 ## <a id="amlcompute"></a>Azure Machine Learning Compute
 
@@ -221,7 +218,6 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb).
 
 ## <a id="vm"></a>Remote Azure VM
 
@@ -280,7 +276,6 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
     ```
 
-For a Jupyter Notebook that demonstrates training on a Remote VM, see [/how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb).
 
 ## <a id="databricks"></a>Azure Databricks
 
@@ -448,7 +443,6 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
-For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb).
 
 ### Submit using a pipeline
 
@@ -549,14 +543,11 @@ Follow the above steps to view the list of compute targets, then use the followi
 1. Now you can submit a run against these targets as detailed above
 
 ## Examples
-The following notebooks demonstrate concepts in this article:
-* [how-to-use-azureml/training/train-on-local/train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb)
-* [how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb)
-* [how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb)
-* [how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb)
+Refer to notebooks in the following locations:
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
