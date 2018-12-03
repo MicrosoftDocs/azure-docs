@@ -1,6 +1,6 @@
 ---
 title: Add your personal Microsoft and non-Microsoft accounts to the app - Azure Active Directory | Microsoft Docs
-description: Learn how to add your personal accounts, such as for Outlook.com, Xbox LIVE, Google, or Facebook, to the Microsoft Authenticator app for two-factor verification.
+description: How to add your personal accounts, such as for Outlook.com, Xbox LIVE, Google, or Facebook, to the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
 manager: mtillman

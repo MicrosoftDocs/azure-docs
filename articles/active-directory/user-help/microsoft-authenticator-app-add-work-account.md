@@ -1,6 +1,6 @@
 ---
 title: Add your work or school account to the app - Azure Active Directory | Microsoft Docs
-description: Learn how to add your work or school account to the Microsoft Authenticator app for two-factor verification.
+description: How to add your work or school account to the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -23,7 +23,7 @@ You can add your work or school account, given to you by your organization, to t
 1. On your PC, go to the [Additional security verification](https://aka.ms/mfasetup) page.
 
     >[!Note]
-    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info preview experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance.
+    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info preview experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance. For more information about security info, see [Manage your security info](security-info-manage-settings.md).
 
 2. Check the box next to **Authenticator app**, and then select **Configure**.
 
@@ -44,8 +44,6 @@ You can add your work or school account, given to you by your organization, to t
 
 ## Next steps
 
-- After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
+- After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-sign-in.md).
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md).
-
-- If you want more information about security info, see [Manage your security info](security-info-manage-settings.md)

@@ -1,6 +1,6 @@
 ---
-title: Manually add your accounts to the app - Azure Active Directory | Microsoft Docs
-description: Learn how to manually add your accounts to the Microsoft Authenticator app for two-factor verification.
+title: Manually add your work or school account to the app - Azure Active Directory | Microsoft Docs
+description: How to manually add your accounts to the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
 manager: mtillman
