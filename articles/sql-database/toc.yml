@@ -270,7 +270,7 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
-    - name: TDE with Azure SQL
+    - name: Transparent Data Encryption (TDE)
       items:
       - name: TDE with Azure SQL  
         href: transparent-data-encryption-azure-sql.md
