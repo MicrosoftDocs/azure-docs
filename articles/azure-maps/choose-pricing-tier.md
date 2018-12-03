@@ -20,9 +20,7 @@ If you feel that your service requirements are met by the core geospatial APIs, 
 ## How many concurrent users do I plan to support? 
 S0 and S1 pricing tiers can handle different amounts of data throughput. Before choosing an Azure Maps pricing tier, consider asking yourself questions like how many concurrent users do you want to support? The S0 pricing tier can handle up to **50 queries per second** and the S1 pricing tier can handle **more than 50 queries per second**.
 
-<br>
-
-## **Pricing tier capabilities**
+### **Pricing tier capabilities**
 
 | Capability                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
@@ -42,9 +40,9 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 
 Some additional data points worth considering are, what kind of enterprise do you have or how critical is the application being built?
 
-See the table with **Pricing tier Targeted customers** to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
+See the table with **Pricing tier targeted customers** to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
-**Pricing tier targeted customers**
+### **Pricing tier targeted customers**
 
 | Pricing tier  |        Targeted customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
