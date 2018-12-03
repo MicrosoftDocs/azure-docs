@@ -69,7 +69,7 @@ There are three headers that you can use to authenticate your subscription. This
 </table> 
 
 ###  Secret key
-The simplest way is to pass your Azure secret key to the Translator service using request header `Ocp-Apim-Subscription-Key`. Simply add `Ocp-Apim-Subscription-Key: <your-key>` to the header in your translate, transliterate, detect, break sentence, or dictionary lookup, or dictionary examples API call.
+The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header. Simply add the `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header to your request.
 
 ### Authorization token
 An alternative is to use your secret key to obtain an authorization token from the token service. Then, you pass the authorization token to the Translator service using the `Authorization` request header. To obtain an authorization token, make a `POST` request to the following URL:
