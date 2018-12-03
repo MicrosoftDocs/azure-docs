@@ -24,7 +24,7 @@ This article shows three different ways to deploy a model on ACI. They differ in
 * Deploy registered model from image using `Webservice.deploy_from_image()`
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.2
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
