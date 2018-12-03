@@ -133,7 +133,7 @@
   - name: Azure services that support managed identities for Azure resources
     href: services-support-msi.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-msi
+    href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: AAD Developers forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
     

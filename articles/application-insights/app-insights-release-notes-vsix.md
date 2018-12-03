@@ -1,21 +1,18 @@
-﻿---
+---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-
 ---
 # Release Notes for Developer Analytics Tools
 

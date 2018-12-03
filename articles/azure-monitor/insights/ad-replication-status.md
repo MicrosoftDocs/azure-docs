@@ -28,7 +28,7 @@ The AD Replication Status solution pack regularly monitors your Active Directory
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../log-analytics/log-analytics-agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
 * Add the Active Directory Replication Status solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).  There is no further configuration required.
 
 ## AD Replication Status data collection details
@@ -105,7 +105,7 @@ When you click any item in one of the lists, you see additional details about it
 
 ![AD replication status errors in search results](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-From here, you can filter further, modify the search query, and so on. For more information about using the Log Search, see [Log searches](../../log-analytics/log-analytics-queries.md).
+From here, you can filter further, modify the search query, and so on. For more information about using the Log Search, see [Log searches](../../azure-monitor/log-query/log-query-overview.md).
 
 The **HelpLink** field shows the URL of a TechNet page with additional details about that specific error. You can copy and paste this link into your browser window to see information about troubleshooting and fixing the error.
 
@@ -149,4 +149,4 @@ If you need assistance connecting one of your domain controllers, you can view d
 If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed Active Directory Replication status data.
+* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Active Directory Replication status data.
