@@ -4,14 +4,12 @@ description: Learn how to set up Azure Cosmos DB global distribution using the T
 services: cosmos-db
 keywords: global distribution, Table
 author: SnehaGunda
-
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: sngun
 ms.custom: mvc
-
+ms.date: 12/13/2017
 ---
 # Set up Azure Cosmos DB global distribution using the Table API
 

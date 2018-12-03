@@ -1,9 +1,8 @@
 ---
-title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | Microsoft Docs'
+title: Create an Azure Cosmos DB document database with Java'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
