@@ -1,4 +1,4 @@
----
+    ---
 title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
 description: Configuration reference for cluster templates for use with Azure CycleCloud
 services: azure cyclecloud
@@ -45,13 +45,54 @@ CycleCloud supports the parameterized configuration of many system services.
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | maintenance_converge.enabled  | Boolean | CycleCloud nodes are reconfigured every 20 minutes to ensure they are in the correct state. There are times when you may not want this to be the default behavior such as when you are manually testing and updating the configuration on a node. Setting this value to false will make the node configure itself only once. Default is true |
 | timezone       | String                     | The timezone for a node can be changed by setting this attribute to any valid timezone string, for example “PST”, “EST”, . Default: “UTC”                                                                                                                                                                                                    |
-| ntp.servers      | String               | A list of NTP servers to use. Default: “pool.ntp.org”                                                                                                                                                                                                                                                                                        |
+| ntp.servers      | List (String)    | A list of NTP servers to use. Default: “pool.ntp.org”                                                                                                                                                                                                                                                                                        |
 | keepalive.timeout   | Integer        | The amount of time in seconds to keep a node “alive” if it has not finished installing/configuring software. Default: 14400 (4 hours).                                                                                                                                                                                                       |
 | discoverable        | Boolean          | Whether or not this node can be “discovered” (searched for) by other nodes started by CycleCloud. Default is false.                                                                                                                                                                                                                          |
 | autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: 15                                                                                                                                                                                                            |                                                                                                                                                                                                                                                        |
 | security.limits       | Integer       | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: security.limits.*.hard.nofile = 524288 and security.limits.*.soft.nofile = 1048576                                                        |                                                                                                                                                                                            |
 | mounts.     | Nested          | For [NFS exporting and mounting](~/storage-nfs-mounts.md) and volume mounting.                                                                                                                                                        |
 | selinux.policy     | String       | 	Linux only. Add "selinux.policy = permissive" to your configuration to bypass an enforced selinux policy for custom images. Already disabled on core CycleCloud images.                                                                                                                                                          |
+| install_epel | Boolean | Add the extended packages repo for yum on RedHat variant image.  Default is true. |
+
+### `[[[configuration cyclecloud.cluster]]]`
+
+CycleCloud `cluster` namespace contains configurations for distributed services and
+clustered applications.  
+
+| Attribute | Type          | Description                               |
+| ---------------------------- | -------------------------------------------------------------------|------------------------------------------------------------- |
+| autoscale.idle_time_after_jobs | Integer | Wait specified time before terminating nodes after they have run jobs. In seconds, default is 1800. |
+| autoscale.idle_time_before_jobs | Integer | Wait specified time before terminating nodes before they have run jobs. In seconds, default is 1800. |
+
+cyclecloud']['cluster']['autoscale']['idle_time_after_jobs
+
+### `[[[configuration cyclecloud.standalone_dns]]]`
+
+CycleCloud will configure the /etc/hosts file to contain a large set of hosts 
+so that forward and reverse name resolution is functional.
+
+| Attribute | Type          | Description                               |
+| ---------------------------------------------- | 
+| enabled | Boolean | Enable management of the etc hosts file. Default is true.
+| alt_suffix | String | Override the default domain name of the VNET. Example: `contoso.com`
+| subnets | List (String) | List of CIDR blocks for extended standalone name resolution.
+
+By default, CycleCloud will inspect the network interface and compose the _/etc/hosts_
+file to include hosts in the subnet mask. Additional ranges can be added using the `subnets`
+attribute.
+
+``` ini
+[[[configuration cyclecloud.standalone_dns]]]
+alt_suffix = my-domain.local
+subnets = 10.0.1.0/24, 10.0.5.0/24
+```
+
+To override and disable the standalone service:
+
+``` ini
+[[[configuration ]]]
+cyclecloud.standalone_dns.enabled = false
+```
 
 ### `[[[configuration cyclecloud.mounts]]]`
 
@@ -74,8 +115,9 @@ An example of a mount section named `primary`.
 
 | Attribute | Type          | Description                                                                                                                                                    |
 | ------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| type    | String  | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports to differentiate from volume mounts and other shared filesystem types.                  |
+| type    | String  | The type attribute shou be set to `nfs` for all NFS exports to differentiate from volume mounts and other shared filesystem types.                  |
 | export_path   | String  | The location of the export on the NFS filer.  If an export_path is not specified, the  mountpoint of the mount will be used as the export_path.                |
+| fs_type | String | Type of filesystem to use. E.g `ext4`, `xfs`. |
 | mountpoint   | String  | The location where the filesystem will be mounted after any additional configuration is applied.  If the directory does not already exist, it will be created. |
 | cluster_name  | String | The name of the CycleCloud cluster which exports the filesystem.  If not set, the node's local cluster is assumed.                                             |
 | address     | String   | The explicit hostname or IP address of the filesystem.  If not set, search will attempt to find the filesystem in a CycleCloud cluster.                        |

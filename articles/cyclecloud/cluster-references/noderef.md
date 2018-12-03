@@ -25,3 +25,8 @@ are blocked on both the referring and referred node.
 The referred node cannot be **Terminated** until the referring node is **Terminated**.
 
 The referring node cannot be **Started** until the referred node is **Started**.
+
+Attribute | Type | Definition
+------ | ----- | ----------
+Name | String | Referenced node name
+SourceClusterName | String | Cluster of referenced node
