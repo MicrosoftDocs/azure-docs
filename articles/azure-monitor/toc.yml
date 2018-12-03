@@ -660,9 +660,9 @@
     - name: Query log data
       items:
       - name: Query language Documentation
-        href: ../log-analytics/query-language/query-language.md
+        href: query-language.md
       - name: Language differences
-        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
+        href: data-explorer-difference.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -692,7 +692,7 @@
         - name: Charts and diagrams
           href: log-query/charts.md
         - name: Functions
-          href: ../log-analytics/query-language/functions.md?toc=/azure/azure-monitor/toc.json
+          href: functions.md
       - name: Cheatsheets
         items:
         - name: SQL

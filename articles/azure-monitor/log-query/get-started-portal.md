@@ -181,7 +181,7 @@ The Query Explorer icon is at the top-right area. This lists all saved queries b
 The Log Analytics page supports several exporting methods:
 
 - Excel: Save the results as a CSV file.
-- Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../log-analytics-powerbi.md) for details.
+- Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../log-analytics/log-analytics-powerbi.md) for details.
 - Share a link: The query itself can be shared as a link which can then be sent and executed by other users that have access to the same workspace.
 
 ## Next steps
