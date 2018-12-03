@@ -21,7 +21,7 @@ There are three categories of APIs that are available in TSI namely, environment
 
 * Time series model-query (TSM-Q) APIs enable create, read, update, and delete operations on metadata stored in the environment part of the time series model. Like instances, types, hierarchies, etc.
 
-* Time series query (TSQ) APIs enables retrieval of events data as it is recorded from source provider, or can perform operations to transform, combine, and perform computations on time series data.
+* Time series query (TSQ) APIs enable retrieval of events data as it is recorded from source provider, or can perform operations to transform, combine, and perform computations on time series data.
 
 Time series expression language (TSX) is leveraged in time series model, to enable composition of advanced computation.
 
@@ -55,7 +55,7 @@ The following are the time series query APIs available:
 * Get Events API – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider. The Get Events API takes the following parameters has the following input payload structure:
 
   * **Time Series ID** (mandatory)
-  * Search span clause (mandatory – This is from and to search time)
+  * Search span clause (mandatory – Used to specify the *from* and *to* search time)
   * Filter clause (optional – For filtering the rows using a predicate. Ex: “Status” = “Good”)
   * Projected Properties (optional – Only the list of properties to be retrieved using the query, if not specified all properties will be retrieved.)
 
