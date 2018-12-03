@@ -4,12 +4,12 @@ titleSuffix: Azure
 description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 11/27/2018
 ms.author: diberry
 ---
 

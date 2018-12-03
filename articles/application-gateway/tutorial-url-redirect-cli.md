@@ -1,6 +1,6 @@
 ---
-title: Create an application gateway with URL path-based redirection - Azure CLI
-description: Learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
+title: Tutorial - Create an application gateway with URL path-based redirection - Azure CLI
+description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -310,14 +310,6 @@ When no longer needed, remove the resource group, application gateway, and all r
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and routing rules
-> * Create virtual machine scale sets for backend pools
 
 > [!div class="nextstepaction"]
 > [Learn more about what you can do with application gateway](application-gateway-introduction.md)

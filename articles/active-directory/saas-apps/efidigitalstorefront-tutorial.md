@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/efidigitalstorefront-tutorial/tutorial_general_400.png)
 
-1. To configure single sign-on on **EFI Digital StoreFront** side, you need to send the downloaded **Metadata XML** to [EFI Digital StoreFront support team](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **EFI Digital StoreFront** side, you need to send the downloaded **Metadata XML** to [EFI Digital StoreFront support team](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -159,7 +159,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a EFI Digital StoreFront test user
 
-In this section, you create a user called Britta Simon in EFI Digital StoreFront. Work with [EFI Digital StoreFront support team](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) to add the users in the EFI Digital StoreFront platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in EFI Digital StoreFront. Work with [EFI Digital StoreFront support team](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) to add the users in the EFI Digital StoreFront platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 

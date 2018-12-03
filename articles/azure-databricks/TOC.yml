@@ -40,6 +40,8 @@
     href: databricks-cli-from-azure-cloud-shell.md
   - name: Use BI tools
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
+  - name: Plan disaster recovery
+    href: howto-regional-disaster-recovery.md
 - name: Reference
   items:
   - name: REST API
@@ -52,6 +54,8 @@
     href: https://docs.azuredatabricks.net/release-notes/index.html
   - name: Databricks documentation
     href: https://docs.azuredatabricks.net/user-guide/index.html
+  - name: R developer's guide 
+    href: ../machine-learning/r-developers-guide.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Pricing

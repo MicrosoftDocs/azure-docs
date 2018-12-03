@@ -3,9 +3,9 @@ title: Introduction to ML Services on Azure HDInsight
 description: Learn how to use ML Services on HDInsight to create applications for big data analysis.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
@@ -21,7 +21,7 @@ Microsoft Machine Learning Server is available as a deployment option when you c
 
 ML Services on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage. Since ML Services cluster is built on open-source R, the R-based applications you build can leverage any of the 8000+ open-source R packages. The routines in ScaleR, Microsoft’s big data analytics package are also available.
 
-The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
+The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
 
 The models or predictions that result from analysis can be downloaded for on-premises use. They can also be operationalized elsewhere in Azure, in particular through [Azure Machine Learning Studio](http://studio.azureml.net) [web service](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
@@ -96,7 +96,7 @@ If you choose this option, you must convert any ScaleR model objects to equivale
 
 ### Score on-premises
 
-To score on-premises after creating your model, you can serialize the model in R, download it, de-serialize it, and then use it for scoring new data. You can score new data by using the approach described earlier in [Scoring in HDInsight](#scoring-in-hdinsight) or by using [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+To score on-premises after creating your model, you can serialize the model in R, download it, de-serialize it, and then use it for scoring new data. You can score new data by using the approach described earlier in [Score in HDInsight](#score-in-hdinsight) or by using [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## Maintain the cluster
 
@@ -108,7 +108,7 @@ If you are just using routines from the ScaleR library across the cluster, you d
 
 In such cases, the additional packages can be installed with a script action after you create the cluster. For more information, see [Manage ML Services in HDInsight cluster](r-server-hdinsight-manage.md).
 
-### Change Hadoop MapReduce memory settings
+### Change Apache Hadoop MapReduce memory settings
 
 A cluster can be modified to change the amount of memory that is available to ML Services when it is running a MapReduce job. To modify a cluster, use the Apache Ambari UI that's available through the Azure portal blade for your cluster. For instructions about how to access the Ambari UI for your cluster, see [Manage HDInsight clusters using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
@@ -142,6 +142,6 @@ The prices that are associated with an ML Services HDInsight cluster are structu
 
 To learn more about how to use ML Services on HDInsight clusters, see the following topics:
 
-* [Get started with ML Serices cluster on HDInsight](r-server-get-started.md)
+* [Get started with ML Services cluster on HDInsight](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 * [Storage options for ML Services cluster on HDInsight](r-server-storage.md)

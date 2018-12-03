@@ -1,20 +1,17 @@
-﻿---
+---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-
 ---
 #  Create Application Insights resources using PowerShell
 This article shows you how to automate the creation and update of [Application Insights](app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](app-insights-monitor-web-app-availability.md), set up [alerts](app-insights-alerts.md), set the [pricing scheme](app-insights-pricing.md), and create other Azure resources.
@@ -26,7 +23,7 @@ If you haven't used PowerShell with your Azure subscription before:
 
 Install the Azure Powershell module on the machine where you want to run the scripts:
 
-1. Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Use it to install Microsoft Azure Powershell.
 
 ## Create an Azure Resource Manager template
@@ -444,6 +441,6 @@ Other automation articles:
 * [Set up Alerts](app-insights-powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Deploy to Azure from GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

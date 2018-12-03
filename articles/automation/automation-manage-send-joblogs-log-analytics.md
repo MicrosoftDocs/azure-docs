@@ -12,7 +12,8 @@ manager: carmonm
 ---
 
 # Forward job status and job streams from Automation to Log Analytics
-Automation can send runbook job status and job streams to your Log Analytics workspace. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
+
+Automation can send runbook job status and job streams to your Log Analytics workspace. This process does not involve workspace linking and is completely independent. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
 
 * Get insight on your Automation jobs.
 * Trigger an email or alert based on your runbook job status (for example, failed or suspended).
@@ -21,12 +22,12 @@ Automation can send runbook job status and job streams to your Log Analytics wor
 * Visualize your job history over time.
 
 ## Prerequisites and deployment considerations
+
 To start sending your Automation logs to Log Analytics, you need:
 
 * The November 2016 or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 * A Log Analytics workspace. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 
 * The ResourceId for your Azure Automation account.
-
 
 To find the ResourceId for your Azure Automation account:
 
@@ -156,7 +157,18 @@ Finally, you may want to visualize your job history over time. You can use this 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Log Analytics Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## Remove diagnostic settings
+
+To remove the diagnostic setting from the Automation Account, run the following commands:
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## Summary
+
 By sending your Automation job status and stream data to Log Analytics, you can get better insight into the status of your Automation jobs by:
 + Setting up alerts to notify you when there is an issue.
 + Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.  
@@ -167,4 +179,4 @@ Log Analytics provides greater operational visibility to your Automation jobs an
 * To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
-* To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).
+* To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../azure-monitor/platform/collect-azure-metrics-logs.md).

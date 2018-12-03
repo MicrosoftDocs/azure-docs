@@ -1,34 +1,25 @@
 ---
 title: Sample data in Azure blob storage | Microsoft Docs
 description: Sample data in Azure Blob Storage
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: e8d9ad2c-86c5-43d6-80b8-d355b5c0dccf
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Sample data in Azure blob storage
-This document covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it using procedures written in Python.
 
-The following **menu** links to topics that describe how to sample data from various storage environments. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+This article covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it using procedures written in Python.
 
 **Why sample your data?**
 If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## Download and down-sample data
 1. Download the data from Azure blob storage using the blob service from the following sample Python code: 

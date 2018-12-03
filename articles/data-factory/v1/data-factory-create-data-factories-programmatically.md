@@ -30,7 +30,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 ## Prerequisites
 * Visual Studio 2012 or 2013 or 2015
-* Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+* Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory

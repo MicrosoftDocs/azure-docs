@@ -5,8 +5,8 @@ description: Shows how to give cloud B2B users access to on-prem apps with Azure
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 04/20/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 
 ms.author: mimart
 author: msmimart
@@ -25,7 +25,7 @@ If your on-premises app uses SAML-based authentication, you can easily make thes
 
 You must do both of the following:
 
-- Integrate the SAML app by using the non-gallery application template, as described in [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md). Make sure to note what you use for the **Sign-on URL** value.
+- Integrate the SAML app by using the non-gallery application template, as described in [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Make sure to note what you use for the **Sign-on URL** value.
 -  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.
@@ -61,11 +61,11 @@ The following diagram provides a high-level overview of how Azure AD Application
 You can manage the on-premises B2B user objects through lifecycle management policies. For example:
 
 - You can set up multi-factor authentication (MFA) policies for the Guest user so that MFA is used during Application Proxy authentication. For more information, see [Conditional access for B2B collaboration users](conditional-access.md).
-- Any sponsorships, access reviews, account verifications, etc. that are performed on the cloud B2B user applies to the on-premises users. For example, if the cloud user is deleted through your lifecycle management policies, the on-premises user is also deleted by MIM Sync or through Azure AD Connect sync. For more information, see [Manage guest access with Azure AD access reviews](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Any sponsorships, access reviews, account verifications, etc. that are performed on the cloud B2B user applies to the on-premises users. For example, if the cloud user is deleted through your lifecycle management policies, the on-premises user is also deleted by MIM Sync or through Azure AD Connect sync. For more information, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews.md).
 
-### Create B2B guest user objects through MIM (Preview)
+### Create B2B guest user objects through MIM
 
-For information about how to use MIM 2016 Service Pack 1 and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy (Public Preview)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+For information about how to use MIM 2016 Service Pack 1 and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### Create B2B guest user objects through a script (Preview)
 
@@ -77,11 +77,11 @@ Before you use the script, make sure that you review the prerequisites and impor
 
 ## License considerations
 
-Make sure that you have the correct Client Access Licenses (CALs) for external guest users who access on-premises apps. For more information, see the "External Connectors" section of [Client Access Licenses and Management Licenses](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx). Consult your Microsoft representative or local reseller regarding your specific licensing needs.
+Make sure that you have the correct Client Access Licenses (CALs) for external guest users who access on-premises apps. For more information, see the "External Connectors" section of [Client Access Licenses and Management Licenses](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Consult your Microsoft representative or local reseller regarding your specific licensing needs.
 
 ## Next steps
 
 - [Azure Active Directory B2B collaboration for hybrid organizations](hybrid-organizations.md)
 
-- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
+- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

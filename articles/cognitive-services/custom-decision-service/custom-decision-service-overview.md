@@ -1,13 +1,16 @@
 ---
-title: What is Custom Decision Service? - Azure Cognitive Services | Microsoft Docs
-description: This article overviews Azure Custom Decision Service, a cloud-based API for contextual decision-making that sharpens with experience.
+title: What is Custom Decision Service?
+titlesuffix: Azure Cognitive Services
+description: This article provides an overview of the Custom Decision Service.
 services: cognitive-services
 author: alekh
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
+ms.author: slivkins
 ---
 # What is Custom Decision Service?
 

@@ -1,21 +1,18 @@
-﻿---
+---
 title: Smart Detection - failure anomalies, in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-
 ---
 # Smart Detection - Failure Anomalies
 [Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests are usually those with response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
@@ -36,8 +33,8 @@ Here's a sample alert.
 Notice that it tells you:
 
 * The failure rate compared to normal app behavior.
-* How many users are affected – so you know how much to worry.
-* A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
+* How many users are affected - so you know how much to worry.
+* A characteristic pattern associated with the failures. In this example, there's a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
 * The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failures.
 * Links directly to relevant searches on the telemetry in Application Insights.
 
@@ -47,7 +44,7 @@ Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a probl
 ## How it works
 Smart  Detection monitors the telemetry received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest) calls). 
 
-Your app’s performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies.
+Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies.
 
 As telemetry comes into Application Insights from your web app, Smart Detection compares the current behavior with the patterns seen over the past few days. If an abnormal rise in failure rate is observed by comparison with previous performance, an analysis is triggered.
 
@@ -143,7 +140,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
+* [Analytics - powerful query language](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 

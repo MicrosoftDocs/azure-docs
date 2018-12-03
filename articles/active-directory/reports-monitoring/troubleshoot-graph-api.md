@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 01/15/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -60,5 +60,5 @@ Please follow the steps in the [Prerequisites to access the Azure Active Directo
 
 ## Next Steps
 
-[Use the audit API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit)
-[Use the sign-in activity report API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+[Use the audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
+[Use the sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

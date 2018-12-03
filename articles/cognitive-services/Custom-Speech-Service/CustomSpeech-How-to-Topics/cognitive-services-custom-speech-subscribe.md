@@ -12,6 +12,9 @@ ms.author: panosper
 ---
 
 # Obtain subscription keys
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 To get started using the Azure Custom Speech Service, you first need to link your user account to an Azure subscription. Subscriptions to free and paid tiers are available. For information about the tiers, see the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 ## Get a subscription key

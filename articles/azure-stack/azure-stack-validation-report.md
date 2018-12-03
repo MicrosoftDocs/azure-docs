@@ -3,7 +3,7 @@ title:    Validation report for Azure Stack | Microsoft Docs
 description: Use the Azure Stack Readiness Checker report to review validation results.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
-ms.author: brenduns
+ms.date: 10/23/2018
+ms.author: sethm
 ms.reviewer:
 
 ---
 
 
 # Azure Stack validation report
-The Azure Stack Readiness Checker tool runs validations that support deployment and servicing of an Azure Stack environment. The tool writes validation results to a .json report file. The report displays detailed and summarized data on the state of prerequisites for deployment of Azure Stack and on Secrets Rotation for existing Azure Stack Deployments.  
+Use the Azure Stack Readiness Checker tool to run validations that support deployment and servicing of an Azure Stack environment. The tool writes results to a .json report file. The report displays detailed and summarized data about the state of prerequisites for deployment of Azure Stack. The report also displays information about Secrets Rotation for existing Azure Stack Deployments.  
 
  ## Where to find the report
 When the tool runs, it logs results to **AzsReadinessCheckerReport.json**. The tool also creates a log named **AzsReadinessChecker.log**. The location of these files displays with the validation results in PowerShell.
@@ -35,35 +35,98 @@ By default, both files are written to *C:\Users\<username>\AppData\Local\Temp\Az
 - Use the **-CleanReport** parameter at the end of the run command to clear information from *AzsReadinessCheckerReport.json*. about previous runs of the tool.
 
 ## View the report
-To view the report in PowerShell, supply the path to the report as a value for **-ReportPath**. This command displays the contents of the report and also identifies validations that do not yet have results.
+To view the report in PowerShell, supply the path to the report as a value for **-ReportPath**. This command displays the contents of the report and identifies validations that do not yet have results.
 
 For example, to view the report from a PowerShell prompt that is open to the location where the report is located, run: 
-   > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
+   > `Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json` 
 
-The output resembles the following image:
+The output resembles the following:
 
-![view-report](./media/azure-stack-validation-report/view-report.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+Certificate Validation results not available.
+
+############### Registration Validation Summary ###############
+
+Azure Registration Validation results not available.
+
+############### Azure Identity Results ###############
+
+Test                          : ServiceAdministrator
+Result                        : OK
+AAD Service Admin             : admin@contoso.onmicrosoft.com
+Azure Environment             : AzureCloud
+Azure Active Directory Tenant : contoso.onmicrosoft.com
+Error Details                 : 
+
+############### Azure Identity Validation Summary ###############
+
+	Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+
+############### AzsReadiness Job Summary ###############
+
+Index             : 0
+Operations        : 
+StartTime         : 2018/10/22 14:24:16
+EndTime           : 2018/10/22 14:24:19
+Duration          : 3
+PSBoundParameters : 
+````
 
 ## View the report summary
 To view a summary of the report, you can add the **-Summary** switch to the end of the PowerShell command line. For example: 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
-The summary shows validations that don't have results and indicates pass or fail for validations that are complete. The output resembles the following image:
+The summary shows validations that don't have results and indicates pass or fail for validations that are complete. The output resembles the following:
 
-![report-summary](./media/azure-stack-validation-report/report-summary.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+    Certificate Validation found no errors or warnings.
+	
+############### Registration Validation Summary ###############
+
+	Registration Validation found no errors or warnings.
+
+############### Azure Identity Validation Summary ###############
+
+	Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+````
 
 
 ## View a filtered report
-To view a report filtered on a single type of validation, use the **-ReportSections** parameter and specify one of the following values that correspond to the validation type you want to view:
+To view a report that is filtered on a single type of validation, use the **-ReportSections** parameter with one of the following values:
 - Certificate
 - AzureRegistration
 - AzureIdentity
+- Graph
+- ADFS
 - Jobs   
 - All  
 
 For example, to view the report summary for certificates only, use the following PowerShell command line: 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate – Summary`
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate – Summary`
 
 
 ## See also
-[Start-AzsReadinessChecker cmdlet reference](azure-stack-azsreadiness-cmdlet.md)

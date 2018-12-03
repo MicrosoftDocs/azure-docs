@@ -7,6 +7,7 @@ manager: douge
 ms.assetid: 36ae7ff7-c22c-47eb-b220-049d61618c74
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
@@ -29,5 +30,5 @@ This package adds the following .NET references:
 ## Connection string for Azure Storage added
 In the App.config file of your project, the **AzureWebJobsStorage** and **AzureWebJobsDashboard** entries were updated with the selected storage account's connection string and key.
 
-For more information, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+For more information, see [Azure WebJobs documentation resources](https://go.microsoft.com/fwlink/?linkid=390226).
 

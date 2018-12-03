@@ -1,14 +1,14 @@
 ---
-title: Using insights token with Bing Visual Search API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Shows how to use an image's insight token with Visual Search API to get insights about an image.
+title: Using insights token - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Shows how to use an image's insight token with Bing Visual Search API to get insights about an image.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
 ---
@@ -240,7 +240,7 @@ namespace VisualSearchInsightsToken
 
 ### Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
 For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 

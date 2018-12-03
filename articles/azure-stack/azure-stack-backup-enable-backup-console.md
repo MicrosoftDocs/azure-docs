@@ -13,8 +13,9 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
+ms.reviewer: hectorl
 ---
 # Enable backup for Azure Stack from the administration portal
 Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment using cloud recovery in the event of [a catastrophic failure](.\azure-stack-backup-recover-data.md). The purpose of cloud recovery is to ensure that your operators and users can log back into the portal after recovery is complete. Users will have their subscriptions restored including role-based access permissions and roles, original plans, offers, and previously defined compute, storage, and network quotas.
@@ -31,7 +32,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 ## Enable or reconfigure backup
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
-2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
+2. Select **All services**, and then under the **ADMINISTRATION** category select **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Type the path to the **Backup storage location**. Use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data after a disaster, the  device should be in a separate location.
 
     > [!Note]  
@@ -48,7 +49,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 
 9. Provide a pre-shared key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view the key from this interface. To create the key, run the following Azure Stack PowerShell commands:
     ```powershell
-    New-EncryptionKeyBase64
+    New-AzsEncryptionKeyBase64
     ```
 10. Select **OK** to save your backup controller settings.
 
@@ -57,9 +58,9 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 ## Start backup
 To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. After the task completes, you can confirm the settings in **Essentials**:
 
-![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png)
 
-You can also run the PowerShell cmdlet **Start-AzSBackup** on your Azure Stack administration computer. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+You can also run the PowerShell cmdlet **Start-AzsBackup** on your Azure Stack administration computer. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## Enable or disable automatic backups
 Backups are automatically scheduled when you enable backup. You can check the next schedule backup time in **Essentials**. 

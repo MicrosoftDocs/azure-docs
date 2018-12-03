@@ -8,8 +8,8 @@
 - name: Tutorials
   items:
   - name: Python Web App with Docker and PostgreSQL
-    href: /azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app
-  - name: CI/CD with Docker Swarm and VSTS
+    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: CI/CD with Docker Swarm and Azure DevOps
     href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
   - name: CI/CD with Docker, Jenkins, and Linux
     href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd

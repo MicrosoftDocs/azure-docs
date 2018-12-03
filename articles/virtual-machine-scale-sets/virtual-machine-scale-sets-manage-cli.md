@@ -1,9 +1,9 @@
 ---
-title: Manage Virtual Machine Scale Sets with the Azure CLI 2.0 | Microsoft Docs
-description: Common Azure CLI 2.0 commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
+title: Manage Virtual Machine Scale Sets with the Azure CLI | Microsoft Docs
+description: Common Azure CLI commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: zarhoads
 
 ---
-# Manage a virtual machine scale set with the Azure CLI 2.0
-Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI 2.0 commands that let you perform these tasks.
+# Manage a virtual machine scale set with the Azure CLI
+Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI commands that let you perform these tasks.
 
-To complete these management tasks, you need the latest Azure CLI 2.0. For information, see [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI 2.0](quick-create-cli.md).
+To complete these management tasks, you need the latest Azure CLI. For information, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI](quick-create-cli.md).
 
 
 ## View information about a scale set

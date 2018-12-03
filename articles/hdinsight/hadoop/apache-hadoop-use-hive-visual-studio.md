@@ -1,26 +1,24 @@
 ---
-title: Hive with Data Lake (Hadoop) tools for Visual Studio - Azure HDInsight 
+title: Apache Hive with Data Lake (Apache Hadoop) tools for Visual Studio - Azure HDInsight 
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
-ms.technology: vs-azure
-ms.workload: azure-vs
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Hive queries using the Data Lake tools for Visual Studio
+# Run Apache Hive queries using the Data Lake tools for Visual Studio
 
-Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The Data Lake tools allow you to easily create, submit, and monitor Hive queries to Hadoop on Azure HDInsight.
+Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The Data Lake tools allow you to easily create, submit, and monitor Hive queries to Apache Hadoop on Azure HDInsight.
 
 ## <a id="prereq"></a>Prerequisites
 
-* An Azure HDInsight (Hadoop on HDInsight) cluster
+* An Azure HDInsight (Apache Hadoop on HDInsight) cluster
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -121,8 +119,6 @@ For information about other ways you can work with Hadoop on HDInsight:
 For more information about the HDInsight tools for Visual Studio:
 
 * [Getting started with HDInsight tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

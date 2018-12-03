@@ -1,57 +1,55 @@
 ---
-title: Quickstart learning how to add utterances to a LUIS app using C# | Microsoft Docs
-description: In this quickstart, you learn to call a LUIS app using C#.
+title: C# Quickstart - change model and train LUIS app
+titleSuffix: Azure Cognitive Services
+description: In this C# quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using C#. 
+#Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using C#. 
 ---
 
-# Quickstart: Add utterances to a LUIS app using C# 
-In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in C#.
+# Quickstart: Change model using C#
 
-<!-- green checkmark -->
-<!--
-> [!div class="checklist"]
-> * Create Visual Studio console project 
-> * Add method to call LUIS API to add utterance and train app
-> * Add JSON file with example utterances for BookFlight intent
-> * Run console and see training status for utterances
--->
-
-For more information, see the technical documentation for the [add example utterance to intent](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
-
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## Prerequisites
 
-* Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/). 
-* Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
-* Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running this code. The code in this article does not create the intents and entities. It adds the utterances for existing intents and entities. 
-* The **version ID** within the application that receives the utterances. The default ID is "0.1"
-* Create a new file named `add-utterances.cs` project in VSCode.
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
+* C# programming language installed.
+* [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) and [CommandLine](https://www.nuget.org/packages/CommandLineParser/) NuGet packages
 
-> [!NOTE] 
-> The complete C# solution including an example `utterances.json` file are available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/csharp/).
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
-## Create the project in Visual Studio
+## Example utterances JSON file
+
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+
+## Create quickstart code 
 
 In Visual Studio, create a new **Windows Classic Desktop Console** app using the .Net Framework. 
 
 ![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
-## Add the System.Web dependency
+### Add the System.Web dependency
 
-In the Visual Studio project, the project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference**.
+The Visual Studio project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference**.
 
 ![Add System.web reference](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
-## Write the C# code
+### Add other dependencies
+
+The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages...**. Search for and add each of the two packages. 
+
+![Add 3rd party dependencies](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
+
+
+### Write the C# code
 The **Program.cs** file should be:
 
 ```CSharp
@@ -70,243 +68,72 @@ namespace ConsoleApp3
         }
     }
 }
-
 ```
 
-Add the System.IO and System.Net.Http dependencies.
+Add the dependencies.
 
-   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=1-6 "Add the dependencies")]
+   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
 
 Add the LUIS IDs and strings to the **Program** class.
 
-   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=12-30&dedent=8 "Add the LUIS IDs and strings")]
+   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=19-30&dedent=8 "Add the LUIS IDs and strings")]
 
-Add the JsonPrettyPrint method.
+Add class to manage command-line parameters to the **Program** class.
 
-   [!code-csharp[Add the JsonPrettyPrint method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=32-92 "Add the JsonPrettyPrint method")]
+   [!code-csharp[Add class to manage command line parameters.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=32-46 "Add class to manage command-line parameters.")]
 
-Add the GET request used to create utterances or start training. 
+Add the GET request method to the **Program** class.
 
-   [!code-csharp[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=93-103 "SendGet")]
-
-
-Add the POST request used to create utterances or start training. 
-
-   [!code-csharp[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=104-115 "SendPost")]
-
-Add the `AddUtterances` function.
-
-   [!code-csharp[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=116-125 "AddUtterances method")]
+   [!code-csharp[Add the GET request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=49-59 "Add the GET request.")]
 
 
-Add the `Train` function. 
+Add the POST request method to the **Program** class. 
 
-   [!code-csharp[Train](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=126-136 "Train")]
+   [!code-csharp[Add the POST request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=60-76 "Add the POST request.")]
 
-Add the `Status` function.
+Add example utterances from file method to the **Program** class.
 
-   [!code-csharp[Status](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=137-143 "Status")]
+   [!code-csharp[Add example utterances from file.
+](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
+")]
 
-To manage arguments, add the main code.
+After the changes are applied to the model, train the model. Add method to the **Program** class.
 
-   [!code-csharp[Main code](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=144-172 "Main code")]
+   [!code-csharp[After the changes are applied to the model, train the model.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=87-96 "After the changes are applied to the model, train the model.")]
 
-## Specify utterances to add
-Create and edit the file `utterances.json` to specify the **array of utterances** you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+Training may not complete immediately, check status to verify training is complete. Add method to the **Program** class.
 
-> [!NOTE]
-> The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.cs`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities.
+   [!code-csharp[Training may not complete immediately, check status to verify training is complete.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=97-103 "Training may not complete immediately, check status to verify training is complete.")]
 
-The `text` field contains the text of the utterance. The `intentName` field must correspond to the name of an intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty list as shown in the following example:
+To manage command-line arguments, add the main code. Add method to the **Program** class.
 
-If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` need to mark the entity referred to in the `entityName` field. Both indexes are zero-based counts meaning 6 in the top example refers to the "S" of Seattle and not the space before the capital S.
+   [!code-csharp[To manage command line arguments, add the main code.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=104-137 "To manage command-line arguments, add the main code.")]
 
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
+### Copy utterances.json to output directory
 
-## Mark the JSON file as content
 In the Solution Explorer, right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
 
 ![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
-## Add an utterance from the command line
+## Build code
 
-Build and run the application from a command line with C# from the /bin/Debug directory. Make sure the utterances.json file is also in this directory.
+Build the code in Visual Studio. 
 
-Calling add-utterances.cs with only the utterance.json as an argument adds but does not train LUIS on the new utterances.
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe utterances.json
-````
+## Run code
 
-This command-line displays the results of calling the add utterances API. The `response` field is in this format for utterances that was added. The `hasError` is false, indicating the utterance was added.  
+In the project's /bin/Debug directory, run the application from a command line. 
 
-```json
-    "response": [
-        {
-            "value": {
-                "UtteranceText": "go to seattle",
-                "ExampleId": -5123383
-            },
-            "hasError": false
-        },
-        {
-            "value": {
-                "UtteranceText": "book a flight",
-                "ExampleId": -169157
-            },
-            "hasError": false
-        }
-    ]
+```CMD
+ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 
-## Add an utterance and train from the command line
-Call add-utterance with the `-train` argument to send a request to train. 
+This command-line displays the results of calling the add utterances API. 
 
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe -train utterances.json
-````
-
-> [!NOTE]
-> Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
-
-The following JSON shows the result of a successful request to train:
-
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-After the request to train is queued, it can take a moment to complete training.
-
-## Get training status from the command line
-Call the app with the `-status` argument to check the training status and display status details.
-
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe -status
-````
-
-```
-Requested training status.
-[
-   {
-      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   }
-]
-```
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## Clean up resources
-When you are done with the tutorial, remove Visual Studio and the console application if you don't need them anymore. 
+When you are done with the quickstart, remove all the files created in this quickstart. 
 
 ## Next steps
 > [!div class="nextstepaction"] 

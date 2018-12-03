@@ -2,7 +2,7 @@
 title: Troubleshoot Azure enterprise cost views | Microsoft Docs
 description: Learn how to resolve any issues you might have with organizational cost views within the Azure portal.  
 author: rthorn17
-manager: rithorn
+manager: adpick
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
-ms.author: rithorn
+ms.author: cwatson
 ---
 
 # Troubleshoot enterprise cost views 

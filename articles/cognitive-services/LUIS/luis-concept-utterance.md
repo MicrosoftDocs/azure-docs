@@ -1,13 +1,14 @@
 ---
-title: Utterances in LUIS apps in Azure | Microsoft Docs
-description: Add utterances in Language Understanding Intelligent Service (LUIS) apps.
+title: Utterances in LUIS apps
+titleSuffix: Azure Cognitive Services
+description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 02/13/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: diberry
 ---
 # Utterances in LUIS
@@ -29,12 +30,14 @@ When choosing utterances, be aware that what you think is a common term or phras
 You will find that even if you make efforts to create varied sentence patterns, you will still repeat some vocabulary.
 
 Take these example utterances:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Example utterances|
+|--|
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
+
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent
@@ -46,6 +49,10 @@ In each iteration of the model, do not add a large quantity of utterances. Add u
 LUIS builds effective models with utterances that are selected carefully. Adding too many utterances is not valuable because it introduces confusion.  
 
 It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endoint-utt.md) for correct intent prediction and entity extraction.
+
+## Punctuation marks
+
+LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#ignoring-words-and-punctuation) by using patterns. 
 
 ## Ignoring words and punctuation
 If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 

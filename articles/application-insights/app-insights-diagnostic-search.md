@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 services: application-insights
@@ -10,16 +10,15 @@ ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
 
 ---
 # Using Search in Application Insights
 Search is a feature of [Application Insights](app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-(For more complex queries over your data, use [Analytics](app-insights-analytics-tour.md).)
+(For more complex queries over your data, use [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
 
 ## Where do you see Search?
 
@@ -98,7 +97,7 @@ Find all the items with the same property value:
 ## Search the data
 
 > [!NOTE]
-> To write more complex queries, open [**Analytics**](app-insights-analytics-tour.md) from the top of the Search blade.
+> To write more complex queries, open [**Analytics**](../log-analytics/query-language/get-started-analytics-portal.md) from the top of the Search blade.
 > 
 
 You can search for terms in any of the property values. This is particularly useful if you have written [custom events](app-insights-api-custom-events-metrics.md) with property values. 
@@ -119,8 +118,8 @@ Here are the search expressions you can use:
 | Sample query | Effect |
 | --- | --- |
 | `apple` |Find all events in the time range whose fields include the word "apple" |
-| `apple AND banana` |Find events that contain both words. Use capital "AND", not "and". |
-| `apple OR banana`<br/>`apple banana` |Find events that contain either word. Use "OR", not "or".<br/>Short form. |
+| `apple AND banana` <br/>`apple banana` |Find events that contain both words. Use capital "AND", not "and". <br/>Short form. |
+| `apple OR banana` |Find events that contain either word. Use "OR", not "or". |
 | `apple NOT banana` |Find events that contain one word but not the other. |
 
 ## Sampling
@@ -129,13 +128,13 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 [Learn about sampling](app-insights-sampling.md).
 
 ## Create work item
-You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
+You can create a bug in GitHub or Azure DevOps with the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
 
-The first time you do this, you are asked to configure a link to your Team Services account and project.
+The first time you do this, you are asked to configure a link to your Azure DevOps organization and project.
 
-![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
+![Fill the URL of your Azure DevOps Services and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
 
 (You can also configure the link on the Work Items blade.)
 
@@ -160,7 +159,7 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Next steps
-* [Write complex queries in Analytics](app-insights-analytics-tour.md)
+* [Write complex queries in Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](app-insights-monitor-web-app-availability.md)
 * [Troubleshooting](app-insights-troubleshoot-faq.md)

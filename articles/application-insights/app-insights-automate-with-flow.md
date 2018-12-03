@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automate Azure Application Insights processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Application Insights connector.
 services: application-insights
@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
@@ -20,7 +19,7 @@ Do you find yourself repeatedly running the same queries on your telemetry data 
 
 With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
 
-You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow. 
+You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 
@@ -29,8 +28,8 @@ You can add additional actions as well. Microsoft Flow makes hundreds of actions
 In this tutorial, you will learn how to create a flow that uses the Analytics auto-cluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email, just one example of how you can use Microsoft Flow and Application Insights Analytics together. 
 
 ### Step 1: Create a flow
-1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and then select **My Flows**.
-1. Click **Create a flow from blank**.
+1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
+2. Click **Create a flow from blank**.
 
 ### Step 2: Create a trigger for your flow
 1. Select **Schedule**, and then select **Schedule - Recurrence**.
@@ -42,7 +41,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 ### Step 3: Add an Application Insights action
 1. Click **New step**, and then click **Add an action**.
 1. Search for **Azure Application Insights**.
-1. Click **Azure Application Insights – Visualize Analytics query Preview**.
+1. Click **Azure Application Insights - Visualize Analytics query Preview**.
 
     ![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -80,7 +79,7 @@ When you create your own queries, verify that they are working properly in Analy
 
 1. Click **New step**, and then click **Add an action**.
 1. Search for **Office 365 Outlook**.
-1. Click **Office 365 Outlook – Send an email**.
+1. Click **Office 365 Outlook - Send an email**.
 
     ![Office 365 Outlook selection window](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -120,7 +119,7 @@ When the flow runs, the recipients you have specified in the email list receive 
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](app-insights-analytics-using.md).
+- Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

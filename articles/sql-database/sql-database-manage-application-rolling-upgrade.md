@@ -2,14 +2,16 @@
 title: Rolling application upgrades - Azure SQL Database | Microsoft Docs
 description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/23/2018
 ---
 # Managing rolling upgrades of cloud applications using SQL Database active geo-replication
 > [!NOTE]
@@ -26,10 +28,10 @@ When evaluating the upgrade options you should consider the following factors:
 * Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
 
 ## Upgrading applications that rely on database backups for disaster recovery
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents a production slot of the application that needs to be upgraded. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (ATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents a production slot of the application that needs to be upgraded. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
 
 1. Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy an identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-2. Create a failover profile in WATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
+2. Create a failover profile in ATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
 
 > [!NOTE]
 > Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
@@ -47,7 +49,7 @@ Once the preparation steps are completed the application is ready for the actual
 
 If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
-1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end-user traffic is directed to it.  
+1. Switch the online endpoint in the ATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end-user traffic is directed to it.  
 2. If you no longer need the V1 application components so you can safely remove them (7).   
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
@@ -60,7 +62,7 @@ If the upgrade process is unsuccessful, for example due to an error in the upgra
 At this point the application is fully functional and the upgrade steps can be repeated.
 
 > [!NOTE]
-> The rollback does not require changes in WATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
+> The rollback does not require changes in ATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 > 
 > 
 
@@ -74,12 +76,12 @@ If your application leverages geo-replication for business continuity, it is dep
 * The application remains protected from catastrophic failures at all times during the upgrade process
 * The geo-redundant components of the application are upgraded in parallel with the active components
 
-To achieve these goals you will leverage Azure Traffic Manager (WATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.azurewebsites.net</i> and <i>contoso-dr.azurewebsites.net</i> represent a production slot of the application with full geographic redundancy. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process, the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
+To achieve these goals you will leverage Azure Traffic Manager (ATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.azurewebsites.net</i> and <i>contoso-dr.azurewebsites.net</i> represent a production slot of the application with full geographic redundancy. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process, the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
 
 1. Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy an identical copy of the web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
 2. Create a geo-redundant secondary database in the stage slot by geo-replicating the secondary database to the backup region (this is called "chained geo-replication"). Monitor the backup secondary to see if the seeding process is completed (3).
 3. Create a standby copy of the web site in the backup region and link it to the geo-redundant secondary (4).  
-4. Add the additional endpoints <i>contoso-2.azurewebsites.net</i> and <i>contoso-3.azurewebsites.net</i> to the failover profile in WATM as offline endpoints (5). 
+4. Add the additional endpoints <i>contoso-2.azurewebsites.net</i> and <i>contoso-3.azurewebsites.net</i> to the failover profile in ATM as offline endpoints (5). 
 
 > [!NOTE]
 > Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
@@ -98,7 +100,7 @@ Once the preparation steps are completed, the stage slot is ready for the upgrad
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
-1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end-user traffic is directed to it. 
+1. Switch the active endpoint in the ATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end-user traffic is directed to it. 
 2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
@@ -111,7 +113,7 @@ If the upgrade process is unsuccessful, for example due to an error in the upgra
 At this point the application is fully functional and the upgrade steps can be repeated.
 
 > [!NOTE]
-> The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
+> The rollback does not require changes in ATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 > 
 > 
 

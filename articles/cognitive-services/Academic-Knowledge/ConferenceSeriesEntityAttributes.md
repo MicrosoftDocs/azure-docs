@@ -1,12 +1,14 @@
 ---
-title: Conference Series entity attributes in the Academic Knowledge API | Microsoft Docs
-description: Learn about the attributes you can use with the Conference Series entity in Cognitive Services.
+title: Conference Series entity attributes - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Learn about the attributes you can use with the Conference Series entity.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ---

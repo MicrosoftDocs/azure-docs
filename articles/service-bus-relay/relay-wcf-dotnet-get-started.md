@@ -3,7 +3,7 @@ title: Get started with Azure Relay WCF relays in .NET | Microsoft Docs
 description: Learn how to use Azure Relay WCF relays to connect two applications hosted in different locations.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
-ms.author: sethm
+ms.author: spelluru
 ---
 
 # How to use Azure Relay WCF relays with .NET
@@ -222,7 +222,6 @@ you must replace the placeholders with your relay namespace and SAS key.
 Now that you've learned the basics of Azure Relay, follow these links to learn more.
 
 * [What is Azure Relay?](relay-what-is-it.md)
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Download Service Bus samples from [Azure samples][Azure samples] or see the [overview of Service Bus samples][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

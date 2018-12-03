@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-suite
  ms.topic: include
- ms.date: 04/24/2018
+ ms.date: 09/17/2018
  ms.author: dobett
  ms.custom: include file
 ---
@@ -13,9 +13,10 @@
 > [!div class="op_single_selector"]
 > * [C on Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
 > * [C on Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generic)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 In this tutorial, you implement a **Chiller** device that sends the following telemetry to the Remote Monitoring [solution accelerator](../articles/iot-accelerators/about-iot-accelerators.md):
 
@@ -31,7 +32,7 @@ The sample device also:
 * Responds to actions triggered from the **Devices** page in the solution.
 * Responds to configuration changes send from the **Devices** page in the solution.
 
-To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Before you start
 
@@ -50,7 +51,7 @@ When the deployment process for the Remote Monitoring solution finishes, click *
 > [!NOTE]
 > If you have already added a device in your solution, you can skip this step. However, the next step requires your device connection string. You can retrieve a device's connection string from the [Azure portal](https://portal.azure.com) or using the [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI tool.
 
-For a device to connect to the solution accelerator, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device the solution. You include the device connection string in your client application later in this tutorial.
+For a device to connect to the solution accelerator, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device to the solution. You include the device connection string in your client application later in this tutorial.
 
 To add a device to your Remote Monitoring solution, complete the following steps on the **Devices** page in the solution:
 

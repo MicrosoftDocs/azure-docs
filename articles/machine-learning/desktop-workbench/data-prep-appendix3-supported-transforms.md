@@ -13,8 +13,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Use data transforms for data preparation in Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 A *transform* in Azure Machine Learning consumes data in a given format, performs an operation on the data (such as changing the data type), and then produces data in the new format. Each transform has its own interface and behavior. By chaining several transforms together via steps in the data flow, you can perform complex and repeatable transformations on your data. This is the core of data preparation functionality.
 

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
 ---
 
@@ -27,9 +27,10 @@ Please note: this image shows how Event Grid connects sources and handlers, and 
 
 ## Event sources
 
-For full details on the capabilities of each source as well as related articles, see [event sources](./event-sources.md). Currently, the following Azure services support sending events to Event Grid:
+For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
 
 * Azure Subscriptions (management operations)
+* Container Registry
 * Custom Topics
 * Event Hubs
 * IoT Hub
@@ -41,7 +42,7 @@ For full details on the capabilities of each source as well as related articles,
 
 ## Event handlers
 
-For full details on the capabilities of each handler as well as related articles, see [event handlers](./event-handlers.md)Currently, the following Azure services support handling events from Event Grid: 
+For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -75,7 +76,7 @@ Here are some of the key features of Azure Event Grid:
 * **Pay-per-event** - Pay only for the amount you use Event Grid.
 * **High throughput** - Build high-volume workloads on Event Grid with support for millions of events per second.
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
-* **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
+* **Custom Events** - Use Event Grid route, filter, and reliably deliver custom events in your app.
 
 For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 

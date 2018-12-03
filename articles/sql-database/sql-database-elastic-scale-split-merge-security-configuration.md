@@ -1,16 +1,17 @@
 ---
 title: Split-merge security configuration | Microsoft Docs
 description: Set up x409 certificates for encryption with the split/merge service for elastic scale.
-metakeywords: Elastic Database certificates security
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Split-merge security configuration
 To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -22,21 +23,21 @@ Certificates are configured in two ways.
 2. [To Configure Client Certificates](#to-configure-client-certificates) 
 
 ## To obtain certificates
-Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
 
 ## Tools to generate certificates
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### To run the tools
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     If installed, go to:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Get the WDK from [Windows 8.1: Download kits and tools](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## To configure the SSL certificate
 A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:

@@ -1,17 +1,17 @@
 ---
 title: Use Log Analytics with a SQL Database multitenant app | Microsoft Docs 
 description: Set up and use Log Analytics with a multitenant Azure SQL Database SaaS app
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Set up and use Log Analytics with a multitenant SQL Database SaaS app
 
@@ -36,7 +36,7 @@ For Azure SQL Database, monitoring and alerting is available on databases and po
 
 For high-volume scenarios, you can use Log Analytics for monitoring and alerting. Log Analytics is a separate Azure service that enables analytics over diagnostic logs and telemetry that's gathered in a workspace from potentially many services. Log Analytics provides a built-in query language and data visualization tools that allow operational data analytics. The SQL Analytics solution provides several predefined elastic pool and database monitoring and alerting views and queries. Log Analytics also provides a custom view designer.
 
-Log Analytics workspaces and analytics solutions open in the Azure portal and in Operations Management Suite. The Azure portal is the newer access point, but it might be behind the Operations Management Suite portal in some areas.
+OMS workspaces are now referred to as Log Analytics workspaces. Log Analytics workspaces and analytics solutions open in the Azure portal. The Azure portal is the newer access point, but it might be what's behind the Operations Management Suite portal in some areas.
 
 ### Create performance diagnostic data by simulating a workload on your tenants 
 
@@ -64,14 +64,14 @@ Log Analytics is a separate service that must be configured. Log Analytics colle
 1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. To run the script, press F5.
 
-Now you can open Log Analytics in the Azure portal or the Operations Management Suite portal. It takes a few minutes to collect telemetry in the Log Analytics workspace and to make it visible. The longer you leave the system gathering diagnostic data, the more interesting the experience is. 
+Now you can open Log Analytics in the Azure portal. It takes a few minutes to collect telemetry in the Log Analytics workspace and to make it visible. The longer you leave the system gathering diagnostic data, the more interesting the experience is. 
 
 ## Use Log Analytics and the SQL Analytics solution to monitor pools and databases
 
 
-In this exercise, open Log Analytics and the Operations Management Suite portal to look at the telemetry gathered for the databases and pools.
+In this exercise, open Log Analytics in the Azure portal to look at the telemetry gathered for the databases and pools.
 
-1. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Log Analytics. Then search for Log Analytics.
+1. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Log Analytics. Then, search for Log Analytics.
 
    ![Open Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
@@ -121,9 +121,9 @@ In this exercise, open Log Analytics and the Operations Management Suite portal 
 
 1. Back in the Log Analytics workspace, select **OMS Portal** to open the workspace there.
 
-    ![Operations Management Suite Portal tile](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics workspace](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-In the Operations Management Suite portal, you can explore the log and metric data in the workspace further. 
+In the Log Analytics workspace, you can explore the log and metric data further. 
 
 Monitoring and alerting in Log Analytics are based on queries over the data in the workspace, unlike the alerting defined on each resource in the Azure portal. By basing alerts on queries, you can define a single alert that looks over all databases, rather than defining one per database. Queries are limited only by the data available in the workspace.
 

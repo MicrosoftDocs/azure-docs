@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Design an Azure Database for MySQL using Azure CLI'
-description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0 from the command line.
+description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI from the command line.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -26,11 +26,11 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > * Update data
 > * Restore data
 
-You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
+You may use the Azure Cloud Shell in the browser, or [Install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#az-account-set) command.
 ```azurecli-interactive

@@ -38,7 +38,7 @@ With the Batch service, you define Azure compute resources to execute your appli
 * [Basics of Batch](../../batch/batch-technical-overview.md)
 * [Batch feature overview](../../batch/batch-api-basics.md)
 
-Optionally, to learn more about Batch, see [Learning path for Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Optionally, to learn more about Batch, see [the Batch documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## Why Azure Data Factory?
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. You can use Data Factory to create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store. An example is Azure Blob storage. You can use Data Factory to process/transform data by using services such as Azure HDInsight and Azure Machine Learning. You also can schedule data pipelines to run in a scheduled manner (for example, hourly, daily, and weekly). You can monitor and manage the pipelines at a glance to identify issues and take action.
@@ -48,7 +48,7 @@ Data Factory is a cloud-based data integration service that orchestrates and aut
 * [Introduction to Data Factory](data-factory-introduction.md)
 * [Build your first data pipeline](data-factory-build-your-first-pipeline.md)   
 
-Optionally, to learn more about Data Factory, see [Learning path for Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Optionally, to learn more about Data Factory, see [the Data Factory documentation](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## Data Factory and Batch together
 Data Factory includes built-in activities. For example, the Copy activity is used to copy/move data from a source data store to a destination data store. The Hive activity is used to process data by using Hadoop clusters (HDInsight) on Azure. For a list of supported transformation activities, see [Data transformation activities](data-factory-data-transformation-activities.md).
@@ -58,9 +58,9 @@ You also can create custom .NET activities to move or process data with your own
 ## Architecture of a sample solution
   The architecture described in this article is for a simple solution. It's also relevant to complex scenarios, such as risk modeling by financial services, image processing and rendering, and genomic analysis.
 
-The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 The following list provides the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 
@@ -88,7 +88,7 @@ The sample solution is intentionally simple. It's designed to show you how to us
 If you don't have an Azure subscription, you can create a free trial account quickly. For more information, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Azure storage account
-You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
+You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md). The sample solution uses blob storage.
 
 #### Azure Batch account
 Create a Batch account by using the [Azure portal](http://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
@@ -553,7 +553,7 @@ Linked services link data stores or compute services to a data factory. In this 
 
    ![New data store](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Select **Deploy** on the command bar to deploy the linked service.
 

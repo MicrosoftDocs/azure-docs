@@ -37,15 +37,15 @@ The Recovery Services vault contains the backup data, and the backup policy appl
 
     ![Open vault menu](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. In the Recovery Services vault menu, 
+3. In the Recovery Services vault menu,
 
-    - Type *myRecoveryServicesVault* in **Name**,
+    - Type *myRecoveryServicesVault* in **Name**.
     - The current subscription ID appears in **Subscription**. If you have additional subscriptions, you could choose another subscription for the new vault.
     - For **Resource group** select **Use existing** and choose *myResourceGroup*. If *myResourceGroup* doesn't exist, select **Create new** and type *myResourceGroup*.
     - From the **Location** drop-down menu, choose *West Europe*.
     - Click **Create** to create your Recovery Services vault.
 
-A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions,create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
+A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
 
 It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
 
@@ -71,7 +71,7 @@ After creating the Recovery Services vault, the next step is to configure the va
 
     ![Select workload](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. In the **Backup policy** menu, for **Policy Name** type *Finance*. Enter the following changes for the Backup policy: 
+5. In the **Backup policy** menu, for **Policy Name** type *Finance*. Enter the following changes for the Backup policy:
     - For **Backup frequency** set the timezone for *Central Time*. Since the sports complex is in Texas, the owner wants the timing to be local. Leave the backup frequency set to Daily at 3:30AM.
     - For **Retention of daily backup point**, set the period to 90 days.
     - For **Retention of weekly backup point**, use the *Monday* restore point and retain it for 52 weeks.
@@ -79,21 +79,21 @@ After creating the Recovery Services vault, the next step is to configure the va
     - Deselect the **Retention of yearly backup point** option. The leader of Finance doesn't want to keep data longer than 36 months.
     - Click **OK** to create the backup policy.
 
-    ![Select workload](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
+    ![Select workload](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
     After creating the backup policy, associate the policy with the virtual machines.
 
-6. In the **Select virtual machines** dialog select *myVM* and click **OK** to deploy the backup policy to the virtual machines. 
+6. In the **Select virtual machines** dialog select *myVM* and click **OK** to deploy the backup policy to the virtual machines.
 
     All virtual machines that are in the same location, and are not already associated with a backup policy, appear. *myVMH1* and *myVMR1* are selected to be associated with the *Finance* policy.
 
-    ![Select workload](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
+    ![Select workload](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
 
     When the deployment completes, you receive a notification that deployment successfully completed.
 
 ## Initial backup
 
-You have enabled backup for the Recovery Services vaults, but an initial backup has not been created. It is a disaster recovery best practice to trigger the first backup, so that your data is protected. 
+You have enabled backup for the Recovery Services vaults, but an initial backup has not been created. It is a disaster recovery best practice to trigger the first backup, so that your data is protected.
 
 To run an on-demand backup job:
 
@@ -125,10 +125,10 @@ To run an on-demand backup job:
 
     Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your virtual machine, creating the initial backup may take a while.
 
-    When the initial backup job completes, you can see its status in the Backup job menu. The on-demand backup job created the initial restore point for *myVM*. If you want to back up other virtual machines, repeat these steps for each virtual machine. 
+    When the initial backup job completes, you can see its status in the Backup job menu. The on-demand backup job created the initial restore point for *myVM*. If you want to back up other virtual machines, repeat these steps for each virtual machine.
 
     ![Backup Jobs tile](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
-  
+
 ## Clean up resources
 
 If you plan to continue on to work with subsequent tutorials, do not clean up the resources created in this tutorial. If you do not plan to continue, use the following steps to delete all resources created by this tutorial in the Azure portal.
@@ -148,17 +148,17 @@ If you plan to continue on to work with subsequent tutorials, do not clean up th
 
     ![Settings icon](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. On the context menu select **Stop backup** to open Stop Backup menu. 
+4. On the context menu select **Stop backup** to open Stop Backup menu.
 
     ![Settings icon](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
 5. In the **Stop Backup** menu, select the upper drop-down menu and choose **Delete Backup Data**.
 
 6. In the **Type the name of the Backup item** dialog, type *myVM*.
- 
-7. Once the backup item is verified (a checkmark appears), **Stop backup** button is enabled. Click **Stop Backup** to stop the policy and delete the restore points. 
 
-    ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+7. Once the backup item is verified (a checkmark appears), **Stop backup** button is enabled. Click **Stop Backup** to stop the policy and delete the restore points.
+
+    ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
 8. In the **myRecoveryServicesVault** menu, click **Delete**.
 
@@ -178,7 +178,7 @@ In this tutorial you used the Azure portal to:
 > * Assign the policy to protect multiple virtual machines
 > * Trigger an on-demand back up for virtual machines
 
-Continue to the next tutorial to restore an Azure virtual machine from disk. 
+Continue to the next tutorial to restore an Azure virtual machine from disk.
 
 > [!div class="nextstepaction"]
 > [Restore VMs using CLI](./tutorial-restore-disk.md)

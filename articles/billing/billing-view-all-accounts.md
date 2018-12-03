@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
-ms.author: amberb
+ms.author: cwatson
 ---
 # View all your billing accounts in Azure portal  
 
@@ -36,7 +36,6 @@ For personal billing accounts, you can manage and view all your charges in the [
 
     ![Screenshot that shows list of billing accounts](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
- 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

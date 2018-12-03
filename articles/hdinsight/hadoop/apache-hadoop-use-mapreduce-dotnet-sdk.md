@@ -1,15 +1,15 @@
 ---
 title: Submit MapReduce jobs using HDInsight .NET SDK - Azure 
-description: Learn how to submit MapReduce jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
-editor: jasonwhowell
+description: Learn how to submit MapReduce jobs to Azure HDInsight Apache Hadoop using HDInsight .NET SDK.
+ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Run MapReduce jobs using HDInsight .NET SDK

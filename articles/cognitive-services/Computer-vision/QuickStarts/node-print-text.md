@@ -1,38 +1,51 @@
 ---
-title: Computer Vision API Node.js quickstart OCR | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract printed text from an image using Computer Vision with Node.js in Cognitive Services.
+title: "Quickstart: Extract printed text (OCR) - REST, Node.js - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract printed text from an image using the Computer Vision API with Node.js.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/06/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: pafarley
 ---
-# Quickstart: Extract printed text (OCR) with Node.js
+# Quickstart: Extract printed text (OCR) using the REST API and Node.js in Computer Vision
 
-In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
+In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [Node.js](https://nodejs.org) 4.x or later installed.
+- You must have [npm](https://www.npmjs.com/) installed.
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## OCR request
+## Create and run the sample
 
-With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+To create and run the sample, do the following steps:
 
-To run the sample, do the following steps:
+1. Install the npm [`request`](https://www.npmjs.com/package/request) package.
+   1. Open a command prompt window as an administrator.
+   1. Run the following command:
 
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you got your subscription keys, if necessary.
-1. Optionally, change the `imageUrl` value to the image you want to analyze.
-1. Save the file with an `.js` extension.
-1. Open the Node.js command prompt and run the file, for example: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-This sample uses the npm [request](https://www.npmjs.com/package/request) package.
+   1. After the package is successfully installed, close the command prompt window.
+
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscriptionKey` with your subscription key.
+    1. Replace the value of `uriBase` with the endpoint URL for the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method from the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of `imageUrl` with the URL of a different image from which you want to extract printed text.
+1. Save the code as a file with a `.js` extension. For example, `get-printed-text.js`.
+1. Open a command prompt window.
+1. At the prompt, use the `node` command to run the file. For example, `node get-printed-text.js`.
 
 ```nodejs
 'use strict';
@@ -78,9 +91,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## OCR response
+## Examine the response
 
-Upon success, the OCR results returned include text, bounding box for regions, lines, and words, for example:
+A successful response is returned in JSON. The sample parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -181,9 +194,22 @@ Upon success, the OCR results returned include text, bounding box for regions, l
 }
 ```
 
+## Clean up resources
+
+When no longer needed, delete the file, and then uninstall the npm `request` package. To uninstall the package, do the following steps:
+
+1. Open a command prompt window as an administrator.
+2. Run the following command:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. After the package is successfully uninstalled, close the command prompt window.
+
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+Explore the Computer Vision API used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

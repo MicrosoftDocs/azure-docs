@@ -120,7 +120,7 @@ file is created, you can deploy the VM by using the following CLI command as an 
    ```
 For more information about JSON template files, see [Authoring Azure Resource Manager templates](../../../resource-group-authoring-templates.md) and [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/).
 
-For more information about CLI and Azure Resource Manager, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+For more information about Azure classic CLI and Azure Resource Manager, see [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## SAP license and hardware key
 For the official SAP-Azure certification, a new mechanism was introduced to calculate the SAP hardware key that's used for the SAP license. The SAP kernel had to be adapted to make use of the new algorithm. Former SAP kernel versions for Linux did not include this code change. Therefore, in certain situations (for example, Azure VM resizing), the SAP hardware key changed and the SAP license was no longer be valid. A solution is provided with more recent SAP Linux kernels.  The detailed SAP kernel patches are documented in SAP note 1928533.

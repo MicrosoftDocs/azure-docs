@@ -105,7 +105,7 @@ You can edit a storage account credential used by your device. If you edit a sto
 4. In the storage account credential **Properties** blade, do the following:
    
    1. If necessary, you can modify the **Enable SSL** mode selection.
-   2. You can choose to regenerate your storage account credential access keys. For more information, see [Regenerate the storage account keys](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Supply the new storage account credential key. For an Azure storage account, this is the primary access key.
+   2. You can choose to regenerate your storage account credential access keys. For more information, see [Regenerate the storage account keys](../storage/common/storage-account-manage.md#access-keys). Supply the new storage account credential key. For an Azure storage account, this is the primary access key.
    3. Click **Save** at the top of the **Properties** blade to save the settings. The settings are updated on the **Storage account credentials** blade.
       
       ![Edit a storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

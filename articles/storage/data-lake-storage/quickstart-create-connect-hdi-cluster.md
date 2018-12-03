@@ -14,14 +14,14 @@ ms.author: jamesbak
 ---
 # Quickstart: Set up clusters in HDInsight
 
-In this quickstart you learn to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach to [Azure Data Lake Storage Gen2 Preview](introduction.md).
+In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2 preview](introduction.md) enabled.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
 > [!IMPORTANT]
 >HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
-Data Lake Storage is used as the data layer in this quickstart. With its Hierarchical Namespace Service and [Hadoop driver](abfs-driver.md), Data Lake Storage is optimized for distributed processing and analysis. Data stored in Data Lake Storage persists even after an HDInsight cluster is deleted.
+A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](abfs-driver.md), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
 
@@ -38,7 +38,7 @@ The following table shows the different methods you can use to set up an HDInsig
 
 ## Quick create: Basic cluster setup
 
-This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using *Quick create* or *Custom*. 
+This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using *Quick create* or *Custom*.
 
 ![hdinsight create options custom quick create](media/quickstart-create-connect-hdi-cluster/hdinsight-creation-options.png)
 
@@ -57,12 +57,11 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
 ## <a name="cluster-types"></a> Cluster types and configuration
+
 Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
 > [!IMPORTANT]
-> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. 
->
->
+> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types.
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -106,7 +105,7 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 > [!WARNING]
 > Using an additional storage account in a different location from the HDInsight cluster is not supported.
 
-During configuration, for the default storage endpoint you specify Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Data Lake Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
+During configuration, for the default storage endpoint you specify Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify additional linked storage accounts which have Data Lake Storage Gen2 enabled that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
@@ -116,7 +115,8 @@ During configuration, for the default storage endpoint you specify Data Lake Sto
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
 ### Optional metastores
-You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
+
+You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores.
 
 For more information, see [Use external metadata stores in Azure HDInsight](../../hdinsight/hdinsight-use-external-metadata-stores.md).
 
@@ -131,7 +131,7 @@ An HDInsight metastore that is created for one HDInsight cluster version cannot 
 
 ### Oozie metastore
 
-To increase performance when using Oozie, use a custom metastore. A metastore can also provide access to Oozie job data after you delete your cluster. 
+To increase performance when using Oozie, use a custom metastore. A metastore can also provide access to Oozie job data after you delete your cluster.
 
 > [!IMPORTANT]
 > You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
@@ -140,8 +140,8 @@ To increase performance when using Oozie, use a custom metastore. A metastore ca
 
 You are billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
 
-
 ### Number of nodes for each cluster type
+
 Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
 
 | Type | Nodes | Diagram |
@@ -153,29 +153,30 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 
 For more information, see [Default node configuration and virtual machine sizes for clusters](../../hdinsight/hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "What are the Hadoop components and versions in HDInsight?"
 
-The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. 
+The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes.
 
 Different cluster types have different node types, numbers of nodes, and node sizes:
-* Hadoop cluster type default: 
+* Hadoop cluster type default:
     * Two *head nodes*  
     * Four *data nodes*
-* Storm cluster type default: 
+* Storm cluster type default:
     * Two *Nimbus nodes*
     * Three *ZooKeeper nodes*
-    * Four *supervisor nodes* 
+    * Four *supervisor nodes*
 
 If you are just trying out HDInsight, we recommend you use one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]
 > The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to increase the limit.
->
 
-When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. In the portal, you can also see the cost associated with the different node sizes. 
+When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. In the portal, you can also see the cost associated with the different node sizes.
 
 ![HDInsight VM node sizes](media/quickstart-create-connect-hdi-cluster/hdinsight-node-sizes.png)
 
-### Virtual machine sizes 
+### Virtual machine sizes
+
 When you deploy clusters, choose compute resources based on the solution you plan to deploy. The following VMs are used for HDInsight clusters:
+
 * A and D1-4 series VMs: [General-purpose Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
 * D11-14 series VM: [Memory-optimized Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
@@ -183,13 +184,13 @@ To find out what value you should use to specify a VM size while creating a clus
 
 > [!IMPORTANT]
 > If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
->
->
 
-For more information, see [Sizes for virtual machines](../../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
+For more information, see [Sizes for virtual machines](../../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ## Custom cluster setup
+
 Custom cluster setup builds on the Quick create settings, and adds the following options:
+
 - [HDInsight applications](#hdinsight-applications)
 - [Cluster size](#cluster-size)
 - Advanced settings
@@ -212,8 +213,6 @@ Some native Java components, like Mahout and Cascading, can be run on the cluste
 > If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 >
 > Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](../../hdinsight/hdinsight-component-versioning.md).
->
->
 
 Sometimes, you want to configure the following configuration files during the creation process:
 
@@ -236,7 +235,8 @@ Sometimes, you want to configure the following configuration files during the cr
 For more information, see [Customize HDInsight clusters using Bootstrap](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## Advanced settings: Extend clusters with a virtual network
-If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../../hdinsight/https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
+
+If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
 For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md).
 

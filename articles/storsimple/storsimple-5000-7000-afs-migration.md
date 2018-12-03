@@ -12,11 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018 
+ms.date: 08/23/2018 
 ms.author: alkohli
 
 ---
 # Migrate data from StorSimple 5000-7000 series to Azure File Sync
+
+> [!IMPORTANT]
+> On July 31, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
 
 Data migration is the process of moving data from one storage location to another. This entails making an exact copy of an organization’s current data from one device to another device—preferably without disrupting or disabling active applications — and then redirecting all input/output (I/O) activity to the new device. 
 
@@ -50,8 +53,7 @@ Before you begin, ensure you have:
 - StorSimple volumes are mounted on the host and contain file shares.
 - The host has sufficient local storage to hold your locally cached data.
 - Owner level access to the Azure subscription that you will use to deploy Azure File Sync. You may experience issues when creating a cloud endpoint for your sync group if you do not have owner or admin level permissions.
-- Access to a [General Purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-options) with an Azure File Share that you want to sync to. For more information, go to 
- - How to [Create a General Purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Access to a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) with an Azure File Share that you want to sync to. For more information, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
  - How to [Create an Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## Migration process
@@ -64,17 +66,17 @@ Migrating data from StorSimple 5000-7000 to AFS is a two-step process:
 
 Perform the following steps to migrate the Windows file share configured on StorSimple volumes to an Azure File Sync share. 
 1.	Perform these steps on the same Windows Server host where the StorSimple volumes are mounted or use a different system. 
-    - [Prepare Windows Server to use with Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Install the Azure File Sync agent](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Deploy the Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Register Windows Server with Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Create a sync group and a cloud endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Sync groups need to be made for each Windows file share that needs to be migrated from the host.
-    - [Create a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Specify the path as the path of the StorSimple volume that contains your file share data. For example, if the StorSimple volume is drive `J`, and your data resides in `J:/<myafsshare>`, then add this path as a server endpoint. Leave the **Tiering** as **Disabled**.
+    - [Prepare Windows Server to use with Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Install the Azure File Sync agent](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Deploy the Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Register Windows Server with Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Create a sync group and a cloud endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Sync groups need to be made for each Windows file share that needs to be migrated from the host.
+    - [Create a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Specify the path as the path of the StorSimple volume that contains your file share data. For example, if the StorSimple volume is drive `J`, and your data resides in `J:/<myafsshare>`, then add this path as a server endpoint. Leave the **Tiering** as **Disabled**.
 2.	Wait until the file server sync is complete. For each server in a given sync group, make sure:
     - The timestamps for the Last Attempted Sync for both upload and download are recent.
     - The status is green for both upload and download.
-    - The Sync Activity shows very few or no files remaining to sync.
-    - The Files Not Syncing is 0 for both upload and download.
+    - The **Sync Activity** shows very few or no files remaining to sync.
+    - The **Files Not Syncing** is 0 for both upload and download.
     For more information on when the server sync is complete, go to [Troubleshoot Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). The sync may take several hours to days, depending on your data size and bandwidth. Once the sync is complete, all your data is safely in the Azure File Share. 
 3.	Go to the shares on the StorSimple volumes. Select a share, right-click and select **Properties**. Note the share permissions under **Security**. These permissions will need to be manually applied to the new share in the later step.
 4.	Depending on whether you use the same Windows Server host or a different one, the next steps will be different.

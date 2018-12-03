@@ -19,11 +19,11 @@ In this tutorial, you learn how to:
 > * Render multiple frames
 > * View and download the rendered frame files
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
 ## Prerequisites
 
-An Azure Batch account with an associated storage account.  See any of the Batch Quickstarts articles, such as the [CLI article](https://docs.microsoft.com/azure/batch/quick-create-cli) to create a Batch account.
+You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. Pay-per-use licensing isn't supported if you use a free Azure offer that provides a monetary credit.
+
+You need an Azure Batch account with an associated storage account.  See any of the Batch Quickstarts articles, such as the [CLI article](https://docs.microsoft.com/azure/batch/quick-create-cli) to create a Batch account.
 
 A low-priority core quota of at least 50 cores is required for the VM size and number of VMs specified in this tutorial; the default quota can be used, but a smaller VM size will have to be used which will mean the images take longer to render. The process for requesting an increased core quota is detailed in [this article](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 

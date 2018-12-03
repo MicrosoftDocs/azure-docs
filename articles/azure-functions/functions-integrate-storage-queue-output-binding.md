@@ -4,16 +4,12 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
@@ -24,7 +20,7 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## Prerequisites 
+## Prerequisites
 
 To complete this quickstart:
 
@@ -38,15 +34,19 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do this, select **All services > Function Apps**, and then select your function app.
 
-2. Select the function that you created in that earlier quickstart.
+1. Select the function that you created in that earlier quickstart.
 
 1. Select **Integrate > New output > Azure Queue storage**.
 
 1. Click **Select**.
-    
+
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
+1. If you get an **Extensions not installed** message, choose **Install** to install the Storage bindings extension in the function app. This may take a minute or two.
+
+    ![Install the Storage binding extension](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -56,52 +56,58 @@ In this section, you use the portal UI to add a queue storage output binding to 
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
     | **Queue name**   | outqueue    | The name of the queue to connect to in your Storage account. |
 
-4. Click **Save** to add the binding.
- 
+1. Click **Save** to add the binding.
+
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 
 ## Add code that uses the output binding
 
 In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string. For example, if the query string includes `name=Azure`, the queue message will be *Name passed to the function: Azure*.
 
-1. Select your function to display the function code in the editor. 
+1. Select your function to display the function code in the editor.
 
-2. For a C# function, add a method parameter for the binding and write code to use it:
+1. Update the function code depending on your function language:
 
-   Add an **outputQueueItem** parameter to the method signature as shown in the following example. The parameter name is the same as what you entered for **Message parameter name** when you created the binding.
+    # [C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Add an **outputQueueItem** parameter to the method signature as shown in the following example.
 
-   In the body of the C# function just before the `return` statement, add code that uses the parameter to create a queue message.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    In the body of the function just before the `return` statement, add code that uses the parameter to create a queue message.
 
-3. For a JavaScript function, add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # [JavaScript](#tab/nodejs)
 
-4. Select **Save** to save changes.
- 
-## Test the function 
+    Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Select **Save** to save changes.
+
+## Test the function
 
 1. After the code changes are saved, select **Run**. 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
-
-   As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
+    Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
+    
+    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
 2. Check the logs to make sure that the function succeeded. 
 

@@ -2,14 +2,16 @@
 title: Operating Query Store in Azure SQL Database
 description: Learn how to operate the Query Store in Azure SQL Database
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Operating the Query Store in Azure SQL Database
 Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, you can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 

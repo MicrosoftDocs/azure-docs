@@ -1,11 +1,14 @@
 ---
-title: Custom Decision Service workflow - Azure Cognitive Services | Microsoft Docs
-description: This article gives an overview of the Azure Custom Decision Service workflow.
+title: Custom Decision Service workflow
+titlesuffix: Azure Cognitive Services
+description: This article provides the recommended workflow for the Azure Custom Decision Service.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
 ---
@@ -16,7 +19,7 @@ We recommend following this pattern when building your apps.
 
 ![Custom Decision Service workflow](media/custom-decision-service-workflow.png)
 
-Add an [Azure Storage connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string).
+Add an [Azure Storage connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string).
 
 ## Next steps
 

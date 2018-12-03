@@ -188,16 +188,16 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 4. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
     Replace:
-
-        ```csharp
-        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        ```
+    
+    ```csharp
+    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
     with:
 
-        ```csharp
-        @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        ```
+    ```csharp
+    @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
 ### To add a new RedisCache view
 

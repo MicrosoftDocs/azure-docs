@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create and manage Linux VMs with the Azure CLI | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Linux VMs in Azure
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Linux VMs in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Linux VMs in Azure
 ---
 
-# Tutorial: Create and Manage Linux VMs with the Azure CLI 2.0
+# Tutorial: Create and Manage Linux VMs with the Azure CLI
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
@@ -34,7 +34,7 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create resource group
 
@@ -260,7 +260,7 @@ An Azure VM can have one of many power states. This state represents the current
 | Deallocated | Indicates that the virtual machine is removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
 | - | Indicates that the power state of the virtual machine is unknown. |
 
-### Find power state
+### Find the power state
 
 To retrieve the state of a particular VM, use the [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) command. Be sure to specify a valid name for a virtual machine and resource group. 
 

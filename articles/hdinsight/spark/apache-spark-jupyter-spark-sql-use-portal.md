@@ -1,20 +1,19 @@
 ---
-title: 'Quickstart: Create an Spark cluster in HDInsight using using the Azure portal'
+title: 'Quickstart: Create an Spark cluster in HDInsight using the Azure portal'
 description: This quickstart shows how to use the Azure portal to create an Apache Spark cluster in Azure HDInsight, and run a Spark SQL.
-services: azure-hdinsight
-author: jasonwhowell
-editor: jasonwhowell
-
-ms.service: azure-hdinsight
+services: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: jasonh
+ms.date: 11/06/2018
 ms.custom: mvc
 
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
-# Quickstart: Create a Spark cluster in HDInsight using the Azure portal
+# Quickstart: Create an Apache Spark cluster in HDInsight using the Azure portal
 Learn how to create Apache Spark cluster in Azure HDInsight, and how to run Spark SQL queries against Hive tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
 In this quickstart, you use the Azure portal to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -131,4 +130,5 @@ You can also select the resource group name to open the resource group page, and
 In this quickstart, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next tutorial to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
->[Run interactive queries on Spark](./apache-spark-load-data-run-query.md)
+>[Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)
+

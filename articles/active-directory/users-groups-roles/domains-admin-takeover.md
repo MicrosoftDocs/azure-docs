@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" signup for a service, see [What is self-service signup for Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" signup for a service, see [What is self-service signup for Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
@@ -104,7 +104,11 @@ For [RMS for individuals](/azure/information-protection/rms-for-individuals), wh
 
 The key and templates are not moved over when the unmanaged tenant is in a different region. For example, the unmanaged tenant is in Europe and the tenant you own is in North American. 
 
-Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content will not be accessible after the domain takeover.    
+Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content will not be accessible after the domain takeover.
+
+#### More information about Power BI
+
+When you perform an external takeover, Power BI content that was created before the takeover is placed in a [Power BI Archived Workspace](/power-bi/service-admin-power-bi-archived-workspace). You must manually migrate any content that you want to use in the new tenant.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
 You can see these cmdlets used in [PowerShell example](#powershell-example).
@@ -124,7 +128,7 @@ cmdlet | Usage
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
   ````
-    import-module MSOnline
+    Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred

@@ -2,43 +2,45 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Functions
+  - name: About Azure Functions
     href: functions-overview.md
+  - name: Durable Functions
+    href: durable/durable-functions-overview.md 
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - portal
-    href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
+  - name: Create function - Visual Studio Code
+    href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Python
+    href: functions-create-first-function-python.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: Create function - portal
+    href: functions-create-first-azure-function.md
   - name: Create function - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:
-    - name: Blob storage
-      href: functions-create-storage-blob-triggered-function.md
     - name: Azure Cosmos DB
       href: functions-create-cosmos-db-triggered-function.md
-    - name: Timer
-      href: functions-create-scheduled-function.md
-    - name: Generic webhook
-      href: functions-create-generic-webhook-triggered-function.md
-    - name: GitHub webhook
-      href: functions-create-github-webhook-triggered-function.md
+    - name: Blob storage
+      href: functions-create-storage-blob-triggered-function.md
     - name: Queue storage
       href: functions-create-storage-queue-triggered-function.md
+    - name: Timer
+      href: functions-create-scheduled-function.md
   - name: Integrate
     items:
-    - name: Storage
-      href: functions-integrate-storage-queue-output-binding.md
     - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
+    - name: Storage
+      href: functions-integrate-storage-queue-output-binding.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -61,14 +63,12 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
+    href: https://azure.microsoft.com/resources/samples/?service=functions
   - name: Azure CLI
-    href: functions-cli-samples.md
-  - name: Azure Functions Recipes
-    href: https://docs.microsoft.com/sandbox/functions-recipes/    
+    href: functions-cli-samples.md    
 - name: Concepts
   items:
-  - name: Compare 1.x and 2.x
+  - name: Compare versions 1.x and 2.x
     href: functions-versions.md
   - name: Scale and hosting
     href: functions-scale.md
@@ -88,6 +88,8 @@
       href: functions-reference-node.md   
     - name: Java
       href: functions-reference-java.md 
+    - name: Python
+      href: functions-reference-python.md
   - name: Diagnostics
     href: ../app-service/app-service-diagnostics.md
   - name: Performance considerations
@@ -97,45 +99,7 @@
   - name: IP addresses
     href: ip-addresses.md 
   - name: On-premises functions
-    href: functions-runtime-overview.md
-  - name: Durable Functions
-    items:
-    - name: Overview 
-      href: durable-functions-overview.md
-    - name: Function types and features
-      href: durable-functions-types-features-overview.md
-    - name: Bindings
-      href: durable-functions-bindings.md
-    - name: Checkpoint and replay 
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Custom orchestration status
-      href: durable-functions-custom-orchestration-status.md
-    - name: Instance management
-      href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
-    - name: Error handling
-      href: durable-functions-error-handling.md
-    - name: Diagnostics
-      href: durable-functions-diagnostics.md
-    - name: Timers
-      href: durable-functions-timers.md
-    - name: External events
-      href: durable-functions-external-events.md
-    - name: Eternal orchestrations
-      href: durable-functions-eternal-orchestrations.md
-    - name: Singleton orchestrations
-      href: durable-functions-singletons.md
-    - name: Sub-orchestrations
-      href: durable-functions-sub-orchestrations.md
-    - name: Task hubs
-      href: durable-functions-task-hubs.md
-    - name: Versioning
-      href: durable-functions-versioning.md
-    - name: Performance and scale
-      href: durable-functions-perf-and-scale.md
-    - name: Disaster recovery and geo-distribution
-      href: durable-functions-disaster-recovery-geo-distribution.md      
+    href: functions-runtime-overview.md 
 - name: How-to guides
   items:
   - name: Develop
@@ -154,16 +118,22 @@
        href: functions-create-maven-intellij.md
      - name: Eclipse development
        href: functions-create-maven-eclipse.md
+     - name: Create Linux function app  
+       href: create-function-app-linux-app-service-plan.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
-       href: functions-bindings-error-pages.md 
+       href: functions-bindings-error-pages.md
+     - name: Debug Event Grid trigger locally
+       href: functions-debug-event-grid-trigger-local.md
   - name: Deploy
     items:
     - name: Continuous deployment
       href: functions-continuous-deployment.md
-    - name: Zip push deployment
+    - name: Zip deployment
       href: deployment-zip-push.md
+    - name: Run from package
+      href: run-functions-from-deployment-package.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
@@ -174,10 +144,36 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Manually register an extension 
+      href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
+  - name: Secure
+    items:
+    - name: Buy SSL cert
+      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Authenticate users
+      items:
+      - name: Authenticate with Azure AD
+        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Facebook
+        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Google
+        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Microsoft account
+        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Twitter
+        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Advanced auth
+      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Restrict IPs
+      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Use a managed identity
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Reference secrets from Key Vault
+      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Integrate
     items:   
     - name: Connect to SQL Database
@@ -190,28 +186,22 @@
       href: functions-powerapps-scenario.md
     - name: Call a function from Microsoft Flow 
       href: functions-flow-scenario.md
-    - name: Use Managed Service Identity
-      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Durable Functions
+    - name: Use a managed identity
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
+  - name: Troubleshoot
     items:
-    - name: Install 
-      href: durable-functions-install.md
-    - name: Chaining 
-      href: durable-functions-sequence.md
-    - name: Fan-out/fan-in 
-      href: durable-functions-cloud-backup.md
-    - name: Monitors
-      href: durable-functions-monitor.md
-    - name: Human interaction 
-      href: durable-functions-phone-verification.md
-    - name: Unit testing
-      href: durable-functions-unit-testing.md
-    - name: Event publishing
-      href: durable-functions-event-publishing.md
-    - name: Use WebJobs SDK
-      href: durable-functions-webjobs-sdk.md      
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md   
 - name: Reference
   items:
+  - name: API references
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
+  - name: App settings reference
+    href: functions-app-settings.md
   - name: Bindings
     items:
     - name: Blob storage
@@ -244,6 +234,8 @@
       href: functions-bindings-sendgrid.md
     - name: Service Bus
       href: functions-bindings-service-bus.md
+    - name: SignalR Service
+      href: functions-bindings-signalr-service.md
     - name: Table storage
       href: functions-bindings-storage-table.md
     - name: Timer
@@ -251,13 +243,18 @@
     - name: Twilio
       href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md  
-  - name: App settings reference
-    href: functions-app-settings.md     
+    href: functions-host-json.md      
+    items:
+    - name: Functions 2.x
+      href: functions-host-json.md  
+    - name: Functions 1.x
+      href: functions-host-json-v1.md    
   - name: OpenAPI reference
-    href: functions-api-definition.md     
+    href: functions-api-definition.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing
@@ -274,7 +271,9 @@
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Azure Functions GitHub repository
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates
-    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=

@@ -6,8 +6,7 @@ ms.date: 07/27/2018
 ms.author: wolfma
 ---
 
-## Speech recognition using a customized model
+## Speech recognition with a customized model
 
-The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows the customization of the Microsoft's speech-to-text engine for your application.
-The snippet below shows how to recognize speech from a microphone using your CRIS model;
-fill in your CRIS subscription key and your own deployment identification before running it.
+The [Custom Speech service (CRIS)](https://www.cris.ai/) allows the customization of the Microsoft speech-to-text engine for your application.
+The following code snippet shows how to recognize speech from a microphone by using your CRIS model. Fill in your subscription key and your own endpoint identification before you run the code.

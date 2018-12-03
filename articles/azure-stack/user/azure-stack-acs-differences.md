@@ -3,7 +3,7 @@ title: Azure stack storage differences and considerations | Microsoft Docs
 description: Understand the differences between Azure stack storage and Azure storage, along with Azure Stack deployment considerations.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 
 ms.assetid:
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
-ms.author: jeffgilb
+ms.date: 12/03/2018
+ms.author: mabrigg
 ms.reviwer: xiaofmao
 
 ---
-# Azure stack storage: Differences and considerations
+# Azure Stack storage: Differences and considerations
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure stack storage is the set of storage cloud services in Microsoft Azure Stack. Azure stack storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure Stack storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage services. It also lists things to consider when you deploy Azure Stack. To learn about high-level differences between global Azure and Azure Stack, see the [Key considerations](azure-stack-considerations.md) topic.
+This article summarizes the known Azure Stack Storage differences from Azure Storage services. It also lists things to consider when you deploy Azure Stack. To learn about high-level differences between global Azure and Azure Stack, see the [Key considerations](azure-stack-considerations.md) article.
 
 ## Cheat sheet: Storage differences
 
@@ -34,10 +34,9 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 |Storage account type|General-purpose and Azure blob storage accounts|General-purpose only.
 |Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage.
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
-|Managed disks|Premium and standard supported|Not yet supported.
+|Managed disks|Premium and standard supported|Supported when you use version 1808 or later.
 |Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
 |Block blob max size|4.75 TB (100 MB X 50,000 blocks)|4.75 TB (100 MB x 50,000 blocks) for the 1802 update or newer version. 50,000 X 4 MB (approx. 195 GB) for previous versions.
-|Page blob snapshot copy|Backup Azure unmanaged VM disks attached to a running VM supported|Not yet supported.
 |Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported.
 |Storage tiers for blob storage|Hot, cool, and archive storage tiers.|Not yet supported.
 Soft delete for blob storage|Preview|Not yet supported.
@@ -81,10 +80,10 @@ Azure Stack storage supports the following client libraries:
 
 | Client library | Azure Stack supported version | Link                                                                                                                                                                                                                                                                                                                                     | Endpoint specification       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | From 6.2.0 to 8.7.0.          | Nuget package:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config file              |
+| .NET           | From 6.2.0 to 8.7.0.          | NuGet package:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config file              |
 | Java           | From 4.1.0 to 6.1.0           | Maven package:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Connection string setup      |
 | Node.js        | From 1.1.0 to 2.7.0           | NPM link:<br>https://www.npmjs.com/package/azure-storage<br>(For example: run "npm install azure-storage@2.7.0")<br> <br>Github release:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Service instance declaration |
-| C++            | From 2.4.0 to 3.1.0           | Nuget package:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Connection string setup      |
+| C++            | From 2.4.0 to 3.1.0           | NuGet package:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Connection string setup      |
 | PHP            | From 0.15.0 to 1.0.0          | GitHub release:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Install via Composer (see details below)                                                                                                                                                                                                                  | Connection string setup      |
 | Python         | From 0.30.0 to 1.0.0          | GitHub release:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Service instance declaration |
 | Ruby           | From 0.12.1 to 1.0.1          | RubyGems package:<br>Common:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-ruby/releases | Connection string setup      |

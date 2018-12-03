@@ -2,18 +2,11 @@
 title: Power BI Workspace Collections FAQ
 description: Frequently asked questions related to Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
@@ -63,7 +56,7 @@ See our service documentation for details on how to use the Power BI Workspace C
 Yes. You can use your existing Azure subscription to provision and use the Microsoft Power BI Workspace Collections service.
 
 ## Does my application end-user need a Power BI license?
-No. Your application’s end users are not required to buy or the Power BI subscription separately in order to access the in-app data visualizations. In the Power BI Workspace Collections model you, as the application provider, is billed for the service through the Azure consumption meter. Refer to the [Pricing and licensing page](http://go.microsoft.com/fwlink/?LinkId=760527).
+No. Your application’s end users are not required to buy or the Power BI subscription separately in order to access the in-app data visualizations. In the Power BI Workspace Collections model you, as the application provider, is billed for the service through the Azure consumption meter. Refer to the [Pricing and licensing page](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## How does user authentication work with Power BI Workspace Collections?
 The Power BI Workspace Collections service uses App Tokens for authentication and authorization instead of explicit end-user authentication. In the App Token model, your application manages authentication and authorization for your end users. Then, when necessary, your app creates
@@ -82,7 +75,7 @@ Developers/employees working on or building your application needs to have an AA
 You can visit the [Power BI Workspace Collections documentation page](get-started.md). You can stay up-to-date about this service by visiting the [Power BI blog](https://powerbi.microsoft.com/blog/) or by visiting the Power BI developer center at dev.powerbi.com. You can also ask questions at [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## How do I get started?
-You can get started for free now! If you have an Azure subscription, you can now provision Power BI Workspace Collections from the Azure portal directly. You can also create your [free Azure account](https://azure.microsoft.com/free/). Once you've provisioned the Power BI Workspace Collections service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Samples are provided on how to leverage the developer SDK.
+You can get started for free now! If you have an Azure subscription, you can now provision Power BI Workspace Collections from the Azure portal directly. You can also create your [free Azure account](https://azure.microsoft.com/free/). Once you've provisioned the Power BI Workspace Collections service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Samples are provided on how to leverage the developer SDK.
 
 ## See also
 

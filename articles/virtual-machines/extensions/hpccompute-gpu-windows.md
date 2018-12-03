@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 11/15/2018
 ms.author: roiyz
 
 ---
@@ -21,11 +21,9 @@ ms.author: roiyz
 
 ## Overview
 
-This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the NVIDIA End-User License Agreement. During the installation process, your virtual machine may reboot to complete the driver setup.
+This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
 An extension is also available to install NVIDIA GPU drivers on [Linux N-series VMs](hpccompute-gpu-linux.md).
-
-Terms of NVIDIA End-User License Agreement are located here - https://go.microsoft.com/fwlink/?linkid=874330
 
 ## Prerequisites
 
@@ -41,7 +39,7 @@ This extension supports the following OSs:
 
 ### Internet connectivity
 
-The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target virtual machine is connected to the internet and have access.
+The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target VM is connected to the internet and have access.
 
 ## Extension schema
 
@@ -59,22 +57,31 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
 }
 ```
 
-### Property values
+### Properties
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
+### Settings
+
+All settings are optional. The default behavior is install the latest supported driver as applicable.
+
+| Name | Description | Default Value | Valid Values | Data Type |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: GRID driver version<br> NC/ND: CUDA driver version | latest | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
+| installGridND | Install GRID driver on ND series VMs | false | true, false | boolean |
 
 ## Deployment
 
@@ -99,7 +106,8 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -116,12 +124,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
 	}'
 ```
 
 ### Azure CLI
+
+The following example mirrors the above ARM and PowerShell example and also adds custom settings as an example for non-default driver installation. Specifically, it installs a specific GRID driver even if an ND series VM is being provisioned.
 
 ```azurecli
 az vm extension set `
@@ -129,8 +139,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 
@@ -160,7 +172,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operation successful |
 | 1 | Operation successful. Reboot required. |
-| 4, 10 | Operation timeout. | Retry operation.
+| 100 | Operation not supported or could not be completed. | Possible causes: PowerShell version not supported, VM size is not an N-series VM, Failure downloading data. Check the log files to determine cause of error. |
+| 240, 840 | Operation timeout. | Retry operation. |
 | -1 | Exception occurred. | Check the log files to determine cause of exception. |
 | -5x | Operation interrupted due to pending reboot. | Reboot VM. Installation will continue after reboot. Uninstall should be invoked manually. |
 

@@ -86,7 +86,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 In order to use HTTPS on the VM, you need a trusted SSL certificate. Depending on your scenario, you can use one of the following two methods:
 
-* A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft. The CA root certificates are required to be distributed via the Microsoft Root Certificate Program. For more information about this program, see [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) and [Introduction to The Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft. The CA root certificates are required to be distributed via the Microsoft Root Certificate Program. For more information about this program, see [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) and [Introduction to The Microsoft Root Certificate Program](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * A self-signed certificate. Self-signed certificates are not recommended for production environments.
 
 ### To use a certificate created by a trusted Certificate Authority (CA)
@@ -595,7 +595,6 @@ The following table summarizes some of the options available to publish existing
 ## More Information
 ### Resources
 * For similar content related to a single server deployment of SQL Server Business Intelligence and SharePoint 2013, see [Use Windows PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2013](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/).
-* For similar content related to a multi-server deployment of SQL Server Business Intelligence and SharePoint 2013, see [Deploy SQL Server Business Intelligence in Azure Virtual Machines](https://msdn.microsoft.com/library/dn321998.aspx).
 * For General information related to deployments of SQL Server Business Intelligence in Azure Virtual Machines, see [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md).
 * For more information about the cost of Azure compute charges, see the Virtual Machines tab of [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 

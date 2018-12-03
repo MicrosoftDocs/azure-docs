@@ -3,7 +3,7 @@ title: Azure Stack Key Vault introduction | Microsoft Docs
 description: Learn how Azure Stack Key Vault manages keys and secrets
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/04/2017
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 
 ---
 # Introduction to Key Vault in Azure Stack

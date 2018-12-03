@@ -1,20 +1,17 @@
-﻿---
+---
 title: Smart Detection in Azure Application Insights | Microsoft Docs
 description: Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-
 ---
 # Smart Detection in Application Insights
  Smart Detection automatically warns you of potential performance problems in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
@@ -53,7 +50,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
+* [Analytics - powerful query language](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Smart Detection is completely automatic. But maybe you'd like to set up some more alerts?
 

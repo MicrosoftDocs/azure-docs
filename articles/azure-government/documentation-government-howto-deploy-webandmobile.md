@@ -1,102 +1,109 @@
 ---
-title: Deploy to Azure App Services5 | Microsoft Docs
-description: This article describes how to deploy a Web App, API App or Mobile App to Azure Government using Visual Studio 2015 and Azure SDK.
+title: Deploy an Azure App Services app| Microsoft Docs
+description: This tutorial describes how to deploy a Web App, API App or Mobile App to Azure Government using Visual Studio and Azure SDK.
 services: azure-government
 cloud: gov
 documentationcenter: ''
 author: sdubeymsft
 manager: zakramer
 
-ms.assetid: 8f9a3700-b9ee-43b7-b64d-2e6c3b57d4c0
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/03/2016
+ms.date: 08/10/2018
 ms.author: sdubeymsft
 
+#Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and deploy an Azure App Services app in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---
 
-# Azure App Services on Azure Government
-This article describes how to deploy an Azure App Services app (API App, Web App, Mobile App) to Azure Government using Visual Studio 2017.
+# Tutorial: Deploy an Azure App Services app
+
+Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your may want to provision and deploy a web app in the Azure Government cloud. To learn more about Azure App Service and see end-to-end scenarios, see [App Service - API Apps Documentation](../app-service/index.yml)
+
+This article describes how to deploy an Azure App Services app to Azure Government using Visual Studio 2017.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Connect to Azure Government
+> * Provision a Web App in portal
+> * Deploy using Visual Studio
+
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 ## Prerequisites
-* See [Visual Studio prerequisites](../app-service/app-service-web-get-started-dotnet.md#prerequisites) to install and configure Visual Studio 2017 and Azure SDK.
+
+* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
+* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
+
+    If you've installed Visual Studio already, add the workload in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+
 * Follow [these instructions](documentation-government-get-started-connect-with-vs.md) to configure Visual Studio to connect to Azure Government account.
 
-## Provision a Web App in the Azure Government Portal
-Log in to the [Azure Government Portal](https://portal.azure.us). 
-Click the **New** button on the top left-hand corner and choose to create **Web App**:
+## Sign in to Azure Government 
 
-![createapp1](./media/documentation-government-howto-deploy-webandmobile-openapp-new1.png)
+To connect, browse to the portal at [https://portal.azure.us](https://portal.azure.us) and sign in with your Azure Government credentials. 
 
-When creating the Web App, you must also have an App Service Plan. When creating a new App Service Plan, you should be able to see the different Azure Government regions in the **App Service Environment** box. If your subscription has not been approved for DoD regions, you may not see all of the DoD regions shown in the following screenshot.
+Once you sign in, you should see "Microsoft Azure Government" in the upper left of the main navigation bar.
 
-![extra](./media/documentation-government-howto-deploy-webandmobile-extra.png)
+![Azure Government Portal](./media/connect-with-portal/azure-gov-portal.png)
+
+## Provision a Web App 
+
+In the Azure Government portal, click the **Create a resource** button on the top left-hand corner and choose to create **Web App**:
+
+![Create a resource](./media/deploy-azure-app-services-app/create-web-app1.png)
+
+In the **Web App** dialog, specify *myGovWebAppTest* for the app name and *myResourceGroup* as a resource group name.
+
+When creating the Web App, you must also have an App Service Plan. When creating a new App Service Plan, you should be able to see the different Azure Government regions in the **App Service Environment** box. If your subscription has not been approved for DoD regions, you will not see all of the DoD regions.
+
+![Web App dialog](./media/deploy-azure-app-services-app/create-web-app2.png)
 
 Once the app has been successfully created go into the **App Services** section and you will be able to see your new web app.
 Click on your web app and you should see that the url ends in **azurewebsites.us**, and the location should also be an Azure Government region.
 
-![createapp3](./media/documentation-government-howto-deploy-webandmobile-openapp-new3.png)
+When you click on your app url, a blue page appears in the browser. 
 
-When you click on your app url, a blue page will appear:
+## Deploy a Web App to Azure Government using VS
 
-![createapp4](./media/documentation-government-howto-deploy-webandmobile-openapp-new4.png)
+In Visual Studio, make sure the **Azure Government** environment is selected. To check, select **Tools** -> **Azure Environment Selector**. The selector should show **Azure Government**.
 
-## Deploy a Web App to Azure Government
-Once **Visual Studio is configured to connect to Azure Government account** (already done in prerequisites section), there are two ways of deploying to Azure Government using [Visual Studio](documentation-government-get-started-connect-with-vs.md): 
+### Publish from Visual Studio
 
-   1. Direct publish with Azure Active Directory user authentication
-   2. Publish with **Publish Profile** option(which can be found in the portal)
+In Visual Studio, click **File** -> **New** -> **Project**. Select **ASP.NET Core Web Application** as the project type and give the application a name.
 
-> [!NOTE]
-> In order to check if Visual Studio is connected to Azure Government, go to the **Tools** tab and click on the Azure Environment Selector extension to see what environment you are connected to.
->![azuregovenvironment1](./media/documentation-government-howto-deploy-webandmobile-openapp3.png)
-> 
+Once it is created, right-click on your web app in the **Solution Explorer** and click **Publish**.
 
-### Publish using Azure Active Directory User Authentication from Visual Studio
-Open up Visual Studio and click File -> New -> Project. We will create an ASP.NET Core Web Application but Azure Web Apps supports a variety of web technologies as you can see on the page.
+Select **Select Existing** because we want to use the existing Web App that we have created in the preceding section.
 
-![extra1](./media/documentation-government-howto-deploy-webandmobile-extra1.png)
+Press **Publish**. In the **App Service** dialog, if not signed in yet, sign-in to your Azure Government account. Then, select the app you created in the preceding section.
 
-Right click on your web app and click **Publish**.
-There are two different options, to use an existing Web App or create a new one. We will use the existing Web App we have created in the preceding section, so choose the **select existing** box. 
-To deploy an app and also have Visual Studio provision a new Azure Web App during the publish process, click **create new**.
+![Publish](./media/deploy-azure-app-services-app/create-app-service-with-vs.png)
 
-<!--  and follow [these steps](../app-service/app-service-web-tutorial-rest-api.md#createapiapp) -->
+It could take a minute or so to publish your web app. Once it has been published to Azure Government, you the browser will appear with a screen of the app at URL ending in **azurewebsites.us**. 
 
-![extra5](./media/documentation-government-howto-deploy-webandmobile-extra5.png)
-
-Once your web app has been published to Azure Government, you should be able to see this screen, with the URL ending in **azurewebsites.us**. 
-
-![extra3](./media/documentation-government-howto-deploy-webandmobile-extra3.png)
+![Published](./media/deploy-azure-app-services-app/documentation-government-howto-deploy-webandmobile-extra3.png)
 
 We just published our app to the existing Azure Web App that we previously created. 
 
-### Deploy using Publish profile
-Log in to the [Azure Government Portal](https://portal.azure.us). 
-Click on **App Services** and choose your web app that you want to deploy. Then Click the **Get publish profile** button at the top of the page and download(take note of where the file was downloaded):
+## Clean up resources
 
-![createapp5](./media/documentation-government-howto-deploy-webandmobile-openapp-new5.png)
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
 
-Open up Visual Studio and right click on your app solution. 
+From the left menu in the Azure Government portal, select Resource groups and then select **myResourceGroup**.
 
-![createapp6](./media/documentation-government-howto-deploy-webandmobile-openapp-new6.png)
+On the resource group page, make sure that the listed resources are the ones you want to delete.
 
-Choose the **Import Profile** option and select the publish profile file from the location where you previously downloaded it. Click **publish**. 
-Now you will be able to upload the publish profile that you downloaded from the portal.
-
-![createapp7](./media/documentation-government-howto-deploy-webandmobile-openapp-new7.png)
-
-If you navigate to the url, you should be able to see this screen.
-
-![extra3](./media/documentation-government-howto-deploy-webandmobile-extra3.png)
-The app has now been deployed to Azure Government. 
-
-### References
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](../app-service/app-service-web-get-started-dotnet.md)
-* For general App Service documentation, see [App Service - API Apps Documentation](../app-service/index.yml)
+Select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.
 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+
+This tutorial showed you how to deploy an Azure App Services app to Azure Government. To see the latest information and insights on building cloud solution for the Azure Government Cloud, check out Azure Government blog.
+
+> [!div class="nextstepaction"]
+> [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+

@@ -5,6 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
+ms.reviewer: lagayhar
 ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc

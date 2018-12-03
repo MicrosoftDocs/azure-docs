@@ -3,7 +3,7 @@ title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
 description: The steps required add an end user to Azure Stack managed by a Cloud Service Provider (CSP).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: brenduns
+ms.date: 09/19/2018
+ms.author: sethm
 ms.reviewer: alfredo
 
 ---
@@ -66,9 +66,9 @@ Update your registration with the new customer’s subscription. Azure reports t
 ### New-AzureRmResource PowerShell parameters
 | Parameter | Description |
 | --- | --- | 
-|registrationSubscriptionID | The Azure subscription that was used for the initial registration of the Azure Stack. |
-| customerSubscriptionID | The Azure subscription (not Azure Stack) belonging to the customer to be registered. Must be created in the CSP offer; in practice, this means through Partner Center. If a customer has more than one Azure Active Directory tenant, this subscription must be created in the tenant that will be used to log into Azure Stack.
-| resourceGroup | The resource group in Azure in which your registration is stored. 
+|registrationSubscriptionID | The Azure subscription that was used for the initial registration of the Azure Stack.|
+| customerSubscriptionID | The Azure subscription (not Azure Stack) belonging to the customer to be registered. Must be created in the CSP offer; in practice, this means through Partner Center. If a customer has more than one Azure Active Directory tenant, this subscription must be created in the tenant that will be used to log into Azure Stack. The customer subscription ID must use lowercase letters. |
+| resourceGroup | The resource group in Azure in which your registration is stored. |
 | registrationName | The name of the registration of your Azure Stack. It is an object stored in Azure. | 
 | Properties | Specifies properties for the resource. Use this parameter to specify the values of properties that are specific to the resource type.
 
@@ -88,5 +88,5 @@ Once you have added the new customer to Azure Stack, or the end customer tenant 
 ## Next steps
 
  - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).
  - To review how an end customer may add you, as the CSP, as the manager for their Azure Stack, tenant, see [Enable a Cloud Service Provider to manage your Azure Stack subscription](user\azure-stack-csp-enable-billing-usage-tracking.md).

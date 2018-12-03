@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/12/2017
+ms.date: 9/11/2018
 ms.author: dekapur
 
 ---
@@ -63,7 +63,7 @@ Here are some recommended specs for each machine that you want to add to the clu
 * A minimum of 40 of GB available disk space
 * A 4 core or greater CPU
 * Connectivity to a secure network or networks for all machines
-* Windows Server 2012 R2 or Windows Server 2016
+* Windows Server OS installed (valid versions: 2012 R2, 2016, 1709, or 1803)
 * [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines
@@ -71,7 +71,7 @@ Here are some recommended specs for each machine that you want to add to the clu
 The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
 
 ## Download the Service Fabric standalone package for Windows Server
-[Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster.
+[Download Link - Service Fabric Standalone Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster.
 
 ## Modify cluster configuration
 To create a standalone cluster you have to create a standalone cluster configuration ClusterConfig.json file, which describes the specification of the cluster. You can base the configuration file on the templates found at the below link. <br>

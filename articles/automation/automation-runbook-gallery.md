@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -16,7 +16,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop, see [Adding a runbook to the gallery](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
 ## Runbooks in Runbook Gallery
-The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery, which is hosted in the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), or you can directly import runbooks from the gallery in the Azure portal.
+The [Runbook Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery, which is hosted in the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), or you can directly import runbooks from the gallery in the Azure portal.
 
 You can only import directly from the Runbook Gallery using the Azure portal. You cannot perform this function using Windows PowerShell.
 
@@ -31,7 +31,7 @@ You can only import directly from the Runbook Gallery using the Azure portal. Yo
 3. Locate the gallery item you want and select it to view its details. On the left you can enter additional search parameters for the publisher and type.
    
     ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
-5. Click on **View source project** to view the item in the [TechNet Script Center](http://gallery.technet.microsoft.com/).
+5. Click on **View source project** to view the item in the [TechNet Script Center](https://gallery.technet.microsoft.com/).
 6. To import an item, click on it to view its details and then click the **Import** button.
    
     ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
@@ -39,7 +39,7 @@ You can only import directly from the Runbook Gallery using the Azure portal. Yo
 8. The runbook appears on the **Runbooks** tab for the Automation Account.
 
 ### Adding a runbook to the runbook gallery
-Microsoft encourages you to add runbooks to the Runbook Gallery that you think would be useful to other customers.  You can add a runbook by [uploading it to the Script Center](http://gallery.technet.microsoft.com/site/upload) taking into account the following details.
+Microsoft encourages you to add runbooks to the Runbook Gallery that you think would be useful to other customers.  You can add a runbook by [uploading it to the Script Center](https://gallery.technet.microsoft.com/site/upload) taking into account the following details.
 
 * You must specify *Windows Azure* for the **Category** and *Automation* for the **Subcategory** for the runbook to be displayed in the wizard.  
 * The upload must be a single .ps1 or .graphrunbook file.  If the runbook requires any modules, child runbooks, or assets, then you should list those in the description of the submission and in the comments section of the runbook.  If you have a scenario requiring multiple runbooks, then upload each separately and list the names of the related runbooks in each of their descriptions. Make sure that you use the same tags so that they show up in the same category. A user will have to read the description to know that other runbooks are required the scenario to work.
@@ -62,7 +62,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 * Automation updates the Gallery once an hour, so you won’t see your contributions immediately.
 
 ## Modules in PowerShell Gallery
-PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  
+PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  
 
 ### To import a module from the Automation Module Gallery with the Azure portal
 1. In the Azure portal, open your Automation account.
@@ -89,8 +89,12 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 > [!NOTE]
 > Modules that only support PowerShell core are not supported in Azure Automation and are unable to be imported in the Azure portal, or deployed directly from the PowerShell Gallery.
 
+## Python Runbooks
+
+Python Runbooks are available in the [Script Center gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). You can contribute Python runbooks to the Script Center gallery. When you do, ensure that you add the tag **Python** when uploading your contribution.
+
 ## Requesting a runbook or module
-You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](https://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Next Steps
 * To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)

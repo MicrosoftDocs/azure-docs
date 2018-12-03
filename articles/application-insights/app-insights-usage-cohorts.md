@@ -1,18 +1,18 @@
 ---
-title:  Azure Application Insights usage cohorts | Microsoft Docs
+title: Azure Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.reviewer: daviste
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 ---
 
 # Application Insights cohorts
@@ -43,9 +43,9 @@ Your team defines an engaged user as anyone who uses your app five or more times
     There are three parameters for this cohort:
     * **Activities**, where you choose which events and page views count as “usage.”
     * **Period**, the definition of a month.
-    * **UsedAtleastCustom**, the number of times users need to use something within a period to count as engaged.
+    * **UsedAtLeastCustom**, the number of times users need to use something within a period to count as engaged.
 
-4. Change **UsedAtleastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
+4. Change **UsedAtLeastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
 
     ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
 
@@ -105,7 +105,7 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
 
     * A query section, where you define the cohort by using an analytics query.
 
-    In the query section, you [write an analytics query](https://docs.loganalytics.io/index). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
+    In the query section, you [write an analytics query](/azure/kusto/query). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
 
     > [!NOTE]
     > If you don’t see the query, try resizing the section to make it taller and reveal the query. The animated .gif at the beginning of this section illustrates the resizing behavior.

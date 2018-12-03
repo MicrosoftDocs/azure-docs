@@ -1,21 +1,17 @@
 ---
-# required metadata
 title: Create logic apps that automate workflows with Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Quickstart for how to automate tasks, processes, and workflows with Azure Logic Apps in Visual Studio
 services: logic-apps
 ms.service: logic-apps
-ms.technology: vs-azure
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
-
-# optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.date: 07/31/2018
 ---
 
 # Quickstart: Create and automate tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -207,6 +203,13 @@ then save your settings, for example:
 
    ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   If the connectors you selected need any input from you, 
+   a PowerShell window might open in the background and prompt 
+   for necessary passwords or secret keys. After you enter this information, 
+   deployment continues.
+   
+   ![Deployment powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    After deployment finishes, your logic app is 
    live in the Azure portal and checks the RSS 
    feed based on your specified schedule (every minute). 
@@ -256,7 +259,7 @@ and choose **Delete**.
 ## Get support
 
 * For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
-* To submit or vote on feature ideas, visit the <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
+* To submit or vote on feature ideas, visit the <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
 
 ## Next steps
 

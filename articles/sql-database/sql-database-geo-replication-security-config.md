@@ -2,14 +2,16 @@
 title: Configure Azure SQL Database security for disaster recovery | Microsoft Docs
 description: Learn the security considerations for configuring and managing security after a database restore or a failover to a secondary server.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover 
 
@@ -25,7 +27,7 @@ Unlike traditional users, which must be mapped to logins in the master database,
 The main trade-off is that managing the disaster recovery process at scale is more challenging. When you have multiple databases that use the same login, maintaining the credentials using contained users in multiple databases may negate the benefits of contained users. For example, the password rotation policy requires that changes be made consistently in multiple databases rather than changing the password for the login once in the master database. For this reason, if you have multiple databases that use the same user name and password, using contained users is not recommended. 
 
 ## How to configure logins and users
-If you are using logins and users (rather than contained users), you must take extra steps to insure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
+If you are using logins and users (rather than contained users), you must take extra steps to ensure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
 
 ### Set up user access to a secondary or recovered database
 In order for the secondary database to be usable as a read-only secondary database, and to ensure proper access to the new primary database or the database recovered using geo-restore, the master database of the target server must have the appropriate security configuration in place before the recovery.

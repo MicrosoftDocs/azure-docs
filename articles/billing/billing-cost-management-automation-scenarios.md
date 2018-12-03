@@ -92,7 +92,7 @@ You can use the billing and cost management APIs in a variety of scenarios to an
 ### What is the difference between the Enterprise Reporting APIs and the Consumption APIs? When should I use each?
 These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. However, each API targets different audiences: 
 
-- **Enterprise Reporting APIs**: These APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated monetary commitments and custom pricing. The APIs require a key to use that can be obtained through the [Enterprise Portal](https://ea.azure.com). For for a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](billing-enterprise-api.md).
+- **Enterprise Reporting APIs**: These APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated monetary commitments and custom pricing. The APIs require a key to use that can be obtained through the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](billing-enterprise-api.md).
 
 - **Consumption APIs**: These APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](billing-consumption-api-overview.md) and the [Azure Consumption API reference](https://docs.microsoft.com/rest/api/consumption/). The provided APIs are the recommended solution for the latest development scenarios. 
 
@@ -119,4 +119,4 @@ These APIs provide similar sets of data but have different audiences. Informatio
 
 - For information about using Azure APIs to programmatically get insight into your Azure usage, see [Azure Consumption API Overview](billing-consumption-api-overview.md) and [Azure Billing API Overview](billing-usage-rate-card-overview.md).
 - To compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md)
-- If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+- If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

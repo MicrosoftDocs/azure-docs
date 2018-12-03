@@ -11,9 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
+ms.reviewer: quying
 
 ---
 
@@ -88,9 +88,9 @@ $session | Remove-PSSession
 
 ## Secrets rotation
 
-*These instructions only apply to Azure Stack Integrated Systems Version 1804 and Later. Don't try to rotate secrets  on pre-1804 versions of Azure Stack.*
+*These instructions only apply to Azure Stack Integrated Systems.*
 
-When using the SQL and MySQL resource providers with Azure Stack integrated systems, you can rotate the following infrastructure (deployment) secrets:
+When using the SQL and MySQL resource providers with Azure Stack integrated systems, the Azure Stack operator is responsible for rotating the following resource provider infrastructure secrets to ensure that they do not expire:
 
 - External SSL Certificate [provided during deployment](azure-stack-pki-certs.md).
 - The resource provider VM local administrator account password provided during deployment.

@@ -52,7 +52,9 @@ Active Directory Federation Services (AD FS) administrators can add a link to th
 
 To add a link to the AD FS sign-in page, use the following command on your AD FS server. Users can use this page to enter the SSPR workflow.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## Customize the sign-in page and access panel look and feel
 
@@ -62,8 +64,8 @@ The graphics you choose are shown in the following circumstances:
 
 * After a user enters their username
 * If the user accesses the customized URL:
-    * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
-    * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * By passing the `whr` parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
+    * By passing the `username` parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 

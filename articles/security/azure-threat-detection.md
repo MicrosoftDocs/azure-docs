@@ -20,7 +20,7 @@ ms.author: TomSh
 
 # Azure advanced threat detection
 
-Azure offers built in advanced threat detection functionality through services such as Azure Active Directory (Azure AD), Azure Operations Management Suite (OMS), and Azure Security Center. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
+Azure offers built in advanced threat detection functionality through services such as Azure Active Directory (Azure AD), Azure Log Analytics, and Azure Security Center. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
 
 Azure provides a wide array of options to configure and customize security to meet the requirements of your app deployments. This article discusses how to meet these requirements.
 
@@ -72,21 +72,21 @@ PIM helps you:
 
 -	Get alerts about access to a privileged role.
 
-## Operations Management Suite
+## Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because OMS is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Log Analytics is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
 
-In addition to providing valuable services on its own, OMS can integrate with System Center components, such as [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), to extend your existing security management investments into the cloud. System Center and OMS can work together to provide a full hybrid management experience.
+In addition to providing valuable services on its own, Log Analytics can integrate with System Center components, such as [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), to extend your existing security management investments into the cloud. System Center and Log Analytics can work together to provide a full hybrid management experience.
 
 ### Holistic security and compliance posture
 
-The [OMS Security and Audit dashboard](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
+The [Log Analytics Security and Audit dashboard](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in Log Analytics. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
 
-OMS dashboards help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
+Log Analytics help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
-![The OMS Security and Audit dashboard](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![The Log Analytics Security and Audit dashboard](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-The OMS Security and Audit dashboard is organized into four major categories:
+The Log Analytics Security and Audit dashboard is organized into four major categories:
 
 -	**Security Domains**: Lets you further explore security records over time; access malware assessments; update assessments; view network security, identity, and access information; view computers with security events; and quickly access the Azure Security Center dashboard.
 
@@ -99,25 +99,25 @@ The OMS Security and Audit dashboard is organized into four major categories:
 -	**Common security queries**: Lists the most common security queries that you can use to monitor your environment. When you select any query, the Search pane opens and displays the results for that query.
 
 ### Insight and analytics
-At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the OMS repository, which is hosted by Azure.
+At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the repository, which is hosted by Azure.
 
 ![Insight and analytics diagram](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 You collect data into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-![The OMS dashboard ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![The Log Analytics dashboard ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 
 
-Most of your interaction with Log Analytics is through the OMS portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
+Most of your interaction with Log Analytics is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
 * [Log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data.
 * [Dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), which you can customize with graphical views of your most valuable searches.
 * [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), which provide additional functionality and analysis tools.
 
 ![Analysis tools](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Solutions add functionality to Log Analytics. They primarily run in the cloud and provide analysis of data that's collected in the OMS repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the OMS dashboard.
+Solutions add functionality to Log Analytics. They primarily run in the cloud and provide analysis of data that's collected in the Log Analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the Log Analytics dashboard.
 
 The Security and Audit dashboard is an example of these types of solutions.
 

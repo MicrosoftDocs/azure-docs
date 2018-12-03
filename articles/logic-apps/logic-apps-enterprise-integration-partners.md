@@ -1,25 +1,18 @@
 ---
-title: Create partners for business-to-business (B2B) messages - Azure Logic Apps | Microsoft Docs
-description: Learn how to add partners to your integration account with the Enterprise Integration Pack and Logic Apps
+title: Add trading partners for B2B integrations - Azure Logic Apps | Microsoft Docs
+description: Create trading partners for your integration account in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: 
-
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-
-ms.custom: H1Hack27Feb2017 
-
 ---
-# Add or update partners in business-to-business agreements in your workflow
+
+# Add trading partners for integration accounts in Azure Logic Apps with Enterprise Integration Pack
 
 Partners are entities that participate in business-to-business (B2B) transactions and exchange messages between each other. Before you can create partners that represent you and another organization in these transactions, you must both share information that identifies and validates messages sent by each other. After you discuss these details and are ready to start your business relationship, you can create partners in your integration account to represent you both.
 

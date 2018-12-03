@@ -21,7 +21,7 @@ resources such as [user-defined routes](../../virtual-network/virtual-networks-u
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az-acs-create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -35,14 +35,14 @@ You can use an existing Azure AD service principal that meets the following requ
 * **Client secret**: Must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!IMPORTANT]
-> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## Option 1: Create a service principal in Azure AD
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods.
 
-The following example commands show you how to do this with the [Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), the [portal](../../active-directory/develop/howto-create-service-principal-portal.md), or other methods.
 
 ```azurecli
 az login
@@ -65,13 +65,13 @@ Highlighted are the **client ID** (`appId`) and the **client secret** (`password
 
 Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. Make sure the service principal meets the requirements at the beginning this article.
 
-You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portal](../dcos-swarm/container-service-deployment.md), or other methods.
+You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI)](container-service-kubernetes-walkthrough.md), [Azure portal](../dcos-swarm/container-service-deployment.md), or other methods.
 
 >[!TIP]
 >When specifying the **client ID**, be sure to use the `appId`, not the `ObjectId`, of the service principal.
 >
 
-The following example shows one way to pass the parameters with the Azure CLI 2.0. This example uses the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+The following example shows one way to pass the parameters with the Azure CLI. This example uses the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Download](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) the template parameters file `azuredeploy.parameters.json` from GitHub.
 

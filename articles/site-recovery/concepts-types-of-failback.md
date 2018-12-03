@@ -1,18 +1,18 @@
 ---
-title: Failback in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises with the Azure Site Recovery service.
+title: Failback during disaster recovery with Azure Site Recovery | Microsoft Docs
+description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises during disaster recovery with the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanki
 ---
 
 # Overview of failback
 
-After you have failed over to Azure, you can fail back to your on-premises site. There are two different types of failback that are possible with Azure Site Recovery: 
+After you have failed over to Azure as part of your disaster recovery process, you can fail back to your on-premises site. There are two different types of failback that are possible with Azure Site Recovery: 
 
 - Fail back to the original location 
 - Fail back to an alternate location

@@ -3,16 +3,14 @@ title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
+author: craigshoemaker
+manager: jeconnoc
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
+ms.author: cshoe
 
 ---
 
@@ -100,8 +98,9 @@ Here's the C# script code:
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TraceWriter log, string input, out Mail message)
+public static void Run(ILogger log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -197,6 +196,31 @@ The following table explains the binding configuration properties that you set i
 |**text**|**Text**| the email content. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## host.json settings
+
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+
+> [!NOTE]
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|from|n/a|The sender's email address across all functions.| 
+
 
 ## Next steps
 

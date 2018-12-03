@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API'
 description: Presents a Xamarin code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: codemillmatt 
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -16,6 +15,15 @@ ms.author: masoucou
 ---
 
 # QuickStart: Build a MongoDB API Xamarin.Forms app with .NET and the Azure portal
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -67,7 +75,7 @@ If you don't wish to use git, you can also [download the project as a ZIP file](
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
 
-The following snippets are all taken from the `MongoService` class, found at the follwing path: src/TaskList.Core/Services/MongoService.cs.
+The following snippets are all taken from the `MongoService` class, found at the following path: src/TaskList.Core/Services/MongoService.cs.
 
 * Initialize the Mongo Client.
     ```cs
@@ -161,7 +169,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 2. Click **Restore all NuGet packages**.
 3. Right click on the **TaskList.Android** and select **Set as startup project**.
 4. Press F5 to start debugging the application.
-5. If you want to run on iOS, first your machine is connected to a Mac (here are [instructions](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) on how to do so).
+5. If you want to run on iOS, first your machine is connected to a Mac (here are [instructions](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) on how to do so).
 6. Right click on **TaskList.iOS** project and select **Set as startup project**.
 7. Click F5 to start debugging the application.
 

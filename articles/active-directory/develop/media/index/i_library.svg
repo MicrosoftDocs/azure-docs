@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #e5e5e5;
+      }
+
+      .cls-3 {
+        fill: #2bc7f4;
+      }
+    </style>
+  </defs>
+  <title>i_library</title>
+  <g id="ICONS-64x">
+    <rect class="cls-1" x="3" y="2" width="20" height="61"/>
+    <rect class="cls-1" x="43" y="10" width="17" height="53"/>
+    <rect class="cls-1" x="23" y="2" width="20" height="61"/>
+    <line class="cls-1" x1="3" y1="9" x2="22" y2="9"/>
+    <line class="cls-1" x1="3" y1="56" x2="22" y2="56"/>
+    <rect class="cls-2" x="44" y="16" width="6" height="41"/>
+    <line class="cls-1" x1="43" y1="17" x2="60" y2="17"/>
+    <rect class="cls-2" x="4" y="3" width="18" height="5"/>
+    <rect class="cls-2" x="4" y="57" width="18" height="5"/>
+    <rect class="cls-2" x="44" y="11" width="15" height="5"/>
+    <rect class="cls-2" x="44" y="55" width="15" height="7"/>
+    <rect class="cls-2" x="24" y="3" width="7" height="59"/>
+    <rect class="cls-2" x="4" y="10" width="6" height="45"/>
+    <rect class="cls-3" x="26" y="7" width="14" height="5"/>
+    <rect class="cls-3" x="26" y="53" width="14" height="5"/>
+    <line class="cls-1" x1="43" y1="55" x2="60" y2="55"/>
+  </g>
+</svg>

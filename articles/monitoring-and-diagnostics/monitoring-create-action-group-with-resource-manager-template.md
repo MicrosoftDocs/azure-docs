@@ -161,4 +161,4 @@ To create an action group using a Resource Manager template, you create a resour
 ## Next steps
 * Learn more about [action groups](monitoring-action-groups.md).
 * Learn more about [alerts](monitoring-overview-alerts.md).
-* Learn how to add [alerts by using a Resource Manager template](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Learn how to add [alerts by using a Resource Manager template](alert-activity-log.md).

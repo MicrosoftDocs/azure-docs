@@ -1,15 +1,15 @@
 ---
-title: Development lifecycle of a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Development lifecycle of a knowledge base 
+title: Lifecycle of knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
+ms.date: 09/12/2018
+ms.author: tulasim
 ---
 
 # Knowledge base lifecycle

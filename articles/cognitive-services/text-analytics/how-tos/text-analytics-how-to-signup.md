@@ -1,17 +1,19 @@
 ---
-title: Sign up for Text Analytics API (Microsoft Cognitive Services on Azure) | Microsoft Docs
+title: Sign up for the Text Analytics API 
+titleSuffix: Azure Cognitive Services
 description: Instructions for signing up to use text analysis and operating within limits.
 services: cognitive-services
 author: HeidiSteen
+
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
 ---
 
-# How to sign up for Text Analytics API
+# How to sign up for the Text Analytics API
 
 Text Analytics resources are available 24-7 in the cloud. Before you can upload your content for analysis, you must sign up to get an access key. Each call to the API requires an access key on the request.
 

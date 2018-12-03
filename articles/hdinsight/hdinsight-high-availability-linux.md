@@ -2,15 +2,15 @@
 title: High availability for Hadoop - Azure HDInsight 
 description: Learn how HDInsight clusters improve reliability and availability by using an additional head node. Learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
 services: hdinsight
-editor: jasonwhowell
-author: jasonwhowell
+ms.reviewer: jasonh
+author: hrasheed-msft
 keywords: hadoop high availability
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight
@@ -19,8 +19,7 @@ HDInsight clusters provide two head nodes to increase the availability and relia
 
 Hadoop achieves high availability and reliability by replicating services and data across multiple nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. HDInsight provides two headnodes to improve Hadoop's availability and reliability.
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## Availability and reliability of nodes
 
@@ -204,13 +203,13 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
+When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure Classic CLI][azure-cli]:
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headNodeSize`, `--workerNodeSize`, and `--zookeeperNodeSize` parameters.
+* **Azure Classic CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headNodeSize`, `--workerNodeSize`, and `--zookeeperNodeSize` parameters.
 
 * **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeVMSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
 
@@ -219,7 +218,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 Use the following links to learn more about things mentioned in this document.
 
 * [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](../cli-install-nodejs.md)
+* [Install and configure the Azure Classic CLI](../cli-install-nodejs.md)
 * [Install and configure Azure PowerShell](/powershell/azure/overview)
 * [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

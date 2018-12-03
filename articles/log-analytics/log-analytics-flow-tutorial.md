@@ -8,23 +8,22 @@ manager: carmonm
 ms.service: log-analytics
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Automate Log Analytics processes with the connector for Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) allows you to create automated workflows using hundreds of actions for a variety of services. Output from one action can be used as input to another allowing you to create integration between different services.  The Azure Log Analytics connector for Microsoft Flow allow you to build workflows that include data retrieved by log searches in Log Analytics.
 
-For example, you can use Microsoft Flow to use Log Analytics data in an email notification from Office 365, create a bug in Visual Studio Team Services, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
+For example, you can use Microsoft Flow to use Log Analytics data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
 
 The tutorial in this article shows you how to create a flow that automatically sends the results of a Log Analytics log search by email, just one example of how you can use Log Analytics in Microsoft Flow. 
 
 
 ## Step 1: Create a flow
-1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and select **My Flows**.
+1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My Flows**.
 2. Click **+ Create from blank**.
 
 ## Step 2: Create a trigger for your flow
@@ -74,7 +73,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 ## Next steps
 
-- Learn more about [log searches in Log Analytics](log-analytics-log-search-new.md).
+- Learn more about [log searches in Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

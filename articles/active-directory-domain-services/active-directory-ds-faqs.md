@@ -3,7 +3,7 @@ title: FAQs - Azure Active Directory Domain Services | Microsoft Docs
 description: Frequently asked questions about Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)
@@ -47,7 +47,7 @@ The service itself does not directly support this scenario. Your managed domain 
 Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
 ### Can I enable Azure AD Domain Services using a Resource Manager Template?
-Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
+No, it is not currently possible to enable Azure AD Domain Services using a template. Instead use PowerShell, see [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
 ### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
@@ -92,6 +92,9 @@ This service is included in the free trial for Azure. You can sign up for a [fre
 
 ### Can I pause an Azure AD Domain Services managed domain? 
 No. Once you have enabled an Azure AD Domain Services managed domain, the service is available within your selected virtual network until you disable/delete the managed domain. There is no way to pause the service. Billing continues on an hourly basis until you delete the managed domain.
+
+### Can I failover Azure AD Domain Services to another region for a DR event?
+No.  Azure AD Domain Services does not currently provide a geo-redundant deployment model. It is limited to a single virtual network in an Azure region. If you want to utilize multiple Azure regions, you need to run your Active Directory Domain Controllers on Azure IaaS VMs.  Architecture guidance can be found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
 No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free, Basic, and, Premium). You are billed on an hourly basis, depending on usage.

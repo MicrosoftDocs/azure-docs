@@ -140,7 +140,7 @@ At corporate firewall level, you need configure the following domains and outbou
 
 | Domain names | Ports | Description |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Used for communication with Data Movement Service backend |
+| *.servicebus.windows.net |443 |Used for communication with Data Movement Service backend |
 | *.core.windows.net |443 |Used for Staged copy using Azure Blob (if configured)|
 | *.frontend.clouddatahub.net |443 |Used for communication with Data Movement Service backend |
 | *.servicebus.windows.net |9350-9354, 5671 |Optional service bus relay over TCP used by the Copy Wizard |

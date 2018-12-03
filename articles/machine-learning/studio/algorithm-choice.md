@@ -1,29 +1,26 @@
 ---
-title: How to choose machine learning algorithms | Microsoft Docs
-description: How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
+title: How to choose machine learning algorithms - Azure Machine Learning Studio | Microsoft Docs
+description: How to choose Azure Machine Learning Studio algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
-documentationcenter: ''
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: "(previous ms.author=pakalra, author=pakalra)"
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
-
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 12/18/2017
-
 ---
-# How to choose algorithms for Microsoft Azure Machine Learning
+# How to choose algorithms for Azure Machine Learning Studio
+
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
 ## The Machine Learning Algorithm Cheat Sheet
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
 This article walks you through how to use it.
 
 > [!NOTE]
@@ -36,6 +33,7 @@ This cheat sheet has a very specific audience in mind: a beginning data scientis
 These recommendations are compiled feedback and tips from many data scientists and machine learning experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
 ### How to use the cheat sheet
+
 Read the path and algorithm labels on the chart as "For *&lt;path
 label&gt;*, use *&lt;algorithm&gt;*." For example, "For *speed*, use *two
 class logistic regression*." Sometimes more than one branch applies.
@@ -55,7 +53,9 @@ recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890e
 > 
 
 ## Flavors of machine learning
+
 ### Supervised
+
 Supervised learning algorithms make predictions based on a set of
 examples. For instance, historical stock prices can be used to hazard
 guesses at future prices. Each example used for training is labeled with
@@ -93,6 +93,7 @@ detection.
   identify anything that is significantly different.
 
 ### Unsupervised
+
 In unsupervised learning, data points have no labels associated with
 them. Instead, the goal of an unsupervised learning algorithm is to
 organize the data in some way or to describe its structure. This can
@@ -100,6 +101,7 @@ mean grouping it into clusters or finding different ways of looking at
 complex data so that it appears simpler or more organized.
 
 ### Reinforcement learning
+
 In reinforcement learning, the algorithm gets to choose an action in
 response to each data point. The learning algorithm also receives a
 reward signal a short time later, indicating how good the decision was.
@@ -111,7 +113,9 @@ data point, and the algorithm must choose the robot's next action. It is
 also a natural fit for Internet of Things applications.
 
 ## Considerations when choosing an algorithm
+
 ### Accuracy
+
 Getting the most accurate answer possible isn't always necessary.
 Sometimes an approximation is adequate, depending on what you want to
 use it for. If that's the case, you may be able to cut your processing
@@ -120,6 +124,7 @@ advantage of more approximate methods is that they naturally tend to
 avoid [overfitting](https://youtu.be/DQWI1kvmwRg).
 
 ### Training time
+
 The number of minutes or hours necessary to train a model varies a great
 deal between algorithms. Training time is often closely tied to
 accuracy—one typically accompanies the other. In addition, some
@@ -128,6 +133,7 @@ When time is limited it can drive the choice of algorithm, especially
 when the data set is large.
 
 ### Linearity
+
 Lots of machine learning algorithms make use of linearity. Linear
 classification algorithms assume that classes can be separated by a
 straight line (or its higher-dimensional analog). These include logistic
@@ -151,6 +157,7 @@ line of attack. They tend to be algorithmically simple and fast to
 train.
 
 ### Number of parameters
+
 Parameters are the knobs a data scientist gets to turn when setting up
 an algorithm. They are numbers that affect the algorithm's behavior,
 such as error tolerance or number of iterations, or options between
@@ -172,6 +179,7 @@ accuracy. Provided you can find the right combination of parameter
 settings.
 
 ### Number of features
+
 For certain types of data, the number of features can be very large
 compared to the number of data points. This is often the case with
 genetics or textual data. The large number of features can bog down some
@@ -179,6 +187,7 @@ learning algorithms, making training time unfeasibly long. Support
 Vector Machines are particularly well suited to this case (see below).
 
 ### Special cases
+
 Some learning algorithms make particular assumptions about the structure
 of the data or the desired results. If you can find one that fits your
 needs, it can give you more useful results, more accurate predictions,
@@ -191,7 +200,7 @@ or faster training times.
 | [decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Low memory footprint |
 | [boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Large memory footprint |
-| [neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Good for large feature sets |
 | [locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Good for large feature sets |
@@ -200,7 +209,7 @@ or faster training times.
 | [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Low memory footprint |
-| [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |See properties of the two-class method selected |
 | **Regression** | | | | | |
 | [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -208,7 +217,7 @@ or faster training times.
 | [decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Large memory footprint |
 | [fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributions rather than point predictions |
-| [neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technically log-linear. For predicting counts |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |For predicting rank-ordering |
 | **Anomaly detection** | | | | | |
@@ -223,7 +232,9 @@ or faster training times.
 **○** - shows good accuracy and moderate training times
 
 ## Algorithm notes
+
 ### Linear regression
+
 As mentioned previously, [linear regression](https://msdn.microsoft.com/library/azure/dn905978.aspx)
 fits a line (or plane, or hyperplane) to the data set. It's a workhorse,
 simple and fast, but it may be overly simplistic for some problems.
@@ -235,6 +246,7 @@ tutorial](linear-regression-in-azure.md).
 ***Data with a linear trend***
 
 ### Logistic regression
+
 Although it confusingly includes 'regression' in the name, logistic
 regression is actually a powerful tool for
 [two-class](https://msdn.microsoft.com/library/azure/dn905994.aspx)
@@ -252,6 +264,7 @@ something you can live with.
 class boundary is the point at which the logistic curve is just as close to both classes*
 
 ### Trees, forests, and jungles
+
 Decision forests
 ([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx),
 [two-class](https://msdn.microsoft.com/library/azure/dn906008.aspx),
@@ -300,6 +313,7 @@ know not only the typical (median) value of the data within a region,
 but also its distribution in the form of quantiles.
 
 ### Neural networks and perceptrons
+
 Neural networks are brain-inspired learning algorithms covering
 [multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx),
 [two-class](https://msdn.microsoft.com/library/azure/dn905947.aspx),
@@ -320,7 +334,7 @@ take a long time to train, particularly for large data sets with lots of
 features. They also have more parameters than most algorithms, which
 means that parameter sweeping expands the training time a great deal.
 And for those overachievers who wish to [specify their own network
-structure](http://go.microsoft.com/fwlink/?LinkId=402867), the
+structure](https://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
 ![Boundaries learned by neural networks][6]
@@ -335,6 +349,7 @@ primitive by today's standards, but it has a long history of working
 robustly and is small enough to learn quickly.
 
 ### SVMs
+
 Support vector machines (SVMs) find the boundary that separates classes
 by as wide a margin as possible. When the two classes can't be clearly
 separated, the algorithms find the best boundary they can. As written in
@@ -369,6 +384,7 @@ anomaly detection. Any new data points that fall far outside that
 boundary are unusual enough to be noteworthy.
 
 ### Bayesian methods
+
 Bayesian methods have a highly desirable quality: they avoid
 overfitting. They do this by making some assumptions beforehand about
 the likely distribution of the answer. Another byproduct of this
@@ -391,15 +407,14 @@ Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-
 If you have a very specific goal you may be in luck. Within the Azure Machine Learning
 collection, there are algorithms that specialize in:
 
-- rank prediction
-([ordinal
+- rank prediction ([ordinal
 regression](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
 - count prediction ([Poisson
 regression](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
 - anomaly detection (one based on [principal components
 analysis](https://msdn.microsoft.com/library/azure/dn913102.aspx)
 and one based on [support vector
-machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)s)
+machines](https://msdn.microsoft.com/library/azure/dn913103.aspx))
 - clustering ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![PCA-based anomaly detection][8]
@@ -439,16 +454,15 @@ learning curve on its interface. It's also available as [stand-alone
 open source code](https://github.com/JohnLangford/vowpal_wabbit) in
 several languages.
 
-## More help with algorithms
+## Next Steps
+
 * For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
-* For a list by category of all the machine learning algorithms available in Azure Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
-* For a complete alphabetical list of algorithms and modules in Azure Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
-* To download and print a diagram that gives an overview of the capabilities of Azure Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
 
-<!-- Reference links -->
-[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
+* For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio Algorithm and Module Help.
+
+* To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 
 <!-- Media -->
 

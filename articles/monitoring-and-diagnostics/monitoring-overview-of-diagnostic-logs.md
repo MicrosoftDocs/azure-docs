@@ -34,12 +34,12 @@ Here are some of the things you can do with diagnostic logs:
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Analyze them with [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 > [!NOTE]
->  You cannot currently archive data to a storage account that behind a secured virtual network.
+>  You cannot currently archive network flow logs to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
 > The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -139,9 +139,9 @@ You can combine these parameters to enable multiple output options.
 
 You cannot currently configure tenant diagnostic settings using Azure PowerShell.
 
-### Enable collection of resource diagnostic logs via Azure CLI 2.0
+### Enable collection of resource diagnostic logs via the Azure CLI
 
-To enable collection of resource diagnostic logs via the Azure CLI 2.0, you use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+To enable collection of resource diagnostic logs via the Azure CLI, you use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 To enable storage of diagnostic logs in a Storage Account:
 
@@ -229,4 +229,4 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 
 * [Stream resource diagnostic logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analyze logs from Azure storage with Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -21,12 +21,28 @@ In this quickstart, try the enrichment pipeline in the [Azure portal](https://po
 * Run the wizard (an entity skill detects people, location, and organizations)
 * Use [Search explorer](search-explorer.md) to query the enriched data.
 
+## <a name="supported-regions"></a> Supported Regions
+
 You can try out cognitive search in an Azure Search service created in the following regions:
 
+* West Central US
 * South Central US
+* East US
+* East US 2
+* West US 2
+* Canada Central
 * West Europe
+* UK South
+* North Europe
+* Brazil South
+* Southeast Asia
+* Central India
+* Australia East
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## Prerequisites
 
@@ -49,7 +65,7 @@ First, sign up for the Azure Search service.
 
 1. For Resource group, create a resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
 
-1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions.
+1. For Location, choose one of the [supported regions](#supported-regions) for Cognitive Search.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 

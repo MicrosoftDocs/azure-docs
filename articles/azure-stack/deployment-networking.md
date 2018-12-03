@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -48,13 +48,13 @@ The DVM is configured with an IP from the BMC Network and requires network acces
 
 During deployment, the DVM authenticates against Azure Active Directory (Azure AD) using an Azure account from your subscription. In order to do so, the DVM requires internet access to a list of specific port and URLs. You can find the complete list in the [Publish Endpoints](azure-stack-integrate-endpoints.md) documentation. The DVM will utilize a DNS server to forward DNS requests made by internal components to external URLs. The internal DNS forwards these requests to the DNS forwarder address that you provide to the OEM prior to deployment. The same is true for the NTP server, a reliable Time Server is required to maintain consistency and time synchronization for all Azure Stack components.
 
-The Internet access required by the DVM during deployment is outbound only, no inbound calls are made during deployment. Keep in mind that it uses its IP as source and that Azure Stack does not support proxy configurations. Therefore, if necessary, you need to provide a transparent proxy or NAT to access the internet. After deployment completes, all communication between Azure and Azure Stack are made through the External Network using Public VIPs.
+The internet access required by the DVM during deployment is outbound only, no inbound calls are made during deployment. Keep in mind that it uses its IP as source and that Azure Stack does not support proxy configurations. Therefore, if necessary, you need to provide a transparent proxy or NAT to access the internet. During deployment, some internal components will start accessing the internet through the External Network using Public VIPs. After deployment completes, all communication between Azure and Azure Stack is made through the External Network using Public VIPs.
 
 Network configurations on Azure Stack switches contain Access Control Lists (ACLs) that restrict traffic between certain network sources and destinations. The DVM is the only component with unrestricted access; even the HLH is very restricted. You can ask your OEM about customization options to ease management and access from your networks. Because of these ACLs, it is important to avoid changing the DNS and NTP server addresses at deployment time. If you do so, you will need to reconfigure all of the switches for the solution.
 
 After deployment is completed, the provided DNS and NTP server addresses will continue to be used by the system’s components directly. For example, if you check DNS requests after deployment is completed, the source will change from the DVM IP to an address from the External Network range.
 
-After Azure Stack is successfully deployed, your OEM partner might use the DVM for additional post-deployment tasks. However, when all deployment tasks and post-deployment configurations are completed, the OEM should remove and delete the DVM from the HLH.
+After deployment is completed, the provided DNS and NTP server addresses will continue to be used by the system’s components through the SDN using the External network. For example, if you check DNS requests after deployment is completed, the source will change from the DVM IP to a Public VIP.
 
 ## Next steps
 [Validate Azure registration](azure-stack-validate-registration.md)

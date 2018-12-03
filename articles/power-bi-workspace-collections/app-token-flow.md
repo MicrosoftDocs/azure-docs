@@ -2,18 +2,11 @@
 title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
 description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
@@ -172,7 +165,7 @@ Body
    
    ![App token flow - service send report to user](media/get-started-sample/token-6.png)
 
-After **Power BI Workspace Collections** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like:
+After **Power BI Workspace Collections** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like:
 
 ![Sample of report embedded in application](media/get-started-sample/sample-web-app.png)
 

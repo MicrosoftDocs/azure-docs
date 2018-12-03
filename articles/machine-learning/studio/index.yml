@@ -12,12 +12,21 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
+  ms.date: 09/24/2018
   ms.author: jmartens
 abstract:
   description: 'Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.'
 sections:
-
+- items:
+  - type: list
+    style: cards
+    className: cardsB
+    columns: 1
+    items:
+    - html: <p>Start building and deploying models in Studio's drag-and-drop interface.</p>
+      image:
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -48,7 +57,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Azure Machine Learning services (preview)
+    - title: Azure Machine Learning service (preview)
       href: /azure/machine-learning/service/
       image: 
         src: media/index/i_machine-learning.svg
@@ -66,8 +75,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell module (New)</a></p><p><a href="powershell-module">PowerShell module (Classic)</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.machinelearning">PowerShell module (New)</a></p><p><a href="powershell-module">PowerShell module (Classic)</a></p>
     - title: Modules
       html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm & Module reference</a></p>
     - title: REST
-      html: <p><a href="/rest/api/machinelearning">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>

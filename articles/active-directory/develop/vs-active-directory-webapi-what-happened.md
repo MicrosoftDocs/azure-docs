@@ -11,7 +11,7 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
+ms.custom: aaddev, vs-azure
 ---
 # What happened to my WebAPI project (Visual Studio Azure Active Directory connected service)
 

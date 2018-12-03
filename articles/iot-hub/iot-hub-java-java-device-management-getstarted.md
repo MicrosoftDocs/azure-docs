@@ -2,7 +2,6 @@
 title: Get started with Azure IoT Hub device management (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure IoT device SDK for Java to implement a simulated device app that includes a direct method and the Azure IoT service SDK for Java to implement a service app that invokes the direct method.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -18,7 +17,9 @@ ms.author: dobett
 This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
+
 * Create a simulated device app that implements a direct method to reboot the device. Direct methods are invoked from the cloud.
+
 * Create an app that invokes the reboot direct method in the simulated device app through your IoT hub. This app then monitors the reported properties from the device to see when the reboot operation is complete.
 
 At the end of this tutorial, you have two Java console apps:
@@ -26,26 +27,39 @@ At the end of this tutorial, you have two Java console apps:
 **simulated-device**. This app:
 
 * Connects to your IoT hub with the device identity created earlier.
+
 * Receives a reboot direct method call.
+
 * Simulates a physical reboot.
+
 * Reports the time of the last reboot through a reported property.
 
 **trigger-reboot**. This app:
 
 * Calls a direct method in the simulated device app.
-* Displays the response to the direct method call sent by the simulated device
+
+* Displays the response to the direct method call sent by the simulated device.
+
 * Displays the updated reported properties.
 
 > [!NOTE]
-> For information about the SDKs that you can use to build applications to run on devices and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
+> For information about the SDKs that you can use to build applications to run on devices and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 To complete this tutorial, you need:
 
-* Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Java for this tutorial on either Windows or Linux.
-* Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install [Maven][lnk-maven] for this tutorial on either Windows or Linux.
+* Java SE 8. <br/> [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install Java for this tutorial on either Windows or Linux.
+
+* Maven 3.  <br/> [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install [Maven](https://maven.apache.org/what-is-maven.html) for this tutorial on either Windows or Linux.
+
 * [Node.js version 0.10.0 or later](http://nodejs.org).
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### Retrieve connection string for IoT hub
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -54,20 +68,22 @@ To complete this tutorial, you need:
 In this section, you create a Java console app that:
 
 1. Invokes the reboot direct method in the simulated device app.
-1. Displays the response.
-1. Polls the reported properties sent from the device to determine when the reboot is complete.
+
+2. Displays the response.
+
+3. Polls the reported properties sent from the device to determine when the reboot is complete.
 
 This console app connects to your IoT Hub to invoke the direct method and read the reported properties.
 
 1. Create an empty folder called dm-get-started.
 
-1. In the dm-get-started folder, create a Maven project called **trigger-reboot** using the following command at your command prompt. The following shows a single, long command:
+2. In the dm-get-started folder, create a Maven project called **trigger-reboot** using the following command at your command prompt. The following shows a single, long command:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. At your command prompt, navigate to the trigger-reboot folder.
+3. At your command prompt, navigate to the trigger-reboot folder.
 
-1. Using a text editor, open the pom.xml file in the trigger-reboot folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
+4. Using a text editor, open the pom.xml file in the trigger-reboot folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
@@ -79,9 +95,9 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+    > You can check for the latest version of **iot-service-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
     ```xml
     <build>
@@ -99,11 +115,11 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     </build>
     ```
 
-1. Save and close the pom.xml file.
+6. Save and close the pom.xml file.
 
-1. Using a text editor, open the trigger-reboot\src\main\java\com\mycompany\app\App.java source file.
+7. Using a text editor, open the trigger-reboot\src\main\java\com\mycompany\app\App.java source file.
 
-1. Add the following **import** statements to the file:
+8. Add the following **import** statements to the file:
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceMethod;
@@ -118,7 +134,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     import java.util.concurrent.ExecutorService;
     ```
 
-1. Add the following class-level variables to the **App** class. Replace `{youriothubconnectionstring}` with your IoT hub connection string you noted in the *Create an IoT Hub* section:
+9. Add the following class-level variables to the **App** class. Replace `{youriothubconnectionstring}` with your IoT hub connection string you noted in the *Create an IoT Hub* section:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -129,7 +145,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. To implement a thread that reads the reported properties from the device twin every 10 seconds, add the following nested class to the **App** class:
+10. To implement a thread that reads the reported properties from the device twin every 10 seconds, add the following nested class to the **App** class:
 
     ```java
     private static class ShowReportedProperties implements Runnable {
@@ -150,13 +166,13 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     }
     ```
 
-1. Modify the signature of the **main** method to throw the following exception:
+11. Modify the signature of the **main** method to throw the following exception:
 
     ```java
     public static void main(String[] args) throws IOException
     ```
 
-1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
+12. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
 
     ```java
     System.out.println("Starting sample...");
@@ -181,7 +197,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     }
     ```
 
-1. To start the thread to poll the reported properties from the simulated device, add the following code to the **main** method:
+13. To start the thread to poll the reported properties from the simulated device, add the following code to the **main** method:
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -189,7 +205,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     executor.execute(showReportedProperties);
     ```
 
-1. To enable you to stop the app, add the following code to the **main** method:
+14. To enable you to stop the app, add the following code to the **main** method:
 
     ```java
     System.out.println("Press ENTER to exit.");
@@ -198,9 +214,9 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     System.out.println("Shutting down sample...");
     ```
 
-1. Save and close the trigger-reboot\src\main\java\com\mycompany\app\App.java file.
+15. Save and close the trigger-reboot\src\main\java\com\mycompany\app\App.java file.
 
-1. Build the **trigger-reboot** back-end app and correct any errors. At your command prompt, navigate to the trigger-reboot folder and run the following command:
+16. Build the **trigger-reboot** back-end app and correct any errors. At your command prompt, navigate to the trigger-reboot folder and run the following command:
 
     `mvn clean package -DskipTests`
 
@@ -212,9 +228,9 @@ In this section, you create a Java console app that simulates a device. The app 
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. At your command prompt, navigate to the simulated-device folder.
+2. At your command prompt, navigate to the simulated-device folder.
 
-1. Using a text editor, open the pom.xml file in the simulated-device folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
+3. Using a text editor, open the pom.xml file in the simulated-device folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
@@ -225,9 +241,9 @@ In this section, you create a Java console app that simulates a device. The app 
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-device-client** using [Maven search][lnk-maven-device-search].
+    > You can check for the latest version of **iot-device-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
     ```xml
     <build>
@@ -245,11 +261,11 @@ In this section, you create a Java console app that simulates a device. The app 
     </build>
     ```
 
-1. Save and close the pom.xml file.
+5. Save and close the pom.xml file.
 
-1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java source file.
+6. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java source file.
 
-1. Add the following **import** statements to the file:
+7. Add the following **import** statements to the file:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -263,7 +279,7 @@ In this section, you create a Java console app that simulates a device. The app 
     import java.util.HashSet;
     ```
 
-1. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the *Create a device identity* section:
+7. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the *Create a device identity* section:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -274,7 +290,7 @@ In this section, you create a Java console app that simulates a device. The app 
     private static DeviceClient client;
     ```
 
-1. To implement a callback handler for direct method status events, add the following nested class to the **App** class:
+8. To implement a callback handler for direct method status events, add the following nested class to the **App** class:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -286,7 +302,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
+9. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -298,7 +314,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. To implement a callback handler for property events, add the following nested class to the **App** class:
+10. To implement a callback handler for property events, add the following nested class to the **App** class:
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -311,7 +327,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. To implement a thread to simulate the device reboot, add the following nested class to the **App** class. The thread sleeps for five seconds and then sets the **lastReboot** reported property:
+11. To implement a thread to simulate the device reboot, add the following nested class to the **App** class. The thread sleeps for five seconds and then sets the **lastReboot** reported property:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -332,7 +348,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. To implement the direct method on the device, add the following nested class to the **App** class. When the simulated app receives a call to the **reboot** direct method, it returns an acknowledgement to the caller and then starts a thread to process the reboot:
+12. To implement the direct method on the device, add the following nested class to the **App** class. When the simulated app receives a call to the **reboot** direct method, it returns an acknowledgement to the caller and then starts a thread to process the reboot:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -364,20 +380,20 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. Modify the signature of the **main** method to throw the following exceptions:
+13. Modify the signature of the **main** method to throw the following exceptions:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. To instantiate a **DeviceClient**, add the following code to the **main** method:
+14. To instantiate a **DeviceClient**, add the following code to the **main** method:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-1. To start listening for direct method calls, add the following code to the **main** method:
+15. To start listening for direct method calls, add the following code to the **main** method:
 
     ```java
     try
@@ -395,7 +411,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. To shut down the device simulator, add the following code to the **main** method:
+16. To shut down the device simulator, add the following code to the **main** method:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -406,9 +422,9 @@ In this section, you create a Java console app that simulates a device. The app 
     System.out.println("Shutting down...");
     ```
 
-1. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
+17. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
-1. Build the **simulated-device** back-end app and correct any errors. At your command prompt, navigate to the simulated-device folder and run the following command:
+18. Build the **simulated-device** back-end app and correct any errors. At your command prompt, navigate to the simulated-device folder and run the following command:
 
     `mvn clean package -DskipTests`
 
@@ -420,31 +436,16 @@ You are now ready to run the apps.
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT Hub simulated device app to listen for reboot direct method calls][1]
+    ![Java IoT Hub simulated device app to listen for reboot direct method calls](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-1. At a command prompt in the trigger-reboot folder, run the following command to call the reboot method on your simulated device from your IoT hub:
+2. At a command prompt in the trigger-reboot folder, run the following command to call the reboot method on your simulated device from your IoT hub:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT Hub service app to call the reboot direct method][2]
+    ![Java IoT Hub service app to call the reboot direct method](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
 
-1. The simulated device responds to the reboot direct method call:
+3. The simulated device responds to the reboot direct method call:
 
-    ![Java IoT Hub simulated device app responds to the direct method call][3]
+    ![Java IoT Hub simulated device app responds to the direct method call](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
-
-<!-- images and links -->
-[1]: ./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png
-[2]: ./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png
-[3]: ./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png
-<!-- Links -->
-
-[lnk-maven]: https://maven.apache.org/what-is-maven.html
-
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
-[lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

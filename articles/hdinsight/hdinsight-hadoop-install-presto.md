@@ -2,19 +2,21 @@
 title: Install Presto on Azure HDInsight Linux clusters 
 description: Learn how to install Presto and Airpal on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 
 ---
 # Install and use Presto on HDInsight Hadoop clusters
 
 In this document, you learn how to install Presto on HDInsight Hadoop clusters by using Script Action. You also learn how to install Airpal on an existing Presto HDInsight cluster.
+
+HDInsight also offers the Starburst Presto application for Apache Hadoop clusters. For more information, see [Install third-party applications on Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
 > [!IMPORTANT]
 > The steps in this document require an **HDInsight 3.5 Hadoop cluster** that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versions](hdinsight-component-versioning.md).
@@ -38,17 +40,17 @@ This section provides instructions on how to use the sample script when creating
 
 	* It must be a Hadoop cluster with HDInsight version 3.6.
 
-	* It must use Azure Storage as the data store. Using Presto on a cluster that uses Azure Data Lake Store as the storage option is not yet supported. 
+	* It must use Azure Storage as the data store. Using Presto on a cluster that uses Azure Data Lake Store as the storage option is not yet an option.
 
 	![HDInsight cluster creation using custom options](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. On the **Advanced settings** area, select **Script Actions**, and provide the information below:
+2. On the **Advanced settings** area, select **Script Actions**, and provide the information below. You can also choose the "Install Presto" option for the script type.
    
    * **NAME**: Enter a friendly name for the script action.
    * **Bash script URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **HEAD**: Check this option
    * **WORKER**: Check this option
-   * **ZOOKEEPER**: Clear this check box
+   * **ZOOKEEPER**: Leave this check box blank
    * **PARAMETERS**: Leave this field blank
 
 
@@ -57,7 +59,7 @@ This section provides instructions on how to use the sample script when creating
 4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
     > [!NOTE]
-    > Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+    > Azure PowerShell, the Azure Classic CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
 

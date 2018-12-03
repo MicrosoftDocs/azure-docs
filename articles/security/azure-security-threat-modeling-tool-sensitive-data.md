@@ -3,9 +3,9 @@ title: Sensitive Data - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -138,7 +138,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN: autocomplete attribute](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML](http://msdn.microsoft.com/library/ms533032.aspx), [HTML Sanitization Vulnerability](http://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **References**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML Sanitization Vulnerability](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Steps** | The autocomplete attribute specifies whether a form should have autocomplete on or off. When autocomplete is on, the browser automatically complete values based on values that the user has entered before. For example, when a new name and password is entered in a form and the form is submitted, the browser asks if the password should be saved.Thereafter when the form is displayed, the name and password are filled in automatically or are completed as the name is entered. An attacker with local access could obtain the clear text password from the browser cache. By default autocomplete is enabled, and it must explicitly be disabled. |
 
 ### Example

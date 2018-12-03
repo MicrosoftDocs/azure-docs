@@ -2,18 +2,11 @@
 title: Create a new report from a dataset in Power BI Workspace Collections | Microsoft Docs
 description: Power BI Workspace Collection reports can now be created from a dataset in your own application. 
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: 
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan

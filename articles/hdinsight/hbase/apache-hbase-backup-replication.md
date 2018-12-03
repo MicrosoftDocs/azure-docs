@@ -1,9 +1,9 @@
 ---
-title: Set up HBase and Phoenix backup and replication - Azure HDInsight 
+title: Set up Apache HBase and Apache Phoenix backup and replication - Azure HDInsight 
 description: Set up backup and replication for HBase and Phoenix.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -12,9 +12,9 @@ ms.date: 01/22/2018
 ms.author: ashishth
 
 ---
-# Set up backup and replication for HBase and Phoenix on HDInsight
+# Set up backup and replication for Apache HBase and Apache Phoenix on HDInsight
 
-HBase supports several approaches for guarding against data loss:
+Apache HBase supports several approaches for guarding against data loss:
 
 * Copy the `hbase` folder
 * Export then Import
@@ -97,7 +97,7 @@ The destination address is composed of the following three parts:
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>` is a comma-separated list of ZooKeeper nodes, for example:
+* `<ZooKeeperQuorum>` is a comma-separated list of Apache ZooKeeper nodes, for example:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -105,7 +105,7 @@ The destination address is composed of the following three parts:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-See [Manually Collecting the ZooKeeper Quorum List](#manually-collect-the-zookeeper-quorum-list) in this article for details on how to retrieve these values for your HDInsight cluster.
+See [Manually Collecting the Apache ZooKeeper Quorum List](#manually-collect-the-apache-zookeeper-quorum-list) in this article for details on how to retrieve these values for your HDInsight cluster.
 
 The CopyTable utility also supports parameters to specify the time range of rows to copy, and to specify the subset of column families in a table to copy. To see the complete list of parameters supported by CopyTable, run CopyTable without any parameters:
 
@@ -116,7 +116,7 @@ CopyTable scans the entire source table content that will be copied over to the 
 > [!NOTE]
 > To automate the copying of data between tables, see the `hdi_copy_table.sh` script in the [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) repository on GitHub.
 
-### Manually collect the ZooKeeper quorum List
+### Manually collect the Apache ZooKeeper quorum List
 
 When both HDInsight clusters are in the same virtual network, as described previously, internal host name resolution is automatic. To use CopyTable for HDInsight clusters in two separate virtual networks connected by a VPN Gateway, you will need to provide the host IP addresses of the Zookeeper nodes in the quorum.
 
@@ -197,8 +197,8 @@ The general steps to set up replication are:
 5. Copy existing data from the source tables to the destination tables.
 6. Replication automatically copies new data modifications to the source tables into the destination tables.
 
-To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Management templates, see [Configure HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
+To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Management templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
 
 ## Next steps
 
-* [Configure HBase replication](apache-hbase-replication.md)
+* [Configure Apache HBase replication](apache-hbase-replication.md)

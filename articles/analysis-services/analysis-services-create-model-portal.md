@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,13 +14,16 @@ ms.reviewer: minewiskan
 
 The Azure Analysis Services web designer (preview) feature in Azure portal provides a quick and easy way to create and edit tabular models and query model data right in your browser. 
 
-Keep in mind, the web designer is **preview**. Functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
+> [!IMPORTANT]
+> This feature is deprecated. It may be removed or significantly changed in a future update. It's recommended you discontinue using this features in new and existing projects to maintain compatibility with future updates. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
+
 
 ## Before you begin
 
-- An Azure Analysis Services server at the Standard or Developer tier. New models created by using the Web designer are DirectQuery, supported only by these tiers.
+- Your Azure Analysis Services server must be at the Standard or Developer tier. New models created by using the Web designer are DirectQuery, supported only by these tiers.
 - An Azure SQL Database, Azure SQL Data Warehouse, or Power BI Desktop (.pbix) file as a datasource. New models created from Power BI Desktop files support Azure SQL Database and Azure SQL Data Warehouse.
 - A SQL Server account and password for connecting to Azure SQL Database or Azure SQL Data Warehouse data sources.
+- You must have server admin privileges to create a new model. Database admin privileges are required to edit and query a model by using the designer.
 
 ## Sign in to the Azure portal
 

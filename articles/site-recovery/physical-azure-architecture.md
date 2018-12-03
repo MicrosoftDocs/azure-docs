@@ -1,14 +1,15 @@
 ---
-title: Physical server to Azure replication architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when replicating on-premises physical servers to Azure with the Azure Site Recovery service
+title: Architecture for physical server disaster recovery to Azure using Azure Site Recovery | Microsoft Docs
+description: This article provides an overview of components and architecture used during disaster recovery of on-premises physical servers to Azure with the Azure Site Recovery service.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
-# Physical server to Azure replication architecture
+# Physical server to Azure disaster recovery architecture
 
 This article describes the architecture and processes used when you replicate, fail over, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
 

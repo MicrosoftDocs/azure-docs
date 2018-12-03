@@ -4,18 +4,17 @@ description: As a service administrator or tenant, learn how to manage RBAC perm
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: fenila
+manager: femila
 editor: ''
 
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.reviewer: thomas.roettinger
+ms.reviewer: thoroet
 
 ---
 # Manage Role-Based Access Control

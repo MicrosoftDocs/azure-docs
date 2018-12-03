@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automate Azure Application Insights processes by using Logic Apps.
 description: Learn how you can quickly automate repeatable processes by adding the Application Insights connector to your logic app.
 services: application-insights
@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
@@ -20,7 +19,7 @@ Do you find yourself repeatedly running the same queries on your telemetry data 
 
 With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process. 
 
-You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
+You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
 
 ## Create a logic app for Application Insights
 
@@ -46,7 +45,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 1. In the **Choose an action** search box, type **Azure Application Insights**.
 
-1. Under **Actions**, click **Azure Application Insights – Visualize Analytics query Preview**.
+1. Under **Actions**, click **Azure Application Insights - Visualize Analytics query Preview**.
 
     ![Logic App Designer "Choose an action" window](./media/automate-with-logic-apps/flow2.png)
 
@@ -88,7 +87,7 @@ When you create your own queries, verify that they are working properly in Analy
 
 1. In the search box, type **Office 365 Outlook**.
 
-1. Click **Office 365 Outlook – Send an email**.
+1. Click **Office 365 Outlook - Send an email**.
 
     ![Office 365 Outlook selection](./media/automate-with-logic-apps/flow2b.png)
 
@@ -127,7 +126,7 @@ When your logic app runs, the recipients you specified in the email list will re
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](app-insights-analytics-using.md).
+- Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
 - Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

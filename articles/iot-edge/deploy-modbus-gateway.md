@@ -2,7 +2,7 @@
 title: Deploy Modbus on Azure IoT Edge | Microsoft Docs
 description: Allow devices that use Modbus TCP to communicate with Azure IoT Hub by creating an IoT Edge gateway device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
@@ -18,7 +18,7 @@ If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Az
 
 This article covers how to create your own container image for a Modbus module (or you can use a prebuilt sample) and then deploy it to the IoT Edge device that will act as your gateway. 
 
-This article assumes that you're using Modbus TCP protocol. For more information about how to configure the module to support Modbus RTU, refer to the [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. 
+This article assumes that you're using Modbus TCP protocol. For more information about how to configure the module to support Modbus RTU, see the [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. 
 
 ## Prerequisites
 * An Azure IoT Edge device. For a walkthrough on how to set up one, see [Deploy Azure IoT Edge on a simulated device in Windows](quickstart.md) or [Linux](quickstart-linux.md). 
@@ -33,7 +33,7 @@ If you want to test the Modbus gateway functionality, Microsoft has a sample mod
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-If you want to create your own module and customize it for your environment, there is an open source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. Follow the guidance in that project to create your own container image. If you create your own container image, refer to [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) for instructions on publishing container images to a registry, and deploying a custom module to your device. 
+If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. Follow the guidance in that project to create your own container image. If you create your own container image, refer to [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) for instructions on publishing container images to a registry, and deploying a custom module to your device. 
 
 
 ## Run the solution
@@ -49,24 +49,23 @@ If you want to create your own module and customize it for your environment, the
 
       ```JSON
       {  
-        "properties.desired":{  
-          "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
-                "Op01":{  
+        "properties.desired":{
+          "PublishInterval":"2000",
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
+                "Op01":{  
                   "PollingInterval": "1000",
-                  "UnitId":"1",
-                  "StartAddress":"400001",
-                  "Count":"2",
-                  "DisplayName":"Voltage"
-                }
-              }
-            }
-          }
-        }
+                  "UnitId":"1",
+                  "StartAddress":"400001",
+                  "Count":"2",
+                  "DisplayName":"Voltage"
+                }
+              }
+            }
+          }
+        }
       }
       ```
 
@@ -95,8 +94,5 @@ You can also view the telemetry the device is sending by using the [Azure IoT To
 
 ## Next steps
 
-- To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway][lnk-transparent-gateway-linux]
+- To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway](./how-to-create-transparent-gateway.md)
 - For more information about how IoT Edge modules work, see [Understand Azure IoT Edge modules](iot-edge-modules.md)
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

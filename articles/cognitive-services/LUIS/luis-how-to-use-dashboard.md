@@ -1,13 +1,14 @@
 ---
-title: Application dashboard for LUIS apps | Microsoft Docs
+title: Application dashboard for Language Understanding apps
+titleSuffix: Azure Cognitive Services
 description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
 ---
 
@@ -20,15 +21,7 @@ The app dashboard enables you to monitor your app at a single glance. The **Dash
 > * Use LUIS endpoint key for all endpoint requests including LUIS [API](https://aka.ms/luis-endpoint-apis) and bot
 > * Use different endpoint key for each LUIS app. Do not use a single endpoint key for all apps. The endpoint key is tracked at the key level, not at the app level.  
 
-The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. 
   
 ## App status
 The dashboard displays the application's training and publishing status, including the date and time when the app was last trained and published.  
@@ -43,7 +36,6 @@ The dashboard displays the total numbers of intents, entities, and labeled utter
 ## Endpoint hits
 The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./luis-concept-keys.md#endpoint-key) and endpoint hits that use an [Authoring key](./luis-concept-keys.md#authoring-key).
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Endpoint Hits](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 

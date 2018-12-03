@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
 ---
@@ -275,7 +275,7 @@ As you are moving data from a data store in a private network (on-premises) to a
    ![Self-hosted IR name](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
-   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
    ![Integration runtime setup - successful](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)

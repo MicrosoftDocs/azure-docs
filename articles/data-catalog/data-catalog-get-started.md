@@ -1,19 +1,13 @@
 ---
-title: Get started with Data Catalog | Microsoft Docs
+title: Get started with Azure Data Catalog
 description: End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog.
-documentationcenter: ''
 services: data-catalog
-author: steelanddata
-manager: jhubbard
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
 
 ---
 # Get started with Azure Data Catalog
@@ -98,7 +92,7 @@ The Adventure Works database supports standard online transaction-processing sce
 To install the Adventure Works sample database:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
-2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
+2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
    1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
    2. Right-click **Databases** and click **Restore Database**.
    3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.

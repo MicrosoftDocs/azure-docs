@@ -26,7 +26,7 @@ Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription.
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
-- An Azure Storage account, to store raw flog logs.
+- An Azure Storage account, to store raw flow logs.
 - An Azure Log Analytics workspace, with read and write access.
 
 Your account must meet one of the following to enable traffic analytics:
@@ -55,12 +55,43 @@ To check roles assigned to a user for a subscription:
 3. To list all the roles that are assigned to a specified user, use
     **Get-AzureRmRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
-If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## In which Azure regions are traffic analytics available?
 
-You can use traffic analytics for NSGs in any of the following supported regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US 2, West Europe, North Europe, UK West, UK South, Australia East, Australia Southeast and Southeast Asia. The Log Analytics workspace must exist in the West Central US, East US, West Europe, UK South, Australia Southeast, or the Southeast Asia region.
+You can use traffic analytics for NSGs in any of the following supported regions:
+- Canada Central
+- West Central US
+- East US
+- East US 2
+- North Central US
+- South Central US
+- Central US
+- West US
+- West US 2
+- West Europe
+- North Europe
+- Brazil South
+- UK West
+- UK South
+- Australia East
+- Australia Southeast 
+- Southeast Asia
+- Central India
+- South India
+- Japan East
+
+The Log Analytics workspace must exist in the following regions:
+- Canada Central
+- West Central US
+- East US
+- West Europe
+- UK South
+- Australia Southeast
+- Southeast Asia 
+- Central India
+- Japan East
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -74,9 +105,9 @@ Yes.
 
 Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## Can my Azure Storage Account be in one subscription and my Operations Management Suite workspace be in a different subscription?
+## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
-Yes, your Azure Storage account can be in one subscription, and your Operations Management Suite workspace can be in a different subscription.
+Yes, your Azure Storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
 
 ## Can I store raw logs in a different subscription?
 
@@ -112,7 +143,7 @@ If problems persist, raise concerns in the [User voice forum](https://feedback.a
 
 You might see this message because:
 - Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
-- You are using the free version of the Operations Management Suite workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
+- You are using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
@@ -193,7 +224,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
 
-For example, as per the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
+For example, as per the [pricing plan](https://azure.microsoft.com/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## How can I navigate by using the keyboard in the geo map view?

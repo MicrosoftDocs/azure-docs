@@ -114,7 +114,7 @@ When preparing a hard drive for an import job, the destination is specified by t
 Depends. When preparing the drive, you can specify whether the destination files should be overwritten or ignored using the field in dataset CSV file called Disposition:<rename|no-overwrite|overwrite>. By default, the service renames the new files rather than overwrite existing blobs or files.
 
 ### Is the WAImportExport tool compatible with 32-bit operating systems?
-No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](). 
+No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
@@ -126,7 +126,7 @@ Max Page Blob size is 1TB.
 ### Does Azure Import/Export support AES-256 encryption?
 Azure Import/Export service uses AES-128 bitlocker encryption by default. You can change this to AES-256 by manually encrypting with bitlocker before the data is copied. 
 
-- If using [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+- If using [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```

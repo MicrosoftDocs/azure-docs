@@ -11,8 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
+
+ROBOTS: NOINDEX
 ---
 # How to Use Run History and Model Metrics in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench supports data science experimentation via its **Run History** and **Model Metrics** features.
 **Run History** provides a means to track the outputs of your machine learning experiments, and then enables filtering and comparison of their results.
@@ -21,8 +27,8 @@ This article describes how to make effective use of these features to increase t
 
 ## Prerequisites
 To step through this how-to guide, you need to:
-* [Create and Install Azure Machine Learning](../service/quickstart-installation.md)
-- [Create a Project](../service/quickstart-installation.md)
+* [Create and Install Azure Machine Learning](quickstart-installation.md)
+- [Create a Project](quickstart-installation.md)
 
 
 ## Azure ML Logging API Overview
@@ -46,7 +52,7 @@ logger.log("all values", [5, 6, 7])
 It is easy to use the logger within your Azure ML Workbench projects, and this article shows you how to do so.
 
 ## Create a Project in Azure ML Workbench
-If you don't already have a project, you can create one from the [Create and Install Quickstart](../service/quickstart-installation.md)
+If you don't already have a project, you can create one from the [Create and Install Quickstart](quickstart-installation.md)
 From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as shown.)
 
 ![accessing a script from the files tab](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)

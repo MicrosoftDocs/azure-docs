@@ -108,7 +108,7 @@ For a table of service limits, quotas, and constraints, and supported features i
   * [How Azure Websites Scale - with Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
-[vmsizes]:/pricing/details/app-service/
+[vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/

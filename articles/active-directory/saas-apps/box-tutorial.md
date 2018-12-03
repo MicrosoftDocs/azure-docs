@@ -1,215 +1,195 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Box | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: femila 
 ms.reviewer: joflore
 
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 10/09/2018
 ms.author: jeedes
 
 ---
-# Integrate Azure Active Directory with Box
+# Tutorial: Azure Active Directory integration with Box
 
-In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with Box.
+In this tutorial, you learn how to integrate Box with Azure Active Directory (Azure AD).
 
-By integrating Azure AD with Box, you get the following benefits:
+Integrating Box with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Box.
-- You can enable your users to get signed in automatically to Box (single sign-on, or SSO) with their Azure AD accounts.
-- You can manage your accounts in one central location, the Azure portal.
+- You can enable your users to automatically get signed-on to Box (Single Sign-On) with their Azure AD accounts.
+- You can manage your accounts in one central location - the Azure portal.
 
-To learn about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To configure Azure AD integration with Box, you need the following items:
 
 - An Azure AD subscription
-- A Box SSO-enabled subscription
+- A Box single sign-on enabled subscription
 
 > [!NOTE]
-> When you test the steps in this tutorial, we recommend that you do *not* use a production environment.
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
-To test the steps in this tutorial, follow these recommendations:
+To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
-
-The scenario that's outlined in this tutorial consists of two main building blocks:
+The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Box from the gallery
-1. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD single sign-on
 
-## Add Box from the gallery
-To configure the integration of Azure AD with Box, add Box from the gallery to your list of managed SaaS apps by doing the following:
+## Adding Box from the gallery
+To configure the integration of Box into Azure AD, you need to add Box from the gallery to your list of managed SaaS apps.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
+**To add Box from the gallery, perform the following steps:**
 
-    ![The Azure Active Directory button][1]
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-1. Select **Enterprise applications** > **All applications**.
+	![image](./media/box-tutorial/selectazuread.png)
 
-	![The "Enterprise applications" window][2]
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![image](./media/box-tutorial/a_select_app.png)
 	
-1. To add a new application, select the **New application** button at the top of window.
+3. To add new application, click **New application** button on the top of dialog.
 
-	![The "New application" button][3]
+	![image](./media/box-tutorial/a_new_app.png)
 
-1. In the search box, type **Box**, select **Box** in the results list, and then select **Add**.
+4. In the search box, type **Box**, select **Box** from result panel then click **Add** button to add the application.
 
-	![Box in the results list](./media/box-tutorial/tutorial_box_search.png)
-### Configure and test Azure AD single sign-on
+	 ![image](./media/box-tutorial/tutorial_Box_addfromgallery.png)
 
-In this section, you configure and test Azure AD single sign-on with Box, based on a test user called "Britta Simon."
+## Configure and test Azure AD single sign-on
 
-For single sign-on to work, Azure AD needs to identify the Box user and its counterpart in Azure AD. In other words, a link relationship between an Azure AD user and the same user in Box must be established.
+In this section, you configure and test Azure AD single sign-on with Box based on a test user called "Britta Simon".
 
-To establish the link relationship, assign as the Box *Username* the value of the *user name* in Azure AD.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Box is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Box needs to be established.
 
-To configure and test Azure AD single sign-on with Box, complete the building blocks in the next five sections.
+To configure and test Azure AD single sign-on with Box, you need to complete the following building blocks:
+
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Create a Box test user](#create-a-box-test-user)** - to have a counterpart of Britta Simon in Box that is linked to the Azure AD representation of user.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-Enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Box application by doing the following:
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Box application.
 
-1. In the Azure portal, in the **Box** application integration window, select **Single sign-on**.
+**To configure Azure AD single sign-on with Box, perform the following steps:**
 
-    ![The "Single sign-on" link][4]
+1. In the [Azure portal](https://portal.azure.com/), on the **Box** application integration page, select **Single sign-on**.
 
-1. In the **Single sign-on** window, in the **Single Sign-on Mode** box, select **SAML-based Sign-on**.
+    ![image](./media/box-tutorial/b1_b2_select_sso.png)
+
+2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
+
+    ![image](./media/box-tutorial/b1_b2_saml_sso.png)
+
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
+
+	![image](./media/box-tutorial/b1-domains_and_urlsedit.png)
+
+4. On the **Basic SAML Configuration** section, perform the following steps:
+
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.account.box.com`
+
+	b. In the **Identifier** textbox, type a URL:`box.net`
+
+    ![image](./media/box-tutorial/tutorial_box_url.png)
+
+    > [!NOTE] 
+	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get the value.
  
-    ![The "Single sign-on" window](./media/box-tutorial/tutorial_box_samlbase.png)
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** and save it on your computer.
 
-1. Under **Box Domain and URLs**, do the following:
+	![image](./media/box-tutorial/tutorial_Box_certificate.png)
 
-	!["Box Domain and URLs" single sign-on information](./media/box-tutorial/url3.png)
+6. To configure SSO for your application, follow the procedure in [Set up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown). 
 
-	a. In the **Sign-on URL** box, type a URL in the following format: *https://\<subdomain>.box.com*.
-
-	b. In the **Identifier** textbox, type **box.net**.
-	 
-	> [!NOTE] 
-    > The preceding values are not real. Update them with the actual sign-on URL and identifier. To obtain the values, contact the [Box client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
-
-1. Under **SAML Signing Certificate**, select **Metadata XML**, and then save the metadata file on your computer.
-
-	![The Certificate download link](./media/box-tutorial/tutorial_box_certificate.png) 
-
-1. Select **Save**.
-
-	![Configure Single Sign-On Save button](./media/box-tutorial/tutorial_general_400.png)
-	
-1. To configure SSO for your application, follow the procedure in [Set up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
-
-> [!NOTE] 
-> If you cannot enable the SSO settings for your Box account, you might need to contact the [Box client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) and provide the downloaded XML file.
-
-> [!TIP]
-> As you're setting up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you've added the app in the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation in the **Configuration** section at the bottom. For more information about the embedded documentation feature, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
->
+>[!NOTE]
+>If you are unable to configure the SSO settings for your Box account, you need to send the downloaded **Federation Metadata XML** to [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
-In this section, you create test user Britta Simon in the Azure portal by doing the following:
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**.
+    ![image](./media/box-tutorial/d_users_and_groups.png)
 
-    ![The Azure Active Directory link](./media/box-tutorial/create_aaduser_01.png)
+2. Select **New user** at the top of the screen.
 
-1. To display a list of current users, select **Users and groups** > **All users**.
+    ![image](./media/box-tutorial/d_adduser.png)
 
-    ![The "Users and groups" and "All users" links](./media/box-tutorial/create_aaduser_02.png)
+3. In the User properties, perform the following steps.
 
-1. At the top of the **All Users** window, select **Add**.
+    ![image](./media/box-tutorial/d_userproperties.png)
 
-    ![The Add button](./media/box-tutorial/create_aaduser_03.png)
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    The **User** window opens.
-
-1. In the **User** window, do the following:
-
-    ![The User window](./media/box-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Select **Create**.
  
 ### Create a Box test user
 
-In this section, you create test user Britta Simon in Box. Box supports just-in-time provisioning, which is enabled by default. If a user doesn't already exist, a new one is created when you attempt to access Box. No action is required from you to create the user.
+The objective of this section is to create a user called Britta Simon in Box. Box supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Box if it doesn't exist yet.
+>[!Note]
+>If you need to create a user manually, contact [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ### Assign the Azure AD test user
 
-In this section, you enable user Britta Simon to use Azure single sign-on by granting access to Box. To do so, do the following:
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Box.
 
-![Assign the user role][200]
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
 
-1. In the Azure portal, open the **Applications** view, go to the **Directory** view, and then select **Enterprise applications** > **All applications**.
+	![image](./media/box-tutorial/d_all_applications.png)
 
-    ![The "Enterprise applications" and "All applications" links][201] 
+2. In the applications list, select **Box**.
 
-1. In the **Applications** list, select **Box**.
+	![image](./media/box-tutorial/tutorial_Box_app.png)
 
-	![The Box link](./media/box-tutorial/tutorial_box_app.png)  
+3. In the menu on the left, select **Users and groups**.
 
-1. In the left pane, select **Users and groups**.
+    ![image](./media/box-tutorial/d_leftpaneusers.png)
 
-	![The "Users and groups" link][202]
+4. Select the **Add** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-1. Select **Add** and then, in the **Add Assignment** pane, select **Users and groups**.
+    ![image](./media/box-tutorial/d_assign_user.png)
 
-	![The Add Assignment pane][203]
+4. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-1. In the **Users and groups** window, in the **Users** list, select **Britta Simon**.
-
-1. Select the **Select** button.
-
-1. In the **Add Assignment** window, select **Assign**.
+5. In the **Add Assignment** dialog select the **Assign** button.
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you select the **Box** tile in the Access Panel, you open the sign-in page for signing in to your Box application.
+When you select the **Box** tile in the Access Panel, you get the sign-in page for signing in to your Box application.
 
 ## Additional resources
 
-* [List of tutorials about integrating SaaS apps with Azure Active Directory](tutorial-list.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configure user provisioning](box-userprovisioning-tutorial.md)
 
-
-
-<!--Image references-->
-
-[1]: ./media/box-tutorial/tutorial_general_01.png
-[2]: ./media/box-tutorial/tutorial_general_02.png
-[3]: ./media/box-tutorial/tutorial_general_03.png
-[4]: ./media/box-tutorial/tutorial_general_04.png
-
-[100]: ./media/box-tutorial/tutorial_general_100.png
-
-[200]: ./media/box-tutorial/tutorial_general_200.png
-[201]: ./media/box-tutorial/tutorial_general_201.png
-[202]: ./media/box-tutorial/tutorial_general_202.png
-[203]: ./media/box-tutorial/tutorial_general_203.png
 

@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
 ![URL routing example](./media/tutorial-url-redirect-powershell/scenario.png)
+
+If you prefer, you can complete this tutorial using [Azure CLI](tutorial-url-redirect-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -440,7 +442,7 @@ for ($i=1; $i -le 3; $i++)
     -ImageReferencePublisher MicrosoftWindowsServer `
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
-    -ImageReferenceVersion latest
+    -ImageReferenceVersion latest `
     -OsDiskCreateOption FromImage
 
   Set-AzureRmVmssOsProfile $vmssConfig `
@@ -513,14 +515,6 @@ When no longer needed, remove the resource group, application gateway, and all r
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and routing rules
-> * Create virtual machine scale sets for backend pools
 
 > [!div class="nextstepaction"]
 > [Learn more about what you can do with application gateway](application-gateway-introduction.md)

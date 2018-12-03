@@ -1,13 +1,10 @@
 ---
-title: Create and customize recovery plans for failover and recovery in Azure Site Recovery | Microsoft Docs
-description: Learn how to create and customize recovery plans in Azure Site Recovery. This article describes how to fail over and recover VMs and physical servers.
-services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
+title: Create and customize recovery plans for disaster recovery using Azure Site Recovery | Microsoft Docs
+description: Learn how to create and customize recovery plans for disaster recovery using the Azure Site Recovery service.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 

@@ -3,26 +3,22 @@ title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
-ms.author: glenga
+ms.author: cshoe
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Version 1 - GA](functions-bindings-cosmosdb.md)
-> * [Version 2 - Preview](functions-bindings-cosmosdb-v2.md)
+> * [Version 1](functions-bindings-cosmosdb.md)
+> * [Version 2](functions-bindings-cosmosdb-v2.md)
 
 This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
@@ -32,6 +28,9 @@ This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless
 >This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE]
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [MongoDB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
 
 ## Packages - Functions 1.x
 
@@ -119,8 +118,8 @@ Here's the C# script code:
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.Info("Documents modified " + documents.Count);
+      log.Info("First document Id " + documents[0].Id);
     }
 ```
 
@@ -212,10 +211,7 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 
 ## Input
 
-The Azure Cosmos DB input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
-
->[!NOTE]
-> Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
 
 ## Input - examples
 
@@ -1182,10 +1178,7 @@ In JavaScript functions, updates are not made automatically upon function exit. 
 
 ## Output
 
-The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database. 
-
->[!NOTE]
-> Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API. 
 
 ## Output - examples
 
@@ -1200,7 +1193,7 @@ See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
 [Skip output examples](#output---attributes)
 
-### Ouput - C# examples
+### Output - C# examples
 
 This section contains the following examples:
 
@@ -1611,11 +1604,10 @@ By default, when you write to the output parameter in your function, a document 
 
 ## Next steps
 
+* [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!---
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+--->

@@ -4,8 +4,6 @@ description: Describes how to track asynchronous operations in Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 08/21/2018
 ms.author: tomfitz
 
 ---
 # Track asynchronous Azure operations
-Some Azure REST operations run asynchronously because the operation cannot be completed quickly. This topic describes how to track the status of asynchronous operations through values returned in the response.  
+Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.  
 
 ## Status codes for asynchronous operations
 An asynchronous operation initially returns an HTTP status code of either:
@@ -31,13 +29,13 @@ When the operation successfully completes, it returns either:
 * 200 (OK)
 * 204 (No Content) 
 
-Refer to the [REST API documentation](/rest/api/) to see the responses for the operation you are executing. 
+Refer to the [REST API documentation](/rest/api/) to see the responses for the operation you're executing.
 
 ## Monitor status of operation
 The asynchronous REST operations return header values, which you use to determine the status of the operation. There are potentially three header values to examine:
 
 * `Azure-AsyncOperation` - URL for checking the ongoing status of the operation. If your operation returns this value, always use it (instead of Location) to track the status of the operation.
-* `Location` - URL for determining when an operation has completed. Use this value only when Azure-AsyncOperation is not returned.
+* `Location` - URL for determining when an operation has completed. Use this value only when Azure-AsyncOperation isn't returned.
 * `Retry-After` - The number of seconds to wait before checking the status of the asynchronous operation.
 
 However, not every asynchronous operation returns all these values. For example, you may need to evaluate the Azure-AsyncOperation header value for one operation, and the Location header value for another operation. 

@@ -14,7 +14,7 @@ ms.date: 04/09/2018
 # Anomaly Detection in Azure Stream Analytics
 
 > [!IMPORTANT]
-> This functionality is in preview, it’s not recommend using with production workloads.
+> This functionality is in the process of being deprecated, but will be replaced with new functions. For more information, visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog post.
 
 The **AnomalyDetection** operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
 
@@ -26,7 +26,7 @@ The AnomalyDetection operator detects three types of anomalies:
 
 * **Slow Negative Trend**: A slow decrease in the trend over time.  
 
-When using the AnomalyDetection operator, you must specify the **Limit Duration** clause. This clause specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. This operator can optionally be limited to only events that match a certain property or condition by using the **When** clause. This operator can also optionally process groups of events separately based on the key specified in the **Partition by** clause. Training and prediction occur independently for each partition. 
+When using the AnomalyDetection operator, you must specify the **Limit Duration** clause. This clause specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. This operator can optionally be limited to only events that match a certain property or condition by using the **When** clause. This operator can also optionally process groups of events separately based on the key specified in the **Partition by** clause. Training and prediction occur independently for each partition. 
 
 ## Syntax for AnomalyDetection operator
 
@@ -131,7 +131,7 @@ Let's review the strangeness computation in detail (assume a set of historical w
    - Slope, if slope is negative  
    - 0, otherwise  
 
-Once the strangeness value for the incoming event is computed, a martingale value is computed based on the strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is retuned as the anomaly score. The martingale value increases slowly in response to strange values, which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
+Once the strangeness value for the incoming event is computed, a martingale value is computed based on the strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is returned as the anomaly score. The martingale value increases slowly in response to strange values, which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
 
 Probability [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if there is an alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
 
@@ -251,7 +251,7 @@ shown below.
 ## References
 
 * [Anomaly detection – Using machine learning to detect abnormalities in time series data](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine learning anomaly detection API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Machine learning anomaly detection API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Time series anomaly detection](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## Next steps

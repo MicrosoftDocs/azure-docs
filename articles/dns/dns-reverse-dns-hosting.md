@@ -23,7 +23,7 @@ To configure reverse DNS for an Azure-owned IP address that's assigned to your A
 
 Before you read this article, you should be familiar with the [overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
 
-This article walks you through the steps to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure CLI 1.0, or Azure CLI 2.0.
+This article walks you through the steps to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure classic CLI, or Azure CLI.
 
 ## Create a reverse lookup DNS zone
 
@@ -59,13 +59,13 @@ The following examples show how to complete this task by using Azure PowerShell 
 New-AzureRmDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 azure network dns zone create MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
@@ -91,13 +91,13 @@ The following examples show how to complete this task by using Azure PowerShell 
 New-AzureRmDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
@@ -135,13 +135,13 @@ The following examples show how to complete this task by using PowerShell or Azu
 ```powershell
 New-AzureRmDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc1.contoso.com")
 ```
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 	az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
@@ -172,13 +172,13 @@ The following examples show how to complete this task by using PowerShell or Azu
 New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```
 azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
 ```
  
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 	az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
@@ -202,13 +202,13 @@ The following examples show how to view the PTR records by using PowerShell or A
 Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 	azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 	azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
@@ -228,13 +228,13 @@ The following examples show how to view the records by using PowerShell or Azure
 Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 	azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 	azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa

@@ -75,7 +75,7 @@ ffmpeg to transcode source video files to different resolutions.
 
 ## Installation
 
-To install the Azure Batch CLI extension, first [Install Azure CLI 2.0](/cli/azure/install-azure-cli), or run the Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md).
+To install the Azure Batch CLI extension, first [Install the Azure CLI 2.0](/cli/azure/install-azure-cli), or run the Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Install the latest version of the Batch extension using the
 following Azure CLI command:

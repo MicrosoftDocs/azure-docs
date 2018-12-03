@@ -5,9 +5,8 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
 
 ---
@@ -56,37 +55,37 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
       ``# cd /etc/ssl/certs``
 
-3. Check if the Symantec root CA cert is present.
+1. Check if the Symantec root CA cert is present.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
+2. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Check if the Baltimore root CA cert is present.
+3. Check if the Baltimore root CA cert is present.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. If the Baltimore root CA cert is not found, download the certificate.  
+4. If the Baltimore root CA cert is not found, download the certificate.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Check if the DigiCert_Global_Root_CA cert is present.
+5. Check if the DigiCert_Global_Root_CA cert is present.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
+6. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
+7. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
 
     ``# c_rehash``
 
-10. Check if the subject hashes as symlinks are created for the certificates.
+8.  Check if the subject hashes as symlinks are created for the certificates.
 
     - Command
 
@@ -115,11 +114,11 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
+9.  Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
+10. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -145,28 +144,36 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-### Issue 1: Failed to register Azure virtual machine with Site Recovery (151037) </br>
+### Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
-  - You're using NSG to control outbound access on the VM and the required IP ranges aren't whitelisted for outbound access.
-  - You're using third-party firewall tools and the required IP ranges/URLs are not whitelisted.
+  - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
+  - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
+  
+- **Resolution**
+   - If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
+  
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### Issue 2: Site Recovery configuration failed (151196)
+- **Possible cause** </br>
+  - Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
 
 - **Resolution**
-   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
-   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
-   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
+    If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
 
-### Issue 2: Site Recovery configuration failed (151072)
+
+### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
-  - Connection cannot be established to Site Recovery service endpoints
-
+  - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
-   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
-   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
-   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+    
 
-### Issue 3: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
+### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
  - **Possible cause** </br>
    - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
 

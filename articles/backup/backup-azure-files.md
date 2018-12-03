@@ -26,7 +26,7 @@ In this guide, you learn how to:
 Before you can back up an Azure file share, ensure that it's present in one of the [supported Storage Account types](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Once you have verified this, you can protect your file shares.
 
 ## Limitations for Azure file share backup during Preview
-Backup for Azure File shares is in Preview. The following backup scenarios aren't supported for Azure file shares:
+Backup for Azure File shares is in Preview. Azure File Shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
 - You can't protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
 - You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There is no PowerShell or CLI available for protecting Azure Files using Azure Backup.
@@ -34,10 +34,11 @@ Backup for Azure File shares is in Preview. The following backup scenarios aren'
 - The maximum number of on-demand backups per day is four.
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
 - Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
+- Do not delete file shares that are protected by Azure Backup. The current solution will delete all snapshots taken by Azure Backup once the file share is deleted and hence lose all restore points
 
 \*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices.
 
-Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA) and West Europe (WE).
+Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US (EUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA), West Europe (WE) and West US 2 (WUS2).
 
 ## Configuring backup for an Azure file share
 All backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
@@ -190,3 +191,5 @@ The following procedure assumes the Backup job for the virtual machine has been 
 For additional information on Azure file shares, see
 - [FAQ for Azure file share backup](backup-azure-files-faq.md)
 - [Troubleshoot Azure file share backup](troubleshoot-azure-files.md)
+ 
+

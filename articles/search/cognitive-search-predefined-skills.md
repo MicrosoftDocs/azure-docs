@@ -14,6 +14,9 @@ ms.author: luisca
 
 In this article, you learn about the cognitive skills provided with Azure Search. A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## Predefined skills
 
 Several skills are flexible in what they consume or produce. In general, most skills are based on pre-trained models, which means you cannot train the model using your own training data. For guidance on creating a custom skill, see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md). The following table enumerates and describes the skills provided by Microsoft. 
