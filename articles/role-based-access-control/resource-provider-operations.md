@@ -712,7 +712,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Cache/redis/patchSchedules/read | Gets the patching schedule of a Redis Cache |
 > | Action | Microsoft.Cache/redis/patchSchedules/write | Modify the patching schedule of a Redis Cache |
 > | Action | Microsoft.Cache/redis/read | View the Redis Cache's settings and configuration in the management portal |
-> | Action | Microsoft.Cache/redis/recommendations/read | Read Azure Redis Cache Recommendations |
+> | Action | Microsoft.Cache/redis/recommendations/read | Read Azure Cache for Redis Recommendations |
 > | Action | Microsoft.Cache/redis/regenerateKey/action | Change the value of Redis Cache access keys in the management portal |
 > | Action | Microsoft.Cache/redis/start/action | Start a cache instance. |
 > | Action | Microsoft.Cache/redis/stop/action | Stop a cache instance. |

@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Connect a web app to a redis cache
 
-This sample script creates an Azure redis cache and an Azure web app. It then links the redis cache to the web app using app settings.
+This sample script creates an Azure Cache for Redis and an Azure web app. It then links the redis cache to the web app using app settings.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -31,7 +31,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

@@ -525,8 +525,8 @@
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
   - name: Redis Cache
-    tocHref: /azure/redis-cache/
-    topicHref: /azure/redis-cache/
+    tocHref: /azure/azure-cache-for-redis/
+    topicHref: /azure/azure-cache-for-redis/
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/

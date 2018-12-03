@@ -50,7 +50,7 @@ To complete this tutorial, you need to:
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + Understand [caching in Azure API Management](api-management-howto-cache.md)
 
-## <a name="create-cache"> </a> Create Azure Redis Cache
+## <a name="create-cache"> </a> Create Azure Cache for Redis
 
 This section explains how to create a Redis cache in Azure. If you already have a Redis cache, within or outside of Azure, you can <a href="#add-external-cache">skip</a> to the next section.
 
@@ -67,7 +67,7 @@ Follow the steps below to add an external Redis cache in Azure API Management.
 >
 > For example, if API Management is hosted in the East US, Southeast Asia and West Europe regions and there are two caches configured, one for **Default** and one for **Southeast Asia**, API Management in **Southeast Asia** will use its own cache, while the other two regions will use the **Default** cache entry.
 
-### Add an Azure Redis Cache from the same subscription
+### Add an Azure Cache for Redis from the same subscription
 
 1. Browse to your API Management instance in the Azure portal.
 2. Select the **External cache** tab from the menu on the left.

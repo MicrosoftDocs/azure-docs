@@ -23,7 +23,7 @@ ms.custom: "include file"
     | **Subscription** | Your subscription | The subscription under which this new Azure Redis Cache instance is created. | 
     | **Resource group** |  *TestResources* | Name for the new resource group in which to create your cache. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group deletes all resources that are associated with the app. | 
     | **Location** | East US | Choose a [region](https://azure.microsoft.com/regions/) near to other services that will use your cache. |
-    | **[Pricing tier](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Redis Cache Overview](../articles/redis-cache/cache-overview.md). |
+    | **[Pricing tier](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Redis Cache Overview](../articles/azure-cache-for-redis/cache-overview.md). |
     | **Pin to dashboard** |  Selected | Pin the new cache to your dashboard to make    it easy to find. |
 
     ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
