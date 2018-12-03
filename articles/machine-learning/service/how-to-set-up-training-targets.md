@@ -223,9 +223,10 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb).
 
-## <a id="vm"></a>Remote Azure VM
+## <a id="vm"></a>Remote VM
 
-Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service. Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM for remote runs. You can use a system-built conda environment, an already existing Python environment, or a Docker container. Execution using Docker container requires that you have Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
+Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service. It could be either an Azure VM or a remote server in your organization or on-premises. Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM for remote runs.
+You can use a system-built conda environment, an already existing Python environment, or a Docker container. Execution using Docker container requires that you have Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
 
 > [!TIP]
 > We recommended using the Data Science Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. For more information on using the Data Science Virtual Machine with Azure Machine Learning, see the [Configure a development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm) document.
