@@ -70,7 +70,7 @@ Use your imported Databricks notebooks to prepare data, train, and deploy a Spar
         * Monitor the deployed web service and model in Azure portal
 
 >[!TIP]
-> You can also train your model on Azure Databricks and then use [Visual Studio Code Tools for AI](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) to deploy the model.
+> You can also train your model on Azure Databricks and then use [Azure Machine Learning for Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) to deploy the model.
 
 ## Next steps
 

@@ -213,9 +213,9 @@ To use Visual Studio Code for development, use the following steps:
     azureml.core.VERSION
     ```
 
-1. To install the Visual Studio code Tools for AI extension, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
+1. To install the Azure Machine Learning extension for Visual Studio Code, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
 
-    For more information, see the [Use VS Code Tools for AI with Azure Machine Learning](how-to-vscode-tools.md) document.
+    For more information, see [Using Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
 
 ## <a id="workspace"></a>Create a workspace configuration file
 
