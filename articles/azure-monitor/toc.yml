@@ -660,9 +660,9 @@
     - name: Query log data
       items:
       - name: Query language Documentation
-        href: query-language.md
+        href: log-query/query-language.md
       - name: Language differences
-        href: data-explorer-difference.md
+        href: log-query/data-explorer-difference.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -692,7 +692,7 @@
         - name: Charts and diagrams
           href: log-query/charts.md
         - name: Functions
-          href: functions.md
+          href: log-query/functions.md
       - name: Cheatsheets
         items:
         - name: SQL
