@@ -86,13 +86,13 @@ If the **Timestamp** property isn’t explicitly specified, we will leverage an 
 
 1. You may be accessing a Time Series Insights S1 or S2 environment
 
-Time Series Models are supported only in `PAYG` environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update Explorer.
+   Time Series Models are supported only in `PAYG` environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update Explorer.
 
-  ![access][5]
+   ![access][5]
 
 1. You may not have permissions to view and edit the model
 
-Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
+   Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
 
 ## Problem: All my instances in Time Series Insights (preview) Explorer don’t have a parent
 

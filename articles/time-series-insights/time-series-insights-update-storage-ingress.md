@@ -17,7 +17,7 @@ This article describes changes to data storage and ingress from the Azure Time S
 
 ## Data storage
 
-When creating a Time Series Insights update (**PAYG Sku**) environment, you are creating two resources:
+When creating a Time Series Insights update (**PAYG SKU**) environment, you are creating two resources:
 
 1. An Azure TSI environment.
 1. An Azure storage general-purpose V1 account where the data will be stored.
@@ -69,7 +69,7 @@ Azure TSI events are mapped to Parquet file contents as follows:
 * Every event maps to a single row.
 * Built-in **Timestamp** column with an event timestamp. The **Timestamp** property is never null.  It defaults to **Event Source Enqueued Time** if the **Timestamp** property is not specified in the event source.  **Timestamp** is in UTC.  
 * All other properties map to columns will end with `_string` (string), `_bool` (boolean), `_datetime` (datetime), and `_double` (double) depending on property type.
-* That's the first version of the file format, and we refer to it as ***V=1**.  If this feature evolves the name will be incremented accordingly to **V=2**, **V=3**, and so on.
+* That's the first version of the file format, and we refer to it as **V=1**.  If this feature evolves the name will be incremented accordingly to **V=2**, **V=3**, and so on.
 
 ## How to partition
 
