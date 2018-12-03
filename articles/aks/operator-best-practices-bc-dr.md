@@ -40,7 +40,7 @@ AKS region availability and paired regions are joint consideration. Deploy your 
 
 When you deploy your application, you must also add another step to your CI/CD pipeline to deploy to these multiple AKS clusters. If you don't update your deployment pipelines, application deployments may only be deployed into one of your regions and AKS clusters. Customer traffic that is directed to a secondary region won't receive the latest code updates.
 
-## Use Azure Traffic Manager to route traffic to desired regions
+## Use Azure Traffic Manager to route traffic
 
 **Best practice guidance** - Azure Traffic Manager can direct customers to their closest AKS cluster and application instance. For the best performance and redundancy, direct all application traffic through Traffic Manager before going to your AKS cluster.
 
@@ -62,7 +62,7 @@ Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (pr
 
 Review the needs of your application traffic to understand which solution is the most suitable.
 
-## Enable geo-replication for container images in Azure Container Registry
+## Enable geo-replication for container images
 
 **Best practice guidance** - Store your container images in Azure Container Registry and geo-replicate the registry to each AKS region.
 
