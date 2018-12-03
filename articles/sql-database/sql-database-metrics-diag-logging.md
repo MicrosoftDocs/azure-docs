@@ -27,9 +27,9 @@ Azure SQL Database, elastic pools, Managed Instance, and databases in Managed In
 For more information about the metrics and log categories supported by the various Azure services, see:
 
 * [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Overview of Azure diagnostics logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
+* [Overview of Azure diagnostics logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 
-This article provides guidance to help you enable diagnostics telemetry for databases, elastic pools, and Managed Instances. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing of the streamed database diagnostics telemetry.
+This article provides guidance to help you enable diagnostics telemetry for databases, elastic pools, and Managed Instances. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing streamed database diagnostics telemetry.
 
 ## Enable logging of diagnostics telemetry
 
@@ -41,7 +41,7 @@ You can enable and manage metrics and diagnostics telemetry logging by using one
 - Azure Monitor REST API
 - Azure Resource Manager template
 
-When you enable metrics and diagnostics logging, you need to specify the Azure resource destination where selected data will be collected. Options available include:
+When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the data. Available options include:
 
 - Azure SQL Analytics
 - Azure Event Hubs
@@ -242,7 +242,7 @@ Provide the workspace resource ID \<$WSID\> as a parameter when executing the sc
 
 You can enable metrics and diagnostics logging by using the Azure CLI.
 
-- To enable storage of diagnostics logs in a storage account, use this command:
+- To enable the storage of diagnostics logs in a storage account, use this command:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
@@ -250,7 +250,7 @@ You can enable metrics and diagnostics logging by using the Azure CLI.
 
    The storage account ID is the resource ID for the destination storage account.
 
-- To enable streaming of diagnostics logs to an event hub, use this command:
+- To enable the streaming of diagnostics logs to an event hub, use this command:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
@@ -262,7 +262,7 @@ You can enable metrics and diagnostics logging by using the Azure CLI.
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- To enable sending diagnostics logs to a Log Analytics workspace, use this command:
+- To enable the sending of diagnostics logs to a Log Analytics workspace, use this command:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
@@ -280,7 +280,7 @@ Read about how to [enable diagnostics settings at resource creation by using a R
 
 ## Stream into Azure SQL Analytics
 
-Azure SQL Analytics is a cloud monitoring solution for monitoring performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions. It collects and visualizes Azure SQL Database performance metrics and has built-in intelligence for performance troubleshooting.
+Azure SQL Analytics is a cloud solution that monitors the performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
 ![Azure SQL Analytics Overview](../log-analytics/media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -375,17 +375,17 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 ## Data retention policy and pricing
 
-\***
+If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. In this case, the provided free units of data ingestion can enable free monitoring of several databases each month. Any consumption of diagnostics telemetry above the free units might incur costs. Be aware that active databases with heavier workloads ingest more data than idle databases. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. Consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies. The free units of data ingestion provided enable free monitoring of several databases each month. Please note that more active databases with heavier workloads will ingest more data than idle databases. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-If you are using Azure SQL Analytics, you can easily monitor your data ingestion consumption in the solution by selecting **OMS Workspace** on the navigation menu of Azure SQL Analytics, and then selecting **Usage** and **Estimated Costs**.
+If you are using Azure SQL Analytics, you can monitor your data ingestion consumption in the solution by selecting **OMS Workspace** on the navigation menu of Azure SQL Analytics, and then selecting **Usage** and **Estimated Costs**.
 
 ## Metrics and logs available
 
-Collected monitoring telemetry can be used for your own **custom analysis** and **application development** using [SQL Analytics language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries). Structure of the collected data, metrics and logs, is listed below.
+Collected monitoring telemetry can be used for your own **custom analysis** and **application development** using [SQL Analytics language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries). 
 
 ## All metrics
+
+Refer to the following tables for details about all metrics by resource.
 
 ### All metrics for elastic pools
 
@@ -393,91 +393,93 @@ Collected monitoring telemetry can be used for your own **custom analysis** and 
 |---|---|
 |Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
 
-### All metrics for Azure SQL Database
+### All metrics for Azure SQL Databases
 
 |**Resource**|**Metrics**|
 |---|---|
-|Azure SQL Database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
+|Azure SQL database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
 
-## Logs
+## Logs for Managed Instances
 
-### Logs for Managed Instance
+Refer to the following table for details about logs for Managed Instances.
 
-### Resource Usage Stats
+### Resource usage statistics
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
+|TenantId|Your tenant ID |
 |SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: ResourceUsageStats|
-|Resource|Name of the resource.|
-|ResourceType|Name of the resource type. Always: MANAGEDINSTANCES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the Managed Instance.|
-|ResourceId|Resource URI.|
-|SKU_s|Managed Instance product SKU|
-|virtual_core_count_s|Numver of vCores available|
-|avg_cpu_percent_s|Average CPU percentage|
-|reserved_storage_mb_s|Reserved storage capacity on Managed Instance|
-|storage_space_used_mb_s|Used storage on Managed Instance|
-|io_requests_s|IOPS count|
-|io_bytes_read_s|IOPS bytes read|
-|io_bytes_written_s|IOPS bytes written|
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: ResourceUsageStats |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: MANAGEDINSTANCES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the Managed Instance |
+|ResourceId|Resource URI |
+|SKU_s|Managed Instance product SKU |
+|virtual_core_count_s|Numver of vCores available |
+|avg_cpu_percent_s|Average CPU percentage |
+|reserved_storage_mb_s|Reserved storage capacity on Managed Instance |
+|storage_space_used_mb_s|Used storage on Managed Instance |
+|io_requests_s|IOPS count |
+|io_bytes_read_s|IOPS bytes read |
+|io_bytes_written_s|IOPS bytes written |
 
-### Logs for Azure SQL Database and Managed Instance database
+## Logs for Azure SQL Databases and Managed Instance databases
+
+Refer to the following tables for details about logs for Azure SQL and Managed Instance databases.
 
 ### Query Store runtime statistics
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|query_hash_s|Query hash.|
-|query_plan_hash_s|Query plan hash.|
-|statement_sql_handle_s|Statement sql handle.|
-|interval_start_time_d|Start datetimeoffset of the interval in number of ticks from 1900-1-1.|
-|interval_end_time_d|End datetimeoffset of the interval in number of ticks from 1900-1-1.|
-|logical_io_writes_d|Total number of logical IO writes.|
-|max_logical_io_writes_d|Max number of logical IO writes per execution.|
-|physical_io_reads_d|Total number of physical IO reads.|
-|max_physical_io_reads_d|Max number of logical IO reads per execution.|
-|logical_io_reads_d|Total number of logical IO reads.|
-|max_logical_io_reads_d|Max number of logical IO reads per execution.|
-|execution_type_d|Execution type.|
-|count_executions_d|Number of executions of the query.|
-|cpu_time_d|Total CPU time consumed by the query in microseconds.|
-|max_cpu_time_d|Max CPU time consumer by a single execution in microseconds.|
-|dop_d|Sum of degrees of parallelism.|
-|max_dop_d|Max degree of parallelism used for single execution.|
-|rowcount_d|Total number of rows returned.|
-|max_rowcount_d|Max number of rows returned in single execution.|
-|query_max_used_memory_d|Total amount of memory used in KB.|
-|max_query_max_used_memory_d|Max amount of memory used by a single execution in KB.|
-|duration_d|Total execution time in microseconds.|
-|max_duration_d|Max execution time of a single execution.|
-|num_physical_io_reads_d|Total number of physical reads.|
-|max_num_physical_io_reads_d|Max number of physical reads per execution.|
-|log_bytes_used_d|Total amount of log bytes used.|
-|max_log_bytes_used_d|Max amount of log bytes used per execution.|
-|query_id_d|ID of the query in Query Store.|
-|plan_id_d|ID of the plan in Query Store.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: QueryStoreRuntimeStatistics |
+|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|query_hash_s|Query hash |
+|query_plan_hash_s|Query plan hash |
+|statement_sql_handle_s|Statement sql handle |
+|interval_start_time_d|Start datetimeoffset of the interval in number of ticks from 1900-1-1 |
+|interval_end_time_d|End datetimeoffset of the interval in number of ticks from 1900-1-1 |
+|logical_io_writes_d|Total number of logical IO writes |
+|max_logical_io_writes_d|Max number of logical IO writes per execution |
+|physical_io_reads_d|Total number of physical IO reads |
+|max_physical_io_reads_d|Max number of logical IO reads per execution |
+|logical_io_reads_d|Total number of logical IO reads |
+|max_logical_io_reads_d|Max number of logical IO reads per execution |
+|execution_type_d|Execution type |
+|count_executions_d|Number of executions of the query |
+|cpu_time_d|Total CPU time consumed by the query in microseconds |
+|max_cpu_time_d|Max CPU time consumer by a single execution in microseconds |
+|dop_d|Sum of degrees of parallelism |
+|max_dop_d|Max degree of parallelism used for single execution |
+|rowcount_d|Total number of rows returned |
+|max_rowcount_d|Max number of rows returned in single execution |
+|query_max_used_memory_d|Total amount of memory used in KB |
+|max_query_max_used_memory_d|Max amount of memory used by a single execution in KB |
+|duration_d|Total execution time in microseconds |
+|max_duration_d|Max execution time of a single execution |
+|num_physical_io_reads_d|Total number of physical reads |
+|max_num_physical_io_reads_d|Max number of physical reads per execution |
+|log_bytes_used_d|Total amount of log bytes used |
+|max_log_bytes_used_d|Max amount of log bytes used per execution |
+|query_id_d|ID of the query in Query Store |
+|plan_id_d|ID of the plan in Query Store |
 
 Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
@@ -485,37 +487,37 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreWaitStatistics|
-|OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent|
-|Resource|Name of the resource|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|wait_category_s|Category of the wait.|
-|is_parameterizable_s|Is the query parameterizable.|
-|statement_type_s|Type of the statement.|
-|statement_key_hash_s|Statement key hash.|
-|exec_type_d|Type of execution.|
-|total_query_wait_time_ms_d|Total wait time of the query on the specific wait category.|
-|max_query_wait_time_ms_d|Max wait time of the query in individual execution on the specific wait category.|
-|query_param_type_d|0|
-|query_hash_s|Query hash in Query Store.|
-|query_plan_hash_s|Query plan hash in Query Store.|
-|statement_sql_handle_s|Statement handle in Query Store.|
-|interval_start_time_d|Start datetimeoffset of the interval in number of ticks from 1900-1-1.|
-|interval_end_time_d|End datetimeoffset of the interval in number of ticks from 1900-1-1.|
-|count_executions_d|Count of executions of the query.|
-|query_id_d|ID of the query in Query Store.|
-|plan_id_d|ID of the plan in Query Store.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: QueryStoreWaitStatistics |
+|OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|wait_category_s|Category of the wait |
+|is_parameterizable_s|Is the query parameterizable |
+|statement_type_s|Type of the statement |
+|statement_key_hash_s|Statement key hash |
+|exec_type_d|Type of execution |
+|total_query_wait_time_ms_d|Total wait time of the query on the specific wait category |
+|max_query_wait_time_ms_d|Max wait time of the query in individual execution on the specific wait category |
+|query_param_type_d|0 |
+|query_hash_s|Query hash in Query Store |
+|query_plan_hash_s|Query plan hash in Query Store |
+|statement_sql_handle_s|Statement handle in Query Store |
+|interval_start_time_d|Start datetimeoffset of the interval in number of ticks from 1900-1-1 |
+|interval_end_time_d|End datetimeoffset of the interval in number of ticks from 1900-1-1 |
+|count_executions_d|Count of executions of the query |
+|query_id_d|ID of the query in Query Store |
+|plan_id_d|ID of the plan in Query Store |
 
 Learn more about [Query Store wait statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
@@ -523,28 +525,28 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: Errors|
-|OperationName|Name of the operation. Always: ErrorEvent|
-|Resource|Name of the resource|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|Message|Error message in plain text.|
-|user_defined_b|Is the error user defined bit.|
-|error_number_d|Error code.|
-|Severity|Severity of the error.|
-|state_d|State of the error.|
-|query_hash_s|Query hash of the failed query, if available.|
-|query_plan_hash_s|Query plan hash of the failed query, if available.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQ |
+|Category|Name of the category. Always: Errors |
+|OperationName|Name of the operation. Always: ErrorEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|Message|Error message in plain text |
+|user_defined_b|Is the error user defined bit |
+|error_number_d|Error code |
+|Severity|Severity of the error |
+|state_d|State of the error |
+|query_hash_s|Query hash of the failed query, if available |
+|query_plan_hash_s|Query plan hash of the failed query, if available |
 
 Learn more about [SQL Server error messages](https://msdn.microsoft.com/library/cc645603.aspx).
 
@@ -552,28 +554,28 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/library/
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: DatabaseWaitStatistics|
-|OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent|
-|Resource|Name of the resource|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|wait_type_s|Name of the wait type.|
-|start_utc_date_t [UTC]|Measured period start time.|
-|end_utc_date_t [UTC]|Measured period end time.|
-|delta_max_wait_time_ms_d|Max waited time per execution|
-|delta_signal_wait_time_ms_d|Total signal wait time.|
-|delta_wait_time_ms_d|Total wait time in the period.|
-|delta_waiting_tasks_count_d|Number of waiting tasks.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: DatabaseWaitStatistics |
+|OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|wait_type_s|Name of the wait type |
+|start_utc_date_t [UTC]|Measured period start time |
+|end_utc_date_t [UTC]|Measured period end time |
+|delta_max_wait_time_ms_d|Max waited time per execution |
+|delta_signal_wait_time_ms_d|Total signal wait time |
+|delta_wait_time_ms_d|Total wait time in the period |
+|delta_waiting_tasks_count_d|Number of waiting tasks |
 
 Learn more about [database wait statistics](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
@@ -581,106 +583,107 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: Timeouts|
-|OperationName|Name of the operation. Always: TimeoutEvent|
-|Resource|Name of the resource|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|error_state_d|Error state code.|
-|query_hash_s|Query hash, if available.|
-|query_plan_hash_s|Query plan hash, if available.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: Timeouts |
+|OperationName|Name of the operation. Always: TimeoutEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|error_state_d|Error state code |
+|query_hash_s|Query hash, if available |
+|query_plan_hash_s|Query plan hash, if available |
 
 ### Blockings dataset
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: Blocks|
-|OperationName|Name of the operation. Always: BlockEvent|
-|Resource|Name of the resource|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|lock_mode_s|Lock mode used by the query.|
-|resource_owner_type_s|Owner of the lock.|
-|blocked_process_filtered_s|Blocked process report XML.|
-|duration_d|Duration of the lock in microseconds.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: Blocks |
+|OperationName|Name of the operation. Always: BlockEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|lock_mode_s|Lock mode used by the query |
+|resource_owner_type_s|Owner of the lock |
+|blocked_process_filtered_s|Blocked process report XML |
+|duration_d|Duration of the lock in microseconds |
 
 ### Deadlocks dataset
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC] |Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: Deadlocks|
-|OperationName|Name of the operation. Always: DeadlockEvent|
-|Resource|Name of the resource.|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database. |
-|ResourceId|Resource URI.|
-|deadlock_xml_s|Deadlock report XML.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC] |Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: Deadlocks |
+|OperationName|Name of the operation. Always: DeadlockEvent |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|deadlock_xml_s|Deadlock report XML |
 
 ### Automatic tuning dataset
 
 |Property|Description|
 |---|---|
-|TenantId|Your tenant ID.|
-|SourceSystem|Always: Azure|
-|TimeGenerated [UTC]|Time stamp when the log was recorded.|
-|Type|Always: AzureDiagnostics|
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: AutomaticTuning|
-|Resource|Name of the resource.|
-|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
-|SubscriptionId|Subscription GUID that the database belongs to.|
-|ResourceGroup|Name of the resource group that the database belongs to.|
-|LogicalServerName_s|Name of the server that the database belongs to.|
-|LogicalDatabaseName_s|Name of the database.|
-|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
-|DatabaseName_s|Name of the database.|
-|ResourceId|Resource URI.|
-|RecommendationHash_s|Unique hash of Automatic tuning recommendation.|
-|OptionName_s|Automatic tuning operation.|
-|Schema_s|Database schema.|
-|Table_s|Table affected.|
-|IndexName_s|Index name.|
-|IndexColumns_s|Column name.|
-|IncludedColumns_s|Columns included.|
-|EstimatedImpact_s|Estimated impact of Automatic tuning recommendation JSON.|
-|Event_s|Type of Automatic tuning event.|
-|Timestamp_t|Last updated timestamp.|
+|TenantId|Your tenant ID |
+|SourceSystem|Always: Azure |
+|TimeGenerated [UTC]|Time stamp when the log was recorded |
+|Type|Always: AzureDiagnostics |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
+|Category|Name of the category. Always: AutomaticTuning |
+|Resource|Name of the resource |
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES |
+|SubscriptionId|Subscription GUID for the database |
+|ResourceGroup|Name of the resource group for the database |
+|LogicalServerName_s|Name of the server for the database |
+|LogicalDatabaseName_s|Name of the database |
+|ElasticPoolName_s|Name of the elastic pool for the database, if any |
+|DatabaseName_s|Name of the database |
+|ResourceId|Resource URI |
+|RecommendationHash_s|Unique hash of Automatic tuning recommendation |
+|OptionName_s|Automatic tuning operation |
+|Schema_s|Database schema |
+|Table_s|Table affected |
+|IndexName_s|Index name |
+|IndexColumns_s|Column name |
+|IncludedColumns_s|Columns included |
+|EstimatedImpact_s|Estimated impact of Automatic tuning recommendation JSON |
+|Event_s|Type of Automatic tuning event |
+|Timestamp_t|Last updated timestamp |
 
 ### Intelligent Insights dataset
+
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## Next steps
 
-To learn how to enable logging and understand the metrics and log categories supported by the various Azure services, read:
+To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
 
  * [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
  * [Overview of Azure diagnostics logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
@@ -690,4 +693,4 @@ To learn about Event Hubs, read:
 * [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-To learn more about Storage, see how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+To learn more about Azure Storage, see [how to download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
