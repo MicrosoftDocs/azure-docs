@@ -2,12 +2,12 @@
 title: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
-
 author: dineshm
+
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 6/27/2018
+ms.date: 11/30/2018
 ms.author: dineshm
 ---
 
@@ -53,14 +53,22 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
 11. Enter a name of your choice in the **Name** field and select **Python** as the language.
 12. All other fields can be left as default values.
 13. Select **Create**.
-14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account.
+14. Paste the following code into the **Cmd 1** cell. Remember to replace the placeholders shown in brackets in the sample with your own values:
 
-    ```bash
-    spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfss://<file_system>@<account_name>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+    ```scala
+    %python%
+    configs = {"fs.azure.account.auth.type": "OAuth",
+        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+        "fs.azure.account.oauth2.client.id": "<service-client-id>",
+        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
+        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
+        
+    dbutils.fs.mount(
+        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
+        mount_point = "/mnt/flightdata",
+        extra_configs = configs)
     ```
+15. Press **SHIFT + ENTER** to run the code cell.
 
 ## Ingest data
 
@@ -86,20 +94,11 @@ Reopen Databricks in your browser and execute the following steps:
 6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor).
 
     ```python
-    #mount Azure Blob Storage as an HDFS file system to your databricks cluster
-    #you need to specify a storage account and container to connect to. 
-    #use a SAS token or an account key to connect to Blob Storage.  
-    accountname = "<insert account name>"
-    accountkey = " <insert account key>"
-    fullname = "fs.azure.account.key." +accountname+ ".dfs.core.windows.net"
-    accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.windows.net/folder1"
-    #create a dataframe to read data
-    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/On_Time_On_Time*.csv")
-    #read the all the airline csv files and write the output to parquet format for easy query
-    flightDF.write.mode("append").parquet(accountsource + '/parquet/flights')
-
-    #read the flight details parquet file 
-    #flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
+    # Use the previously established DBFS mount point to read the data
+    # create a dataframe to read data
+    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time_On_Time*.csv")
+    # read the all the airline csv files and write the output to parquet format for easy query
+    flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
     print("Done")
     ```
 
@@ -118,20 +117,14 @@ To get a list of CSV files uploaded via AzCopy, run the following script:
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-source = "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/"
-dbutils.fs.ls(source + "/temp")
-display(dbutils.fs.ls(source + "/temp/"))
+display(dbutils.fs.ls("/mnt/flightdata/temp/"))
 ```
 
 To create a new file and list files in the *parquet/flights* folder, run this script:
 
 ```python
-source = "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/"
-
-dbutils.fs.help()
-
-dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
-dbutils.fs.ls(source + "/temp/parquet/flights")
+dbutils.fs.put("/mnt/flightdata/temp/1.txt", "Hello, World!", True)
+dbutils.fs.ls("/mnt/flightdata/temp/parquet/flights")
 ```
 
 With these code samples, you have explored the hierarchical nature of HDFS using data stored in a storage account with Data Lake Storage Gen2 enabled.
@@ -149,11 +142,11 @@ To create dataframes for your data sources, run the following script:
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
-acDF.write.parquet(accountsource + '/parquet/airlinecodes')
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/<YOUR_CSV_FILE_NAME>.csv")
+acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
-flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
+flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
 
 #print the schema of the dataframes
 acDF.printSchema()
@@ -168,20 +161,20 @@ acDF.show(100, False)
 flightDF.show(20, False)
 
 #Display to run visualizations
-#preferrably run this in a separate cmd cell
+#preferably run this in a separate cmd cell
 display(flightDF)
 ```
 
 To run analysis queries against the data, run the following script:
 
 ```python
-#Run each of these queries, preferrably in a separate cmd cell for separate analysis
+#Run each of these queries, preferably in a separate cmd cell for separate analysis
 #create a temporary sql view for querying flight information
-FlightTable = spark.read.parquet(accountsource + '/parquet/flights')
+FlightTable = spark.read.parquet('/mnt/flightdata/parquet/flights')
 FlightTable.createOrReplaceTempView('FlightTable')
 
 #create a temporary sql view for querying airline code information
-AirlineCodes = spark.read.parquet(accountsource + '/parquet/airlinecodes')
+AirlineCodes = spark.read.parquet('/mnt/flightdata/parquet/airlinecodes')
 AirlineCodes.createOrReplaceTempView('AirlineCodes')
 
 #using spark sql, query the parquet file to return total flights in January and February 2016

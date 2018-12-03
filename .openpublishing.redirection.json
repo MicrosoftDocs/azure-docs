@@ -27334,6 +27334,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/storage-data-lake-storage-access-control.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-data-lake-storage-best-practices.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/data-lake-storage/compatible-oss-other-applications.md",
             "redirect_url": "/azure/storage/blobs/data-lake-storage-compatible-oss-other-applications",
             "redirect_document_id": false

@@ -73,7 +73,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     * Enter a name for the cluster.
-    * Create a cluster with **4.2 beta** runtime.
+    * Create a cluster with **5.1 beta** runtime.
     * Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
 4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
@@ -96,18 +96,49 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-4. In the following code, replace the **ACCOUNT_NAME** and **ACCOUNT_KEY** text with the values you preserved at the start of this quickstart. Also replace the **FILE_SYSTEM_NAME** text with the name you would like your file system to have. Then enter the code into the first cell.
+4. Connect the Databricks workspace to your ADLS Gen2 account. There are three supported mechanisms for achieving this: mounting using OAuth, direct access with OAuth, and direct access with Shared Key. 
 
+    Each mechanism is shown in an example below. When testing the examples, remember to replace the placeholders shown in brackets in the sample with your own values:
+
+    **Mount using OAuth**     
+        
     ```scala
-    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+    %python%
+    configs = {"fs.azure.account.auth.type": "OAuth",
+        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+        "fs.azure.account.oauth2.client.id": "<service-client-id>",
+        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
+        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
+    
+    dbutils.fs.mount(
+        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
+        mount_point = "/mnt/<mount-name>",
+        extra_configs = configs)
     ```
 
-    Press **SHIFT + ENTER** to run the code cell.
+    **Direct access with OAuth**
 
-    Now the file system is created for the storage account.
+    ```scala
+    spark.conf.set("fs.azure.account.auth.type.<account-name>.dfs.core.windows.net": "OAuth")
+    spark.conf.set("fs.azure.account.oauth.provider.type.<account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+    spark.conf.set("fs.azure.account.oauth2.client.id.<account-name>.dfs.core.windows.net": "<service-client-id>")
+    spark.conf.set("fs.azure.account.oauth2.client.secret.<account-name>.dfs.core.windows.net": "<service-credentials>")
+    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+
+    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    ```
+        
+    **Direct access with Shared Key** 
+
+    ```scala    
+    spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
+
+    dbutils.fs.ls("abfs://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    ```
+
+5. Enter the code into the first cell, and press **SHIFT + ENTER** to run it.
+
+Now the file system is created for the storage account.
 
 ## Ingest sample data
 
@@ -117,13 +148,13 @@ Enter the following code into a notebook cell:
 
     %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-In the cell, press `Shift` + `Enter` to run the code.
+In the cell, press **SHIFT + ENTER** to run the code.
 
-Now in a new cell below this one, enter the following code (replace **FILE_SYSTEM** and **ACCOUNT_NAME** with the same values you used earlier:
+Now in a new cell below this one, enter the following code, replacing the values in brackets with the same values you used earlier:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
 
-In the cell, press `Shift` + `Enter` to run the code.
+In the cell, press **SHIFT + ENTER** to run the code.
 
 ## Run a Spark SQL Job
 
@@ -137,7 +168,7 @@ Perform the following tasks to run a Spark SQL job on the data.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 
