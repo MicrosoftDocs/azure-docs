@@ -15,18 +15,18 @@ ms.date: 07/16/2018
 ---
 # Getting started with Elastic Database jobs
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Elastic Database jobs (preview) for Azure SQL Database allows you to reliably execute T-SQL scripts that span multiple databases while automatically retrying and providing eventual completion guarantees. For more information about the Elastic Database job feature, see [Elastic jobs](sql-database-elastic-jobs-overview.md).
 
 This article extends the sample found in [Getting started with Elastic Database tools](sql-database-elastic-scale-get-started.md). When completed, you learn how to create and manage jobs that manage a group of related databases. It is not required to use the Elastic Scale tools in order to take advantage of the benefits of Elastic jobs.
 
 ## Prerequisites
+
 Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
 ## Create a shard map manager using the sample app
+
 Here you create a shard map manager along with several shards, followed by insertion of data into the shards. If you already have shards set up with sharded data in them, you can skip the following steps and move to the next section.
 
 1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). At the end of Step 7, you see the following command prompt:
@@ -42,8 +42,9 @@ Here you create a shard map manager along with several shards, followed by inser
 
 Here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
 
-## Creates a custom collection and add all databases in the server to the custom collection target with the exception of master.
-   ```
+## Creates a custom collection and add all databases in the server to the custom collection target with the exception of master
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -295,23 +296,25 @@ Update the desired execution policy to update:
    ```
 
 ## Cancel a job
+
 Elastic Database Jobs supports jobs cancellation requests.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it attempts to stop the job.
 
 There are two different ways that Elastic Database Jobs can perform a cancellation:
 
 1. Canceling Currently Executing Tasks: If a cancellation is detected while a task is currently running, a cancellation is attempted within the currently executing aspect of the task.  For example: If there is a long running query currently being performed when a cancellation is attempted, there is an attempt to cancel the query.
-2. Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread avoids launching the task and declare the request as canceled.
+2. Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread avoids launching the task and declares the request as canceled.
 
 If a job cancellation is requested for a parent job, the cancellation request is honored for the parent job and for all of its child jobs.
 
 To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet and set the **JobExecutionId** parameter.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## Delete a job by name and the job's history
+
 Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system deletes the job and all its job history after all job executions have completed for the job. The system does not automatically cancel active job executions.  
 
 Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.
