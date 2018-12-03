@@ -24,8 +24,8 @@
   items:
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Choosing the right pricing tier
-    href: choosing-the-right-pricing-tier.md
+  - name: Choose the right pricing tier
+    href: choose-pricing-tier.md
   - name: Coverage
     items:
     - name: Geocoding coverage

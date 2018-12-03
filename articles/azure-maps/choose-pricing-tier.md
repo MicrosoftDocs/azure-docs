@@ -1,5 +1,5 @@
 ---
-title: Choosing the right pricing tier for Azure Maps | Microsoft Docs
+title: Choose the right pricing tier for Azure Maps | Microsoft Docs
 description: Learn about pricing tiers offered by Azure Maps 
 author: walsehgal
 ms.author: v-musehg
@@ -10,7 +10,7 @@ services: azure-maps
 manager: 
 ---
 
-# Choosing the right pricing tier in Azure Maps
+# Choosing the right Pricing tier in Azure Maps
 
 Azure Maps offers two pricing tiers. The purpose of this article is to help you choose the right pricing tier for your needs. To help choose the right pricing tier, ask yourself two questions:
 
@@ -23,7 +23,7 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 
 <br>
 
-<center>**Pricing tier capabilities**</center>
+##<center>**Pricing tier Capabilities**</center>
 
 | Capability                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
@@ -43,11 +43,11 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 
 Some additional data points worth considering are, what kind of enterprise do you have or how critical is the application being built?
 
-See the table with **pricing tier targeted customers** to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
+See the table with **Pricing tier Targeted customers** to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
 <br>
 
-<center>**Pricing tier targeted customers**</center>
+##<center>**Pricing tier Targeted customers**</center>
 
 | Pricing Tier  |        Targeted Customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|

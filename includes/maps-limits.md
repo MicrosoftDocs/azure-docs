@@ -10,8 +10,8 @@
  ms.custom: include file
 ---
 
-Following is the usage limit for the Azure Maps service **S0 Pricing Tier**. Usage limit depends on the Pricing Tier. For more information on the Azure Maps Pricing Tiers, see [Azure Maps pricing details](https://azure.microsoft.com/pricing/details/azure-maps/).
+Following is the usage limit for the Azure Maps service **S0 pricing tier**. Usage limit depends on the pricing tier. For more information on the Azure Maps pricing tiers, see [Azure Maps pricing details](https://azure.microsoft.com/pricing/details/azure-maps/).
 
-| Resource                              | S0 Pricing Tier Limit |
+| Resource                              | S0 pricing tier limit |
 |---------------------------------------|:---------------------:|
 | Maximum request rate per subscription |   50 requests per second  |
