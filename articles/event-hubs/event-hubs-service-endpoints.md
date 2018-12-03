@@ -85,17 +85,17 @@ Template parameters:
 >
 
 ```json
-{  
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "namespaceName": {
+      "eventhubNamespaceName": {
         "type": "string",
         "metadata": {
           "description": "Name of the Event Hubs namespace"
         }
       },
-      "vnetRuleName": {
+      "virtualNetworkName": {
         "type": "string",
         "metadata": {
           "description": "Name of the Virtual Network Rule"
@@ -114,16 +114,57 @@ Template parameters:
         }
       }
     },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.EventHub"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
         "type": "Microsoft.EventHub/namespaces/networkruleset",
         "dependsOn": [
-          "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],
         "properties": {
-          "virtualNetworkRules":
+          "virtualNetworkRules": 
           [
             {
               "subnet": {
@@ -132,12 +173,13 @@ Template parameters:
               "ignoreMissingVnetServiceEndpoint": false
             }
           ],
-          "ipRules":[],
+          "ipRules":[<YOUR EXISTING IP RULES>],
           "defaultAction": "Deny"
         }
       }
-    ]
-}
+    ],
+    "outputs": { }
+  }
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].

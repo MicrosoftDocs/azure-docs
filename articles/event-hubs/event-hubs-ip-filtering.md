@@ -80,26 +80,14 @@ Template parameters:
 >
 
 ```json
-{  
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "namespaceName": {
+      "eventhubNamespaceName": {
         "type": "string",
         "metadata": {
           "description": "Name of the Event Hubs namespace"
-        }
-      },
-      "vnetRuleName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Virtual Network Rule"
-        }
-      },
-      "subnetName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Virtual Network Sub Net"
         }
       },
       "location": {
@@ -109,17 +97,31 @@ Template parameters:
         }
       }
     },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
         "type": "Microsoft.EventHub/namespaces/networkruleset",
         "dependsOn": [
-          "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],
         "properties": {
-          "virtualNetworkRules":[],
-          "ipRules":
+		  "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
           [
             {
                 "ipMask":"10.1.1.1",
@@ -133,8 +135,9 @@ Template parameters:
           "defaultAction": "Deny"
         }
       }
-    ]
-}
+    ],
+    "outputs": { }
+  }
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
