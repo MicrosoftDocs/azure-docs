@@ -225,7 +225,11 @@
     - name: Periodic backup and restore
       items:
       - name: Understanding periodic backup configuration
-        href: service-fabric-backuprestoreservice-configure-periodic-backup.md 
+        href: service-fabric-backuprestoreservice-configure-periodic-backup.md
+      - name: Triggering restore of partition
+        href: service-fabric-backup-restore-service-trigger-restore.md
+      - name: On-demand backup of partition
+        href: service-fabric-backup-restore-service-ondemand-backup.md
   - name: Clusters
     items:
     - name: Clusters overview
@@ -457,9 +461,7 @@
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
-      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-    - name: On-demand backup of partition
-      href: service-fabric-backuprestoreservice-ondemand-backup.md
+      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md    
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in an IDE
@@ -664,10 +666,14 @@
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Query EventStore APIs
         href: service-fabric-diagnostics-eventstore-query.md      
-      - name: Customize the WAD agent
+      - name: Windows Cluster Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Cusotmize the LAD agent
-        href: service-fabric-diagnostics-event-aggregation-lad.md        
+      - name: Linux Cluster Diagnostics
+        href: service-fabric-diagnostics-oms-syslog.md 
+      - name: Set up Log Analytics
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Monitor with Log Analytics
+        href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
       - name: Collect performance counters with the Log Analytics Agent

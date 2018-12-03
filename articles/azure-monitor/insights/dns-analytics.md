@@ -185,4 +185,4 @@ There are two ways you can give feedback:
 
 ## Next steps
 
-[Search logs](../../log-analytics/log-analytics-queries.md) to view detailed DNS log records.
+[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed DNS log records.

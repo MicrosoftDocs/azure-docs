@@ -14057,6 +14057,10 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-backuprestoreservice-ondemand-backup.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-backup-restore-service-ondemand-backup"
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-reliable-services-reliable-collections-internals.md",
             "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-introduction",
             "redirect_document_id": false
@@ -31330,6 +31334,11 @@
         {
             "source_path":  "articles/log-analytics/log-analytics-create-pipeline-datacollector-api.md",
             "redirect_url":  "/azure/azure-monitor/platform/create-pipeline-datacollector-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-queries.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/log-query-overview",
             "redirect_document_id":  true
         }
     ]

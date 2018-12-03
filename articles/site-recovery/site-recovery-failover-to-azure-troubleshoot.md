@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/27/2018
 ms.author: mayg
-
 ---
 # Troubleshoot errors when failing over a virtual machine to Azure
 
