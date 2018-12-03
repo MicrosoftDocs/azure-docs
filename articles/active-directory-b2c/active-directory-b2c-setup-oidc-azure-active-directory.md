@@ -1,6 +1,6 @@
 ---
-title: Set up sign-in Azure Active Directory accounts a built-in policy in Azure Active Directory B2C | Microsoft Docs
-description: Set up sign-in Azure Active Directory accounts a built-in policy in Azure Active Directory B2C.
+title: Set up sign-in for an Azure Active Directory organization in Azure Active Directory B2C | Microsoft Docs
+description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,21 +8,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Set up sign-in Azure Active Directory accounts a built-in policy in Azure Active Directory B2C
+# Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C
 
 >[!NOTE]
 > This feature is in public preview. Do not use the feature in production environments.
 
-This article shows you how to enable sign-in for users from a specific Azure Active Directory (Azure AD) organization using a built-in policy in Azure Active Directory (Azure AD) B2C.
+This article shows you how to enable sign-in for users from a specific Azure Active Directory (Azure AD) organization using a user flow in Azure Active Directory (Azure AD) B2C.
 
 ## Create an Azure AD app
 
-To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as you Azure AD B2C tenant.
+To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD tenant by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your Azure AD tenant.

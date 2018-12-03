@@ -5,13 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
-An action group is a collection of notification preferences defined by the user. Azure Monitor and Service Health alerts are configured to use a specific action group when the alert is triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+
+When an action is configured to notify a person by email or SMS the person will receive a confirmation indicating he / she has been added to the action group.
 
 This article shows you how to create and manage action groups in the Azure portal.
 
@@ -71,6 +73,8 @@ You may have up to 1000 email actions in an Action Group. See the [rate limiting
 ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Logic App** - You may have up to 10 Logic App actions in an Action Group
+
+**Function App** - The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) for more information.
 
 **Runbook** - You may have up to 10 Runbook actions in an Action Group
 Refer to the [Azure subscription service limits](../azure-subscription-service-limits.md) for limits on Runbook payloads

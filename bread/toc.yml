@@ -127,6 +127,10 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
+    items:
+    - name: Durable Functions
+      tocHRef: /azure/azure-functions/durable/
+      topicHref: /azure/azure-functions/durable/durable-functions-overview
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -340,6 +344,9 @@
   - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
+  - name: Dedicated HSM
+    tocHref: /azure/dedicated-hsm/
+    topicHref: /azure/dedicated-hsm/
   - name: Devtest Lab
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/
@@ -627,6 +634,9 @@
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
+          - name: SQL VM
+            tocHref: /azure/virtual-machines/windows/sql
+            topicHref: /azure/virtual-machines/windows/sql
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/
