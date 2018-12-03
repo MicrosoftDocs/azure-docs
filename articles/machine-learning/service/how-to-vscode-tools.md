@@ -12,7 +12,7 @@ ms.date: 12/04/2018
 ---
 # Get started with Azure Machine Learning for Visual Studio Code
 
-In this article, you'll learn how to install the **Azure Machine Learning** extension for Visual Studio Code (VS Code) and create your first experiment with Azure Machine Learning service in Visual Studio Code.
+In this article, you'll learn how to install the **Azure Machine Learning for Visual Studio Code** extension and create your first experiment with Azure Machine Learning service in Visual Studio Code (VS Code).
 
 Use the Azure Machine Learning extension in Visual Studio code to use the Azure Machine Learning service to prep your data, train, and test machine learning models on local and remote compute targets, deploy those models and track custom metrics and experiments.
 
