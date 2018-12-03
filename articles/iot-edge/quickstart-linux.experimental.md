@@ -117,7 +117,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 During the runtime configuration, you provide a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure. 
 
-### Remotely configure your IoT Edge device
+### Set the connection string on the IoT Edge device
 
 * If you are using the Azure IoT Edge on Ubuntu virtual machine, use the device connection string you copied earlier to remotely configure your IoT Edge device:
 
@@ -131,7 +131,7 @@ During the runtime configuration, you provide a device connection string. Use th
    ssh azureuser@{publicIpAddress}
    ```
 
-* If you are using your local machine or an ARM32 device, open the configuration file located at /etc/iotedge/config.yaml and update the **device_connection_string** variable with the value you copied earlier, then restart the IoT Edge security daemon to apply your changes:
+* If you are running IoT Edge on your local machine or an ARM32 device, open the configuration file located at /etc/iotedge/config.yaml and update the **device_connection_string** variable with the value you copied earlier, then restart the IoT Edge security daemon to apply your changes:
 
    ```bash
    sudo systemctl restart iotedge
