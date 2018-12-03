@@ -49,7 +49,7 @@ To force the request to be handled by a specific datacenter, change the Global e
 
 Subscribe to Translator Text API or Cognitive Services all-in-one in Microsoft Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
 
-There are two methods to authenticate your subscription, either with a secret key or a bearer token. Both the Translator Text API subscription and the Cognitive Services all-in-one subscription can be used with either method.
+There are three headers that you can use to authenticate your subscription. This table provides describes how each is used:
 
 <table width="100%">
   <th width="30%">Headers</th>
