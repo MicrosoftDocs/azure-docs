@@ -401,7 +401,7 @@ You can also use the **File** > **Make a Copy** command at any time to make a co
 
 When you're done with a notebook, use the **File** > **Close and halt** command, which closes the notebook and shuts down the kernel that's been running it. Azure Notebooks then closes the browser tab automatically.
 
-## Debugging using Visual Studio Code
+## Debug notebooks using Visual Studio Code
 
 If the code cells in your notebook don't behave in the way you expect, you may have code bugs or other defects. However, other than using `print` statements to show the value of variables, a Jupyter notebook doesn't offer any debugging facilities.
 
