@@ -7,7 +7,6 @@ author: deborahc
 manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
