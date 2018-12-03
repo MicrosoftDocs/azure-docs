@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 9/24/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,10 +47,28 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="3.0.2"/>3.0.2
+* Added support for MultiPolygon datatype
+* Bug fix in session read retry policy
+* Bug fix for incorrect padding issues while decoding base 64 strings
+
+### <a name="3.0.1"/>3.0.1
+* Bug fix in LocationCache
+* Bug fix endpoint retry logic
+* Fixed documentation
+
 ### <a name="3.0.0"/>3.0.0
 * Support for multi-region writes.
 * Namespace changed to azure.cosmos.
 * Collection and document concepts renamed to container and item, document_client renamed to cosmos_client. 
+
+### <a name="2.3.3"/>2.3.3
+* Added support for proxy
+* Added support for reading change feed
+* Added support for collection quota headers
+* Bugfix for large session tokens issue
+* Bugfix for ReadMedia API
+* Bugfix in partition key range cache
 
 ### <a name="2.3.2"/>2.3.2
 * Added support for default retries on connection issues.
@@ -141,6 +159,9 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [3.0.2](#3.0.2) |Nov 15, 2018 |--- |
+| [3.0.1](#3.0.1) |Oct 04, 2018 |--- |
+| [2.3.3](#2.3.3) |Sept 08, 2018 |--- |
 | [2.3.2](#2.3.2) |May 08, 2018 |--- |
 | [2.3.1](#2.3.1) |December 21, 2017 |--- |
 | [2.3.0](#2.3.0) |November 10, 2017 |--- |
