@@ -51,7 +51,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
    > [!NOTE]
 
-   > Alerts lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md) or [shared query in application insights analytics](../log-analytics/log-analytics-queries.md). 
+   > Alerts lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../azure-monitor/log-query/log-query-overview.md) or [shared query in application insights analytics](../azure-monitor/log-query/log-query-overview.md). 
 
 1.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
@@ -126,7 +126,7 @@ Hence the section below provide details on using Resource Template for Log Alert
 ### Azure Resource Template for Log Analytics
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
 
-Resource template for Log analytics saved search and Log analytics alerts are available in Log Analytics section of documentation. To learn more, see, [Adding Log Analytics saved searches and alerts](../monitoring/monitoring-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
+Resource template for Log analytics saved search and Log analytics alerts are available in Log Analytics section of documentation. To learn more, see, [Adding Log Analytics saved searches and alerts](../azure-monitor/insights/solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
 
 ### Azure Resource Template for Application Insights
 Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -217,7 +217,7 @@ Hence the section below provide details on using API via Powershell or CLI for L
 ### PowerShell, CLI, or API for Log Analytics
 The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.
 
-Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
+Learn more  about [create and manage alert rules in Log Analytics with REST API](../azure-monitor/platform/api-alerts.md); including examples of accessing the API from Powershell.
 
 ### PowerShell, CLI, or API for Application Insights
 [Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
@@ -240,5 +240,5 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](monitor-alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](monitor-alerts-unified-log-webhook.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
-* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Learn more about [Log Analytics](../azure-monitor/log-query/log-query-overview.md). 
 

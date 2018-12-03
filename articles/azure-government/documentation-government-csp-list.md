@@ -144,7 +144,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[MIS Sciences Corp](http://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|[MSCloud Express, LLC]()|
+|[MS Cloud Express, LLC](http://mscloudexpress.com/Azure)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[NCI](https://www.nciinc.com/)|
 |[NeoTech Solutions Inc.](https://www.neotechsolutions.com)| 
@@ -216,7 +216,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sybatech, Inc](https://www.sybatech.com)|
 |[Synergy Technical, LLC](http://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
-|[Systems Engineering Inc](https://www.seisystems.com)|
+|[Systems Engineering Inc](http://www.seisystems.com)|
 |[Tech Data Government Solutions, LLC](http://gov.as.techdata.com/en-us/Pages/default.aspx)|
 |[TechFlow](https://www.techflow.com)|
 |[TechTrend](https://techtrend.us)|

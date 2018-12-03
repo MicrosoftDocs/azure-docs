@@ -71,7 +71,7 @@ sections:
         - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
       - title: Consume your machine learning models
         values:
-        - href: 
+        - href: /azure/machine-learning/service/how-to-consume-web-service
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
       - title: Build, optimize, and manage your ML pipelines
         values:
@@ -111,7 +111,7 @@ sections:
         src: /azure/machine-learning/media/index/tdsp.png
       title: Team Data Science Process
     - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Experiment without worrying installing or configuring software using these Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
+      html: <p>Experiment without installing or configuring software using the Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Data Science Virtual Machine

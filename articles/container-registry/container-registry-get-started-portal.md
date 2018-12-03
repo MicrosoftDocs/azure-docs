@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -22,11 +22,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a container registry
 
-Select **Create a resource** > **Containers** > **Azure Container Registry**.
+Select **Create a resource** > **Containers** > **Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
@@ -66,29 +66,29 @@ To push an image to your Azure Container Registry, you must first have an image.
 docker pull microsoft/aci-helloworld
 ```
 
-Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag][docker-tag] command. Replace *login server* with the login server name you recorded earlier.
+Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag][docker-tag] command. Replace *login server* with the login server name you recorded earlier. Add a *repository name* such as **`myrepo`** to place your image in a repository.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance.
+Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance, and replace the *repository name* with the name of the repository you used in the previous command.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 Output from a successful `docker push` command is similar to:
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## List container images
@@ -109,7 +109,7 @@ A context menu will appear, select **Run instance**:
 
 ![Launch ACI context menu][qs-portal-11]
 
-Fill in **Container name**, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup" and then click **OK** to launch the Azure Container Instance.
+Fill in **Container name**, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup". Ensure that the "Public IP address" options is enabled by setting to **Yes** and then click **OK** to launch the Azure Container Instance.
 
 ![Launch ACI deployment options][qs-portal-12]
 
@@ -131,7 +131,7 @@ Once the container is in the **Running** state, use your favorite browser to nav
 
 To clean up your resources navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, the Azure Container Registry, and all Azure Container Instances.
 
-![Creating a container registry in the Azure portal][qs-portal-08]
+![Delete resource group in the Azure portal][qs-portal-08]
 
 ## Next steps
 

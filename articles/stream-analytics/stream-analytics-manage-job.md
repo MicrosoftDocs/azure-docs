@@ -225,7 +225,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 2. In the **Query** pane, select the dots next to the *CallStream* input and then select **Sample data from input**. 
 
-3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is then sampled from the input stream and you when the sample data is ready. You can view the status of sampling from the notification bar. 
+3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is then sampled from the input stream and you are notified when the sample data is ready. You can view the status of sampling from the notification bar. 
 
    The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data if you want to test. Alternatively, you can use a sample data JSON file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), and then upload that JSON file to use as sample data for the *CallStream* input.
 

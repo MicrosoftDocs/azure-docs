@@ -14,50 +14,48 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
-With Azure Active Directory (Azure AD) reporting in the [Azure portal](https://portal.azure.com), you can get the information you need to determine how your environment is doing.
-
-The reporting architecture in Azure Active Directory consists of the following components:
+The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
 
 - **Activity** 
-    - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
-    - **Audit logs** - System activity information about users and group management, your managed applications and directory activities.
+    - **Sign-ins** – Information about the usage of managed applications and user sign-in activities.
+    - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications and directory activities.
 - **Security** 
-    - **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see Risky sign-ins.
-    - **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see Users flagged for risk.
+    - **Risky sign-ins** - A [risky sign-in](concept-risky-sign-ins.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+    - **Users flagged for risk** - A [risky user](concept-user-at-risk.md) is an indicator for a user account that might have been compromised.
 
-This topic gives you an overview of the sign-in activities.
+This topic gives you an overview of the sign-ins report.
 
 ## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Admin, Security Reader, Report Reader role
-* Global Admins
-* Any user (non-admins) can access their own sign-ins 
+* Users in the Security Administrator, Security Reader and Report Reader roles
+* Global Administrators
+* In addition, any user (non-admins) can access their own sign-ins 
 
 ### What Azure AD license do you need to access sign-in activity?
 * Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
 
+## Sign-ins report
 
-## Sign-in activities
-
-With the information provided by the user sign-in report, you find answers to questions such as:
+The user sign-ins report provides answers to the following questions:
 
 * What is the sign-in pattern of a user?
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active Directory**.
-
+You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com).
 
 ![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
 
+> [!IMPORTANT]
+> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
 
 A sign-ins log has a default list view that shows:
 
@@ -78,7 +76,7 @@ This enables you to display additional fields or remove fields that are already 
 
 ![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
 
-By clicking an item in the list view, you get all available details about it in a horizontal view.
+Select an item in the list view to get more detailed information.
 
 ![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
 
@@ -96,7 +94,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 - User
 - Application
 - Sign-in status
-- Status of the risk detection
+- Conditional Access
 - Date
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
@@ -111,11 +109,12 @@ The **Sign-in status** filter enables you to select:
 - Success
 - Failure
 
-The **Risk Detected** filter enables you to select:
+The **Conditional Access** filter enables you to select the CA policy status for the sign-in:
 
 - All
-- Yes
-- No
+- Not Applied
+- Success
+- Failure
 
 The **Date** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
@@ -145,11 +144,14 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can download the sign-in activities data if you want work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to generate a script to download your data.  
+You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to [generate a script to download your data](tutorial-signin-logs-download-script.md).  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
+
+> [!IMPORTANT]
+> The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
 ### Running the script on a Windows 10 machine
 
@@ -160,28 +162,18 @@ If you want to run the script on a **Windows 10** machine, you need to perform a
 3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
 4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 
-In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+## Sign-ins data shortcuts
 
+In addition to Azure AD, the Azure portal provides you with additional entry points to sign-ins data:
 
-## Sign-in activities shortcuts
-
-In addition to Azure Active Directory, the Azure portal provides you with additional entry points to sign-in activities data:
-
-- The identity security protection overview
+- The Identity security protection overview
 - Users
 - Groups
 - Enterprise applications
 
+### Users sign-ins data in Identity security protection
 
-### Users sign-ins activities
-
-With the information provided by the user sign-in report, you find answers to questions such as:
-
-- What is the sign-in pattern of a user?
-- How many users have users signed in over a week?
-- What’s the status of these sign-ins?
-
-Your entry point to this data is the user sign-in graph on the **identity security protection** overview page. The user sign-in graph shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
+The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
 
@@ -207,7 +199,6 @@ By clicking an item, you get more details about the sign-in operation:
 - Date
 - MFA Required
 - Sign-in status
-
  
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
@@ -239,9 +230,9 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 ![Sign-in activity](./media/concept-sign-ins/11.png "Sign-in activity")
 
-
-
 ## Next steps
 
-If you want to know more about sign-in activity error codes, see the [Sign-in activity report error codes in the Azure Active Directory portal](reference-sign-ins-error-codes.md).
+* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
+* [Azure AD data retention policies](reference-reports-data-retention.md)
+* [Azure AD report latencies](reference-reports-latencies.md)
 

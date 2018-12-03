@@ -28,6 +28,8 @@
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security technical capabilities
     href: azure-security-technical-capabilities.md
+  - name: Develop secure apps on Azure
+    href: abstract-develop-secure-apps.md
 - name: Data security and encryption
   href: security-azure-encryption-overview.md
   items:

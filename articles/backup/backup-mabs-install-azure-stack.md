@@ -11,7 +11,6 @@ keywords: azure backup server; protect workloads; back up workloads
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal

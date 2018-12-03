@@ -14,6 +14,42 @@ ms.date: 10/24/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-11-20
+
+### Azure Machine Learning SDK for Python v0.1.80
+
++ **Breaking changes** 
+  * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you examples on how to use this. We hope you like this simplification and lots of more exciting features to come in a later release!
+
+### Azure Machine Learning Data Prep SDK v0.5.1 
+
+Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/data-prep-sdk).
++ **New Features**
+   * Created a new DataPrep CLI to execute DataPrep packages and view the data profile for a dataset or dataflow
+   * Redesigned SetColumnType API to improve usability
+   * Renamed smart_read_file to auto_read_file
+   * Now includes skew and kurtosis in the Data Profile
+   * Can sample with stratified sampling
+   * Can read from zip files that contain CSV files
+   * Can split datasets row-wise with Random Split (e.g. into test-train sets)
+   * Can get all the column data types from a dataflow or a data profile by calling .dtypes
+   * Can get the row count from a dataflow or a data profile by calling .row_count
+
++ **Bug Fixes**
+   * Fixed long to double conversion 
+   * Fixed assert after any add column 
+   * Fixed an issue with FuzzyGrouping, where it would not detect groups in some cases
+   * Fixed sort function to respect multi-column sort order
+   * Fixed and/or expressions to be similar to how Pandas handles them
+   * Fixed reading from dbfs path
+   * Made error messages more understandable 
+   * Now no longer fails when reading on remote compute target using AML token
+   * Now no longer fails on Linux DSVM
+   * Now no longer crashes when non-string values are in string predicates
+   * Now handles assertion errors when Dataflow should fail correctly
+   * Now supports dbutils mounted storage locations on Azure Databricks
+
 ## 2018-11-05
 
 ### Azure portal 
@@ -27,7 +63,6 @@ The Azure portal for the Azure Machine Learning service has the following update
   * *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* are properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
   * *Run.get_context* deprecates *Run.get_submitted_run*. The latter method will be removed in subsequent releases.
   * *PipelineData* class now expects a datastore object as a parameter rather than datastore_name. Similarly, *Pipeline* accepts default_datastore rather than default_datastore_name.
-  * **Upcoming in next release** We are continuing to streamline the training compute experience for our users. We are unifying the various compute options in *DSVMCompute* and *BatchAICompute* into a single class. called *AmlCompute*. In next release, both old computes and *AmlCompute* will co-exist. In subsequent release, only training compute you can create will be *AmlCompute* and the other two classes will be deprecated.
 
 + **New features**
   * The Azure Machine Learning Pipelines [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) now uses MPI steps.
@@ -58,9 +93,6 @@ The Azure portal for the Azure Machine Learning service has the following update
 
 + **New features**
   * Multiple tenant support when creating new workspace.
-
-+ **Breaking changes**
-  * **Upcoming in next release** *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* will become properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
 
 + **Bugs fixed**
   * The pynacl library version no longer needs to be pinned when deploying web servcie.

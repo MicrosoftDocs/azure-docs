@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
@@ -37,7 +36,7 @@ String values are wrapped with either with single or double quote characters. Ba
 print "this is a 'string' literal in double \" quotes"
 ```
 
-To prevent "\\" from acting as an escape character, add "@" as a prefix to the string:
+To prevent "\\" from acting as an escape character, add "\@" as a prefix to the string:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"

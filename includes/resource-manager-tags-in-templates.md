@@ -1,3 +1,10 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+---
 To tag a resource during deployment, add the `tags` element to the resource you are deploying. Provide the tag name and value.
 
 ### Apply a literal value to the tag name

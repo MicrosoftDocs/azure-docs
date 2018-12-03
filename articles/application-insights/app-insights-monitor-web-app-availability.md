@@ -1,21 +1,18 @@
-﻿---
+---
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-
 ---
 # Monitor availability and responsiveness of any web site
 After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
@@ -211,6 +208,7 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 > [!NOTE]
 > * Configure the action groups to receive notifications when the alert triggers by following the steps above. Without this step, you will only receive in-portal notifications when the rule triggers.
 >
+
 ### Alert on availability metrics
 Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on segmented aggregate availability and test duration metrics as well:
 

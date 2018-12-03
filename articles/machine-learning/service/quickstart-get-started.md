@@ -32,7 +32,7 @@ The following Azure resources are added automatically to your workspace when the
 
 The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is Azure Batch AI cluster size. For information on default limits and how to increase your quota, see [this article](how-to-manage-quotas.md).
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 
 ## Create a workspace 

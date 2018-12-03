@@ -21,6 +21,7 @@ While this application is written in Java, the API is a RESTful Web service comp
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling, and code annotations.
 
 ## Prerequisites
+* Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
 

@@ -1,20 +1,17 @@
 ---
 title: Azure Monitor overview | Microsoft Docs
-description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications. 
+description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
 author: bwren
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-
 ---
 
 # Azure Monitor overview
@@ -24,27 +21,27 @@ Azure Monitor maximizes the availability and performance of your applications by
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## Overview
-The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs which are the two fundamental types of data use by Azure Monitor. On the left are the [sources that collect telemetry from different monitored resources](../monitoring/monitoring-data-sources.md) and populate the [data stores](../monitoring/monitoring-data-collection.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
+The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs which are the two fundamental types of data use by Azure Monitor. On the left are the [sources that collect telemetry from different monitored resources](../azure-monitor/platform/data-sources.md) and populate the [data stores](../azure-monitor/platform/data-collection.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
 
 
 ![Azure Monitor overview](media/overview/overview.png)
 
 
 ## Monitoring data platform
-All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](../monitoring/monitoring-data-collection.md). [Metrics](../monitoring/monitoring-data-collection.md#metrics) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](../monitoring/monitoring-data-collection.md#logs) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
+All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](../azure-monitor/platform/data-collection.md). [Metrics](../azure-monitor/platform/data-collection.md#metrics) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](../azure-monitor/platform/data-collection.md#logs) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [Metric explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
 ![Metrics](media/overview/metrics.png)
 
-Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](../log-analytics/log-analytics-queries.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 The Log Analytics query language is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../log-analytics/query-language/get-started-queries.md) that are available.  Particular guidance is provided to users who are already familiar with [SQL](../log-analytics/query-language/sql-cheatsheet.md) and [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
 
 ![Logs](media/overview/logs.png)
 
 ## What data does Azure Monitor collect?
-Azure Monitor can collect data from a variety of sources. You can think of monitoring data for your applications in tiers ranging from your application, any operating and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
+Azure Monitor can collect data from a variety of sources. You can think of monitoring data for your applications in tiers ranging from your application, any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
 - **Application monitoring data**: Data about the performance and functionality of the code you have written, regardless of its platform.
 - **Guest OS monitoring data**: Data about the operating system on which your application is running. This could be running in Azure, another cloud, or on-premises. 
@@ -54,7 +51,7 @@ Azure Monitor can collect data from a variety of sources. You can think of monit
 
 As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) record when resources are created or modified. [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) tell you how the resource is performing and the resources that it's consuming. 
 
-Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and [adding an agent](../log-analytics/log-analytics-agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](../log-analytics/log-analytics-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
+Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and [adding an agent](../azure-monitor/platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](../azure-monitor/platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
@@ -64,7 +61,7 @@ Azure Monitor can collect log data from any REST client using the [Data Collecto
 
 
 ## Insights
-Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Azure Monitor includes several features and tools that provide valuable insights into your applications and other resources that they depend on. [Monitoring solutions](../monitoring/monitoring-solutions.md) and features such as [Application Insights](../application-insights/app-insights-overview.md) and Container Insights provide deep insights into different aspects of your application and specific Azure services. 
+Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Azure Monitor includes several features and tools that provide valuable insights into your applications and other resources that they depend on. [Monitoring solutions](../azure-monitor/insights/solutions.md) and features such as [Application Insights](../application-insights/app-insights-overview.md) and Container Insights provide deep insights into different aspects of your application and specific Azure services. 
 
 ### Application Insights
 [Application Insights](../application-insights/app-insights-overview.md) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Log Analytics to provide you with deep insights into your application's operations and diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
@@ -83,9 +80,9 @@ Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### Monitoring solutions
-[Monitoring solutions](../monitoring/monitoring-solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../monitoring/monitoring-solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
+[Monitoring solutions](../azure-monitor/insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../azure-monitor/log-query/log-query-overview.md) for analysis and [views](../azure-monitor/platform/view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../azure-monitor/insights/solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
 
-![Monitoring solutions](../monitoring/media/monitoring-solutions/overview.png)
+![Monitoring solutions](media/overview/solutions-overview.png)
 
 ## Responding to critical situations
 In addition to allowing you to interactively analyze monitoring data, an effective monitoring solution must be able to proactively respond to critical conditions identified in the data that it collects. This could be sending a text or mail to an administrator responsible for investigating an issue. Or you could launch an automated process that attempts to correct an error condition.
@@ -112,7 +109,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Dashboard](media/overview/dashboard.png)
 
 ### Views
-[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visually present log data in Log Analytics.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
+[Views in Azure Monitor](../azure-monitor/platform/view-designer.md) visually present log data in Log Analytics.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
 
 ![Log Analytics View](media/overview/view.png)
 
@@ -134,7 +131,7 @@ You'll often have the requirement to integrate Azure Monitor with other systems 
 ### Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a service that allows you to automate tasks and business processes using workflows that integrate with different systems and services. Activities are available that read and write metrics and logs in Azure Monitor, which allows you to build workflows integrating with a variety of other systems.
 
-![Logic App](../log-analytics/media/log-analytics-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+![Logic App](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### API
 Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. This provides you with essentially unlimited possibilities to build custom solutions that integrate with Azure Monitor.
@@ -142,6 +139,6 @@ Multiple APIs are available to read and write metrics and logs to and from Azure
 ## Next steps
 Learn more about:
 
-* [Metrics and logs](../monitoring/monitoring-data-collection.md) for the data collected by Azure Monitor.
-* [Data sources](../monitoring/monitoring-data-sources.md) for how the different components of your application send telemetry.
-* [Log Analytics](../log-analytics/log-analytics-queries.md) for analyzing collected data.
+* [Metrics and logs](../azure-monitor/platform/data-collection.md) for the data collected by Azure Monitor.
+* [Data sources](../azure-monitor/platform/data-sources.md) for how the different components of your application send telemetry.
+* [Log Analytics](../azure-monitor/log-query/log-query-overview.md) for analyzing collected data.

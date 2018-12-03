@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **SharePoint on-premises Configuration** section, click **Configure SharePoint on-premises** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.** For **Single Sign-On Service URL**, use a value of the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
-    > _my_directory_id_ is the tenant id of Azure Ad subcription.
+    > _my_directory_id_ is the tenant id of Azure Ad subscription.
 
 	![SharePoint on-premises Configuration](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
@@ -310,14 +310,14 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
+[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
+[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
+[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
+[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
 
-[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
+[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
 
-[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
+[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
+[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
+[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
+[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png

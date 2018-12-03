@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 11/08/2018
 ms.author: kgremban
 ---
 
@@ -45,15 +45,21 @@ The connections category tracks device connect and disconnect events from an IoT
 > [!NOTE]
 > For reliable connection status of devices check [Device heartbeat][lnk-devguide-heartbeat].
 
+
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "deviceConnect",
-    "category": "Connections",
-    "level": "Information",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
-    "location": "Resource location"
+	"records": 
+	[
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "deviceConnect",
+            "category": "Connections",
+            "level": "Information",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 

@@ -1,14 +1,13 @@
 ---
 title: Azure Stream Analytics on IoT Edge (preview)
-description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
+description: Create edge jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
+ms.date: 11/30/2018
 ---
 
 # Azure Stream Analytics on IoT Edge (preview)
@@ -67,13 +66,16 @@ A storage container is required in order to export the ASA compiled query and th
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. In the creation screen, select **Edge** as **hosting environment** (see the following picture)
-![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
+
+   ![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
 3. Job Definition
     1. **Define Input Stream(s)**. Define one or several input streams for your job.
     2. Define Reference data (optional).
     3. **Define Output Stream(s)**. Define one or several outputs streams for your job. 
     4. **Define query**. Define the ASA query in the cloud using the inline editor. The compiler automatically checks the syntax enabled for ASA edge. You can also test your query by uploading sample data. 
+
 4. Set the storage container information in the **IoT Edge settings** menu.
+
 5. Set optional settings
     1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Locale**. Set the internalization format.
@@ -178,22 +180,27 @@ At present, the only supported stream input and stream output types are Edge Hub
 
 
 ##### Reference data
-Reference data (also known as a lookup table) is a finite data set that is static or slow changing in nature. It is used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in your query. For more information, see the [ASA documentation about reference data](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Reference data (also known as a lookup table) is a finite data set that is static or slow changing in nature. It is used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data JOIN](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. For more information, see the [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md).
 
-To use reference data for ASA on Iot Edge, follow these steps: 
-1. Create a new input for your job
+Only local reference data is supported. When a job is deployed to IoT Edge device, it loads reference data from the user defined file path.
+
+To create a job with reference data on Edge:
+
+1. Create a new input for your job.
+
 2. Choose **Reference data** as the **Source Type**.
-3. Set the file path. The file path should be an **absolute** file path on the device
-![Reference data creation](media/stream-analytics-edge/ReferenceData.png)
-4. Enable **Shared Drives** in your Docker configuration, and make sure the drive is enabled before starting your deployment.
 
-For more information, see [Docker documentation for Windows here](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Have a reference data file ready on the device. For a Windows container, put the reference data file on the local drive and share the local drive with the Docker container. For a Linux container, create a Docker volume and populate the data file to the volume.
 
-> [!Note]
-> At the moment only local reference data is supported.
+4. Set the file path. For Windows Host OS and Windows container, use the absolute path: `E:\<PathToFile>\v1.csv`. For a Windows Host OS and Linux container or a Linux OS and Linux container, use the path in the volume: `<VolumeName>/file1.txt`.
 
+![New reference data input for Azure Stream Analytics job on IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+The reference data on IoT Edge update is triggered by a deployment. Once triggered, the ASA module picks the updated data without stopping the running job.
 
+There are two ways to update the reference data:
+* Update reference data path in your ASA job from Azure portal.
+* Update the IoT Edge deployment.
 
 ## License and third-party notices
 * [Azure Stream Analytics on IoT Edge preview license](https://go.microsoft.com/fwlink/?linkid=862827). 

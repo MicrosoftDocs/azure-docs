@@ -2,24 +2,19 @@
 title: Build and optimize tables for fast parallel import of data into a SQL Server on an Azure VM| Microsoft Docs
 description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Parallel Bulk Data Import Using SQL Partition Tables
-This document describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using *Partitioned Tables and Views*. 
+
+This article describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using *Partitioned Tables and Views*. 
 
 ## Create a new database and a set of filegroups
 * [Create a new database](https://technet.microsoft.com/library/ms176061.aspx), if it doesn't exist already.
@@ -77,7 +72,7 @@ To create partitioned table(s) according to the data schema, mapped to the datab
   To verify the ranges in effect in each partition according to the function/scheme, run the following query:
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id

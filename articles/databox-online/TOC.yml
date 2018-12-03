@@ -35,6 +35,8 @@
           href: data-box-gateway-manage-users.md
         - name: Bandwidth schedules
           href: data-box-gateway-manage-bandwidth-schedules.md
+        - name: Access, power, connectivity
+          href: data-box-gateway-manage-access-power-connectivity-mode.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
   - name: Release notes

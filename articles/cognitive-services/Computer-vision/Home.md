@@ -50,6 +50,10 @@ You can also [recognize printed and handwritten text](concept-recognizing-text.m
 
 You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image, rating the likelihood that the image contains either adult or racy content and generating a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
 
+## Using containers
+
+[Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally, by installing a standardized Docker container closer to your data.
+
 ## Image requirements
 
 Computer Vision can analyze images that meet the following requirements:

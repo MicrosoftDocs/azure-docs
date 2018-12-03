@@ -8,13 +8,13 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
 
 ---
 # Use empty edge nodes on Apache Hadoop clusters in HDInsight
 
-Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no Apache Hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
+Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no [Apache Hadoop](https://hadoop.apache.org/) services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
 You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it is done using a template:
 
@@ -49,20 +49,20 @@ You can add an empty edge node to an existing HDInsight cluster, to a new cluste
 
 As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration, such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node. The script action script must be publicly accessible on the web.  For example, if the script is stored in Azure storage, use either public containers or public blobs.
 
-The edge node virtual machine size must meet the HDInsight cluster worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+The edge node virtual machine size must meet the HDInsight cluster worker node vm size requirements. For the recommended worker node vm sizes, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 After you have created an edge node, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight.
 
 > [!WARNING] 
-> Custom components that are installed on the edge node receive commercially reasonable support from Microsoft. This might result in resolving problems you encounter. Or you may be referred to community resources for further assistance. The following are some of the most active sites for getting help from the community:
+> Custom components that are installed on the edge node receive commercially reasonable support from Microsoft. This might result in resolving problems you encounter. Or, you may be referred to community resources for further assistance. The following are some of the most active sites for getting help from the community:
 >
 > * [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> If you are using an Apache technology, you may be able to find assistance through the Apache project sites on [http://apache.org](http://apache.org), such as the [Hadoop](http://hadoop.apache.org/) site.
+> If you are using an Apache technology, you may be able to find assistance through the Apache project sites on [http://apache.org](http://apache.org), such as the [Apache Hadoop](http://hadoop.apache.org/) site.
 
 > [!NOTE]
-> Same as the clusters, edge nodes are also patch managed.  For more information, see [OS patching for HDInsight](./hdinsight-os-patching.md).
+> Like the other cluster nodes, edge nodes are also patch managed.  For more information, see [OS patching for HDInsight](./hdinsight-os-patching.md).
 
 ## Add an edge node to an existing cluster
 In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.
@@ -78,7 +78,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
    * **Resource group**: Select the resource group used for the existing HDInsight cluster.
    * **Location**: Select the location of the existing HDInsight cluster.
    * **Cluster Name**: Enter the name of an existing HDInsight cluster.
-   * **Edge Node Size**: Select one of the VM sizes. The vm size must meet the worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+   * **Edge Node Size**: Select one of the VM sizes. The vm size must meet the worker node vm size requirements. For the recommended worker node vm sizes, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Edge Node Prefix**: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the edge node.
@@ -112,7 +112,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 ## Add multiple edge nodes
 
-You can add multiple edge nodes to an HDInsight cluster.  The multiple edge nodes configuration can only be done using Azure Resource Manager Templates.  See the template sample at the beginning of this article.  You need to update the **targetInstanceCount** to reflect the number of edge nodes you want to create.
+You can add multiple edge nodes to an HDInsight cluster.  The multiple edge nodes configuration can only be done using Azure Resource Manager Templates.  See the template sample at the beginning of this article.  You need to update the **targetInstanceCount** to reflect the number of edge nodes you would like to create.
 
 ## Access an edge node
 The edge node ssh endpoint is &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
@@ -156,5 +156,5 @@ In this article, you have learned how to add an edge node and how to access the 
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
 * [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
-* [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
+* [Create Linux-based Apache Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
 
