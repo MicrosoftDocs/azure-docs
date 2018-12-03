@@ -335,13 +335,47 @@ As discussed previously, auto-failover groups and active geo-replication can als
 > For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), and [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
 >
 
-#### Managing failover groups with Managed Instances
+#### Managing failover groups with Managed Instances (preview)
 
-See PowerShell preview site.
+##### Install the newest pre-release version of Powershell
+
+1. Update the powershellget module to 1.6.5 (or newest preview version). See PowerShell preview site. https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview.
+
+   ```Powershell
+      install-module powershellget -MinimumVersion 1.6.5 -force
+   ```
+
+2. In a new powershell window, execute the following commands:
+
+   ```Powershell
+      import-module powershellget
+      get-module powershellget #verify version is 1.6.5 (or newer)
+      install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
+      import-module azurerm.sql
+   ```
+
+##### Prerequisites Before Setting Up
+
+- The two Managed Instances need to be in different geographical regions. 
+- Your secondary must be empty (no user databases).
+- The primary and secondary Managed Instances need to be in the same Resource Group.
+- The VNets that the Managed Instances are part of need to be [connected through a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet Peering is not supported.
+- The two Managed Instance subnets cannot have overlapping IP addresses.
+- You need to setup your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open to connections from the other vnet. This is to allow replication traffic between the instances.
+- You need to configure a DNS zone & Dns zone partner. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the .database.windows.net suffix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same VNet  share the same DNS zone value. For Manged Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DBS zone value. You accomplish this by specifying the `DnsZonePartner` parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
+
+##### Powershell commandlets to create an instance failover group
+
+| API | Description |
+| --- | --- |
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
 
 ### Manage SQL database failover using the REST API
 
-#### Managing failover with single and pooled databases
+#### Managing failover with single and pooled databases using REST API
 
 | API | Description |
 | --- | --- |
@@ -361,9 +395,16 @@ See PowerShell preview site.
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
-#### Managing failover groups with Managed Instances
+#### Managing failover groups with Managed Instances using REST API (preview)
 
-See PowerShell preview site.
+| API | Description |
+| --- | --- |
+| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Creates or updates a failover group |
+| [Delete Failover Group](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Removes the failover group from the server |
+| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Fails over from the current primary server to this server. |
+| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Gets a failover group. |
+| [List Failover Groups - List By Location](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lists the failover groups in a location. |
 
 ## Next steps
 
