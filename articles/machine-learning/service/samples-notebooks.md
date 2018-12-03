@@ -42,7 +42,7 @@ It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK f
   1. Add a workspace configuration file to the library using either of these methods:
      + Copy the **config.json** file from the **Getting Started** Library into the new cloned library.
 
-     + Create a new workspace using code in the [00.configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/00.configuration.ipynb).
+     + Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
     
   1. Open the notebook you want to run.     
 
@@ -58,7 +58,7 @@ The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook
 1. Add a workspace configuration file to the library using either of these methods:
     * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
 
-    * Create a new workspace using code in the [00.configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/00.configuration.ipynb).
+    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
 
 1. Start the notebook server from your cloned directory.
 
@@ -73,7 +73,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 1. Add a workspace configuration file to the library using either of these methods:
     * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
     
-    * Create a new workspace using code in the [00.configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/00.configuration.ipynb).
+    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
 
 1. Start the notebook server from your cloned directory.
 
@@ -85,7 +85,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 ## Automated ML setup 
 
-**These steps apply only to the notebooks in the `automated oml` folder.**
+**These steps apply only to the notebooks in the `automated-machine-learning` folder.**
 
 While you can use any of the above options, you can also install the environment and create a workspace at the same time with the following instructions. 
 
@@ -93,18 +93,19 @@ While you can use any of the above options, you can also install the environment
    >[!NOTE]
    >You can use an existing conda as long as it is version 4.4.10 or later. Use `conda -V` to display the version. You can update a conda version with the command: `conda update conda`. There's no need to install mini-conda specifically.
 
-1. Download the sample notebooks from [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) as a zip and extract the contents to a local directory. The Automated machine learning notebooks are in the `automl` folder.
+1. Download the sample notebooks from [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+) as a zip and extract the contents to a local directory. The Automated machine learning notebooks are in the `how-to-use-azureml/automated-machine-learning` folder.
 
 1. Set up a new Conda environment. 
    1. Open a Conda prompt on your local machine. 
    
    1. Navigate to the files you extracted to your local machine. 
    
-   1. Open the `automl` folder. 
+   1. Open the `automated-machine-learning` folder. 
    
    1. Execute `AutoMLSetup` in  the conda prompt. It can take about 10 minutes to execute.
 
-      The automl/automl_setup script:
+      The `AutoMLSetup` script:
       + Creates a new conda environment
       + Installs the necessary packages
       + Configures the widget 
@@ -116,7 +117,7 @@ While you can use any of the above options, you can also install the environment
 
 1. Navigate to the path where you saved the notebooks. 
 
-1. Open the AutoML folder, then open the 00.configuration.ipynb notebook. 
+1. Open the automated-machine-learning folder, then open the 00.configuration.ipynb notebook. 
 
 1. Execute the cells in the notebook to register Machine Learning Services Resource Provider and create a workspace.
 

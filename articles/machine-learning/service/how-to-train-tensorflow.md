@@ -166,13 +166,13 @@ run = exp.submit(tf_est)
 
 ## Examples
 For a tutorial on single-node TensorFlow training, see:
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
+* [how-to-use-azureml/training-with-deep-learning\train-hyperparameter-tune-deploy-with-tensorflow\train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning\train-hyperparameter-tune-deploy-with-tensorflow\train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
 For a tutorial on distributed TensorFlow with Horovod, see:
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
+* how-to-use-azureml/training-with-deep-learning\distributed-tensorflow-with-horovod\distributed-tensorflow-with-horovod.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning\distributed-tensorflow-with-horovod\distributed-tensorflow-with-horovod.ipynb)
 
 For a tutorial on native distributed TensorFlow, see:
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
+* [how-to-use-azureml/training-with-deep-learning\distributed-tensorflow-with-parameter-server\distributed-tensorflow-with-parameter-server.ipyn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning\distributed-tensorflow-with-parameter-server\distributed-tensorflow-with-parameter-server.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

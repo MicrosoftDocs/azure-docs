@@ -115,10 +115,10 @@ run = experiment.submit(cntk_est)
 
 ## Examples
 For a tutorial on training a sklearn model, see:
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 For a tutorial on distributed CNTK using custom docker, see:
-* [training/06.distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
+* [how-to-use-azureml/training-with-deep-learning\distributed-cntk-with-custom-docker\distributed-cntk-with-custom-docker.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning\distributed-cntk-with-custom-docker\distributed-cntk-with-custom-docker.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
