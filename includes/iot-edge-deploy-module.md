@@ -20,11 +20,11 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
 
 3. In the **IoT Hub** field, select the name of the IoT Hub you're using, if it's not already.
 
-4. In the **IoT Edge Device Name** field, enter `myEdgeDevice`, then select **Create**.
+4. Click on **Find Device**, select your IoT Edge device (named `myEdgeDevice`), then select **Create**.
 
-5. In the first step of the wizard, select **Next**.
+5. In the **Add Modules** step of the wizard, click on the **SimulatedTemperatureSensor** module to verify its configuration settings, click **Save** and select **Next**.
 
-6. In the **Specify Routes** step of the wizard, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select **Next**.
+6. In the **Specify Routes** step of the wizard, verify the routes are properly set up with the default route that sends all messages from all modules to IoT Hub (`$upstream`). If not, add the following code then select **Next**.
 
    ```json
     {
