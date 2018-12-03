@@ -122,10 +122,11 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
 
-    This API requires two headers: 
 
-    * `Authorization` - The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space. 
-    * `Ocp-Apim-Subscription-Key` - your [authoring key](luis-how-to-account-settings.md).
+    |Header|Value|
+    |--|--|
+    |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
+    |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
 
     This API returns an array of JSON objects such as:
 
@@ -153,25 +154,15 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 1. Assign the token to the LUIS resource with the [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API. 
 
-    This POST API requires three headers: 
+    This POST API requires the following settings:
 
-    * `Authorization` - The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space. 
-    * `Ocp-Apim-Subscription-Key` - your [authoring key](luis-how-to-account-settings.md).
-    * `Content-type`: application/json
-
-    This POST API requires one query parameter:
-
-    * `appid` - The LUIS app ID. 
-
-    This POST API also requires a body, which is one of the items from the array in the previous step:
-
-    ```JSON
-    {
-      "AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",
-      "ResourceGroup": "resourcegroup-2",
-      "AccountName": "luis-uswest-S0-2"
-    }
-    ```
+    |Type|Setting|Value|
+    |--|--|--|
+    |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
+    |Header|`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+    |Header|`Content-type`|`application/json`|
+    |Querystring|`appid`|The LUIS app ID. 
+    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     When this API is successful, it returns a 201 - created status. 
 
