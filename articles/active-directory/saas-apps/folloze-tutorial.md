@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ms.author: jeedes
 
 ---
@@ -40,11 +40,8 @@ To configure Azure AD integration with Folloze, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-
 * Folloze supports **IDP** initiated SSO
-
 * Folloze supports **Just In Time** user provisioning
-
 
 ## Adding Folloze from the gallery
 
@@ -109,7 +106,7 @@ To configure Azure AD single sign-on with Folloze, perform the following steps:
 	![image](common/edit_attribute.png)
 
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-    
+
 	| Name |  Source Attribute|
 	| ---------------| --------- |
 	| Email | user.othermail |
@@ -206,7 +203,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, a user called Britta Simon is created in Folloze. Folloze supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Folloze, a new one is created after authentication.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -218,5 +215,4 @@ When you click the Folloze tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
