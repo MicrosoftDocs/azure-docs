@@ -36,8 +36,12 @@ In the General Purpose model there are two layers:
 
 Whenever database engine or operating system is upgraded, some part of underlying infrastructure fails, or if some critical issue is detected in Sql Server process, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node. There is a set of spare nodes that is waiting to run new compute service if a failover of the primary node happens in order to minimize failover time. Data in Azure Storage layer is not affected, and data/log files are attached to newly initialized SQL Server process. This process guarantees 99.99% availability, but it might have some performance impacts on heavy workload that is running due to transition time and the fact the new SQL Server node starts with cold cache.
 
+## When to choose this service tier?
+
+General Purpose service tier is a default service tier in Azure SQL Database that is designed for most of the generic workloads. If you need a fully managed database engine with 99.99% SLA with storage latency between 5-10ms that matches Azure SQL IaaS in most of the cases, General Purpose tier is the option for you.
+
 ## Next steps
 
-- Learn about [Business critical](sql-database-service-tier-business-critical.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers
-- Learn about [Service Fabric](../service-fabric/service-fabric-overview.md)
-- For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md)
+- Learn about [Business critical](sql-database-service-tier-business-critical.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
+- Learn about [Service Fabric](../service-fabric/service-fabric-overview.md).
+- For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md).

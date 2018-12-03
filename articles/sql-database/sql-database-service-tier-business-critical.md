@@ -37,8 +37,12 @@ Both the SQL database engine process and underlying mdf/ldf files are placed on 
 
 In addition, Business Critical cluster has built-in [Read Scale-Out](sql-database-read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
+## When to choose this service tier?
+
+Business Critical service tier is designed for the applications that require low-latency responses from the underlying SSD storage (1-2ms in average), fast recovery in the case of infrastructure failure, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database that don't affects resource usage on the primary database node.
+
 ## Next steps
 
-- Learn about [General purpose](sql-database-service-tier-general-purpose.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers
-- Learn about [Service Fabric](../service-fabric/service-fabric-overview.md)
-- For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md)
+- Learn about [General purpose](sql-database-service-tier-general-purpose.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
+- Learn about [Service Fabric](../service-fabric/service-fabric-overview.md).
+- For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md).
