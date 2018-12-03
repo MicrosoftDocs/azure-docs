@@ -147,13 +147,13 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	g. Click **Save**.
 
-8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
 ### Configure Firstbird Single Sign-On
 
-Once you have completed these steps, please send Firstbird the metadata XML in a support request via e-email to [support@firstbird.com](mailto:support@firstbird.com) with the subject: "SSO configuration".
+Once you have completed these steps, please send Firstbird the Federation Metadata XML in a support request via e-email to [support@firstbird.com](mailto:support@firstbird.com) with the subject: "SSO configuration".
 
 Firstbird will then store the configuration in the system accordingly and activate SSO for your account. After that, a member of the support staff will contact you to verify the configuration.
 
@@ -176,9 +176,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user_properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
 
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -193,7 +193,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Enterprise applications blade](common/enterprise_applications.png)
 
-2. In the applications list, type and select **Firstbird** .
+2. In the applications list, type and select **Firstbird**.
 
 	![The Firstbird link in the Applications list](common/all_applications.png)
 
@@ -209,7 +209,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Firstbird test user
 
