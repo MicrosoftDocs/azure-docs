@@ -37,7 +37,7 @@ If your camera is unable to capture the QR code, you can manually add your accou
 |------|------------|
 |[Add your work or school account](microsoft-authenticator-app-add-work-account.md)|Describes how to add your work or school account to the Microsoft Authenticator app for two-factor verification.|
 |[Add your personal account](microsoft-authenticator-app-add-personal-account.md)|Describes how to add your Microsoft and non-Microsoft personal accounts for two-factor verification.|
-|[Manually add your work or school account](microsoft-authetnicator-app-add-account-manual.md)|Describes how to manually add your work or school account to the Microsoft Authenticator app if your camera can't capture the QR code.|
+|[Manually add your work or school account](microsoft-authenticator-app-add-account-manual.md)|Describes how to manually add your work or school account to the Microsoft Authenticator app if your camera can't capture the QR code.|
 
 
 
