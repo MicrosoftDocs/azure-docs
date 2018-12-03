@@ -69,12 +69,6 @@ In the **Azure Storage Explorer** application, select a directory under a storag
 
 To download blobs using **Azure Storage Explorer**, with a blob selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Save** to start the download of a blob to the local location.
 
-## Manage access policies
-
-Storage Explorer provides the ability to manage access policies for directories within its user interface. There are two types of secure access policies (SAS), service level and account level. Account level SAS targets the storage account and can apply to multiple services and resources. Service level SAS are defined on a resource under a particular service. To generate a service level SAS, right-click any directory and select **Manage Access Policies...**. To generate an account level SAS, right-click on the storage account.
-
-Select **Add** to add a new access policy and define the permissions for the policy. When complete select **Save** to save the access policy. This policy is now available for use when configuring a Shared Access Signature.
-
 ## Next steps
 
 In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn about how to set ACLs on your files and directories, continue to our How-to on the subject.
