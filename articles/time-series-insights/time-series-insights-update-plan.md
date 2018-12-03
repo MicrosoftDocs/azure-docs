@@ -34,8 +34,6 @@ When you provision a TSI (preview) environment, you create two Azure resources:
 1. TSI (preview) environment
 1. Azure storage general-purpose V1 account
 
-    * In the future, new Azure customers will by default only be allowed to provision an Azure storage general-purpose V2 account, therefore we will support it when that change occurs.  
-
 To get going, you’ll need three additional items.  The first is a [Time Series Model](./time-series-insights-update-tsm.md), the second is an [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), and the third is [events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.  
 
 ## Configure your Time Series IDs and Timestamp properties

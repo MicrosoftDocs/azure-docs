@@ -108,7 +108,7 @@ It is important to select an appropriate **Time Series ID**, as it is an immutab
 
 ### Storage
 
-When you create a TSI **PAYG** environment, you create two resources – the TSI environment and an Azure storage general-purpose V1 account where the data will be stored. In the future, Azure Storage general-purpose V1 accounts will be limited to existing Azure customers, therefore all new customers to Azure provisioning a TSI (preview) environment will by default create an Azure Storage general-purpose V2 ‘Hot’ account.  We chose to make Azure Storage general-purpose V1 the default due to its interoperability, price, and performance.  
+When you create a TSI **PAYG** environment, you create two resources – the TSI environment and an Azure storage general-purpose V1 account where the data will be stored. We chose to make Azure Storage general-purpose V1 the default due to its interoperability, price, and performance.  
 
 Azure TSI will publish up to two copies of each event in your Azure Storage account. The initial copy is always preserved to ensure you can query it performantly using other services. Thus, Spark, Hadoop, or other familiar tools can be easily used across **Time Series IDs** over raw Parquet files since these engines support basic file name filtering. Grouping blobs by year and month is useful to collect blob list within specific time range for a custom job.  
 
