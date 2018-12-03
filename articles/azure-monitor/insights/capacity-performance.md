@@ -48,7 +48,7 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
 | [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
 | [SCOM management group](../../log-analytics/log-analytics-om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
-| [Azure storage account](../../log-analytics/log-analytics-azure-storage.md) | No | Azure storage does not include capacity and performance data.|
+| [Azure storage account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure storage does not include capacity and performance data.|
 
 ## Prerequisites
 
@@ -133,4 +133,4 @@ The following table provides sample log searches for capacity and performance da
 
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed Capacity and Performance data.
+* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Capacity and Performance data.

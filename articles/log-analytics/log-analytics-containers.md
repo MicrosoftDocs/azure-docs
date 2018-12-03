@@ -10,7 +10,6 @@ ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
@@ -599,7 +598,7 @@ Log Search opens, displaying information about the state of your containers.
 
 ![Log Search for containers](./media/log-analytics-containers/containers-log-search.png)
 
-From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about Log Searches, see [Log searches in Log Analytics](log-analytics-queries.md).
+From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about Log Searches, see [Log searches in Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ## Troubleshoot by finding a failed container
 
@@ -667,4 +666,4 @@ Saving queries is a standard feature in Log Analytics. By saving them, you'll ha
 After you create a query that you find useful, save it by clicking **Favorites** at the top of the Log Search page. Then you can easily access it later from the **My Dashboard** page.
 
 ## Next steps
-* [Search logs](log-analytics-queries.md) to view detailed container data records.
+* [Search logs](../azure-monitor/log-query/log-query-overview.md) to view detailed container data records.

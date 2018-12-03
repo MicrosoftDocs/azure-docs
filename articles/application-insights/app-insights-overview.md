@@ -1,16 +1,14 @@
-﻿---
-title:  What is Azure Application Insights? | Microsoft Docs
+---
+title: What is Azure Application Insights? | Microsoft Docs
 description: Application Performance Management and usage tracking of your live web application.  Detect, triage and diagnose problems, understand how people use your app.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018

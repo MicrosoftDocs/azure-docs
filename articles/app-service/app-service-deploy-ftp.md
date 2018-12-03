@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
 
 ---
@@ -29,7 +29,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-To open the FTP dashboard, click **Continuous Delivery (Preview)** > **FTP** > **Dashboard**.
+To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
 
 ![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -106,6 +106,6 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
-## More Resources
+## More resources
 
 * [Azure App Service Deployment Credentials](app-service-deployment-credentials.md)

@@ -10,16 +10,14 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.component: na
 ---
 
 
 # Log Analytics query examples
-This article includes various examples of [queries](../log-analytics-queries.md) using the [Kusto language](https://docs.microsoft.com/azure/kusto/query/) to retrieve different types of data from Log Analytics. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
+This article includes various examples of [queries](../../azure-monitor/log-query/log-query-overview.md) using the [Kusto language](https://docs.microsoft.com/azure/kusto/query/) to retrieve different types of data from Log Analytics. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
 
 See the [Kusto language reference](https://docs.microsoft.com/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Log Analytics.
 

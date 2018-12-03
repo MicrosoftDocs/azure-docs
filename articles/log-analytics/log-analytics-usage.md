@@ -10,7 +10,6 @@ ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
@@ -207,7 +206,7 @@ Specify an existing or create a new [Action Group](../monitoring-and-diagnostics
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
 
 ## Next steps
-* See [Log searches in Log Analytics](log-analytics-queries.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
+* See [Log searches in Log Analytics](../azure-monitor/log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 * Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when a search criteria is met.
 * Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to collect data from only required groups of computers.
 * To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md).

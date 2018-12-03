@@ -106,7 +106,7 @@
   - name: Analyze data
     items: 
     - name: Log Analytics
-      href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
+      href: log-query/log-query-overview.md
     - name: Log query portals
       href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
     - name: OMS portal transition
@@ -408,15 +408,15 @@
       - name: Azure activity logs
         items:
         - name: Analytics
-          href: ../log-analytics/log-analytics-activity.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs.md
         - name: Collect across subscriptions
-          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs-subscriptions.md
       - name: Service logs and metrics
-        href: ../log-analytics/log-analytics-azure-storage.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
-        href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=/azure/azure-monitor/toc.json
+        href: platform/azure-storage-iis-table.md
       - name: Azure PaaS resources
-        href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Collect custom data 
@@ -424,7 +424,7 @@
       - name: Log Analytics Data collector API 
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Log Analytics Data Collector API Pipeline example
-        href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/create-pipeline-datacollector-api.md
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: Metrics store REST API
@@ -452,7 +452,7 @@
       - name: Diagnostic logs to Event Hub
         href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: Application data to Log Analytics
-        href: ../log-analytics/log-analytics-app-insights-connector.md?toc=/azure/azure-monitor/toc.json
+        href: platform/app-insights-connector.md
       - name: Export application data
         items:
         - name: Continuous export
@@ -718,7 +718,7 @@
       - name: Take action from search results
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
       - name: Computer groups
-        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
+        href: platform/computer-groups.md
       - name: Flow connector
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
       - name: Log Search API
