@@ -1,6 +1,6 @@
 ﻿---
-title: Plan your Azure Time Series Insights (preview) environment | Microsoft Docs
-description: Plan your Azure Time Series Insights (preview) environment 
+title: Plan your Azure Time Series Insights (Preview) environment | Microsoft Docs
+description: Plan your Azure Time Series Insights (Preview) environment 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,33 +8,31 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
-# Plan your Azure Time Series Insights (preview) environment
+# Plan your Azure Time Series Insights (Preview) environment
 
-This article describes best practices to plan and get started quickly using the Azure Time Series Insights (preview).
+This article describes best practices to plan and get started quickly using the Azure Time Series Insights (Preview).
 
 ## Best practices for planning and preparation
 
 To get started with Time Series Insights (TSI), it’s best if you understand the following:
 
-1. What you are getting when you provision a TSI (preview) environment.
-1. What your **Time Series IDs** and **Timestamp** properties are.
-1. What the new **Time Series Model** is and how to build your own.
-1. How to send events efficiently in JSON.  
-1. TSI business disaster recovery options.
+* What you are getting when you provision a TSI (Preview) environment.
+* What your **Time Series IDs** and **Timestamp** properties are.
+* What the new **Time Series Model** is and how to build your own.
+* How to send events efficiently in JSON.  
+* TSI business disaster recovery options.
 
 The Time Series Insights update employs a pay-as-you-go business model.  For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## The Time Series Insights (preview) environment
+## The Time Series Insights (Preview) environment
 
-When you provision a TSI (preview) environment, you create two Azure resources:
+When you provision a TSI (Preview) environment, you create two Azure resources:
 
-1. TSI (preview) environment
-1. Azure storage general-purpose V1 account
-
-    * In the future, new Azure customers will by default only be allowed to provision an Azure storage general-purpose V2 account, therefore we will support it when that change occurs.  
+* TSI (Preview) environment
+* Azure storage general-purpose V1 account
 
 To get going, you’ll need three additional items.  The first is a [Time Series Model](./time-series-insights-update-tsm.md), the second is an [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), and the third is [events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.  
 
@@ -60,7 +58,7 @@ You can now configure your TSI environment’s **Time Series Model**. The new mo
 
 The model is dynamic so it can built at any time. However, you’ll be able to get started more quickly if it’s built and uploaded prior to you beginning to push data into TSI. To build your model, review the [How to use TSM](./time-series-insights-update-how-to-tsm.md) article.
 
-For many customers, we expect the **Time Series Model** to map to an existing asset model or ERP system already in place. For those customers that do not have an existing model, a pre-built user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly.
+For many customers, we expect the **Time Series Model** to map to an existing asset model or ERP system already in place. For those customers that do not have an existing model, a pre-built user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. You can envision how a model might help you by viewing our [sample demo environment](https://insights.timeseries.azure.com/preview/demo).  
 
 ## Shaping your events
 
@@ -73,7 +71,7 @@ A good rule of thumb:
   * **Time Series ID**
   * **Timestamp**
 
-Review the [How to shape events](./time-series-insights-update-how-to-shape-events.md) article for greater detail.
+Review the [How to shape events](./time-series-insights-send-events.md#json) article for greater detail.
 
 ## Business disaster recovery
 
@@ -104,6 +102,6 @@ The specific steps to accomplish this are as follows:
 
 ## Next steps
 
-Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+Read about [Data modeling](./time-series-insights-update-tsm.md).

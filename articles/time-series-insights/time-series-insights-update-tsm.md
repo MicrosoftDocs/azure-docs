@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
 # Time Series Model
@@ -21,7 +21,7 @@ Traditionally, the data collected from IoT devices lacks contextual information 
 
 ## Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure TSI (preview):
+With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure TSI (Preview):
 
 * The ability to author and manage computations or formulas, to transform data leveraging scalar functions, aggregate operations, etc.
 * Defining parent child relationships to enable navigation and reference to provide context to time series telemetry.
@@ -181,7 +181,7 @@ Variable values are and should be used in computation. This is the column in the
 
 The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
 
-The Azure TSI (preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
+The Azure TSI (Preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
 
 ### Variable aggregation
 
@@ -363,32 +363,11 @@ Response:
 }
 ```
 
-## Time Series Model Limits
-
-| Parameter |	Limits |
-| --- | --- |
-| Object size for model entities (Types, Hierarchies & Instances)|	32 KB, includes properties |
-| Keys allowed as TSID property configured via Azure Portal |	Max 3 |
-| Max # of Types in an environment |	1000|
-| Max # of variables in a type |	50|
-| Max # of Hierarchies in an environment|	32|
-| Max hierarchy depth |	32|
-| Max # of Hierarchies associated with 1 instance	|21|
-| Max # of Instances in an environment |	500,000|
-| Max # of Instance Fields per Instance |	50|
-| Model objects upsert/update/delete operation per second	|100 per second|
-| Time Series Model API Request Size:  Batch |	8 MB or 1000 model objects (whichever occurs first)|
-| Time Series Model request size:  Search/suggest	| 32 KB|
-| Time Series Model API Request Size:  Batch	| 32 MB|
-| Search/Suggest is 32 MB|	32 MB|
-
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
-
 ## Next steps
 
-Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+Read the about the new [Time series model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

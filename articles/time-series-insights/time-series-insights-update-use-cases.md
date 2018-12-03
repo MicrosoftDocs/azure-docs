@@ -8,10 +8,10 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/03/2018
 ---
 
-# Azure Time Series Insights (preview) use cases
+# Azure Time Series Insights (Preview) use cases
 
 This article provides an overview of several common use cases for Azure Time Series Insights (TSI). The recommendations in this article serve as a starting point as you develop applications and solutions with TSI.
 
@@ -40,7 +40,7 @@ We see customers taking advantage of this speed to diagnose asset-related issues
 
 There are three primary ways to interact with data stored in TSI:
 
-1. The first and easiest to get started with is our visualization, the Explorer, which enables you to quickly visualize all of your IoT data in one place. It provides tools like heatmap, which make visually spotting anomalies in your data simple. It also provides the perspective view, which enables you compare up to four views from one or more TSI environments in a single dashboard, giving you a view of your time-series data across all your locations. Learn more about the [TSI Explorer](./time-series-insights-update-explorer.md). To plan out your TSI update environment, read [TSI update planning](./time-series-insights-update-plan.md).
+1. The first and easiest to get started with is our visualization, the explorer, which enables you to quickly visualize all of your IoT data in one place. It provides tools like heatmap, which make visually spotting anomalies in your data simple. It also provides the perspective view, which enables you compare up to four views from one or more TSI environments in a single dashboard, giving you a view of your time-series data across all your locations. Learn more about the [TSI explorer](./time-series-insights-update-explorer.md). To plan out your TSI update environment, read [TSI update planning](./time-series-insights-update-plan.md).
 
 1. The second way is to use our JavaScript SDK to quickly embed powerful charts and graphs in your own web application. With just a few lines of code, you can author powerful queries to populate line charts, pie charts, bar charts, heatmaps, data grids and more. All of these elements exist out-of-the-box using the SDK. The SDK also abstracts TSI query APIs, enabling you to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, TSI offers parameterized URLs that provide seamless connection points with the explorer for deep-dives into data. To learn more about the JavaScript SDK, read the [TSI JS client library](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) and the [TSI client](https://github.com/Microsoft/tsiclient) documentation. For more on parameterized URLs, read our article on [parameterized URLs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).  
 
@@ -72,13 +72,13 @@ Second, Time Series Insights can be fed the output of machine learning and predi
 
 ## Next steps
 
-Learn more about the [TSI Explorer](./time-series-insights-update-explorer.md).
+Learn more about the [TSI explorer](./time-series-insights-update-explorer.md).
 
-To plan out your environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
+To plan out your environment, read [TSI (Preview) planning](./time-series-insights-update-plan.md).
 
 Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
 
 <!-- Images -->
-[1]: media/v2-update-use-cases/data-explorer.png
-[2]: media/v2-update-use-cases/overview.png
-[3]: media/v2-update-use-cases/advanced-analytics.png
+[1]: media/v2-update-use-cases/data-explorer.svg
+[2]: media/v2-update-use-cases/overview.svg
+[3]: media/v2-update-use-cases/advanced-analytics.svg

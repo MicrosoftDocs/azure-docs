@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ---
 
 # Azure Time Series Insights overview
@@ -69,20 +69,20 @@ With the introduction of these key industrial IoT capabilities, Azure TSI provid
 
 * Near real-time data exploration
 
-  * Azure  Time Series Insights Explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
+  * Azure  Time Series Insights explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
 
 * Root-cause analysis and anomaly detection
 
-  * Azure Time Series Insights Explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
+  * Azure Time Series Insights explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
 
 * Build custom applications on Time Series Insights platform
 
   * Azure Time Series Insights supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of Time Series Insights platform to suit the needs of individual businesses.
   * Customers can also use Time Series Insights query APIs directly to drive data into custom IoT applications.
 
-## Next Steps
+## Next steps
 
-You are ready to get started with the Azure TSI Private Preview:
+You are ready to get started with the Azure TSI (Preview):
 
 > [!div class="nextstepaction"]
 > [Read the Quickstart guide](./time-series-insights-update-quickstart.md)

@@ -1,6 +1,6 @@
 ﻿---
-title: How to diagnose and troubleshoot the Azure Time Series Insights (preview) | Microsoft Docs
-description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights (preview) 
+title: How to diagnose and troubleshoot the Azure Time Series Insights (Preview) | Microsoft Docs
+description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights (Preview) 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,22 +8,22 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
 # How to diagnose and troubleshoot
 
 This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
 
-## Problem: I can’t find my environment in the Time Series Insights (preview) Explorer
+## Problem: I can’t find my environment in the Time Series Insights (Preview) explorer
 
-This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in Azure Portal.
+This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in [Azure Portal](https://portal.azure.com/).
 
   ![environment][1]
 
-## Problem: No data is seen in the Time Series Insights (preview) Explorer
+## Problem: No data is seen in the Time Series Insights (Preview) explorer
 
-There are several common reasons why you might not see your data in the [Azure TSI Explorer](https://insights.timeseries.azure.com/):
+There are several common reasons why you might not see your data in the [Azure TSI (Preview) explorer](https://insights.timeseries.azure.com/preview):
 
 1. Your event source may not be receiving data.
 
@@ -86,7 +86,7 @@ If the **Timestamp** property isn’t explicitly specified, we will leverage an 
 
 1. You may be accessing a Time Series Insights S1 or S2 environment
 
-   Time Series Models are supported only in `PAYG` environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update Explorer.
+   Time Series Models are supported only in `PAYG` environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update explorer.
 
    ![access][5]
 
@@ -94,7 +94,7 @@ If the **Timestamp** property isn’t explicitly specified, we will leverage an 
 
    Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
 
-## Problem: All my instances in Time Series Insights (preview) Explorer don’t have a parent
+## Problem: All my instances in Time Series Insights (Preview) explorer don’t have a parent
 
 This may occur if your environment doesn’t have a **Time Series Model** Hierarchy defined. See this article for more information on [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
@@ -105,10 +105,6 @@ This may occur if your environment doesn’t have a **Time Series Model** Hierar
 Read [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
 Read [Supported JSON shapes](./how-to-shape-query-json.md).
-
-For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
-
-You can also use [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png
