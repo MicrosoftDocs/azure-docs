@@ -33,13 +33,13 @@ Let’s assume that MI host is _mi-demo.xxxxxx.database.windows.net_. Run _nsloo
 
 ![Resolving internal host name](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Now do another _nslookup_ for highlighted name with removed _.vnet._ segment. You’ll get the public IP address as a result of executing this command.
+Now do another _nslookup_ for highlighted name with removed_.vnet._segment. You’ll get the public IP address as a result of executing this command.
 
 ![Resolving public IP address](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 
 ## Verifying Managed Instance built-in firewall
-Managed Instance [mandatory inbound security rules](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) require management ports 9000, 9003, 1438, 1440, 1452 to be open from Any source on Network Security Group that protects the Managed Instance. Although these ports are open on NSG level they are protected on network level by built-in firewall.
+Managed Instance [mandatory inbound security rules](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) require management ports 9000, 9003, 1438, 1440, 1452 to be open from Any source on Network Security Group that protects the Managed Instance. Although these ports are open on NSG level, they are protected on network level by built-in firewall.
 
-To verify this, you could use any security scanner tool to test these ports. Screenshot below shows how to use one of these tools.
+To verify these ports, you could use any security scanner tool to test these ports. The following screenshot shows how to use one of these tools.
 
 ![Verifying built-in firewall](./media/sql-database-managed-instance-management-endpoint/03_verify_firewall.png)
