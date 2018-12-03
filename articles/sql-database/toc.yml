@@ -142,8 +142,10 @@
     items:
     - name: Managed instances
       href: sql-database-managed-instance-index.yml
-    - name: Overview
+    - name: Managed Instance overview
       href: sql-database-managed-instance.md
+    - name: Create and manage
+      href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
     - name: VNet Integration
@@ -156,8 +158,8 @@
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Connectivity architecture
         href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Management endpoints
-        href: sql-database-managed-instance-management-endpoint.md        
+      - name: Management endpoints 
+        href: sql-database-managed-instance-management-endpoint.md   
       - name: Connect applications
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
@@ -212,7 +214,7 @@
     items:
     - name: Security
       href: sql-database-security-index.yml
-    - name: Overview
+    - name: Security overview
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
