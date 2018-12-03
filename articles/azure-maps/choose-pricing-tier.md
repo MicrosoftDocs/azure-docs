@@ -44,9 +44,7 @@ Some additional data points worth considering are, what kind of enterprise do yo
 
 See the table with **Pricing tier Targeted customers** to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
-<br>
-
-## **Pricing tier targeted customers**
+**Pricing tier targeted customers**
 
 | Pricing tier  |        Targeted customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
