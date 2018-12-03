@@ -31,7 +31,7 @@ Security state monitoring and recommendations are available for virtual machines
 This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
 
 ### Supported platforms for Windows computers and VMs
-Supported Windows operating systems are as follows:
+The following Windows operating systems are supported:
 
 * Windows Server 2008
 * Windows Server 2008 R2
@@ -41,7 +41,7 @@ Supported Windows operating systems are as follows:
 
 
 ### Supported platforms for Linux computers and VMs
-Supported Linux operating systems are as follows:
+The following Linux operating systems are supported:
 
 * Ubuntu versions 12.04 LTS, 14.04 LTS, and 16.04 LTS.
 * Debian versions 6, 7, 8, and 9.
@@ -50,7 +50,7 @@ Supported Linux operating systems are as follows:
 * SUSE Linux Enterprise Server (SLES) versions 11 and 12.
 * Oracle Linux versions 5, 6, and 7.
 * Amazon Linux 2012.09 through 2017.
-* Openssl 1.1.0 is only supported on x86_64 platforms, 64 bit.
+* OpenSSL 1.1.0 is only supported on x86_64 platforms, 64 bit.
 
 > [!NOTE]
 > Virtual machine behavioral analytics aren't yet available for Linux operating systems.
@@ -74,7 +74,7 @@ VMs that run in a cloud service are also supported. Only Cloud Services web and 
 |Windows Defender ATP integration*|✔ (on supported versions)|✔|X|X|
 |Missing patches|✔|✔|✔|✔|
 |Security configurations|✔|✔|✔|✔|
-|Anti-malware|✔|✔|X|X|
+|Antimalware programs|✔|✔|X|X|
 |JIT VM access|✔|X|✔|X|
 |Adaptive application controls|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -109,7 +109,7 @@ VMs that run in a cloud service are also supported. Only Cloud Services web and 
 
 ## Next steps
 
-- [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Understanding security alerts in Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Learn more about virtual machine behavioral analysis and crash dump memory analysis in Security Center.
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-- [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+- Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
+- Learn more about [virtual machine behavioral analysis and crash dump memory analysis in Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
+- Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).
