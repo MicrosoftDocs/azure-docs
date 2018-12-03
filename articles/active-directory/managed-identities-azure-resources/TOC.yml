@@ -108,6 +108,14 @@
       href: how-to-manage-ua-identity-arm.md
     - name: REST
       href: how-to-manage-ua-identity-rest.md
+  - name: View managed identity service principals
+    items:
+    - name: Portal
+      href: how-to-view-managed-identity-service-principal-portal
+    - name: CLI
+      href: how-to-view-managed-identity-service-principal-cli
+    - name: PowerShell
+      href: how-to-view-managed-identity-service-principal-powershell
 - name: Reference
   items:
   - name: CLI
