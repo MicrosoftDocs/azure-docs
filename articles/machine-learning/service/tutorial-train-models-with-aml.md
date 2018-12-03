@@ -33,7 +33,7 @@ You'll learn how to select a model and deploy it in [part two of this tutorial](
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.79
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.2
 
 ## Get the notebook
 
@@ -41,8 +41,6 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> This tutorial was tested with Azure Machine Learning SDK version 0.1.74 
 
 ## Set up your development environment
 
