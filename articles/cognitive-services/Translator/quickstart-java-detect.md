@@ -113,7 +113,7 @@ Add this line to the `Detect` class to instantiate the `OkHttpClient`:
 OkHttpClient client = new OkHttpClient();
 ```
 
-Next, let's build the POST request. Feel free to change the text for langauge detection.
+Next, let's build the POST request. Feel free to change the text for language detection.
 
 ```java
 // This function performs a POST request.
