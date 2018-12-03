@@ -28,7 +28,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 ## Select a sample application and Azure service
 
-1. Your Azure IoT Edge module(s) can be written in [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) and [Java](tutorial-java-module.md). Select your peferred language to start a new application. Correspondingly, you can select **.NET**, **Node.js**, **Python**, **C** and **Java**. And click **Next**.
+1. Your Azure IoT Edge module(s) can be written in [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) and [Java](tutorial-java-module.md). Select your preferred language to start a new application. Correspondingly, you can select **.NET**, **Node.js**, **Python**, **C** and **Java**. And click **Next**.
 
 1. Select **Simple IoT (Preview)**. And click **Next**.
 
@@ -114,6 +114,6 @@ There are several menus to explore, such as a release summary, associated work i
 You can delete Azure App Service and other related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
-* Learn about the Tasks for Azure IoT Edge on Azure Devops in [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md)
+* Learn about the Tasks for Azure IoT Edge on Azure DevOps in [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
 * Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
