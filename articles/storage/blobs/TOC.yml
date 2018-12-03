@@ -612,7 +612,7 @@
         - name: Encryption for data at rest with customer keys
           href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Access Control in Azure Data Lake Storage Gen2
-          href: storage-data-lake-storage-access-control.md
+          href: data-lake-storage-access-control.md
         - name: Configure firewalls and virtual networks 
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authentication

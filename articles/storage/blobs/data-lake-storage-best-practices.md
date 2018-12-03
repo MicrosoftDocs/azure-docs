@@ -2,17 +2,15 @@
 title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store) 
 services: storage
-documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
 
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 11/30/2018
 ms.author: sachins
 ---
+
 # Best practices for using Azure Data Lake Storage Gen2
 
 In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Storage Gen2, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
@@ -27,7 +25,7 @@ Assume you have a directory with 100,000 child objects. If you take the lower bo
 
 WWhen working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to directories and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 entries per ACL (this includes the four POSIX-style ACLs that are always associated with every file and directory: [the owning user](storage-data-lake-storage-access-control.md#the-owning-user), [the owning group](storage-data-lake-storage-access-control.md#the-owning-group), [the mask](storage-data-lake-storage-access-control.md#the-mask), and other).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 entries per ACL (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. For more information about these ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### Security for groups
 

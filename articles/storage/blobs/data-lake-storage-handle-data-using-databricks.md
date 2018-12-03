@@ -110,18 +110,25 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-4. Enter the following code into the first cell and execute the code:
+4. Enter the following code into the first cell and execute the code. Remember to replace the placeholders shown in brackets in the sample with your own values:
 
-    ```scala
-    spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
-    ```
+        ```scala
+        %python%
+        configs = {"fs.azure.account.auth.type": "OAuth",
+            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+            "fs.azure.account.oauth2.client.id": "<service-client-id>",
+            "fs.azure.account.oauth2.client.secret": "<service-credentials>",
+            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
+     
+        dbutils.fs.mount(
+            source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
+            mount_point = "/mnt/<mount-name>",
+            extra_configs = configs)
+        ```
 
-    Press **SHIFT + ENTER** to run the code cell.
+5. Press **SHIFT + ENTER** to run the code cell.
 
-    Now the file system is created for the storage account.
+Now the file system is created for the storage account.
 
 ## Upload data to the storage account
 
