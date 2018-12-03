@@ -82,5 +82,5 @@ Monitoring your Surface Hubs using Log Analytics is much like monitoring any oth
 You can create [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) based on existing or custom log searches. Using the data Log Analytics collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed Surface Hub data.
+* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Surface Hub data.
 * Create [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify you when issues occur with your Surface Hubs.
