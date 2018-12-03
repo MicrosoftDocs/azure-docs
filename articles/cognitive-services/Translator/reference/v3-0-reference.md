@@ -49,8 +49,24 @@ To force the request to be handled by a specific datacenter, change the Global e
 
 Subscribe to Translator Text API in Microsoft Cognitive Services and use your subscription key (available in the Azure portal) to authenticate. 
 
+There are two methods to authenicate your subscription to Microsoft Translator:
+
+<table width="100%">
+  <th width="30%">Headers</th>
+  <th>Description</th>
+  <tr>
+    <td>Ocp-Apim-Subscription-Key</td>
+    <td>*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.</td>
+  </tr>
+  <tr>
+    <td>Authorization</td>
+    <td>*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.</td>
+  </tr>
+</table> 
+
 The simplest way is to pass your Azure secret key to the Translator service using request header `Ocp-Apim-Subscription-Key`.
 
+### Authorization Token
 An alternative is to use your secret key to obtain an authorization token from the token service. Then, you pass the authorization token to the Translator service using the `Authorization` request header. To obtain an authorization token, make a `POST` request to the following URL:
 
 | Environment     | Authentication service URL                                |
@@ -74,20 +90,38 @@ Authorization: Bearer <Base64-access_token>
 
 An authentication token is valid for 10 minutes. The token should be re-used when making multiple calls to the Translator APIs. However, if your program makes requests to the Translator API over an extended period of time, then your program must request a new access token at regular intervals (e.g. every 8 minutes).
 
-To summarize, a client request to the Translator API will include one authorization header taken from the following table:
+### All-in-one subscription authorization
 
-<table width="100%">
-  <th width="30%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.</td>
-  </tr>
-</table> 
+[Cognitive Service's all-in-one](https://azure.microsoft.com/pricing/details/cognitive-services/) offer allows you to use multiple Cognitive Services with the same subscription key. When you pass your secret key with the header `Ocp-Apim-Subscription-Key`, you must also supply the region of the all-in-one subscription otherwise the request will fail with an Unauthorized error.
+
+You can pass the `Subscription-Region` in two ways, within the query string and within the header. Examples below use the `westus2` region:
+
+1. Query string as: `Subscription-Region=westus2`
+2. Header as: `Ocp-Apim-Subscription-Region=westus2` 
+
+Accepted regions are:
+
+|Region|
+|:-----|
+|australiaeast|
+|brazilsouth|
+|canadacentral|
+|centralindia|
+|centraluseuap|
+|eastasia|
+|eastus|
+|eastus2|
+|japaneast|
+|northeurope|
+|southcentralus|
+|southeastasia|
+|uksouth|
+|westcentralus|
+|westeurope|
+|westus|
+|westus2|
+
+Region is optional when not using an all-in-one Text API subscription.
 
 ## Errors
 
