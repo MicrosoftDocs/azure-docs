@@ -78,6 +78,8 @@
       - name: Manage role-based access control
         href: automation-role-based-access-control.md
         displayName: RBAC
+    - name: Start/stop VMs during off-hours
+      href: automation-solution-vm-management.md
     - name: Create runbooks
       items:
         - name: Runbook types
@@ -133,8 +135,6 @@
           displayName: backup
         - name: Pass a JSON object to an Azure Automation runbook
           href: automation-pass-json-string.md
-        - name: Start/stop VMs during off-hours
-          href: automation-solution-vm-management.md
         - name: Manage Python 2 packages
           href: python-packages.md
     - name: Hybrid Runbook Worker
