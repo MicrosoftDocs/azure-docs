@@ -53,7 +53,7 @@ Check to ensure that you are meeting the following browser requirements:
 You can also download the extension directly from the following sites:
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you have installed the extension and are still experiencing issues, try the following:

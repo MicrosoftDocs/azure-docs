@@ -29,7 +29,7 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure Virtual Networks (VNETs)
+  - name: Access to Azure Virtual Networks
     href: connect-virtual-network-vnet-isolated-environment-overview.md
 - name: How-to guides
   items:
@@ -314,12 +314,12 @@
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
-  - name: Architectural Patterns
+  - name: Architecture patterns
     href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
-    - name: Simple Enterprise Integration
+    - name: Simple enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
-    - name: Enterprise Integration with Queues & Events
+    - name: Enterprise integration with queues and events
       href: logic-apps-architectures-enterprise-integration-with-queues-events.md
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/

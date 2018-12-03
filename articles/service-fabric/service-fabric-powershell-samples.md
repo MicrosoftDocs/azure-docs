@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 04/09/2018
+ms.date: 11/29/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
@@ -28,7 +28,6 @@ The following table includes links to PowerShell scripts samples that create and
 |-|-|
 | **Create cluster** ||
 | [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
-|[Create a test cluster (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Creates a three-node test Service Fabric cluster on Azure.|
 | **Manage cluster, nodes, and infrastructure** ||
 | [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
 | [Update the RDP port range on cluster VMs](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Changes the RDP port range on cluster node VMs in a deployed cluster.|

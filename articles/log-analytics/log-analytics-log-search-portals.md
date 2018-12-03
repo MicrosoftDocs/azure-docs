@@ -1,16 +1,14 @@
 ---
 title: Viewing and analyzing data in Azure Log Analytics | Microsoft Docs
-description: This article describes the portals that you can use in Azure Log Analytics to create and edit log searches.  
+description: This article describes the portals that you can use in Azure Log Analytics to create and edit log searches.
 services: log-analytics
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
@@ -21,7 +19,7 @@ ms.component:
 There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
 ## Log Analytics page
-Open the Log Analytics page from **Logs** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](query-language/get-started-analytics-portal.md).
+Open the Log Analytics page from **Logs** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](../azure-monitor/log-query/get-started-portal.md).
 
 The Log Analytics page provides the following improvements over the [Log search (classic)](#log-search-classic) experience.
 
@@ -74,5 +72,5 @@ Open the Log search page from **Logs (Classic)** in the Log Analytics menu or fr
 ## Next steps
 
 - Walk through a [tutorial using Log Search](log-analytics-tutorial-viewdata.md) to learn how to create queries using the query language
-- Walk through a [lesson using the Advanced Analytics portal](query-language/get-started-analytics-portal.md) which provides the same experience as the Log Analytics page.
+- Walk through a [lesson using the Advanced Analytics portal](../azure-monitor/log-query/get-started-portal.md) which provides the same experience as the Log Analytics page.
 

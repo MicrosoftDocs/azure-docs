@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.component: alerts
 ---
 # Log alerts in Azure Monitor
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
+This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
 
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). To learn more about its usage, see [creating log alerts in Azure](alert-log.md)
 
@@ -100,7 +100,7 @@ Now assume we have a log alert rule called *Contoso-Log-Alert*, as per configura
 - At 1:15 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 2 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](monitoring-action-groups.md) associated.
 - Now at the next iteration at 1:20 PM when Contoso-Log-Alert was executed by Azure alert, log search result provided again 0 records; below the threshold and hence not firing the alert.
 
-But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can't be sure. Hence to err on the side of caution, Contoso-Log-Alert is fired again at 1:15 PM via configured [action group](monitoring-action-groups.md). Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
+But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can be sure. Hence to err on the side of caution, when Contoso-Log-Alert is executed at 1:15 PM, configured [action group](monitoring-action-groups.md) is fired again. Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
 
 
 ## Pricing and Billing of Log Alerts
@@ -114,6 +114,6 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 ## Next steps
 * Learn about [creating in log alerts in Azure](alert-log.md).
 * Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
-* Learn about [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Learn about [Azure Alerts](monitoring-overview-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
-* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md).    
+* Learn more about [Log Analytics](../azure-monitor/log-query/log-query-overview.md).    

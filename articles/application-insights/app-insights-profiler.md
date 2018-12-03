@@ -1,20 +1,17 @@
-﻿---
+---
 title: Profile live Azure web apps with Application Insights | Microsoft Docs
 description: Profile live web apps on Azure with Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Profile live Azure web apps with Application Insights
 
@@ -27,18 +24,18 @@ To enable Profiler for a web app, follow the instructions below. If you are runn
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler is installed with the Application Insights site extension. You need to install the site extension and configure it to get profiles for your Azure Web Apps. Once you have deployed a Web App, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.
+Application Insights Profiler is pre-installed as part of the App Services runtime, but you need to turn it on to get profiles for your Azure Web Apps. Once you have deployed a Web App, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.
 
 1. Go to the **App Services** pane in the Azure portal.
 1. Navigate to **Settings > Monitoring** pane.
 
    ![Enable App Insights on App Services portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web app. Accept all default options. **Code level diagnostics** is on by default and enables Profiler.
+1. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web app. Also make sure the Profiler is **On**.
 
    ![Add App Insights site extension][Enablement UI]
 
-1. Profiler is now installed with the App Insights site extension, and is enabled using an App Services App Setting.
+1. Profiler is now enabled using an App Services App Setting.
 
     ![App Setting for Profiler][profiler-app-setting]
 

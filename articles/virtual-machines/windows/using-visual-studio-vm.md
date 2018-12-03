@@ -4,7 +4,7 @@ description: Using Visual Studio on an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: "PhilLee-MSFT"
-manager: sacalla
+manager: cathys
 editor: tysonn
 tags: azure-resource-manager
 
@@ -30,14 +30,13 @@ Images for the most recent major versions, Visual Studio 2017 and Visual Studio 
 
 | Release version                                              | Editions                     |     Product version     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Latest (Version 15.8)                    |    Enterprise, Community     |      Version 15.8.7     |
-| Visual Studio 2017: Latest Preview (Version 15.9, Preview 5) |    Enterprise, Community     |      Version 15.9.0     |
+| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.0     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.18    |
 |   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             None             | (Expired for servicing) |
 
 > [!NOTE]
-> In accordance with Microsoft servicing policy, the originally released (RTW) version of Visual Studio 2015 has expired for servicing. Visual Studio 2015 Update 3 is the only remaining version offered for the Visual Studio 2015 product line.
+> In accordance with Microsoft servicing policy, the originally released (RTW) version of Visual Studio 2015 has expired for servicing. Visual Studio 2015 Update 3 is the only remaining version offered for the Visual Studio 2015 product line.  Also, since Visual Studio 2017 version 15.9 released, we've discontinued the 'latest preview' images that included previews of version 15.9.
 
 For more information, see the [Visual Studio Servicing Policy](https://www.visualstudio.com/productinfo/vs-servicing-vs).
 

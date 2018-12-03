@@ -356,7 +356,7 @@ To perform advanced troubleshoot options, consult the NPS database format log fi
 
 For a description of these log files, see [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx). The entries in these log files can be difficult to interpret without importing them into a spreadsheet or a database. You can find several IAS parsers online to assist you in interpreting the log files. 
 
-The image below shows the output of one such downloadable [shareware application](http://www.deepsoftware.com/iasviewer). 
+The image below shows the output of one such downloadable [shareware application](https://www.deepsoftware.com/iasviewer). 
 
 ![Shareware app](./media/howto-mfa-nps-extension-rdg/image35.png)
 

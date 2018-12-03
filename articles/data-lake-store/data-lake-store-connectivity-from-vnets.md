@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen1 is a PaaS service that runs on public Internet IP a
 In this article, you will learn how to enable access to Azure Data Lake Storage Gen1 from Azure VMs, which have been restricted to access resources using one of the three methods listed previously.
 
 ## Enabling connectivity to Azure Data Lake Storage Gen1 from VMs with restricted connectivity
-To access Azure Data Lake Storage Gen1 from such VMs, you must configure them to access the IP address where the Azure Data Lake Storage Gen1 account is available. You can identify the IP addresses for your Data Lake Storage Gen1 accounts by resolving the DNS names of your accounts (`<account>.azuredatalakestore.net`). To resolve DNS names of your accounts, you can use tools such as **nslookup**. Open a command prompt on your computer and run the following command:
+To access Azure Data Lake Storage Gen1 from such VMs, you must configure them to access the IP address for the region where the Azure Data Lake Storage Gen1 account is available. You can identify the IP addresses for your Data Lake Storage Gen1 account regions by resolving the DNS names of your accounts (`<account>.azuredatalakestore.net`). To resolve DNS names of your accounts, you can use tools such as **nslookup**. Open a command prompt on your computer and run the following command:
 
     nslookup mydatastore.azuredatalakestore.net
 

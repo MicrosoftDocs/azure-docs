@@ -62,11 +62,13 @@
     - name: Install or upgrade
       items:
       - name: Install Azure Backup Server
-        href: backup-azure-microsoft-azure-backup.md        
+        href: backup-azure-microsoft-azure-backup.md
       - name: Add storage
         href: backup-mabs-add-storage.md
-      - name: Upgrade to v.2
-        href: backup-mabs-upgrade-to-v2.md
+      - name: What's New in MABS
+        href: backup-mabs-whats-new-mabs.md
+      - name: Release notes MABS V3
+        href: backup-mabs-release-notes-v3.md 
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
@@ -145,7 +147,7 @@
       href: backup-azure-reports-data-model.md
     - name: Log Analytics data model for Azure Backup
       href: backup-azure-log-analytics-data-model.md
-    - name: Updating Azure Backup Central Reporting Content Pack 
+    - name: Updating Azure Backup Central Reporting Content Pack
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:

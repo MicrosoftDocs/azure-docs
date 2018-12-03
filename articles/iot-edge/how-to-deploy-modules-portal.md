@@ -2,7 +2,7 @@
 title: Deploy Azure IoT Edge modules (portal) | Microsoft Docs 
 description: Use the Azure portal to deploy modules to an IoT Edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/06/2018
 ms.topic: conceptual

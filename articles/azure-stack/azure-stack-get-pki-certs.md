@@ -25,7 +25,7 @@ The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the follow
  - **Standard Certificate Requests**  
     Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
-    Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
+    You can request platform-as-a-service (PaaS) names for certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
 
 
@@ -98,7 +98,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
     To include PaaS Services, specify the switch ```-IncludePaaS```
 
-7. Alternatively, for Dev/Test environments. To generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
+7. Alternatively, for Dev/Test environments, to generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
