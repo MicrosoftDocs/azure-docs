@@ -62,11 +62,12 @@ The following are the equivalent entities, as described by different concepts. U
 | Blobs – General purpose object storage | Container              | Virtual Directory (SDK only – does not provide atomic manipulation) | Blob           |
 | ADLS Gen2 – Analytics Storage          | Filesystem             | Directory                                                           | File           |
 
-## Open source platforms that work with Azure Data Lake Storage Gen2
+## Open source platforms that work with Data Lake Storage Gen2
 
-The following table shows the open source platforms that support Azure Data Lake Storage Gen2.  
+Several open source platforms support Data Lake Storage Gen2. Those platforms appear in the following table.
 
-Only the versions that appear in this table are supported.
+> [!NOTE]
+> Only the versions that appear in this table are supported.
 
 | Platform |  Supported version(s) | More information |
 | --- | --- | --- |
