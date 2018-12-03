@@ -110,7 +110,7 @@ You can start multiple clients with different client names.
 
 The Azure SignalR service allows third-party services to integrate with the system.
 
-### <a name="usage"> </a> Definition of technical specifications
+### Definition of technical specifications
 
 The following table shows all the versions of the REST APIs supported to date. You can also find the definition file for each specific version
 
