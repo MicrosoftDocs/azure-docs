@@ -27,7 +27,7 @@ You can use the **Update** tile in the administration portal to apply Microsoft 
 
 When a Microsoft or OEM update package for Azure Stack is available, download the package to a location that's reachable from Azure Stack, and review the package contents. An update package typically consists of the following files:
 
-- A self-extracting `<PackageName>`.exe file. This file contains the payload for the update, for example the latest cumulative update for Windows Server.
+- A self-extracting `<PackageName>.exe` file. This file contains the payload for the update, for example the latest cumulative update for Windows Server.
 
 - Corresponding `<PackageName>.bin` files. These files provide compression for the payload that's associated with the *PackageName*.exe file.
 
