@@ -58,7 +58,7 @@ Virtual nodes currently support Linux container instances. Get started with virt
 
 Virtual nodes use the open source [Virtual Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] by registering as a node with unlimited capacity. The Virtual Kubelet dispatches the creation of [pods][pod-doc] as container groups in Azure Container Instances.
 
-See the Virtual Kubelet project for additional examples of extending the Kubernetes API into serverless container platforms.
+See the [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) project for additional examples of extending the Kubernetes API into serverless container platforms.
 
 ## Next steps
 
