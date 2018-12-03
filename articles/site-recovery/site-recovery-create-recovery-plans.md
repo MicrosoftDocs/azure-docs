@@ -4,7 +4,7 @@ description: Learn how to create and customize recovery plans for disaster recov
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 

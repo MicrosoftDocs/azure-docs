@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
 
 ---
@@ -24,7 +24,7 @@ Azure Security Center provides unified security management and advanced threat p
 Security Center is offered in two tiers:
 
 - The **Free** tier is automatically enabled on all Azure subscriptions, and provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
-- The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The Standard tier also adds advanced threat detection capabilities, which uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. The Standard tier is free for the first 60 days. Security Center Standard supports Azure resources including VMs, App Service, and SQL servers. If you have Azure Security Center Standard you can opt out of support based on resource type. 
+- The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The Standard tier also adds advanced threat detection capabilities, which uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. You can try the Standard tier is free. Security Center Standard supports Azure resources including VMs, App Service, and SQL servers. If you have Azure Security Center Standard you can opt out of support based on resource type. 
 
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
