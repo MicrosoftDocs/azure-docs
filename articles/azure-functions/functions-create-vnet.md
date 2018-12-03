@@ -1,6 +1,6 @@
 ---
-title: Integrate an Azure Function with an Azure Virtual Network
-description: Shows you how to connect a Function in Azure App Service to a new or existing Azure virtual network
+title: Integrate Azure Functions with an Azure Virtual Network
+description: A step by stem tutorial showing you how to connect a Function to an Azure virtual network
 services: functions
 author: alexkarcher-msft
 manager: jehollan
@@ -10,7 +10,7 @@ ms.date: 12/03/2018
 ms.author: alkarche
 
 ---
-# Integrate an Azure Functions with an Azure Virtual Network
+# Integrate a Function App with an Azure Virtual Network
 This step-by-step tutorial shows you how to use Azure Functions to connect to resources in an Azure VNET. 
 
 For this tutorial we will be deploying a wordpress site on a VM in a private, non-internet accessible, VNET. We will then deploy a Function with access to both the internet and the VNET. We will use that Function to access resources from the wordpress site deployed inside the VNET.
