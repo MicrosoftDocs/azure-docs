@@ -519,7 +519,7 @@ To reindex your documents with the new definitions:
 2. Modify a skillset and index definition.
 3. Recreate an index and indexer on the service to run the pipeline. 
 
-You can use the portal to delete indexes and indexers. Skillsets can only be deleted through an HTTP command, should you decide to delete it.
+You can use the portal to delete indexes, indexers, and Skillsets.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
