@@ -90,7 +90,7 @@ The inbound IP address **might** change when you:
 - Delete the last function app in a resource group and region combination, and re-create it.
 - Delete an SSL binding, such as during [certificate renewal](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-When your function app runs on a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
 
 ## Outbound IP address changes
 
@@ -99,7 +99,7 @@ The set of available outbound IP addresses for a function app might change when 
 * Take any action that can change the inbound IP address.
 * Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-When your function app runs on a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
 
 To deliberately force an outbound IP address change:
 
