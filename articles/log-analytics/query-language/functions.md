@@ -19,7 +19,7 @@ ms.author: bwren
 # Using functions in Azure Monitor Log Analytics
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with the Analytics portal](../azure-monitor/log-query/get-started-portal.md) and [Getting started with queries](../azure-monitor/log-query/get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -67,10 +67,10 @@ security_updates_last_day | where Title contains "SQL"
 ## Next steps
 See other lessons for using the Log Analytics query language:
 
-- [String operations](string-operations.md)
-- [Date and time operations](datetime-operations.md)
-- [Aggregation functions](aggregations.md)
-- [Advanced aggregations](advanced-aggregations.md)
-- [JSON and data structures](json-data-structures.md)
-- [Joins](joins.md)
-- [Charts](charts.md)
+- [String operations](../azure-monitor/log-query/string-operations.md)
+- [Date and time operations](../azure-monitor/log-query/datetime-operations.md)
+- [Aggregation functions](../azure-monitor/log-query/aggregations.md)
+- [Advanced aggregations](../azure-monitor/log-query/advanced-../azure-monitor/log-query/aggregations.md)
+- [JSON and data structures](../azure-monitor/log-query/json-data-structures.md)
+- [Joins](../azure-monitor/log-query/joins.md)
+- [Charts](../azure-monitor/log-query/charts.md)

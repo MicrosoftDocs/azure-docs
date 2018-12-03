@@ -53,10 +53,10 @@ The following sections describe elements of the Data Explorer query language tha
 ## Additional operators in Log Analytics
 The following operators support specific Log Analytics features and are not available outside of Log Analytics.
 
-* [app()](app-expression.md)
-* [workspace()](workspace-expression.md)
+* [app()](../azure-monitor/log-query/app-expression.md)
+* [workspace()](../azure-monitor/log-query/workspace-expression.md)
 
 ## Next steps
 
-- Get references to different [resources for writing Log Analytics queries](query-language.md).
+- Get references to different [resources for writing Log Analytics queries](../azure-monitor/log-query/query-language.md).
 - Access the complete [reference documentation for Data Explorer query language](/azure/kusto/query/).

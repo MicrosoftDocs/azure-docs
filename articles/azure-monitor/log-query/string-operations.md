@@ -20,7 +20,7 @@ ms.component: na
 
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
