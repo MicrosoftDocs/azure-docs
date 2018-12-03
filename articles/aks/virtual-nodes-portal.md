@@ -95,11 +95,13 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-node-aci-linux
+        kubernetes.io/role: agent
+        beta.kubernetes.io/os: linux
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
-        operator: Equal
-        value: azure
+        operator: Exists
+      - key: azure.com/aci
         effect: NoSchedule
 ```
 
