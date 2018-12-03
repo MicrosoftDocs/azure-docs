@@ -33,7 +33,7 @@ In this tutorial you will learn how to use the Log Analytics page in the Azure p
 ## Meet the Log Analytics page 
 The Log Analytics page is a web tool used to write and execute Azure Log Analytics queries. Open it by selecting **Logs (preview)** in the Log Analytics menu. It starts with a new blank query.
 
-![Home page](media/get-started-analytics-portal/homepage.png)
+![Home page](media/get-started-portal/homepage.png)
 
 
 
@@ -67,7 +67,7 @@ Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider
 ## Understand the schema
 The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and client heartbeats.
 
-![Schema](media/get-started-analytics-portal/schema.png)
+![Schema](media/get-started-portal/schema.png)
 
 In each table, data is organized in columns with different data types as indicated by icons next to the column name. For example, the _Event_ table shown in the screenshot contains columns such as _Computer_ which is text, _EventCategory_ which is a number, and _TimeGenerated_ which is date/time.
 
@@ -90,35 +90,35 @@ There is an arrow to the left of each record. Click this arrow to open the detai
 
 Hover above a column name for the "+" and "-" icons to display. To add a filter that will return only records with the same value, click the "+" sign. Click "-" to exclude records with this value and then click **Run** to run the query again.
 
-![Add filter to query](media/get-started-analytics-portal/add-filter.png)
+![Add filter to query](media/get-started-portal/add-filter.png)
 
 ### Filter through the table elements
 Now let's focus on events with a severity of _Error_. This is specified in a column named _EventLevelName_. You'll need to scroll to the right to see this column.
 
 Click the Filter icon next to the column title, and in the pop-up window select values that _Starts with_ the text _error_:
 
-![Filter](media/get-started-analytics-portal/filter.png)
+![Filter](media/get-started-portal/filter.png)
 
 
 ## Sort and group results
 The results are now narrowed down to include only error events from SQL Server, created in the last 24 hours. However, the results are not sorted in any way. To sort the results by a specific column, such as _timestamp_ for example, click the column title. One click sorts in ascending order while a second click will sort in descending.
 
-![Sort column](media/get-started-analytics-portal/sort-column.png)
+![Sort column](media/get-started-portal/sort-column.png)
 
 Another way to organize results is by groups. To group results by a specific column, simply drag the column header above the other columns. To create subgroups, drag other columns the upper bar as well.
 
-![Groups](media/get-started-analytics-portal/groups.png)
+![Groups](media/get-started-portal/groups.png)
 
 ## Select columns to display
 The results table often includes a lot of columns. You might find that some of the returned columns are not displayed by default, or you may want to remove some the columns that are displayed. To select the columns to show, click the Columns button:
 
-![Select columns](media/get-started-analytics-portal/select-columns.png)
+![Select columns](media/get-started-portal/select-columns.png)
 
 
 ## Select a time range
 By default, the Log Analytics page applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
 
-![Time picker](media/get-started-analytics-portal/time-picker.png)
+![Time picker](media/get-started-portal/time-picker.png)
 
 When selecting a custom time range, the selected values are in UTC, which could be different than your local time zone.
 
@@ -137,11 +137,11 @@ Event
 
 By default, results are displayed in a table. Click _Chart_ to see the results in a graphic view:
 
-![Bar chart](media/get-started-analytics-portal/bar-chart.png)
+![Bar chart](media/get-started-portal/bar-chart.png)
 
 The results are shown in a stacked bar chart. Click _Stacked Column_ and select _Pie_ to show another view of the results:
 
-![Pie chart](media/get-started-analytics-portal/pie-chart.png)
+![Pie chart](media/get-started-portal/pie-chart.png)
 
 Different properties of the view, such as x and y axes, or grouping and splitting preferences, can be changed manually from the control bar.
 
@@ -150,12 +150,12 @@ You can also set the preferred view in the query itself, using the render operat
 ### Smart diagnostics
 On a timechart, if there is a sudden spike or step in your data, you may see a highlighted point on the line. This indicates that _Smart Diagnostics_ has identified a combination of properties that filter out the sudden change. Click the point to get more detail on the filter, and to see the filtered version. This may help you identify what caused the change:
 
-![Smart diagnostics](media/get-started-analytics-portal/smart-diagnostics.png)
+![Smart diagnostics](media/get-started-portal/smart-diagnostics.png)
 
 ## Pin to dashboard
 To pin a diagram or table to one of your shared Azure dashboards, click the pin icon.
 
-![Pin to dashboard](media/get-started-analytics-portal/pin-dashboard.png)
+![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 
 Certain simplifications are applied to a chart when you pin it to a dashboard:
 
@@ -168,20 +168,20 @@ Once you've created a useful query, you might want to save it or share with othe
 
 You can save either the entire query page, or a single query as a function. Functions are queries that can also be referenced by other queries. In order to save a query as a function, you must provide a function alias, which is the name used to call this query when referenced by other queries.
 
-![Save function](media/get-started-analytics-portal/save-function.png)
+![Save function](media/get-started-portal/save-function.png)
 
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
 ## Load queries
 The Query Explorer icon is at the top-right area. This lists all saved queries by category. It also enables you to mark specific queries as Favorites to quickly find them in the future. Double-click a saved query to add it to the current window.
 
-![Query explorer](media/get-started-analytics-portal/query-explorer.png)
+![Query explorer](media/get-started-portal/query-explorer.png)
 
 ## Export and share as link
 The Log Analytics page supports several exporting methods:
 
 - Excel: Save the results as a CSV file.
-- Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../log-analytics-powerbi.md) for details.
+- Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../../log-analytics/log-analytics-powerbi.md) for details.
 - Share a link: The query itself can be shared as a link which can then be sent and executed by other users that have access to the same workspace.
 
 ## Next steps

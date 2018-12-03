@@ -20,19 +20,19 @@ Log Analytics provides log collection and analysis for Azure Monitor. It's built
 
 ## Getting started
 
-- [Get started with Log Analytics in the Azure portal](get-started-analytics-portal.md) is a lesson for writing queries and working with results in the Azure portal.
+- [Get started with Log Analytics in the Azure portal](get-started-portal.md) is a lesson for writing queries and working with results in the Azure portal.
 -  [Get started with queries in Log Analytics](get-started-queries.md) is a lesson for writing queries using Log Analytics data.
 
 ## Concepts
 - [Analyze Log Analytics data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) gives a brief overview of log queries and describes how Log Analytics data is structured.
-- [Viewing and analyzing data in Log Analytics](../log-analytics-log-search-portals.md) explains the portals where you create and run Log Analytics queries.
+- [Viewing and analyzing data in Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) explains the portals where you create and run Log Analytics queries.
 
 ## Reference
 
 - [Query language reference](/azure/kusto/query)  is the complete language reference for the Data Explorer query language.
 - [Log Analytics query language differences](data-explorer-difference.md) describes differences between versions of the Data Explorer query language.
-- [Standard properties in Log Analytics records](../log-analytics-standard-properties.md) describes properties that are standard to all Log Analytics data.
-- [Perform cross-resource log searches in Log Analytics](../log-analytics-cross-workspace-search.md) describes how to write queries that use data from multiple Log Analytics workspaces and Application Insights applications.
+- [Standard properties in Log Analytics records](../../log-analytics/log-analytics-standard-properties.md) describes properties that are standard to all Log Analytics data.
+- [Perform cross-resource log searches in Log Analytics](../../log-analytics/log-analytics-cross-workspace-search.md) describes how to write queries that use data from multiple Log Analytics workspaces and Application Insights applications.
 
 
 ## Examples
