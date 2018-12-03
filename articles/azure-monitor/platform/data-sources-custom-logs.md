@@ -178,4 +178,4 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 
 ## Next steps
 * Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse the entries in the custom login to individual fields.
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.

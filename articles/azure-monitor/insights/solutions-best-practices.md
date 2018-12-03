@@ -28,7 +28,7 @@ This article provides best practices for [creating a management solution file](s
 - Data sources can be [configured with a Resource Manager template](../../log-analytics/log-analytics-template-workspace-configuration.md), but they should not be included in a solution file.  The reason is that configuring data sources is not currently idempotent meaning that your solution could overwrite existing configuration in the user's workspace.<br><br>For example, your solution may require Warning and Error events from the Application event log.  If you specify this as a data source in your solution, you risk removing Information events if the user had this configured in their workspace.  If you included all events, then you may be collecting excessive Information events in the user's workspace.
 
 - If your solution requires data from one of the standard data sources, then you should define this as a prerequisite.  State in documentation that the customer must configure the data source on their own.  
-- Add a [Data Flow Verification](../../log-analytics/log-analytics-view-designer-tiles.md) message to any views in your solution to instruct the user on data sources that need to be configured for required data to be collected.  This message is displayed on the tile of the view when required data is not found.
+- Add a [Data Flow Verification](../../azure-monitor/platform/view-designer-tiles.md) message to any views in your solution to instruct the user on data sources that need to be configured for required data to be collected.  This message is displayed on the tile of the view when required data is not found.
 
 
 ## Runbooks
@@ -37,8 +37,8 @@ This article provides best practices for [creating a management solution file](s
 - Use [Automation variables](../../automation/automation-schedules.md) to provide values to the solution that users may want to change later.  Even if the solution is configured to contain the variable, it's value can still be changed.
 
 ## Views
-- All solutions should include a single view that is displayed in the user's portal.  The view can contain multiple [visualization parts](../../log-analytics/log-analytics-view-designer-parts.md) to illustrate different sets of data.
-- Add a [Data Flow Verification](../../log-analytics/log-analytics-view-designer-tiles.md) message to any views in your solution to instruct the user on data sources that need to be configured for required data to be collected.
+- All solutions should include a single view that is displayed in the user's portal.  The view can contain multiple [visualization parts](../../azure-monitor/platform/view-designer-parts.md) to illustrate different sets of data.
+- Add a [Data Flow Verification](../../azure-monitor/platform/view-designer-tiles.md) message to any views in your solution to instruct the user on data sources that need to be configured for required data to be collected.
 - Configure the solution to [contain](solutions-solution-file.md#solution-resource) the view so that it's removed if the solution is removed.
 
 ## Alerts
