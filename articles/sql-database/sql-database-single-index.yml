@@ -22,7 +22,7 @@ abstract:
       height: 110
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
-    title: Create a SQL database on Azure. (3:12)
+    title: Create a Single SQL database on Azure. (3:12)
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
@@ -89,7 +89,7 @@ sections:
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
           - href:
-      - title: Create elastic pool
+      - title: Create Elastic Pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
@@ -101,7 +101,7 @@ sections:
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
           - href:
-      - title: Scale elastic pool
+      - title: Scale Elastic Pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
