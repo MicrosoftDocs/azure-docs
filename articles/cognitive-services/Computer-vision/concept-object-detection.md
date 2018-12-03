@@ -15,66 +15,70 @@ ms.author: pafarley
 
 # Object detection
 
-Computer Vision returns tags based on thousands of recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
+Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine if there are multiple instances of the same tag in an image.
 
-After uploading an image or specifying an image URL, Computer Vision algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
+The Detect API applies tags based on the objects, living things, and actions identified in the image, but not all of the service's recognizable tags are used for object detection. Some conceptual tags, such as "indoor", apply to the whole image rather than a specific area within it; these tags are ignored in by the Detect API.
 
-## Image tagging example
+## Object detection example
 
-The following JSON response illustrates what Computer Vision returns when tagging visual features detected in the example image.
+The following JSON response illustrates what Computer Vision returns when detecting objects in the example image.
 
-![House_Yard](./Images/house_yard.png).
+![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
 
 ```json
 {
-    "tags": [
-        {
-            "name": "grass",
-            "confidence": 0.9999995231628418
-        },
-        {
-            "name": "outdoor",
-            "confidence": 0.99992108345031738
-        },
-        {
-            "name": "house",
-            "confidence": 0.99685388803482056
-        },
-        {
-            "name": "sky",
-            "confidence": 0.99532157182693481
-        },
-        {
-            "name": "building",
-            "confidence": 0.99436837434768677
-        },
-        {
-            "name": "tree",
-            "confidence": 0.98880356550216675
-        },
-        {
-            "name": "lawn",
-            "confidence": 0.788884699344635
-        },
-        {
-            "name": "green",
-            "confidence": 0.71250593662261963
-        },
-        {
-            "name": "residential",
-            "confidence": 0.70859086513519287
-        },
-        {
-            "name": "grassy",
-            "confidence": 0.46624681353569031
-        }
-    ],
-    "requestId": "06f39352-e445-42dc-96fb-0a1288ad9cf1",
-    "metadata": {
-        "height": 200,
-        "width": 300,
-        "format": "Jpeg"
-    }
+   "objects":[
+      {
+         "rectangle":{
+            "x":730,
+            "y":66,
+            "w":135,
+            "h":85
+         },
+         "object":"kitchen appliance",
+         "confidence":0.501
+      },
+      {
+         "rectangle":{
+            "x":523,
+            "y":377,
+            "w":185,
+            "h":46
+         },
+         "object":"computer keyboard",
+         "confidence":0.51
+      },
+      {
+         "rectangle":{
+            "x":471,
+            "y":218,
+            "w":289,
+            "h":226
+         },
+         "object":"Laptop",
+         "confidence":0.85,
+         "parent":{
+            "object":"computer",
+            "confidence":0.851
+         }
+      },
+      {
+         "rectangle":{
+            "x":654,
+            "y":0,
+            "w":584,
+            "h":473
+         },
+         "object":"person",
+         "confidence":0.855
+      }
+   ],
+   "requestId":"a7fde8fd-cc18-4f5f-99d3-897dcd07b308",
+   "metadata":{
+      "width":1260,
+      "height":473,
+      "format":"Jpeg"
+   }
 }
 ```
 
