@@ -26,7 +26,8 @@ ms.author: dech
 Welcome to the Azure Cosmos DB SQL API getting started with .NET Core tutorial! After following this tutorial, you'll have a .NET Core console application that creates and queries Azure Cosmos DB resources. This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which targets [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard)
 
 This tutorial covers:
-[!div class="checklist"]
+
+> [!div class="checklist"]
 > * Creating and connecting to an Azure Cosmos account
 > * Configuring your project in Visual Studio
 > * Creating a database and a container

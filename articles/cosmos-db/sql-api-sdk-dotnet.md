@@ -45,10 +45,10 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview
+* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview.
 * Target .NET Standard, which supports .NET framework 4.6.1+ and .NET Core 2.0+
 * New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes. 
-* Support for streams 
+* Support for streams. 
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
 
 ### <a name="2.1.3"/>2.1.3

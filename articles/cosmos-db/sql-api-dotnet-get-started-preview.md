@@ -28,7 +28,7 @@ Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following
 
 This tutorial covers:
 
-[!div class="checklist"]
+> [!div class="checklist"]
 > * Creating and connecting to an Azure Cosmos account
 > * Configuring your project in Visual Studio
 > * Creating a database and a container
