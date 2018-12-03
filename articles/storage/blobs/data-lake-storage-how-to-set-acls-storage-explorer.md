@@ -7,7 +7,7 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/04/2018
+ms.date: 12/05/2018
 ms.author: rogarana
 ---
 
@@ -17,9 +17,9 @@ This article shows how to set file and directory level ACLs through the desktop 
 
 This article requires that you install Azure Storage Explorer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## Log in to Storage Explorer
+## Sign in to Storage Explorer
 
-On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. Storage Explorer provides several ways to connect to storage accounts. The following table lists the different ways you can connect:
+On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
 
 |Task|Purpose|
 |---|---|
@@ -35,13 +35,13 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Set ACLs on a directory
 
-You can set ACLs at the root of your filesystem, right click your filesystem and select **Manage Permissions**.
+You can set ACLs at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**.
 
 This wil bring up the **Manage Permission** prompt.
 
 ![Microsoft Azure Storage Explorer - Manage directory ACLs](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
-The **Manage Permission** prompt that will allow you to manage ACLs for existing users or add new users for whom you can then manage ACLs for. To learn about ACLs, including default ACLs, access ACLs, their behavior, and the permissions, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
+The **Manage Permission** prompt will allow you to manage ACLs for existing users and add new users for whom you can then manage ACLs. To learn about ACLs, including default ACLs, access ACLs, their behavior, and the permissions, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
 
 We recommend creating security groups and maintaining ACLs on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
 
