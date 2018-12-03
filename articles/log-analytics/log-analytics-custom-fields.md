@@ -40,9 +40,9 @@ The following sections provide the procedure for creating a custom field.  At th
 > 
 
 ### Step 1 – Identify records that will have the custom field
-The first step is to identify the records that will get the custom field.  You start with a [standard log search](log-analytics-queries.md) and then select a record to act as the model that Log Analytics will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
+The first step is to identify the records that will get the custom field.  You start with a [standard log search](../azure-monitor/log-query/log-query-overview.md) and then select a record to act as the model that Log Analytics will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
 
-1. Go to **Log Search** and use a [query to retrieve the records](log-analytics-queries.md) that will have the custom field.
+1. Go to **Log Search** and use a [query to retrieve the records](../azure-monitor/log-query/log-query-overview.md) that will have the custom field.
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
 3. Click the button to the left of any text property of the record and select **Extract fields from**.
 4. The **Field Extraction Wizard is opened**, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
@@ -134,6 +134,6 @@ We can now use the custom field like any other record property.  To illustrate t
 ![Group by query](media/log-analytics-custom-fields/query-group.png)
 
 ## Next steps
-* Learn about [log searches](log-analytics-queries.md) to build queries using custom fields for criteria.
+* Learn about [log searches](../azure-monitor/log-query/log-query-overview.md) to build queries using custom fields for criteria.
 * Monitor [custom log files](../azure-monitor/platform/data-sources-custom-logs.md) that you parse using custom fields.
 
