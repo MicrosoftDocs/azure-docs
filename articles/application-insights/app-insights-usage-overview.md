@@ -1,4 +1,4 @@
-﻿---
+---
 title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
 services: application-insights
@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 12/01/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -120,6 +120,7 @@ Providers currently offering a compatible service include:
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 For more information on those services, contact the providers directly.

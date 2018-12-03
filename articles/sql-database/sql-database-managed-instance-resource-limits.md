@@ -11,11 +11,11 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 12/03/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
-This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits. 
+This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits.
 
 > [!NOTE]
 > For other Managed Instance limitations, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers). For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
@@ -37,9 +37,9 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 
 ### Service tier characteristics
 
-Managed Instance has two service tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities, as described in the table below:
+Managed Instance has two service tiers - General Purpose and Business Critical. These tiers provide different capabilities, as described in the table below:
 
-| **Feature** | **General Purpose** | **Business Critical (preview)** |
+| **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
 | Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | Memory | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores | Gen4: 56GB-156GB <br/> Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores |
@@ -47,7 +47,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical (
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | Unlimited |
-| Expected max storage IOPS | 500-5000 ([depends on data file size](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depends on the underlying SSD speed. |
+| IO throughput (approximate) | 5000 IOPS per core with 200,000 maximum IOPS |
 
 ## Supported regions
 
@@ -92,7 +92,7 @@ These limits can be increased by creating special [support request in the Azure 
 
 [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscriptions can have combinations of GP and BC instances. However, there are some constraints regarding the placement of the instances in the subnets.
 
-> [!Note] 
+> [!Note]
 > [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) and [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) subscription types can have either one Business Critical or up to 4 General Purpose instances.
 
 The following examples cover deployment cases with non-empty subnets and mixed GP and BC service tiers.
@@ -108,10 +108,10 @@ The following examples cover deployment cases with non-empty subnets and mixed G
 
 ## Obtaining a larger quota for SQL Managed Instance
 
-If you need more Managed Instances in your current regions, you can send the support request to extend the quota using Azure portal. 
+If you need more Managed Instances in your current regions, you can send the support request to extend the quota using Azure portal.
 To initiate the process of obtaining a larger quota:
 
-1. Open **Help + support**, and click **New support request**. 
+1. Open **Help + support**, and click **New support request**.
 
    ![Help and Support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. On the Basics tab for the new support request:
@@ -135,13 +135,13 @@ To initiate the process of obtaining a larger quota:
      > - Region in which subscription limit needs to be increased
      > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
      > - Required number of new subnets and total number of instances per service tier within the new subnets (if you need to deploy managed instances in new subnets).
-     
+
 5. Click **Next**.
 6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
 7. Click **Create**.
 
 ## Next steps
 
-- For more information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md). 
+- For more information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).

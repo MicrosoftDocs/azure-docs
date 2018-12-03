@@ -10,7 +10,6 @@ ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
@@ -121,7 +120,7 @@ After you've installed Docker, use the following settings for your container hos
 
 **For all Linux container hosts except CoreOS:**
 
-- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](log-analytics-agent-overview.md).
+- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](../azure-monitor/platform/log-analytics-agent.md).
 
 **For all Linux container hosts including CoreOS:**
 
@@ -519,9 +518,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 #### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-agent-windows.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-quick-collect-azurevm.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](../azure-monitor/platform/agent-windows.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-quick-collect-azurevm.md).
 
-You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](log-analytics-agent-windows.md) are currently supported for Service Fabric.
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](../azure-monitor/platform/agent-windows.md) are currently supported for Service Fabric.
 
 You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
@@ -538,7 +537,7 @@ The Container Monitoring solution collects various performance metrics and log d
 Data is collected every three minutes by the following agent types.
 
 - [Log Analytics agent for Linux](log-analytics-quick-collect-linux-computer.md)
-- [Windows agent](log-analytics-agent-windows.md)
+- [Windows agent](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM extension](log-analytics-quick-collect-azurevm.md)
 
 
@@ -599,7 +598,7 @@ Log Search opens, displaying information about the state of your containers.
 
 ![Log Search for containers](./media/log-analytics-containers/containers-log-search.png)
 
-From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about Log Searches, see [Log searches in Log Analytics](log-analytics-queries.md).
+From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about Log Searches, see [Log searches in Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ## Troubleshoot by finding a failed container
 
@@ -667,4 +666,4 @@ Saving queries is a standard feature in Log Analytics. By saving them, you'll ha
 After you create a query that you find useful, save it by clicking **Favorites** at the top of the Log Search page. Then you can easily access it later from the **My Dashboard** page.
 
 ## Next steps
-* [Search logs](log-analytics-queries.md) to view detailed container data records.
+* [Search logs](../azure-monitor/log-query/log-query-overview.md) to view detailed container data records.

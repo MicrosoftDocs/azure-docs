@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -26,9 +26,9 @@ A bearer token is a lightweight security token that grants the "bearer" access t
 
 If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
 
-For additional security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+For additional security considerations on bearer tokens, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
-Many of the tokens that Azure AD B2C issues are implemented as JSON web tokens (JWTs). A JWT is a compact, URL-safe means of transferring information between two parties. JWTs contain information known as claims. These are assertions of information about the bearer and the subject of the token. The claims in JWTs are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by Azure AD B2C are signed but not encrypted, you can easily inspect the contents of a JWT to debug it. Several tools are available that can do this, including [jwt.ms](https://jwt.ms). For more information about JWTs, refer to [JWT specifications](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens that Azure AD B2C issues are implemented as JSON web tokens (JWTs). A JWT is a compact, URL-safe means of transferring information between two parties. JWTs contain information known as claims. These are assertions of information about the bearer and the subject of the token. The claims in JWTs are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by Azure AD B2C are signed but not encrypted, you can easily inspect the contents of a JWT to debug it. Several tools are available that can do this, including [jwt.ms](https://jwt.ms). For more information about JWTs, refer to [JWT specifications](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### ID tokens
 
@@ -62,9 +62,9 @@ When your API receives an access token, it must [validate the signature](#token-
 
 ### Claims in ID and access tokens
 
-When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [policies](active-directory-b2c-reference-policies.md) to send certain sets of user data in claims that your app requires for its operations. These claims can include standard properties such as the user's `displayName` and `emailAddress`. They can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) that you can define in your B2C directory. Every ID and access token that you receive contains a certain set of security-related claims. Your applications can use these claims to securely authenticate users and requests.
+When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [user flows](active-directory-b2c-reference-policies.md) and custom policies to send certain sets of user data in claims that your app requires for its operations. These claims can include standard properties such as the user's `displayName` and `emailAddress`. They can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) that you can define in your B2C directory. Every ID and access token that you receive contains a certain set of security-related claims. Your applications can use these claims to securely authenticate users and requests.
 
-Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID and access tokens issued by Azure AD B2C. Any additional claims are determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [jwt.ms](https://jwt.ms). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID and access tokens issued by Azure AD B2C. Any additional claims are determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [jwt.ms](https://jwt.ms). Further details can be found in the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html).
 
 | Name | Claim | Example value | Description |
 | --- | --- | --- | --- |
@@ -74,8 +74,8 @@ Note that the claims in ID tokens are not returned in any particular order. In a
 | Expiration time |`exp` |`1438539443` |The expiration time claim is the time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime. |
 | Not before |`nbf` |`1438535543` |This claim is the time at which the token becomes valid, represented in epoch time. This is usually the same as the time the token was issued. Your app should use this claim to verify the validity of the token lifetime. |
 | Version |`ver` |`1.0` |This is the version of the ID token, as defined by Azure AD. |
-| Code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. For more details on how to perform this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. For more details on how to perform this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html)  |
+| Code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. For more details on how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. For more details on how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce |`nonce` |`12345` |A nonce is a strategy used to mitigate token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request will be emitted unmodified in the `nonce` claim of an ID token only. This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given ID token. Your app should perform this validation during the ID token validation process. |
 | Subject |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |This is the principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. To learn more, see [Azure Active Directory B2C: Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md). |
 | Authentication context class reference |`acr` |Not applicable |Not used currently, except in the case of older policies. To learn more, see [Azure Active Directory B2C: Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md). |

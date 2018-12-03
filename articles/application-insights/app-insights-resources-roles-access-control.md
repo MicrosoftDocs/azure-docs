@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: mbullwin
-
 ---
 # Resources, roles, and access control in Application Insights
 
@@ -61,7 +58,7 @@ Choose **Access control (IAM)** from the left-hand menu.
 
 ![Screenshot of Access control button in Azure portal](./media/app-insights-resources-roles-access-control/0001-access-control.png)
 
-Select **Add**
+Select **Add role assignment**
 
 ![Screenshot of Access control menu with add button highlighted in red](./media/app-insights-resources-roles-access-control/0002-add.png)
 
