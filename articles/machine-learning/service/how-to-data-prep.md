@@ -28,7 +28,7 @@ The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Py
   + Fuzzy Grouping
   + Derived Column By Example
   + Auto Split
-  + Smart Read File
+  + Auto Read File
   + Ragged-right schema processing
 
 * A single API that works on small data locally and on large data in the cloud with **few-to-no code changes**
@@ -65,10 +65,10 @@ The following examples highlight some of the unique functionality of the SDK, in
 
 ### Automatic file type detection
 
-Use the `smart_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
+Use the `auto_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
 
 ```python
-dataflow = dprep.smart_read_file(path="<your-file-path>")
+dataflow = dprep.auto_read_file(path="<your-file-path>")
 ```
 
 ### Intelligent transforms
