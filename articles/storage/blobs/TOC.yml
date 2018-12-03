@@ -626,7 +626,7 @@
   - name: How to
     items:
     - name: Set ACLs using Azure Storage explorer
-      href: data-lake-storage-how-to-set-acls-storage-explorer.md
+      href: data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
       href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use Hadoop File System CLI with Data Lake Storage Gen2

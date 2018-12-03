@@ -11,7 +11,7 @@ ms.date: 12/05/2018
 ms.author: rogarana
 ---
 
-# How to: Set file and directory level ACLs using Azure Storage explorer
+# How to: Set file and directory level permissions using Azure Storage explorer
 
 This article shows how to set file and directory level ACLs through the desktop version of Azure Storage explorer.
 
@@ -33,16 +33,16 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## Set ACLs on a directory
+## Set permissions on a directory
 
-You can set ACLs at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**.
+You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**.
 
 This wil bring up the **Manage Permission** prompt.
 
 ![Microsoft Azure Storage Explorer - Manage directory ACLs](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
-The **Manage Permission** prompt will allow you to manage ACLs for existing users and add new users for whom you can then manage ACLs. To learn about ACLs, including default ACLs, access ACLs, their behavior, and the permissions, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
+The **Manage Permission** prompt will allow you to manage permissions for existing users and add new users for whom you can then manage permissions. To learn about permissions, including default permissions, access permissions, and their behavior, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
 
-We recommend creating security groups and maintaining ACLs on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
+We recommend creating security groups and maintaining permissions on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
 
-You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing ACLs on directories and files is the same as described above.
+You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing permissions on directories and files is the same as described above.
