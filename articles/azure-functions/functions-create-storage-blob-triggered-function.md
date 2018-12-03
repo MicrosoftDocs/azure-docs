@@ -15,8 +15,10 @@ ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Blob storage
+建立一个被Azure Blob Storage 触发的功能
 
 Learn how to create a function triggered when files are uploaded to or updated in Azure Blob storage.
+学习如何建立一个功能，当文件在Azure Blob Storage被上传或者更新时触发。
 
 ![View message in the logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
