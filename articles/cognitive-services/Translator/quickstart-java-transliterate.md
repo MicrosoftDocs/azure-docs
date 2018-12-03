@@ -23,7 +23,6 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 * [Gradle](https://gradle.org/install/)
 * An Azure subscription key for Translator Text
 
-
 ## Initialize a project with Gradle
 
 Let's start by creating a working directory for this project. From the command line (or terminal), run this command:
