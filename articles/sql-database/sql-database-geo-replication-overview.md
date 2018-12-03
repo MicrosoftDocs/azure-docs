@@ -23,12 +23,14 @@ Active geo-replication is designed as a business continuity solution that allows
 
 > [!NOTE]
 > Active geo-replication is available for all databases in all service tiers in all regions.
-> Active geo-replication is not supported for databases created within a managed instance. Consider using [failover groups](#auto-failover-group-capabilities) with Managed Instances.
+> Active geo-replication is not supported for databases created within a Managed Instance. Consider using [failover groups](#auto-failover-group-capabilities) with Managed Instances.
 
 Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases simultaneously using application-initiated failover or by delegating failover to be done by the SQL Database service based on a user-defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
 > Use active geo-replication if multiple secondaries are required.
+> [!IMPORTANT]
+> Support for auto-failover for Managed Instances in is public preview.
 
 If you are using active geo-replication and for any reason your primary database fails, or simply needs to be taken offline, you can initiate failover to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary. If you are using auto-failover groups to manage database recovery and any outage that impacts one or several of the databases in the group results in automatic failover. You can configure the auto-failover policy that best meets your application needs, or you can opt out and use manual activation. In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the end-points to the new region.
 
@@ -101,6 +103,9 @@ The active geo-replication feature provides the following essential capabilities
 
 Auto-failover groups feature provides a powerful abstraction of active geo-replication by supporting group level replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points.
 
+> [!IMPORTANT]
+> Managed Instances support auto-failover groups as a public preview features. See [Best practices of using failover groups with Managed Instances](#best-practices-of-using-failover-groups-with-managed-instances)
+
 - **Failover group**
 
   One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region.  
@@ -119,9 +124,8 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 
   > [!NOTE]
   > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
-
-> [!IMPORTANT]
-> In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
+  > [!IMPORTANT]
+  > In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
 
 - **Failover group read-write listener**
 
@@ -233,7 +237,7 @@ If your application uses managed instance as the data tier, follow these general
 > Use manual group failover to move primaries back to the original location: When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
 
 > [!IMPORTANT]
-> The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using portal then the UI will indicate completion status. If it is initiated using the REST API, use standard ARM’s polling mechanism to monitor for completion.
+> The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using the Azure portal then the UI will indicate completion status. If it is initiated using the REST API, use standard ARM’s polling mechanism to monitor for completion.
 
 ## Failover groups and network security
 
@@ -246,12 +250,10 @@ If you are using [Virtual Network service endpoints and rules](sql-database-vnet
 1. Provision the redundant copies of the front-end components of your application (web service, virtual machines etc.) in the secondary region
 2. Configure the [virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) individually for primary and secondary server
 3. Enable the [front-end failover using a Traffic manager configuration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
-4. Initiate manual failover when the outage is detected
-
-This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage.
+4. Initiate manual failover when the outage is detected. This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage.
 
 > [!NOTE]
-> If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resorce in the secondary region so it can connect to the secondary database.
+> If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resource in the secondary region so it can connect to the secondary database.
 
 ### Using failover groups and SQL database firewall rules
 
@@ -339,7 +341,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 ##### Install the newest pre-release version of Powershell
 
-1. Update the powershellget module to 1.6.5 (or newest preview version). See PowerShell preview site. https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview.
+1. Update the powershellget module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
       install-module powershellget -MinimumVersion 1.6.5 -force
@@ -356,7 +358,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 ##### Prerequisites Before Setting Up
 
-- The two Managed Instances need to be in different geographical regions. 
+- The two Managed Instances need to be in different geographical regions.
 - Your secondary must be empty (no user databases).
 - The primary and secondary Managed Instances need to be in the same Resource Group.
 - The VNets that the Managed Instances are part of need to be [connected through a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet Peering is not supported.
