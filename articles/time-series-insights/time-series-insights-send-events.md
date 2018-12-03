@@ -26,7 +26,7 @@ This article explains how to create and configure event hub and run a sample app
 
 5. Select the name of the event hub to configure it.
 
-  ![Select event hub consumer group](media/send-events/consumer-group.png)
+   ![Select event hub consumer group](media/send-events/consumer-group.png)
 
 6. Under **Entities**, select **Consumer groups**.
  
@@ -39,9 +39,9 @@ This article explains how to create and configure event hub and run a sample app
 
 9. On the event hub, create **MySendPolicy** that is used to send events in the csharp sample.
 
-  ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
+   ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
 
-  ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
+   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Add Time Series Insights reference data set 
 Using reference data in TSI contextualizes your telemetry data.  That context adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location or sensor type are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
@@ -60,7 +60,7 @@ For more information on managing reference data in Time Series Insights, see the
 
 2. Specify **deviceTimestamp** as the timestamp property name – this property is used as the actual timestamp in the C# sample. The timestamp property name is case-sensitive and values must follow the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
 
-  ![Create event source](media/send-events/event-source-1.png)
+   ![Create event source](media/send-events/event-source-1.png)
 
 ## Sample code to push events
 1. Go to the event hub policy named **MySendPolicy**. Copy the **connection string** with the policy key.

@@ -35,11 +35,11 @@ The following major changes are introduced in compatibility level 1.1:
 
   * **previous versions:** Azure Stream Analytics used DataContractSerializer, so the message content included XML tags. For example:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **current version:** The message content contains the stream directly with no additional tags. For example:
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **Persisting case-sensitivity for field names**  
 
@@ -47,8 +47,8 @@ The following major changes are introduced in compatibility level 1.1:
 
   * **current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
 
-  > [!NOTE] 
-  > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
+    > [!NOTE] 
+    > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 

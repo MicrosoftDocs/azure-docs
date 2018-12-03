@@ -51,8 +51,8 @@ The sign-in flow on a web browser is as follows:
 2. If the user is not already signed in, the user is redirected to the Azure AD sign-in page.
 3. The user types in their user name into the Azure AD sign-in page.
 
-  >[!NOTE]
-  >For [certain applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steps 2 & 3 are skipped.
+   >[!NOTE]
+   >For [certain applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steps 2 & 3 are skipped.
 
 4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
 5. The browser, in turn, requests a ticket from Active Directory for the `AZUREADSSOACC` computer account (which represents Azure AD).
