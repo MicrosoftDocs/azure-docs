@@ -34,7 +34,7 @@ Wordpress on a VM was chosen because it is one of the least expensive resources 
     1.	Give the virtual machine a unique name. I named mine “VNET-Wordpress”
     1.	Select the region closest to you
     1.	Select the size as B1s (1 vcpu, 1 GB memory)
-    1.	For the administrator account, choose password authentification and enter a unique username and password. For this tutorial, you will not need to sign in to the VM unless you need to troubleshoot.
+    1.	For the administrator account, choose password authentication and enter a unique username and password. For this tutorial, you will not need to sign in to the VM unless you need to troubleshoot.
     1. ![5]
 1. Move to the networking tab and enter the following information:
     1.	Create a new virtual network
