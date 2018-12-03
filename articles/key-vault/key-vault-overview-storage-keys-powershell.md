@@ -99,7 +99,6 @@ Note that permissions for storage accounts aren't available on the storage accou
 Using the same PowerShell session, create a managed storage account in your Key Vault instance. The  `-DisableAutoRegenerateKey` switch specifies NOT to regenerate the storage account keys.
 
 ```azurepowershell-interactive
-
 # Add your storage account to your Key Vault's managed storage accounts
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
@@ -126,8 +125,6 @@ If you want Key Vault to regenerate your storage account keys periodically, you 
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-$accountName = $storage.StorageAccountName
-
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
