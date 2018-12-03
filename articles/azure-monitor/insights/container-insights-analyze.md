@@ -125,7 +125,7 @@ When you mouse over the bar graph under the **Trend** column, each bar shows the
 
 ![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
-In the next example, note for node *aks-nodepool1-*, the value for **Containers** is 14, which is a roll-up of the total number of containers deployed.
+In the next example, note for the first in the list - node *aks-nodepool1-*, the value for **Containers** is 9, which is a roll-up of the total number of containers deployed.
 
 ![Roll-up of containers per node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
