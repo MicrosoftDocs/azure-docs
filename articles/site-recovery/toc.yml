@@ -55,8 +55,10 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-    - name: Migrate Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md
+  - name: Move Azure VMs
+    items:
+    - name: Move Azure VMs to another region
+      href: azure-to-azure-tutorial-migrate.md 
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
