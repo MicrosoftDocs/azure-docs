@@ -10,7 +10,7 @@ ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ---
 
 # Explore the Azure Time Series Insights (preview) demo environment

@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ---
 
 # Azure Time Series Insights overview

@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
 # How to diagnose and troubleshoot
@@ -17,13 +17,13 @@ This article summarizes several common problems you might encounter working with
 
 ## Problem: I can’t find my environment in the Time Series Insights (preview) explorer
 
-This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in Azure Portal.
+This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in [Azure Portal](https://portal.azure.com/).
 
   ![environment][1]
 
 ## Problem: No data is seen in the Time Series Insights (preview) explorer
 
-There are several common reasons why you might not see your data in the [Azure TSI explorer](https://insights.timeseries.azure.com/):
+There are several common reasons why you might not see your data in the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md):
 
 1. Your event source may not be receiving data.
 

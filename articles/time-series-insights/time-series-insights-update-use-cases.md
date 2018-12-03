@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/03/2018
 ---
 
 # Azure Time Series Insights (preview) use cases
@@ -79,6 +79,6 @@ To plan out your environment, read [TSI (preview) planning](./time-series-insigh
 Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
 
 <!-- Images -->
-[1]: media/v2-update-use-cases/data-explorer.png
-[2]: media/v2-update-use-cases/overview.png
-[3]: media/v2-update-use-cases/advanced-analytics.png
+[1]: media/v2-update-use-cases/data-explorer.svg
+[2]: media/v2-update-use-cases/overview.svg
+[3]: media/v2-update-use-cases/advanced-analytics.svg
