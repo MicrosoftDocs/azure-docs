@@ -13,9 +13,9 @@ ms.date: 12/03/2018
 
 # Data modeling in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following the Azure Time Series Insights (preview). It details several common data scenarios.
+This document describes how to work with **Time Series Models** following the Azure Time Series Insights (Preview). It details several common data scenarios.
 
-Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the update.
+Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the update.
 
 ## Types
 
@@ -127,7 +127,7 @@ Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.m
 
 Read about [Data modeling](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
 
-View the Azure TSI (preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
+View the Azure TSI (Preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
 
 Learn about supported JSON shapes by reading [Supported JSON Shapes](./time-series-insights-send-events.md#json).
 

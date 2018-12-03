@@ -1,6 +1,6 @@
 ﻿---
-title: How to diagnose and troubleshoot the Azure Time Series Insights (preview) | Microsoft Docs
-description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights (preview) 
+title: How to diagnose and troubleshoot the Azure Time Series Insights (Preview) | Microsoft Docs
+description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights (Preview) 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -15,15 +15,15 @@ ms.date: 12/03/2018
 
 This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
 
-## Problem: I can’t find my environment in the Time Series Insights (preview) explorer
+## Problem: I can’t find my environment in the Time Series Insights (Preview) explorer
 
 This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in [Azure Portal](https://portal.azure.com/).
 
   ![environment][1]
 
-## Problem: No data is seen in the Time Series Insights (preview) explorer
+## Problem: No data is seen in the Time Series Insights (Preview) explorer
 
-There are several common reasons why you might not see your data in the [Azure TSI (preview) Explorer](https://insights.timeseries.azure.com/preview):
+There are several common reasons why you might not see your data in the [Azure TSI (Preview) explorer](https://insights.timeseries.azure.com/preview):
 
 1. Your event source may not be receiving data.
 
@@ -94,7 +94,7 @@ If the **Timestamp** property isn’t explicitly specified, we will leverage an 
 
    Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
 
-## Problem: All my instances in Time Series Insights (preview) explorer don’t have a parent
+## Problem: All my instances in Time Series Insights (Preview) explorer don’t have a parent
 
 This may occur if your environment doesn’t have a **Time Series Model** Hierarchy defined. See this article for more information on [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 

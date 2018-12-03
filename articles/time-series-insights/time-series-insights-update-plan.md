@@ -1,6 +1,6 @@
 ﻿---
-title: Plan your Azure Time Series Insights (preview) environment | Microsoft Docs
-description: Plan your Azure Time Series Insights (preview) environment 
+title: Plan your Azure Time Series Insights (Preview) environment | Microsoft Docs
+description: Plan your Azure Time Series Insights (Preview) environment 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Plan your Azure Time Series Insights (preview) environment
+# Plan your Azure Time Series Insights (Preview) environment
 
-This article describes best practices to plan and get started quickly using the Azure Time Series Insights (preview).
+This article describes best practices to plan and get started quickly using the Azure Time Series Insights (Preview).
 
 ## Best practices for planning and preparation
 
 To get started with Time Series Insights (TSI), it’s best if you understand the following:
 
-* What you are getting when you provision a TSI (preview) environment.
+* What you are getting when you provision a TSI (Preview) environment.
 * What your **Time Series IDs** and **Timestamp** properties are.
 * What the new **Time Series Model** is and how to build your own.
 * How to send events efficiently in JSON.  
@@ -27,11 +27,11 @@ To get started with Time Series Insights (TSI), it’s best if you understand th
 
 The Time Series Insights update employs a pay-as-you-go business model.  For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## The Time Series Insights (preview) environment
+## The Time Series Insights (Preview) environment
 
 When you provision a TSI (Preview) environment, you create two Azure resources:
 
-* TSI (preview) environment
+* TSI (Preview) environment
 * Azure storage general-purpose V1 account
 
 To get going, you’ll need three additional items.  The first is a [Time Series Model](./time-series-insights-update-tsm.md), the second is an [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), and the third is [events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.  
@@ -102,6 +102,6 @@ The specific steps to accomplish this are as follows:
 
 ## Next steps
 
-Read the [Azure TSI (preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
 
 Read about [Data modeling](./time-series-insights-update-tsm.md).

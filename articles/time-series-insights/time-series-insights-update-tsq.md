@@ -52,16 +52,16 @@ The following are the time series model query APIs available:
 
 The following are the time series query APIs available:
 
-* [GET EVENTS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query) – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider.
+* [GET EVENTS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api) – The getEvents API enables query and retrieval of Time Series Insights data from events as they are recorded in Time Series Insights from the source provider.
 
-* [GET SERIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query)  – Enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline.
+* [GET SERIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api)  – Enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline.
 
     >[!NOTE]
     > The Aggregation clause is ignored in getSeries, even if specified part of variables in model or provided inline.
 
   The getSeries API returns a TSV (Time Series Value, a format Time Series Insights use for output JSON from query) for each variable for each interval, based on the provided Time Series ID and the set of provided variables.
 
-* [GET AGGREGATE API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query) – Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
+* [GET AGGREGATE API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api) – Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
 
   The aggregateSeries API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The aggregateSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
 
@@ -69,9 +69,9 @@ The following are the time series query APIs available:
 
 ## Next steps
 
-Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (Preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+Read about [Data modeling](./time-series-insights-update-tsm.md).
 
 Read about [Best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md).
 

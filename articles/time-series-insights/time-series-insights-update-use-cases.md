@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Azure Time Series Insights (preview) use cases
+# Azure Time Series Insights (Preview) use cases
 
 This article provides an overview of several common use cases for Azure Time Series Insights (TSI). The recommendations in this article serve as a starting point as you develop applications and solutions with TSI.
 
@@ -74,7 +74,7 @@ Second, Time Series Insights can be fed the output of machine learning and predi
 
 Learn more about the [TSI explorer](./time-series-insights-update-explorer.md).
 
-To plan out your environment, read [TSI (preview) planning](./time-series-insights-update-plan.md).
+To plan out your environment, read [TSI (Preview) planning](./time-series-insights-update-plan.md).
 
 Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
 

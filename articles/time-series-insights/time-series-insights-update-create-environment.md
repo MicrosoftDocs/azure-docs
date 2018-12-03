@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ---
 
-# Azure Time Series Insights (preview) tutorial
+# Azure Time Series Insights (Preview) tutorial
 
-This tutorial will guide you through the process of creating an Azure Time Series Insights (TSI) update environment, populated with data from simulated devices. In this tutorial, you learn how to:
+This tutorial will guide you through the process of creating an Azure Time Series Insights (TSI) Preview environment, populated with data from simulated devices. In this tutorial, you learn how to:
 
-* Create a TSI Preview environment.
-* Connect the TSI Preview environment to an Event Hub.
+* Create a TSI (Preview)environment.
+* Connect the TSI (Preview) environment to an Event Hub.
 * Run a wind farm simulation to stream data into the TSI Preview environment.
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy and associate it with your instances.
 
-## Create a Time Series Insights (preview) environment
+## Create a Time Series Insights (Preview) environment
 
-This section describes how to create an Azure TSI (preview) environment using the [Azure Portal](https://portal.azure.com/).
+This section describes how to create an Azure TSI (Preview) environment using the [Azure Portal](https://portal.azure.com/).
 
 1. Sign into Azure Portal using your subscription account
 1. Select **+ Create a resource** in the upper left.
@@ -142,9 +142,9 @@ In this section, you will author a type, hierarchy, and associate them with your
 
 In this tutorial, you learned how to:  
 
-* Create a TSI (preview) environment.
-* Connect the TSI (preview) environment to an Event Hub.
-* Run a wind farm simulation to stream data into the TSI (preview) environment.
+* Create a TSI (Preview) environment.
+* Connect the TSI (Preview) environment to an Event Hub.
+* Run a wind farm simulation to stream data into the TSI (Preview) environment.
 * Perform basic analysis on the data.
 * Define a Time Series Model type, hierarchy, and associate it with your instances.
 
@@ -153,12 +153,12 @@ Now that you know how to create your own TSI update environment, learn more abou
 Read about TSI storage configuration:
 
 > [!div class="nextstepaction"]
-> [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md)
+> [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md)
 
 Learn more about Time Series Models:
 
 > [!div class="nextstepaction"]
-> [Azure TSI (preview) TSM](./time-series-insights-update-tsm.md)
+> [Azure TSI (Preview) Data modeling](./time-series-insights-update-tsm.md)
 
 <!-- Images -->
 [1]: media/v2-update-provision/tutorial-one.png

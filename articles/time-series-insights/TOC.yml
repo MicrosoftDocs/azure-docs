@@ -4,7 +4,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Time Series Insights (Preview)
+  - name: About Time Series Insights
     href: time-series-insights-update-overview.md
 - name: Quickstarts
   items:
@@ -108,26 +108,26 @@
   items:
   - name: Time Series Insights 
     items:
-    - name: Time Series Insights GA
+    - name: Azure Time Series Insights GA
       items:
       - name: Query
         items:
         - name: API
-          href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+          href: /rest/api/time-series-insights/ga-query-api
         - name: Syntax
-          href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+          href: /rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
-        items:
+        items: /rest/api/time-series-insights/ga-reference-data-api
     - name: Azure Time Series Insights (Preview)
       items:
-      - name: Time Series Query
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsq
-      - name: Time Series Model
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsm
       - name: Time Series Environment API
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-env
+        href: /rest/api/time-series-insights/preview-env
+      - name: Time Series Model
+        href: /rest/api/time-series-insights/preview-model
+      - name: Time Series Query
+        href: /rest/api/time-series-insights/preview-query
       - name: Time Series Expression and Syntax
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsx
+        href: /rest/api/time-series-insights/preview-tsx
 - name: Related
   items:
   - name: Solutions

@@ -21,7 +21,7 @@ Traditionally, the data collected from IoT devices lacks contextual information 
 
 ## Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure TSI (preview):
+With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure TSI (Preview):
 
 * The ability to author and manage computations or formulas, to transform data leveraging scalar functions, aggregate operations, etc.
 * Defining parent child relationships to enable navigation and reference to provide context to time series telemetry.
@@ -181,7 +181,7 @@ Variable values are and should be used in computation. This is the column in the
 
 The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
 
-The Azure TSI (preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
+The Azure TSI (Preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
 
 ### Variable aggregation
 
@@ -365,7 +365,7 @@ Response:
 
 ## Next steps
 
-Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
 
 Read the about the new [Time series model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
