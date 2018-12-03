@@ -98,7 +98,7 @@ public class Translate {
 Add these lines to the `Translate` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
 
 ```java
-String subscriptionKey = "ae3194e69b09498ea39245a8e399e6c0";
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de,it";
 ```
 
