@@ -80,7 +80,7 @@ With the introduction of these key industrial IoT capabilities, Azure TSI provid
   * Azure Time Series Insights supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of Time Series Insights platform to suit the needs of individual businesses.
   * Customers can also use Time Series Insights query APIs directly to drive data into custom IoT applications.
 
-## Next Steps
+## Next steps
 
 You are ready to get started with the Azure TSI Private Preview:
 
