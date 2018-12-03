@@ -30,32 +30,19 @@ Certain limitations apply when you deploy a container registry groups to a virtu
 ## Prerequisites
 
 * CLI version?
-* User permissions required on network resources?
-* ?
+* User permissions required on network resources? Prob none
 
+This article assumes you will use a Docker-enabled virtual machine in a virtual network that you want to use to access an Azure container registry. If you already have a virtual machine, you can skip the first step to create a virtual machine in a virtual network 
 
+## Create a Docker-enabled virtual machine.
 
-
-
-## Access a container registry in a VNet from an AKS cluster
-
-
-### Create a virtual network [check for supported regions]
-
-Before you can create a virtual network, you must create a resource group to contain the virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+First, you must create a resource group to contain the virtual machine and virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
-
-```azurecli
-az network vnet create \
-  --name myVirtualNetwork \
-  --resource-group myResourceGroup \
-  --subnet-name default
-```
+Now use cloud-init to deploy an Azure virtual machine that runs Docker.
 
 ### Add a service endpoint for Azure Container Registry [confirm CLI]
 
