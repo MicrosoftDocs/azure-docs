@@ -79,7 +79,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
     * To manually configure your connection, click the **Switch to manual configuration** link.
 
-        For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually) (advanced option) section that follows.
+        For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually-advanced-option) (advanced option) section that follows.
 6. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
