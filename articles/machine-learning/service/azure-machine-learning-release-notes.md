@@ -18,7 +18,7 @@ In this article, learn about the Azure Machine Learning service releases.
 
 Azure Machine Learning service is now generally available.
 
-### Azure Machine Learning Data Prep SDK v1.0.0
+### Azure Machine Learning Data Prep SDK v0.5.2
 
 + **Breaking changes** 
   * `SummaryFunction.N` was renamed to `SummaryFunction.Count`.
