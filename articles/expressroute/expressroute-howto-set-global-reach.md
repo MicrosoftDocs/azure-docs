@@ -66,7 +66,8 @@ $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGro
 Run the following command against circuit 1, and then pass in the private peering ID of circuit 2.
 
 > [!NOTE]
-> The private peering ID looks like the following: */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering*
+> The private peering ID looks like the following: 
+*/subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering*
 > 
 >
 
