@@ -128,7 +128,9 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
     |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
 
+
     This API returns an array of JSON objects such as:
+
 
     ```JSON
     [{
