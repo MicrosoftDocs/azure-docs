@@ -91,7 +91,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Create or attach existing AMlCompute
 
-Azure Machine Learning Managed Compute(AmlCompute) is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create AmlCompute as your training environment. This code creates compute for you if it does not already exist in your workspace.
+Azure Machine Learning Managed Compute(AmlCompute) is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create AmlCompute as your training environment. This code creates the compute clusters for you if it does not already exist in your workspace.
 
  **Creation of the compute takes approximately 5 minutes.** If the compute is already in the workspace this code uses it and skips the creation process.
 
