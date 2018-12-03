@@ -7,6 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
+ms.date: 12/04/2018
 
 ---
 # Azure Machine Learning for Visual Studio Code (Preview): Train and deploy ML models from VS Code
