@@ -69,7 +69,7 @@
       - name: Authentication and authorization
         href: operator-best-practices-identity.md
       - name: Business continuity (BC) and disaster recovery (DR)
-        href: operator-best-practices-bc-dr.md
+        href: operator-best-practices-multi-region.md
     - name: For application developers
       items:
       - name: Resource management
