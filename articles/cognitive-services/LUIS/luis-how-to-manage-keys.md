@@ -129,28 +129,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
 
 
-    This API returns an array of JSON objects such as:
-
-
-    ```JSON
-    [{
-      "AzureSubscriptionId": "aaad9379-a62c-4b5d-84ab-52f2b0fc40ac",
-      "ResourceGroup": "resourcegroup-1",
-      "AccountName": "luis-uswest-F0-1"
-    }, {
-      "AzureSubscriptionId": "bbbd9379-a62c-4b5d-84ab-52f2b0fc40ac",
-      "ResourceGroup": "resourcegroup-2",
-      "AccountName": "luis-uswest-S0-1"
-    }, {
-      "AzureSubscriptionId": "cccd9379-a62c-4b5d-84ab-52f2b0fc40ac",
-      "ResourceGroup": "resourcegroup-1",
-      "AccountName": "luis-uswest-F0-2"
-    }, {
-      "AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",
-      "ResourceGroup": "resourcegroup-2",
-      "AccountName": "luis-uswest-S0-2"
-    }]
-    ```
+    This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. 
 
     Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
 
