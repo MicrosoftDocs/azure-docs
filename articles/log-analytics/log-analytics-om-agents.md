@@ -6,12 +6,10 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
@@ -33,7 +31,7 @@ The following diagram shows the connection between the management servers and ag
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to the Log Analytics service, see [Connect computers to Log Analytics using the Log Analytics gateway](log-analytics-oms-gateway.md).  
+If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to the Log Analytics service, see [Connect computers to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md).  
 
 ## Prerequisites 
 Before starting, review the following requirements.

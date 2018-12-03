@@ -224,7 +224,6 @@ This setting applies to the following client apps:
 - Microsoft To-Do
 - Microsoft Stream
 - Microsoft Edge
-- Microsoft Delve
 
 
 
