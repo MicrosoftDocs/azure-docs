@@ -207,7 +207,10 @@ For example, a web app might look like the following:
     "name": "[variables('appName')]",
     "location": "[resourceGroup().location]",
     "identity": {
-        "type": "UserAssigned"
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
+        }
     },
     "properties": {
         "name": "[variables('appName')]",
@@ -217,7 +220,8 @@ For example, a web app might look like the following:
         "alwaysOn": true
     },
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
     ]
 }
 ```
