@@ -56,7 +56,12 @@ At its core, App Service is a service running on top of the Azure PaaS (platform
 - An application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers)
 - A "user" drive (the C:\ drive), whose size varies depending on the size of the VM. 
 
-It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application.
+It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application. For example: 
+
+- The app may throw an error indicating not enough space on the disk.
+- You may see disk errors when browsing to the Kudu console.
+- Deployment from VSTS or Visual Studio may fail with `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Your app may suffer slow performance.
 
 <a id="NetworkDrives"></a>
 

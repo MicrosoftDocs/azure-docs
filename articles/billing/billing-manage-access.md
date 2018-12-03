@@ -68,9 +68,10 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
 1. Select **Access control (IAM)**.
 1. Select **Role assignments** to view all the role assignments for this subscription.
-1. Select **Add** > **Add role assignment**.
+1. Select **Add role assignment**.
 1. In the **Role** drop-down list, choose **Billing Reader**.
 1. In the **Select** textbox, type the name or email for the user you want to add.
+1. Select the user.
 1. Select **Save**.
 1. After a few moments, the user is assigned the Billing Reader role at the subscription scope.
 1. The Billing Reader receives an email with a link to sign in.
@@ -98,6 +99,6 @@ The Account Administrator is the legal owner of the subscription. By default, th
 - Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 - For more information about roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

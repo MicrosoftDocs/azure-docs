@@ -1,5 +1,5 @@
 ---
-title: Tutorial - How to use Azure Key Vault with Azure Linux Virtual Machine in Python | Microsoft Docs
+title: Tutorial - How to use Azure Key Vault with Azure Windows Virtual Machine in Python | Microsoft Docs
 description: Tutorial Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
@@ -15,7 +15,7 @@ ms.author: pryerram
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial: How to use Azure Key Vault with Azure Linux Virtual Machine in Python
+# Tutorial: How to use Azure Key Vault with Azure Windows Virtual Machine in Python
 
 Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
 

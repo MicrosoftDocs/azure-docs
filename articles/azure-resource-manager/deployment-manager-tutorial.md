@@ -149,7 +149,7 @@ You need to create a user-assigned managed identity and configure the access con
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. From the portal, select **Subscriptions** from the left menu, and then select your subscription.
-4. Select **Access control (IAM)**, and then select **Add**
+4. Select **Access control (IAM)**, and then select **Add role assignment**.
 5. Enter or select the following values:
 
     ![Azure Deployment Manager tutorial user-assigned managed identity access control](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)

@@ -106,7 +106,7 @@ Run the following commands from a shell:
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### CLI
