@@ -10,15 +10,15 @@
  ms.custom: include file
 ---
 
-One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section we'll be using the [IoT Edge Modules section of the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules), to deploy a module that generates telemetry for your simulated device.
+One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section we'll be using a pre-built module from [IoT Edge Modules section of the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). We'll deploy a module that generates telemetry for your simulated device.
 
 1. In the Azure portal, search for and open the **Simulated Temperature Sensor** module from the Marketplace.
 
    ![Simulated Temperature Sensor in Azure portal search](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. In the **Subscription** field, select the subscription with the IoT Hub you're using, if it is not already.
+2. In the **Subscription** field, select the subscription with the IoT Hub you're using, if it's not already.
 
-3. In the **IoT Hub** field, select the name of the IoT Hub you're using, if it is not already.
+3. In the **IoT Hub** field, select the name of the IoT Hub you're using, if it's not already.
 
 4. In the **IoT Edge Device Name** field, enter `myEdgeDevice`, then select **Create**.
 
