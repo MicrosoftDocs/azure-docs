@@ -105,7 +105,7 @@ When you click any item in one of the lists, you see additional details about it
 
 ![AD replication status errors in search results](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-From here, you can filter further, modify the search query, and so on. For more information about using the Log Search, see [Log searches](../../log-analytics/log-analytics-queries.md).
+From here, you can filter further, modify the search query, and so on. For more information about using the Log Search, see [Log searches](../../azure-monitor/log-query/log-query-overview.md).
 
 The **HelpLink** field shows the URL of a TechNet page with additional details about that specific error. You can copy and paste this link into your browser window to see information about troubleshooting and fixing the error.
 
@@ -149,4 +149,4 @@ If you need assistance connecting one of your domain controllers, you can view d
 If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed Active Directory Replication status data.
+* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Active Directory Replication status data.
