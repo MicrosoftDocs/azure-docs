@@ -72,7 +72,7 @@ There are three headers that you can use to authenticate your subscription. This
 The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header. Simply add the `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header to your request.
 
 ### Authorization token
-An alternative is to use your secret key to obtain an authorization token from the token service. Then, you pass the authorization token to the Translator service using the `Authorization` request header. To obtain an authorization token, make a `POST` request to the following URL:
+Alternatively, you can exchange your secret key for an access token. This token is included with each request as the `Authorization` header. To obtain an authorization token, make a `POST` request to the following URL:
 
 | Environment     | Authentication service URL                                |
 |-----------------|-----------------------------------------------------------|
