@@ -242,7 +242,7 @@ To use the Azure-supported Zulu JDK in your containers, make sure to pull and us
 
 App Service for Linux supports two runtimes for managed hosting of Java web applications:
 
-- The [Tomcat servlet container](http://tomcat.apache.org/) for running applications packaged as web archive (WAR) files. Supported versions are 8.5 and 9.0.
+- The [Tomcat servlet container](https://tomcat.apache.org/) for running applications packaged as web archive (WAR) files. Supported versions are 8.5 and 9.0.
 - Java SE runtime environment for running applications packaged as Java archive (JAR) files. The only supported major version is Java 8.
 
 ## Java runtime statement of support 
