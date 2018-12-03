@@ -20,7 +20,7 @@ ms.component:
 
 # Create a data pipeline with the Data Collector API
 
-The [Log Analytics Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) allows you to import any custom data into Log Analytics. The only requirements are that the data be JSON-formatted and split into 30 MB or less segments. This is a completely flexible mechanism that can be plugged into in many ways: from data being sent directly from your application, to one-off adhoc uploads. This article will outline some starting points for a common scenario: the need to upload data stored in files on a regular, automated basis. While the pipeline presented here will not be the most performant or otherwise optimized, it is intended to serve as a starting point towards building a production pipeline of your own.
+The [Log Analytics Data Collector API](../../azure-monitor/platform/data-collector-api.md) allows you to import any custom data into Log Analytics. The only requirements are that the data be JSON-formatted and split into 30 MB or less segments. This is a completely flexible mechanism that can be plugged into in many ways: from data being sent directly from your application, to one-off adhoc uploads. This article will outline some starting points for a common scenario: the need to upload data stored in files on a regular, automated basis. While the pipeline presented here will not be the most performant or otherwise optimized, it is intended to serve as a starting point towards building a production pipeline of your own.
 
 ## Example problem
 For the remainder of this article, we will examine page view data in Application Insights. In our hypothetical scenario, we want to correlate geographical information collected by default by the Application Insights SDK to custom data containing the population of every country in the world, with the goal of identifying where we should be spending the most marketing dollars. 
@@ -169,4 +169,4 @@ This article presented a working prototype, the logic behind which can be applie
 
 
 ## Next steps
-Learn more about the  [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.
+Learn more about the  [Data Collector API](../../azure-monitor/platform/data-collector-api.md) to write data to Log Analytics from any REST API client.

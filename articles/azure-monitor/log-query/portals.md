@@ -19,7 +19,7 @@ ms.component:
 There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
 ## Log Analytics page
-Open the Log Analytics page from **Logs** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](../azure-monitor/log-query/get-started-portal.md).
+Open the Log Analytics page from **Logs** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](../../azure-monitor/log-query/get-started-portal.md).
 
 The Log Analytics page provides the following improvements over the [Log search (classic)](#log-search-classic) experience.
 
@@ -36,7 +36,7 @@ The Log Analytics page provides the following improvements over the [Log search 
 > [!NOTE]
 > The Log Analytics page has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with this new page.
 
-![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
+![Advanced Analytics portal](media/portals/advanced-analytics-portal.png)
 
 ### Resource logs
 The new Log Analytics experience integrates with various Azure resources such as Virtual Machines. This means that you can open the Log Analytics page directly through the resource's monitoring menu without switching to Azure Monitor or Log Analytics and losing the resource context. **Logs** has not yet been enabled for all Azure resources, but it will start appearing in the portal menu for different resources types.
@@ -66,11 +66,11 @@ Open the Log search page from **Logs (Classic)** in the Log Analytics menu or fr
 
 
 
-![Log Search page](media/log-analytics-log-search-portals/log-search-portal.png)
+![Log Search page](media/portals/log-search-portal.png)
 
 
 ## Next steps
 
-- Walk through a [tutorial using Log Search](log-analytics-tutorial-viewdata.md) to learn how to create queries using the query language
-- Walk through a [lesson using the Advanced Analytics portal](../azure-monitor/log-query/get-started-portal.md) which provides the same experience as the Log Analytics page.
+- Walk through a [tutorial using Log Search](../../log-analytics/log-analytics-tutorial-viewdata.md) to learn how to create queries using the query language
+- Walk through a [lesson using the Advanced Analytics portal](../../azure-monitor/log-query/get-started-portal.md) which provides the same experience as the Log Analytics page.
 
