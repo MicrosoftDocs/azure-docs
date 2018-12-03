@@ -116,9 +116,9 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 
 For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS resource to a LUIS app. In order to that, you need to perform the following steps:
 
-1. Get an Azure resource management (ARM) token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an ARM token.
+1. Get an Azure Resource Manager (ARM) token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an Azure Resource Manager token.
 
-    ![Request ARM token and receive ARM token](./media/luis-manage-keys/get-arm-token.png)
+    ![Request  Azure Resource Manager (ARM) token and receive  Azure Resource Manager (ARM) token](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
 
@@ -161,9 +161,9 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
     This POST API requires one query parameter:
 
-    * appid - The LUIS app ID. 
+    * `appid` - The LUIS app ID. 
 
-    This POST API also requires a body which is one of the items from the array in the previous step:
+    This POST API also requires a body, which is one of the items from the array in the previous step:
 
     ```JSON
     {
