@@ -176,8 +176,6 @@ Supported file types include:
 
 In public preview, Azure TSI (Preview) indexes data using a blob-size optimization strategy. That means  data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity).
 
-As we approach GA (General Availability), logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
-
 > [!IMPORTANT]
 > * GA TSI will make data available within 60 seconds of it hitting an event source.  
 > * During the preview we expect to see a longer period before the data is made available.  
