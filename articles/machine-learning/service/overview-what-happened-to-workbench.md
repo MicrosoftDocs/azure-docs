@@ -92,11 +92,11 @@ Yes, they will continue to work until January (see the [timeline](#timeline) abo
 
 In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
-## What about VS Code Tools for AI?
+## What about Azure Machine Learning for Visual Studio Code?
 
-With this latest release, the Visual Studio (VS) Code Tools for AI extension has been expanded and improved to work with the above new features.
+With this latest release, the Azure Machine Learning for Visual Studio (VS) Code extension has been expanded and improved to work with the above new features.
 
-[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ]
+[ ![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png) ]
 (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
