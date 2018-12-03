@@ -21,9 +21,9 @@ This tutorial will guide you through the process of creating an Azure Time Serie
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy and associate it with your instances.
 
-## Create a Time Series Insights update environment 
+## Create a Time Series Insights (preview) environment
 
-This section describes how to create a Time Series Insights update environment using the Azure Portal.
+This section describes how to create an Azure TSI (preview) environment using the [Azure Portal](https://portal.azure.com/).
 
 1. Sign into Azure Portal using your subscription account
 1. Select **+ Create a resource** in the upper left.
@@ -47,7 +47,7 @@ This section describes how to create a Time Series Insights update environment u
 
   ![tutorial-five][5]
 
-## Send Events to your TSI environment 
+## Send events to your TSI environment
 
 In this section, you will use a windmill device simulator to send events to your TSI environment via an Event Hub.
 
@@ -64,7 +64,7 @@ In this section, you will use a windmill device simulator to send events to your
 
   1. Click on **Click to Start** pushing events to your Event Hub. At this stage, a file named `instances.json` will be downloaded to your machine. Save this file as we will need this later.
 
-  1. Go back to your event hub. You should now see the new events being received by the hub.
+  1. Go back to your event hub. You should now see the new events being received by the hub.d
 
      ![tutorial-eight][8]
 
@@ -94,7 +94,7 @@ In this section, you will perform basic analytics on your time series data using
 
 ## Define a Type & Hierarchy 
 
-In this section, you will author a type & hierarchy and associate them with your time series instances. For more information on time series models, see this article. 
+In this section, you will author a type, hierarchy, and associate them with your time series instances. Read more about [Time Series Models](./time-series-insights-updates-tsm.md).
 
   1. In the explorer, click on the **Model** tab in the app bar.
 
@@ -120,7 +120,7 @@ In this section, you will author a type & hierarchy and associate them with your
 
      ![tutorial-twenty][20]
 
-  1. In the Instances section, select an instance and click on **Edit**. This will let you associate a type and hierarchy with this instance.
+  1. In the **Instances** section, select an instance and click on **Edit**. This will let you associate a type and hierarchy with this instance.
 
      ![tutorial-twenty-one][21]
 
@@ -130,23 +130,23 @@ In this section, you will author a type & hierarchy and associate them with your
 
   1. Alternatively, to do this for all instances at once, you can edit the `instances.json` file that was downloaded earlier. In this file, replace all **typeId** and **hierarchyId** fields with the ID obtained from steps 3, 5 above.
 
-  1. In the Instances section, click on **Upload JSON** and upload the edited `instances.json` file as shown below.
+  1. In the **Instances** section, click on **Upload JSON** and upload the edited `instances.json` file as shown below.
 
      ![tutorial-twenty-three][23]
 
-  1. Navigate to the Analytics tab and refresh your browser. You should now see all the instances associated with the type and hierarchy defined above.
+  1. Navigate to the **Analytics** tab and refresh your browser. You should now see all the instances associated with the type and hierarchy defined above.
 
      ![tutorial-twenty-four][24]
 
 ## Next steps
 
-In this tutorial, you learnt how to:  
+In this tutorial, you learned how to:  
 
-* Create a TSI update environment.
-* Connect the TSI update environment to an Event Hub.
-* Run a wind farm simulation to stream data into the TSI update environment.
+* Create a TSI (preview) environment.
+* Connect the TSI (preview) environment to an Event Hub.
+* Run a wind farm simulation to stream data into the TSI (preview) environment.
 * Perform basic analysis on the data.
-* Define a Time Series Model type & hierarchy and associate it with your instances.
+* Define a Time Series Model type, hierarchy, and associate it with your instances.
 
 Now that you know how to create your own TSI update environment, learn more about the key concepts in TSI.
 
