@@ -170,14 +170,13 @@ Supported event sources include:
 Supported file types include:
 
 * JSON
-  * For more on the supported JSON shapes we can handle, see the [Time Series Query](./time-series-insights-update-tsq.md) documentation.
+  * For more on the supported JSON shapes we can handle, see the [How to shape JSON](./time-series-insights-send-events.md#json) documentation.
 
 ### Data availability
 
 In public preview, Azure TSI (preview) indexes data using a blob-size optimization strategy. That means  data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity).
 
 As we approach GA (General Availability), logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
-
 
 > [!IMPORTANT]
 > * GA TSI will make data available within 60 seconds of it hitting an event source.  

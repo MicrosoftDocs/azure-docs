@@ -13,7 +13,7 @@ ms.date: 12/03/2018
 
 # Shaping events with Azure Time Series Insights (preview)
 
-This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (preview) queries.
+This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (TSI) preview queries.
 
 ## Best practices
 
@@ -103,7 +103,7 @@ Time Series Instance (Note: the **Time Series ID** is *deviceId*):
   },
 ```
 
-TSI joined table (after flattening) during query time. The table will include additional columns such as Type. This example demonstrates how you can shape your telemetry data:
+TSI joined table (after flattening) during query time. The table will include additional columns such as Type. This example demonstrates how you can [shape](./time-series-insights-send-events.md#json) your telemetry data:
 
 | deviceId	| Type | L1 | L2 | timestamp | series.Flow Rate ft3/s |	series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -125,3 +125,5 @@ Note the following in the previous example:
 ## Next steps
 
 To put these guidelines into practice, see [Azure TSI query syntax](./time-series-insights-query-data-csharp.md) to learn more about the query syntax for the TSI data access REST API.
+
+Learn about supported JSON shapes by reading [Supported JSON Shapes](./time-series-insights-send-events.md#json).

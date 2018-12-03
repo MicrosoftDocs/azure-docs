@@ -73,7 +73,7 @@ A good rule of thumb:
   * **Time Series ID**
   * **Timestamp**
 
-Review the [How to shape events](./time-series-insights-update-how-to-shape-events.md) article for greater detail.
+Review the [How to shape events](./time-series-insights-send-events.md#json) article for greater detail.
 
 ## Business disaster recovery
 

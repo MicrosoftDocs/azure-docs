@@ -72,6 +72,128 @@ The TSI update uses instances to add contextual data to incoming telemetry data.
 
    ![telemetry][7]
 
+<a id="json"></a>
+
+## Supported JSON shapes
+
+### Sample 1
+
+#### Input
+
+A simple JSON object.
+
+```json
+{
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
+}
+```
+
+#### Output - one event
+
+|id|timestamp|
+|--------|---------------|
+|device1|2016-01-08T01:08:00Z|
+
+### Sample 2
+
+#### Input
+
+A JSON array with two JSON objects. Each JSON object will be converted to an event.
+```json
+[
+    {
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
+    },
+    {
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
+    }
+]
+```
+
+#### Output - two events
+
+|id|timestamp|
+|--------|---------------|
+|device1|2016-01-08T01:08:00Z|
+|device2|2016-01-08T01:17:00Z|
+
+### Sample 3
+
+#### Input
+
+A JSON object with a nested JSON array that contains two JSON objects:
+```json
+{
+    "location":"WestUs",
+    "events":[
+        {
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
+        },
+        {
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
+        }
+    ]
+}
+
+```
+
+#### Output - two events
+
+Notice the property "location" is copied over to each of the event.
+
+|location|events.id|events.timestamp|
+|--------|---------------|----------------------|
+|WestUs|device1|2016-01-08T01:08:00Z|
+|WestUs|device2|2016-01-08T01:17:00Z|
+
+### Sample 4
+
+#### Input
+
+A JSON object with a nested JSON array containing two JSON objects. This input demonstrates that the global properties may be represented by the complex JSON object.
+
+```json
+{
+    "location":"WestUs",
+    "manufacturer":{
+        "name":"manufacturer1",
+        "location":"EastUs"
+    },
+    "events":[
+        {
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
+                "type":"pressure",
+                "units":"psi",
+                "value":108.09
+            }
+        },
+        {
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
+                "type":"vibration",
+                "units":"abs G",
+                "value":217.09
+            }
+        }
+    ]
+}
+```
+
+#### Output - two events
+
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+|---|---|---|---|---|---|---|---|
+|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
 ## Next steps
 
 > [!div class="nextstepaction"]
