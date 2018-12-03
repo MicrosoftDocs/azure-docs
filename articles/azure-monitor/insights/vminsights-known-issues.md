@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs (Preview) Known Issues | Microsoft Docs
-description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article covers known issues.
+title: Azure Monitor for VMs (preview) known issues | Microsoft Docs
+description: This article covers known issues with Azure Monitor for VMs, a solution in Azure that combines health and performance monitoring of the Azure VM operating system. Azure Monitor for VMs also automatically discovers application components and dependencies with other resources and maps the communication between them.
 services:  azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -18,44 +18,46 @@ ms.author: magoedte
 
 ---
 
-# Known issues with Azure Monitor for VMs (Preview)
+# Known issues with Azure Monitor for VMs (preview)
 
-The following are known issues with the Health feature of Azure Monitor for VMs:
+This article covers known issues with Azure Monitor for VMs, a solution in Azure that combines health and performance monitoring of the Azure VM operating system. 
 
-- The Health feature is enabled for all VMs connected to the Log Analytics workspace, even when it is initiated and completed from a single VM.
-- If after disabling monitoring for a VM using the supported methods, when onboarding is attempted again, it should be done to the same workspace.  If a new workspace is used, when viewing the health state for that VM, it may show anomalous behavior.
-- If an Azure VM doesn’t exist any more because it was removed or deleted, it will show up in the VM list view for three to seven days. Additionally, clicking on the state of a removed or deleted VM would launch the **Health Diagnostics** view for it, which then goes into a loading loop. Selecting the name of a deleted VM launches a blade with a message stating the VM has been deleted.
-- The time period and frequency of health criteria cannot be modified with this release. 
-- Health criteria cannot be disabled. 
-- After onboarding, it can take time before data is shown in Azure Monitor -> Virtual Machines -> Health or from the VM resource blade -> Insights
-- Health Diagnostics experience updates faster than any other view, so you may experience information delays when switching between views  
-- Alerts summary included with Azure Monitor for VM are only for alerts fired for health issues detected with monitored Azure VMs.
-- The **Alerts list** view page in the single VM and Azure Monitor shows alerts whose monitor condition is set to “fired” in past 30 days.  They are not configurable. However, after clicking on the summary, once the **Alert list** view page is launched, you can change the filter value of both the monitor condition and time range.
-- On the **Alerts list** view page, we suggest you don't modify the **Resource type**, **Resource**, and **Monitor Service** filters as they have been configured specific to the solution (this list view shows some extra fields as compared to the Azure monitor -> Alerts list view).    
-- In Linux VMs, **Health Diagnostics** view has the entire domain name of the VM instead of the user-defined VM name.
-- Shutting down VMs will update some of its health criteria to a critical state and others to a healthy state with net state of the VM in a critical state.
-- Health alert severity cannot be modified, they can only be enabled or disabled.  Additionally, some severities update based on the state of health criteria.
-- Modifying any setting of a health criterion instance, will lead to modification of the same setting across all the health criteria instances of the same type on the VM. For example, if the threshold of disk free space health criterion instance corresponding to logical disk C: is modified, then this threshold will apply to all other logical disks discovered and monitored for the same VM.   
-- Thresholds for the following health criteria targeting a Windows VM aren’t modifiable, since their health states are already set to **running** or **available**. When queried from the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), the health state shows the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
-   - DNS Client Service Health – Service is not running 
-   - DHCP client service health – Service is not running 
-   - RPC Service Health – Service is not running 
-   - Windows firewall service health – Service is not running
-   - Windows event log service health – Service is not running 
-   - Server service health – Service is not running 
-   - Windows remote management service health – Service is not running 
-   - File system error or corruption – Logical Disk is unavailable
+The following are known issues with the Health feature:
 
-- Thresholds for the following Linux health criteria aren’t modifiable, since their health state are already set to **true**.  The health state shows the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity depending on its context:
-   - Logical Disk Status – Logical disk is not online/ available
-   - Disk Status – Disk is not online/ available
+- The Health feature is enabled for all VMs that are connected to the Log Analytics workspace. This is so even when the action begins and ends in a single VM.
+- After you disable monitoring for a VM by using the supported methods and you try deploying it again, you should deploy it in the same workspace. If you use a new workspace and try to view the health state for that VM, it might display anomalous behavior.
+- If an Azure VM is removed or deleted, it's displayed in the VM list view for three to seven days. Additionally, clicking the state of a removed or deleted VM opens the **Health Diagnostics** view and then initiates a loading loop. Selecting the name of the deleted VM opens a pane with a message stating that the VM has been deleted.
+- The time period and frequency of health criteria can't be modified with this release. 
+- Health criteria can't be disabled. 
+- After deployment, it can take time before data is displayed in the **Azure Monitor** > **Virtual Machines** > **Health** pane or the **VM resource** > **Insights** pane.
+- The Health Diagnostics experience updates faster than any other view. The information might be delayed when you switch between views. 
+- The Alerts summary that's included with Azure Monitor for VM displays only alerts that result from health issues that are detected with monitored Azure VMs.
+- The **Alerts list** pane in the single VM and Azure Monitor displays alerts whose monitor condition is set to *fired* in the past 30 days. The alerts aren't configurable. However, after the **Alert list** pane opens, you can click the summary to change the filter value of both the monitor condition and time range.
+- In the **Alerts list** pane, we recommend not modifying the **Resource type**, **Resource**, and **Monitor Service** filters. They've been configured specific to the solution. This list view displays more fields than the **Azure monitor** > **Alerts** list view does.   
+- In Linux VMs, the **Health Diagnostics** view displays the entire domain name of the VM instead of the user-defined VM name.
+- Shutting down VMs updates some of health criteria to *critical* and others to *healthy*. The net VM state is displayed as *critical*.
+- Health alert severity can't be modified. It can only be enabled or disabled. Additionally, some severities are updated based on the state of health criteria.
+- If you modify any setting of a health criterion instance, all health criteria instances of the same type on the VM are modified. For example, if the threshold of disk free-space health criterion instance corresponding to logical disk C: is modified, this threshold will apply to all other logical disks that are discovered and monitored for the same VM.  
+- Thresholds for health criteria that target a Windows VM aren’t modifiable, because their health states are set to *running* or *available*. When you query the health state from the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), it displays the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
+   - DNS Client Service Health – Service isn't running. 
+   - DHCP client service health – Service isn't running. 
+   - RPC Service Health – Service isn't running. 
+   - Windows firewall service health – Service isn't running.
+   - Windows event log service health – Service isn't running. 
+   - Server service health – Service isn't running. 
+   - Windows remote management service health – Service isn't running. 
+   - File system error or corruption – Logical Disk is unavailable.
+
+- Thresholds for the following Linux health criteria aren’t modifiable, because their health state is already set to *true*. The health state displays the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity, depending on its context:
+   - Logical Disk Status – Logical disk isn't online/ available
+   - Disk Status – Disk isn't online/ available
    - Network Adapter Status -  Network adapter is disabled  
 
-- **Total CPU Utilization** health criterion in Windows shows a threshold of **not equal to 4** from the portal and when queried from the Workload Monitoring API when CPU Utilization is greater than 95% and system queue length is larger than 15. This health criterion cannot be modified in this release.  
-- Configuration changes, such as updating a threshold, takes up to 30 minutes to take effect even though the portal or Workload Monitor API might update immediately.  
-- Individual processor and logical processor level health criteria are not available in Windows, only **Total CPU utilization** is available for Windows VMs.  
-- Alert rules defined for each health criterion aren't exposed in the Azure portal. They are only configurable from the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) to enable or disable a health alert rule.  
-- Assigning an [Azure Monitor action group](../../monitoring-and-diagnostics/monitoring-action-groups.md) for health alerts isn’t possible from the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, action groups can be assigned against a VM, such that all *health alerts* fired against the VM trigger the same action group(s). There is no concept of a separate action group for every health alert rule, like traditional Azure alerts. Additionally, only action groups configured to notify by sending an email or SMS are supported when health alerts are triggered. 
+- The *total CPU utilization* health criterion in Windows displays a threshold of **not equal to 4** in both the portal and the Workload Monitoring API. The threshold is reached when *total CPU utilization* is greater than 95 percent and the system queue length is larger than 15. This health criterion can't be modified in this release. 
+- Configuration changes, such as updating a threshold, take up to 30 minutes even if the portal or Workload Monitor API might update them immediately. 
+- Individual processor and logical processor level health criteria aren't available in Windows. Only Total CPU utilization is available for Windows VMs. 
+- Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager). 
+- You can't assign an [Azure Monitor action group](../../monitoring-and-diagnostics/monitoring-action-groups.md) for health alerts in the Azure portal. You can use only the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM, such that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
 
 ## Next steps
-Review [Onboard Azure Monitor for VMs](vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.
+To understand the requirements and methods for enabling monitoring of your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-onboard.md).
