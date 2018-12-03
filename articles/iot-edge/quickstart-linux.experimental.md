@@ -61,7 +61,7 @@ IoT Edge device:
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You can use this public IP address to connect to the virtual machine.
+   When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You will use this public IP address to connect to the virtual machine later in the quickstart.
 
 * If you prefer to run the Azure IoT Edge runtime on your local system follow instructions at [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md).
 
