@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-
 ---
 # Instrument web apps at runtime with Application Insights
 

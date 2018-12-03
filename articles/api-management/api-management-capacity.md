@@ -31,6 +31,8 @@ To follow the steps from this article, you must have:
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## What is capacity
 
 ![Capacity metric](./media/api-management-capacity/capacity-ingredients.png)

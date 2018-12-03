@@ -134,7 +134,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 	        /// <returns></returns>
 	        [Metadata("Get New or Modified FHIR Documents",
 	            "Query for new or modifed FHIR Documents By Resource Type " +
-	            "from Last Run Date or Begining of Collection creation"
+	            "from Last Run Date or Beginning of Collection creation"
 	        )]
 	        [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
 	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]

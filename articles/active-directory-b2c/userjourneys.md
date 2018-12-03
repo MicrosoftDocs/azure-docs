@@ -45,8 +45,7 @@ The **UserJourney** element contains the following elements:
 
 A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. If any step fails, the transaction fails. These orchestration steps reference both the building blocks and the claims providers allowed in the policy file. Any orchestration step that is responsible to show or render a user experience also has a reference to the corresponding content definition identifier.
 
-Orchestration steps can be conditionaly ecxetuted, based on preconditions defined in the orchestration step element. For examle you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
-
+Orchestration steps can be conditionaly executed, based on preconditions defined in the orchestration step element. For examle you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
@@ -62,7 +61,7 @@ The **OrchestrationStep** element contains the following attributes:
 | --------- | -------- | ----------- |
 | Order | Yes | The order of the orchestration steps. | 
 | Type | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> | 
-| ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this orchestration step. Usually the content definition reference identifier is defined in the self-asserted technical profile. But, there are some cases when Azure AD B2C needs to display something without a technical profile. There are two examples, if the type of the orchestration step is one of follwing: `ClaimsProviderSelection` or  `CombinedSignInAndSignUp`. Azure AD B2C needs to display the identity provider selection without having a technical profile. | 
+| ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this orchestration step. Usually the content definition reference identifier is defined in the self-asserted technical profile. But, there are some cases when Azure AD B2C needs to display something without a technical profile. There are two examples, if the type of the orchestration step is one of following: `ClaimsProviderSelection` or  `CombinedSignInAndSignUp`. Azure AD B2C needs to display the identity provider selection without having a technical profile. | 
 | CpimIssuerTechnicalProfileReferenceId | No | The type of the orchestration step is `SendClaims`. This property defines the technical profile identifier of the claims provider that issues the token for the relying party.  If absent, no relying party token is created. |
 
 

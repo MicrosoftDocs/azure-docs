@@ -59,7 +59,7 @@ To create and run the sample, do the following steps:
         // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the West Central US region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =

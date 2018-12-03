@@ -42,7 +42,7 @@ The **InputClaims** and **InputClaimsTransformations** elements are not required
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the OAuth2 identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as the you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims returned by the OAuth2 identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 

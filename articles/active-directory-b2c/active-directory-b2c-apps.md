@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 
@@ -22,7 +22,7 @@ Every application that uses Azure AD B2C must be registered in your [Azure AD B2
 * An **Application ID** that uniquely identifies your application.
 * A **Reply URL** that can be used to direct responses back to your application.
 
-Each request that is sent to Azure AD B2C specifies a **policy**. A policy controls the behavior of Azure AD. You can also use these endpoints to create a highly customizable set of user experiences. Common policies include sign-up, sign-in, and profile-edit policies. If you are not familiar with policies, you should read about the Azure AD B2C [extensible policy framework](active-directory-b2c-reference-policies.md) before you continue.
+Each request that is sent to Azure AD B2C specifies a **user flow**, which is a policy that controls the behavior of Azure AD. You can also use these endpoints to create a highly customizable set of user experiences. We provide a set of user flows to help you set up common policies, including sign-up, sign-in, and profile-edit policies. But you can also create your own custom policies. If you are not familiar with policies, you should read about the Azure AD B2C [extensible policy framework](active-directory-b2c-reference-policies.md) before you continue.
 
 The interaction of every application follows a similar high-level pattern:
 

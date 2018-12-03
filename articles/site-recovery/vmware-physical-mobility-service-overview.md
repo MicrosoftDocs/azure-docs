@@ -1,13 +1,14 @@
 ---
 title: About the Mobility Service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
-ms.author: raynew
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
+
 
 # About the Mobility service for VMware VMs and physical servers
 
@@ -41,6 +42,9 @@ Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS serv
 Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
+## Anti-virus on replicated machines
+
+If machines you want to replicate have active anti-virus software running, make sure you exclude the Mobility service installation folder from anti-virus operations (*C:\ProgramData\ASR\agent*). This ensures that replication works as expected.
 
 ## Update the Mobility service
 

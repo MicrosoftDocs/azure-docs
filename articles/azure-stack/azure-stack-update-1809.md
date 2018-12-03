@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -82,7 +82,13 @@ This update includes the following improvements for Azure Stack:
 
 ### Changes
 
-None.
+<!-- 2635202 - IS, ASDK -->
+- Infrastructure backup service moves from the [public infrastructure network](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) to the [public VIP network](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Customers will need to ensure the service has access the backup storage location from the public VIP network.  
+
+> [!IMPORTANT]  
+> If you have a firewall that does not allow connections from the public VIP network to the file server, this change will cause infrastructure backups to fail with "Error 53 The network path was not found." This is a breaking change that has no reasonable workaround. Based on customer feedback, Microsoft will revert this change in a hotfix. 
+Please review the [post update steps section](#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resouces. 
+in 1811, this change will be applied to all systems. If you applied the hotfix in 1809, there is no further action required.  
 
 ### Common Vulnerabilities and Exposures
 
@@ -167,7 +173,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 > Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## Known issues (post-installation)
 
@@ -219,6 +225,8 @@ The following are post-installation known issues for this build version.
    - *Scale unit node is offline*
    
   Run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
+  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4477849/), so be sure to install this hotfix if you're experiencing the issue. 
 
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  

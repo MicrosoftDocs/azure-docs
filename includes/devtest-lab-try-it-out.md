@@ -1,3 +1,10 @@
+---
+author: spelluru
+ms.service: devtest-lab
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+---
 ## Get started with Azure DevTest Labs
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 

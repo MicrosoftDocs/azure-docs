@@ -94,11 +94,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="app-insights-tutorial-runtime-exceptions">Find and diagnose run-time exceptions</a>
-    - html: <a href="app-insights-tutorial-performance">Find and diagnose performance issues</a>
-    - html: <a href="app-insights-tutorial-alert">Monitor and alert on application health</a>
-    - html: <a href="app-insights-tutorial-users">Analyze customer usage and information</a>
-    - html: <a href="app-insights-tutorial-dashboards">Create custom KPI dashboards</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-runtime-exceptions">Find and diagnose run-time exceptions</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-performance">Find and diagnose performance issues</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-alert">Monitor and alert on application health</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-users">Analyze customer usage and information</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-dashboards">Create custom KPI dashboards</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

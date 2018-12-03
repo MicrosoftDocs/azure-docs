@@ -27,7 +27,7 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
->  [The newer alerts](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](alert-activity-log.md).
+> [The newer alerts](monitoring-overview-alerts.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](alert-activity-log.md).
 
 
 ## Categories in the Activity Log
@@ -77,7 +77,7 @@ In the Azure portal, you can filter your Activity Log by these fields:
 
 Once you have defined a set of filters, you can pin a query to your Azure dashboard to always keep an eye on specific events.
 
-For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../log-analytics/log-analytics-activity.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
+For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:

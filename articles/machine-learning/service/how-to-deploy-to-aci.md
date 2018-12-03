@@ -23,7 +23,7 @@ This article shows three different ways to deploy a model on ACI. They differ in
 * Deploy from registered model using `Webservice.deploy_from_model()`
 * Deploy registered model from image using `Webservice.deploy_from_image()`
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 
 ## Prerequisites
@@ -247,6 +247,23 @@ prediction = service.run(input_data = test_samples)
 print(prediction)
 ```
 
+## Update the web service
+
+To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+
+```python
+from azureml.core.webservice import Webservice
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+# Update the image used by the service
+service.update(image = new-image)
+print(service.state)
+```
+
+> [!NOTE]
+> When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
 
 ## Clean up resources
 
