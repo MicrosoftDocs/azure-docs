@@ -33,8 +33,8 @@ A special note should be made of the Storage Blob Data Owner built-in role. If t
 
 ## Shared Key and Shared Access Signature Authentication
 
-Azure Data Lake Storage Gen2 supports Shared Key and Shared Access Signature methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore permission-based authorization cannot be performed.
- 
+Azure Data Lake Storage Gen2 supports Shared Key and Shared Access Signature methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore user permission-based authorization cannot be performed.
+
 In the case of Shared Key, the caller effectively gains ‘super-user’ access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
 
 SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
@@ -84,15 +84,15 @@ In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for 
 
 The following table lists some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen2 account.
 
-|    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
+|    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List /Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -122,8 +122,6 @@ The user who created the item is automatically the owning user of the item. An o
 
 > [!NOTE]
 > The owning user *cannot* change the owning user of a file or directory. Only super-users can change the owning user of a file or directory.
->
->
 
 ### The owning group
 
