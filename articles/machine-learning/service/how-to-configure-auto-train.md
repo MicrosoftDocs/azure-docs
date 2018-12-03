@@ -283,7 +283,7 @@ recall_score_micro|Recall is the percent of elements actually in a certain class
 recall_score_weighted|Recall is the percent of elements actually in a certain class that are correctly labeled. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
 
-### Regression/Forecasting Metrics
+### Regression and forecasting metrics
 The following metrics are saved in each iteration for a regression or forecasting task.
 
 |Primary Metric|Description|Calculation|Extra Parameters
