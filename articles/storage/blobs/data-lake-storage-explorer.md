@@ -27,9 +27,7 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect** window is sh
 
 |Task|Purpose|
 |---|---|
-|Add an Azure Account | Redirects you to your organizations login page to authenticate you to Azure. |
-|Use a connection string or shared access signature URI | Can be used to directly access a directory or storage account with a SAS token or a shared connection string. |
-|Use a storage account name and key| Use the storage account name and key of your storage account to connect to Azure storage.|
+|Add an Azure Account | Redirects you to your organizations login page to authenticate you to Azure. Currently this is the only supported authentication method if you want to manage and set ACLs. |
 
 Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
