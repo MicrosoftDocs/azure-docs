@@ -43,7 +43,7 @@ Visual Studio provide a property called **Application Debug Mode**, which contro
 
 #### Application Debug Modes
 
-1. **Refresh Application** This mode enables you to quickly change and debug your code and supports editing static web files while debugging. This mode only works if your local development cluster is in [1-Node mode]. This is the default Application Debug Mode.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Refresh Application** This mode enables you to quickly change and debug your code and supports editing static web files while debugging. This mode only works if your local development cluster is in [1-Node mode](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). This is the default Application Debug Mode.
 2. **Remove Application** causes the application to be removed when the debug session ends.
 3. **Auto Upgrade** The application continues to run when the debug session ends. The next debug session will treat the deployment as an upgrade. The upgrade process preserves any data that you entered in a previous debug session.
 4. **Keep Application** The application keeps running in the cluster when the debug session ends. At the beginning of the next debug session, the application will be removed.
