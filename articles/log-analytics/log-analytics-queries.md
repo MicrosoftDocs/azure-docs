@@ -6,11 +6,9 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
@@ -38,8 +36,8 @@ The different ways that you will use queries in Log Analytics include the follow
 
 - **Portals.** You can perform interactive analysis of log data in the [Azure portal](log-analytics-log-search-portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
 - **Alert rules.** [Alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
-- **Dashboards.** You can pin the results of any query into an [Azure dashboard]() which allow you to visualize log and metric data together and optionally share with other Azure users. 
-- **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log queries provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  
+- **Dashboards.** You can pin the results of any query into an [Azure dashboard](../azure-monitor/platform/dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
+- **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../azure-monitor/platform/view-designer.md).  Log queries provide the data used by [tiles](../azure-monitor/platform/view-designer-tiles.md) and [visualization parts](../azure-monitor/platform/view-designer-parts.md) in each view.  
 - **Export.**  When you import data from Log Analytics workspace into Excel or [Power BI](log-analytics-powerbi.md), you create a log query to define the data to export.
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
 - **Log Analytics API.**  The [Log Analytics log search API](../monitoring-and-diagnostics/monitoring-overview-alerts.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
@@ -107,4 +105,4 @@ While [Application Insights](../application-insights/app-insights-overview.md) s
 ## Next steps
 
 - Learn about the [portals that you use to create and edit log searches](log-analytics-log-search-portals.md).
-- Check out a [tutorial on writing queries](log-analytics-tutorial-viewdata.md) using the new query language.
+- Check out a [tutorial on writing queries](query-language/get-started-queries.md) using the new query language.

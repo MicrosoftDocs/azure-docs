@@ -8,7 +8,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rayne
-
 ---
 # Set up IP addressing to connect to a secondary on-premises site after failover
 

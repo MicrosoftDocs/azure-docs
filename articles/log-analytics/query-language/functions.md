@@ -10,11 +10,9 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.component: na
 ---
 
 
@@ -60,7 +58,7 @@ Update
 | where UpdateState == "Needed"
 ```
 
-Create another to search for SQL-related needed security updates.
+Create another query and reference the _security_updates_last_day_ function to search for SQL-related needed security updates.
 
 ```Kusto
 security_updates_last_day | where Title contains "SQL"

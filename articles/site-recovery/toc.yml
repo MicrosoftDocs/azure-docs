@@ -183,8 +183,10 @@
         href: vmware-azure-set-up-process-server-scale.md
     - name: Set up disaster recovery
       items:
-      - name: Set up the source environment/configuration server
+      - name: Set up the source environment
         href: vmware-azure-set-up-source.md
+      - name: Deploy the configuration server
+        href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment 
         href: vmware-azure-set-up-target.md
       - name: Configure replication settings

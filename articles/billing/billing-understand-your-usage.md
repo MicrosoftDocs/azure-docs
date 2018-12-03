@@ -4,7 +4,7 @@ description: Learn how to read and understand the sections of your detailed usag
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 
@@ -95,6 +95,6 @@ more details on, see [Understand your bill for Microsoft Azure.](./billing-under
 ## <a name="external"></a>What about external service charges?
 External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?) to
-get your issue resolved quickly.
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

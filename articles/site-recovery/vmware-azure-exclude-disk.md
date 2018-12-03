@@ -7,6 +7,7 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.date: 11/27/2018
 ms.author: ramamill
+ms.topic: conceptual
 
 ---
 
