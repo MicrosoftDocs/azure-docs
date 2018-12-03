@@ -100,7 +100,7 @@ If you are creating additional client certificates, or are not using the same Po
 
 ### Export the self-signed root certificate and private key to store it (optional)
 
-You may want to export the self-signed root certificate and store it safely as backup. If need be, you can later install it on another computer and generate more client certifiates. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
+You may want to export the self-signed root certificate and store it safely as backup. If need be, you can later install it on another computer and generate more client certificates. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
 
 ## <a name="clientexport"></a>4. Export the client certificate
 
