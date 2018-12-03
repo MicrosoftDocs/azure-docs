@@ -19,11 +19,11 @@ This article describes best practices to plan and get started quickly using the 
 
 To get started with Time Series Insights (TSI), it’s best if you understand the following:
 
-1. What you are getting when you provision a TSI (preview) environment.
-1. What your **Time Series IDs** and **Timestamp** properties are.
-1. What the new **Time Series Model** is and how to build your own.
-1. How to send events efficiently in JSON.  
-1. TSI business disaster recovery options.
+* What you are getting when you provision a TSI (preview) environment.
+* What your **Time Series IDs** and **Timestamp** properties are.
+* What the new **Time Series Model** is and how to build your own.
+* How to send events efficiently in JSON.  
+* TSI business disaster recovery options.
 
 The Time Series Insights update employs a pay-as-you-go business model.  For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -31,8 +31,8 @@ The Time Series Insights update employs a pay-as-you-go business model.  For mor
 
 When you provision a TSI (preview) environment, you create two Azure resources:
 
-1. TSI (preview) environment
-1. Azure storage general-purpose V1 account
+* TSI (preview) environment
+* Azure storage general-purpose V1 account
 
 To get going, you’ll need three additional items.  The first is a [Time Series Model](./time-series-insights-update-tsm.md), the second is an [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), and the third is [events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.  
 

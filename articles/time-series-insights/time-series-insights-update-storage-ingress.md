@@ -19,8 +19,8 @@ This article describes changes to data storage and ingress from the Azure Time S
 
 When creating a Time Series Insights update (**PAYG SKU**) environment, you are creating two resources:
 
-1. An Azure TSI environment.
-1. An Azure storage general-purpose V1 account where the data will be stored.
+* An Azure TSI environment.
+* An Azure storage general-purpose V1 account where the data will be stored.
 
 The TSI (preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account.
 
