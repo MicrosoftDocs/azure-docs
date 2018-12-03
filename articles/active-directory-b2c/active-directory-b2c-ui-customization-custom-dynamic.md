@@ -189,7 +189,7 @@ Your HTML5 template is ready to use. However, it is not available in the `Conten
 * Your content server is enabled for CORS.
 
     >[!NOTE]
-    >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](http://test-cors.org/) website. 
+    >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](https://test-cors.org/) website. 
 
 * Your served content is secure over **HTTPS**.
 * You are using *absolute URLS*, such as *https://yourdomain/content*, for all links, CSS content, and images.

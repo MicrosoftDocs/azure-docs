@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Insignia SAML SSO Client support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Insignia SAML SSO Client support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx) to get these values. 
  
 
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Insignia SAML SSO Configuration](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_configure.png) 
 
-1. To configure single sign-on on **Insignia SAML SSO** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, and SAML Single Sign-On Service URL** to [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Insignia SAML SSO** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, and SAML Single Sign-On Service URL** to [Insignia SAML SSO support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an Insignia SAML SSO test user
 
-In this section, you create a user called Britta Simon in Insignia Library System. Work with [Insignia Library System support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) to add the users in the Insignia Library System platform.
+In this section, you create a user called Britta Simon in Insignia Library System. Work with [Insignia Library System support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx) to add the users in the Insignia Library System platform.
 
 ### Assign the Azure AD test user
 
