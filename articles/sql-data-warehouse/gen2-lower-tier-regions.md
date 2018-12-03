@@ -19,8 +19,8 @@ Microsoft is helping drive down the entry-level cost of running a data warehouse
 
 Customers can choose to deploy a new Gen2 instance or upgrade an existing Gen1 data warehouse instance to experience the flexibility and performance of next generation data warehousing. 
 
-Try [Azure SQL Data Warehouse Compute Optimized Gen2 Tier.](https://azure.microsoft.com/en-us/services/sql-data-warehouse/?v=17.44)
-Upgrade [Azure SQL Warehouse Compute Optimized Gen1 to Gen2](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation)
+Try [Azure SQL Data Warehouse Compute Optimized Gen2 Tier.](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
+Upgrade [Azure SQL Warehouse Compute Optimized Gen1 to Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation)
 Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
