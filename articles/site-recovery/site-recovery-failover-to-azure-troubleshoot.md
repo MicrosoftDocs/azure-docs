@@ -5,7 +5,7 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 11/27/2018
 ms.author: ponatara
 
 ---

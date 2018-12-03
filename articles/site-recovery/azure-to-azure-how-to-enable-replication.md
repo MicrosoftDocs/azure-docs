@@ -6,7 +6,7 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
 
 ---

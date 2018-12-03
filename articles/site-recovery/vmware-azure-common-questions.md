@@ -4,7 +4,7 @@ description: This article summarizes common questions when you set up disaster r
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
 
