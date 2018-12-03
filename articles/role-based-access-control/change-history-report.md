@@ -114,9 +114,9 @@ Here are the basic steps to get started:
 
 1. [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [Configure the Activity Log Analytics solution](../log-analytics/log-analytics-activity.md#configuration) for your workspace.
+1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/collect-activity-logs.md#configuration) for your workspace.
 
-1. [View the activity logs](../log-analytics/log-analytics-activity.md#using-the-solution). A quick way to navigate to the Activity Log Analytics Overview page is to click the **Log Analytics** option.
+1. [View the activity logs](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). A quick way to navigate to the Activity Log Analytics Overview page is to click the **Log Analytics** option.
 
    ![Log Analytics option in portal](./media/change-history-report/azure-log-analytics-option.png)
 

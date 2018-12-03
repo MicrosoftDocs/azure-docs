@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Wizergos Productivity Software Domain and URLs single sign-on information](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_url.png)
 
-    In the **Identifier** textbox, type the URL: `http://www.wizergos.net`
+    In the **Identifier** textbox, type the URL: `https://www.wizergos.net`
 
 1. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate file on your computer.
 
