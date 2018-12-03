@@ -24,7 +24,7 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
-| ***On-premises*** | | |
+| ***On-premises***<br>*(on-premises servers also may be run in a virtual machine in the cloud)* | | |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
 | ***Developer tools*** | | |
