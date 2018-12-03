@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: na
 ---
 
 # Wire Data 2.0 (Preview) solution in Log Analytics
@@ -55,7 +54,7 @@ Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agen
 
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
-| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../../log-analytics/log-analytics-agent-windows.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../../log-analytics/log-analytics-om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
@@ -206,7 +205,7 @@ The Dependency Agent is installed on computers running Windows through InstallDe
 
 Use the following steps to install the Dependency Agent on each computer running Windows:
 
-1. Install the Log Analytics agent following the steps in [Collect data from Windows computers hosted in your environment](../../log-analytics/log-analytics-agent-windows.md).
+1. Install the Log Analytics agent following the steps in [Collect data from Windows computers hosted in your environment](../../azure-monitor/platform/agent-windows.md).
 2. Download the Windows Dependency Agent using the link in the previous section and then run it by using the following command: `InstallDependencyAgent-Windows.exe`
 3. Follow the wizard to install the agent.
 4. If the Dependency Agent fails to start, check the logs for detailed error information. For Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs.

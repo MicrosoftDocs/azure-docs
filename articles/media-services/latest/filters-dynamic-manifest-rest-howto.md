@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 11/28/2018
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ This topic shows how to define a filter for a Video on Demand asset and use REST
 
 ## Prerequisites 
 
-To complete the steps described in this topic you have to:
+To complete the steps described in this topic, you have to:
 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
@@ -38,7 +38,6 @@ The following is the **Request body** example that defines the track selection c
 {
     "properties": {
         "tracks": [
-      
           {
                 "trackSelections": [
                     {
@@ -95,7 +94,7 @@ For more information, see [Create or update](https://docs.microsoft.com/rest/api
 
 ## Create asset filters  
 
-In the "Media Services v3" Postman collection that you downloaded, select **Assets**->**Create or update Asset Filter** .
+In the "Media Services v3" Postman collection that you downloaded, select **Assets**->**Create or update Asset Filter.
 
 The **PUT** HTTP request method is similar to:
 

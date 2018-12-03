@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
 
 Cloud resources:
 
@@ -94,9 +94,13 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    | Provide a module name | Name your module **sqlFunction**. |
    | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/sqlFunction. |
 
-   The VS Code window loads your IoT Edge solution workspace: a \.vscode folder, a modules folder, a deployment manifest template file. and a \.env file. 
+   The VS Code window loads your IoT Edge solution workspace. 
    
-4. Whenever you create a new IoT Edge solution, VS Code prompts you to provide your registry credentials in the \.env file. This file is git-ignored, and the IoT Edge extension uses it later to provide registry access to your IoT Edge device. Open the \.env file. 
+4. In your IoT Edge solution, open the \.env file. 
+
+   Whenever you create a new IoT Edge solution, VS Code prompts you to provide your registry credentials in the \.env file. This file is git-ignored, and the IoT Edge extension uses it later to provide registry access to your IoT Edge device. 
+
+   If you didn't provide your container registry in the previous step but accepted the default localhost:5000, you won't have a \.env file.
 
 5. In the .env file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **CONTAINER_REGISTRY_USERNAME** and **CONTAINER_REGISTRY_PASSWORD** sections and insert your credentials after the equals symbol: 
 
@@ -204,6 +208,16 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 7. Save the **sqlFunction.cs** file. 
 
+8. Open the **sqlFunction.csproj** file.
+
+9. Find the group of package references, and add a new one for SqlClient include. 
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+10. Save the **sqlFunction.csproj** file.
+
 ## Add a SQL Server container
 
 A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built. You just need to tell the IoT Edge runtime to include it, then configure it on your device. 
@@ -222,15 +236,15 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
    ```json
    "sql": {
-       "version": "1.0",
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always",
-       "env":{},
-       "settings": {
-           "image": "",
-           "createOptions": ""
-       }
+     "version": "1.0",
+     "type": "docker",
+     "status": "running",
+     "restartPolicy": "always",
+     "env":{},
+     "settings": {
+       "image": "",
+       "createOptions": ""
+     }
    }
    ```
 
@@ -241,19 +255,19 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "microsoft/mssql-server-windows-developer",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "microsoft/mssql-server-windows-developer",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -261,19 +275,19 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "mcr.microsoft.com/mssql/server:latest",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "mcr.microsoft.com/mssql/server:latest",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -292,7 +306,7 @@ In the previous sections, you created a solution with one module, and then added
     docker login -u <ACR username> <ACR login server>
     ```
     
-    You are prompted for the password. Paste your password into the prompt (you password is hidden for security) and press **Enter**. 
+    You are prompted for the password. Paste your password into the prompt (your password is hidden for security) and press **Enter**. 
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -319,11 +333,11 @@ You can set modules on a device through the IoT Hub, but you can also access you
 
    ![Create deployment for single device](./media/tutorial-store-data-sql-server/create-deployment.png)
 
-6. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.json**. Click **Select Edge deployment manifest**. 
+6. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.amd64**. Click **Select Edge deployment manifest**. 
 
-If the deployment is successful, and confirmation message is printed in the VS Code output. 
+If the deployment is successful, a confirmation message is printed in the VS Code output. 
 
-You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules. It may take a few minutes.
+Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed, and will start to report as running over the next few minutes as the containers are installed and started. You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules. 
 
    ```cmd/sh
    iotedge list
@@ -331,11 +345,11 @@ You can also check to see that all the modules are up and running on your device
 
 ## Create the SQL database
 
-When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. 
+When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data. 
 
-This section guides you through setting up the SQL database to store the temperature data. 
+Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and creates a database and table to hold the temperature data being sent to it. 
 
-1. In a command-line tool, connect to your database. 
+1. In a command-line tool on your IoT Edge device, connect to your database. 
    * Windows container:
    
       ```cmd

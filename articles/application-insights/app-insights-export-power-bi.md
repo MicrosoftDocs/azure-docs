@@ -10,7 +10,6 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
@@ -48,18 +47,18 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. To allow Power BI to access Azure, you might have to provide credentials. Use **Organizational account** to sign in with your Microsoft account.
+5. To allow Power BI to access Azure, you might have to provide credentials. Use **Organizational account** to sign in with your Microsoft account.
    
     ![Screenshot of Power BI Query Settings dialog box](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     If you need to verify the credentials, use the **Data Source Settings** menu command in the query editor. Be sure to specify the credentials you use for Azure, which might be different from your credentials for Power BI.
-2. Choose a visualization for your query, and select the fields for x-axis, y-axis, and segmenting dimension.
+6. Choose a visualization for your query, and select the fields for x-axis, y-axis, and segmenting dimension.
    
     ![Screenshot of Power BI Desktop visualization options](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Publish your report to your Power BI cloud workspace. From there, you can embed a synchronized version into other web pages.
+7. Publish your report to your Power BI cloud workspace. From there, you can embed a synchronized version into other web pages.
    
     ![Screenshot of Power BI Desktop, with Publish button highlighted](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
+8. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
 ### Export a Funnel
 1. [Make your Funnel](usage-funnels.md).
@@ -105,7 +104,6 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
    * Replace **https://management.azure.com/subscriptions/...**
    * with, **https://api.applicationinsights.io/beta/apps/...**
 3. Finally, update the credentials to basic, and use your API key.
- �
 
 **Existing script**
  ```
