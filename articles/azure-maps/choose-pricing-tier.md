@@ -3,7 +3,7 @@ title: Choose the right pricing tier for Azure Maps | Microsoft Docs
 description: Learn about pricing tiers offered by Azure Maps 
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 12/03/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -14,10 +14,10 @@ manager:
 
 Azure Maps offers two pricing tiers. The purpose of this article is to help you choose the right pricing tier for your needs. To help choose the right pricing tier, ask yourself two questions:
 
-##What geospatial capabilities do I plan to use?
+## What geospatial capabilities do I plan to use?
 If you feel that your service requirements are met by the core geospatial APIs, then the S0 pricing tier is right for you. If you want more advanced capabilities for your application such as areal+hybrid imagery, getting route range, batch geocoding etc., consider opting for the S1 pricing tier. The table below with **pricing tier capabilities** will provide you with a better idea of your application's needs and will also help you choose a pricing tier most suitable for your application.
 
-##How many concurrent users do I plan to support? 
+## How many concurrent users do I plan to support? 
 S0 and S1 pricing tiers can handle different amounts of data throughput. Before choosing an Azure Maps pricing tier, consider asking yourself questions like how many concurrent users do you want to support? The S0 pricing tier can handle up to **50 queries per second** and the S1 pricing tier can handle **more than 50 queries per second**.
 
 
