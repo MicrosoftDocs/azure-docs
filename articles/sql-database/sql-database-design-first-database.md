@@ -32,8 +32,8 @@ Azure SQL database is a relational database-as-a-service (DBaaS) in the Microsof
 
 To complete this tutorial, make sure you've installed:
 
-- The latest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- The latest version of [BCP and SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
+- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (latest version)
+- [BCP and SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (latest version)
 
 ## Sign in to the Azure portal
 
@@ -55,9 +55,9 @@ Follow these steps to create a blank SQL database.
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Database name** | *myDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
-   | **Subscription** | *mySubscription*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+   | **Database name** | *yourDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
+   | **Subscription** | *yourSubscription*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
    | **Select source** | Blank database | Specifies that a blank database should be created. |
 
 1. Click **Server** to use an existing server or create and configure a new server for your database. Either select the server or click **Create a new server** and fill out the **New server** form with the following information:
@@ -73,9 +73,7 @@ Follow these steps to create a blank SQL database.
 
    Click **Select**.
 
-1. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. You may explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. By default, the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is selected, but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-
-   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+1. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. You may explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. By default, the **Standard** [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is selected, but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
    > [!IMPORTANT]
    > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
@@ -88,7 +86,7 @@ Follow these steps to create a blank SQL database.
 
 1. On the toolbar, click **Notifications** to monitor the deployment process.
 
-     ![notification](./media/sql-database-get-started-portal/notification.png)
+     ![notification](./media/sql-database-design-first-database/notification.png)
 
 ## Create a firewall rule
 
@@ -97,21 +95,21 @@ The SQL database service creates a firewall at the server-level. The firewall pr
 > [!NOTE]
 > SQL database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your administrator opens port 1433.
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **myDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as *myserver20181204.database.windows.net*) and provides options for further configuration.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *yourDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as *yourserver.database.windows.net*) and provides options for further configuration.
 
 1. Copy this fully qualified server name for use to connect to your server and databases from SQL Server Management Studio.
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png)
+   ![server name](./media/sql-database-design-first-database/server-name.png)
 
 1. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL database server opens.
 
-   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-1. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+   1. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+   1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-1. Click **OK** and then close the **Firewall settings** page.
+   1. Click **OK** and then close the **Firewall settings** page.
 
 Your IP address can now pass through the firewall. You can now connect to the SQL database server and its databases using SQL Server Management Studio or another tool of your choice. Be sure to use the server admin account you created previously.
 
@@ -128,23 +126,23 @@ Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) 
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | Server type | Database engine | This value is required. |
-   | Server name | The fully qualified server name | For example, *myserver20181204.database.windows.net*. |
-   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we've configured in this tutorial. |
-   | Login | The server admin account | The account that you specified when you created the server. |
-   | Password | The password for your server admin account | The password that you specified when you created the server. |
+   | **Server type** | Database engine | This value is required. |
+   | **Server name** | The fully qualified server name | For example, *yourserver.database.windows.net*. |
+   | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we've configured in this tutorial. |
+   | **Login** | The server admin account | The account that you specified when you created the server. |
+   | **Password** | The password for your server admin account | The password that you specified when you created the server. |
 
-   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)
+   ![connect to server](./media/sql-database-design-first-database/connect.png)
 
-1. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter *myDatabase* to connect to this database.
+1. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter *yourDatabase* to connect to this database.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
 1. Click **Connect**. The **Object Explorer** window opens in SSMS.
 
-1. In **Object Explorer**, expand **Databases** and then expand **myDatabase** to view the objects in the sample database.
+1. In **Object Explorer**, expand **Databases** and then expand *yourDatabase* to view the objects in the sample database.
 
-   ![database objects](./media/sql-database-connect-query-ssms/connected.png)  
+   ![database objects](./media/sql-database-design-first-database/connected.png)  
 
 ## Create tables in the database
 
@@ -162,7 +160,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
 ![Table relationships](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
-1. In **Object Explorer**, right-click **myDatabase** and select **New Query**. A blank query window opens that is connected to your database.
+1. In **Object Explorer**, right-click *yourDatabase* and select **New Query**. A blank query window opens that is connected to your database.
 
 1. In the query window, execute the following query to create four tables in your database:
 
@@ -209,7 +207,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
    ![Create tables](./media/sql-database-design-first-database/create-tables.png)
 
-1. Expand the **Tables** node under **myDatabase** in the **Object Explorer** to see the tables you created.
+1. Expand the **Tables** node under *yourDatabase* in the **Object Explorer** to see the tables you created.
 
    ![ssms tables-created](./media/sql-database-design-first-database/ssms-tables-created.png)
 
@@ -226,13 +224,13 @@ The following diagram shows how these tables are related to each other. Some of 
 
 1. Open a command prompt window and navigate to the *sampleData* folder.
 
-1. Execute the following commands to insert sample data into the tables replacing the values for `ServerName`, `DatabaseName`, `UserName`, and `Password` with the values for your environment.
+1. Execute the following commands to insert sample data into the tables replacing the values for *yourServer*, *yourDatabase*, *yourUsername*, and *yourPassword* with the values for your environment.
   
    ```cmd
-   bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <UserName> -P <Password> -q -c -t ","
-   bcp Person in SamplePersonData -S <ServerName>.database.windows.net -d <DatabaseName> -U <UserName> -P <Password> -q -c -t ","
-   bcp Student in SampleStudentData -S <ServerName>.database.windows.net -d <DatabaseName> -U <UserName> -P <Password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <ServerName>.database.windows.net -d <DatabaseName> -U <UserName> -P <Password> -q -c -t ","
+   bcp Course in SampleCourseData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
+   bcp Person in SamplePersonData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
+   bcp Student in SampleStudentData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
+   bcp Credit in SampleCreditData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
    ```
 
 You have now loaded sample data into the tables you created earlier.
