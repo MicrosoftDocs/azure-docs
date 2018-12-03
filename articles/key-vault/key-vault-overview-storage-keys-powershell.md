@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seemless integration, between Azure Key Vault and an Azure storage account.
 ms.topic: conceptual
@@ -39,8 +39,8 @@ The following example shows you how to allow Key Vault to manage your storage ac
 
 > [!IMPORTANT]
 > An Azure AD tenant provides each registered application with a **[service principal](/azure/active-directory/develop/developer-glossary#service-principal-object)**, which serves as the application's identity. The service principal's Application ID is used when giving it authorization to access other Azure resources, through role-based access control (RBAC). Because Key Vault is a Microsoft application, it's pre-registered in all Azure AD tenants under the same Application ID, within each Azure cloud:
-> - Azure AD tenants in Azure public cloud use Applicaton ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 > - Azure AD tenants in Azure government cloud use Application ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure AD tenants in Azure public cloud and all others use Applicaton ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
 Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account. The Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the built-in RBAC role [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
