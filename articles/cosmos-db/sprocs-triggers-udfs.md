@@ -72,11 +72,11 @@ Cosmos DB provides triggers that can be triggered by an operation on a Cosmos DB
 
 Post-triggers, like pre-triggers, are associated with an operation on a Cosmos DB item and don’t take any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-sprocs-triggers-udfs.md#triggers).
 
-## <a id="udfs">IUser-defined functions (UDFs)
+## <a id="udfs">User-defined functions</a>
 
 User-defined functions (UDFs) are used to extend the SQL API query language grammar and implement custom business logic easily. They can only be called from inside queries. UDFs do not have access to the context object and are meant to be used as compute only JavaScript. Therefore, UDFs can be run on secondary replicas in Cosmos DB. For examples, see [How to write user-defined functions](how-to-write-sprocs-triggers-udfs.md#udfs).
 
-## <a id="jsqueryapi">JavaScript language integrated query API
+## <a id="jsqueryapi">JavaScript language integrated query API</a>
 
 In addition to issuing queries using SQL API query grammar, the [server-side SDK](https://azure.github.io/azure-cosmosdb-js-server) allows you to perform queries using a JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls. Queries are parsed by the JavaScript runtime and are executed efficiently inside Cosmos DB. To learn about JavaScript Query API support in Cosmos DB, see [Working with JavaScript language integrated query API](js-query-api.md). For examples, see [How to write stored procedures and triggers using Javascript Query API](how-to-write-js-query-api.md#)
 

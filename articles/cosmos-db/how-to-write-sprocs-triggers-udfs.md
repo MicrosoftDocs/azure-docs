@@ -15,7 +15,7 @@ Azure Cosmos DB provides language-integrated, transactional execution of JavaScr
 
 To call a stored procedure, trigger and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-sprocs-triggers-udfs.md).
 
-## <a id="stored-procedures">How to write stored procedures
+## <a id="stored-procedures">How to write stored procedures</a>
 
 Stored procedures are written using JavaScript and can create, update, read, query and delete items inside a Cosmos container. Stored procedures are registered per collection, and can operate on any document and attachment present in that collection.
 
@@ -39,7 +39,7 @@ The context object provides access to all operations that can be performed on Co
 
 Once written, the stored procedure must be registered with a collection. To learn more, see [How to use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures).
 
-### <a id="create-an-item">Create an item
+### <a id="create-an-item">Create an item</a>
 
 Below is a stored procedure that takes a new Cosmos DB item as input, inserts it as a new item into the current Cosmos DB container and returns the id for the newly created item. All such operations are asynchronous and depend on JavaScript function callbacks. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, Cosmos DB runtime will throw an error. The stored procedure also includes a parameter to set whether the description is required. If set to true and description is missing, the stored procedure will throw an exception. Otherwise it will execute the rest of the stored procedure.
 
@@ -76,7 +76,7 @@ function sample(arr) {
 }
 ```
 
-### <a id="transactions">Implementing Transactions
+### <a id="transactions">Implementing Transactions</a>
 
 Stored procedures can implement transactions on items within a container. Below is an example of a stored procedure that uses transactions within a fantasy football gaming app to trade players between two teams in a single operation. The stored procedure attempts to read two Cosmos DB items each corresponding to the player IDs passed in as an argument. If both player are found, then the stored procedure updates the Cosmos DB items by swapping their teams. If any errors are encountered along the way, the stored procedure throws a JavaScript exception that implicitly aborts the transaction.
 
@@ -135,7 +135,7 @@ function tradePlayers(playerId1, playerId2) {
 }
 ```
 
-### <a id="bounded-execution">Implementing bounded execution
+### <a id="bounded-execution">Implementing bounded execution</a>
 
 Below is an example of a stored procedure that is written to bulk-import items into a Cosmos container. The stored procedure handles bounded execution by checking the Boolean return value from createDocument, and then uses the count of items inserted in each invocation of the stored procedure to track and resume progress across batches.
 
@@ -190,11 +190,11 @@ function bulkImport(items) {
 }
 ```
 
-## <a id="triggers">How to write triggers
+## <a id="triggers">How to write triggers</a>
 
 Azure Cosmos DB supports pre-triggers and post-triggers. Below are examples of each.
 
-### <a id="pre-triggers">Pre-triggers
+### <a id="pre-triggers">Pre-triggers</a>
 
 The following example shows how a pre-trigger can be used to validate the properties of a Cosmos DB item that is being created. In this example we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md), to add a timestamp property to a newly added item if it doesn't contain one.
 
@@ -223,41 +223,40 @@ When triggers are registered, you can specify the operations that it can run wit
 
 For examples of how to register and call a pre-trigger, see [How to use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers).
 
-### <a id="post-triggers">Post-triggers
+### <a id="post-triggers">Post-triggers</a>
 
 The following example shows a post-trigger.
 
 ```javascript
 function updateMetadata() {
-    var context = getContext();
-    var container = context.getCollection();
-    var response = context.getResponse();
+var context = getContext();
+var container = context.getCollection();
+var response = context.getResponse();
 
-    // item that was created
-    var createdItem = response.getBody();
+// item that was created
+var createdItem = response.getBody();
 
-    // query for metadata item
-    var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
-    var accept = container.queryDocuments(container.getSelfLink(), filterQuery,
-        updateMetadataCallback);
-    if(!accept) throw "Unable to update metadata, abort";
+// query for metadata document
+var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
+var accept = container.queryDocuments(container.getSelfLink(), filterQuery,
+    updateMetadataCallback);
+if(!accept) throw "Unable to update metadata, abort";
 
-    function updateMetadataCallback(err, items, responseOptions) {
-        if(err) throw new Error("Error" + err.message);
-            if(items.length != 1) throw 'Unable to find metadata item';
+function updateMetadataCallback(err, items, responseOptions) {
+    if(err) throw new Error("Error" + err.message);
+        if(items.length != 1) throw 'Unable to find metadata document';
 
-            var metadataItem = items[0];
+        var metadataItem = items[0];
 
-            // update metadata
-            metadataItem.createdItems += 1;
-            metadataItem.createdNames += " " + createdItem.id;
-            var accept = container.replaceDocument(metadataItem._self,
-                metadataItem, function(err, itemReplaced) {
-                        if(err) throw "Unable to update metadata, abort";
-                });
-            if(!accept) throw "Unable to update metadata, abort";
-            return;
-    }
+        // update metadata
+        metadataItem.createdItems += 1;
+        metadataItem.createdNames += " " + createdItem.id;
+        var accept = container.replaceDocument(metadataItem._self,
+            metadataItem, function(err, itemReplaced) {
+                    if(err) throw "Unable to update metadata, abort";
+            });
+        if(!accept) throw "Unable to update metadata, abort";
+        return;
 }
 ```
 
@@ -267,9 +266,17 @@ One thing that is important to note is the transactional execution of triggers i
 
 For examples of how to register and call a post-trigger, see [How to use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers).
 
-## <a id="udfs">How to write user-defined functions
+## <a id="udfs">How to write user-defined functions</a>
 
-The following sample creates a UDF to calculate income tax for various income brackets. This user-defined function would then be used inside a query.
+The following sample creates a UDF to calculate income tax for various income brackets. This user-defined function would then be used inside a query. For the purposes of this example assume a container called "Incomes" with properties as shown below.
+
+```json
+{
+   name = "Satya Nadella",
+   country = "USA",
+   income = 70000
+}
+```
 
 ```javascript
 function tax(income) {

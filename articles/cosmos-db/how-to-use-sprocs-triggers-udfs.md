@@ -1,6 +1,6 @@
 ---
-title: How to work with stored procedures, triggers, user-defined functions using Azure Cosmos DB SDKs
-description: Learn how to register and use stored procedures, triggers, user-defined functions using the Azure Cosmos DB SDKs
+title: How to call stored procedures, triggers, user-defined functions using Azure Cosmos DB SDKs
+description: Learn how to register and call stored procedures, triggers, user-defined functions using the Azure Cosmos DB SDKs
 services: cosmos-db
 author: markjbrown
 
@@ -14,81 +14,34 @@ ms.author: mjbrown
 
 Azure Cosmos DB supports registering and invoking stored procedures, triggers and user-defined functions (UDFs) written in JavaScript, from the Azure Cosmos DB SQL API SDK for [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) and [Python](sql-api-sdk-python.md). Once you have one or more stored procedures, triggers, and user-defined functions written, you can also load them and view them in the [Azure portal](https://portal.azure.com/) using Data Explorer.
 
-## <a id="stored-procedures">How to work with stored procedures
+## <a id="stored-procedures">How to work with stored procedures</a>
 
 Stored procedures are written using JavaScript and can create, update, read, query and delete items inside a Cosmos container. For more information on how to write stored procedures in Cosmos DB see, [How to write stored procedures in Azure Cosmos DB](how-to-write-sprocs-triggers-udfs.md#stored-procedures)
 
-
-### Register a stored procedure
-
-Below are examples of how to register a stored procedure using the Cosmos DB SDKs. Refer to [Create a Document](how-to-write-sprocs-triggers-udfs.md#create-an-item) as the source for this stored procedure, saved as `spCreateToDoItem.js`.
-
-#### .NET
-
-```csharp
-// Register the createToDoItem stored procedure
-string body = File.ReadAllText($@"..\js\spCreateToDoItem.js");
-StoredProcedure newStoredProcedure = new StoredProcedure
-   {
-       Id = "spCreateToDoItem",
-       Body = body
-   };
-Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
-var response = await client.CreateStoredProcedureAsync(containerUri, newStoredProcedure);
-StoredProcedure createdStoredProcedure = response.resource;
-```
-
-#### Java
-
-```java
-// Register the createToDoItem stored procedure
-String body = new String(Files.readAllBytes(Paths.get("..\js\spCreateToDoItem.js")));
-StoredProcedure newStoredProcedure = new StoredProcedure(
-    "{" +
-        "  'id':'spCreateToDoItem'," +
-        "  'body':" + body +
-    "}");
-StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(getCollectionLink(), newStoredProcedure, null)
-    .toBlocking().single().getResource();
-```
-
-#### JavaScript
-
-```javascript
-// Register the createToDoItem stored procedure
-var body = fs.readFileSync('..\js\spCreateToDoItem.js', 'utf8');
-var newStoredProcedure = {
-    id: "spCreateToDoItem",
-    serverScript: body
-}
-var createdStoredProcedure;
-client.createStoredProcedureAsync('dbs/myDatabase/colls/myContainer', newStoredProcedure)
-    .then(function (response) {
-        createdStoredProcedure = response.resource;
-        console.log("Successfully created stored procedure");
-    }, function (error) {
-        console.log("Error", error);
-    });
-```
-
-#### Python
-
-```python
-# Register the createToDoItem stored procedure
-
-```
-
-### Use a stored procedure
-
-Using the registered stored procedure above, the examples below show how to call the stored procedure using the Cosmos DB SDKs.
+Below are examples of how to register and call a stored procedure using the Cosmos DB SDKs. Refer to [Create a Document](how-to-write-sprocs-triggers-udfs.md#create-an-item) as the source for this stored procedure, saved as `spCreateToDoItem.js`.
 
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
 
-#### .NET
+### Stored procedures - .NET
+
+Register a stored procedure
 
 ```csharp
-// Call the createToDoItem stored procedure to insert a new item
+string storedProcedureId = "spCreateToDoItem";
+StoredProcedure newStoredProcedure = new StoredProcedure
+   {
+       Id = storedProcedureId,
+       Body = File.ReadAllText($@"..\js\{storedProcedureId}.js")
+   };
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+var response = await client.CreateStoredProcedureAsync(containerUri, newStoredProcedure);
+StoredProcedure createdStoredProcedure = response.Resource;
+```
+
+Call a stored procedure
+
+```csharp
 dynamic newItem = new
 {
     category = "Personal",
@@ -103,16 +56,25 @@ var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newI
 var id = result.Response;
 ```
 
-#### Java
+### Stored procedures - Java
+
+Register a stored procedure
 
 ```java
-// Call the createToDoItem stored procedure to insert a new item
-RequestOptions requestOptions = new RequestOptions();
-requestOptions.setPartitionKey(new PartitionKey("Personal"));
+StoredProcedure newStoredProcedure = new StoredProcedure(
+    "{" +
+        "  'id':'spCreateToDoItem'," +
+        "  'body':" + String(Files.readAllBytes(Paths.get("..\js\spCreateToDoItem.js"))) +
+    "}");
+StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(getCollectionLink(), newStoredProcedure, null)
+    .toBlocking().single().getResource();
+```
 
+Call a stored procedure
+
+```java
 final CountDownLatch successfulCompletionLatch = new CountDownLatch(1);
 
-// POJO
 class ToDoItem {
     public String category;
     public String name;
@@ -126,7 +88,9 @@ newItem.name = "Groceries";
 newItem.description = "Pick up strawberries";
 newItem.isComplete = false;
 
-// Execute the stored procedure
+RequestOptions requestOptions = new RequestOptions();
+requestOptions.setPartitionKey(new PartitionKey("Personal"));
+
 Object[] storedProcedureArgs = new Object[] { newItem };
 asyncClient.executeStoredProcedure(getSprocLink(storedProcedure), requestOptions, storedProcedureArgs)
         .subscribe(storedProcedureResponse -> {
@@ -142,51 +106,75 @@ asyncClient.executeStoredProcedure(getSprocLink(storedProcedure), requestOptions
 successfulCompletionLatch.await();
 ```
 
-#### JavaScript
+### Stored procedures - JavaScript
+
+Register a stored procedure
 
 ```javascript
-// Call the createToDoItem stored procedure to insert a new item that requires a description
-var newItem = {
+const newStoredProcedure = {
+    id: "spCreateToDoItem",
+    serverScript: require("../js/spCreateToDoItem.js")
+};
+const { database } = await client.databases.create({ id: 'MyDatabase' });
+const { container } = await database.containers.create({ id: 'MyContainer' });
+const { createdStoredProcedure, body: body } = await container.storedProcedures.upsert(newStoredProcedure);
+```
+
+Call a stored procedure
+
+```javascript
+var newItem = [{
     category: "Personal",
     name: "Groceries",
     description: "Pick up strawberries",
     isComplete: false
-};
+}];
 
-var containerUri = 'dbs/myDatabase/colls/myContainer/sprocs/CreateToDoItem';
-return client.executeStoredProcedureAsync(containerUri, newItem);
-    }, function (error) {
-        console.log("Error", error);
-    })
-.then(function (response) {
-    console.log(response); // "DocFromSproc"
-}, function (error) {
-    console.log("Error", error);
-});
+const { database } = await client.databases.create({ id: 'MyDatabase' });
+const { container } = await database.containers.create({ id: 'MyContainer' });
+const spCreateToDoItem =  await.container.storedProcedures('spCreateToDoItem');
+var requestOptions =  new RequestOptions { PartitionKey = new PartitionKey("Personal") };
+const {body: results, headers} = await spCreateToDoItem.execute(newItem, requestOptions);
+
+if (results)
+   var id = results.Response;
 ```
 
-#### Python
+### Stored procedures - Python
+
+Register a stored procedure
 
 ```python
-# Call the createToDoItem stored procedure to insert a new item that requires a description
+
 
 ```
 
+Call a stored procedure
 
-## <a id="triggers"></a>How to work with triggers
+```python
 
-### Register a pre-trigger
 
-Below are examples of how to register a pre-trigger using the Cosmos DB SDKs. Refer to the [Pre-trigger example](how-to-write-sprocs-triggers-udfs.md#pre-triggers) as the source for this pre-trigger, saved as `trgPreValidateToDoItemTimestamp.js`.
+```
 
-#### .NET
+## <a id="pre-triggers">How to work with pre-triggers</a>
+
+Below are examples of how to register and call a pre-trigger using the Cosmos DB SDKs. Refer to the [Pre-trigger example](how-to-write-sprocs-triggers-udfs.md#pre-triggers) as the source for this pre-trigger, saved as `trgPreValidateToDoItemTimestamp.js`.
+
+When executed, pre-triggers are passed in the RequestOptions object by specifying `PreTriggerInclude` and then passing the name of the trigger in a List object.
+
+> [!NOTE]
+> Even though the name of the trigger is passed in a List, you can still only execute one trigger per operation.
+
+### Pre-triggers - .NET
+
+Register a pre-trigger
 
 ```csharp
-string body = File.ReadAllText($@"..\js\trgPreValidateToDoItemTimestamp.js");
+string triggerId = "trgPreValidateToDoItemTimestamp";
 Trigger trigger = new Trigger
 {
-    Id =  "trgPreValidateToDoItemTimestamp",
-    Body = body,
+    Id =  triggerId,
+    Body = File.ReadAllText($@"..\js\{triggerId}.js"),
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Pre
 };
@@ -194,29 +182,7 @@ containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-#### Java
-
-```java
-
-```
-
-#### JavaScript
-
-```javascript
-
-```
-
-#### Python
-
-```python
-
-```
-
-### Use a pre-trigger
-
-Triggers are passed in the RequestOptions object by specifying `PreTriggerInclude` and then passing the name of the trigger in a List object allowing you to pass more than one trigger in.
-
-#### .NET
+Call a pre-trigger
 
 ```csharp
 dynamic newItem = new
@@ -228,139 +194,203 @@ dynamic newItem = new
 };
 
 containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
-var requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
+RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
 
-#### Java
+### Pre-triggers - Java
+
+Register a pre-trigger
 
 ```java
 
 ```
 
-#### JavaScript
+Call a pre-trigger
+
+```java
+
+```
+
+### Pre-triggers - JavaScript
+
+Register a pre-trigger
 
 ```javascript
 
 ```
 
-#### Python
+Call a pre-trigger
+
+```javascript
+
+```
+
+### Pre-triggers - Python
+
+Register a pre-trigger
 
 ```python
 
 ```
 
-### Register a post-trigger
+Call a pre-trigger
 
-Below are examples of how to register a post-trigger using the Cosmos DB SDKs. Refer to the [Post-trigger example](how-to-write-sprocs-triggers-udfs.md#post-triggers) as the source for this post-trigger, saved as `trgPostValidateItem.js`.
+```python
 
-#### .NET
+```
+
+## <a id="post-triggers">How to work with post-triggers</a>
+
+Below are examples of how to register a post-trigger using the Cosmos DB SDKs. Refer to the [Post-trigger example](how-to-write-sprocs-triggers-udfs.md#post-triggers) as the source for this post-trigger, saved as `trgPostUpdateMetadata.js`.
+
+### Post-triggers - .NET
+
+Register a post-trigger
 
 ```csharp
-
+string triggerId = "trgPostUpdateMetadata";
+Trigger trigger = new Trigger
+{
+    Id = triggerId,
+    Body = File.ReadAllText($@"..\js\{triggerId}.js");,
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Post
+};
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-#### Java
-
-```java
-
-```
-
-#### JavaScript
-
-```javascript
-
-```
-
-#### Python
-
-```python
-
-```
-
-### Use a post-trigger
-
-
-#### .NET
+Call a post-trigger
 
 ```csharp
+var newItem = { 
+    name: "artist_profile_1023",
+    artist: "The Band",
+    albums: ["Hellujah", "Rotators", "Spinning Top"]
+};
 
+var options = { postTriggerInclude: "trgPostUpdateMetadata" };
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+await client.createDocumentAsync(containerUri, newItem, options);
 ```
 
-#### Java
+### Post-triggers - Java
+
+Register a post-trigger
 
 ```java
 
 ```
 
-#### JavaScript
+Call a post-trigger
+
+```java
+
+```
+
+### Post-triggers - JavaScript
+
+Register a post-trigger
 
 ```javascript
 
 ```
 
-#### Python
+Call a post-trigger
+
+```javascript
+
+```
+
+### Post-triggers - Python
+
+Register a post-trigger
 
 ```python
 
 ```
 
-## <a id="udfs"></a>How to work with user-defined functions
+Call a post-trigger
 
-Below are examples of how to register a user-defined function using the Cosmos DB SDKs. Refer to this [User-defined function example](how-to-write-sprocs-triggers-udfs.md#udfs) as the source for this post-trigger, saved as `udfCalculateTax.js`.
+```python
 
-### Register a user-defined function
+```
 
-#### .NET
+## <a id="udfs">How to work with user-defined functions</a>
+
+Below are examples of how to register a user-defined function using the Cosmos DB SDKs. Refer to this [User-defined function example](how-to-write-sprocs-triggers-udfs.md#udfs) as the source for this post-trigger, saved as `udfTax.js`.
+
+### User-defined functions - .NET
+
+Register a user-defined function
 
 ```csharp
+string udfId = "udfTax";
+var udfTax = new UserDefinedFunction
+{
+    Id = udfId,
+    Body = File.ReadAllText($@"..\js\{udfId}.js"),
+};
+
+containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-#### Java
-
-```java
-
-```
-
-#### JavaScript
-
-```javascript
-
-```
-
-#### Python
-
-```python
-
-```
-
-### Use a user-defined function
-
-#### .NET
+Call a user-defined function
 
 ```csharp
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000"));
 
+foreach (var result in results)
+{
+    //iterate over results
+}
 ```
 
-#### Java
+### User-defined functions - Java
+
+Register a user-defined function
 
 ```java
 
 ```
 
-#### JavaScript
+Call a user-defined function
+
+```java
+
+```
+
+### User-defined functions - JavaScript
+
+Register a user-defined function
 
 ```javascript
 
 ```
 
-#### Python
+Call a user-defined function
+
+```javascript
+
+```
+
+### User-defined functions - Python
+
+Register a user-defined function
 
 ```python
 
 ```
 
+Call a user-defined function
+
+```python
+
+```
 
 ## Next steps
 
