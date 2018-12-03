@@ -30,6 +30,10 @@ If you prefer, you can do these steps using the [Azure CLI](load-balancer-get-st
 
 To do the steps using this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
+## Create a virtual network, back-end servers, and a test VM
+
+First, create a virtual network (VNet). In the VNet, create two VMs to use for the back-end pool of your Basic load balancer, and a third VM to use for testing the load balancer. 
+
 ### Create a virtual network
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
@@ -43,10 +47,6 @@ To do the steps using this tutorial, sign in to the Azure portal at [https://por
 1. Select **Create**.
 
    ![Create a virtual network](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
-
-## Create back-end servers and a test VM
-
-In your virtual network, create two VMs to use for the back-end pool of your Basic load balancer, and a third VM to use for testing the load balancer. 
 
 ### Create virtual machines
 
