@@ -1,5 +1,5 @@
 ---
-title: Monitor AKS cluster performance with Azure Monitor for containers (Preview) | Microsoft Docs
+title: Monitor AKS cluster performance with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the performance and log data with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ms.author: magoedte
 ---
 
-# Understand AKS cluster performance with Azure Monitor for containers (Preview)
+# Understand AKS cluster performance with Azure Monitor for containers 
 Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from a AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also included when you you drill-down to a specific AKS cluster.
 
 This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
@@ -32,12 +32,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Multi-cluster view from Azure Monitor 
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section select **Containers (preview)**.  
 
-![Azure Monitor multi-cluster dashbaord example](./media/container-insights-analyze/azmon-containers-multiview.png)
+![Azure Monitor multi-cluster dashbaord example](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
 
 On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
-2. How many nodes, user and system pods are deployed per cluster.  
+1. Are all of my Azure Container Service Engine deployments healthy?
+1. How many nodes, user and system pods are deployed per cluster.  
 
 The health states defined are: 
 
