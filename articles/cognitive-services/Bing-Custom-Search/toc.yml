@@ -4,10 +4,10 @@
   expanded: true
   items:
     - name: What is Bing Custom Search?
-      href: overview.md
-      maintainContext: true
+      href: overview.md  
     - name: Bing Search API overview
       href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   expanded: true
   items:
@@ -39,23 +39,23 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: How-to guides
   items:
-    - name: Configure custom search experience
+    - name: Configure your custom search experience
       href: define-your-custom-view.md
-    - name: Call custom search
+    - name: Call your custom search instance
       href: search-your-custom-view.md
-    - name: Configure hosted UI experience
+    - name: Configure and integrate a hosted UI
       href: hosted-ui.md
-    - name: Share custom search
+    - name: Share your custom search instance
       href: share-your-custom-search.md
     - name: Get images from your instance
       href: get-images-from-instance.md
     - name: Get videos from your instance
       href: get-videos-from-instance.md
-    - name: Configure custom autosuggest experience
+    - name: Configure a custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Handle hit highlighting
       href: hit-highlighting.md
-    - name: Page webpages
+    - name: Page through webpages
       href: page-webpages.md
 - name: Reference
   items:
