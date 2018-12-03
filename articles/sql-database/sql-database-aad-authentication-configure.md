@@ -345,7 +345,7 @@ Sample connection string:
 ```c#
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
-connection.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
