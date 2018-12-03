@@ -69,11 +69,11 @@ With the introduction of these key industrial IoT capabilities, Azure TSI provid
 
 * Near real-time data exploration
 
-  * Azure  Time Series Insights Explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
+  * Azure  Time Series Insights explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
 
 * Root-cause analysis and anomaly detection
 
-  * Azure Time Series Insights Explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
+  * Azure Time Series Insights explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
 
 * Build custom applications on Time Series Insights platform
 

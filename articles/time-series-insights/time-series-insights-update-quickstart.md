@@ -15,7 +15,7 @@ ms.date: 11/28/2018
 
 # Explore the Azure Time Series Insights (preview) demo environment
 
-This quickstart shows you how to get started with Azure Time Series Insights (preview) Explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Time Series Insights (preview) Explorer.
+This quickstart shows you how to get started with Azure Time Series Insights (preview) explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Time Series Insights (preview) explorer.
 
 Azure Time Series Insights provides an end-to-end Platform-As-A-Service offering to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for ad-hoc data exploration as well as operational analysis. Time Series Insights is a differentiated offering tailored to the unique needs of industrial IoT deployments.
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 1. In your browser, navigate to [insights.timeseries.azure.com/preview/samples](https://insights.timeseries.azure.com/preview/samples).  
 
-1. If prompted, sign in to the Time Series Insights Explorer using your Azure account credentials.
+1. If prompted, sign in to the Time Series Insights explorer using your Azure account credentials.
 
 ### Demo step one
 

@@ -122,17 +122,17 @@ To ensure query performance and data availability, do not edit or delete any blo
 
 ### Accessing and exporting data from Time Series Insights (preview)
 
-You may want to access data stored in Azure TSI (preview) Explorer to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform machine learning using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
+You may want to access data stored in Azure TSI (preview) explorer to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform machine learning using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
 
 There are three general paths to access your data:
 
-* The Azure TSI (preview) Explorer.
+* The Azure TSI (preview) explorer.
 * The Azure TSI (preview) APIs.
 * Directly from an Azure Storage account.
 
-### From the Time Series Insights (preview) Explorer
+### From the Time Series Insights (preview) explorer
 
-You can export data as a CSV file from the TSI (preview) Explorer. Read more about the [the TSI (preview) Explorer](./time-series-insights-update-explorer.md).
+You can export data as a CSV file from the TSI (preview) explorer. Read more about the [the TSI (preview) explorer](./time-series-insights-update-explorer.md).
 
 ### From the Time Series Insights (preview) APIs
 

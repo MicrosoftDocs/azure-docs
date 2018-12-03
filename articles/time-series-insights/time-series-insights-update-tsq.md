@@ -13,7 +13,7 @@ ms.date: 11/30/2018
 
 # Data querying
 
-Azure Time Series Insights (TSI) enables data querying on events and metadata stored in the environment via public surface APIs, these APIs are the same as those that are used in the TSI Explorer.
+Azure Time Series Insights (TSI) enables data querying on events and metadata stored in the environment via public surface APIs, these APIs are the same as those that are used in the TSI explorer.
 
 There are three categories of APIs that are available in TSI namely, environment APIs, time series model APIs, and time series query APIs.
 

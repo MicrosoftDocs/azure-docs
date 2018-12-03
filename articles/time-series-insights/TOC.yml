@@ -54,7 +54,7 @@
       href: time-series-insights-update-tsm.md
     - name: Data querying
       href: time-series-insights-update-tsq.md
-    - name: Visualize data in the Explorer update
+    - name: Visualize data in the explorer update
       href: time-series-insights-update-explorer.md
   - name: Develop
     items:

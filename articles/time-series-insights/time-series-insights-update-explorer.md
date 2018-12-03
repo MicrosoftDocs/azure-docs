@@ -1,6 +1,6 @@
 ﻿---
-title: Visualize data in the Explorer update | Microsoft Docs
-description: The Azure Time Series Insights update Explorer
+title: Visualize data in the explorer update | Microsoft Docs
+description: The Azure Time Series Insights update explorer
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ---
 
-# Visualize data in the Explorer update
+# Visualize data in the explorer update
 
-This article describes features and options available within The Azure Time Series Insights (preview) Explorer web application.
+This article describes features and options available within The Azure Time Series Insights (preview) [explorer web application](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites
 
-Before you use the Azure Time Series Insights (preview) Explorer, you must:
+Before you use the Azure Time Series Insights (preview) explorer, you must:
 
 * Have a Time Series Insights environment provisioned. Learn more about provisioning a Time Series Insights environment here.
 * Provide data access to the Time Series Insights environment you created for the account. Access can be supplied to others as well as yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment.
 
-## Learn about the Azure Time Series Insights (preview) Explorer
+## Learn about the Azure Time Series Insights (preview) explorer
 
   ![explorer-one][1]
 
-The Azure Time Series Insights (preview) Explorer is broken up into the following seven elements:
+The Azure Time Series Insights (preview) explorer is broken up into the following seven elements:
 
 1. TSI (preview) navigation bar allows you to switch between analytics and model pages.
 1. TSI (preview) hierarchy tree select specific data elements to be charted.
@@ -78,7 +78,9 @@ You can also pop out the telemetry panel to get a better vertical view of the el
 
   ![explorer-six][6]
 
-Note: if you see the following icon, the instance does not have any data during the timespan selected.  To fix, you can increase the timespan selected and/or confirm that the instance is pushing data.
+> [!NOTE]
+> If you see the following icon, the instance does not have any data during the timespan selected.
+> To fix, you can increase the timespan selected and/or confirm that the instance is pushing data.
 
   ![explorer-seven][7]
 
@@ -174,7 +176,7 @@ Here you can also change between supported languages.
 
 ### Time Series Insights (preview) Terms Panel
 
-This section just applies to existing S1/S2 environments attempting to use the explorer in the updated UI. You might want to do this to use the GA product and update (preview) in conjunction with one another. We’ve added some functionality from the existing UI to the updated explorer, but know you can always get the full UI experience for S1/S2 environment in the existing TSI Explorer.  
+This section just applies to existing S1/S2 environments attempting to use the explorer in the updated UI. You might want to do this to use the GA product and update (preview) in conjunction with one another. We’ve added some functionality from the existing UI to the updated explorer, but know you can always get the full UI experience for S1/S2 environment in the existing TSI explorer.  
 
 In lieu of the hierarchy, you will see the TSI terms panel. This is where you define queries in your environment. It gives you the ability to filter your data based using a predicate.
 
