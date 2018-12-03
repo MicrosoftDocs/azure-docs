@@ -15,7 +15,7 @@ ms.author: dech
 # Build a .NET console app to manage data in Azure Cosmos DB SQL API account (SDK Version 3 Preview)
 
 > [!div class="op_single_selector"]
-> * [.NET (Preview)](sql-api-get-started-preview.md)
+> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
