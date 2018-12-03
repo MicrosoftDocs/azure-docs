@@ -57,7 +57,7 @@
     - name: Configure your dev environment
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
-    - name: VS Code Tools for AI
+    - name: Azure Machine Learning for VS Code
       displayName: Visual Studio Code, vscode
       items:
       - name: Get started
