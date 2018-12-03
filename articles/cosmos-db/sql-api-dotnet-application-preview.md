@@ -1,6 +1,6 @@
 ---
-title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB 
-description: This tutorial describes how to create an ASP .Net MVC web application using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure Websites.
+title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK.
+description: This tutorial describes how to create an ASP .Net MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
 author: deborahc
 
 ms.service: cosmos-db
@@ -21,25 +21,25 @@ ms.author: dech
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure Websites. This tutorial uses the .Net SDK V3 that us currently in preview. The following image shows the web page that you will build in this article:
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .Net SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
  
 ![Screen shot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
-If you're looking for a tutorial to build a console application that can store and access data from Azure Cosmos DB, see [Build an Azure Cosmos DB C# console application](sql-api-get-started.md) article.
+If you don't have time to complete the tutorial, you can download the complete sample project from [GitHub][GitHub]. 
 
 This tutorial covers:
 
 > [!div class="checklist"]
-> * Creating an Azure Cosmos DB account
+> * Creating an Azure Cosmos account
 > * Creating an ASP.NET MVC app
 > * Connecting the app to Azure Cosmos DB 
 > * Perform CRUD operations on the data
 
 > [!TIP]
-> This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#prerequisites), we recommend you to download the complete sample project from [GitHub][GitHub] and following the instructions in this sample. Once you build the project, you can review this article to gain insight on the code in the context of the project.
-> 
+> This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#prerequisites), we recommend you to download the complete sample project from [GitHub][GitHub], add the required NuGet packages and run it. Once you build the project, you can review this article to gain insight on the code in the context of the project.
 
 ## <a name="prerequisites"></a>Prerequisites 
+
 Before following the instructions in this article, ensure that you have the following resources:
 
 * **An active Azure account:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
@@ -64,23 +64,23 @@ In the next section, you create a new ASP.NET MVC application.
 
 ## <a name="create-a-new-mvc-application"></a>Step 2: Create a new ASP.NET MVC application
 
-1. In Visual Studio, on the **File** menu, point to **New**, and then select **Project**. The **New Project** dialog box appears.
+1. In Visual Studio, from the **File** menu, choose **New**, and then select **Project**. The **New Project** dialog box appears.
 
-2. In the **Project types** pane, expand **Templates**, **Visual C#**, **Web**, and then select **ASP.NET Web Application**.
+2. In the **New Project** window, expand **Installed** templates, **Visual C#**, **Web**, and then select **ASP.NET Web Application**. 
 
-   ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-new-project-dialog.png)
+   ![Create new ASP.NET web application project](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, adjust the provided code samples to use whatever you named your application. 
 
-4. Select **Browse** to navigate to the folder where you would like to create the project, and then select **OK**. The **New ASP.NET Web Application** dialog box appears.
+4. Select **Browse** to navigate to the folder where you would like to create the project, and then choose **.Net framework 4.6.1** or higher. Select **OK**. 
 
-5. In the templates pane, select **MVC**.
+5. The **New ASP.NET Web Application** dialog box appears. In the templates pane, select **MVC**.
 
 6. Select **OK** and let Visual Studio do the scaffolding around the empty ASP.NET MVC template. 
 
 7. Once Visual Studio has finished creating the boilerplate MVC application, you have an empty ASP.NET application that you can run locally.
 
-## <a name="add-nuget-packages"></a>Step 3: Add Azure Cosmos DB NuGet packages to the project
+## <a name="add-nuget-packages"></a>Step 3: Add Azure Cosmos DB NuGet package to the project
 
 Now that we have most of the ASP.NET MVC framework code that we need for this solution, let's add the NuGet packages required to connect to Azure Cosmos DB.
 
@@ -88,17 +88,15 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
    
    ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
-   The **Manage NuGet Packages** dialog box appears.
-
-2. In the NuGet **Browse** box, type **Microsoft.Azure.Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** 3.0.0-preview version. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
+2. The **Manage NuGet Packages** dialog box appears. In the NuGet **Browse** box, type **Microsoft.Azure.Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** 3.0.0.1-preview version. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
    
    Alternatively, you can use the Package Manager Console to install the NuGet package. To do so, on the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. At the prompt, type the following command:
    
    ```bash
-   Install-Package Microsoft.Azure.Cosmos -Version 3.0.0-preview
+   Install-Package Microsoft.Azure.Cosmos -Version 3.0.0.1-preview
    ```        
 
-3. After the package is installed, your Visual Studio solution should contain the three new references to the Microsoft.Azure.Cosmos.Client, Microsoft.Azure.Cosmos.Direct, and Newtonsoft.Json libraries.
+3. After the package is installed, your Visual Studio solution should contain the two new library references to the Microsoft.Azure.Cosmos.Client, and Newtonsoft.Json.
   
 ## <a name="set-up-the-mvc-application"></a>Step 4: Set up the ASP.NET MVC application
 
@@ -110,7 +108,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 ### <a name="add-a-model"></a> Add a model
 
-1. From the **Solution Explorer**, right-click the **Models** folder, select **Add**, and then **Class**. The **Add New Item** dialog box appears.
+1. From the **Solution Explorer**, right-click the **Models** folder, select **Add**, and then select **Class**. The **Add New Item** dialog box appears.
 
 1. Name your new class **TodoItem.cs** and select **Add**. 
 
@@ -122,7 +120,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 ### <a name="add-a-controller"></a>Add a controller
 
-1. From the **Solution Explorer**, right-click the **Controllers** folder, select **Add**, and then select **Controller**.  The **Add Scaffold** dialog box appears.
+1. From the **Solution Explorer**, right-click the **Controllers** folder, select **Add**, and then select **Controller**. The **Add Scaffold** dialog box appears.
 
 1. Select **MVC 5 Controller - Empty** and select **Add**.
 
@@ -132,9 +130,9 @@ Now let's add the models, the views, and the controllers to this MVC application
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-web-app/src/Controllers/ItemController.cs)]
 
-   **Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views should work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
+   The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views should work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
    
-   **Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details, please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+   We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details, please see [Basic CRUD Operations in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
     
 ### <a name="add-views"></a>Add views
 
@@ -146,7 +144,7 @@ Next, let's create the following three views:
 
 #### <a name="AddItemIndexView"></a>Add a list item view
 
-1. In **Solution Explorer**, expand the **Views**  folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
+1. In **Solution Explorer**, expand the **Views** folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
    
    ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
@@ -216,7 +214,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 	<add key="container" value="Items" />
    ```
  
-1. Now, update the endpoint and primarykey values with the values retrieved from the **Keys** blade in the Azure portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade for the keys setting. This takes care of wiring up the Azure Cosmos DB to the application, now let's add our application logic.
+1. Update the endpoint and primarykey values with the values retrieved from the **Keys** blade in the Azure portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade for the keys setting. This takes care of wiring up the Azure Cosmos DB to the application, now let's add the application logic.
 
 1. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
    
