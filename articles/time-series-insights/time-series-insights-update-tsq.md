@@ -84,8 +84,6 @@ The aggregateSeries API returns a TSV for each variable for each interval, based
 
 Supported Aggregate types: `Min`, `Max`, `Sum`, `Count`, `Average`
 
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
-
 ## Next steps
 
 Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
