@@ -100,5 +100,5 @@ To remove an installed solution, locate it in the [list of installed solutions](
 
 ## Next steps
 * Get a [list of management solutions from Microsoft](solutions-inventory.md).
-* Learn how to [create queries](../../log-analytics/log-analytics-queries.md) to analyze data collected by management solutions.
+* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by management solutions.
 

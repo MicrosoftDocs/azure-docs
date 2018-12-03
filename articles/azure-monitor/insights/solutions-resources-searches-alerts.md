@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 
 
 [Management solutions](solutions.md) will typically include 
-[saved searches](../../log-analytics/log-analytics-queries.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](solutions-creating.md).
+[saved searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](solutions-creating.md).
 
 > [!NOTE]
 > The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](solutions-creating.md)  
@@ -53,9 +53,9 @@ The following table lists the API version for the resource used in this example.
 
 
 ## Saved Searches
-Include [saved searches](../../log-analytics/log-analytics-queries.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
+Include [saved searches](../../azure-monitor/log-query/log-query-overview.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
 
-[Log Analytics saved search](../../log-analytics/log-analytics-queries.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Log Analytics saved search](../../azure-monitor/log-query/log-query-overview.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 	{
 		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
