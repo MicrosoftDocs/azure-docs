@@ -36,7 +36,7 @@ Explanations of the columns are as follows:
 
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | on notification |
+| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | on notification |
 | [AD Assessment](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [AD Replication Status](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 days |
 | [Agent Health](solution-agenthealth.md) | Windows and Linux | &#8226; | &#8226; | | | &#8226; | 1 minute |
@@ -44,7 +44,7 @@ Explanations of the columns are as follows:
 | [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minute |
 | [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutes |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
-| [Application Insights Connector (Preview)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | on notification |
+| [Application Insights Connector (Preview)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | on notification |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
@@ -74,4 +74,4 @@ Explanations of the columns are as follows:
 
 
 ## Next steps
-* Learn how to [create queries](../../log-analytics/log-analytics-queries.md) to analyze data collected by management solutions.
+* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by management solutions.

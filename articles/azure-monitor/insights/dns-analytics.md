@@ -42,7 +42,7 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
 | [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](../../log-analytics/log-analytics-om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../../log-analytics/log-analytics-azure-storage.md) | No | Azure storage isn't used by the solution. |
+| [Azure storage account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
@@ -185,4 +185,4 @@ There are two ways you can give feedback:
 
 ## Next steps
 
-[Search logs](../../log-analytics/log-analytics-queries.md) to view detailed DNS log records.
+[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed DNS log records.

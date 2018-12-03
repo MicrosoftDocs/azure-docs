@@ -5,17 +5,14 @@ services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-
 ---
 # Sampling in Application Insights
 
