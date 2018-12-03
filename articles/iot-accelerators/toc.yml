@@ -62,6 +62,8 @@
     items:
     - name: Architecture
       href: iot-accelerators-connected-factory-sample-walkthrough.md
+  - name: Device Simulation
+    href: iot-accelerators-device-simulation-overview.md
   - name: Permissions on azureiotsolutions.com
     href: iot-accelerators-permissions.md
 
