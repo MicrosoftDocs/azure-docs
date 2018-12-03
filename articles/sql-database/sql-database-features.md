@@ -44,8 +44,8 @@ The following table lists the major features of SQL Server and provides informat
 | [Built-in functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Change data capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Yes |
 | [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Yes |Yes |
-| [Collation statements - database](https://docs.microsoft.com/sql/t-sql/statements/collations) | Yes | Yes |
-| [Collation statements - instance](https://docs.microsoft.com/sql/t-sql/statements/collations) | No | Yes (preview)|
+| [Collation - database](https://docs.microsoft.com/sql/t-sql/statements/collations/set-or-change-the-database-collation) | Yes | Yes |
+| [Collation - server/instance](https://docs.microsoft.com/sql/t-sql/statements/collations/set-or-change-the-server-collation) | No | Yes (preview)|
 | [Columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, and Business Critical tiers](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes - see [CLR differences](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | Yes |
