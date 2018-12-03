@@ -161,11 +161,11 @@ Azure SQL Database has the Data Sync feature that connects to your databases usi
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Storage account. If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
 
 ### Azure SQL Data Warehouse PolyBase
 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
 
 #### Prerequisites
 1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
