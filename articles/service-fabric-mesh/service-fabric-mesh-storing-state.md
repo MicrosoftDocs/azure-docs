@@ -24,7 +24,7 @@ Containers often make use of temporary disks. Temporary disks are ephemeral, how
 
 ### Service Fabric Reliable Volume
 
-Service Fabric Reliable Volume is a Docker volume driver used to mount a local volume to a container. Reads and writes are local operations and fast. Data is replicated out to secondary nodes, making it highly available. Failover is also fast. When a container crashes, it fails over to a node that already has a copy of your data.
+Service Fabric Reliable Volume is a Docker volume driver used to mount a local volume to a container. Reads and writes are local operations and fast. Data is replicated out to secondary nodes, making it highly available. Failover is also fast. When a container crashes, it fails over to a node that already has a copy of your data. For an example, see [How to deploy an app with Service Fabric Reliable Volume.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
 
 ### Azure Files Volume
 
