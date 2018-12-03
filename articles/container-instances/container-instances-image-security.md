@@ -7,12 +7,15 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ms.author: danlep
 ms.custom: 
 ---
 
 # Security considerations for Azure Container Instances
+
+## Key security considerations
+
 
 ## Use a private registry
 
@@ -28,7 +31,7 @@ Security monitoring and scanning solutions such as Twistlock and Aqua are availa
 
 Containers can spread across several clusters and Azure regions. So you must secure credentials required for logins or API access, such as passwords or tokens. Ensure that only privileged users can access those containers in transit and at rest. Inventory all credential secrets, and then require developers to use emerging secrets-management tools that are designed for container platforms.  Make sure that your solution includes encrypted databases, TLS encryption for secrets data in transit, and least-privilege RBAC role access controls. Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords) for containerized applications. Because this data is sensitive and business critical, secure access to your key vaults so that only authorized applications and users can access them.
 
-## Protect your container ecosystem
+## General considerations for the container ecosystem
 
 The following security measures, implemented well and managed effectively, can help you secure and protect your container ecosystem. 
 
