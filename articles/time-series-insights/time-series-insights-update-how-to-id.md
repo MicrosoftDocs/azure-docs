@@ -25,7 +25,7 @@ The choice of the **Time Series ID** is like selecting a partition key for a dat
 With that in mind, selecting the appropriate **Time Series ID** is critical. Consider the following properties when selecting a **Time Series ID**:
 
 > [!div class="checklist"]
-> * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **Device ID**, **Sensor ID**, etc.  
+> * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **DeviceID**, **SensorID**, etc. in your JSON.
 > * It should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
 > * A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.
 > * If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.
