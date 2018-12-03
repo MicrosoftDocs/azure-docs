@@ -383,8 +383,8 @@ You can now create and access a remotedocker or cluster type compute target usin
 
 For more information on creating compute targets, see [Configuring Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md)
 
-#### Azure Machine Learning for Visual Studio Code
-- Added support for [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
+#### Visual Studio Tools for AI
+- Added support for [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
 
 #### Command Line Interface (CLI)
 - Added `az ml datasource create` command allows to creating a data source file from the command-line
