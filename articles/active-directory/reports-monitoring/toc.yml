@@ -90,7 +90,7 @@
       href: howto-install-use-log-analytics-views.md
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
-    - name: Integrate activity logs with SumoLogic
+    - name: Integrate activity logs with ArcSight
       href: howto-integrate-activity-logs-with-arcsight.md
 
   - name: Troubleshoot
