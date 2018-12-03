@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 12/3/2018
+ms.date: 12/03/2018
 ms.author: erhopf
 ---
 
@@ -23,7 +23,6 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 * [JDK 7 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
 * An Azure subscription key for Translator Text
-
 
 ## Initialize a project with Gradle
 
@@ -114,7 +113,7 @@ Add this line to the `Detect` class to instantiate the `OkHttpClient`:
 OkHttpClient client = new OkHttpClient();
 ```
 
-Next, let's build the POST request. Feel free to change the text for translation. The text must be escaped.
+Next, let's build the POST request. Feel free to change the text for langauge detection.
 
 ```java
 // This function performs a POST request.

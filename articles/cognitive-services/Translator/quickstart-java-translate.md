@@ -8,9 +8,10 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ms.author: erhopf
 ---
+
 # Quickstart: Translate text with the Translator Text REST API (Java)
 
 In this quickstart, you'll learn how to translate a text string from English to Italian and German using Java and the Translator Text REST API.

@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 12/3/2018
+ms.date: 12/03/2018
 ms.author: erhopf
 ---
 # Quickstart: Transliterate text with the Translator Text REST API (Java)
@@ -112,7 +112,7 @@ Add this line to the `Transliterate` class to instantiate the `OkHttpClient`:
 OkHttpClient client = new OkHttpClient();
 ```
 
-Next, let's build the POST request. Feel free to change the text for translation. The text must be escaped.
+Next, let's build the POST request. Feel free to change the text for transliteration.
 
 ```java
 // This function performs a POST request.

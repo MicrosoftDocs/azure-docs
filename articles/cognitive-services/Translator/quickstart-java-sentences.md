@@ -113,7 +113,7 @@ Add this line to the `BreakSentence` class to instantiate the `OkHttpClient`:
 OkHttpClient client = new OkHttpClient();
 ```
 
-Next, let's build the POST request. Feel free to change the text for translation. The text must be escaped.
+Next, let's build the POST request. Feel free to change the text. The text must be escaped.
 
 ```java
 // This function performs a POST request.
