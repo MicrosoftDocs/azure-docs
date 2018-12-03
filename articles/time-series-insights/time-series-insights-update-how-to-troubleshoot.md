@@ -23,7 +23,7 @@ This may occur if you don’t have permissions to access the TSI environment. Us
 
 ## Problem: No data is seen in the Time Series Insights (preview) explorer
 
-There are several common reasons why you might not see your data in the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md):
+There are several common reasons why you might not see your data in the [Azure TSI (preview) Explorer](https://insights.timeseries.azure.com/preview):
 
 1. Your event source may not be receiving data.
 

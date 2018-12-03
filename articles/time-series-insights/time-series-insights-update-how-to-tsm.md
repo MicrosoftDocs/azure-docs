@@ -15,7 +15,7 @@ ms.date: 12/03/2018
 
 This document describes how to work with **Time Series Models** following the Azure Time Series Insights (preview). It details several common data scenarios.
 
-Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the Private Preview.
+Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the update.
 
 ## Types
 

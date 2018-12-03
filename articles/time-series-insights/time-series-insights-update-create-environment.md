@@ -15,9 +15,9 @@ ms.date: 11/26/2018
 
 This tutorial will guide you through the process of creating an Azure Time Series Insights (TSI) update environment, populated with data from simulated devices. In this tutorial, you learn how to:
 
-* Create a TSI update environment.
-* Connect the TSI update environment to an Event Hub.
-* Run a wind farm simulation to stream data into the TSI update environment.
+* Create a TSI Preview environment.
+* Connect the TSI Preview environment to an Event Hub.
+* Run a wind farm simulation to stream data into the TSI Preview environment.
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy and associate it with your instances.
 
