@@ -43,6 +43,8 @@ This procedure demonstrates how to view the service principal of a VM or applica
 az ad sp list --display-name <VM or application name>
 ```
 
+## Next steps
 
+For more information on managing Azure AD service principals using Azure CLI, see [az ad sp](/cli/azure/ad/sp).
 
 

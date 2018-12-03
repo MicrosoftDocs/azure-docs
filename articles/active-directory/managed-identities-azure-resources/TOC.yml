@@ -111,11 +111,11 @@
   - name: View managed identity service principals
     items:
     - name: Portal
-      href: how-to-view-managed-identity-service-principal-portal
+      href: how-to-view-managed-identity-service-principal-portal.md
     - name: CLI
-      href: how-to-view-managed-identity-service-principal-cli
+      href: how-to-view-managed-identity-service-principal-cli.md
     - name: PowerShell
-      href: how-to-view-managed-identity-service-principal-powershell
+      href: how-to-view-managed-identity-service-principal-powershell.md
 - name: Reference
   items:
   - name: CLI

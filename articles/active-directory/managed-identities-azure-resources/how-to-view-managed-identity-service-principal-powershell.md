@@ -43,6 +43,8 @@ This procedure demonstrates how to view the service principal of a VM or applica
 Get-AzureRmADServicePrincipal -DisplayName <VM or application name>
 ```
 
+## Next steps
 
+For more information on viewing Azure AD service principals using PowerShell, see [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 
 

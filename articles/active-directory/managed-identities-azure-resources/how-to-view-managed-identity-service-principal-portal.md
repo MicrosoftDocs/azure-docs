@@ -39,5 +39,7 @@ This procedure demonstrates how to view the service principal of a VM with syste
 
    ![View managed identity service principal in portal](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 
+## Next steps
 
+[Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
 
