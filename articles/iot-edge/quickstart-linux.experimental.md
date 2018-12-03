@@ -55,7 +55,7 @@ Cloud resources:
 
 IoT Edge device:
 
-* A Linux device or virtual machine to act as your IoT Edge device. It is recommended to use the Microsoft provided [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtual machine, which will preinstall the IoT Edge runtime. Create this virtual machine using the following command:
+* A Linux device or virtual machine to act as your IoT Edge device. It's recommended to use the Microsoft provided [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtual machine, which will preinstall the IoT Edge runtime. Create this virtual machine using the following command:
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
@@ -119,7 +119,7 @@ During the runtime configuration, you provide a device connection string. Use th
 
 ### Set the connection string on the IoT Edge device
 
-* If you are using the Azure IoT Edge on Ubuntu virtual machine, use the device connection string you copied earlier to remotely configure your IoT Edge device:
+* If you're using the Azure IoT Edge on Ubuntu virtual machine, use the device connection string you copied earlier to remotely configure your IoT Edge device:
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
@@ -131,7 +131,7 @@ During the runtime configuration, you provide a device connection string. Use th
    ssh azureuser@{publicIpAddress}
    ```
 
-* If you are running IoT Edge on your local machine or an ARM32 device, open the configuration file located at /etc/iotedge/config.yaml and update the **device_connection_string** variable with the value you copied earlier, then restart the IoT Edge security daemon to apply your changes:
+* If you're running IoT Edge on your local machine or an ARM32 device, open the configuration file located at /etc/iotedge/config.yaml and update the **device_connection_string** variable with the value you copied earlier, then restart the IoT Edge security daemon to apply your changes:
 
    ```bash
    sudo systemctl restart iotedge
