@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Collect data in Log Analytics with an Azure Automation runbook
-You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../../azure-monitor/platform/agent-data-sources.md) on agents and also [data collected from Azure](../../log-analytics/log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.  In these cases, you can use the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.   
+You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../../azure-monitor/platform/agent-data-sources.md) on agents and also [data collected from Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.  In these cases, you can use the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.   
 
 This tutorial walks through the process for creating and scheduling a runbook in Azure Automation to write data to Log Analytics.
 
@@ -141,7 +141,7 @@ Azure Automation includes an environment to [test your runbook](../../automation
 	![Post output](media/runbook-datacollect/post-output.png)
 
 ## 5. Verify records in Log Analytics
-Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../../log-analytics/log-analytics-queries.md).
+Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 ![Log output](media/runbook-datacollect/log-output.png)
 

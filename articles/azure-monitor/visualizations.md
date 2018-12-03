@@ -6,15 +6,12 @@ manager: carmonm
 editor: ''
 services: azure-monitor
 documentationcenter: azure-monitor
-
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-
 ---
 
 # Visualizing data from Azure Monitor
@@ -30,7 +27,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including Metrics explorer, Log Analytics, and Application Insights.
 - Supports both metrics and logs.
-- Combine data from multiple sources including output from [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics queries](../log-analytics/log-analytics-queries.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
+- Combine data from multiple sources including output from [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics queries](../azure-monitor/log-query/log-query-overview.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh at one minute.
 - Parametrized metrics dashboards with timestamp and custom parameters.
