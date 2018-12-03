@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Configure your Bing Custom Search experience
 
-A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slices of the web that interest you. To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
+A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slices of the web that interest you. To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai).
 
 The portal lets you create a search instance that specifies the slices of the web: domains, subpages, and webpages, that you want Bing to search, and those that you don’t want it to search. The portal can also suggest content that you may want to include.
 
@@ -67,6 +67,12 @@ To upload a file, create a text file and specify a single domain, subpage, or we
 ### Get website suggestions for your search experience
 
 After adding web slices to the **Active** list, the Bing Custom Search portal will generate website and subpage suggestions at the bottom of the the tab. These are slices that Bing Custom Search thinks you might want to include. Click **Refresh** to get updated suggestions after updating your custom search instance's settings. This section is only visible if suggestions are available.
+
+## Search for images and videos
+
+You can search for images and videos similarly to web content by using the [Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) or the [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). You can display these results with the [hosted UI](hosted-ui.md), or the APIs. 
+
+These APIs are similar to the non-custom [Bing Image Search](../Bing-Image-Search/overview.md) and [Bing Video Search](../Bing-Video-Search/overview.md) APIs, but search the entire web, and do not require the `customConfig` query parameter. See these documentation sets for more information on working with images and videos. 
 
 ## Test your search instance with the Preview pane
 

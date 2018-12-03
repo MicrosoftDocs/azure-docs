@@ -17,9 +17,11 @@ ms.author: aahi
 
 Bing Custom Search provides a hosted UI that you can easily integrate into your webpages and web applications as a JavaScript code snippet. Using the Bing Custom Search portal, you can configure the layout, color, and search options of the UI.
 
+
+
 ## Configure the custom hosted UI
 
-To configure a hosted UI for your web applications, follow these steps:
+To configure a hosted UI for your web applications, follow these steps. As you make changes, the pane on the right will give you a preview of your UI. The displayed search results are not actual results for your instance.
 
 1. Sign in to Bing Custom Search [portal](https://customsearch.ai).  
   
@@ -35,23 +37,18 @@ To configure a hosted UI for your web applications, follow these steps:
     |Results only     | Displays search results only, without a search box. When using this layout, you must provide the search query (`&q=<query string>`). Add the query parameter to the request URL in the JavaScript snippet, or the HTML endpoint link.        |
     |Pop-over     | Provides a search box and displays the search results in a sliding overlay.        |
     
-
-5. Select a color theme. You can customize the colors to fit your application by clicking **Customize theme**. To change a color, either enter the color's RGB HEX value (for example, `#366eb8`), or click on the color preview. button and then click the shade that works for you.
-
+5. Select a color theme. You can customize the colors to fit your application by clicking **Customize theme**. To change a color, either enter the color's RGB HEX value (for example, `#366eb8`), or click on the color preview.
 
   You can preview your changes on the right side of the portal. Clicking **Reset to default** will revert your changes to the default colors for the selected theme.
 
   > [!NOTE]
-  > When you change the color theme, consider accessibility when choosing colors.
+  > Consider accessibility when choosing colors.
 
 6. Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right. Available configuration options are:  
 
-6. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-7. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
-
-> [!NOTE]
-> As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance.
+8. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
