@@ -106,7 +106,7 @@
   - name: Analyze data
     items: 
     - name: Log Analytics
-      href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
+      href: log-query/log-query-overview.md
     - name: Log query portals
       href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
     - name: OMS portal transition
