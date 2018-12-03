@@ -14,7 +14,7 @@ ms.author: dech
 
 Cross-Origin Resource Sharing (CORS) is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as same-origin policy that prevents a web page from calling APIs in a different domain. However, CORS provides a secure way to allow the origin domain to call APIs in another domain.Core SQL API in Azure Cosmos DB now supports Cross-Origin Resource Sharing (CORS) by using the “allowedOrigins” header. After you enable the CORS support for your Azure Cosmos account, only authenticated requests are evaluated to determine whether they are allowed according to the rules you have specified.
 
-You can configure the Cross-origin resource sharing (CORS) setting from the Azure portal or from an Azure Resource Manager template. Core SQL API in Azure Cosmos DB supports a JavaScript library which works in both Node.js and browser-based environments. This library can now take advantage of CORS support when using Gateway mode. There is no client-side configuration needed to use this feature. With CORS support, resources from a browser can directly access Azure Cosmos DB through the JavaScript library or directly from the REST API for simple operations. 
+You can configure the Cross-origin resource sharing (CORS) setting from the Azure portal or from an Azure Resource Manager template. Core SQL API in Azure Cosmos DB supports a JavaScript library which works in both Node.js and browser-based environments. This library can now take advantage of CORS support when using Gateway mode. There is no client-side configuration needed to use this feature. With CORS support, resources from a browser can directly access Azure Cosmos DB through the [JavaScript library](https://www.npmjs.com/package/@azure/cosmos) or directly from the [REST API](https://docs.microsoft.com/en-us/rest/api/cosmos-db/) for simple operations. 
 
 ## Enable CORS support from Azure portal
 
@@ -93,8 +93,8 @@ module.exports = {
 };
 ```
  
-Here is a code sample that uses TypeScript and Webpack with the Azure Cosmos DB JavaScript SDK library to build a Todo app that sends real time updates when new items are created.
-Another thing to consider in the browser is that you shouldn’t use your master key in most of the cases, instead it’s best to use Resource Tokens.  
+Here is a [code sample](https://github.com/christopheranderson/cosmos-browser-sample) that uses TypeScript and Webpack with the Azure Cosmos DB JavaScript SDK library to build a Todo app that sends real time updates when new items are created.
+As a best practice, do not use the primary key to communicate with Azure Cosmos DB from the browser. Instead, use resource tokens to communicate. For more information about resource tokens, see [Securing access to Azure Cosmos DB](secure-access-to-data#resource-tokens.md) article.
 
 ## Next steps
 
