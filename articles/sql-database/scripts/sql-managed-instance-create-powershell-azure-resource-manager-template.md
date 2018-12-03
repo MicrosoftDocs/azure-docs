@@ -105,7 +105,7 @@ $vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResour
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
 $subnetId = $subnet.Id
 
-# Deploy Instance using ARM template:
+# Deploy Instance using Azure Resource Manager template:
 New-AzureRmResourceGroupDeployment  -Name Poland2 -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
