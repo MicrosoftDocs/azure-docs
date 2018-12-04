@@ -31,7 +31,6 @@ Azure Machine Learning service is now generally available.
   * Random Split no longer fails if the original Dataflow doesn’t have a name  
 
 ### ML Pipelines
-
 + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
 + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
 + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
@@ -52,6 +51,15 @@ Azure Machine Learning service is now generally available.
 + Virtual network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
 + Re-run your published pipelines with existing parameters.
 + New [automated machine learning charts](how-to-track-experiments.md#auto) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
+
+### Azure Machine Learning Compute
++ With this release we are announcing a new managed compute experience through Azure Machine Learning Compute. This compute can be used for Training and Batch inferencing, is single- to multi-node compute, and does the cluster management and job scheduling for the user. It autoscales by default, has support for both CPU and GPU resources and also allows using Low-Priority VMs for reduced cost.
++ Azure Machine Learning compute uses a Docker container for your run, and packages your dependencies to replicate the same environment across all your nodes.
++ Azure Machine Learning Compute can only be created in the region of your workspace, and cannot be attached to another workspace.
++ **Breaking change** With this release, we are removing support for creating a VM from Azure Machine Learning. You can still attach an existing cloud VM or a remote on-premises server. We are also removing support for BatchAI, all of which should be supported through Azure Machine Learning Compute now.
++ We also recommend creating a new workspace to use Azure Machine Learning Compute. There is a remote chance that users trying to create Azure Machine Learning Compute from an existing workspace might see an error. Existing compute in your workspace should continue to work unaffected.
++ Our [sample notebooks] (https://aka.ms/aml-notebooks) are now updated to use this new managed compute.
++ You can also create this compute from the portal and the CLI. More information can be found [here](how-to-set-up-training-targets.md#amlcompute)
 
 ## 2018-11-20
 
