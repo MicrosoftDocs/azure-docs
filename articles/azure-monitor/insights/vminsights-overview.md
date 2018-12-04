@@ -43,8 +43,8 @@ Integration with Log Analytics delivers powerful aggregation and filtering, and 
 
 You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of your VMs. This view is based on each feature's perspective:
 
-* Health feature: The VMs are related to a resource group.
-* Map and Performance features: The VMs are configured to report to a specific Log Analytics workspace.
+* **Health**: The VMs are related to a resource group.
+* **Map** and **Performance**: The VMs are configured to report to a specific Log Analytics workspace.
 
 ![Virtual machine insights perspective in the Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
@@ -52,7 +52,7 @@ Azure DevOps can deliver predictable performance and availability of vital appli
 
 ## Data usage 
 
-When you onboard Azure Monitor for VMs, the data that's collected by your VMs is ingested and stored in Azure Monitor. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
+When you deploy Azure Monitor for VMs, the data that's collected by your VMs is ingested and stored in Azure Monitor. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
 * The data that's ingested and stored.
 * The number of health criteria metric time-series that are monitored.
 * The alert rules that are created.
@@ -61,4 +61,4 @@ When you onboard Azure Monitor for VMs, the data that's collected by your VMs is
 The log size varies by the string lengths of counters, and it can increase with the number of logical disks and network adapters. If you already have a workspace and are collecting these counters, no duplicate charges are applied. If you're already using Service Map, the only change you’ll see is the additional connection data that's sent to Azure Monitor.​
 
 ## Next steps
-To understand the requirements and methods that help you monitor your virtual machines, review [Onboard Azure Monitor for VMs](vminsights-onboard.md).
+To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-onboard.md).
