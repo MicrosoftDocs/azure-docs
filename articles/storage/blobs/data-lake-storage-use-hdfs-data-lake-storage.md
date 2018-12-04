@@ -4,8 +4,8 @@ description: Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
 services: storage
 author: artemuwka
 ms.service: storage
-ms.topic: article
-ms.date: 11/30/2018
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
 ---

@@ -4,8 +4,8 @@ description: Learn how to query data from Azure Data Lake Storage Gen2 Preview a
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
-ms.date: 06/27/2018
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: jamesbak
 ---
 # Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
