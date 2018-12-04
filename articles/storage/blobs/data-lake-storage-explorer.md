@@ -43,6 +43,8 @@ Blobs are always uploaded into a directory. This allows you to organize groups o
 
 To create a directory, expand the storage account you created in the proceeding step. Select **Blob container**, right-click and select **Create Blob container**. Enter the name for your filesystem. When complete, press **Enter** to create the filesystem. Once the blob directory has been successfully created, it is displayed under the **Blob container** folder for the selected storage account.
 
+![Microsoft Azure Storage Explorer - Creating a filesystem](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+
 ## Upload blobs to the directory
 
 Blob storage supports block blobs, append blobs, and page blobs. VHD files used to back IaaS VMs are page blobs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs.

@@ -33,15 +33,15 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## Set permissions on a directory
+## Managing access
 
 You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**.
 
 This wil bring up the **Manage Permission** prompt.
 
-![Microsoft Azure Storage Explorer - Manage directory ACLs](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
-The **Manage Permission** prompt will allow you to manage permissions for existing users and add new users for whom you can then manage permissions. To learn about permissions, including default permissions, access permissions, and their behavior, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
+The **Manage Access** prompt will allow you to manage permissions for owner and the owners group as well as adding new users to the access control list for whom you can then manage permissions. To learn about permissions, including default permissions, access permissions, and their behavior, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
 
 We recommend creating security groups and maintaining permissions on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
 
