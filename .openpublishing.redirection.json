@@ -14007,6 +14007,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-app-scale-out.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-scale-services",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/scripts/service-fabric-powershell-create-test-cluster.md",
             "redirect_url": "/azure/service-fabric/scripts/service-fabric-powershell-create-secure-cluster-cert",
             "redirect_document_id": false
