@@ -18,7 +18,7 @@ ms.date: 11/30/2018
 > [!NOTE]
 > General purpose tier is called Standard in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
 
-Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
+Azure SQL Database is based on SQL Server Database Engine architecture adapted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
 - General Purpose 
 - Business Critical
 - Hyperscale
@@ -38,7 +38,7 @@ Whenever database engine or operating system is upgraded, some part of underlyin
 
 ## When to choose this service tier?
 
-General Purpose service tier is a default service tier in Azure SQL Database that is designed for most of the generic workloads. If you need a fully managed database engine with 99.99% SLA with storage latency between 5-10ms that matches Azure SQL IaaS in most of the cases, General Purpose tier is the option for you.
+General Purpose service tier is a default service tier in Azure SQL Database that is designed for most of the generic workloads. If you need a fully managed database engine with 99.99% SLA with storage latency between 5 and 10 ms that matches Azure SQL IaaS in most of the cases, General Purpose tier is the option for you.
 
 ## Next steps
 
