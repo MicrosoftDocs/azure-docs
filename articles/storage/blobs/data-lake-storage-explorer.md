@@ -76,4 +76,4 @@ To download blobs using **Azure Storage Explorer**, with a blob selected, select
 In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using **Azure Storage Explorer**. To learn about how to set ACLs on your files and directories, continue to our How-to on the subject.
 
 > [!div class="nextstepaction"]
-> [How to set ACLs on files and directories](data-lake-storage-how-to-set-acls-storage-explorer.md)
+> [How to set ACLs on files and directories](data-lake-storage-how-to-set-permissions-storage-explorer.md)
