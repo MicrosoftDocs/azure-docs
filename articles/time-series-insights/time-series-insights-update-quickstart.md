@@ -15,13 +15,13 @@ ms.date: 12/03/2018
 
 # Explore the Azure Time Series Insights (Preview) demo environment
 
-This quickstart shows you how to get started with Azure Time Series Insights (preview) explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Time Series Insights (preview) explorer.
+This quickstart shows you how to get started with Azure Time Series Insight (TSI) Preview explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data and tour the key features of the Azure Time Series Insights (Preview) explorer.
 
-Azure Time Series Insights provides an end-to-end Platform-As-A-Service offering to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for ad-hoc data exploration as well as operational analysis. Time Series Insights is a differentiated offering tailored to the unique needs of industrial IoT deployments.
+Azure TSI provides an end-to-end Platform-As-A-Service offering to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for ad-hoc data exploration as well as operational analysis. Time Series Insights is a differentiated offering tailored to the unique needs of industrial IoT deployments.
 
-The demo environment shows an electricity generation company, Contoso, using Time Series Insights to find actionable insights in their data and conduct a short root-cause analysis. Contoso operates two wind turbine farms, each with 10 turbines, and each turbine has 20 sensors reporting data every minute to Azure IoT Hub. Sensors gather information on weather conditions, blade pitch & yaw position, generator performance, gearbox behavior, and safety monitors.
+The demo environment shows an electricity generation company, Contoso, using TSI to find actionable insights in their data and conduct a short root-cause analysis. Contoso operates two wind turbine farms, each with 10 turbines, and each turbine has 20 sensors reporting data every minute to Azure IoT Hub. Sensors gather information on weather conditions, blade pitch & yaw position, generator performance, gearbox behavior, and safety monitors.
 
-The Time Series Insights (preview) is used to analyze the ever-growing data set from the last two years – currently at 40 GB – to better understand and predict both critical failures and slow-moving maintenance issues.
+The TSI(Preview) is used to analyze the ever-growing data set from the last two years – currently at 40 GB – to better understand and predict both critical failures and slow-moving maintenance issues.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 1. In your browser, navigate to [insights.timeseries.azure.com/preview/samples](https://insights.timeseries.azure.com/preview/samples).  
 
-1. If prompted, sign in to the Time Series Insights explorer using your Azure account credentials.
+1. If prompted, sign in to the TSI explorer using your Azure account credentials.
 
 ### Demo step one
 
@@ -97,10 +97,10 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 ## Next steps
 
-You are ready to create your own Azure Time Series Insights (preview) environment:
+You are ready to create your own Azure TSI (Preview) environment:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights (preview) environment](time-series-insights-update-plan.md)
+> [Plan your Azure TSI (Preview) environment](time-series-insights-update-plan.md)
 
 <!-- Images -->
 [1]: media/v2-update-quickstart/quickstart-one.png
