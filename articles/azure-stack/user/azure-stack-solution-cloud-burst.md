@@ -57,7 +57,7 @@ In this tutorial, you will build a sample environment to:
 
 -   Create a Web App within the tenant subscription. Make note of the new Web App URL for later use.
 
--   Deploy VSTS Virtual Machine within the tenant subscription.
+-   Deploy Azure Pipelines Virtual Machine within the tenant subscription.
 
 -   Windows Server 2016 VM with .NET 3.5 required. This VM will be built in the tenant subscription on Azure Stack as the private build agent.
 
@@ -96,9 +96,11 @@ Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy
 > [!Note]  
 > Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md)" section for Azure Stack Operator.
 
-### Add Code to Visual Studio Team Services Project
+### Add Code to Azure Repos
 
-1. Sign in to Visual Studio Team Services (VSTS) with an account that has project creation rights on VSTS.
+Azure Repos
+
+1. Sign in to Azure Repos with an account that has project creation rights on Azure Repos.
 
     Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
@@ -114,13 +116,13 @@ Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy
 
     ![Alt text](media\azure-stack-solution-cloud-burst\image3.png)
 
-2.  Check in the code to VSTS using Team Explorer.
+2.  Check in the code to Azure Repos using Team Explorer.
 
-3.  Confirm that the application code has been checked into Visual Studio Team Services.
+3.  Confirm that the application code has been checked into Azure Repos.
 
 ## Create the build definition
 
-1. Log into VSTS to confirm ability to create build definitions.
+1. Log into Azure Pipelines to confirm ability to create build definitions.
 
 2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
 
@@ -130,11 +132,11 @@ Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy
 
 ## Use an Azure hosted agent
 
-Use a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
+Use a hosted agent in Azure Pipelines is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
 
 ### Manage and configure the CD process
 
-Visual Studio Team Services and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
+Azure Pipelines and Azure DevOps Server provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
 
 ## Create release definition
 
@@ -225,11 +227,11 @@ Visual Studio Team Services and Team Foundation Server (TFS) provide a highly co
 21. Save all changes.
 
 > [!Note]  
-> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when creating a release definition from a template. These settings cannot be modified in the task settings; instead, the parent environment item must be selected to edit these settings
+> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) when creating a release definition from a template. These settings cannot be modified in the task settings; instead, the parent environment item must be selected to edit these settings
 
 ## Publish to Azure Stack via Visual Studio
 
-By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. VSTS connects to the build agent, which connects to Azure Stack.
+By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. Azure Pipelines connects to the build agent, which connects to Azure Stack.
 
 1.  Sign in to VSTO and navigate to the app settings page.
 
@@ -251,18 +253,18 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 
 10. Select **Save changes**.
 
-Now that the endpoint information exists, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
+Now that the endpoint information exists, the Azure Pipelines to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure Pipelines, and then the agent conveys endpoint information for communication with Azure Stack.
 
 ## Develop the application build
 
 > [!Note]  
 > Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md)" section for Azure Stack Operator.
 
-Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from VSTS to deploy to both clouds.
+Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from Azure Repos to deploy to both clouds.
 
-### Add code to a VSTS project
+### Add code to a Azure Repos project
 
-1.  Sign in to VSTS with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
+1.  Sign in to Azure Repos with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 
 2.  **Clone the repository** by creating and opening the default web app.
 
@@ -270,13 +272,13 @@ Use [Azure Resource Manager templates like web](https://azure.microsoft.com/reso
 
 1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and then add win10-x64. For more information, see [Self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.
 
-2.  Use Team Explorer to check the code into VSTS.
+2.  Use Team Explorer to check the code into Azure Repos.
 
-3.  Confirm that the application code was checked into Visual Studio Team Services.
+3.  Confirm that the application code was checked into Azure Repos.
 
 ### Create the build definition
 
-1.  Sign in to VSTS with an account that can create a build definition.
+1.  Sign in to Azure Pipelines with an account that can create a build definition.
 
 2.  Navigate to the **Build Web Application** page for the project.
 
@@ -286,17 +288,17 @@ Use [Azure Resource Manager templates like web](https://azure.microsoft.com/reso
 
 #### Use an Azure hosted build agent
 
-Using a hosted build agent in VSTS is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
+Using a hosted build agent in Azure Pipelines is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
 
 ### Configure the continuous deployment (CD) process
 
-Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
+Azure Pipelines and Azure DevOps Server provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
 
 #### Create release definition
 
 Creating a release definition is the final step in the application build process. This release definition is used to create a release and deploy a build.
 
-1.  Sign in to VSTS and navigate to **Build and Release** for the project.
+1.  Sign in to Azure Pipelines and navigate to **Build and Release** for the project.
 
 2.  On the **Releases** tab, select **[ + ]** and then pick **Create release definition**.
 
@@ -343,7 +345,7 @@ Creating a release definition is the final step in the application build process
 23. Save all changes.
 
 > [!Note]  
-> Some settings for release tasks are automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings, but can be modified in the parent environment items.
+> Some settings for release tasks are automatically defined as [environment variables](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings, but can be modified in the parent environment items.
 
 ## Create a release
 
