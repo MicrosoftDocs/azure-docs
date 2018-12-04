@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB NoSQL migration and application development partners | Microsoft Docs
+title: Azure Cosmos DB NoSQL migration and application development partners
 description: Lists Microsoft partners with migration solutions that support Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018

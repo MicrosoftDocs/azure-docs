@@ -36,7 +36,7 @@ Next, you need to create an app in your B2C directory. The app registration give
 
 ## Create your user flows
 In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. Create this user flow as described in the
-[user flow reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the user flow, be sure to:
+[user flow reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). When you create the user flow, be sure to:
 
 * Under **Sign-up attributes**, select the attribute **Display name**.  You can select other attributes as well.
 * Under **Application claims**, select the claims **Display name** and **User's Object ID**. You can select other claims as well.
