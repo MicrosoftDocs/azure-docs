@@ -59,7 +59,6 @@ With the following JSON body and variable attributes:
 | **kind**  |  Required  |
 | **filter**  |  Optional |
 | **value**  | Null or not specified  |
-| **interpolation**  |  Optional |
 | **aggregation**  |  Required |
 
 ```JSON
@@ -74,21 +73,18 @@ With the following JSON body and variable attributes:
                     "kind": "numeric",
                     "filter": null,
                     "value": { "tsx": "$event.temperature.Double" },
-                    "interpolation": "None",
                     "aggregation": {"tsx": "avg($value)"}
                 },
                 "Count Temperature": {
                     "kind": "aggregate",
                     "filter": null,
                     "value": null,
-                    "interpolation": "None",
                     "aggregation": {"tsx": "count()"}
                 },
                 "Min Temperature": {
                     "kind": "aggregate",
                     "filter": null,
                     "value": null,
-                    "interpolation": "None",
                     "aggregation": {"tsx": "min($event.temperature)"}
                 },
             }
@@ -113,21 +109,18 @@ Response:
                         "kind": "numeric",
                         "filter": null,
                         "value": { "tsx": "$event.temperature.Double" },
-                        "interpolation": "None",
                         "aggregation": {"tsx": "avg($value)"}
                     },
                     "Count Temperature": {
                         "kind": "aggregate",
                         "filter": null,
                         "value": null,
-                        "interpolation": "None",
                         "aggregation": {"tsx": "count()"}
                     },
                     "Min Temperature": {
                         "kind": "aggregate",
                         "filter": null,
                         "value": null,
-                        "interpolation": "None",
                         "aggregation": {"tsx": "min($event.temperature)"}
                     }
                 }
@@ -177,15 +170,9 @@ Variable filters specify an optional filter clause to restrict the number of row
 
 Variable values are and should be used in computation. This is the column in the events that we should refer to.
 
-### Variable interpolation
-
-The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
-
-The Azure TSI (Preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
-
 ### Variable aggregation
 
-The aggregate function the variable enables part of computation. If variable interpolation is `null` or `none`, then TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**). If variable interpolation is `stepright` or `linear`, then TSI will support **twmin**, **twmax**, **twavg**, and **twsum**. Count cannot be specified in interpolation.
+The aggregate function the variable enables part of computation. TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**).
 
 ## Time Series Model hierarchies
 

@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Time Series Insights (preview) Data Querying | Microsoft Docs
-description: Azure Time Series Insights (preview) Data Querying
+title: Azure Time Series Insights (preview) data querying | Microsoft Docs
+description: Azure Time Series Insights (preview) data querying
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
