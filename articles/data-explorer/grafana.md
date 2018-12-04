@@ -28,7 +28,7 @@ You need the following to complete this how to:
 
 ## Configure the data source
 
-You perform the following steps to configure Azure Data Explorer as a data source for Grafana:
+You perform the following steps to configure Azure Data Explorer as a data source for Grafana. We'll cover these steps in more detail in this section:
 
 1. Create an Azure Active Directory (Azure AD) service principal. The service principal is used by Grafana to access the Azure Data Explorer service.
 
@@ -58,7 +58,7 @@ You can create the service principal in the [Azure portal](#azure-portal) or usi
 
     ```azurecli
     az ad sp create-for-rbac --name "https://{UrlToYourGrafana}:{PortNumber}" --role "reader" \
-                             --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroup1}
+                             --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroupName}
     ```
 
     For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
@@ -87,7 +87,33 @@ You can create the service principal in the [Azure portal](#azure-portal) or usi
 
 ### Add the service principal to the viewers role
 
-Now that you have a service principal, you add it to the *viewers* role in the Azure Data Explorer database.
+Now that you have a service principal, you add it to the *viewers* role in the Azure Data Explorer database. You can perform this task under **Permissions** in the Azure portal, or under **Query** by using a management command.
+
+#### Azure portal - Permissions
+
+1. In the Azure portal, go to your Azure Data Explorer cluster.
+
+1. In the **Overview** section, select the database with the StormEvents sample data.
+
+    ![Select database](media/grafana/select-database.png)
+
+1. Select **Permissions** then **Add**.
+
+    ![Database permissions](media/grafana/database-permissions.png)
+
+1. Under **Add database permissions**, select the **Viewer** role then **Select principals**.
+
+    ![Add database permissions](media/grafana/add-permission.png)
+
+1. Search for the service principal you created (the example shows the principal **mb-grafana**). Select the principal, then **Select**.
+
+    ![Manage permissions in the Azure portal](media/grafana/new-principals.png)
+
+1. Select **Save**.
+
+    ![Manage permissions in the Azure portal](media/grafana/save-permission.png)
+
+#### Management command
 
 1. In the Azure portal, go to your Azure Data Explorer cluster, and select **Query**.
 
@@ -117,12 +143,13 @@ With the service principal assigned to the *viewers* role, you now specify prope
 
     ![Connection name and type](media/grafana/connection-name-type.png)
 
-1. Enter the name of your cluster, your subscription ID, and the other values from the Azure portal or CLI. See the table below the following image for a mapping.
+1. Enter the name of your cluster in the form https://{ClusterName}.{Region}.kusto.windows.net. Enter the other values from the Azure portal or CLI. See the table below the following image for a mapping.
 
     ![Connection properties](media/grafana/connection-properties.png)
 
     | Grafana UI | Azure portal | Azure CLI |
     | --- | --- | --- |
+    | Subscription Id | SUBSCRIPTION ID | SubscriptionId |
     | Tenant Id | Directory ID | tenant |
     | Client Id | Application ID | appId |
     | Client secret | Password | password |
@@ -130,7 +157,7 @@ With the service principal assigned to the *viewers* role, you now specify prope
 
 1. Select **Save & Test**.
 
-    If the test is successful, go to the next section. If you encounter any issues, check the values you specified in Grafana and review previous steps.
+    If the test is successful, go to the next section. If you encounter any issues, check the values you specified in Grafana, and review previous steps.
 
 ## Visualize data
 
