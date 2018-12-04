@@ -75,13 +75,16 @@ When you are viewing **Containers**, you can **View Container logs** or **View c
 3. Select a container from the list under the **Monitored containers** view.  
 4. Select the **Containers** view and on the properties panel for a selected container, the  link **View container live logs** is listed.  
 5. If the AKS cluster is configured with SSO using AAD, you are prompted to authenticate on first use during that browser session. Select your account and complete authentication with Azure.  
-6. After successfully authenticating, the live log pane will appear in the bottom section of the middle pane. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means it can retrieve data.
+
+After successfully authenticating, the live log pane will appear in the bottom section of the middle pane. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means it can retrieve data.
     
   ![Live logs pane retrieved data](./media/container-insights-live-logs/live-logs-pane-01.png)  
 
-7. In the search bar, you can filter by key word to highlight that text in the log.   
+In the search bar, you can filter by key word to highlight that text in the log.   
 
   ![Live logs pane filter example](./media/container-insights-live-logs/live-logs-pane-filter-01.png)
+
+To suspend auto-scroll and control the behavior of the pane and allow you to manually scroll through the new log data read, click on the **Scroll** option.  To re-enable auto-scroll, simply click the **Scroll** option again.  You can also pause retrieval of log data by clicking on the **Pause** option and when you are ready to resume, simply click **Play**.  
 
 
  
