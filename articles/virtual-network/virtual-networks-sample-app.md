@@ -138,7 +138,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
@@ -185,7 +185,7 @@ This PowerShell script should be run locally while RDP’d into AppVM01. PowerSh
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 

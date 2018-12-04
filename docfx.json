@@ -177,6 +177,7 @@
         "articles/batch/**/*.md": "https://feedback.azure.com/forums/269742-batch",
         "articles/billing/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/biztalk-services/**/*.md": "https://feedback.azure.com/forums/216276-biztalk-services",
+        "articles/blockchain/**/*.md": "https://feedback.azure.com/forums/586780-blockchain",
         "articles/cdn/**/*.md": "https://feedback.azure.com/forums/169397-cdn",
         "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/china/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",                

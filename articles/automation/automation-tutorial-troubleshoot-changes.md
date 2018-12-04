@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 
@@ -73,7 +73,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
+To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ## Configure Change tracking
 

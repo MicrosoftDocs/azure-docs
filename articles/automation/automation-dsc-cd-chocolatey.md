@@ -35,7 +35,7 @@ package running on any particular VM as new versions are created and deployed.
 Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) are
 pretty well known in the Linux world, but not so much in the Windows world.
 [Chocolatey](https://chocolatey.org/) is such a thing, and Scott Hanselman's
-[blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great
+[blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great
 intro. In a nutshell, Chocolatey allows you to install packages from a central repository of
 packages into a Windows system using the command line. You can create and manage your own
 repository, and Chocolatey can install packages from any number of repositories that you designate.
@@ -59,7 +59,7 @@ A DSC Resource is a module of code that has specific capabilities, such as manag
 Active Directory, or SQL Server. The Chocolatey DSC Resource knows how to access a NuGet Server
 (among others), download packages, install packages, and so on. There are many other DSC Resources
 in the [PowerShell
-Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
+Gallery](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 These modules are installed into your Azure Automation State Configuration Pull Server (by you) so
 they can be used by your configurations.
 
@@ -252,7 +252,7 @@ server. The node configuration name is built as “configurationName.nodeName”
 
 For each package that you put into the package repository, you need a nuspec that describes it.
 That nuspec must be compiled and stored in your NuGet server. This process is described
-[here](http://docs.nuget.org/create/creating-and-publishing-a-package). You can use MyGet.org as a
+[here](https://docs.nuget.org/create/creating-and-publishing-a-package). You can use MyGet.org as a
 NuGet server. They sell this service, but have a starter SKU that's free. At NuGet.org you'll find
 instructions on installing your own NuGet server for your private packages.
 

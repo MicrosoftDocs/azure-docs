@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-
 ---
 # Separating telemetry from Development, Test, and Production
 

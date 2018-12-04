@@ -54,10 +54,11 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName n
 
 ## Create an event hub
 
-Now that you have an Event Hubs namespace, create an event hub within that namespace:
+Now that you have an Event Hubs namespace, create an event hub within that namespace:  
+Allowed period for `MessageRetentionInDays` is between 1 and 7 days.
 
 ```azurepowershell-interactive
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
+New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
 Congratulations! You have used Azure PowerShell to create an Event Hubs namespace, and an event hub within that namespace. 
