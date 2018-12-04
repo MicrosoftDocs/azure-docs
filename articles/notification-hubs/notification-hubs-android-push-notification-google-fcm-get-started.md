@@ -75,30 +75,21 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 ### Add Google Play services to the project
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-### Adding Azure Notification Hubs libraries
-1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
-   
-    ```java
-        compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-        compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
-    ```
+### Add Notifications Hubs library
 
-2. Add the following repository after the **dependencies** section.
-   
-    ```java
-        repositories {
-            maven {
-                url "http://dl.bintray.com/microsoftazuremobile/SDK"
-            }
-        }
-    ```
+In the `Build.Gradle` file for the app, add the following line in the dependencies section.
+
+```java
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+```
 
 ### Add Google Firebase support
 
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
    
     ```java
-        compile 'com.google.firebase:firebase-core:12.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ```
 
 2. Add the following plugin at the end of the file. 
@@ -453,7 +444,9 @@ In addition, ensure that you have added your Google account to your running emul
 ## (Optional) Send push notifications directly from the app
 Normally, you would send notifications using a backend server. For some cases, you might want to be able to send push notifications directly from the client application. This section explains how to send notifications from the client using the [Azure Notification Hub REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **layout**. Open the `activity_main.xml` layout file and click the **Text** tab to update the text contents of the file. Update it with the code below, which adds new `Button` and `EditText` controls for sending push notification messages to the notification hub. Add this code at the bottom, just before `</RelativeLayout>`.
+
+
+2. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **layout**. Open the `activity_main.xml` layout file and click the **Text** tab to update the text contents of the file. Update it with the code below, which adds new `Button` and `EditText` controls for sending push notification messages to the notification hub. Add this code at the bottom, just before `</RelativeLayout>`.
    
     ```xml
     <Button
@@ -474,20 +467,20 @@ Normally, you would send notifications using a backend server. For some cases, y
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
-2. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **values**. Open the `strings.xml` file and add the string values that are referenced by the new `Button` and `EditText` controls. Add the following lines at the bottom of the file, just before `</resources>`.
+3. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **values**. Open the `strings.xml` file and add the string values that are referenced by the new `Button` and `EditText` controls. Add the following lines at the bottom of the file, just before `</resources>`.
 
     ```xml   
     <string name="send_button">Send Notification</string>
     <string name="notification_message_hint">Enter notification message text</string>
     ```
-3. In your `NotificationSetting.java` file, add the following setting to the `NotificationSettings` class.
+4. In your `NotificationSetting.java` file, add the following setting to the `NotificationSettings` class.
    
     Update `HubFullAccess` with the **DefaultFullSharedAccessSignature** connection string for your hub. This connection string can be copied from the [Azure portal] by clicking **Access Policies** on the **Settings** page for your notification hub.
    
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
     ```
-4. In your `MainActivity.java` file, add the following `import` statements at the beginning of the file.
+5. In your `MainActivity.java` file, add the following `import` statements at the beginning of the file.
    
     ```java
     import java.io.BufferedOutputStream;
@@ -503,14 +496,14 @@ Normally, you would send notifications using a backend server. For some cases, y
     import android.view.View;
     import android.widget.EditText;
     ```
-5. In your `MainActivity.java` file, add the following members at the top of the `MainActivity` class.    
+6. In your `MainActivity.java` file, add the following members at the top of the `MainActivity` class.    
    
     ```java
     private String HubEndpoint = null;
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
+7. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
    
     In `MainActivity.java`, add the following method to the `MainActivity` class to parse your connection string.
    
@@ -541,7 +534,7 @@ Normally, you would send notifications using a backend server. For some cases, y
         }
     }
     ```
-7. In `MainActivity.java`, add the following method to the `MainActivity` class to create a SaS authentication token.
+8. In `MainActivity.java`, add the following method to the `MainActivity` class to create a SaS authentication token.
    
     ```java
     /**
@@ -596,7 +589,7 @@ Normally, you would send notifications using a backend server. For some cases, y
         return token;
     }
     ```
-8. In `MainActivity.java`, add the following method to the `MainActivity` class to handle the **Send Notification** button click and send the push notification message to the hub by using the built-in REST API.
+9. In `MainActivity.java`, add the following method to the `MainActivity` class to handle the **Send Notification** button click and send the push notification message to the hub by using the built-in REST API.
    
     ```java
     /**
