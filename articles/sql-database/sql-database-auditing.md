@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: arib
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
@@ -33,8 +33,6 @@ You can use SQL database auditing to:
 - **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
 - **Report** on database activity. You can use pre-configured reports and a dashboard to get started quickly with activity and event reporting.
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
-
-You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
 
 > [!IMPORTANT]
 > Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
