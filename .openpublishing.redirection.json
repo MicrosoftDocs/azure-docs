@@ -31497,6 +31497,26 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/log-analytics/log-analytics-azure-sql.md",
+            "redirect_url":  "/azure/azure-monitor/insights/azure-sql",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-web-apps-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/insights/azure-web-apps-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-containers.md",
+            "redirect_url":  "/azure/azure-monitor/insights/containers",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-om-agents.md",
+            "redirect_url":  "/azure/azure-monitor/platform/om-agents",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
