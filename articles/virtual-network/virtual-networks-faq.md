@@ -330,7 +330,7 @@ The HTTP 404 error is returned.
 Yes, for most of the Azure services, virtual networks created in different regions can access Azure services in another region through the VNet service endpoints. For example, if an Azure Cosmos DB account is in West US or East US and virtual networks are in multiple regions, the virtual network can access Azure Cosmos DB. Storage and SQL are exceptions and are regional in nature and both the virtual network and the Azure service need to be in the same region.
   
 ### Can an Azure service have both VNet ACL and an IP firewall?
-Yes, VNet ACL and an IP firewall can co-exist. Both features compliment each other to ensure isolation and security.
+Yes, VNet ACL and an IP firewall can co-exist. Both features complement each other to ensure isolation and security.
  
 ### What happens if you delete a virtual network or subnet that has service endpoint turned on for Azure service?
 Deletion of VNets and subnets are independent operations and are supported even when service endpoints are turned on for Azure services. In cases where the Azure services have VNet ACLs set up, for those VNets and subnets, the VNet ACLs information associated with that Azure service is disabled when a VNet or subnet that has VNet service endpoint turned on is deleted.
