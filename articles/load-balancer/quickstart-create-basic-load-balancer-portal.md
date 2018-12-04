@@ -4,11 +4,7 @@ description: This quickstart shows how to create a public Basic load balancer by
 services: load-balancer
 documentationcenter: na
 author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article
@@ -75,10 +71,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    - **Instance Details** > **Availability Options**: 
      1. Drop down and select **Availability set**. 
      2. Select **Create new**, type *MyAvailabilitySet*, and select **OK**.
-   - **Administrator Account** > **Username**: Type *azureuser*.
-   - **Administrator Account** > **Password**: Type *Azure1234567*. 
-     Retype the password in the **Confirm password** field.
-   
+  
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
    
    Make sure the following are selected:
@@ -131,7 +124,7 @@ In this section, you create network security group (NSG) rules for the VMs, to a
 
 In this section, you configure load balancer settings for a back-end address pool, a health probe, and a load balancer rule.
 
-### Create a back-end address pool
+### Create a backend address pool
 
 To distribute traffic to the VMs, the load balancer uses a back-end address pool. The back-end address pool contains the IP addresses of the virtual network interfaces (NICs) that are connected to the load balancer. 
 
@@ -153,7 +146,7 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
    
 1. Select **OK**.
    
-   ![Add the back-end address pool](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+   ![Add the backend address pool](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
    
 1. On the **Backend pools** page, expand **MyBackendPool** and make sure both **VM1** and **VM2** are listed.
 
@@ -227,7 +220,7 @@ Install Internet Information Services (IIS) on the virtual machines to help test
    
 1. On the Windows Security screen, select **More choices** and then **Use a different account**. 
    
-   Enter username *azureuser* and password *Azure1234567*, and select **OK**.
+   Enter username and password and select **OK**.
    
 1. Respond **Yes** to any certificate prompt. 
    
@@ -253,9 +246,7 @@ Install Internet Information Services (IIS) on the virtual machines to help test
 
 ### Test the load balancer
 
-On each VM, open a browser, and respond **OK** to any configuration prompts. 
-
-Paste your load balancer's public IP address into the browser's address bar. The IIS web server default page should appear in the browser.
+Open a browser and paste your load balancer's public IP address into the browser's address bar. The IIS web server default page should appear in the browser.
 
 ![IIS web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
