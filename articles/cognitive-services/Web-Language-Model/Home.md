@@ -38,7 +38,7 @@ The Web Language Model API supports four lookup operations:
 1. Subscribe to the service.
 2. Download the [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Run the SDK sample code.
-4. Refer to the [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104) for full details of the endpoints, including code snippets in a variety of languages.
+4. Refer to the [API Reference](http://web.archive.org/web/20170503191852/https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) for full details of the endpoints, including code snippets in a variety of languages.
 
 ## Underlying Technology
 

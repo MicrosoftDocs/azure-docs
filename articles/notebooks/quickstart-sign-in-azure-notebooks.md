@@ -50,9 +50,9 @@ Although you can always view Azure Notebooks without signing in, you must sign i
 
 ## Sign out
 
-1. To sign out, select your username on the upper right of the page, then select **Sign out**:
+To sign out, select your username on the upper right of the page, then select **Sign out**:
 
-    ![Location of sign-out command on Azure Notebooks](media/accounts/sign-out-command.png)
+![Location of sign-out command on Azure Notebooks](media/accounts/sign-out-command.png)
 
 ## Next steps
 
