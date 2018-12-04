@@ -94,7 +94,7 @@ Use the following cmdlets for Azure SQL Database and Data Warehouse:
 |  | |
 
 > [!IMPORTANT]
-> For Azure SQL Managed Instance, use the T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) command to turn transparent data encryption on and off on a database level, and check [sample PowerShell script](sql-database/transparent-data-encryption-byok-azure-sql-configure.md) to manage transparent data encryption on an instance level.
+> For Azure SQL Managed Instance, use the T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) command to turn transparent data encryption on and off on a database level, and check [sample PowerShell script](transparent-data-encryption-byok-azure-sql-configure.md) to manage transparent data encryption on an instance level.
 
 ## Manage transparent data encryption by using Transact-SQL
 
