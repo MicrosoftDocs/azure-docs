@@ -15,10 +15,10 @@ ms.custom: codepen
 
 This article shows you how you can overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. More information on Azure Maps tiling system can be found in the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
 
-A Tile layer load in tiles from a server. These images can either be pre-rendered and stored like any other image on a server using a naming convention that the tile layer understands, or a dynamic service which generates the images on the fly. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class; 
+A Tile layer load in tiles from a server. These images can either be pre-rendered and stored like any other image on a server using a naming convention that the tile layer understands, or a dynamic service that generates the images on the fly. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class; 
 
 * X, Y, Zoom notation - Based on the zoom level, x is the column and y is the row position of the tile in the tile grid.
-* Quadkey notation - Combination x, y, zoom information into a single string value which is a unique idenifiter for a tile.
+* Quadkey notation - Combination x, y, zoom information into a single string value that is a unique identifier for a tile.
 * Bounding Box - Bounding box coordinates can be used to specify an image in the format `{west},{south},{east},{north}` which is commonly used by [Web Mapping Services (WMS)](http://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
@@ -26,23 +26,23 @@ A Tile layer load in tiles from a server. These images can either be pre-rendere
 
 The tile URL passed into a Tile layer must be an http/https URL to a TileJSON resource or a tile URL template that uses the following parameters: 
 
-* `{x}`: X position of the tile. Usually also needs `{y}` and `{z}`.
-* `{y}`: Y position of the tile. Usually also needs `{x}` and `{z}`.
-* `{z}`: Zoom level of the tile. Usually also needs `{x}` and `{y}`.
+* `{x}`: X position of the tile. Also needs `{y}` and `{z}`.
+* `{y}`: Y position of the tile. Also needs `{x}` and `{z}`.
+* `{z}`: Zoom level of the tile. Also needs `{x}` and `{y}`.
 * `{quadkey}`: Tile quadKey id based on the Bing Maps tile system naming convention.
-* `{bbox-epsg-3857}`: A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spacial Reference System.
+* `{bbox-epsg-3857}`: A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
 * `{subdomain}`: A placeholder where the subdomain values if specified will be added.
 
 ## Add a Tile Layer
 
- This sample shows how to create a simple tile layer which points to a set of tiles which use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
+ This sample shows how to create a tile layer which points to a set of tiles that use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
 
 <iframe height='500' scrolling='no' title='Tile Layer using X, Y, and Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>Tile Layer using X, Y, and Z</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
-In the second block of code, an [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is created by passing a formatted URL to a tile service, the tile size and an opacity to make it semi-transparent. Additionally, when adding the tile layer to the map, it is added below the `labels` layer so that the labels are still clearly visible.
+In the second block of code, an [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is created by passing a formatted URL to a tile service, the tile size, and an opacity to make it semi-transparent. Additionally, when adding the tile layer to the map, it is added below the `labels` layer so that the labels are still clearly visible.
 
 ## Customize a Tile Layer
 
