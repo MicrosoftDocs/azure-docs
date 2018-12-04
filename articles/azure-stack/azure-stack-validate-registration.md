@@ -1,5 +1,5 @@
 ---
-title:    Validate Azure registration for Azure Stack | Microsoft Docs
+title: Validate Azure registration for Azure Stack | Microsoft Docs
 description: Use the Azure Stack Readiness Checker to validate Azure registration.
 services: azure-stack
 documentationcenter: ''
@@ -102,6 +102,7 @@ If a validation check fails, details about the failure display in the PowerShell
 The following examples provide guidance on common validation failures.
 
 ### User must be an owner of the subscription	
+
 ```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
@@ -113,12 +114,13 @@ Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessCh
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
 ```
+
 **Cause** - The account is not an administrator of the Azure subscription.   
 
 **Resolution** - Use an account that is an administrator of the Azure subscription that will be billed for usage from the Azure Stack deployment.
 
-
-### Expired or temporary password 
+### Expired or temporary password
+ 
 ```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
@@ -133,6 +135,7 @@ Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessCh
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
 ```
+
 **Cause** - The account can’t log on because the password is either expired or is temporary.     
 
 **Resolution** - In PowerShell run and follow the prompts to reset the password. 
@@ -140,23 +143,26 @@ Invoke-AzsRegistrationValidation Completed
 
 Alternatively, login into https://portal.azure.com as the account and the user will be forced to change the password.
 
-
 ### Unknown user type  
+
 ```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
-Checking Registration failed with: Retrieving TenantId for subscription <subscription ID> using <account> failed with unknown_user_type: Unknown Us
-er Type
+Checking Registration failed with: Retrieving TenantId for subscription <subscription ID> using <account> failed with unknown_user_type: Unknown User Type
 
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
 ```
+
 **Cause** - The account can’t log on to the specified Azure Active Directory environment. In this example, *AzureChinaCloud* is specified as the *AzureEnvironment*.  
 
-**Resolution** - Confirm that the account is valid for the specified Azure Environment. In PowerShell, run the following to verify the account is valid for a specific environment.     
-  > `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
+**Resolution** - Confirm that the account is valid for the specified Azure Environment. In PowerShell, run the following to verify the account is valid for a specific environment:
+     
+```powershell
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```
 
 
 ## Next Steps
