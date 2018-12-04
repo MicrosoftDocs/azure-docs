@@ -26,7 +26,7 @@ Customer intent: As a developer, I want to build a Java application with the Asy
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-As developer, you might have applications that use NoSQL document data. You can use the SQL API account in Azure cosmos DB to store and access this document data. This tutorial shows you how to build a Java application with the Async Java SDK to store and manage document data. 
+As developer, you might have applications that use NoSQL document data. You can use the SQL API account in Azure Cosmos DB to store and access this document data. This tutorial shows you how to build a Java application with the Async Java SDK to store and manage document data. 
 
 This tutorial covers the following tasks:
 
