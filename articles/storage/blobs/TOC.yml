@@ -651,6 +651,8 @@
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
   - name: Resources
     items:
+    - name: Data Lake Storage Gen2 known issues
+      href: data-lake-storage-known-issues.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=storage
     - name: Azure Storage client tools

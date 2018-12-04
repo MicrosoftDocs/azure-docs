@@ -27588,6 +27588,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/data-lake-storage/known-issues.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-known-issues",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false
