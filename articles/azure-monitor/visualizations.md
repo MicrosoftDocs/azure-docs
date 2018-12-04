@@ -6,15 +6,12 @@ manager: carmonm
 editor: ''
 services: azure-monitor
 documentationcenter: azure-monitor
-
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-
 ---
 
 # Visualizing data from Azure Monitor
@@ -30,7 +27,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including Metrics explorer, Log Analytics, and Application Insights.
 - Supports both metrics and logs.
-- Combine data from multiple sources including output from [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics queries](../log-analytics/log-analytics-queries.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
+- Combine data from multiple sources including output from [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics queries](../azure-monitor/log-query/log-query-overview.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh at one minute.
 - Parametrized metrics dashboards with timestamp and custom parameters.
@@ -47,7 +44,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Limited contextual drill-down.
 
 ## Azure Monitor Views
-[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../azure-monitor/insights/solutions.md) to present the data they collect.
+[Views in Azure Monitor](../azure-monitor/platform/view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../azure-monitor/insights/solutions.md) to present the data they collect.
 
 ![View](media/visualizations/view.png)
 
@@ -55,7 +52,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Rich visualizations for Log Analytics data.
 - Export and import views to transfer them to other resource groups and subscriptions.
 - Integrates into Log Analytic management model with workspaces and monitoring solutions.
-- [Filters](../log-analytics/log-analytics-view-designer-filters.md) for custom parameters.
+- [Filters](../azure-monitor/platform/view-designer-filters.md) for custom parameters.
 - Interactive, supports multi-level drill-in (view that drills into another view)
 
 ### Limitations
@@ -137,7 +134,7 @@ You can access data in Azure metrics and Log Analytics through their API using a
 ## Next steps
 - Learn about the [data collected by Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
-- Learn about [Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md).
+- Learn about [Views in Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Learn about [import log data into Power BI](../log-analytics/log-analytics-powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

@@ -33,7 +33,7 @@ For an overview of all other Marketplace offerings, refer to the
 What are pre-requisites for publishing a SaaS App?
 -------------------------------------------------
 
-Publishing portal provides role-based access to the portal allowing
+The [Cloud Partner Portal](https://cloudpartner.azure.com) provides role-based access to the portal allowing
 multiple individuals to collaborate towards publishing an
 offer. For more information, see [Manage Users](./cloud-partner-portal-manage-users.md). 
 
@@ -65,7 +65,7 @@ The SaaS App offer consists of five sections, described in the following table:
 
 ### Creating a New Offer
 
-After you sign in to the Cloud Partner Portal, select the **New Offer**
+After you sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com), select the **New Offer**
 item on the left menubar, which displays a menu of available
 offerings. The following image shows an example of these offerings:
 
@@ -193,7 +193,7 @@ The following table describes the Marketing fields:
 
 | **Offer Fields** | **Description**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logos            | If you are a **Sell through Azure** SaaS app, you should provide all logo images. If you are just a listing, then only 2 logos are required. All the logos uploaded in the Cloud Partner Portal should use the following guidelines:     <br/> - Keep the number of primary and secondary colors on your logo low. The Azure design has a simple color palette.     <br/> -  Avoid using black or white as the background color of your logo. The theme colors of the Azure Portal are black and  white. Instead, use some color that would make your logo prominent in the Azure Portal. We recommend simple primary colors. If you are using a transparent background, then make sure that the logo and text are not black, white, or blue.     <br/> - Do not use a gradient background on the logo.     <br/> - Avoid placing text, even your company or brand name, on the logo. The look and feel of  your logo should be 'flat' and should avoid gradients.    <br/> - The logo image should not be stretched.                   |
+| Logos            | If you are a **Sell through Azure** SaaS app, you should provide all logo images. If you are just a listing, then only 2 logos are required. All the logos uploaded in the [Cloud Partner Portal](https://cloudpartner.azure.com) should use the following guidelines:     <br/> - Keep the number of primary and secondary colors on your logo low. The Azure design has a simple color palette.     <br/> -  Avoid using black or white as the background color of your logo. The theme colors of the Azure Portal are black and  white. Instead, use some color that would make your logo prominent in the Azure Portal. We recommend simple primary colors. If you are using a transparent background, then make sure that the logo and text are not black, white, or blue.     <br/> - Do not use a gradient background on the logo.     <br/> - Avoid placing text, even your company or brand name, on the logo. The look and feel of  your logo should be 'flat' and should avoid gradients.    <br/> - The logo image should not be stretched.                   |
 | Videos           | Allows you to add links of videos of your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, with a png image of 1280x720 pixels. You can have a maximum of four videos per offer. |
 | Documents        | Allows you to add marketing documents to your offer. All documents must be in PDF format, and you can have a maximum of three documents per offer.                                                                                                                                                      |
 | Screenshots      | Allows you to add screenshots of your offer. There is a maximum of five screenshots that can be added per offer. The maximum image size is 1280x720 pixels.                                                                                                                                             |

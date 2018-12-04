@@ -46,9 +46,7 @@ If you still want to create a specific account for this scenario, [follow these 
 
 Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md) in one of the Azure regions that have preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
 
-Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
-
-![](./media/service-bus-role-based-access-control/rbac1.PNG)
+Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 
 The user account now has access to the Service Bus namespace, and to the queue you previously created.
  
