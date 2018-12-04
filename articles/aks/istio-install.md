@@ -1,6 +1,6 @@
 ---
-title: Install Istio on Azure Kubernetes Service (AKS)
-description: Use Istio to provide a service mesh in an Azure Kubernetes Service (AKS) cluster
+title: Install Istio in Azure Kubernetes Service (AKS)
+description: Learn how to install and ise Istio to create a service mesh in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: paulbouwer
 
@@ -10,13 +10,13 @@ ms.date: 12/3/2018
 ms.author: pabouwer
 ---
 
-# Install Istio on Azure Kubernetes Service (AKS)
+# Install and use Istio in Azure Kubernetes Service (AKS)
 
-[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices within your Kubernetes cluster. These include traffic management, service identity & security, policy enforcement, and observability. For a deeper conceptual understanding of Istio, see the official [What is Istio?][istio-docs-concepts] documentation.
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] documentation.
 
-This article demonstrates how to install Istio. The Istio `istioctl` client binary is installed onto your client machine and the Istio components are installed into a Kubernetes cluster on AKS. These instructions will reference Istio version **1.0.4**. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases].
+This article shows you how to install Istio. The Istio `istioctl` client binary is installed onto your client machine, then the Istio components are installed into a Kubernetes cluster on AKS. These instructions reference Istio version **1.0.4**. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases].
 
-You'll need to complete the following tasks to complete the installation of Istio on Azure Kubernetes Service (AKS):
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Download Istio
@@ -28,13 +28,15 @@ You'll need to complete the following tasks to complete the installation of Isti
 
 The steps detailed in this article assume you've created an AKS cluster (Kubernetes 1.10 and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
-You will need to have [Helm][helm] correctly installed, since we will be using it to install Istio. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install]. 
+To install Istio, you need [Helm][helm] correctly installed and configured in your cluster. If you need help with installing Helm, see the [AKS Helm installation guidance][helm-install].
 
-This article separates the Istio installation guidance into several discrete steps. It describes each of these steps so that you can not only install Istio easily, but also learn how Istio works with Kubernetes. The end-result, however, will be identical in structure to the official Istio installation [guidance][istio-install-k8s-quickstart].
+This article separates the Istio installation guidance into several discrete steps. Each of these steps is described so you learn how to install Istio, and learn how Istio works with Kubernetes. The end result is the same in structure as the official Istio installation [guidance][istio-install-k8s-quickstart].
 
 ## Download Istio
 
-Download and extract the latest Istio release. Use the instructions below that are appropriate for your client machine operating system.
+First, download and extract the latest Istio release. The steps a little different for a bash shell on MacOS, Linux, or Windows Subsystem for Linux, and a PowerShell shell. Choose one of the following install steps for your preferred environment:
+
+**Bash**:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -47,6 +49,8 @@ curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
+**PowerShell**:
+
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
 $ISTIO_VERSION="1.0.4"
@@ -58,14 +62,14 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 
 ## Install the Istio client binary
 
-The Istio `istioctl` client binary runs on your client machine and allows you to manage Istio routing rules and policies.
+The Istio `istioctl` client binary runs on your client machine and allows you to manage Istio routing rules and policies. Again, the install steps are a little different between client operating systems, so choose the steps for your OS:
 
 > [!IMPORTANT]
-> Ensure that you run all of the following steps from the top-level folder of the Istio release you downloaded and extracted earlier.
+> Run all of the remaining steps from the top-level folder of the Istio release that you downloaded and extracted in the previous section.
 
-### Linux
+### Linux or Windows Subsystem for Linux
 
-Use the following commands to install the Istio `istioctl` client binary in a **bash**-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands will copy the `istioctl` client binary to the standard user program location that is available via your `PATH`.
+Use the following commands to install the Istio `istioctl` client binary in a **bash**-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -84,10 +88,12 @@ source ~/completions/istioctl.bash
 # are permanently available in your shell
 echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 ```
+
+Now move onto the section to [Install the Istio Kubernetes components](#install-the-istio-kubernetes-components).
 
 ### MacOS
 
-To install the Istio `istioctl` client binary in a **bash**-based shell on MacOS, use the following commands. These commands will copy the `istioctl` client binary to the standard user program location that is available via your `PATH`.
+To install the Istio `istioctl` client binary in a **bash**-based shell on MacOS, use the following commands. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -107,9 +113,11 @@ source ~/completions/istioctl.bash
 echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 ```
 
+Now move onto the section to [Install the Istio Kubernetes components](#install-the-istio-kubernetes-components).
+
 ### Windows
 
-To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands will copy the `istioctl` client binary to a new user program location and make it available via your `PATH`.
+To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to a new user program location and make it available via your `PATH`.
 
 ```powershell
 cd istio-$ISTIO_VERSION
@@ -119,25 +127,14 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 [environment]::SetEnvironmentVariable("PATH", $PATH + "; C:/Program Files/Istio/", "User")
 ```
 
-You've successfully installed the Istio `istioctl` client binary onto your client machine.
-
 ## Install the Istio Kubernetes components
 
-Now it's time to install the Istio components into your Kubernetes cluster on AKS.
+Now use Helm to install the Istio components into your AKS cluster. Install the Istio resources into the `istio-system` namespace, and enable additional options for security and monitoring as follows:
 
 > [!NOTE]
-> If you do not have at least version `2.10.0` of Helm installed, then you should look at the [Istio - Installation with Helm guide][istio-install-helm] for other installation options.
+> If you don't have at least version `2.10.0` of Helm installed, see the [Istio - Installation with Helm guide][istio-install-helm] for other installation options.
 
-> [!IMPORTANT]
-> Ensure that you run the following step from the top-level folder of the Istio release you downloaded and extracted earlier.
-
-<!-- 
-- [Istio - Helm installation guide][istio-install-helm]
-- [Istio - Helm installation options][istio-install-helm-options] -->
-
-We'll be installing the Istio resources into the `istio-system` namespace, which will be correctly created and configured via the following command:
-
-```azurecli-interactive
+```azurecli
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
   --set global.controlPlaneSecurityEnabled=true \
   --set grafana.enabled=true \
@@ -145,23 +142,23 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
   --set kiali.enabled=true
 ```
 
+The Helm chart deploys a large number of objects. The deployment can take 2 to 3 minutes to complete, depending on the cluster environment.
+
 ## Validate the installation
 
-We've just deployed a large number of objects. You can expect the deployment to complete in between 2 to 3 minutes, depending on the cluster environment. To be confident that we have a successful deployment of Istio, let's validate the installation.
+To make sure that you have a successful deployment of Istio, let's validate the installation. First confirm that the expected services have been created. Use the [kubectl get svc][kubectl-get-svc] command to view the running services. Query the *istio-system* namespace, where the Istio and add-on components were installed by the Helm chart:
 
-First we'll confirm that the services we expect, have been created. Use the following command and make sure that you are querying the `istio-system` namespace, since that is where the Istio and add-on components have been installed.
-
-```azurecli-interactive
-kubectl get svc -n istio-system -o wide
+```azurecli
+kubectl get svc --namespace istio-system --output wide
 ```
 
 The following example output shows the services that should now be running:
 
-- the `istio-*` services
-- the `jaeger-*`, `tracing`, and `zipkin` add-on tracing services
-- the `prometheus` add-on metrics service
-- the `grafana` add-on analytics and monitoring dashboard service
-- the `kiali` add-on service mesh dashboard service
+- `istio-*` services
+- `jaeger-*`, `tracing`, and `zipkin` add-on tracing services
+- `prometheus` add-on metrics service
+- `grafana` add-on analytics and monitoring dashboard service
+- `kiali` add-on service mesh dashboard service
 
 If the `istio-ingressgateway` shows an external ip of `<pending>`, wait a few minutes until an IP address has been assigned by Azure networking.
 
@@ -185,13 +182,11 @@ tracing                  ClusterIP      10.0.139.121   <none>           80/TCP  
 zipkin                   ClusterIP      10.0.60.155    <none>           9411/TCP                                                                                                                  3m        app=jaeger
 ```
 
-Next, we'll confirm the pods that have been created. Run the following command and remember to make sure that you are querying the `istio-system` namespace, since that is where the Istio components have been installed.
+Next, confirm that the pods that have been created. Use the [kubectl get pods][kubectl-get-pods] command, and again query the `istio-system` namespace:
 
-```azurecli-interactive
-kubectl get pods -n istio-system
+```azurecli
+kubectl get pods --namespace istio-system
 ```
-
-All of the pods should have a status of `Running`. If the pods don't have these statuses, wait until they do. Then your Istio installation will be complete.
 
 The following example output shows the pods that are running:
 
@@ -216,92 +211,94 @@ kiali-5fbd6ffb-4qcxw                     1/1       Running     0          6m
 prometheus-76db5fddd5-2tkxs              1/1       Running     0          6m
 ```
 
-Congratulations! You have successfully installed Istio on Azure Kubernetes Service (AKS).
+All of the pods show the status of `Running`. If your pods don't have these statuses, wait a minute or two until they do. If any pods report an issue, use the [kubectl describe pod][kubectl-describe] command to review their output and status.
 
 ## Accessing the add-ons
 
-We installed a number of add-ons with Istio in our setup above that provide additional functionality. The user interfaces for the add-ons installed in our setup, are not exposed publicly via an external ip address. To access the add-on user interfaces, we'll use the `kubectl port-forward` command. This command will create a secure connection between a local port on your client machine and the relevant pod in your AKS cluster.
+A number of add-ons were installed Istio in our setup above that provide additional functionality. The user interfaces for the add-ons are not exposed publicly via an external ip address. To access the add-on user interfaces, use the [kubectl port-forward][kubectl-port-forward] command. This command creates a secure connection between a local port on your client machine and the relevant pod in your AKS cluster.
 
 ### Grafana
 
-Forward the local port `3000` on your client machine to port `3000` on the pod that is running Grafana in your AKS cluster. The port forward will allow you to access the analytics and monitoring dashboards for Istio provided by [Grafana][grafana].
+The analytics and monitoring dashboards for Istio is provided by [Grafana][grafana]. Forward the local port *3000* on your client machine to port *3000* on the pod that is running Grafana in your AKS cluster:
 
 ```console
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000
 ```
 
-The following example output shows the port-forward being configured for Grafana.
+The following example output shows the port-forward being configured for Grafana:
 
 ```console
 Forwarding from 127.0.0.1:3000 -> 3000
 Forwarding from [::1]:3000 -> 3000
 ```
 
-You can now reach Grafana at the following url on your client machine: http://localhost:3000.
+You can now reach Grafana at the following URL on your client machine - [http://localhost:3000](http://localhost:3000).
 
 ### Prometheus
 
-Forward the local port `9090` on your client machine to port `9090` on the pod that is running Prometheus in your AKS cluster. The port forward will allow you to access the expression browser for the metrics provided by [Prometheus][prometheus].
+The expression browser for the metrics is provided by [Prometheus][prometheus]. Forward the local port *9090* on your client machine to port *9090* on the pod that is running Prometheus in your AKS cluster:
 
 ```console
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090
 ```
 
-The following example output shows the port-forward being configured for Prometheus.
+The following example output shows the port-forward being configured for Prometheus:
 
 ```console
 Forwarding from 127.0.0.1:9090 -> 9090
 Forwarding from [::1]:9090 -> 9090
 ```
 
-You can now reach the Prometheus expression browser at the following url on your client machine: http://localhost:9090.
+You can now reach the Prometheus expression browser at the following URL on your client machine - [http://localhost:9090](http://localhost:9090).
 
 ### Jaeger
 
-Forward the local port `16686` on your client machine to port `16686` on the pod that is running Jaeger in your AKS cluster. The port forward will allow you to access the tracing user interface provided by [Jaeger][jaeger].
+Tracing user interface is provided by [Jaeger][jaeger]. Forward the local port *16686* on your client machine to port *16686* on the pod that is running Jaeger in your AKS cluster:
 
 ```console
 kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=jaeger -o jsonpath='{.items[0].metadata.name}') 16686:16686
 ```
 
-The following example output shows the port-forward being configured for Jaeger.
+The following example output shows the port-forward being configured for Jaeger:
 
 ```console
 Forwarding from 127.0.0.1:16686 -> 16686
 Forwarding from [::1]:16686 -> 16686
 ```
 
-You can now reach the Jaeger tracing user interface at the following url on your client machine: http://localhost:16686.
+You can now reach the Jaeger tracing user interface at the following URL on your client machine - [http://localhost:16686](http://localhost:16686).
 
 ### Kiali
 
-Forward the local port `20001` on your client machine to port `20001` on the pod that is running Kiali in your AKS cluster. The port forward will allow you to access the service mesh observability dashbaord provided by [Kiali][kiali].
+A service mesh observability dashboard is provided by [Kiali][kiali]. Forward the local port *20001* on your client machine to port *20001* on the pod that is running Kiali in your AKS cluster:
 
 ```console
 kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
 ```
 
-The following example output shows the port-forward being configured for Kiali.
+The following example output shows the port-forward being configured for Kiali:
 
 ```console
 Forwarding from 127.0.0.1:20001 -> 20001
 Forwarding from [::1]:20001 -> 20001
 ```
 
-You can now reach the Kiali service mesh observability dashboard at the following url on your client machine: http://localhost:20001. The default username and password for the Kiali dashboard is `username:admin/password:admin`. These can be configured via the `kiali.dashboard.username` and `kiali.dashboard.passphrase` Helm values.
+You can now reach the Kiali service mesh observability dashboard at the following URL on your client machine - [http://localhost:20001](http://localhost:20001).
+
+The default username and password for the Kiali dashboard is *username:admin/password:admin*. These credentials can be configured via the *kiali.dashboard.username* and *kiali.dashboard.passphrase* Helm values.
 
 ## Next steps
 
-If you'd like to explore further installation options and configuration settings for Istio, then take a look at the following official Istio installation guidance:
+To see how you can use Istio to provide intelligent routing between multiple versions of your application and to roll out a canary release, see the following documentation:
+
+> [!div class="nextstepaction"]
+> [AKS Istio intelligent routing scenario][istio-scenario-routing]
+
+To explore more installation and configuration options for Istio, see the following official Istio articles:
 
 - [Istio - Kubernetes installation quickstart][istio-install-k8s-quickstart]
 - [Istio - Helm installation guide][istio-install-helm]
 - [Istio - Helm installation options][istio-install-helm-options]
-
-If you'd like to explore how you can use Istio to provide intelligent routing between multiple versions of your application and to roll out a canary release, see the following documentation.
-
-> [!div class="nextstepaction"]
-> [AKS Istio intelligent routing scenario][istio-scenario-routing]
 
 You can also follow additional scenarios using the Bookinfo Application example on the Istio site.
 
@@ -325,7 +322,10 @@ You can also follow additional scenarios using the Bookinfo Application example 
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
-
+[kubectl-get-svc]:
+[kubectl-get-pods]:
+[kubectl-describe]:
+[kubectl-port-forward]:
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
