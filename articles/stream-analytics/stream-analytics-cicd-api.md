@@ -1,5 +1,5 @@
 ---
-title: Implement CI/CD for Stream Analytics using REST APIs
+title: Implement CI/CD for Azure Stream Analytics using REST APIs
 description: Learn how to implement a continuous integration and deployment pipeline for Azure Stream Analytics using REST APIs.
 services: stream-analytics
 author: mamccrea
@@ -157,7 +157,7 @@ Example of the URL from the HEAD of response:
 ```
 https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/023a4d68-ffaf-4e16-8414-cb6f2e14fe23?api-version=2017-04-01-preview 
 ```
- 
+A 
 Wait for one to two minutes before running the following command to make an API call with the URL you found in the HEAD of the response. Retry the command if you do not get a 200 response.
  
 Example of making API call with returned URL with **curl**:
