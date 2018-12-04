@@ -79,7 +79,7 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 1. If we navigate forward in the dataset, we can see this isn’t just a transient issue. The problem is continuing.
 
-    * Action: Press the right arrow to advance the view.
+    * Action: Extend the time span to the right.
 
        ![Quickstart eight][8]
 
