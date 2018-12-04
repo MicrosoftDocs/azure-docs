@@ -49,12 +49,11 @@ Azure Automation consists of a set of shared resources that make it easier to au
 
 ### Source control integration
 
-Azure Automation has the ability to [integrate with source control](source-control-integration.md) to promote configuration as code where runbooks or configurations can be checked into a source control system.
+Azure Automation has the ability to [integrate with source control](source-control-integration.md) which promotes configuration as code where runbooks or configurations can be checked into a source control system.
 
 ### Role based access control
 
-Azure Automation supports Role Based Access Control to control access to the Automation Account and its resources, to learn more about configuration RBAC on your Automation Account, runbooks, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
-
+Azure Automation supports Role Based Access Control to control access to the Automation Account and its resources, to learn more about configuration RBAC on your Automation Account,runbooks, and jobs, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
 
 ### Windows and Linux
 
