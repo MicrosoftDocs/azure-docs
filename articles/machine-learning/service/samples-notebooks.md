@@ -89,7 +89,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 While you can use any of the above options, you can also install the environment and create a workspace at the same time with the following instructions. 
 
-1. Install Mini-code from [here](https://conda.io/miniconda.html). Choose 3.7 or higher. Follow prompts to install. 
+1. Install Mini-conda from [here](https://conda.io/miniconda.html). Choose 3.7 or higher. Follow prompts to install. 
    >[!NOTE]
    >You can use an existing conda as long as it is version 4.4.10 or later. Use `conda -V` to display the version. You can update a conda version with the command: `conda update conda`. There's no need to install mini-conda specifically.
 
@@ -97,18 +97,18 @@ While you can use any of the above options, you can also install the environment
 ) as a zip and extract the contents to a local directory. The Automated machine learning notebooks are in the `how-to-use-azureml/automated-machine-learning` folder.
 
 1. Set up a new Conda environment. 
-   1. Open a Conda prompt on your local machine. 
+   1. Open a Conda prompt on your local machine.
    
-   1. Navigate to the files you extracted to your local machine. 
+   1. Navigate to the files you extracted to your local machine.
    
-   1. Open the `automated-machine-learning` folder. 
+   1. Open the `automated-machine-learning` folder.
    
-   1. Execute `AutoMLSetup` in  the conda prompt. It can take about 10 minutes to execute.
+   1. Execute `automl_setup.cmd` in  the conda prompt for Windows, or the `.sh` file for your operating system. It can take about 10 minutes to execute.
 
-      The `AutoMLSetup` script:
+      The setup script:
       + Creates a new conda environment
       + Installs the necessary packages
-      + Configures the widget 
+      + Configures the widget
       + Starts a jupyter notebook
       
       The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. 
@@ -117,7 +117,7 @@ While you can use any of the above options, you can also install the environment
 
 1. Navigate to the path where you saved the notebooks. 
 
-1. Open the automated-machine-learning folder, then open the 00.configuration.ipynb notebook. 
+1. Open the automated-machine-learning folder, then open the `configuration.ipynb` notebook. 
 
 1. Execute the cells in the notebook to register Machine Learning Services Resource Provider and create a workspace.
 
