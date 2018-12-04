@@ -159,8 +159,8 @@ The following table describes the connected sources that the Map feature support
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../log-analytics/log-analytics-agent-overview.md), Windows agents require the Microsoft Dependency agent. For a complete list of operating system versions, see [supported operating systems](#supported-operating-systems). |
-| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../log-analytics/log-analytics-agent-overview.md), Linux agents require the Microsoft Dependency agent. For a complete list of operating system versions, see [supported operating systems](#supported-operating-systems). |
+| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents require the Microsoft Dependency agent. For a complete list of operating system versions, see [supported operating systems](#supported-operating-systems). |
+| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents require the Microsoft Dependency agent. For a complete list of operating system versions, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |  
 
 The Dependency agent can be downloaded from the following locations:
@@ -549,9 +549,9 @@ Failed: (0)
 ## Enable for a hybrid environment
 This section explains how to deploy virtual machines or physical computers that are hosted in your datacenter or other cloud environments for monitoring by Azure Monitor for VMs. 
 
-The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../log-analytics/log-analytics-oms-gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md). 
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../azure-monitor/platform/log-analytics-agent.md. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

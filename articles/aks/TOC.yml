@@ -68,6 +68,8 @@
         href: operator-best-practices-advanced-scheduler.md
       - name: Authentication and authorization
         href: operator-best-practices-identity.md
+      - name: Business continuity (BC) and disaster recovery (DR)
+        href: operator-best-practices-multi-region.md
     - name: For application developers
       items:
       - name: Resource management
@@ -96,6 +98,12 @@
       maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
+    - name: Create virtual nodes (preview)
+      items:
+      - name: Azure CLI
+        href: virtual-nodes-cli.md
+      - name: Azure portal
+        href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
@@ -259,7 +267,7 @@
   - name: Provide product feedback
     href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ

@@ -96,9 +96,9 @@ Although we have improved the Map feature to handle large and complex configurat
 The Overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM Overview page displays only network traffic that will be billed. This display doesn't include traffic between virtual networks. The data and charts shown for Azure Monitor for VMs is based on data from the guest VM, and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including traffic between virtual networks.
 
 ## What are the limitations of the Log Analytics Free pricing plan?
-If you have configured Azure Monitor with a Log Analytics workspace by using the *Free* pricing tier, the Azure Monitor for VMs Map feature supports only five machines that are connected to the workspace. 
+If you have configured Azure Monitor with a Log Analytics workspace by using the *Free* pricing tier, the Azure Monitor for VMs Map feature supports connecting only five machines to the workspace. 
 
-If you have five VMs connected to a free workspace and you disconnect one VM and then later connect a new VM, the new VM isn't monitored and reflected on the Map page. In this scenario, when you open the new VM you will be prompted to use the **Try Now** option and select **Insights (preview)** from the left pane, even after it has been installed on the VM. However, you aren't prompted with options as you normally would be if this VM weren't deployed to Azure Monitor for VMs. 
+If you have five VMs connected to a free workspace and you disconnect one VM and then later connect a new VM, the new VM isn't monitored and reflected on the Map page. In this scenario, when you open the new VM you will be prompted to use the **Try Now** option and select **Insights (preview)** from the left pane, even after it has been installed on the VM. However, you aren't prompted with options as you normally would be if the VM weren't deployed to Azure Monitor for VMs. 
 
 ## Next steps
 To understand the requirements and methods for enabling monitoring of your virtual machines, review [Deploy Azure Monitor for VMs (preview)](vminsights-onboard.md).
