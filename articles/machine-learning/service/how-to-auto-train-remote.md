@@ -199,26 +199,26 @@ You will see output similar to the following example:
     ***********************************************************************************************
     
      ITERATION     PIPELINE                               DURATION                METRIC      BEST
-             2      Standardize SGD classifier            0.0                      0.954     0.954
-             7      Normalizer DT                         0.0                      0.161     0.954
-             0      Scale MaxAbs 1 extra trees            0.0                      0.936     0.954
-             4      Robust Scaler SGD classifier          0.0                      0.867     0.954
-             1      Normalizer kNN                        0.0                      0.984     0.984
-             9      Normalizer extra trees                0.0                      0.834     0.984
-             5      Robust Scaler DT                      0.0                      0.736     0.984
-             8      Standardize kNN                       0.0                      0.981     0.984
-             6      Standardize SVM                       2.2                      0.984     0.984
-            10      Scale MaxAbs 1 DT                     0.0                      0.077     0.984
-            11      Standardize SGD classifier            0.0                      0.863     0.984
-             3      Standardize gradient boosting         5.4                      0.971     0.984
-            12      Robust Scaler logistic regression     2.0                      0.955     0.984
-            14      Scale MaxAbs 1 SVM                    0.0                      0.989     0.989
-            13      Scale MaxAbs 1 gradient boosting      3.4                      0.971     0.989
-            15      Robust Scaler kNN                     0.0                      0.904     0.989
-            17      Standardize kNN                       0.0                      0.974     0.989
-            16      Scale 0/1 gradient boosting           2.8                      0.968     0.989
-            18      Scale 0/1 extra trees                 0.0                      0.828     0.989
-            19      Robust Scaler kNN                     0.0                      0.983     0.989
+             2      Standardize SGD classifier            0:02:36                  0.954     0.954
+             7      Normalizer DT                         0:02:22                  0.161     0.954
+             0      Scale MaxAbs 1 extra trees            0:02:45                  0.936     0.954
+             4      Robust Scaler SGD classifier          0:02:24                  0.867     0.954
+             1      Normalizer kNN                        0:02:44                  0.984     0.984
+             9      Normalizer extra trees                0:03:15                  0.834     0.984
+             5      Robust Scaler DT                      0:02:18                  0.736     0.984
+             8      Standardize kNN                       0:02:05                  0.981     0.984
+             6      Standardize SVM                       0:02:18                  0.984     0.984
+            10      Scale MaxAbs 1 DT                     0:02:18                  0.077     0.984
+            11      Standardize SGD classifier            0:02:24                  0.863     0.984
+             3      Standardize gradient boosting         0:03:03                  0.971     0.984
+            12      Robust Scaler logistic regression     0:02:32                  0.955     0.984
+            14      Scale MaxAbs 1 SVM                    0:02:15                  0.989     0.989
+            13      Scale MaxAbs 1 gradient boosting      0:02:15                  0.971     0.989
+            15      Robust Scaler kNN                     0:02:28                  0.904     0.989
+            17      Standardize kNN                       0:02:22                  0.974     0.989
+            16      Scale 0/1 gradient boosting           0:02:18                  0.968     0.989
+            18      Scale 0/1 extra trees                 0:02:18                  0.828     0.989
+            19      Robust Scaler kNN                     0:02:32                  0.983     0.989
 
 
 ## Explore results
