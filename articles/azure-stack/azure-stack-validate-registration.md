@@ -64,14 +64,14 @@ The following prerequisites must be in place.
    > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment <environment name> -RegistrationSubscriptionID $subscriptionID`
 
 5. After the tool runs, review the output. Confirm the status is OK for both logon and the registration requirements. A successful validation appears like the following:  
-```PowerShell
-Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
-Checking Registration Requirements: OK
 
-Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-Invoke-AzsRegistrationValidation Completed
-```
+    ```PowerShell
+    Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+    Checking Registration Requirements: OK
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsRegistrationValidation Completed
+    ```
 
 ## Report and log file
 Each time validation runs, it logs results to **AzsReadinessChecker.log** and **AzsReadinessCheckerReport.json**. The location of these files displays with the validation results in PowerShell. 
