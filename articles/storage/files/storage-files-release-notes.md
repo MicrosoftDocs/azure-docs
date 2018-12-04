@@ -43,11 +43,11 @@ The following versions are supported for the Azure File Sync agent:
 The following release notes are for version 4.1.0.0 of the Azure File Sync agent released December 4, 2018. These notes are in addition to the release notes listed for version 4.0.1.0.
 
 List of issues fixed in this release:  
--A Stop error 0x3B or Stop error 0x1E may occur when a VSS snapshot is created.  
--The server may become unresponsive because of a cloud-tiering memory leak.  
--Agent installation fails with the following error: Error 1921. Service 'Storage Sync Agent' (FileSyncSvc) could not be stopped.  Verify that you have sufficient privileges to stop system services.  
--The Storage Sync Agent (FileSyncSvc) service may crash when memory usage is high.  
--Miscellaneous reliability improvements for cloud tiering and sync.
+- A Stop error 0x3B or Stop error 0x1E may occur when a VSS snapshot is created.  
+- The server may become unresponsive because of a cloud-tiering memory leak.  
+- Agent installation fails with the following error: Error 1921. Service 'Storage Sync Agent' (FileSyncSvc) could not be stopped.  Verify that you have sufficient privileges to stop system services.  
+- The Storage Sync Agent (FileSyncSvc) service may crash when memory usage is high.  
+- Miscellaneous reliability improvements for cloud tiering and sync.
 
 
 
