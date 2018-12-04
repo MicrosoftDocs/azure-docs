@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get answer from knowledge base using Postman"
+title: "Quickstart: Use Postman to get answer from knowledge base - QnA Maker"
 titlesuffix: Azure Cognitive Services 
 description: This quickstart walks you through getting an answer from your knowledge base using Postman.
 services: cognitive-services
@@ -55,11 +55,13 @@ To generate an answer with Postman, complete the following steps:
     [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
 1. Select the **Send** button.
-1. The response the answer. 
+1. The response contains the answer along with other information that may be important to the client application. 
 
     [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
 ## Next steps
 
+The publish page also provides information to [generate an answer](../Quickstarts/get-answer-from-kb-using-curl.md) with cURL. 
+
 > [!div class="nextstepaction"]
-> [Get answer using cURL command](../How-to/generate-answer.md)
+> [Use metadata while generating an answer](metadata-generateanswer-usage.md)

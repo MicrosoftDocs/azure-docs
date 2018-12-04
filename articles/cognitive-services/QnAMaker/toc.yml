@@ -8,6 +8,8 @@
   items:
   - name: Get answer using Postman
     href: Quickstarts/get-answer-from-kb-using-postman.md
+  - name: Get answer using cURL
+    href: Quickstarts/get-answer-from-kb-using-cURL.md    
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
@@ -93,8 +95,6 @@
       href: How-To/test-knowledge-base.md
   - name: Use knowledge base
     items: 
-    - name: Get answer using cURL
-      href: How-to/generate-answer.md
     - name: Use metadata with GenerateAnswer API
       href: How-To/metadata-generateanswer-usage.md  
     - name: With a bot  
