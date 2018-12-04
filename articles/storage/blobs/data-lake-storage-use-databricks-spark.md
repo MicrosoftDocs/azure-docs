@@ -1,13 +1,12 @@
 ---
 title: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
-services: hdinsight,storage
-author: dineshm
-
+services: storage
+author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 12/06/2018
 ms.author: dineshm
 ---
 
