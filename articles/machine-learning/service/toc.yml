@@ -38,10 +38,8 @@
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
 - name: Samples
-  items:
-  - name: Python notebooks (GitHub)
-    displayName: example, examples, jupyter, azure notebooks
-    href: samples-notebooks.md
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Concepts   
   items: 
   - name: Model management
@@ -60,8 +58,8 @@
     - name: Configure your dev environment
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
-    - name: Azure Machine Learning for VS Code
-      displayName: Visual Studio Code, vscode
+    - name: Visual Studio Code extension
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Get started
         href: how-to-vscode-tools.md
