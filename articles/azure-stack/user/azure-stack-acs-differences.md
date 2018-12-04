@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure stack storage differences and considerations | Microsoft Docs
 description: Understand the differences between Azure stack storage and Azure storage, along with Azure Stack deployment considerations.
 services: azure-stack
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 
@@ -102,7 +102,7 @@ Previous versions:
  
 ## SDK versions
 
-About Azure Stack supported storage client libraries, please see: [Get started with Azure Stack storage development tools](azure-stack-storage-dev.md).
+For more information about Azure Stack supported storage client libraries, see [Get started with Azure Stack storage development tools](azure-stack-storage-dev.md).
 
 ## Next steps
 
