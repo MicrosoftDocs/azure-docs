@@ -217,7 +217,7 @@ Hence the section below provide details on using API via Powershell or CLI for L
 ### PowerShell, CLI, or API for Log Analytics
 The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.
 
-Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
+Learn more  about [create and manage alert rules in Log Analytics with REST API](../azure-monitor/platform/api-alerts.md); including examples of accessing the API from Powershell.
 
 ### PowerShell, CLI, or API for Application Insights
 [Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.

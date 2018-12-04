@@ -22,7 +22,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 ## Prerequisites
 
-- You must be a [service administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
+- You must be a [service administrator or co-administrator](../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 

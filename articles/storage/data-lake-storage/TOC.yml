@@ -68,6 +68,8 @@
     href: https://azure.microsoft.com/pricing/details/storage/data-lake/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Known issues
+    href: known-issues.md
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Videos

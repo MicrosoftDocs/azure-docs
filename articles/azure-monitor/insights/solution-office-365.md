@@ -473,7 +473,7 @@ You can remove the Office 365 management solution using the process in [Remove a
 
 ## Data collection
 ### Supported agents
-The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../../log-analytics/log-analytics-data-sources.md).  It retrieves data directly from Office 365.
+The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../../azure-monitor/platform/agent-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
 It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.
@@ -706,5 +706,5 @@ The following table provides sample log searches for update records collected by
 
 ## Next steps
 * Use Log Searches in [Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed update data.
-* [Create your own dashboards](../../log-analytics/log-analytics-dashboards.md) to display your favorite Office 365 search queries.
+* [Create your own dashboards](../../azure-monitor/platform/dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to be proactively notified of important Office 365 activities.  

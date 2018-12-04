@@ -10,7 +10,6 @@ ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
@@ -47,7 +46,7 @@ From consumption point of view, we recommend you create as few workspaces as pos
 * You are a managed service provider and need to keep the Log Analytics data for each customer you manage isolated from other customer’s data.
 * You manage multiple customers and you want each customer / department / business group to see their own data, but not data from others.
 
-When using Windows agents to collect data, you can [configure each agent to report to one or more workspaces](log-analytics-agent-windows.md).
+When using Windows agents to collect data, you can [configure each agent to report to one or more workspaces](../azure-monitor/platform/agent-windows.md).
 
 If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
@@ -234,7 +233,7 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
 ![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## Next steps
-* See [Log Analytics agent overview](log-analytics-agent-overview.md) to gather data from computers in your datacenter or other cloud environment.
+* See [Log Analytics agent overview](../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
 * See [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) to configure data collection from Azure VMs.  
 * [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md) to add functionality and gather data.
 

@@ -129,8 +129,8 @@ Service Map gets its data from the Microsoft Dependency agent. The Dependency ag
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Service Map analyzes and collects data from Windows computers. <br><br>In addition to the [Log Analytics agent for Windows](../../log-analytics/log-analytics-agent-overview.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Service Map analyzes and collects data from Linux computers. <br><br>In addition to the [Log Analytics agent for Linux](../../log-analytics/log-analytics-agent-overview.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows computers. <br><br>In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Service Map analyzes and collects data from Linux computers. <br><br>In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |
 | Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
@@ -149,7 +149,7 @@ If you are a System Center Operations Manager customer with a management group c
 - If your System Center Operations Manager agents can access the Internet to connect to Log Analytics, no additional configuration is required.  
 - If your System Center Operations Manager agents cannot access Log Analytics over the Internet, you need to configure the Log Analytics gateway to work with System Center Operations Manager.
   
-If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to the Log Analytics workspace using the gateway. For further information on how to deploy and configure the Log Analytics gateway, see [Connect computers without Internet access using the Log Analytics gateway](../../log-analytics/log-analytics-oms-gateway.md).  
+If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to the Log Analytics workspace using the gateway. For further information on how to deploy and configure the Log Analytics gateway, see [Connect computers without Internet access using the Log Analytics gateway](../../azure-monitor/platform/gateway.md).  
 
 ### Management packs
 When Service Map is activated in a Log Analytics workspace, a 300-KB management pack is forwarded to all the Windows servers in that workspace. If you are using System Center Operations Manager agents in a [connected management group](../../log-analytics/log-analytics-om-agents.md), the Service Map management pack is deployed from System Center Operations Manager. 
@@ -226,7 +226,7 @@ The Dependency agent can be installed manually on Windows computers by running  
 
 Use the following steps to install the Dependency agent on each Windows computer:
 
-1.	Install the Log Analytics agent for Windows following one of the methods described in [Log Analytics agent overview](../../log-analytics/log-analytics-agent-overview.md).
+1.	Install the Log Analytics agent for Windows following one of the methods described in [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md).
 2.	Download the Windows agent and run it by using the following command: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -254,7 +254,7 @@ The Dependency agent is installed on Linux computers from `InstallDependencyAgen
 
 Use the following steps to install the Dependency agent on each Linux computer:
 
-1.	Install the Log Analytics agent following one of the methods described in [Log Analytics agent overview](../../log-analytics/log-analytics-agent-overview.md).
+1.	Install the Log Analytics agent following one of the methods described in [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md).
 2.	Install the Linux Dependency agent as root by running the following command:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -386,7 +386,7 @@ If your Dependency agent installation succeeded, but you don't see your server i
 
 		Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics Agent is operating correctly and communicating with Log Analytics. If not, check the agent on your server: [Log Analytics agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [Log Analytics agent for Linux troubleshooting](../../log-analytics/log-analytics-agent-linux-support.md).
+Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics Agent is operating correctly and communicating with Log Analytics. If not, check the agent on your server: [Log Analytics agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [Log Analytics agent for Linux troubleshooting](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### Server appears in Service Map but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load. 

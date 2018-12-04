@@ -11,12 +11,12 @@ ms.author: tomfitz
 # Tag support for Azure resources
 This article describes whether a resource type supports [tagging](resource-group-using-tags.md).
 
-## MICROSOFT.AADDOMAINSERVICES
+## AAD Domain Services
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | domains | No | 
 
-## MICROSOFT.ADHYBRIDHEALTHSERVICE
+## AD Hybrid Health Service
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | services | No | 
@@ -29,12 +29,12 @@ This article describes whether a resource type supports [tagging](resource-group
 | logs | No | 
 | anonymousapiusers | No | 
 
-## MICROSOFT.ANALYSISSERVICES
+## Analysis Services
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | servers | Yes | 
 
-## MICROSOFT.APIHUBS
+## API Hubs
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | apiManagementAccounts | No | 
@@ -44,12 +44,12 @@ This article describes whether a resource type supports [tagging](resource-group
 | apiManagementAccounts/connectionProviderAcls | No | 
 | apiManagementAccounts/apis | No | 
 
-## MICROSOFT.APIMANAGEMENT
+## API Management
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | service | Yes | 
 
-## MICROSOFT.AUTOMATION
+## Automation
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | automationAccounts | Yes | 
@@ -59,12 +59,78 @@ This article describes whether a resource type supports [tagging](resource-group
 | automationAccounts/softwareUpdateConfigurations | No | 
 | automationAccounts/jobs | No | 
 
-## MICROSOFT.BATCH
+## Batch
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | batchAccounts | Yes | 
 
-## MICROSOFT.COMPUTE
+## Batch AI
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| clusters | Yes | 
+| jobs | Yes | 
+| fileservers | Yes | 
+| workspaces | Yes | 
+| workspaces/clusters | No | 
+| workspaces/fileservers | No | 
+| workspaces/experiments | No | 
+| workspaces/experiments/jobs | No | 
+
+## Bing Maps
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| mapApis | Yes | 
+
+## Biztalk Services
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| BizTalk | Yes | 
+
+## Cache
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| Redis | Yes | 
+
+## CDN
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| profiles | Yes | 
+| profiles/endpoints | Yes | 
+| profiles/endpoints/origins | No | 
+| profiles/endpoints/customdomains | No | 
+| validateProbe | No | 
+| edgenodes | No | 
+
+## Classic Compute
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| domainNames | No | 
+| domainNames/slots | No | 
+| domainNames/slots/roles | No | 
+| virtualMachines | No | 
+| virtualMachines/diagnosticSettings | No | 
+| virtualMachines/metricDefinitions | No | 
+| virtualMachines/metrics | No | 
+
+## Classic Infrastructure Migrate
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| classicInfrastructureResources | No | 
+
+## Classic Network
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| virtualNetworks | No | 
+| virtualNetworks/virtualNetworkPeerings | No | 
+| virtualNetworks/remoteVirtualNetworkPeeringProxies | No | 
+
+## Classic Storage
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| storageAccounts/services | No | 
+| storageAccounts/services/diagnosticSettings | No | 
+
+## Compute
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | availabilitySets | Yes | 
@@ -86,49 +152,54 @@ This article describes whether a resource type supports [tagging](resource-group
 | snapshots | Yes | 
 | images | Yes | 
 
-## MICROSOFT.CONTAINER
+## Container
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | containerGroups | Yes | 
 
-## MICROSOFT.CONTAINERINSTANCE
+## Container Instance
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | containerGroups | Yes | 
 | serviceAssociationLinks | No | 
 
-## MICROSOFT.CONTAINERSERVICE
+## Container Service
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | containerServices | Yes | 
 
-## MICROSOFT.CORTANAANALYTICS
+## Cortana Analytics
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | accounts | Yes | 
 
-## MICROSOFT.COSTMANAGEMENT
+## Cosmos DB
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| databaseAccounts | Yes | 
+| databaseAccountNames | No | 
+
+## Cost Management
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | Connectors | Yes | 
 
-## MICROSOFT.DATABOXEDGE
+## Data Box Edge
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Yes | 
-| DataBoxEdgeDevices/checkNameAvailability | No | 
 
-## MICROSOFT.DATACATALOG
+## Data Catalog
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | catalogs | Yes | 
 
-## MICROSOFT.DATACONNECT
+## Data Connect
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | connectionManagers | Yes | 
 
-## MICROSOFT.DATAFACTORY
+## Data Factory
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | dataFactories | Yes | 
@@ -138,37 +209,358 @@ This article describes whether a resource type supports [tagging](resource-group
 | dataFactories/metricDefinitions | No | 
 | dataFactorySchema | No | 
 
-## MICROSOFT.STORSIMPLE
+## Devices
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| IotHubs | Yes | 
+| IotHubs/eventGridFilters | No | 
+| ProvisioningServices | Yes | 
+
+## Devspaces
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| controllers | Yes | 
+
+## Devtest Lab
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| labs | Yes | 
+| schedules | Yes | 
+| labs/virtualMachines | Yes | 
+| labs/serviceRunners | Yes | 
+
+## Dynamics LCS
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| lcsprojects | No | 
+| lcsprojects/connectors | No | 
+| lcsprojects/clouddeployments | No | 
+
+## Event Grid
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| eventSubscriptions | No | 
+| topics | Yes | 
+| domains | Yes | 
+| domains/topics | No | 
+| topicTypes | No | 
+| extensionTopics | No | 
+
+## Event Hub
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| namespaces | Yes | 
+| clusters | Yes | 
+
+## Hana on Azure
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| hanaInstances | Yes | 
+
+## HDInsight
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| clusters | Yes | 
+| clusters/applications | No | 
+
+## Import Export
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| jobs | Yes | 
+
+## Insights
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| components | Yes | 
+| components/query | No | 
+| components/metrics | No | 
+| components/events | No | 
+| webtests | Yes | 
+| queries | No | 
+| scheduledqueryrules | Yes | 
+| components/pricingPlans | No | 
+| migrateToNewPricingModel | No | 
+| rollbackToLegacyPricingModel | No | 
+| automatedExportSettings | No | 
+| workbooks | Yes | 
+| myWorkbooks | No | 
+| logs | No | 
+
+## Key Vault
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| vaults | Yes | 
+| vaults/secrets | No | 
+| vaults/accessPolicies | No | 
+| deletedVaults | No | 
+
+## Log Analytics
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| logs | No | 
+
+## Logic
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| workflows | Yes | 
+| integrationAccounts | Yes | 
+
+## Machine Learning Services
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| workspaces | Yes | 
+| workspaces/computes | No | 
+
+## Managed Identity
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| Identities | No | 
+| userAssignedIdentities | Yes | 
+
+## MariaDB
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/recoverableServers | No | 
+| servers/virtualNetworkRules | No | 
+
+## Marketplace Apps
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| classicDevServices | Yes | 
+
+## Marketplace Ordering
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| agreements | No | 
+| offertypes | No | 
+
+## Media
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| mediaservices | Yes | 
+| mediaservices/assets | No | 
+| mediaservices/contentKeyPolicies | No | 
+| mediaservices/streamingLocators | No | 
+| mediaservices/streamingPolicies | No | 
+| mediaservices/eventGridFilters | No | 
+| mediaservices/transforms | No | 
+| mediaservices/transforms/jobs | No | 
+| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/liveEvents | Yes | 
+| mediaservices/liveEvents/liveOutputs | No | 
+| mediaservices/streamingEndpointOperations | No | 
+| mediaservices/liveEventOperations | No | 
+| mediaservices/liveOutputOperations | No | 
+| mediaservices/assets/assetFilters | No | 
+| mediaservices/accountFilters | No | 
+
+## MySQL
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/recoverableServers | No | 
+| servers/virtualNetworkRules | No | 
+
+## Network
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| virtualNetworks | Yes | 
+| publicIPAddresses | Yes | 
+| networkInterfaces | Yes | 
+| interfaceEndpoints | Yes | 
+| loadBalancers | Yes | 
+| networkSecurityGroups | Yes | 
+| applicationSecurityGroups | Yes | 
+| serviceEndpointPolicies | Yes | 
+| networkIntentPolicies | Yes | 
+| routeTables | Yes | 
+| publicIPPrefixes | Yes | 
+| networkWatchers | Yes | 
+| networkWatchers/connectionMonitors | Yes | 
+| networkWatchers/lenses | Yes | 
+| networkWatchers/pingMeshes | Yes | 
+| virtualNetworkGateways | Yes | 
+| localNetworkGateways | Yes | 
+| connections | Yes | 
+| applicationGateways | Yes | 
+| expressRouteCircuits | Yes | 
+| routeFilters | Yes | 
+| virtualWans | Yes | 
+| vpnSites | Yes | 
+| virtualHubs | Yes | 
+| vpnGateways | Yes | 
+| azureFirewalls | Yes | 
+| virtualNetworkTaps | Yes | 
+| privateLinkServices | Yes | 
+| ddosProtectionPlans | Yes | 
+| networkProfiles | Yes | 
+| frontdoors | Yes | 
+| frontdoorWebApplicationFirewallPolicies | Yes | 
+| webApplicationFirewallPolicies | Yes | 
+
+## Notification Hubs
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| namespaces | Yes | 
+| namespaces/notificationHubs | Yes | 
+
+## Portal
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| dashboards | Yes | 
+
+## Portal SDK
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| rootResources | Yes | 
+
+## PostgreSQL
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/recoverableServers | No | 
+| servers/virtualNetworkRules | No | 
+| servers/topQueryStatistics | No | 
+| servers/queryTexts | No | 
+| servers/waitStatistics | No | 
+| servers/advisors | No | 
+
+## Power BI
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| workspaceCollections | Yes | 
+
+## Recovery Services
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| vaults | Yes | 
+| backupProtectedItems | No | 
+
+## Relay
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| namespaces | Yes | 
+
+## Resources
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| resourceGroups | Yes | 
+| subscriptions/resourceGroups | Yes | 
+
+## Scheduler
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| jobcollections | Yes | 
+| flows | Yes | 
+
+## Search
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| searchServices | Yes | 
+| resourceHealthMetadata | No | 
+
+## Security
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| dataCollectionAgents | No | 
+
+## Service Bus
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| namespaces | Yes | 
+| namespaces/eventgridfilters | No | 
+
+## Service Fabric
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| clusters | Yes | 
+| clusters/applications | No | 
+
+## Service Fabric Mesh
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| applications | Yes | 
+| networks | Yes | 
+| volumes | Yes | 
+
+## SignalR Service
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| SignalR | Yes | 
+
+## Site Recovery
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| SiteRecoveryVault | Yes | 
+
+## Solutions
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| applications | Yes | 
+| applicationDefinitions | Yes | 
+| jitRequests | Yes | 
+
+## SQL virtual machine
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| DWVM | Yes | 
+
+## Storage
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| storageAccounts | Yes | 
+| storageAccounts/blobServices | No | 
+| storageAccounts/tableServices | No | 
+| storageAccounts/queueServices | No | 
+| storageAccounts/fileServices | No | 
+| storageAccounts/services | No | 
+| storageAccounts/services/metricDefinitions | No | 
+
+## Storage Sync
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| storageSyncServices | Yes | 
+| storageSyncServices/syncGroups | No | 
+| storageSyncServices/syncGroups/cloudEndpoints | No | 
+| storageSyncServices/syncGroups/serverEndpoints | No | 
+| storageSyncServices/registeredServers | No | 
+| storageSyncServices/workflows | No | 
+
+## Storsimple
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | managers | Yes | 
 
-## MICROSOFT.STREAMANALYTICS
+## Stream Analytics
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | streamingjobs | Yes | 
 | streamingjobs/diagnosticSettings | No | 
 | streamingjobs/metricDefinitions | No | 
 
-## MICROSOFT.SUBSCRIPTION
+## Subscription
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | SubscriptionDefinitions | No | 
 | SubscriptionOperations | No | 
 
-## MICROSOFT.SUPPORT
+## Support
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | supporttickets | No | 
 
-## MICROSOFT.VISUALSTUDIO
+## Visual Studio
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | account | Yes | 
 | account/project | Yes | 
 | account/extension | Yes | 
+| account | Yes | 
+| account/project | Yes | 
+| account/extension | Yes | 
 
-## MICROSOFT.WEB
+## Web
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | sites/instances | No | 
@@ -211,435 +603,10 @@ This article describes whether a resource type supports [tagging](resource-group
 | billingMeters | No | 
 | verifyHostingEnvironmentVnet | No | 
 
-## MICROSOFT.XRM
+## XRM
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | organizations | No | 
-
-## MICROSOFT.NETWORK
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| virtualNetworks | Yes | 
-| publicIPAddresses | Yes | 
-| networkInterfaces | Yes | 
-| interfaceEndpoints | Yes | 
-| loadBalancers | Yes | 
-| networkSecurityGroups | Yes | 
-| applicationSecurityGroups | Yes | 
-| serviceEndpointPolicies | Yes | 
-| networkIntentPolicies | Yes | 
-| routeTables | Yes | 
-| publicIPPrefixes | Yes | 
-| networkWatchers | Yes | 
-| networkWatchers/connectionMonitors | Yes | 
-| networkWatchers/lenses | Yes | 
-| networkWatchers/pingMeshes | Yes | 
-| virtualNetworkGateways | Yes | 
-| localNetworkGateways | Yes | 
-| connections | Yes | 
-| applicationGateways | Yes | 
-| expressRouteCircuits | Yes | 
-| routeFilters | Yes | 
-| virtualWans | Yes | 
-| vpnSites | Yes | 
-| virtualHubs | Yes | 
-| vpnGateways | Yes | 
-| azureFirewalls | Yes | 
-| virtualNetworkTaps | Yes | 
-| privateLinkServices | Yes | 
-| ddosProtectionPlans | Yes | 
-| networkProfiles | Yes | 
-| frontdoors | Yes | 
-| frontdoorWebApplicationFirewallPolicies | Yes | 
-| webApplicationFirewallPolicies | Yes | 
-
-## MICROSOFT.NOTIFICATIONHUBS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| namespaces | Yes | 
-| namespaces/notificationHubs | Yes | 
-
-## MICROSOFT.PORTAL
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| dashboards | Yes | 
-
-## MICROSOFT.PORTALSDK
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| rootResources | Yes | 
-
-## MICROSOFT.POWERBI
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| workspaceCollections | Yes | 
-
-## MICROSOFT.PROJECTOXFORD
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| accounts | Yes | 
-
-## MICROSOFT.RECOVERYSERVICES
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| vaults | Yes | 
-| backupProtectedItems | No | 
-
-## MICROSOFT.RELAY
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| namespaces | Yes | 
-
-## MICROSOFT.RESOURCES
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| resourceGroups | No | 
-| subscriptions/resourceGroups | No | 
-
-## MICROSOFT.SCHEDULER
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| jobcollections | Yes | 
-| flows | Yes | 
-
-## MICROSOFT.SEARCH
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| searchServices | Yes | 
-| resourceHealthMetadata | No | 
-
-## MICROSOFT.SECURITY
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| dataCollectionAgents | No | 
-
-## MICROSOFT.SERVICEBUS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| namespaces | Yes | 
-| namespaces/eventgridfilters | No | 
-
-## MICROSOFT.SERVICEFABRIC
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| clusters | Yes | 
-| clusters/applications | No | 
-
-## MICROSOFT.SERVICEFABRICMESH
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| applications | Yes | 
-| networks | Yes | 
-| volumes | Yes | 
-
-## MICROSOFT.SIGNALRSERVICE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| SignalR | Yes | 
-
-## MICROSOFT.SITERECOVERY
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| SiteRecoveryVault | Yes | 
-
-## MICROSOFT.SOLUTIONS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| applications | Yes | 
-| applicationDefinitions | Yes | 
-| jitRequests | Yes | 
-
-## MICROSOFT.BATCHAI
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| clusters | Yes | 
-| jobs | Yes | 
-| fileservers | Yes | 
-| workspaces | Yes | 
-| workspaces/clusters | No | 
-| workspaces/fileservers | No | 
-| workspaces/experiments | No | 
-| workspaces/experiments/jobs | No | 
-
-## MICROSOFT.BINGMAPS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| mapApis | Yes | 
-
-## MICROSOFT.BIZTALKSERVICES
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| BizTalk | Yes | 
-
-## MICROSOFT.CACHE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| Redis | Yes | 
-
-## MICROSOFT.CDN
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| profiles | Yes | 
-| profiles/endpoints | Yes | 
-| profiles/endpoints/origins | No | 
-| profiles/endpoints/customdomains | No | 
-| validateProbe | No | 
-| edgenodes | No | 
-
-## MICROSOFT.CLASSICCOMPUTE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| domainNames | No | 
-| domainNames/slots | No | 
-| domainNames/slots/roles | No | 
-| virtualMachines | No | 
-| virtualMachines/diagnosticSettings | No | 
-| virtualMachines/metricDefinitions | No | 
-| virtualMachines/metrics | No | 
-
-## MICROSOFT.CLASSICNETWORK
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| virtualNetworks | No | 
-| virtualNetworks/virtualNetworkPeerings | No | 
-| virtualNetworks/remoteVirtualNetworkPeeringProxies | No | 
-
-## MICROSOFT.CLASSICSTORAGE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| storageAccounts/services | No | 
-| storageAccounts/services/diagnosticSettings | No | 
-
-## MICROSOFT.CLASSICINFRASTRUCTUREMIGRATE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| classicInfrastructureResources | No | 
-
-## MICROSOFT.DBFORMARIADB
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No | 
-| servers/virtualNetworkRules | No | 
-
-## MICROSOFT.DBFORMYSQL
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No | 
-| servers/virtualNetworkRules | No | 
-
-## MICROSOFT.DBFORPOSTGRESQL
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No | 
-| servers/virtualNetworkRules | No | 
-| servers/topQueryStatistics | No | 
-| servers/queryTexts | No | 
-| servers/waitStatistics | No | 
-| servers/advisors | No | 
-
-## MICROSOFT.DEVICES
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| IotHubs | Yes | 
-| IotHubs/eventGridFilters | No | 
-| ProvisioningServices | Yes | 
-
-## MICROSOFT.DEVSPACES
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| controllers | Yes | 
-
-## MICROSOFT.DEVTESTLAB
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| labs | Yes | 
-| schedules | Yes | 
-| labs/virtualMachines | Yes | 
-| labs/serviceRunners | Yes | 
-
-## MICROSOFT.DOCUMENTDB
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| databaseAccounts | Yes | 
-| databaseAccountNames | No | 
-
-## MICROSOFT.DYNAMICSLCS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| lcsprojects | No | 
-| lcsprojects/connectors | No | 
-| lcsprojects/clouddeployments | No | 
-
-## MICROSOFT.EVENTGRID
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| eventSubscriptions | No | 
-| topics | Yes | 
-| domains | Yes | 
-| domains/topics | No | 
-| topicTypes | No | 
-| extensionTopics | No | 
-
-## MICROSOFT.EVENTHUB
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| namespaces | Yes | 
-| clusters | Yes | 
-
-## MICROSOFT.HANAONAZURE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| hanaInstances | Yes | 
-
-## MICROSOFT.HDINSIGHT
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| clusters | Yes | 
-| clusters/applications | No | 
-
-## MICROSOFT.IMPORTEXPORT
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| jobs | Yes | 
-
-## MICROSOFT.INSIGHTS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| components | Yes | 
-| components/query | No | 
-| components/metrics | No | 
-| components/events | No | 
-| webtests | Yes | 
-| queries | No | 
-| scheduledqueryrules | Yes | 
-| components/pricingPlans | No | 
-| migrateToNewPricingModel | No | 
-| rollbackToLegacyPricingModel | No | 
-| automatedExportSettings | No | 
-| workbooks | Yes | 
-| myWorkbooks | No | 
-| logs | No | 
-
-## MICROSOFT.KEYVAULT
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| vaults | Yes | 
-| vaults/secrets | No | 
-| vaults/accessPolicies | No | 
-| deletedVaults | No | 
-
-## MICROSOFT.LOGANALYTICS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| logs | No | 
-
-## MICROSOFT.LOGIC
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| workflows | Yes | 
-| integrationAccounts | Yes | 
-
-## MICROSOFT.MACHINELEARNINGSERVICES
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| workspaces | Yes | 
-| workspaces/computes | No | 
-
-## MICROSOFT.MANAGEDIDENTITY
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| Identities | No | 
-| userAssignedIdentities | Yes | 
-
-## MICROSOFT.MARKETPLACEAPPS
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| classicDevServices | Yes | 
-
-## MICROSOFT.MARKETPLACEORDERING
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| agreements | No | 
-| offertypes | No | 
-
-## MICROSOFT.MEDIA
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| mediaservices | Yes | 
-| mediaservices/assets | No | 
-| mediaservices/contentKeyPolicies | No | 
-| mediaservices/streamingLocators | No | 
-| mediaservices/streamingPolicies | No | 
-| mediaservices/eventGridFilters | No | 
-| mediaservices/transforms | No | 
-| mediaservices/transforms/jobs | No | 
-| mediaservices/streamingEndpoints | Yes | 
-| mediaservices/liveEvents | Yes | 
-| mediaservices/liveEvents/liveOutputs | No | 
-| mediaservices/streamingEndpointOperations | No | 
-| mediaservices/liveEventOperations | No | 
-| mediaservices/liveOutputOperations | No | 
-| mediaservices/assets/assetFilters | No | 
-| mediaservices/accountFilters | No | 
-
-## MICROSOFT.SQLVM
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| DWVM | Yes | 
-
-## MICROSOFT.STORAGE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| storageAccounts | Yes | 
-| storageAccounts/blobServices | No | 
-| storageAccounts/tableServices | No | 
-| storageAccounts/queueServices | No | 
-| storageAccounts/fileServices | No | 
-| storageAccounts/services | No | 
-| storageAccounts/services/metricDefinitions | No | 
-
-## MICROSOFT.STORAGESYNC
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| storageSyncServices | Yes | 
-| storageSyncServices/syncGroups | No | 
-| storageSyncServices/syncGroups/cloudEndpoints | No | 
-| storageSyncServices/syncGroups/serverEndpoints | No | 
-| storageSyncServices/registeredServers | No | 
-| storageSyncServices/workflows | No | 
-
-## MICROSOFT.COSTMANAGEMENT
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| Connectors | Yes | 
-
-## MICROSOFT.CONTAINERSERVICE
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| containerServices | Yes | 
-
-## MICROSOFT.PORTAL
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| dashboards | Yes | 
-
-## MICROSOFT.VISUALSTUDIO
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| account | Yes | 
-| account/project | Yes | 
-| account/extension | Yes | 
-| account | Yes | 
-| account/project | Yes | 
-| account/extension | Yes | 
-
-## MICROSOFT.SECURITY
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| dataCollectionAgents | No | 
 
 ## Next steps
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
