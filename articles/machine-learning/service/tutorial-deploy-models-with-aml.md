@@ -32,7 +32,7 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](ttps://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
