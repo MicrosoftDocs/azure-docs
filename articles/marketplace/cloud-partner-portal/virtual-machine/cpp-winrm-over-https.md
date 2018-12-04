@@ -41,4 +41,4 @@ The WinRM endpoint for a windows-based VM can be configured during two different
 
 
 ## Next Steps
-If you are creating a new VM, you can enable WinRM during [deployment of your VM from its VHDs](.cpp-deploy-vm-vhd.md).  Otherwise, WinRM can be enabled in an existing VM  
+If you are creating a new VM, you can enable WinRM during [deployment of your VM from its VHDs](./cpp-deploy-vm-vhd.md).  Otherwise, WinRM can be enabled in an existing VM  
