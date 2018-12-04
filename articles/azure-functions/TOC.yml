@@ -178,6 +178,8 @@
     items:   
     - name: Connect to SQL Database
       href: functions-scenario-database-table-cleanup.md
+    - name: Connect to a Virtual Network
+      href: functions-create-vnet.md
     - name: Create an Open API 2.0 definition
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow

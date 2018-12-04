@@ -1,6 +1,6 @@
 ---
-title: Built-in policies in Azure Active Directory B2C | Microsoft Docs
-description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types.
+title: User flows in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various user flow types.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
