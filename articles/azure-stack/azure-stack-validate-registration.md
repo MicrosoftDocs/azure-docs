@@ -55,7 +55,10 @@ The following prerequisites must be in place:
 ## Validate Azure registration
 
 1. On a computer that meets the prerequisites, open an administrative PowerShell prompt and then run the following command to install the AzsReadinessChecker.
-    > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```
 
 2. From the PowerShell prompt, run the following to set `$registrationCredential` as the account that is the subscription owner. Replace `subscriptionowner@contoso.onmicrosoft.com` with your account and tenant: 
    ```powershell
@@ -139,9 +142,12 @@ Invoke-AzsRegistrationValidation Completed
 **Cause** - The account can’t log on because the password is either expired or is temporary.     
 
 **Resolution** - In PowerShell run and follow the prompts to reset the password. 
-  > `Login-AzureRMAccount` 
 
-Alternatively, login into https://portal.azure.com as the account and the user will be forced to change the password.
+```powershell
+Login-AzureRMAccount
+``` 
+
+Alternatively, sign in to https://portal.azure.com as the account and the user will be forced to change the password.
 
 ### Unknown user type  
 
