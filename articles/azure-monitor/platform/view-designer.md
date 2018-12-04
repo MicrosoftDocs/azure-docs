@@ -19,7 +19,7 @@ ms.component:
 ---
 
 # Create custom views by using View Designer in Log Analytics
-By using View Designer in [Azure Log Analytics](../../log-analytics/log-analytics-queries.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
+By using View Designer in [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
 For more information about View Designer, see:
 
@@ -38,7 +38,7 @@ The views that you create with View Designer contain the elements that are descr
 |:--- |:--- |
 | Tiles | Are displayed on your Log Analytics workspace **Overview** page. Each tile displays a visual summary of the custom view it represents. Each tile type provides a different visualization of your records. You select a tile to display a custom view. |
 | Custom view | Displayed when you select a tile. Each view contains one or more visualization parts. |
-| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log searches](../../log-analytics/log-analytics-queries.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log search that provides detailed records. |
+| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log searches](../../azure-monitor/log-query/log-query-overview.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log search that provides detailed records. |
 
 
 ## Work with an existing view
