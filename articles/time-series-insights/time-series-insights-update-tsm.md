@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
 
 # Time Series Model
@@ -39,7 +39,7 @@ There are three major components of TSM:
 
 **Time Series Model** *types* enable defining variables or formulas for doing computations and are associated with a given TSI instance. A type can have one or more variables. For example, a TSI instance might be of type **Temperature Sensor**, which consists of the variables: *avg temperature*, *min temperature*, and *max temperature*. We create a default type when the data starts flowing into TSI. It can be retrieved and updated from model settings. Default types will have a variable that counts the number of events.
 
-## Time Series Model type JSON request and response example
+## Time Series Model type JSON example
 
 Given a POST HTTP request:
 
@@ -160,7 +160,8 @@ The matrix below works as a legend for variable definitions:
 
 The following variable kinds are supported:
 
-* Numeric – Continuous
+* Numeric
+* Aggregate
 
 ### Variable filter
 
