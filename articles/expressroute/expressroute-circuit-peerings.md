@@ -1,8 +1,8 @@
 ---
-title: Azure ExpressRoute circuits and routing domains | Microsoft Docs
-description: This page provides an overview of ExpressRoute circuits and the routing domains.
+title: Azure ExpressRoute circuits and peering | Microsoft Docs
+description: This page provides an overview of ExpressRoute circuits and routing domains/peering.
 services: expressroute
-author: cherylmc
+author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
@@ -10,8 +10,9 @@ ms.date: 11/05/2018
 ms.author: mialdrid
 
 ---
-# ExpressRoute circuits and routing domains
- ExpressRoute circuits allow you to connect your on-premises infrastructure to Microsoft through a connectivity provider. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
+# ExpressRoute circuits and peering
+
+ExpressRoute circuits allow you to connect your on-premises infrastructure to Microsoft through a connectivity provider. This article helps you understand ExpressRoute circuits and routing domains/peering. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
@@ -31,8 +32,8 @@ Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbp
 ### Quotas, limits, and limitations
 Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) page for up-to-date information on quotas.
 
-## ExpressRoute routing domains
-An ExpressRoute circuit has multiple routing domains associated with it: Azure public, Azure private, and Microsoft. Each routing domains is configured identically on a pair of routers (in active-active or load sharing configuration) for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
+## ExpressRoute peering
+An ExpressRoute circuit has multiple routing domains/peerings associated with it: Azure public, Azure private, and Microsoft. Each peering is configured identically on a pair of routers (in active-active or load sharing configuration) for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
@@ -59,8 +60,8 @@ You can define custom route filters within your network to consume only the rout
 
 For more information about services supported through the public peering routing domain, see the [FAQ](expressroute-faqs.md).
 
-## Routing domain comparison
-The following table compares the three routing domains:
+## Peering comparison
+The following table compares the three peerings:
 
 |  | **Private Peering** | **Microsoft Peering** |  **Public Peering** (deprecated for new circuits) |
 | --- | --- | --- | --- |
