@@ -20,6 +20,8 @@ You can add your work or school account, given to you by your organization, to t
 >[!Important]
 >Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
+## Add your work or school account
+
 1. On your PC, go to the [Additional security verification](https://aka.ms/mfasetup) page.
 
     >[!Note]

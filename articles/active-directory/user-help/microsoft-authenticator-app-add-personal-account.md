@@ -14,7 +14,7 @@ ms.author: lizross
 ms.reviewer: librown
 ---
 
-# Add your personal Microsoft account
+# Add your personal accounts
 You can add your personal accounts, such as for Outlook.com, Xbox LIVE, Google, Facebook, and more to the Microsoft Authenticator app for two-factor verification.
 
 >[!Important]
@@ -41,7 +41,7 @@ You can add your personal accounts, such as for Outlook.com, Xbox LIVE, Google, 
 
     Your account is added to the Microsoft Authenticator app.
 
-### Add a personal Google account
+### Add your personal Google account
 You can add your personal Google account to the Microsoft Authenticator app.
 
 1. On your PC, go to the two-step verification section of your Google account.
@@ -59,13 +59,18 @@ For more information about two-factor verification and your Google account, see 
 
 5. Review the **Accounts** screen of the app on your device, to make sure your account is right and that there's an associated six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-### Add a personal Facebook account
+### Add your personal Facebook account
 You can add your personal Facebook account to the Microsoft Authenticator app.
 
 
 For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
+### Add your personal Apple account
+Add steps about how to add your apple account.
+
 ## Add other non-Microsoft personal accounts
+
+Add steps here for how to add other accounts, like Instagram, Adobe, and so on.
 
 ## Next steps
 
