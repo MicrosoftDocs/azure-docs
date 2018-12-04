@@ -39,26 +39,10 @@ Create a new Python script named _ContentModeratorQS.py_ and add the following c
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
 
-```Python
-# the ContentModeratorClient interacts with the service
-from azure.cognitiveservices.vision.contentmoderator import ContentModeratorClient
-
-# the Screen class represents the result of a text screen request
-from azure.cognitiveservices.vision.contentmoderator.models import (
-    Screen
-)
-
-# special class that represents a CogServ credential (key)
-from msrest.authentication import CognitiveServicesCredentials
-```
-
 Also import the "pretty print" function to handle the final output.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
 
-```Python
-from pprint import pprint
-```
 
 ## Initialize variables
 
@@ -66,22 +50,11 @@ Next, add variables for your Content Moderator subscription key and endpoint URL
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
 
-```Python
-# Replace with a valid key
-subscription_key = '<your subscription key>'
-endpoint_url = 'westus.api.cognitive.microsoft.com'
-```
 
 For the sake of simplicity, you will analyze text directly from the script. Define a new string of text content to moderate:
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
 
-```Python
-TEXT = """Is this a grabage email abcdef@abcd.com, phone: 6657789887, \
-IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. \
-Crap is the profanity here. Is this information PII? phone 3144444444
-"""
-```
 
 ## Query the Moderator service
 
@@ -89,33 +62,12 @@ Create a **ContentModeratorClient** instance using your subscription key and end
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 
-```Python
-# Create the Content Moderator client
-client = ContentModeratorClient(endpoint_url, CognitiveServicesCredentials(subscription_key))
-
-# Screen the input text: check for profanity, 
-# autocorrect text, check for personally identifying 
-# information (PII), and classify text
-screen = client.text_moderation.screen_text(
-    "eng",
-    "text/plain",
-    TEXT,
-    autocorrect=True,
-    pii=True,
-    classify=True
-)
-```
-
 ## Print the response
 
 Finally, check that the call completed successfully and returned a **Screen** instance. Then print the returned data to the console.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
 
-```Python
-assert isinstance(screen, Screen)
-pprint(screen.as_dict())
-```
 
 The sample text used in this quickstart results in the following output:
 
