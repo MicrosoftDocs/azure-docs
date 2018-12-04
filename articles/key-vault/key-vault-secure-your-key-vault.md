@@ -23,7 +23,10 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets (
 This article provides an overview of the key vault access model. It explains authentication and authorization, and describes how to secure access to key vault.
 
 ## Overview
-Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes, proper authentication and authorization are required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller is allowed to perform.
+Access to a key vault is controlled through two separate interfaces: management plane and data plane. 
+Management plane deals with managing the vault, for example - creating a vault, updating a vault, deleting a vault. 
+Data plane deals with secrets inside a vault, that is create, update, delete and read a secret inside the vault. 
+For both planes, proper authentication and authorization are required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller is allowed to perform.
 
 For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
 
