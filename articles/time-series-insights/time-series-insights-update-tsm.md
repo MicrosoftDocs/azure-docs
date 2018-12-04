@@ -181,7 +181,7 @@ Hierarchies organize instances by specifying property names and their relationsh
 
 Hierarchies are defined by **Hierarchy ID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
 
-### Time Series Model hierarchy JSON request and response example
+### Time Series Model hierarchy JSON example
 
 Given a POST HTTP request:
 
@@ -265,7 +265,7 @@ Instances are defined by *timeSeriesId*, *typeId*, *hierarchyId*, and *instanceF
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
 
-## Time Series Model instance JSON request and response example
+## Time Series Model instance JSON example
 
 Given a POST HTTP request:
 
