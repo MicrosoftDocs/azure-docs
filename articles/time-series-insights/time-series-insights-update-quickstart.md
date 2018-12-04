@@ -33,13 +33,13 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 ### Demo step one
 
-1. Let’s take a look at **wind turbine #7 in farm #1**. It’s been performing well.  
+1. Let’s take a look at **wind turbine #7 in wind farm #1**.  
 
-    * **Action**: Update the view range to `1/1/17 20:00 – 3/10/17 20:00 (UTC)` and add the `Farm 1 > W7 > Generator > GeneratorSpeed` sensor.
+    * **Action**: Update the view range to `1/1/17 20:00 – 3/10/17 20:00 (UTC)` and add the `Farm 1 > W7 > Generator > GeneratorSpeed` sensor. Then, display the resulting values.
 
        ![Quickstart one][1]
 
-1. Recently, **Contoso found a fire in turbine #7**. Let’s drill in here. We can see the fire alert sensor activated during the period of the fire.
+1. Recently, **Contoso found a fire in wind turbine #7**. Let’s drill in here. We can see the fire alert sensor activated during the period of the fire.
 
     * **Action**: Update the view range to `3/9/17 20:00 – 3/10/17 20:00 (UTC)` and add the `Safety > FireAlert` sensor.
 
