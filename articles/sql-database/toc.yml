@@ -88,62 +88,70 @@
   items:
   - name: Purchasing models
     items: 
-    - name: vCore vs. DTU 
+    - name: Overview 
       href: sql-database-service-tiers.md
-    - name: vCore-based purchasing model
-      items:
-      - name: Choosing a vCore service tier
-        href: sql-database-service-tiers-vcore.md
-      - name: General Purpose / Business Critical
-        href: sql-database-service-tiers-general-purpose-business-critical.md
-      - name: Hyperscale
-        href: sql-database-service-tier-hyperscale.md
-      - name: Hyperscale FAQ
-        href: sql-database-service-tier-hyperscale-faq.md
-    - name: DTU service tiers
+    - name: vCore-based model
+      href: sql-database-service-tiers-vcore.md
+    - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
-  - name: Logical servers
-    items: 
-    - name: Create and manage
-      href: sql-database-logical-servers.md
-    - name: Resource limits
-      href: sql-database-resource-limits-logical-server.md
-    - name: Connectivity architecture
-      href: sql-database-connectivity-architecture.md 
-    - name: T-SQL differences
-      href: sql-database-transact-sql-information.md
-    - name: Transactional replication - single DBs and elastic pools
-      href: replication-to-sql-database.md  
+  - name: Compute & storage
+    items:
+    - name: Overview
+      href: sql-database-service-tiers-general-purpose-business-critical.md
+    - name: General Purpose / Standard
+      href: sql-database-service-tier-general-purpose.md
+    - name: Business Critical / Premium
+      href: sql-database-service-tier-business-critical.md
+    - name: Hyperscale
+      href: sql-database-service-tier-hyperscale.md
+    - name: Hyperscale FAQ
+      href: sql-database-service-tier-hyperscale-faq.md
   - name: Single databases
     items:
+    - name: Single database
+      href: sql-database-single-index.yml
     - name: Create and manage
       href: sql-database-single-databases-manage.md
+    - name: Logical servers
+      items: 
+        - name: Create and manage
+          href: sql-database-logical-servers.md
+        - name: Resource limits
+          href: sql-database-resource-limits-logical-server.md
+        - name: Connectivity architecture
+          href: sql-database-connectivity-architecture.md 
+        - name: T-SQL differences
+          href: sql-database-transact-sql-information.md
+        - name: Transactional replication - single DBs and elastic pools
+          href: replication-to-sql-database.md 
+    - name: Elastic pools
+      items:
+      - name: Elastic pools
+        href: sql-database-elastic-pool.md
+      - name: Create and manage
+        href: sql-database-elastic-pool-manage.md
+      - name: vCore-based resource limits
+        href: sql-database-vcore-resource-limits-elastic-pools.md  
+      - name: DTU-based resource limits
+        href: sql-database-dtu-resource-limits-elastic-pools.md  
+      - name: Scale resources
+        href: sql-database-elastic-pool-scale.md
     - name: vCore-based resource limits
       href: sql-database-vcore-resource-limits-single-databases.md  
     - name: DTU-based resource limits
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: Scale resources
       href: sql-database-single-database-scale.md
-  - name: Elastic pools
-    items:
-    - name: Elastic pools
-      href: sql-database-elastic-pool.md
-    - name: Create and manage
-      href: sql-database-elastic-pool-manage.md
-    - name: vCore-based resource limits
-      href: sql-database-vcore-resource-limits-elastic-pools.md  
-    - name: DTU-based resource limits
-      href: sql-database-dtu-resource-limits-elastic-pools.md  
-    - name: Scale resources
-      href: sql-database-elastic-pool-scale.md
   - name: Managed instances
     items:
     - name: Managed instances
       href: sql-database-managed-instance-index.yml
-    - name: Overview
+    - name: Managed Instance overview
       href: sql-database-managed-instance.md
+    - name: Create and manage
+      href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
     - name: VNet Integration
@@ -156,6 +164,8 @@
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Connectivity architecture
         href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Management endpoint
+        href: sql-database-managed-instance-management-endpoint.md   
       - name: Connect applications
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
@@ -210,7 +220,7 @@
     items:
     - name: Security
       href: sql-database-security-index.yml
-    - name: Overview
+    - name: Security overview
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
