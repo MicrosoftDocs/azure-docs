@@ -30,9 +30,9 @@ This article describes specific steps for using Azure Monitor to enable Continuo
 In order to gain observability across your entire environment, you need to enable monitoring on all your web applications and services. This will allow you to easily visualize end-to-end transactions and connections across all the components.
 
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
-- [Continuous monitoring in your DevOps release pipeline](../application-insights/app-insights-vsts-continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
-- [Status Monitor](../application-insights/app-insights-monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
-- If you have access to the code for your application, then enable full monitoring with [Application Insights](../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), or [any other programming languages](../application-insights/app-insights-platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
+- [Continuous monitoring in your DevOps release pipeline](../../application-insights/app-insights-vsts-continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
+- [Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
+- If you have access to the code for your application, then enable full monitoring with [Application Insights](../../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../../application-insights/quick-monitor-portal.md), [Java](../../application-insights/app-insights-java-quick-start.md), [Node.js](../../application-insights/app-insights-nodejs-quick-start.md), or [any other programming languages](../../application-insights/app-insights-platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
 
@@ -48,13 +48,13 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 [Infrastructure as code](/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
 
 -  Use [Resource Manager templates](../log-analytics/log-analytics-template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
-- Use [Azure Policy](../governance/policy/overview.md) to enforce different rules over your resources. This ensures that those resources stay compliant with your corporate standards and service level agreements. 
+- Use [Azure Policy](../../governance/policy/overview.md) to enforce different rules over your resources. This ensures that those resources stay compliant with your corporate standards and service level agreements. 
 
 
 ##	Combine resources in Azure Resource Groups
 A typical application on Azure today includes multiple resources such as VMs and App Services or microservices hosted on Cloud Services, AKS clusters, or Service Fabric. These applications frequently utilize dependencies like Event Hubs, Storage, SQL, and Service Bus.
 
-- Combine resources inAzure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../monitoring-and-diagnostics/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
+- Combine resources inAzure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../../monitoring-and-diagnostics/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
 
 ## Ensure quality through Continuous Deployment
 Continuous Integration / Continuous Deployment allows you to automatically integrate and deploy code changes to your application based on the results of automated testing. It streamlines the deployment process and ensures the quality of any changes before they move into production.
@@ -62,29 +62,29 @@ Continuous Integration / Continuous Deployment allows you to automatically integ
 
 - Use [Azure Pipelines](/azure/devops/pipelines) to implement Continuous Deployment and automate your entire process from code commit to production based on your CI/CD tests.
 - Use [Quality Gates](/devops/pipelines/release/approvals/gates) to integrate monitoring into your pre-deployment or post-deployment. This ensures that you are meeting the key health/performance metrics (KPIs) as your applications move from dev to production and any differences in the infrastructure environment or scale is not negatively impacting your KPIs.
-- [Maintain separate monitoring instances](../application-insights/app-insights-separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) or create [cross-resource queries in Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md).
+- [Maintain separate monitoring instances](../../application-insights/app-insights-separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) or create [cross-resource queries in Log Analytics](../../log-analytics/log-analytics-cross-workspace-search.md).
 
 
 ## Create actionable alerts with actions
 A critical aspect of monitoring is proactively notifying administrators of any current and predicted issues. 
 
-- Create [alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [dynamic thresholds](../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
-- Define actions for alerts to use the most effective means of notifying your administrators. Available [actions for notification](../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) are SMS, e-mails, push notifications, or voice calls.
-- Use more advanced actions to [connect to your ITSM tool](../log-analytics/log-analytics-itsmc-overview.md) or other alert management systems through [webhooks](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
-- Remediate situations identified in alerts as well with [Azure Automation runbooks](../automation/automation-webhooks.md) or [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) that can be launched from an alert using webhooks. 
-- Use [autoscaling](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
+- Create [alerts in Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [dynamic thresholds](../../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
+- Define actions for alerts to use the most effective means of notifying your administrators. Available [actions for notification](../../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) are SMS, e-mails, push notifications, or voice calls.
+- Use more advanced actions to [connect to your ITSM tool](../log-analytics/log-analytics-itsmc-overview.md) or other alert management systems through [webhooks](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Remediate situations identified in alerts as well with [Azure Automation runbooks](../../automation/automation-webhooks.md) or [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) that can be launched from an alert using webhooks. 
+- Use [autoscaling](../../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
 
 ## Prepare role-based dashboards and workbooks
 Ensuring that your development and operations have access to the same telemetry and tools allows them to view patterns across your entire environment and minimize your Mean Time To Detect (MTTD) and Mean Time To Restore (MTTR).
 
-- Prepare [custom dashboards](../application-insights/app-insights-tutorial-dashboards.md) based on common metrics and logs for the different roles in your organization. Dashboards can combine data from all Azure resources.
-- Prepare [Workbooks](../application-insights/app-insights-usage-workbooks.md) to ensure knowledge sharing between development and operations. These could be prepared as dynamic reports with metric charts and log queries, or even as troubleshooting guides prepared by developers helping customer support or operations to handle basic problems.
+- Prepare [custom dashboards](../../application-insights/app-insights-tutorial-dashboards.md) based on common metrics and logs for the different roles in your organization. Dashboards can combine data from all Azure resources.
+- Prepare [Workbooks](../../application-insights/app-insights-usage-workbooks.md) to ensure knowledge sharing between development and operations. These could be prepared as dynamic reports with metric charts and log queries, or even as troubleshooting guides prepared by developers helping customer support or operations to handle basic problems.
 
 ## Continuously optimize with Build-Measure-Learn
  Monitoring is one of the fundamental aspects of the popular Build-Measure-Learn philosophy, which recommends continuously tracking your KPIs and user behavior metrics and then striving to optimize them through planning iterations. Azure Monitor helps you collect metrics and logs relevant to your business and to add new data points in the next deployment as required.
 
-- Use tools in Application Insights to [track end-user behavior and engagement](../application-insights/app-insights-tutorial-users.md).
-- Use [Impact Analysis](../application-insights/app-insights-usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
+- Use tools in Application Insights to [track end-user behavior and engagement](../../application-insights/app-insights-tutorial-users.md).
+- Use [Impact Analysis](../../application-insights/app-insights-usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
 
 
 ## Next steps

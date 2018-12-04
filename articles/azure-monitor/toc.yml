@@ -454,7 +454,7 @@
     - name: Monitor applications
       items:
       - name: Continuous monitoring
-      - href: app/continuous-monitoring.md
+        href: app/continuous-monitoring.md
       - name: Application Insights portal
         items:
         - name: Search
