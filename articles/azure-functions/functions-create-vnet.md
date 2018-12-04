@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Functions with an Azure Virtual Network
-description: A step by stem tutorial showing you how to connect a Function to an Azure virtual network
+description: A step by step tutorial showing you how to connect a Function to an Azure virtual network
 services: functions
 author: alexkarcher-msft
 manager: jehollan
