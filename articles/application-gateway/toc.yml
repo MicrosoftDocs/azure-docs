@@ -29,8 +29,6 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
-  - name: Troubleshoot an Application Gateway in Aure – ILB ASE
-    href: create-gateway-internal-load-balancer-app-service-environment.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -119,7 +117,6 @@
         href: redirect-external-site-powershell.md
       - name: Azure CLI
         href: redirect-external-site-cli.md
-    items:
     - name: HTTP to HTTPS
       items:
       - name: Azure PowerShell
@@ -148,6 +145,8 @@
         href: application-gateway-create-probe-ps.md
   - name: Troubleshoot
     items:
+      - name: Troubleshoot an Application Gateway in Aure – ILB ASE
+        href: create-gateway-internal-load-balancer-app-service-environment.md
       - name: Troubleshoot Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
       - name: Diagnostics

@@ -91,12 +91,10 @@ An Azure Cosmos container supports the following operations using any of the Azu
 | **Operation** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Enumerate containers in a database | Yes* | Yes | Yes | Yes | NA | NA |
-| Read a container | Yes* | Yes | Yes | Yes | NA | NA |
-| Create new container | Yes* | Yes | Yes | Yes | NA | NA |
-| Update container | Yes* | Yes | Yes | Yes | NA | NA |
-| Delete container | Yes* | Yes | Yes | Yes | NA | NA |
-
-\* Will be available in January 2019.
+| Read a container | Yes | Yes | Yes | Yes | NA | NA |
+| Create new container | Yes | Yes | Yes | Yes | NA | NA |
+| Update container | Yes | Yes | Yes | Yes | NA | NA |
+| Delete container | Yes | Yes | Yes | Yes | NA | NA |
 
 ## Azure Cosmos items
 
