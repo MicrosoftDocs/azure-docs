@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/16/2018
+  ms.date: 12/04/2018
   ms.author: anshan
 abstract:
   description: Learn how to set up a Time Series Insights environment, explore, and analyze time series data of your IoT solutions or connected things. Documentation describes the prerequisites, how to, API references, and other articles to help you get started in minutes.
@@ -19,10 +19,10 @@ abstract:
     image:
       alt: A video introduction to Azure IoT Time Series Insights features.
       height: 110
-      src: media/index/tsi-intro-shannon-bloch.png
+      src: media/index/new-tsi-intro.png
       width: 250  
-    title: Time Series Insight for IoT apps. (16:09)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Time-Series-Insight-for-IoT-apps/player
+    title: Time Series Insight for IoT apps. (13:31)
+    href:  https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -35,7 +35,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
       text: Explore Azure Time Series Insights
-      href: /azure/time-series-insights/time-series-update-quickstart
+      href: /azure/time-series-insights/time-series-insights-update-quickstart
 - title: Reference
   items:
   - type: list
@@ -43,4 +43,4 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="/rest/api/time-series-insights-management">Resource Management API</a></p>   <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">Query API</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Query Syntax</a></p>
+      html: <p><a href="/rest/api/time-series-insights-management">Resource Management API</a></p>   <p><a href="/rest/api/time-series-insights/ga-query-api">Query API</a></p><p><a href="/rest/api/time-series-insights/ga-query-syntax">Query Syntax</a></p>
