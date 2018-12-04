@@ -46,3 +46,10 @@ The **Manage Access** prompt will allow you to manage permissions for owner and 
 We recommend creating security groups and maintaining permissions on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
 
 You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing permissions on directories and files is the same as described above.
+
+## Next steps
+
+In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn more about access control lists and permissions, continue to our conceptual article on the subject.
+
+> [!div class="nextstepaction"]
+> [HAccess control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
