@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -41,7 +41,7 @@ Infrastructure service certificates for external-facing services that are provid
 
    <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
 
-> [!NOTE]
+> [!NOTE]  
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
 
 In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements.

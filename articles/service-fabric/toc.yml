@@ -461,9 +461,7 @@
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
-      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-    - name: On-demand backup of partition
-      href: service-fabric-backuprestoreservice-ondemand-backup.md
+      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md    
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in an IDE

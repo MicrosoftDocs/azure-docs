@@ -73,7 +73,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 ## Next steps
 
-- Learn more about [log searches in Log Analytics](log-analytics-queries.md).
+- Learn more about [log searches in Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

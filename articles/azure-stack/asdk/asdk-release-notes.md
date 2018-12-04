@@ -179,7 +179,9 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 - <!-- 3078022 - IS, ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
 
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
+
+### Changes
 
 ### Known issues
 
