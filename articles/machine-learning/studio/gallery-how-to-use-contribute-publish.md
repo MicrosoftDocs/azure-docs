@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery | Microsoft Docs
+title: Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 documentationcenter: ''

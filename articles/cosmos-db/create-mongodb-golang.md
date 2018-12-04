@@ -1,13 +1,11 @@
 ---
-title: "Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs"
+title: "Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal"
 description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 author: slyons
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
@@ -38,7 +36,7 @@ In other words, your Golang application only knows that it's connecting to a dat
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
-- An IDE — [GoLand](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
+- An IDE — [GoLand](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using GoLand.
 
 <a id="create-account"></a>
 ## Create a database account

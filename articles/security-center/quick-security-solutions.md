@@ -29,7 +29,7 @@ This quickstart shows you how to:
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/free/).
 
-To step through this quickstart, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost for the first 60 days. The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
+To step through this quickstart, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost. The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 You also need a [Linux machine](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux), with Syslog service that is already connected to your Security Center.
 

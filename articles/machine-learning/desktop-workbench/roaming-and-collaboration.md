@@ -121,9 +121,9 @@ By sharing a remote Git repo for the project, Alice and Bob can also collaborate
 ### Use the Azure portal to add users
 <a name="portal"></a>
 
-Machine Learning Experimentation accounts, workspaces, and projects are Azure Resource Manager resources. To assign roles, you can use the **Access Control** link in the [Azure portal](https://portal.azure.com). 
+Machine Learning Experimentation accounts, workspaces, and projects are Azure Resource Manager resources. To assign roles, you can use the **Access control (IAM)** link in the [Azure portal](https://portal.azure.com). 
 
-Find the resource that you want to add users to by using the **All Resources** view. Select the **Access control (IAM)** link, and then select **Add users**. 
+Find the resource that you want to add users to by using the **All Resources** view. Select the **Access control (IAM)** link, and then select **Add role assignment**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
