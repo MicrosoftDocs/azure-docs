@@ -32,7 +32,7 @@ To avoid disruptions to your applications and to benefit from the latest feature
     + [Python based quickstart](../machine-learning/service/quickstart-create-workspace-with-python.md)
     + [Azure portal based quickstart](../machine-learning/service/quickstart-get-started.md)
 
-1. Set up an [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md) for model training.
+1. Set up an [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute) for model training.
 
 1. Update your scripts to use the Azure Machine Learning Compute.
 
