@@ -64,4 +64,4 @@ To generate an answer with Postman, complete the following steps:
 The publish page also provides information to [generate an answer](../Quickstarts/get-answer-from-kb-using-curl.md) with cURL. 
 
 > [!div class="nextstepaction"]
-> [Use metadata while generating an answer](metadata-generateanswer-usage.md)
+> [Use metadata while generating an answer](../How-to/metadata-generateanswer-usage.md)
