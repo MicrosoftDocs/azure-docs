@@ -36,22 +36,23 @@ The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Py
 * The ability to scale more effectively on a single machine using a streaming approach to data processing rather than loading into memory.
 
 The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more flexibility. _Other tools_ are typically either:
+* Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point
+* Strength in processing large data sets, but carry an overhead that slows work with small data sets
 
-### Install the SDK
+The SDK offers practicality and convenience when working with small data sets, with added scalability for modern big-data applications. 
 
-Install the SDK in your Python environment using the following command.
-
-```cmd
-pip install --upgrade azureml-dataprep
+To install the SDK in your Python environment, use:
+```shell
+pip install azureml-dataprep
 ```
 
-Use the following code to import the package.
-
+To import the package in your Python code, use:
 ```python
 import azureml.dataprep as dprep
 ```
 
-### Examples and reference
+## SDK examples and reference
+
 
 To learn about the modules and functions of this SDK, see the [Data Prep SDK reference docs](https://aka.ms/data-prep-sdk).
 
