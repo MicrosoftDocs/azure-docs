@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -49,7 +49,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the geography in which you want to create the project, then click **Create**. You can only create an Azure Migrate project in the United States geography. However, you can still plan your migration for any target Azure location. The geography specified for the project is only used to store the metadata gathered from on-premises VMs.
+5. Specify the geography in which you want to create the project, then click **Create**. You can only create an Azure Migrate project in the following geographies. However, you can still plan your migration for any target Azure location. The geography specified for the project is only used to store the metadata gathered from on-premises VMs.
+    **Geography** | **Storage location**
+    --- | ---
+    Unites States | West Central US or East US
+    Azure Government | US Gov Virginia
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -90,6 +94,14 @@ Check that the .OVA file is secure, before you deploy it.
 3. The generated hash should match these settings.
 
 #### Continuous discovery
+
+  For OVA version 1.0.10.9
+
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   For OVA version 1.0.10.4
 
@@ -152,12 +164,13 @@ will be hosted.
 3. On the desktop, click the **Run collector** shortcut.
 4. Click **Check for updates** in the top bar of the collector UI and verify that the collector is running on the latest version. If not, you can choose to download the latest upgrade package from the link and update the collector.
 5. In the Azure Migrate Collector, open **Set up prerequisites**.
+    - Select the Azure cloud to which you plan to migrate (Azure Global or Azure Government).
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
-    - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) about the internet connectivity requirements and the list of URLs that the collector accesses.
+    - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) about the internet connectivity requirements and the [list of URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) that the collector accesses.
 
     > [!NOTE]
-    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initally fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
+    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initially fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
 
     - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install VMware PowerCLI.

@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -46,6 +46,7 @@ b.In an administrator Windows PowerShell window, run the following command:
 
 a.	In an administrator Windows PowerShell window, run the following command:
        *armclient login*
+       
 This opens the Azure login pop-up where you need to logon to Azure.
 
 b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
@@ -154,6 +155,10 @@ If the issue still happens in the latest version, it could be because the collec
 4. Finally check if the vCenter server is up and running.
 
 ## Dependency visualization issues
+
+### I am unable to find the dependency visualization functionality for Azure Government projects.
+
+Azure Migrate depends on Service Map for the dependency visualization functionality and since Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
 
 ### I installed the Microsoft Monitoring Agent (MMA) and the dependency agent on my on-premises VMs, but the dependencies are now showing up in the Azure Migrate portal.
 

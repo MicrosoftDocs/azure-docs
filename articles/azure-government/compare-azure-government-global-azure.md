@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/03/2018
+ms.date: 12/05/2018
 ms.author: juliako
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
@@ -27,103 +27,104 @@ As a developer, you must know how to connect to Azure Government and once you co
 * **Variations**: Variations due to features that are not deployed yet or properties (for example, URLs) that are unique to the government environment.  
 * **Considerations**: Government-specific implementation detail to ensure that data stays within your compliance boundary.
 
-For the most current list of services, see the [Products available by region](https://azure.microsoft.com/regions/services/) page (select Azure Government region). The **services available in Azure Government** are listed by category, as well as whether they are Generally Available or available through preview. 
+For the most current list of services, see the [Products available by region](https://azure.microsoft.com/regions/services/) page (select Azure Government region). The **services available in Azure Government** are listed by category, as well as whether they are Generally Available or available through preview.
 
 > [!NOTE]
 > The services listed below are Generally Available unless they have (Preview) next to them.
 
 ## Compute
 
-* [Virtual Machines](documentation-government-compute.md#virtual-machines) 
-* [Batch](documentation-government-compute.md#batch) 
+* [Virtual Machines](documentation-government-compute.md#virtual-machines)
+* [Batch](documentation-government-compute.md#batch)
 * [Cloud Services](documentation-government-compute.md#cloud-services)
-* [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) 
+* [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets)
 * [Functions](documentation-government-compute.md#azure-functions)
 * [Service Fabric](documentation-government-compute.md#service-fabric)
 
 ## Networking
 
-* [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) 
-* [Virtual Network](documentation-government-networking.md#support-for-virtual-network) 
+* [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [Virtual Network](documentation-government-networking.md#support-for-virtual-network)
 * [Load Balancer](documentation-government-networking.md#support-for-load-balancer)
-* [DNS](documentation-government-networking.md#support-for-dns) 
+* [DNS](documentation-government-networking.md#support-for-dns)
 * [Traffic Manager](documentation-government-networking.md#support-for-traffic-manager)
 * [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
-* [Application Gateway](documentation-government-networking.md#support-for-application-gateway) 
-* [Network Watcher](documentation-government-networking.md#support-for-network-watcher) 
+* [Application Gateway](documentation-government-networking.md#support-for-application-gateway)
+* [Network Watcher](documentation-government-networking.md#support-for-network-watcher)
 
 ## Storage
 
-* [Blob storage](documentation-government-services-storage.md#azure-storage) 
-* [Table storage](documentation-government-services-storage.md#azure-storage) 
-* [Queue storage](documentation-government-services-storage.md#azure-storage) 
-* [File storage](documentation-government-services-storage.md#azure-storage) 
-* [Disk storage](documentation-government-services-storage.md#azure-storage) 
-* [StorSimple](documentation-government-services-storage.md) 
-* [Import/Export](documentation-government-services-storage.md#azure-importexport) 
+* [Blob storage](documentation-government-services-storage.md#azure-storage)
+* [Table storage](documentation-government-services-storage.md#azure-storage)
+* [Queue storage](documentation-government-services-storage.md#azure-storage)
+* [File storage](documentation-government-services-storage.md#azure-storage)
+* [Disk storage](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Import/Export](documentation-government-services-storage.md#azure-importexport)
 
 ## Web + Mobile
- 
-* [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) 
-* [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) 
-* [API Management](documentation-government-services-webandmobile.md#api-management) 
-* [Media Services](documentation-government-services-media.md) 
+
+* [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services)
+* [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services)
+* [API Management](documentation-government-services-webandmobile.md#api-management)
+* [Media Services](documentation-government-services-media.md)
 
 ## Databases
 
-* [SQL Database](documentation-government-services-database.md#sql-database) 
+* [SQL Database](documentation-government-services-database.md#sql-database)
 * [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse)
-* [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) 
+* [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
 * [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db)
-* [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) 
+* [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache)
 
 ## Data + Analytics
- 
-* [HDInsight](documentation-government-services-dataandanalytics.md#hdinsight) 
-* [Azure Analysis Services](documentation-government-services-dataandanalytics.md#azure-analysis-services) 
+
+* [HDInsight](documentation-government-services-dataandanalytics.md#hdinsight)
+* [Azure Analysis Services](documentation-government-services-dataandanalytics.md#azure-analysis-services)
 * [Power BI Pro](documentation-government-services-dataandanalytics.md#power-bi) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).)
 
-## AI + Cognitive Services 
- 
+## AI + Cognitive Services
+
 * [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) (Preview) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).)
 
 ## Internet of Things
 
-* [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub) 
-* [Azure Event Hubs](documentation-government-services-iot-hub.md#azure-event-hubs) 
+* [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub)
+* [Azure Event Hubs](documentation-government-services-iot-hub.md#azure-event-hubs)
 * [Azure Notification Hubs](documentation-government-services-iot-hub.md#azure-notification-hubs) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us)).
 
 ## Enterprise Integration
 
-* [Logic Apps](documentation-government-services-integration.md#logic-apps) 
-* [Service Bus](documentation-government-networking.md#support-for-service-bus) 
-* [StorSimple](documentation-government-services-storage.md) 
-* [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) 
+* [Logic Apps](documentation-government-services-integration.md#logic-apps)
+* [Service Bus](documentation-government-networking.md#support-for-service-bus)
+* [StorSimple](documentation-government-services-storage.md)
+* [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
 
 ## Security + Identity
- 
+
 * [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) (Preview)
-* [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) 
-* [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) 
-* [Key Vault](documentation-government-services-securityandidentity.md#key-vault) 
-* [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) 
+* [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)
+* [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2)
+* [Key Vault](documentation-government-services-securityandidentity.md#key-vault)
+* [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication)
 
 ## Monitoring + Management
 
 * [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) (Preview)
-* [Automation](documentation-government-services-monitoringandmanagement.md#automation) 
-* [Backup](documentation-government-services-backup.md) 
-* [Policy](documentation-government-services-monitoringandmanagement.md#policy) 
-* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) 
-* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) 
+* [Automation](documentation-government-services-monitoringandmanagement.md#automation)
+* [Backup](documentation-government-services-backup.md)
+* [Policy](documentation-government-services-monitoringandmanagement.md#policy)
+* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) 
-* [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) 
-* [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal) 
-* [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) 
+* [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)
+* [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal)
+* [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager)
+* [Azure Migrate](documentation-government-services-monitoringandmanagement.md#azure-migrate)
 
 ## Developer tools
 
-* [DevTest Labs](documentation-government-services-devtools.md#devtest-labs) 
+* [DevTest Labs](documentation-government-services-devtools.md#devtest-labs)
 
 ## Next steps
 
