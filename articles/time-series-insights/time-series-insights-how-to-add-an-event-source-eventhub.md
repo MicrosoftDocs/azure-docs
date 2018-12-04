@@ -17,7 +17,7 @@ ms.date: 11/30/2018
 This article describes how to use the Azure portal to add an event source that reads data from an Event Hub into your Time Series Insights environment.
 
 > [!NOTE]
-> These instructions apply to both Time Series Insights GA and Time Series Insights update Private Preview environments.
+> These instructions apply to both Time Series Insights GA and Time Series Insights update Preview environments.
 
 ## Prerequisites
 
