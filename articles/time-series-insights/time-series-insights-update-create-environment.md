@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Time Series Insights (preview) tutorial | Microsoft Docs
-description: Learn about Azure Time Series Insights (preview
+title: Azure Time Series Insights (Preview) tutorial | Microsoft Docs
+description: Learn about Azure Time Series Insights (Preview)
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -15,7 +15,7 @@ ms.date: 11/26/2018
 
 This tutorial will guide you through the process of creating an Azure Time Series Insights (TSI) Preview environment, populated with data from simulated devices. In this tutorial, you learn how to:
 
-* Create a TSI (Preview)environment.
+* Create a TSI (Preview) environment.
 * Connect the TSI (Preview) environment to an Event Hub.
 * Run a wind farm simulation to stream data into the TSI Preview environment.
 * Perform basic analysis on the data.
