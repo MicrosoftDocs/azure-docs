@@ -126,13 +126,13 @@ By default, Performance data is based on the last six hours, but you can change 
 
 ![Percentile selection for data filtering](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-When you mouse over the bar graph under the **Trend** column, each bar shows the either the CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes.  
+When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes.  
 
 ![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
-In the next example, note for the first in the list - node *aks-nodepool1-*, the value for **Containers** is 9, which is a roll-up of the total number of containers deployed.
+In the next example, note for the first in the list - node *aks-nodepool1-*, the value for **Containers** is 9, which is a roll up of the total number of containers deployed.
 
-![Roll-up of containers per node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
+![Roll up of containers per node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
 It can help you quickly identify whether you have a proper balance of containers between nodes in your cluster. 
 
@@ -170,11 +170,11 @@ The information that's displayed when you view controllers is described in the f
 | Column | Description | 
 |--------|-------------|
 | Name | The name of the controller.|
-| Status | The roll-up status of the containers when it has completed running with status, such as *OK*, *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly displayed or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
-| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Roll-up average of the average percentage of each entity for the selected metric and percentile. |
-| Avg, Min, Max, 50th, 90th  | Roll-up of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
+| Status | The roll up status of the containers when it has completed running with status, such as *OK*, *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly displayed or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
+| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Roll up average of the average percentage of each entity for the selected metric and percentile. |
+| Avg, Min, Max, 50th, 90th  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller or pod. |
-| Restarts | Roll-up of the restart count from containers. |
+| Restarts | Roll up of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
 | Node | Only for containers and pods. It shows which controller it is residing. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;%| Bar graph trend represents the average percentile metric of the controller. |
@@ -188,7 +188,7 @@ The icons in the status field indicate the online status of the containers:
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
 | ![Successful status icon](./media/container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop|
 
-The status icon displays a count based on what the pod provides. It shows the worst two states, and when you hover over the status, it displays a roll-up status from all pods in the container. If there isn't a ready state, the status value displays **(0)**. 
+The status icon displays a count based on what the pod provides. It shows the worst two states, and when you hover over the status, it displays a roll up status from all pods in the container. If there isn't a ready state, the status value displays **(0)**. 
 
 In the selector, select **Containers**.
 
@@ -208,8 +208,8 @@ The information that's displayed when you view containers is described in the fo
 |--------|-------------|
 | Name | The name of the controller.|
 | Status | Status of the containers, if any. Additional details of the status icon are provided in the next table.|
-| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | The roll-up of the average percentage of each entity for the selected metric and percentile. |
-| Avg, Min, Max, 50th, 90th  | The roll-up of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
+| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | The roll up of the average percentage of each entity for the selected metric and percentile. |
+| Avg, Min, Max, 50th, 90th  | The roll up of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
 | Pod | Container where the pod resides.| 
 | Node |  Node where the container resides. | 
 | Restarts | Represents the time since a container started. |
