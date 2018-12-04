@@ -192,7 +192,7 @@ For example:
 
 ## How does the use of active geo-replication in an elastic pool show up on my bill
 
-Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
+Unlike single databases, using [active geo-replication](sql-database-active-geo-replication.md) with elastic databases doesn't have a direct billing impact. You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill
 

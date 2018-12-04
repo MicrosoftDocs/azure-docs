@@ -12,7 +12,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -42,7 +42,8 @@ Then, you can learn about the additional mechanisms that you can use to recover 
 - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
 - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **logical server has not been deleted**.
 - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
-- [Auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) allows the application to automatically recovery in case of a data center scale outage.
+- [Active geo-replication](sql-database-active-geo-replication.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
+- [Auto-failover group](sql-database-auto-failover-group.md#auto-failover-group-capabilities) allows the application to automatically recovery in case of a data center outage.
 
 Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
@@ -69,7 +70,7 @@ Use automated backups and [point-in-time restore](sql-database-recovery-using-ba
 - Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss.
 - Is cost sensitive.
 
-If you need faster recovery, use [failover groups](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+If you need faster recovery, use [active gen-replication](sql-database-auto-failover-group.md) or [auto-failover groups](sql-database-active-geo-replication.md#auto-failover-group-capabilities
 ) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md).
 
 ## Recover a database to another region

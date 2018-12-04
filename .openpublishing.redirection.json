@@ -12006,8 +12006,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-geo-replication-overview.md",
+            "redirect_url": "/azure/sql-database/sql-database-auto-failover-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-geo-replication-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-active-geo-replication-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-geo-replication-portal",
+            "redirect_url": "/azure/sql-database/sql-database-active-geo-replication-portal",
             "redirect_document_id": false
         },
         {

@@ -1,5 +1,5 @@
 ---
-title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
+title: Failover groups - Azure SQL Database | Microsoft Docs
 description: Use auto-failover groups with active geo-replication and enable automatic failover in the event of an outage.
 services: sql-database
 ms.service: sql-database
@@ -11,100 +11,32 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
-# Overview: Active geo-replication and auto-failover groups
+# Use auto-failover groups to enable automatic failover to database groups
 
-Active geo-replication is Azure SQL Database feature that allows you to create readable replicas of individual databases in the same or different data center (region).
-
-![Geo-replication](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
-
-Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disastor or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
+Auto-failover groups uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md) but is designed to manage replication and failover of a group of databases simultaneously. You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
-> Active geo-replication is available for all databases in all service tiers in all regions.
-> Active geo-replication is not supported for databases created within a Managed Instance. Consider using [failover groups](#auto-failover-group-capabilities) with Managed Instances.
-
-Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases simultaneously using application-initiated failover or by delegating failover to be done by the SQL Database service based on a user-defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
-
-> [!NOTE]
-> Use active geo-replication if multiple secondaries are required.
+> If multiple secondaries are required, use [active geo-replication](sql-database-active-geo-replication.md).
 > [!IMPORTANT]
-> Support for auto-failover for Managed Instances in is public preview.
+> Support for auto-failover for Managed Instances is in public preview.
 
-If you are using active geo-replication and for any reason your primary database fails, or simply needs to be taken offline, you can initiate failover to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary. If you are using auto-failover groups to manage database recovery and any outage that impacts one or several of the databases in the group results in automatic failover. You can configure the auto-failover policy that best meets your application needs, or you can opt out and use manual activation. In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the end-points to the new region.
+When you are using auto-failover groups with automatic failover policy, any outage that impacts one or several of the databases in the group results in automatic failover. In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For the specific RPO and RTO data, see [Overview of Business Continuity](sql-database-business-continuity.md).
 
 You can manage replication and failover of an individual database or a set of databases on a server or in an elastic pool using active geo-replication. You can do that using:
 
-- The [Azure portal](sql-database-geo-replication-portal.md)
-- [PowerShell: Single database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [PowerShell: Elastic pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+- The [Azure portal](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: Failover Group](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
-- [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 - [REST API: Failover group](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
-After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md). This applies both to active geo-replication and auto-failover groups.
-
-Active geo-replication leverages the [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of SQL Server to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](sql-database-business-continuity.md).
-
-The following figure shows an example of active geo-replication configured with a primary in the North Central US region and secondary in the South Central US region.
-
-![geo-replication relationship](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
-
-Because the secondary databases are readable, they can be used to offload read-only workloads such as reporting jobs. If you are using active geo-replication, it is possible to create the secondary database in the same region with the primary, but it does not increase the application's resilience to catastrophic failures. If you are using auto-failover groups, your secondary database is always created in a different region.
-
-In addition to disaster recovery active geo-replication can be used in the following scenarios:
-
-- **Database migration**: You can use active geo-replication to migrate a database from one server to another online with minimum downtime.
-- **Application upgrades**: You can create an extra secondary as a fail back copy during application upgrades.
+After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
 To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
-
-## Active geo-replication capabilities
-
-The active geo-replication feature provides the following essential capabilities:
-
-- **Automatic Asynchronous Replication**
-
- You can only create a secondary database by adding to an existing database. The secondary can be created in any Azure SQL Database server. Once created, the secondary database is populated with the data copied from the primary database. This process is known as seeding. After secondary database has been created and seeded, updates to the primary database are asynchronously replicated to the secondary database automatically. Asynchronous replication means that transactions are committed on the primary database before they are replicated to the secondary database.
-
-- **Readable secondary databases**
-
-  An application can access a secondary database for read-only operations using the same or different security principals used for accessing the primary database. The secondary databases operate in snapshot isolation mode to ensure replication of the updates of the primary (log replay) is not delayed by queries executed on the secondary.
-
-  > [!NOTE]
-  > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
-
-- **Multiple readable secondaries**
-
-  Two or more secondary databases increase redundancy and level of protection for the primary database and application. If multiple secondary databases exist, the application remains protected even if one of the secondary databases fails. If there is only one secondary database, and it fails, the application is exposed to higher risk until a new secondary database is created.
-
-  > [!NOTE]
-  > If you are using active geo-replication to build a globally distributed application and need to provide read-only access to data in more than four regions, you can create secondary of a secondary (a process known as chaining). This way you can achieve virtually unlimited scale of database replication. In addition, chaining reduces the overhead of replication from the primary database. The trade-off is the increased replication lag on the leaf-most secondary databases.
-
-- **Support of elastic pool databases**
-
-  Each replica can separately participate in an Elastic Pool or not be in any elastic pool at all. The pool choice for each replica is separate and does not depend upon the configuration of any other replica (whether Primary or Secondary). Each Elastic Pool is contained within a single region, therefore multiple replicas in the same topology can never share an Elastic Pool.
-
-- **Configurable compute size of the secondary database**
-
-  Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that secondary database is created with the same compute size (DTUs or vCores) as the primary. A secondary with lower compute size is at risk of an increased replication lag, potential unavailability of the secondary, and consequently at risk of substantial data loss after a failover. As a result, the published RPO = 5 sec cannot be guaranteed. The other risk is that after failover the application’s performance will be impacted due to a lack of compute capacity of the new primary until it is upgraded to a higher compute size. The time of the upgrade depends on the database  size. In addition, currently such upgrade requires that both primary and secondary databases are online and, therefore, cannot be completed until the outage is mitigated. If you decide to create the secondary with lower compute size, the log IO percentage chart on Azure portal provides a good way to estimate the minimal compute size of the secondary that is required to sustain the replication load. For example, if your Primary database is P6 (1000 DTU) and its log IO percent is 50% the secondary needs to be at least P4 (500 DTU). You can also retrieve the log IO data using [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) or [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) database views.  For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](sql-database-service-tiers.md).
-
-- **User-controlled failover and failback**
-
-  A secondary database can explicitly be switched to the primary role at any time by the application or the user. During a real outage the “unplanned” option should be used, which immediately promotes a secondary to be the primary. When the failed primary recovers and is available again, the system automatically marks the recovered primary as a secondary and bring it up-to-date with the new primary. Due to the asynchronous nature of replication, a small amount of data can be lost during unplanned failovers if a primary fails before it replicates the most recent changes to the secondary. When a primary with multiple secondaries fails over, the system automatically reconfigures the replication relationships and links the remaining secondaries to the newly promoted primary without requiring any user intervention. After the outage that caused the failover is mitigated, it may be desirable to return the application to the primary region. To do that, the failover command should be invoked with the “planned” option.
-
-- **Keeping credentials and firewall rules in sync**
-
-  We recommend using [database firewall rules](sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
 
 ## Auto-failover group capabilities
 
 Auto-failover groups feature provides a powerful abstraction of active geo-replication by supporting group level replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points.
-
-> [!IMPORTANT]
-> Managed Instances support auto-failover groups as a public preview features. See [Best practices of using failover groups with Managed Instances](#best-practices-of-using-failover-groups-with-managed-instances)
 
 - **Failover group**
 
@@ -166,6 +98,10 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 
 ## Best practices of using failover groups with single and pooled databases
 
+The auto-failover group must be configured on the primary logical server and will connect it to the secondary logical server in a different Azure region.  The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
+
+![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
 When designing a service with business continuity in mind, follow these general guidelines:
 
 - **Use one or several failover groups to manage failover of multiple databases**
@@ -196,7 +132,14 @@ When designing a service with business continuity in mind, follow these general 
 
 ## Best practices of using failover groups with Managed Instances
 
-If your application uses managed instance as the data tier, follow these general guidelines when designing for business continuity:
+The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
+
+![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!IMPORTANT]
+> Auto-failover groups for Managed Instance is in public preview.
+
+If your application uses Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
 - **Create the secondary instance in the same DNS zone as the primary instance**
 
@@ -235,7 +178,6 @@ If your application uses managed instance as the data tier, follow these general
 
 > [!IMPORTANT]
 > Use manual group failover to move primaries back to the original location: When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
-
 > [!IMPORTANT]
 > The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using the Azure portal then the UI will indicate completion status. If it is initiated using the REST API, use standard ARM’s polling mechanism to monitor for completion.
 
@@ -298,48 +240,25 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### Manage SQL database failover using Transact-SQL
-
-> [!IMPORTANT]
-> These Transact-SQL commands only apply to active geo-replication and do not apply to failover groups. As such, they also do not apply to Managed Instances, as they only support failover groups.
-
-| Command | Description |
-| --- | --- |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary to initiate failover |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database. |
-| [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returns information about all existing replication links for each database on the Azure SQL Database logical server. |
-| [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Gets the last replication time, last replication lag, and other information about the replication link for a given SQL database. |
-| [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Shows the status for all database operations including the status of the replication links. |
-| [sp_wait_for_database_copy_sync (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |causes the application to wait until all committed transactions are replicated and acknowledged by the active secondary database. |
-|  | |
-
-### Manage SQL database failover using PowerShell
-
-#### Managing failover with single and pooled databases
+### PowerShell: Manage SQL database failover with single and pooled databases
 
 | Cmdlet | Description |
 | --- | --- |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |Gets one or more databases. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Creates a secondary database for an existing database and starts data replication. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Switches a secondary database to be primary to initiate failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Terminates data replication between a SQL Database and the specified secondary database. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
 | [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
 | [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Retrieves the failover group configuration |
 | [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifies the configuration of the failover group |
 | [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
+| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
 |  | |
 
 > [!IMPORTANT]
-> For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), and [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
 >
 
-#### Managing failover groups with Managed Instances (preview)
+### PowerShell: Managing failover groups with Managed Instances (preview)
 
-##### Install the newest pre-release version of Powershell
+#### Install the newest pre-release version of Powershell
 
 1. Update the powershellget module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
@@ -356,7 +275,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
       import-module azurerm.sql
    ```
 
-##### Prerequisites Before Setting Up
+#### Prerequisites Before Setting Up
 
 - The two Managed Instances need to be in different geographical regions.
 - Your secondary must be empty (no user databases).
@@ -366,7 +285,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 - You need to setup your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open to connections from the other vnet. This is to allow replication traffic between the instances.
 - You need to configure a DNS zone & Dns zone partner. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the .database.windows.net suffix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same VNet  share the same DNS zone value. For Manged Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DBS zone value. You accomplish this by specifying the `DnsZonePartner` parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
 
-##### Powershell commandlets to create an instance failover group
+#### Powershell commandlets to create an instance failover group
 
 | API | Description |
 | --- | --- |
@@ -376,19 +295,10 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Removes a failover group|
 
-### Manage SQL database failover using the REST API
-
-#### Managing failover with single and pooled databases using REST API
+### REST API: Manage SQL database failover groups with single and pooled databases
 
 | API | Description |
 | --- | --- |
-| [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Creates, updates, or restores a primary or a secondary database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returns the status during a create operation. |
-| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Sets which replica database is primary by failing over from the current primary replica database. **This option is not supported for Managed Instance.**|
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. **This option is not supported for Managed Instance.**|
-| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. **This option is not supported for Managed Instance.**|
-| [Replication Links - List By Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Removes the failover group from the server |
 | [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Fails over from the current primary server to this server. |
@@ -398,7 +308,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
-#### Managing failover groups with Managed Instances using REST API (preview)
+### REST API: Manage failover groups with Managed Instances (preview)
 
 | API | Description |
 | --- | --- |

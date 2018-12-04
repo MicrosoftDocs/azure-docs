@@ -12,37 +12,37 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/26/2018
+ms.date: 12/04/2018
 ---
 # Designing globally available services using Azure SQL Database
 
-When building and deploying cloud services with Azure SQL Database, you use [failover groups and active geo-replication](sql-database-geo-replication-overview.md) to provide resilience to regional outages and catastrophic failures. The same feature allows you to create globally distributed applications optimized for local access to the data. This article discusses common application patterns, including the benefits and trade-offs of each option. 
+When building and deploying cloud services with Azure SQL Database, you use [Active geo-replication](sql-database-active-geo-replication.md) or [Auto-failover groups](sql-database-auto-failover-group.md) to provide resilience to regional outages and catastrophic failures. The same feature allows you to create globally distributed applications optimized for local access to the data. This article discusses common application patterns, including the benefits and trade-offs of each option.
 
 > [!NOTE]
 > If you are using Premium or Business Critical databases and elastic pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration. See [Zone-redundant databases](sql-database-high-availability.md).  
 
 ## Scenario 1: Using two Azure regions for business continuity with minimal downtime
-In this scenario, the applications have the following characteristics: 
-*	Application is active in one Azure region
-*	All database sessions require read and write access (RW) to data
-*	Web tier and data tier must be collocated to reduce latency and traffic cost 
-*	Fundamentally, downtime is a higher business risk for these applications than data loss
+
+In this scenario, the applications have the following characteristics:
+
+* Application is active in one Azure region
+* All database sessions require read and write access (RW) to data
+* Web tier and data tier must be collocated to reduce latency and traffic cost
+* Fundamentally, downtime is a higher business risk for these applications than data loss
 
 In this case, the application deployment topology is optimized for handling regional disasters when all application components need to failover together. The diagram below shows this topology. For geographic redundancy, the application’s resources are deployed to Region A and B. However, the resources in Region B are not utilized until Region A fails. A failover group is configured between the two regions to manage database connectivity, replication and failover. The web service in both regions is configured to access the database via the read-write listener **&lt;failover-group-name&gt;.database.windows.net** (1). Traffic manager is set up to use [priority routing method](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) is used throughout this article for illustration purposes only. You can use any load-balancing solution that supports priority routing method.    
->
+> [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) is used throughout this article for illustration purposes only. You can use any load-balancing solution that supports priority routing method.
 
 The following diagram shows this configuration before an outage:
 
 ![Scenario 1. Configuration before the outage.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
 After an outage in the primary region, the SQL Database service detects that the primary database is not accessible and triggers failover to the secondary region based on the parameters of the automatic failover policy (1). Depending on your application SLA, you can configure a grace period that controls the time between the detection of the outage and the failover itself. It is possible that  traffic manager initiates the endpoint failover before the failover group triggers the failover of the database. In that case the web application cannot immediately reconnect to the database. But the reconnections will automatically succeed as soon as the database failover completes. When the failed region is restored and back online, the old primary automatically reconnects as a new secondary. The diagram below illustrates the configuration after failover.
- 
+
 > [!NOTE]
-> All transactions committed after the failover are lost during the reconnection. After the failover is completed, the application in region B is able to reconnect and restart processing the user requests. Both the  web application and the primary database are now in region B and remain co-located. 
-n>
+> All transactions committed after the failover are lost during the reconnection. After the failover is completed, the application in region B is able to reconnect and restart processing the user requests. Both the  web application and the primary database are now in region B and remain co-located.
 
 ![Scenario 1. Configuration after failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -58,12 +58,13 @@ If an outage happens in region B, the replication process between the primary an
 
 The key **advantages** of this design pattern are:
 
-* The same web application is deployed to both regions without any region-specific configuration and doesn’t require additional logic to manage failover. 
+* The same web application is deployed to both regions without any region-specific configuration and doesn’t require additional logic to manage failover.
 * Application performance is not impacted by failover as the web application and the database are always co-located.
 
 The main **tradeoff** is that the application resources in Region B are underutilized most of the time.
 
 ## Scenario 2: Azure regions for business continuity with maximum data preservation
+
 This option is best suited for applications with the following characteristics:
 
 * Any data loss is high business risk. The database failover can only be used as a last resort if the outage is caused by a catastrophic failure.
@@ -79,7 +80,6 @@ When the traffic manager detects a connectivity failure to region A, it automati
 
 > [!NOTE]
 > If the outage in the primary region is mitigated within the grace period, traffic manager detects the restoration of connectivity in the primary region and switches user traffic back to the application instance in region A. That application instance resumes and operates in read-write mode using the primary database in region A as illustrated by the previous diagram.
->
 
 ![Scenario 2. Disaster recovery stages.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
@@ -96,30 +96,30 @@ This design pattern has several **advantages**:
 
 The **tradeoff** is that the application must be able to operate in read-only mode.
 
-## Scenario 3: Application relocation to a different geography without data loss and near zero downtime 
-In this scenario the application has the following characteristics: 
+## Scenario 3: Application relocation to a different geography without data loss and near zero downtime
+
+In this scenario the application has the following characteristics:
+
 * The end users access the application from different geographies
 * The application includes read-only workloads that do not depend on full synchronization with the latest updates
-* Write access to data should be supported in the same geography for majority of the users 
-* Read latency is critical for the end user experience 
+* Write access to data should be supported in the same geography for majority of the users
+* Read latency is critical for the end user experience
 
+In order to meet these requirements you need to guarantee that the user device **always** connects to the application deployed in the same geography for the read-only operations, such as browsing data, analytics etc. Whereas, the OLTP operations are processed in the same geography **most of the time**. For example, during the day time OLTP operations are processed in the same geography, but during the off hours they could be processed in a different geography. If the end user activity mostly happens during the working hours, you can guarantee the optimal performance for most of the users most of the time. The following diagram shows this topology.
 
-In order to meet these requirements you need to guarantee that the user device **always** connects to the application deployed in the same geography for the read-only operations, such as browsing data, analytics etc. Whereas, the OLTP operations are processed in the same geography **most of the time**. For example, during the day time OLTP operations are processed in the same geography, but during the off hours they could be processed in a different geography. If the end user activity mostly happens during the working hours, you can guarantee the optimal performance for most of the users most of the time. The following diagram shows this topology. 
- 
 The application’s resources should be deployed in each geography where you have substantial usage demand. For example, if your application is actively used in the United States, European Union and South East Asia the application should be deployed to all of these geographies. The primary database should be dynamically switched from one geography to the next at the end of the working hours. This method is called “follow the sun”. The OLTP workload always connects to the database via the read-write listener **&lt;failover-group-name&gt;.database.windows.net** (1). The read-only workload connects to the local database directly using the databases server endpoint **&lt;server-name&gt;.database.windows.net** (2). Traffic manager is configured with the [performance routing method](../traffic-manager/traffic-manager-configure-performance-routing-method.md). It ensures that the end user’s device is connected to the web service in the closest region. Traffic manager should be set up with end point monitoring enabled for each web service end point (3).
 
 > [!NOTE]
 > The failover group configuration defines which region is used for failover. Because the new primary is in a different geography the failover results in longer latency for both OLTP and read-only workloads until the impacted region is back online.
->
 
 ![Scenario 3. Configuration with primary in East US.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
 At the end of the day (for example at 11PM local time) the active databases should be switched to the next region (North Europe). This task can be fully automated by using [Azure scheduling service](../scheduler/scheduler-intro.md).  The task involves the following steps:
+
 * Switch primary server in the failover group to North Europe using friendly failover (1)
 * Remove the failover group between East US and North Europe
-* Create a new failover group with the same name but between North Europe and East Asia (2). 
+* Create a new failover group with the same name but between North Europe and East Asia (2).
 * Add the primary in North Europe and secondary in East Asia to this failover group (3).
-
 
 The following diagram illustrates the new configuration after the planned failover:
 
@@ -131,19 +131,20 @@ If an outage happens in North Europe for example, the automatic database failove
 
 > [!NOTE]
 > You can reduce the time when the end user’s experience in Europe is degraded by the long latency. To do that you should proactively deploy an application copy and create the secondary database(s) in another local region (West Europe) as a replacement of the offline application instance in North Europe. When the latter is back online you can decide whether to continue using West Europe or to remove the copy of the application there and switch back to using North Europe,
->
 
 The key **benefits** of this design are:
-* The read-only application workload accesses data in the closets region at all times. 
+
+* The read-only application workload accesses data in the closets region at all times.
 * The read-write application workload accesses data in the closest region during the period of the highest activity in each geography
-* Because the application is deployed to multiple regions, it can survive a loss of one of the regions without any significant downtime. 
+* Because the application is deployed to multiple regions, it can survive a loss of one of the regions without any significant downtime.
 
 But there are some **tradeoffs**:
-* A regional outage results in the geography to be impacted by longer latency. Both read-write and read-only workloads is served by the application in a different geography. 
-* The read-only workloads must connect to a different end point in each region. 
 
+* A regional outage results in the geography to be impacted by longer latency. Both read-write and read-only workloads is served by the application in a different geography.
+* The read-only workloads must connect to a different end point in each region.
 
 ## Business continuity planning: Choose an application design for cloud disaster recovery
+
 Your specific cloud disaster recovery strategy can combine or extend these design patterns to best meet the needs of your application.  As mentioned earlier, the strategy you choose is based on the SLA you want to offer to your customers and the application deployment topology. To help guide your decision, the following table compares the choices based on recovery point objective (RPO) and estimated recovery time (ERT).
 
 | Pattern | RPO | ERT |
@@ -155,6 +156,8 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 |||
 
 ## Next steps
+
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-* To learn about geo-replication and failover groups, see [active geo-replication](sql-database-geo-replication-overview.md)  
+* To learn about active geo-replication, see [Active geo-replication](sql-database-active-geo-replication.md).
+* To learn about auto-failover groups, see [Auto-failover groups](sql-database-auto-failover-group.md).
 * For information about active geo-replication with elastic pools, see [Elastic pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

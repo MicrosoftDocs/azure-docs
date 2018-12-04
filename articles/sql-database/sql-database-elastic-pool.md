@@ -17,7 +17,7 @@ ms.date: 10/15/2018
 
 SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
 
-## What are SQL elastic pools?
+## What are SQL elastic pools
 
 SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. Traditionally, you had two options:
 
@@ -36,7 +36,7 @@ Within the pool, individual databases are given the flexibility to auto-scale wi
 > [!NOTE]
 > When moving databases into or out of an elastic pool, there is no downtime except for a brief period of time (on the order of seconds) at the end of the operation when database connections are dropped.
 
-## When should you consider a SQL Database elastic pool?
+## When should you consider a SQL Database elastic pool
 
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
@@ -64,9 +64,9 @@ The aggregate DTU utilization across all 20 databases is illustrated by the blac
 
 This example is ideal for the following reasons:
 
-* There are large differences between peak utilization and average utilization per database.
-* The peak utilization for each database occurs at different points in time.
-* eDTUs are shared between many databases.
+- There are large differences between peak utilization and average utilization per database.
+- The peak utilization for each database occurs at different points in time.
+- eDTUs are shared between many databases.
 
 The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
 
@@ -83,23 +83,24 @@ At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU 
 
 By sharing resources, not all databases in a pool can simultaneously use resources up to the limit available for single databases. The fewer databases that concurrently peak, the lower the pool resources can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their resources limit.
 
-***DTU-based purchasing model example***<br>
+***DTU-based purchasing model example***
+
 To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization. Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs. If the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than compute sizes for single databases.
 
 Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
 
 ### Resource utilization per database
+
 A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization.
 
-***DTU-based purchasing model example***<br>
-An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool. Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
+**DTU-based purchasing model example**: An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool. Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
 
-## How do I choose the correct pool size?
+## How do I choose the correct pool size
 
 The best size for a pool depends on the aggregate resources needed for all databases in the pool. This involves determining the following:
 
-* Maximum resources utilized by all databases in the pool (either maximum DTUs or maximum vCores depending on your choice of resourcing model).
-* Maximum storage bytes utilized by all databases in the pool.
+- Maximum resources utilized by all databases in the pool (either maximum DTUs or maximum vCores depending on your choice of resourcing model).
+- Maximum storage bytes utilized by all databases in the pool.
 
 For available service tiers for each resource model, see the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
@@ -129,17 +130,25 @@ With a pool, management tasks are simplified by running scripts in **[elastic jo
 For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
 ### Business continuity options for databases in an elastic pool
+
 Pooled databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases.
 
-- **Point-in-time restore**: Point-in-time restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Point-in-time restore**
 
-- **Geo-restore**: Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
+  Point-in-time restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **Active geo-replication**: For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
+- **Geo-restore**
+
+  Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
+
+- **Active geo-replication**
+
+  For applications that have more aggressive recovery requirements than geo-restore can offer, configure [Active geo-replication](sql-database-active-geo-replication.md) or an [auto-failover group](sql-database-auto-failover-group.md).
 
 ## Creating a new SQL Database elastic pool using the Azure portal
 
 There are two ways you can create an elastic pool in the Azure portal.
+
 1. You can create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** on the SQL elastic pools browse blade. You are able to specify a new or existing server through this pool provisioning workflow.
 2. Or you can create an elastic pool by navigating to an existing SQL server and clicking **Create pool** to create a pool directly into that server. The only difference here is you skip the step where you specify the server during the pool provisioning workflow.
 
@@ -158,8 +167,8 @@ In the Azure portal, you can monitor the utilization of an elastic pool and the 
 
 To start monitoring your elastic pool, find and open an elastic pool in the portal. You will first see a screen that gives you an overview of the status of your elastic pool. This includes:
 
-* Monitoring charts showing resources usage of the elastic pool
-* Recent alerts and recommendations, if available, for the elastic pool
+- Monitoring charts showing resources usage of the elastic pool
+- Recent alerts and recommendations, if available, for the elastic pool
 
 The following graphic shows an example elastic pool:
 
@@ -188,6 +197,6 @@ For more information, see [create SQL Database alerts in Azure portal](sql-datab
 ## Next steps
 
 - To scale elastic pools, see [Scaling elastic pools](sql-database-elastic-pool.md) and [Scale an elastic pool - sample code](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-* For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-* To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-* For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](sql-database-wtp-overview.md).
+- For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+- To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](sql-database-wtp-overview.md).

@@ -192,10 +192,12 @@
         href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Failover groups and geo-replication
       items: 
-      - name: Failover groups and geo-replication
-        href: sql-database-geo-replication-overview.md
-      - name: Configure geo-replication - Portal
-        href: sql-database-geo-replication-portal.md
+      - name: Active geo-replication
+        href: sql-database-active-geo-replication.md
+      - name: Auto-failover groups
+        href: sql-database-auto-failover-groups.md
+      - name: Configure active geo-replication - Portal
+        href: sql-database-active-geo-replication-portal.md
       - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
     - name: Database recovery options
