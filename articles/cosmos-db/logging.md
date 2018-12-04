@@ -1,13 +1,11 @@
 ---
-title: Azure Cosmos DB diagnostic logging | Microsoft Docs
+title: Azure Cosmos DB diagnostic logging
 description: Use this tutorial to help you get started with Azure Cosmos DB logging.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 tags: azure-resource-manager
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
@@ -25,7 +23,7 @@ The following image shows the different kinds of Azure logs that are available:
 
 ![Different kinds of Azure logs](./media/logging/azurelogging.png)
 
-In the image, the **Compute resources** represent the Azure resources for which you can access the Microsoft Guest OS. For example, Azure Virtual Machines, virtual machine scale sets, Azure Container Service, and so on, are considered compute resources. Compute resources generate Activity Logs, Diagnostic Logs, and Application Logs. To learn more, refer to the [Sources of monitoring data in Azure](../azure-monitor/platform/data-sources.md#) article.
+In the image, the **Compute resources** represent the Azure resources for which you can access the Microsoft Guest OS. For example, Azure Virtual Machines, virtual machine scale sets, Azure Container Service, and so on, are considered compute resources. Compute resources generate Activity Logs, Diagnostic Logs, and Application Logs. To learn more, refer to the [Sources of monitoring data in Azure](../azure-monitor/platform/data-sources.md) article.
 
 The **Non-Compute resources** are resources in which you can't access the underlying OS and work directly with the resource. For example, Network Security Groups, Logic Apps, and so on. Azure Cosmos DB is a non-compute resource. You can view logs for non-compute resources in the Activity Log or enable the Diagnostic Logs option in the portal. To learn more, refer to the [Sources of data in Azure Monitor](../azure-monitor/platform/data-sources.md) article.
 

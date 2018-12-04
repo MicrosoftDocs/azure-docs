@@ -7,7 +7,7 @@ author: kgremban
 manager: philmea
 
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -101,7 +101,7 @@ Create a C# solution template that you can customize with your own code.
  
    ![Provide Docker image repository](./media/tutorial-csharp-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the C# code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the C# code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
@@ -266,7 +266,7 @@ The environment file stores the credentials for your container registry and shar
 
 11. Save this file.
 
-12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The **CSharpModule.image** value is set to a Linux amd64 version of the image. 
+12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **CSharpModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
 
    Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
 

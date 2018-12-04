@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 12/03/2018
 ---
 # Resolving Transact-SQL differences during migration to SQL Database
 
