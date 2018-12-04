@@ -11,9 +11,9 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/30/2018
+ms.date: 12/04/2018
 ---
-# General Purpose tier
+# General Purpose tier - Azure SQL Database
 
 > [!NOTE]
 > General purpose tier is called Standard in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
