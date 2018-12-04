@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/08/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer:
 
@@ -45,7 +45,7 @@ The following prerequisites must be in place.
 **Azure Active Directory environment:**
  - Identify the username and password for an account that is an owner for the Azure subscription you will use with Azure Stack.  
  - Identify the subscription ID for the Azure subscription you will use. 
- - Identify the AzureEnvironment you will use: *AzureCloud*, *AzureGermanCloud*, or *AzureChinaCloud*.
+ - Identify the AzureEnvironment you will use. Supported values for the environment name parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
 
 ## Validate Azure registration
 1. On a computer that meets the prerequisites, open an administrative PowerShell prompt and then run the following command to install the AzsReadinessChecker.
@@ -58,10 +58,10 @@ The following prerequisites must be in place.
      > `$subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` 
 
 4. From the PowerShell prompt, run the following to start validation of your subscription 
-   - Specify the value for AzureEnvironment as *AzureCloud*, *AzureGermanCloud*, or *AzureChinaCloud*.  
+   - Specify the value for AzureEnvironment. Supported values for the environment name parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.  
    - Provide your Azure Active Directory administrator and your Azure Active Directory Tenant name. 
 
-   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment <environment name> -RegistrationSubscriptionID $subscriptionID`
 
 5. After the tool runs, review the output. Confirm the status is OK for both logon and the registration requirements. A successful validation appears like the following:  
 ````PowerShell
@@ -134,7 +134,7 @@ Alternatively, login into https://portal.azure.com as the account and the user w
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
-Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+Checking Registration failed with: Retrieving TenantId for subscription <subscription ID> using <account> failed with unknown_user_type: Unknown Us
 er Type
 
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
