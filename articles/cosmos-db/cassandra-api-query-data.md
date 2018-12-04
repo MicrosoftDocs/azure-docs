@@ -106,7 +106,7 @@ When they're no longer needed, you can delete the resource group, Azure Cosmos a
 
 ## Next steps
 
-* In this tutorial, you've learned how to query data from a Cassandra API account in Azure Cosmos DB. You can now proceed to the next article:
+In this tutorial, you've learned how to query data from a Cassandra API account in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Migrate data to Cassandra API account](cassandra-import-data.md)
