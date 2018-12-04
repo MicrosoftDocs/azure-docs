@@ -28,15 +28,15 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 ## Select a sample application and Azure service
 
-1. Your Azure IoT Edge module(s) can be written in [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) and [Java](tutorial-java-module.md). Select your preferred language to start a new application. Correspondingly, you can select **.NET**, **Node.js**, **Python**, **C** and **Java**. And click **Next**.
+1. Your Azure IoT Edge module(s) can be written in [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) and [Java](tutorial-java-module.md). Select your preferred language to start a new application. Correspondingly, you can select **.NET**, **Node.js**, **Python**, **C**, or **Java**, and then click **Next**.
 
     ![Select Language](./media/how-to-devops-project/select-language.png)
 
-2. Select **Simple IoT (Preview)**. And click **Next**.
+2. Select **Simple IoT (Preview)**, and then click **Next**.
 
     ![Select IoT](media/how-to-devops-project/select-iot.png)
 
-3. Select **IoT Edge**. And click **Next**.
+3. Select **IoT Edge**, and then click **Next**.
 
     ![Select IoT Edge](media/how-to-devops-project/select-iot-edge.png)
 
@@ -57,7 +57,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 ## Commit code changes and execute CI/CD
 
-DevOps Projects created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
+DevOps Projects created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following steps:
 
 1. On the left of the DevOps Projects dashboard, select the link for your **master** branch.  
 This link opens a view to the newly created Git repository.
@@ -89,7 +89,7 @@ This link opens a browser tab and the Azure DevOps build pipeline for your new p
 
     ![Edit](media/how-to-devops-project/click-edit-button.png)
 
-1. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching sources from the Git repository, building IoT Edge module images, pushing IoT Edge modules and publishing outputs used that are used for deployments. To know more about Azure IoT Edge tasks for CI, you can visit [Configure Azure Pipelines for continuous integration](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-integration).
+1. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching sources from the Git repository, building IoT Edge module images, pushing IoT Edge modules, and publishing outputs used that are used for deployments. To know more about Azure IoT Edge tasks for CI, you can visit [Configure Azure Pipelines for continuous integration](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-integration).
 
     ![CI tasks](media/how-to-devops-project/ci.png)
 
