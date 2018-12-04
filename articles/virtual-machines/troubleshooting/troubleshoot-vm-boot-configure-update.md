@@ -1,6 +1,6 @@
 ---
-title: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer." in Azure | Microsoft Docs
-description: Introduce the steps to troubleshoot the issue in which VM startup is stuck on "Getting Windows Ready. Don't turn off your computer".
+title: VM startup is stuck on "Getting Windows ready. Don't turn off your computer" in Azure | Microsoft Docs
+description: Introduce the steps to troubleshoot the issue in which VM startup is stuck on "Getting Windows ready. Don't turn off your computer."
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -17,39 +17,39 @@ ms.date: 09/18/2018
 ms.author: delhan
 ---
 
-# VM startup is stuck on "Getting Windows Ready. Don't turn off your computer." in Azure
+# VM startup is stuck on "Getting Windows ready. Don't turn off your computer" in Azure
 
-This article helps you resolve the issue when your Virtual Machine (VM) is stuck on the "Getting Windows Ready. Don't turn off your computer." stage during startup.
+This article helps you resolve the issue when your virtual machine (VM) is stuck on the "Getting Windows Ready. Don't turn off your computer" stage during startup.
 
 ## Symptoms
 
-When you use **Boot diagnostics** to get the screenshot of a VM, you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer."** message.
+When you use **Boot diagnostics** to get the screenshot of a VM, the operating system doesn't fully start up. The VM displays the message "Getting Windows ready. Don't turn off your computer."
 
-![Message example](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Message example for Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Message example](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## Cause
 
-Usually this issue occurs when the server is doing the final reboot after the configuration was changed. The configuration change could be initialized by Windows updates or by the changes on the roles/feature of the server. For Windows Update, if the size of the updates was large, the operating system will need more time to reconfigure the changes.
+Usually this issue occurs when the server is doing the final reboot after the configuration was changed. The configuration change might be initialized by Windows updates or by the changes on the roles/feature of the server. For Windows Update, if the size of the updates was large, the operating system needs more time to reconfigure the changes.
 
 ## Back up the OS disk
 
-Before you try to fix the issue, back up the OS disk:
+Before you try to fix the issue, back up the OS disk.
 
 ### For VMs with an encrypted disk, you must unlock the disks first
 
-Validate if the VM is an encrypted VM. To do this, follow these steps:
+Follow these steps to determine whether the VM is an encrypted VM.
 
-1. On the portal, open your VM, and then browse to the disks.
+1. On the Azure portal, open your VM, and then browse to the disks.
 
-2. You'll see a column call "Encryption," which will tell you whether encryption is enabled.
+2. Look at the **Encryption** column to see whether encryption is enabled.
 
-If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these steps:
+If the OS disk is encrypted, unlock the encrypted disk. To unlock the disk, follow these steps.
 
 1. Create a Recovery VM that's located in the same Resource Group, Storage Account, and Location as the affected VM.
 
-2. In Azure portal, delete the affected VM and keep the disk.
+2. In the Azure portal, delete the affected VM and keep the disk.
 
 3. Run PowerShell as an administrator.
 
@@ -68,7 +68,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. After you have the Secret Name, run the following commands in PowerShell:
+5. After you have the secret name, run the following commands in PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -76,10 +76,10 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     ```
 
-6. Convert the Base64 encoded value to bytes and write the output to a file. 
+6. Convert the Base64-encoded value to bytes, and write the output to a file. 
 
     > [!Note]
-    > The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you'll need to create a folder on your C drive named "BEK" before the following steps will work.
+    > If you use the USB unlock option, the BEK file name must match the original BEK GUID. Create a folder on your C drive named "BEK" before you follow these steps.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -88,22 +88,22 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. After the BEK file is created on your PC, copy the file to the recovery VM you have the locked OS disk attached to. Run the following using the BEK file location:
+7. After the BEK file is created on your PC, copy the file to the recovery VM you have the locked OS disk attached to. Run the following commands by using the BEK file location.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Optional** in some scenarios may be necessary also decrypting the disk with this command.
+    **Optional**: In some scenarios, it might be necessary to decrypt the disk by using this command.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > This is considering that the disk to encrypt is on letter F:.
+    > The previous command assumes the disk to encrypt is on letter F.
 
-8. If you need to collect logs, you can navigate to the path **DRIVE LETTER:\Windows\System32\winevt\Logs**.
+8. If you need to collect logs, go to the path **DRIVE LETTER:\Windows\System32\winevt\Logs**.
 
 9. Detach the drive from the recovery machine.
 
@@ -113,21 +113,21 @@ To create a snapshot, follow the steps in [Snapshot a disk](..\windows\snapshot-
 
 ## Collect an OS memory dump
 
-Use the steps in the [collect os dump](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) section to collect an OS dump when the VM is stuck at configuration.
+Use the steps in the [Collect os dump](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) section to collect an OS dump when the VM is stuck at configuration.
 
 ## Contact Microsoft support
 
-After you collect the dump file, contact [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to analysis the root cause.
+After you collect the dump file, contact [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to analyze the root cause.
 
 
-## Rebuild the VM using PowerShell
+## Rebuild the VM by using PowerShell
 
-After you collect the memory dump file, use the following steps to rebuild the VM.
+After you collect the memory dump file, follow these steps to rebuild the VM.
 
 **For non-managed disks**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -158,7 +158,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **For managed disks**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -179,7 +179,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
