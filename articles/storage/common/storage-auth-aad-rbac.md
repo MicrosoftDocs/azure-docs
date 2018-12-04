@@ -85,7 +85,7 @@ The steps for assigning a built-in role scoped to a container or to a queue are 
 
     ![Screen shot showing list of users assigned to a role](media/storage-auth-aad-rbac/container-scoped-role.png)
 
-## Next Steps
+## Next steps
 
 - To learn more about RBAC, see [Get started with Role-Based Access Control](../../role-based-access-control/overview.md).
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
@@ -94,4 +94,3 @@ The steps for assigning a built-in role scoped to a container or to a queue are 
     - [Manage role-based access control (RBAC) with the REST API](../../role-based-access-control/role-assignments-rest.md)
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with Azure Storage applications](storage-auth-aad-app.md).
 - For additional information about Azure AD integration for Azure containers and queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-- 
