@@ -52,7 +52,7 @@ This update includes the following improvements for Azure Stack:
 
 - New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
 
-- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md#update-the-baseboard-management-controller-(bmc)-credential).
+- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
 
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
