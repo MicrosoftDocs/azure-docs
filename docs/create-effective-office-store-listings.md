@@ -124,7 +124,7 @@ The formatting requirements for this image differ depending on the add-in type. 
 
 You should also link to a version of your icon that can be used on high DPI screens by including the [HighResolutionIconUrl element](/office/dev/add-ins/reference/manifest/highresolutioniconurl) in the manifest. For Outlook add-ins, this image must be 128 x 128 pixels. For task pane and content add-ins, we recommend the image be at least 64 x 64 pixels. All other formatting requirements are the same as those listed in the previous table for the IconUrl element.
 
-For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
+For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96 x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
 
 <a name="bk_screenshots"> </a>
 ## Use images effectively
