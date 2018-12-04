@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
 ---
@@ -104,10 +104,11 @@ To display the results in CSV:
 ```
 
 ### System Requirements
-- A server running Windows Server 2012 R2 or Windows Server 2016:
+- A server running Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter and Standard | Full (server with a UI) |
     | Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
     | Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
 
@@ -193,10 +194,10 @@ Microsoft's in-house antivirus solutions, Windows Defender and System Center End
 ### Backup solutions
 Like antivirus solutions, backup solutions might cause the recall of tiered files. We recommend using a cloud backup solution to back up the Azure file share instead of an on-premises backup product.
 
-If you are using an on-premises backup solution, backups should be performed on a server in the sync group which has cloud tiering disabled. When restoring files within the server endpoint location, use the file level restore option. Files restored will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.
+If you are using an on-premises backup solution, backups should be performed on a server in the sync group which has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
 > [!Note]  
-> Application-aware, volume-level and bare-metal (BMR) restore options can cause unexpected results and are not currently supported. These restore options will be supported in a future release.
+> Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:

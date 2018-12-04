@@ -144,7 +144,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[MIS Sciences Corp](http://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|[MSCloud Express, LLC]()|
+|[MS Cloud Express, LLC](http://mscloudexpress.com/Azure)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[NCI](https://www.nciinc.com/)|
 |[NeoTech Solutions Inc.](https://www.neotechsolutions.com)| 

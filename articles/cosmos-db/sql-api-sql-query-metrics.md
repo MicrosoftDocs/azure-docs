@@ -1,14 +1,12 @@
 ---
-title: SQL query metrics for Azure Cosmos DB SQL API | Microsoft Docs
+title: SQL query metrics for Azure Cosmos DB SQL API
 description: Learn about how to instrument and debug the SQL query performance of Azure Cosmos DB requests.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
@@ -16,7 +14,7 @@ ms.author: sngun
 ---
 # Tuning query performance with Azure Cosmos DB
 
-Azure Cosmos DB provides a [SQL API for querying data](sql-api-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
+Azure Cosmos DB provides a [SQL API for querying data](how-to-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
 * Details on query request and response headers, and client SDK options
@@ -214,7 +212,7 @@ See [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.m
 The section on query execution metrics explains how to retrieve the server execution time of queries ( `totalExecutionTimeInMs`), so that you can differentiate between time spent in query execution and time spent in network transit.
 
 ### Indexing policy
-See [Configuring indexing policy](indexing-policies.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses Hash indexing for strings, which is effective for equality queries, but not for range queries/order by queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
+See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses Hash indexing for strings, which is effective for equality queries, but not for range queries/order by queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
 
 ## Query execution metrics
 You can obtain detailed metrics on query execution by passing in the optional `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in the .NET SDK). The value returned in `x-ms-documentdb-query-metrics` has the following key-value pairs meant for advanced troubleshooting of query execution. 
@@ -270,8 +268,8 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 
 
 ## Next steps
-* To learn about the supported SQL query operators and keywords, see [SQL query](sql-api-sql-query.md). 
+* To learn about the supported SQL query operators and keywords, see [SQL query](how-to-sql-query.md). 
 * To learn about request units, see [request units](request-units.md).
-* To learn about indexing policy, see [indexing policy](indexing-policies.md) 
+* To learn about indexing policy, see [indexing policy](index-policy.md) 
 
 

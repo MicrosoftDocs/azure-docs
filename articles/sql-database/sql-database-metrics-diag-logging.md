@@ -3,7 +3,7 @@ title: Azure SQL database metrics and diagnostics logging | Microsoft Docs
 description: Learn about how to configure Azure SQL Database to store resource usage, connectivity, and query execution statistics.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -95,7 +95,7 @@ To enable streaming of diagnostics telemetry for **Azure SQL Database**, follow 
    ![Configure diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Audit log cannot be enabled from database Diagnostics settings. To enable Audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and also see [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Security audit logs are cannot be enabled from database Diagnostics settings. To enable Audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and also see [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 >
 
 > [!TIP]
@@ -176,7 +176,7 @@ To enable streaming of diagnostics telemetry for **Managed Instance resource**, 
 2. Select **Diagnostics settings**
 3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting
 
-   ![Enable diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Enable diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Type in the name for the setting - for your own reference
 5. Select to which resource to stream diagnostics data from the elastic pool: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**
@@ -184,7 +184,7 @@ To enable streaming of diagnostics telemetry for **Managed Instance resource**, 
 7. Select the checkbox for instance diagnostics telemetry **ResourceUsageStats**
 8. Click **Save**
 
-   ![Configure diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configure diagnostics for Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Repeat the above steps for each Managed Instance you wish to monitor.

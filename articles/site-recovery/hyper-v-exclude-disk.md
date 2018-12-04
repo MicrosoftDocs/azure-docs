@@ -4,7 +4,7 @@ description: Describes how to exclude VM disks from replication during disaster 
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---

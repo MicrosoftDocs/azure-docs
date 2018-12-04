@@ -32,6 +32,8 @@ Currently, you can route the logs to:
 - An Azure event hub, so you can integrate with your Splunk and Sumologic instances.
 - Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
 
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
 ## Diagnostic settings configuration
 
 To configure monitoring settings for Azure AD activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the diagnostic settings configuration page in two ways:

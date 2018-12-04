@@ -1,13 +1,12 @@
 ---
-title: Azure Machine Learning frequently asked questions (FAQs) | Microsoft Docs
-description: 'Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
+title: Machine Learning Studio frequently asked questions (FAQs) - Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
 ms.author: amlstudiodocs
-
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -16,9 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-
 ---
-# Azure Machine Learning frequently asked questions: Billing, capabilities, limitations, and support
+# Azure Machine Learning Studio frequently asked questions: Billing, capabilities, limitations, and support
 Here are some frequently asked questions (FAQs) and corresponding answers about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. These FAQs provide questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 
 **Have a question you can't find here?**
@@ -26,15 +24,9 @@ Here are some frequently asked questions (FAQs) and corresponding answers about 
 Azure Machine Learning has a forum on MSDN where members of the data science community can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to the [Azure Machine Learning Forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to search for answers or to post a new question of your own.
 
 ## General questions
-**What is Azure Machine Learning?**
-
-Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign in, upload data, and immediately start machine-learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine-learning tasks simple and quick. For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For an introduction to machine learning that explains key terminology and concepts, see [Introduction to Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **What is Machine Learning Studio?**
 
-Machine Learning Studio is a workbench environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
+Machine Learning Studio is a drag-and-drop canvas environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
 
 For more information about Machine Learning Studio, see [What is Machine Learning Studio?](what-is-ml-studio.md)
 

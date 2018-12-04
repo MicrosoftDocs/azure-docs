@@ -8,7 +8,7 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
 
 ---
@@ -26,6 +26,7 @@ This tutorial describes how to send events to an event hub from an application w
 
 To complete this tutorial, you need the following prerequisites:
 
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Python 3.4 or later.
 
 

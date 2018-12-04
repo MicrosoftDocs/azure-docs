@@ -3,14 +3,14 @@ title: Site search, use the hosted UI Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Describes how to configure the Bing Custom Search hosted UI.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
+ms.author: aahi
 ---
 
 # Configure your hosted UI experience
@@ -101,7 +101,7 @@ To configure a hosted UI for your web app, follow these steps:
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## Consume custom UI
 
