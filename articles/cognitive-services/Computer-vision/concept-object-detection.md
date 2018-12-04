@@ -15,9 +15,9 @@ ms.author: pafarley
 
 # Object detection
 
-Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine if there are multiple instances of the same tag in an image.
+Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each object found. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine if there are multiple instances of the same tag in an image.
 
-The Detect API applies tags based on the objects, living things, and actions identified in the image, but not all of the service's recognizable tags are used for object detection. Some conceptual tags, such as "indoor", apply to the whole image rather than a specific area within it; these tags are ignored in by the Detect API.
+The Detect API applies tags based on the objects or living things identified in the image. Note that at this point, there is no formal relationship between the taxonomy used for tagging and the taxonomy used for object detection. At a conceptual level, the Detect API only finds objects and living things, while the Tag API can also include contextual terms like "indoor", which cannot be localized with bounding boxes.
 
 ## Object detection example
 
