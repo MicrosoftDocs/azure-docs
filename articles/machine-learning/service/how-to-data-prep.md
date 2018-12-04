@@ -43,7 +43,7 @@ The SDK offers practicality and convenience when working with small data sets, w
 
 To install the SDK in your Python environment, use:
 ```shell
-pip install azureml-dataprep
+pip install --upgrade azureml-dataprep
 ```
 
 To import the package in your Python code, use:
