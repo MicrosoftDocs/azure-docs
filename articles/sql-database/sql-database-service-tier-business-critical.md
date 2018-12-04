@@ -1,5 +1,5 @@
 ---
-title: Business critical tier - Azure SQL Database service | Microsoft Docs
+title: Business Critical tier - Azure SQL Database service | Microsoft Docs
 description: Learn about the Azure SQL Database Business Critical tier
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/30/2018
+ms.date: 12/04/2018
 ---
-# Business critical tier
+# Business Critical tier - Azure SQL Database
 
 > [!NOTE]
-> Business critical tier is called Premium in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> Business Critical tier is called Premium in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
 
 Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
 - General Purpose/Standard 
 - Business Critical/Premium
 - Hyperscale
 
-Premium/business critical service tier model is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities.
+Premium/Business Critical service tier model is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities.
 
 Azure upgrades and patches underlying operating system, drivers, and SQL Server Database Engine transparently with the minimal down-time for end users. 
 
@@ -43,6 +43,6 @@ Business Critical service tier is designed for the applications that require low
 
 ## Next steps
 
-- Learn about [General purpose](sql-database-service-tier-general-purpose.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
+- Learn about [General Purpose](sql-database-service-tier-general-purpose.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
 - Learn about [Service Fabric](../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md).
