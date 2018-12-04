@@ -625,6 +625,8 @@
       href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use Hadoop File System CLI with Data Lake Storage Gen2
       href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade from Data Lake Storage Gen1
+      href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Ingest data
       items: 
         - name: Copy data into Data Lake Storage Gen2 using Distcp
