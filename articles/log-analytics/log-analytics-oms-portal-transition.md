@@ -6,11 +6,9 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
@@ -90,7 +88,7 @@ The OMS mobile app will be sunsetted along with the OMS portal. Instead of the O
 ## Application Insights Connector and solution
 [Application Insights Connector](../azure-monitor/platform/app-insights-connector.md) provides a way to bring Application Insights data into a Log Analytics workspace. This data duplication was required to enable visibility across infrastructure and application data.
 
-With the support of [cross-resource queries](log-analytics-cross-workspace-search.md), there is no longer this need to duplicate data. As such, the existing Application Insights solution will be deprecated. Starting October, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until January 15, 2019.
+With the support of [cross-resource queries](../azure-monitor/log-query/cross-workspace-query.md), there is no longer this need to duplicate data. As such, the existing Application Insights solution will be deprecated. Starting October, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until January 15, 2019.
 
 
 ## Azure Network Security Group Analytics

@@ -1,17 +1,16 @@
 ---
-title: Azure Stream Analytics on IoT Edge (preview)
-description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
+title: Azure Stream Analytics on IoT Edge
+description: Create edge jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
+ms.date: 12/04/2018
 ---
 
-# Azure Stream Analytics on IoT Edge (preview)
+# Azure Stream Analytics on IoT Edge
 
 > [!IMPORTANT]
 > This functionality is in preview and is not recommended for use in production.
@@ -193,7 +192,7 @@ To create a job with reference data on Edge:
 
 3. Have a reference data file ready on the device. For a Windows container, put the reference data file on the local drive and share the local drive with the Docker container. For a Linux container, create a Docker volume and populate the data file to the volume.
 
-4. Set the file path. For a windows device, use the absolute path. For a Linux device, use the path in the volume.
+4. Set the file path. For Windows Host OS and Windows container, use the absolute path: `E:\<PathToFile>\v1.csv`. For a Windows Host OS and Linux container or a Linux OS and Linux container, use the path in the volume: `<VolumeName>/file1.txt`.
 
 ![New reference data input for Azure Stream Analytics job on IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
@@ -202,7 +201,6 @@ The reference data on IoT Edge update is triggered by a deployment. Once trigger
 There are two ways to update the reference data:
 * Update reference data path in your ASA job from Azure portal.
 * Update the IoT Edge deployment.
-
 
 ## License and third-party notices
 * [Azure Stream Analytics on IoT Edge preview license](https://go.microsoft.com/fwlink/?linkid=862827). 

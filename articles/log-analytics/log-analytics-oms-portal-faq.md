@@ -6,11 +6,9 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
@@ -124,4 +122,4 @@ https://\<your workspace name\>.portal.mms.microsoft.com. We recommend using Azu
 ## Next steps
 
 - [Find and install management solutions](../azure-monitor/insights/solutions.md) using the Azure portal.
-- Learn about [Log Search in the Azure portal](log-analytics-log-search-portals.md).
+- Learn about [Log Search in the Azure portal](../azure-monitor/log-query/portals.md).

@@ -10,7 +10,6 @@ ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
@@ -46,9 +45,9 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. In your list of Log Analytics workspaces, select the workspace to modify.
-3. From the left pane, select **Access Control (IAM)**.
-4. In the Access Control page, click **Add** and the **Add permissions** pane appears.
-5. In the **Add permissions** pane, under the **Role** drop-down list select the **Contributor** role.  
+3. From the left pane, select **Access control (IAM)**.
+4. In the Access control (IAM) page, click **Add role assignment** and the **Add role assignment** pane appears.
+5. In the **Add role assignment** pane, under the **Role** drop-down list select the **Contributor** role.  
 6. Under the **Assign access to** drop-down list, select the Configuration Manager application created in AD earlier, and then click **OK**.  
 
 ## Download and install the agent
@@ -108,7 +107,7 @@ After the collections are imported, you can see how many computers with collecti
 
 ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-queries.md), you can start in-depth analysis of Configuration Manager data.
+When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../azure-monitor/log-query/log-query-overview.md), you can start in-depth analysis of Configuration Manager data.
 
 ## Next steps
-* Use [Log Search](log-analytics-queries.md) to view detailed information about your Configuration Manager data.
+* Use [Log Search](../azure-monitor/log-query/log-query-overview.md) to view detailed information about your Configuration Manager data.

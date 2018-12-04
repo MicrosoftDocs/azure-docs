@@ -6,12 +6,10 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
@@ -81,7 +79,7 @@ The information below list the proxy and firewall configuration information requ
 |docs.loganalytics.io| 80 and 443||  
 
 ### TLS 1.2 protocol
-To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## Connecting Operations Manager to Log Analytics
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.

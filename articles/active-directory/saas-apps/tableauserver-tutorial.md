@@ -172,7 +172,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     >[!NOTE] 
 	>Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow.
-	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
 ### Creating an Azure AD test user
 

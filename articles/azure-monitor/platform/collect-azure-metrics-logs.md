@@ -146,7 +146,7 @@ Learn more about the [Application Insights connector](https://blogs.technet.micr
 
 ## Scripts to collect and post data to Log Analytics
 
-For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](../../log-analytics/log-analytics-data-collector-api.md)
+For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](../../azure-monitor/platform/data-collector-api.md)
 
 The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
 
@@ -154,4 +154,4 @@ The Azure template gallery has [examples of using Azure Automation](https://azur
 
 * [Use blob storage for IIS and table storage for events](azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 * [Enable Solutions](../../azure-monitor/insights/solutions.md) to provide insight into the data.
-* [Use search queries](../../log-analytics/log-analytics-queries.md) to analyze the data.
+* [Use search queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data.
