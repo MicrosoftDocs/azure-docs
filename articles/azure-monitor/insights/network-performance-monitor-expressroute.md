@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/20/2018
+ms.date: 11/27/2018
 ms.author: abshamsft
 ms.component: 
 ---
@@ -97,7 +97,7 @@ To bring up a list of all connections to virtual networks over private peering, 
 
 ### Circuit topology 
 
-To view circuit topology, select the **Topology** tile. This action takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network, and each layer 3 hop is represented by a node of the diagram. Selecting a hop reveals more details about the hop. To increase the level of visibility to include on-premises hops, move the slider bar under **FILTERS**. Moving the slider bar to the left or right increases or decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high-latency segments on your network. 
+To view circuit topology, select the **Topology** tile. This action takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network, and each layer 3 hop is represented by a node of the diagram. Selecting a hop reveals more details about the hop. To increase the level of visibility to include on-premises hops, move the slider bar under **FILTERS**. Moving the slider bar to the left or right increases or decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high-latency segments on your network.
 
 ![ExpressRoute topology](media/network-performance-monitor-expressroute/expressroute-topology.png)
 
@@ -107,10 +107,31 @@ This view shows virtual network connections. 
 
 ![ExpressRoute virtual network connections](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
+## Diagnostics 
 
-### Diagnostics 
+Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues that you can see are listed below.
 
-Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues are listed here. 
+You can see the notification codes and set alerts on them via **LogAnalytics**. On the **NPM Diagnostics** page, you can see descriptions for every diagnostics message triggered.
+
+| Notification Code (Logs) | Description |
+| --- | --- |
+| 5101 | Microsoft Edge subinterfaces shows high latency |
+| 5102 | Microsoft Edge subinterfaces is dropping the package | 
+| 5103 | ExpressRoute gateway is unhealthy | 
+| 5201 | Service provider's link shows high latency |
+| 5202 | Packets are not flowing from intended ExpressRoute circuit |
+| 5301 | Customer edge router shows high latency | 
+| 5302 | The latency is caused due to device/link in customer's environment. The issue doesn't seem to be in ExpressRoute circuit | 
+| 5501 | Unable to traverse through secondary connection of ExpressRoute circuit |
+| 5502 | Unable to traverse through primary connection of ExpressRoute circuit |
+| 5503 | No circuit is found for subscription linked to the workspace | 
+| 5506 | Utilization is reaching its maximum capacity | 
+| 5507 | Utilization is low |
+| 5508 | Not able to determine whether traffic is passing through any circuit(s) for path |
+| 5510 | The traffic is not passing through the intended circuit | 
+| 5511 | The traffic is not passing through the intended virtual network | 
+| 5512 | Unable to determine whether the traffic is passing through the intended circuit |
+
 
 **Circuit is down.** Network Performance Monitor notifies you as soon as the connectivity between your on-premises resources and Azure virtual networks is lost. This notification helps you take proactive action before you receive user escalations and reduce downtime.
 
@@ -134,4 +155,4 @@ Network Performance Monitor helps you diagnose several circuit connectivity issu
  
 
 ## Next steps
-[Search logs](../../log-analytics/log-analytics-queries.md) to view detailed network performance data records.
+[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.

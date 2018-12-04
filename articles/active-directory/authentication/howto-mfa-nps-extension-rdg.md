@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/03/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,18 +16,19 @@ ms.reviewer: michmcla
 ---
 # Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
 
-This article provides details for integrating your Remote Desktop Gateway infrastructure with Azure Multi-Factor Authentication (MFA) using the Network Policy Server (NPS) extension for Microsoft Azure. 
+This article provides details for integrating your Remote Desktop Gateway infrastructure with Azure Multi-Factor Authentication (MFA) using the Network Policy Server (NPS) extension for Microsoft Azure.
 
 The Network Policy Server (NPS) extension for Azure allows customers to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using Azure’s cloud-based [Multi-Factor Authentication (MFA)](multi-factor-authentication.md). This solution provides two-step verification for adding a second layer of security to user sign-ins and transactions.
 
-This article provides step-by-step instructions for integrating the NPS infrastructure with Azure MFA using the NPS extension for Azure. This enables secure verification for users attempting to sign in to a Remote Desktop Gateway. 
+This article provides step-by-step instructions for integrating the NPS infrastructure with Azure MFA using the NPS extension for Azure. This enables secure verification for users attempting to sign in to a Remote Desktop Gateway.
 
 The Network Policy and Access Services (NPS) gives organizations the ability to do the following:
+
 * Define central locations for the management and control of network requests by specifying who can connect, what times of day connections are allowed, the duration of connections, and the level of security that clients must use to connect, and so on. Rather than specifying these policies on each VPN or Remote Desktop (RD) Gateway server, these policies can be specified once in a central location. The RADIUS protocol provides the centralized Authentication, Authorization, and Accounting (AAA). 
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
-* Provide a means to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.    
+* Provide a means to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.
 
-Typically, organizations use NPS (RADIUS) to simplify and centralize the management of VPN polices. However, many organizations also use NPS to simplify and centralize the management of RD Desktop Connection Authorization Policies (RD CAPs). 
+Typically, organizations use NPS (RADIUS) to simplify and centralize the management of VPN polices. However, many organizations also use NPS to simplify and centralize the management of RD Desktop Connection Authorization Policies (RD CAPs).
 
 Organizations can also integrate NPS with Azure MFA to enhance security and provide a high level of compliance. This helps ensure that users establish two-step verification to sign in to the Remote Desktop Gateway. For users to be granted access, they must provide their username/password combination along with information that the user has in their control. This information must be trusted and not easily duplicated, such as a cell phone number, landline number, application on a mobile device, and so on.
 
@@ -43,15 +44,16 @@ An RD Gateway can be configured to use a central policy store for RD CAPs. RD RA
 
 When the NPS extension for Azure is integrated with the NPS and Remote Desktop Gateway, the successful authentication flow is as follows:
 
-1. The Remote Desktop Gateway server receives an authentication request from a remote desktop user to connect to a resource, such as a Remote Desktop session. Acting as a RADIUS client, the Remote Desktop Gateway server converts the request to a RADIUS Access-Request message and sends the message to the RADIUS (NPS) server where the NPS extension is installed. 
+1. The Remote Desktop Gateway server receives an authentication request from a remote desktop user to connect to a resource, such as a Remote Desktop session. Acting as a RADIUS client, the Remote Desktop Gateway server converts the request to a RADIUS Access-Request message and sends the message to the RADIUS (NPS) server where the NPS extension is installed.
 1. The username and password combination is verified in Active Directory and the user is authenticated.
-1. If all the conditions as specified in the NPS Connection Request and the Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure MFA. 
-1. Azure MFA communicates with Azure AD, retrieves the user’s details, and performs the secondary authentication using the method configured by the user (text message, mobile app, and so on). 
+1. If all the conditions as specified in the NPS Connection Request and the Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure MFA.
+1. Azure MFA communicates with Azure AD, retrieves the user’s details, and performs the secondary authentication using supported methods.
 1. Upon success of the MFA challenge, Azure MFA communicates the result to the NPS extension.
 1. The NPS server, where the extension is installed, sends a RADIUS Access-Accept message for the RD CAP policy to the Remote Desktop Gateway server.
 1. The user is granted access to the requested network resource through the RD Gateway.
 
 ## Prerequisites
+
 This section details the prerequisites necessary before integrating Azure MFA with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place.  
 
 * Remote Desktop Services (RDS) infrastructure
@@ -62,39 +64,48 @@ This section details the prerequisites necessary before integrating Azure MFA wi
 * Azure Active Directory GUID ID
 
 ### Remote Desktop Services (RDS) infrastructure
+
 You must have a working Remote Desktop Services (RDS) infrastructure in place. If you do not, then you can quickly create this infrastructure in Azure using the following quick start template: [Create Remote Desktop Session Collection deployment](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
 
 If you wish to manually create an on-premises RDS infrastructure quickly for testing purposes, follow the steps to deploy one. 
 **Learn more**: [Deploy RDS with Azure quick start](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) and [Basic RDS infrastructure deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### Azure MFA License
-Required is a license for Azure MFA, which is available through an Azure AD Premium, Enterprise Mobility plus Security (EMS), or an MFA subscription. Consumption-based licenses for Azure MFA, such as per user or per authentication licenses, are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription. 
+
+Required is a license for Azure MFA, which is available through Azure AD Premium or other bundles that include it. Consumption-based licenses for Azure MFA, such as per user or per authentication licenses, are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
 
 ### Windows Server software
+
 The NPS extension requires Windows Server 2008 R2 SP1 or above with the NPS role service installed. All the steps in this section were performed using Windows Server 2016.
 
 ### Network Policy and Access Services (NPS) role
+
 The NPS role service provides the RADIUS server and client functionality as well as Network Access Policy health service. This role must be installed on at least two computers in your infrastructure: The Remote Desktop Gateway and another member server or domain controller. By default, the role is already present on the computer configured as the Remote Desktop Gateway.  You must also install the NPS role on at least on another computer, such as a domain controller or member server.
 
 For information on installing the NPS role service Windows Server 2012 or older, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
 
 ### Azure Active Directory synched with on-premises Active Directory
-To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
+
+To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ### Azure Active Directory GUID ID
+
 To install NPS extension, you need to know the GUID of the Azure AD. Instructions for finding the GUID of the Azure AD are provided below.
 
 ## Configure Multi-Factor Authentication 
+
 This section provides instructions for integrating Azure MFA with the Remote Desktop Gateway. As an administrator, you must configure the Azure MFA service before users can self-register their multi-factor devices or applications.
 
-Follow the steps in [Getting started with Azure Multi-Factor Authentication in the cloud](howto-mfa-getstarted.md) to enable MFA for your Azure AD users. 
+Follow the steps in [Getting started with Azure Multi-Factor Authentication in the cloud](howto-mfa-getstarted.md) to enable MFA for your Azure AD users.
 
 ### Configure accounts for two-step verification
+
 Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
 
 Follow the steps in [What does Azure Multi-Factor Authentication mean for me?](../user-help/multi-factor-authentication-end-user.md) to understand and properly configure your devices for MFA with your user account.
 
 ## Install and configure NPS extension
+
 This section provides instructions for configuring RDS infrastructure to use Azure MFA for client authentication with the Remote Desktop Gateway.
 
 ### Acquire Azure Active Directory GUID ID
@@ -109,25 +120,27 @@ As part of the configuration of the NPS extension, you need to supply admin cred
  ![Properties](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### Install the NPS extension
-Install the NPS extension on a server that has the Network Policy and Access Services (NPS) role installed. This functions as the RADIUS server for your design. 
+
+Install the NPS extension on a server that has the Network Policy and Access Services (NPS) role installed. This functions as the RADIUS server for your design.
 
 >[!Important]
 > Be sure you do not install the NPS extension on your Remote Desktop Gateway server.
-> 
+>
 
 1. Download the [NPS extension](https://aka.ms/npsmfa). 
 1. Copy the setup executable file (NpsExtnForAzureMfaInstaller.exe) to the NPS server.
 1. On the NPS server, double-click **NpsExtnForAzureMfaInstaller.exe**. If prompted, click **Run**.
 1. In the NPS Extension For Azure MFA Setup dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
- 
+
   ![Azure MFA Setup](./media/howto-mfa-nps-extension-rdg/image2.png)
 
-1. In the NPS Extension For Azure MFA Setup dialog box, click **Close**. 
+1. In the NPS Extension For Azure MFA Setup dialog box, click **Close**.
 
   ![NPS Extension for Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### Configure certificates for use with the NPS extension using a PowerShell script
-Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS. 
+
+Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
 
 The script performs the following actions:
 
@@ -160,14 +173,16 @@ To use the script, provide the extension with your Azure AD Admin credentials an
   ![Self signed certificate](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## Configure NPS components on Remote Desktop Gateway
+
 In this section, you configure the Remote Desktop Gateway connection authorization policies and other RADIUS settings.
 
-The authentication flow requires that RADIUS messages be exchanged between the Remote Desktop Gateway and the NPS server where the NPS Server is installed. This means that you must configure RADIUS client settings on both Remote Desktop Gateway and the NPS server where the NPS extension is installed. 
+The authentication flow requires that RADIUS messages be exchanged between the Remote Desktop Gateway and the NPS server where the NPS Server is installed. This means that you must configure RADIUS client settings on both Remote Desktop Gateway and the NPS server where the NPS extension is installed.
 
 ### Configure Remote Desktop Gateway connection authorization policies to use central store
+
 Remote Desktop connection authorization policies (RD CAPs) specify the requirements for connecting to a Remote Desktop Gateway server. RD CAPs can be stored locally (default) or they can be stored in a central RD CAP store that is running NPS. To configure integration of Azure MFA with RDS, you need to specify the use of a central store.
 
-1. On the RD Gateway server, open **Server Manager**. 
+1. On the RD Gateway server, open **Server Manager**.
 1. On the menu, click **Tools**, point to **Remote Desktop Services**, and then click **Remote Desktop Gateway Manager**.
 
   ![Remote Desktop Services](./media/howto-mfa-nps-extension-rdg/image8.png)
@@ -194,6 +209,7 @@ Remote Desktop connection authorization policies (RD CAPs) specify the requireme
 1. Click **OK** to close the dialog box.
 
 ### Configure RADIUS timeout value on Remote Desktop Gateway NPS
+
 To ensure there is time to validate users’ credentials, perform two-step verification, receive responses, and respond to RADIUS messages, it is necessary to adjust the RADIUS timeout value.
 
 1. On the RD Gateway server, open Server Manager. On the menu, click **Tools**, and then click **Network Policy Server**. 
@@ -217,10 +233,11 @@ To ensure there is time to validate users’ credentials, perform two-step verif
 
  ![Edit Radius Server](./media/howto-mfa-nps-extension-rdg/image14.png)
 
-1.	Click **OK** two times to close the dialog boxes.
+1. Click **OK** two times to close the dialog boxes.
 
-### Verify Connection Request Policies 
-By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy. 
+### Verify Connection Request Policies
+
+By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.
 
 1. On the RD Gateway, in the NPS (Local) console, expand **Policies**, and select **Connection Request Policies**.
 1. Double-click **TS GATEWAY AUTHORIZATION POLICY**.
@@ -228,26 +245,29 @@ By default, when you configure the RD Gateway to use a central policy store for 
 1. On **Settings** tab, under Forwarding Connection Request, click **Authentication**. RADIUS client is configured to forward requests for authentication.
 
  ![Authentication Settings](./media/howto-mfa-nps-extension-rdg/image15.png)
- 
-1. Click **Cancel**. 
+
+1. Click **Cancel**.
 
 ## Configure NPS on the server where the NPS extension is installed
-The NPS server where the NPS extension is installed needs to be able to exchange RADIUS messages with the NPS server on the Remote Desktop Gateway. To enable this message exchange, you need to configure the NPS components on the server where the NPS extension service is installed. 
+
+The NPS server where the NPS extension is installed needs to be able to exchange RADIUS messages with the NPS server on the Remote Desktop Gateway. To enable this message exchange, you need to configure the NPS components on the server where the NPS extension service is installed.
 
 ### Register Server in Active Directory
+
 To function properly in this scenario, the NPS server needs to be registered in Active Directory.
 
 1. On the NPS server, open **Server Manager**.
-1. In Server Manager, click **Tools**, and then click **Network Policy Server**. 
-1. In the Network Policy Server console, right-click **NPS (Local)**, and then click **Register server in Active Directory**. 
+1. In Server Manager, click **Tools**, and then click **Network Policy Server**.
+1. In the Network Policy Server console, right-click **NPS (Local)**, and then click **Register server in Active Directory**.
 1. Click **OK** two times.
 
  ![Register server in AD](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. Leave the console open for the next procedure.
 
-### Create and configure RADIUS client 
-The Remote Desktop Gateway needs to be configured as a RADIUS client to the NPS server. 
+### Create and configure RADIUS client
+
+The Remote Desktop Gateway needs to be configured as a RADIUS client to the NPS server.
 
 1. On the NPS server where the NPS extension is installed, in the **NPS (Local)** console, right-click **RADIUS Clients** and click **New**.
 
@@ -261,10 +281,11 @@ The Remote Desktop Gateway needs to be configured as a RADIUS client to the NPS 
 1. Click **OK** to close the New RADIUS Client dialog box.
 
 ### Configure Network Policy
+
 Recall that the NPS server with the Azure MFA extension is the designated central policy store for the Connection Authorization Policy (CAP). Therefore, you need to implement a CAP on the NPS server to authorize valid connections requests.  
 
 1. On the NPS Server, open the NPS (Local) console, expand **Policies**, and click **Network Policies**.
-1. Right-click **Connections to other access servers**, and click **Duplicate Policy**. 
+1. Right-click **Connections to other access servers**, and click **Duplicate Policy**.
 
  ![Duplicate Policy](./media/howto-mfa-nps-extension-rdg/image19.png)
 
@@ -276,7 +297,7 @@ Recall that the NPS server with the Azure MFA extension is the designated centra
 
  ![Copy of Connections](./media/howto-mfa-nps-extension-rdg/image21.png)
 
-1.	Click the **Constraints** tab, and check **Allow clients to connect without negotiating an authentication method**.
+1. Click the **Constraints** tab, and check **Allow clients to connect without negotiating an authentication method**.
 
  ![Allow clients to connect](./media/howto-mfa-nps-extension-rdg/image22.png)
 
@@ -290,7 +311,8 @@ Recall that the NPS server with the Azure MFA extension is the designated centra
  ![Network Policies](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## Verify configuration
-To verify the configuration, you need to sign in to the Remote Desktop Gateway with a suitable RDP client. Be sure to use an account that is allowed by your Connection Authorization Policies and is enabled for Azure MFA. 
+
+To verify the configuration, you need to sign in to the Remote Desktop Gateway with a suitable RDP client. Be sure to use an account that is allowed by your Connection Authorization Policies and is enabled for Azure MFA.
 
 As show in the image below, you can use the **Remote Desktop Web Access** page.
 
@@ -309,6 +331,7 @@ In the example below, the Authenticator app on a Windows phone is used to provid
 Once you have successfully authenticated using the secondary authentication method, you are logged into the Remote Desktop Gateway as normal. However, because you are required to use a secondary authentication method using a mobile app on a trusted device, the log-in process is more secure than it would be otherwise.
 
 ### View Event Viewer logs for successful logon events
+
 To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following Windows PowerShell command to query the Windows Terminal Services and Windows Security logs.
 
 To query successful sign-in events in the Gateway operational logs _(Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, use the following PowerShell commands:
@@ -362,11 +385,12 @@ The image below shows the output of one such downloadable [shareware application
 
 Finally, for additional troubleshoot options, you can use a protocol analyzer, such [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). 
 
-The image below from Microsoft Message Analyzer shows network traffic filtered on RADIUS protocol that contains the user name **Contoso\AliceC**.
+The image below from Microsoft Message Analyzer shows network traffic filtered on RADIUS protocol that contains the user name **CONTOSO\AliceC**.
 
 ![Microsoft Message Analyzer](./media/howto-mfa-nps-extension-rdg/image36.png)
 
 ## Next steps
+
 [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md)
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)

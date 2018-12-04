@@ -21,7 +21,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop?</a>
+    - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop? (Preview)</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -29,11 +29,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Set up Windows Virtual Desktop tenants</a>
-    - html: <a href="/azure/virtual-desktop/manage-host-pools">Create a host pool in Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/connect">Connect to Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Manage app groups for Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/manage-user-storage">Manage user storage for Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Set up Windows Virtual Desktop tenants (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/manage-host-pools">Create a host pool in Windows Virtual Desktop (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/connect">Connect to Windows Virtual Desktop (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/manage-app-groups">Manage app groups for Windows Virtual Desktop (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/manage-user-storage">Manage user storage for Windows Virtual Desktop (Preview)</a>
 - title: How-tos
   items:
   - type: paragraph
@@ -41,22 +41,18 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/virtual-desktop/tenant-setup-remote-desktop">Connect to a Remote Desktop environment</a>
-    - html: <a href="/azure/create-host-pools-azure-marketplace">Create a host pool with Azure Marketplace</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-arm-template">Create a host pool with an ARM template</a>
-    - html: <a href="/azure/create-host-pools-powershell">Create a host pool with PowerShell</a>
-    - html: <a href="/azure/create-host-pools-user-profile-disk">Create a User Profile Disk share for a host pool</a>
+    - html: <a href="/azure/virtual-desktop/tenant-setup-remote-desktop">Connect to a Remote Desktop environment (Preview)</a>
 - title: Concepts
   items: 
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-desktop/environment-setup">Windows Virtual Desktop environment</a>
-    - html: <a href="/azure/virtual-desktop/diagnostics-role-service">The Windows Virtual Desktop diagnostics role service</a>
-    - html: <a href="/azure/virtual-desktop/delegated-access-virtual-desktop">Delegated access in Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/environment-setup">Windows Virtual Desktop environment (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/diagnostics-role-service">The Windows Virtual Desktop diagnostics role service (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/delegated-access-virtual-desktop">Delegated access in Windows Virtual Desktop (Preview)</a>
 - title: Reference
   items: 
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell</a>
+    - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell (Preview)</a>

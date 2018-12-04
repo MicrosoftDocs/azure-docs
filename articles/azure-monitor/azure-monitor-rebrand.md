@@ -6,15 +6,12 @@ manager: carmonm
 editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
-
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-
 ---
 
 # Azure Monitor branding changes

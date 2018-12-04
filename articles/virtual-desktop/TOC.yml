@@ -2,23 +2,23 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Windows Virtual Desktop?
+  - name: What is Windows Virtual Desktop? (Preview)
     href: overview.md
 - name: Tutorials
   items:
-  - name: Set up Windows Virtual Desktop tenants
+  - name: Set up Windows Virtual Desktop tenants (Preview)
     href: tenant-setup-azure-active-directory.md
-  - name: Create a host pool in Windows Virtual Desktop
+  - name: Create a host pool in Windows Virtual Desktop (Preview)
     href: manage-host-pools.md
-  - name: Connect to Windows Virtual Desktop
+  - name: Connect to Windows Virtual Desktop (Preview)
     href: connect.md
-  - name: Manage app groups
+  - name: Manage app groups (Preview)
     href: manage-app-groups.md
-  - name: Manage user storage
+  - name: Manage user storage (Preview)
     href: manage-user-storage.md
 - name: How-to
   items:
-  - name: Connect to a Remote Desktop environment
+  - name: Connect to a Remote Desktop environment (Preview)
     href: tenant-setup-remote-desktop.md
   - name: Create a host pool with Azure Marketplace
     href: create-host-pools-azure-marketplace.md
@@ -30,13 +30,13 @@
     href: create-host-pools-user-profile-disk.md
 - name: Concepts
   items:
-  - name: Windows Virtual Desktop environment
+  - name: Windows Virtual Desktop environment (Preview)
     href: environment-setup.md
-  - name: The Windows Virtual Desktop diagnostics role service
+  - name: The Windows Virtual Desktop diagnostics role service (Preview)
     href: diagnostics-role-service.md
-  - name: Delegated access in Windows Virtual Desktop
+  - name: Delegated access in Windows Virtual Desktop (Preview)
     href: delegated-access-virtual-desktop.md
 - name: Reference
   items:
-  - name: PowerShell cmdlets
+  - name: PowerShell cmdlets (Preview)
     href: powershell-cmdlet-table.md

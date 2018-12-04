@@ -126,7 +126,7 @@ In the **VMware** dashboard view, blades are organized by:
 
 Click any blade to open Log Analytics search pane that shows detailed information specific for the blade.
 
-From here, you can edit the search query to modify it for something specific. For details on creating log searches, see [Find data using log searches in Log Analytics](../../log-analytics/log-analytics-queries.md).
+From here, you can edit the search query to modify it for something specific. For details on creating log searches, see [Find data using log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 #### Find ESXi host events
 A single ESXi host generates multiple logs, based on their processes. The VMware Monitoring solution centralizes them and summarizes the event counts. This centralized view helps you understand which ESXi host has a high volume of events and what events occur most frequently in your environment.
@@ -155,7 +155,7 @@ The solution includes other useful queries that can help you manage your ESXi ho
 
 
 #### Save queries
-Saving search queries is a standard feature in Log Analytics and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../../log-analytics/log-analytics-dashboards.md) page where you can create your own custom dashboards.
+Saving search queries is a standard feature in Log Analytics and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../../azure-monitor/platform/dashboards.md) page where you can create your own custom dashboards.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
@@ -201,6 +201,6 @@ There can be multiple reasons:
     d. If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
 
 ## Next steps
-* Use [Log Searches](../../log-analytics/log-analytics-queries.md) in Log Analytics to view detailed VMware host data.
-* [Create your own dashboards](../../log-analytics/log-analytics-dashboards.md) showing VMware host data.
+* Use [Log Searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to view detailed VMware host data.
+* [Create your own dashboards](../../azure-monitor/platform/dashboards.md) showing VMware host data.
 * [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) when specific VMware host events occur.

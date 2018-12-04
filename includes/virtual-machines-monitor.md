@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ---
-You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do simple [monitoring](../articles/azure-monitor/overview.md) of your VM, you can use the Overview screen for the VM in the Azure portal. You can use [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs to collect additional metric data. You can also use more advanced monitoring options, such as [Application Insights](../articles/application-insights/app-insights-overview.md) and [Log Analytics](../articles/log-analytics/log-analytics-queries.md).
+You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do simple [monitoring](../articles/azure-monitor/overview.md) of your VM, you can use the Overview screen for the VM in the Azure portal. You can use [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs to collect additional metric data. You can also use more advanced monitoring options, such as [Application Insights](../articles/application-insights/app-insights-overview.md) and [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
 ## Diagnostics and metrics 
 

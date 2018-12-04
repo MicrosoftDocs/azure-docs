@@ -61,7 +61,7 @@ Clients connect to Managed Instance using the host name that has a form <mi_name
 
 This private IP address belongs to the Managed Instance Internal Load Balancer (ILB) that directs traffic to the Managed Instance Gateway (GW). As multiple Managed Instances could potentially run inside the same cluster, GW uses Managed Instance host name to redirect traffic to the correct SQL Engine service. 
 
-Management and deployment services connect to Managed Instance using public endpoint that maps to external load balancer. Traffic is routed to the nodes only if received on predefined a set of ports that are used exclusively by Managed Instance management components. All communication between management components and management plane is mutually certificate authenticated. 
+Management and deployment services connect to Managed Instance using [management endpoint](sql-database-managed-instance-management-endpoint.md) that maps to external load balancer. Traffic is routed to the nodes only if received on a predefined set of ports that are used exclusively by Managed Instance management components. Built-in firewall on the nodes is configured to allow traffic only from Microsoft specific IP ranges. All communication between management components and management plane is mutually certificate authenticated. 
 
 ## Next steps 
 
