@@ -13,11 +13,11 @@ ms.author: nitinme
 
 # Access control in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that supports both Azure Role Based Access Control (RBAC) and POSIX-compliant access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2. 
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure Role Based Access Control (RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2. 
 
 ## Azure Role-based Access Control (RBAC)
 
-Azure Role-based Access Control (RBAC) uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (*e.g.*, Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource. 
+Azure Role-based Access Control (RBAC) uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (*e.g.*, Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
 While using RBAC role assignments is a powerful mechanism to control user permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the file system level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign RBAC permissions on a file system, that user or service principal will have that authorization for ALL directories and files in that file system, regardless of ACL assignments.
 
@@ -27,7 +27,7 @@ Azure Storage provides three built-in RBAC roles for Blob storage:
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
 - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
 
-When a user or service principal is granted RBAC data permissions either through one of these built-in roles, or through a custom role, these permissions are evaluated first upon authorization of a request. If the request type (read, write, or super-user) is satisfied by the caller’s RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the caller does not have an RBAC assignment or the request’s operation does not match the assigned permission, then ACL checks are performed to determine if the caller is authorized to perform the requested operation.
+When a user or service principal is granted RBAC data permissions either through one of these built-in roles, or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the caller’s RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the caller does not have an RBAC assignment or the request’s operation does not match the assigned permission, then ACL checks are performed to determine if the caller is authorized to perform the requested operation.
 
 A special note should be made of the Storage Blob Data Owner built-in role. If the caller has this RBAC assignment, then the user is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
 
@@ -51,8 +51,6 @@ Both access ACLs and default ACLs have the same structure.
 
 > [!NOTE]
 > Changing the default ACL on a parent does not affect the access ACL or default ACL of child items that already exist.
->
->
 
 ## Permissions
 
@@ -75,10 +73,9 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | 4            | `R--`        | Read                   |
 | 0            | `---`        | No permissions         |
 
+### Permissions inheritance
 
-### Permissions do not inherit
-
-In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items.
+In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items if the permissions are set after the child item has already been created. Permissions are only inherited if default permissions have been set on the parent items before the child items have been created.
 
 ## Common scenarios related to permissions
 
@@ -129,7 +126,7 @@ In the POSIX ACLs, every user is associated with a *primary group*. For example,
 
 #### Assigning the owning group for a new file or directory
 
-* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system.
+* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the filesystem is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
 
 #### Changing the owning group
