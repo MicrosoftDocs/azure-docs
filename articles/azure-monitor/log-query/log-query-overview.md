@@ -45,7 +45,7 @@ The different ways that you will use queries in Log Analytics include the follow
 ![Log searches](media/log-query-overview/queries-overview.png)
 
 ## Write a query
-Log Analytics uses [a version of the Data Explorer query language](../../log-analytics/query-language/get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
+Log Analytics uses [a version of the Data Explorer query language](../../azure-monitor/log-query/get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
@@ -105,4 +105,4 @@ While [Application Insights](../../application-insights/app-insights-overview.md
 ## Next steps
 
 - Learn about the [portals that you use to create and edit log searches](../../log-analytics/log-analytics-log-search-portals.md).
-- Check out a [tutorial on writing queries](../../log-analytics/query-language/get-started-queries.md) using the new query language.
+- Check out a [tutorial on writing queries](../../azure-monitor/log-query/get-started-queries.md) using the new query language.
