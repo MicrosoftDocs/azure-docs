@@ -133,6 +133,4 @@ To see detailed examples and code for each preparation step, follow these how-to
 
 ## Next steps
 
-Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
-
 Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
