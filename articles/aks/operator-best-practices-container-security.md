@@ -52,12 +52,7 @@ For more information about base image updates, see [Automate image builds on bas
 
 **Best practice guidance** - Limit access to actions that containers can perform. Provide the least number of permissions, and avoid the use of root / privileged escalation.
 
-In the same way that you should grant users or groups the least number of privileges required, containers should also be limited to only the actions and processes that they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. You should also avoid granting containers visibility to the namespaces that outline processes running on the underlying AKS nodes:
-
-* **Host IPC** (interprocess communication) namespace
-  * When you share the host IPC namespace, container processes can communicate with processes that run on the underlying node. This visibility could expose other services that attackers can target known vulnerabilities.
-* **Host PID** (process ID) namespace
-  * When you share the host PID namespace, containers can see processes that run on the underlying node. This visibility could expose environment variables or configurations that give an attacker an awareness of your internal system.
+In the same way that you should grant users or groups the least number of privileges required, containers should also be limited to only the actions and processes that they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. Use [pod security contexts][pod-security-contexts] to set `allowPrivilegeEscalation: false`.
 
 For more granular control of container actions, you can also use built-in Linux security features such as AppArmor and seccomp.
 
@@ -200,3 +195,4 @@ This article focused on how to secure your containers. To implement some of thes
 [acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
 [aks-ssh]: ssh.md
+[pod-security-contexts]: developer-best-practices-pod-security.md#pod-security-context

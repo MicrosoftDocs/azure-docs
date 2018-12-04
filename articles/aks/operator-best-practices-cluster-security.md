@@ -35,6 +35,8 @@ Azure Active Directory (AD) provides an enterprise-ready identity management sol
 
 Kubernetes role-based access controls (RBAC) should also be used to secure access to the API server. Kubernetes RBAC and Azure AD-integration can work together to provide the least amount of permissions required to a scoped set of resources, such as a single namespace. Different users or groups in Azure AD can be granted different RBAC roles. These granular permissions let you restrict access to the API server, and provide a clear audit trail of actions performed.
 
+Use Azure AD *group* membership to bind users to RBAC roles rather than individual *users*. As a user's group membership changes, their access permissions on the AKS cluster would change accordingly. If you bind the user directly to a role, their job function may change and Azure AD group membership update, but permissions on the AKS cluster would not reflect that. This scenario grants more permissions than a user requires.
+
 For more information about Azure AD integration and RBAC, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
 
 ## Regularly update to the latest version of Kubernetes
