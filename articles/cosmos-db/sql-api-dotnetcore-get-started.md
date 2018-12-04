@@ -1,10 +1,7 @@
 ---
-title: 'Azure Cosmos DB: SQL API getting started with .NET Core tutorial | Microsoft Docs'
-description: A tutorial that creates an online database and C# console application using the Azure Cosmos DB SQL API .NET Core SDK. 
-services: cosmos-db
+title: 'Tutorial: Build a .NET Core app to manage data stored in SQL API account of Azure Cosmos DB'
+description: This tutorial creates an online database and C# console application using the Azure Cosmos DB SQL API .NET Core SDK. 
 author: SnehaGunda
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -12,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
-ms.custom: devcenter
+Customer intent: As a developer, I want to build a .Net Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master and other capabilities offered by Azure Cosmos DB.
 
 ---
-# Tutorial: Build a .NET Core app to manage Azure Cosmos DB SQL API data
+# Tutorial: Build a .NET Core app to manage data stored in SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -25,21 +22,19 @@ ms.custom: devcenter
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-This tutorial shows you how to build a .NET Core app to create and query Azure Cosmos DB SQL API data. 
+As developer you may have applications that use NoSQL document data. You can use SQL API account in Azure cosmos DB, to store and access this document data. This tutorial shows you how to build a .NET Core app to create and query data stored in SQL API account of Azure Cosmos DB. 
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Creating and connecting to an Azure Cosmos DB account
+> * Creating and connecting to an Azure Cosmos account
 > * Configuring your Visual Studio solution
 > * Creating an online database
 > * Creating a collection
 > * Creating JSON documents
 > * Performing CRUD operations on the items, container and database
 
-Don't have time create the application? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
-
-Want to build a Xamarin iOS, Android, or Forms application using the SQL API and .NET Core SDK? See [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md).
+Don't have time create the application? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). 
 
 ## Prerequisites
 
@@ -47,17 +42,15 @@ Want to build a Xamarin iOS, Android, or Forms application using the SQL API and
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). If you are developing a Universal Windows Platform (UWP) app, you should use **Visual Studio 2017 with version 15.4** or higher. Make sure that you enable **Azure development** during the Visual Studio setup.
+* Download and use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). If you are developing a Universal Windows Platform (UWP) app, you should use **Visual Studio 2017 with version 15.4** or higher. Make sure that you enable **Azure development** during the Visual Studio setup.
 
-    * If you're working on MacOS or Linux, you can develop .NET Core apps from the command line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#macos) for the platform of your choice. 
+    * For MacOS or Linux, you can develop .NET Core apps from the command line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#macos) for the platform of your choice. 
 
-    * If you're working on Windows, you can develop .NET Core apps from the command line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
+    * For Windows platform, you can develop .NET Core apps from the command line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
 
-    * You can use your own editor, or download [Visual Studio Code](https://code.visualstudio.com/), which is free and works on Windows, Linux, and MacOS. 
+## Create an Azure Cosmos account
 
-## Create an Azure Cosmos DB account
-
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+Use the following steps to create an Azure Cosmos account:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -85,11 +78,11 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 8. When prompted, accept the NuGet package installations and the license agreement.
 
-Great! Now that setup is complete, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
+Now that setup is complete, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
-## <a id="Connect"></a>Connect to an Azure Cosmos DB account
+## <a id="Connect"></a>Connect to an Azure Cosmos account
 
-Import the required dependencies by adding the following code to the beginning of your C# application, in the Program.cs file:
+Connect to an Azure Cosmos account by importing the required dependencies. To import the dependencies, add the following code to the beginning of your Program.cs file:
 
 ```csharp
 using System;
@@ -103,7 +96,7 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 ```
 
-Now, add these two constants and your *client* variable underneath your public class *Program*.
+Next, add these two constants and your *client* variable underneath your public class *Program*.
 
 ```csharp
 class Program
@@ -116,9 +109,9 @@ class Program
 
 Next, go to the [Azure portal](https://portal.azure.com) to retrieve your URI and primary key. The Azure Cosmos DB URI and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
 
-In the Azure portal, go to your Azure Cosmos DB account, and then select **Keys**.
+In the Azure portal, go to your Azure Cosmos account, and then select **Keys**.
 
-Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure Cosmos DB Emulator, use `https://localhost:8081` as the endpoint, and the well-defined authorization key from [How to develop using the Azure Cosmos DB Emulator](local-emulator.md). Make sure to remove the < and > but leave the double quotes around your endpoint and key.
+Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. Make sure to remove the < and > but leave the double quotes around your endpoint and key.
 
 ![Get keys from Azure portal][keys]
 
@@ -168,13 +161,9 @@ static void Main(string[] args)
 
 Select the **DocumentDBGettingStarted** button to build and run the application.
 
-Congratulations! You have successfully connected to an Azure Cosmos DB account. Let's now take a look at working with Azure Cosmos DB resources.  
+## <a id="CreateDatabase"></a>Create a database
 
-## Create a database
-
-Before you add the code for creating a database, add a helper method for writing to the console.
-
-Copy and paste the **WriteToConsoleAndPromptToContinue** method underneath the **GetStartedDemo** method.
+Before you add the code for creating a database, add a helper method for writing to the console. Copy and paste the **WriteToConsoleAndPromptToContinue** method underneath the **GetStartedDemo** method.
 
 ```csharp
 // ADD THIS PART TO YOUR CODE
@@ -186,9 +175,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-Create your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
-
-Copy and paste the following code to your **GetStartedDemo** method underneath the client creation. This creates a database named *FamilyDB*.
+Create your Azure Cosmos DB database by using the `CreateDatabaseAsync` method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections. Copy and paste the following code to your **GetStartedDemo** method underneath the client creation. This creates a database named *FamilyDB*.
 
 ```csharp
 private async Task GetStartedDemo()
@@ -201,11 +188,9 @@ private async Task GetStartedDemo()
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully created an Azure Cosmos DB database.  
-
 ## <a id="CreateColl"></a>Create a collection
 
-Create a collection by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
+Create a collection by using the `CreateDocumentCollectionAsync` method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
 > [!WARNING]
 > **CreateDocumentCollectionAsync** creates a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -223,15 +208,11 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully created an Azure Cosmos DB document collection.  
-
 ## <a id="CreateDoc"></a>Create JSON documents
 
-Create a document by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md).
+Create a document by using the `CreateDocumentAsync` method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. You can now insert one or more documents. 
 
-First, you will create a **Family** class that represents objects stored within Azure Cosmos DB. You will also create **Parent**, **Child**, **Pet**, and **Address** subclasses that are used within **Family**. The documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal subclasses after the **GetStartedDemo** method.
-
-Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** classes underneath the **WriteToConsoleAndPromptToContinue** method.
+First, you will create a **Family** class that represents objects stored within Azure Cosmos DB. You will also create **Parent**, **Child**, **Pet**, and **Address** subclasses that are used within **Family**. The documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal subclasses after the **GetStartedDemo** method. Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** classes underneath the **WriteToConsoleAndPromptToContinue** method.
 
 ```csharp
 private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -311,9 +292,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 }
 ```
 
-And insert two documents, one each for the Andersen Family and the Wakefield Family.
-
-Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
+And insert two documents, one each for the Andersen Family and the Wakefield Family. Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
 
 ```csharp
 await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
@@ -389,13 +368,11 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully created two Azure Cosmos DB documents.  
-
 ![Hierarchical relationship between the account, the online database, the collection](./media/sql-api-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows various queries - using both Azure Cosmos DB SQL syntax and LINQ - that we can run against the documents we inserted in the previous step.
+Azure Cosmos DB supports rich queries against JSON documents stored in each collection. The following sample code shows various queries - using both Azure Cosmos DB SQL syntax and LINQ - that you can run against the documents we inserted in the previous step.
 
 Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyDocumentIfNotExists** method.
 
@@ -446,14 +423,11 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully queried against an Azure Cosmos DB collection.
-
-The following diagram illustrates how
- the Azure Cosmos DB SQL query syntax is called against the collection you created. The same logic applies to the LINQ query.
+The following diagram illustrates how the Azure Cosmos DB SQL query syntax is called against the collection you created. The same logic applies to the LINQ query.
 
 ![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-The [FROM](sql-api-sql-query.md#FromClause) keyword is optional in the query because Azure Cosmos DB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. Azure Cosmos DB infers that the Families, root, or the variable name that you chose references the current collection by default.
+The `FROM` keyword is optional in the query because Azure Cosmos DB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. Azure Cosmos DB infers that the Families, root, or the variable name that you chose references the current collection by default.
 
 ## <a id="ReplaceDocument"></a>Replace JSON document
 
@@ -488,8 +462,6 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully replaced an Azure Cosmos DB document.
-
 ## <a id="DeleteDocument"></a>Delete JSON document
 
 Azure Cosmos DB supports deleting JSON documents.  
@@ -518,13 +490,9 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully deleted an Azure Cosmos DB document.
-
 ## <a id="DeleteDatabase"></a>Delete the database
 
-Deleting the created database will remove the database and all child resources (collections, documents, etc.).
-
-Copy and paste the following code to your **GetStartedDemo** method underneath the document to delete the entire database and all child resources.
+Deleting the created database will remove the database and all child resources (collections, documents, etc.). Copy and paste the following code to your **GetStartedDemo** method underneath the document to delete the entire database and all child resources.
 
 ```csharp
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
@@ -538,15 +506,11 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 Select the **DocumentDBGettingStarted** button to run your application.
 
-Congratulations! You have successfully deleted an Azure Cosmos DB database.
-
 ## <a id="Run"></a>Run your C# console application
 
-Select the **DocumentDBGettingStarted** button in Visual Studio to build the application in debug mode.
+Select the **DocumentDBGettingStarted** button in Visual Studio to build the application in debug mode. You should see the output of your get started app in the console window. The output will show the results of the queries we added and should match the example text below.
 
-You should see the output of your get started app in the console window. The output will show the results of the queries we added and should match the example text below.
-
-```
+```bash
 Created FamilyDB_oa
 Press any key to continue ...
 Created FamilyCollection_oa
@@ -571,22 +535,16 @@ End of demo, press any key to exit.
 
 Congratulations! You've completed the tutorial and have a working C# console application!
 
-## <a id="GetSolution"></a> Get the complete tutorial solution
+## Clean up resources
 
-To build the GetStarted solution that contains all the samples in this article, you will need the following:
-
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
-* An [Azure Cosmos DB account][create-sql-api-dotnet.md#create-account].
-* The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) solution available on GitHub.
-
-To restore the references to the SQL API for Azure Cosmos DB .NET Core SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then select **Enable NuGet Package Restore**. Next, in the Program.cs file, update the EndpointUrl and AuthorizationKey values as described in [Connect to an Azure Cosmos DB account](#Connect).
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
 
 ## Next steps
 
-In this tutorial, you've learned how to build a .NET Core app to manage Azure Cosmos DB SQL API data. You can now proceed to the next article:
+In this tutorial, you've learned how to build a .NET Core app to manage data stored in SQL API account of Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
-> [Build a Java console app with Azure Cosmos DB SQL API account](sql-api-java-get-started.md)
+> [Build a Java console app with SQL API account of Azure Cosmos DB](sql-api-java-get-started.md)
 
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png
