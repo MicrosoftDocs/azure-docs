@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get answer from knowledge base with CURL or Postman - QnA Maker"
+title: "Quickstart: Get answer from knowledge base with cURL - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: QnA Maker creates or refreshes the queryable endpoint when you publish the knowledge base. When publishing is complete, the HTTP request settings to generate an answer from your knowledge base are available.
 services: cognitive-services
@@ -16,43 +16,12 @@ ms.author: diberry
 
 QnA Maker creates or refreshes the queryable endpoint when you publish the knowledge base. When publishing is complete, the HTTP request settings to generate an answer from your knowledge base are available. 
 
-## Publish to get endpoint
+## Prerequisites
 
-When you are ready to generate an answer to a question from your knowledge base, [publish](publish-knowledge-base.md) your knowledge base.
+* Latest [**cURL**](https://curl.haxx.se/).
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) and have a [knowledge base with questions and answers](../Tutorials/create-publish-query-in-portal.md).
 
-## Use endpoint with Postman
-
-When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The default view shows the settings required to generate an answer from [Postman](https://www.getpostman.com).
-
-[![Publish results](../media/qnamaker-use-to-generate-answer/publish-settings.png)](../media/qnamaker-use-to-generate-answer/publish-settings.png#lightbox)
-
-To generate an answer with Postman, complete the following steps:
-
-1. Open Postman. 
-1. Select the building block to create a basic request.
-1. Set the **Request name** as `Generate QnA Maker answer`and the **collection** as `Generate QnA Maker answers`.
-1. In the workspace, select the HTTP method of **POST**.
-1. For the URL, concatenate the HOST value and the Post value to create the complete URL. 
-
-    [![In Postman, set the method to Post and the complete URL](../media/qnamaker-use-to-generate-answer/set-postman-method-and-url.png)](../media/qnamaker-use-to-generate-answer/set-postman-method-and-url.png#lightbox)
-
-1. Select the **Headers** tab under the URL. 
-1. Add the first header key of **Content-Type** with a value of `application/json`.
-1. Add the second header key of **Authorization** with the value of the word `Endpointkey`, then a space, then the key from the Publish page. 
-
-    [![In Postman, set the headers](../media/qnamaker-use-to-generate-answer/set-postman-headers.png)](../media/qnamaker-use-to-generate-answer/set-postman-headers.png#lightbox)
-
-1. Select the **Body** tab.
-1. Select the **raw** format and enter the JSON that represents the question.
-
-    [![In Postman, set the body JSON value](../media/qnamaker-use-to-generate-answer/set-postman-body-json-value.png)](../media/qnamaker-use-to-generate-answer/set-postman-body-json-value.png#lightbox)
-
-1. Select the **Send** button.
-1. The response the answer. 
-
-    [![In Postman, set the body JSON value](../media/qnamaker-use-to-generate-answer/receive-postman-response.png)](../media/qnamaker-use-to-generate-answer/receive-postman-response.png#lightbox)
-
-## Use endpoint with CURL
+## Use endpoint with cURL
 
 When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **CURL** tab shows the settings required to generate an answer from the command-line tool, [CURL](https://www.getpostman.com).
 
@@ -88,6 +57,10 @@ To generate an answer with CURL, complete the following steps:
       ]
     }
     ```
+
+## Use endpoint with Postman
+
+The publish page also provides information to [generate an answer](../Quickstarts/get-answer-from-kb-in-portal.md) with Postman. 
 
 ## Next steps
 
