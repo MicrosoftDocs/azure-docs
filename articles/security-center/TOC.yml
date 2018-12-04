@@ -42,9 +42,7 @@
     href: security-center-wdatp.md
   - name: Protect App Service
     href: security-center-app-services.md
-  - name: View security policies
-    href: security-center-azure-policy.md
-  - name: Edit security policies
+  - name: Working with security policies
     href: tutorial-security-policy.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
