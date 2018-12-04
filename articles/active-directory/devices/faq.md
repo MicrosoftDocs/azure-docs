@@ -91,6 +91,7 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 >[!Note] 
 >For enrolled devices, we recommend wiping the device to ensure that users cannot access the resources. For more information, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # Azure AD Join FAQ
@@ -101,6 +102,20 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 - For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
 
 - For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and click on **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
+
+---
+
+**Q: Can my users sign in to Azure AD joined devices that have been deleted or disabled in Azure AD?**
+**A:** Yes. Windows has cached logon capability to allow previously logged in users to access desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it is not known to the Windows device. So, previously logged in users can continue to access the desktop with cached logon. However, as the device is deleted or disabled, users cannot access any resources protected by device-based Conditional Access. 
+
+Users who havent already logged in cannot access the device as there is no cached logon enabled for them. 
+
+---
+
+**Q: Can disabled or deleted users sign in to Azure AD joined devices?**
+**A:** Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it is not immediately known to the Windows device. So, previously logged in users can access the desktop with cached logon. Once the device is aware of the user state (typically in less than 4 hours), Windows blocks those users from accessing the desktop. As the user is deleted or disabled in Azure AD, all their tokens will be revoked, so they cannot access any resources. 
+
+Deleted or disabled users who havent logged in previously cannot access a device as there is no cached logon enabled for them. 
 
 ---
 

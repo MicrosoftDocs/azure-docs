@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
 
 
@@ -79,4 +79,4 @@ When you trigger a reprotect job, and the target VM and disks do not exist, the 
 
 ## Next steps
 
-After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region, and creates and boots VM in the primary region, with some small downtime. We recommend you choose a time accordingly, and that you run a test failover but initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about failover.
+After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region, and creates and boots VM in the primary region, with some small downtime. We recommend you choose a time accordingly, and that you run a test failover before initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about failover.

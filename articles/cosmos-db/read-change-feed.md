@@ -23,7 +23,7 @@ Azure Functions is the simplest and recommended option. When you create an Azure
 
 ## Using the change feed processor library
 
-The change feed processor library hides complexity and still gives you a complete control of the change feed. The library follows the observer pattern, where your processing function is called by the library. If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you're using change feed processor library, it will automatically divide the load among the different clients without you having to implement this logic. All the complexity is handled by the library. If you want to have your own load balancer, then you can implement `IParitionLoadBalancingStrategy` for a custom partition strategy to process change feed. To learn more, see [using change feed processor library](change-feed-processor.md).
+The change feed processor library hides complexity and still gives you a complete control of the change feed. The library follows the observer pattern, where your processing function is called by the library. If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you're using change feed processor library, it will automatically divide the load among the different clients without you having to implement this logic. All the complexity is handled by the library. If you want to have your own load balancer, then you can implement `IPartitionLoadBalancingStrategy` for a custom partition strategy to process change feed. To learn more, see [using change feed processor library](change-feed-processor.md).
 
 ## Using the Azure Cosmos DB SQL API SDK
 

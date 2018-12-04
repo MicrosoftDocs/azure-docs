@@ -33,7 +33,7 @@ The Microsoft speech recognition API supports the following languages. Different
  en-IN | English (India) | Yes | Yes | Yes
  en-NZ | English (New Zealand) | No | Yes | Yes  
  en-US | English (United States) | Yes | Yes | Yes
- es-ES | Spanish (Spain) | No | Yes | No
+ es-ES | Spanish (Spain) | Yes | Yes | No
  es-MX | Spanish (Mexico) | No | Yes | No
  fi-FI | Finnish (Finland) | No | No | No
  fr-CA | French (Canada) | No | Yes | No
@@ -45,7 +45,7 @@ The Microsoft speech recognition API supports the following languages. Different
  nb-NO | Norwegian (Bokmål) (Norway) | No | No | No
  nl-NL | Dutch (Netherlands) | No | Yes | No
  pl-PL | Polish (Poland) | No | No | No
- pt-BR | Portuguese (Brazil) | No | Yes | No
+ pt-BR | Portuguese (Brazil) | Yes | Yes | No
  pt-PT | Portuguese (Portugal) | No | Yes | No
  ru-RU | Russian (Russia) | Yes | Yes | No
  sv-SE | Swedish (Sweden) | No | No | No
@@ -66,7 +66,6 @@ ar-SA | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech V
 bg-BG | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
 ca-ES | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
-cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)"
 da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
@@ -82,7 +81,6 @@ en-GB | English (UK) | Female | "Microsoft Server Speech Text to Speech Voice (e
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)"
 en-IE | English (Ireland) |Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
-en-IE | English (Ireland) |Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)"
 en-IN | English (India) | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
@@ -149,10 +147,10 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 
 ### Customization
 
-Voice customization is available for US English (en-US), mainland Chinese (zh-CN), and Italian (it-IT).
+Voice customization is available for US English (en-US), mainland Chinese (zh-CN), French (fr-FR), German (de-DE) and Italian (it-IT).
 
 > [!NOTE]
-> Italian voice training starts with a data set of 2,000+ utterances. Chinese-English bilingual models also are supported with an initial data set of 2,000+ utterances.
+> French, German and Italian voice training starts with a data set of 2,000+ utterances. Chinese-English bilingual models also are supported with an initial data set of 2,000+ utterances.
 
 ## Speech Translation
 
