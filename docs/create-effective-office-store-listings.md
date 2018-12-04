@@ -1,7 +1,7 @@
 ---
 title: Create effective listings in AppSource and within Office
 description: Make sure that the information you submit, including your title, description, logos, and images, clearly communicates the benefits and functionality that your solution provides.
-ms.date: 1/11/2018
+ms.date: 01/11/2018
 ---
 
 # Create effective listings in AppSource and within Office
@@ -10,7 +10,7 @@ The information and images that you submit to the Seller Dashboard become the Ap
 
 Apply the following when you create your title, description, and images:
 
-- Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?* 
+- Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?*
 - Use unique logos for each submission.
 - Include images that show off your UI. Be sure to remove any personal information from your images.
 - If you update your functionality, update your description too.
@@ -25,11 +25,11 @@ Create a simple and direct title. The shorter the title the better. Remember, th
 
 In your title:
 
-- Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does. 
+- Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does.
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
 - Use title case. Capitalize the first letter of each word, except articles and prepositions. For example, Apartment Search for Contoso.
 - Don't include the Microsoft product name. This appears on your landing page, and in AppSource and in-product Store search results.
-- Avoid acronyms that might be unfamiliar to potential users. 
+- Avoid acronyms that might be unfamiliar to potential users.
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
 
@@ -72,7 +72,7 @@ In your long description, answer the following questions:
 
 Most users read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
 
-You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting: 
+You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting:
 
 Features:
 
@@ -129,7 +129,7 @@ For SharePoint Add-ins, you have to include an icon in the add-in's package. The
 
 Make your store images rich and informative. Help customers understand how your solution solves problems. Make it clear at a glance. Follow our best practices for [crafting effective AppSource store images](craft-effective-appsource-store-images.md). Remember to communicate only the essential information in your images, and apply the following best practices:
 
-- Keep images legible. 
+- Keep images legible.
 - Show real content rather than an empty document.
 - Focus on your solution.
 - Use captions to describe features and value.
@@ -140,7 +140,7 @@ Make your store images rich and informative. Help customers understand how your 
 
 <a name="bk_ratings"> </a>
 ## Use ratings and reviews
-Users will recieve an email soon after acquiring your add-in that will provide them a link to leave a review on AppSource.
+Users will receive an email soon after acquiring your add-in that will provide them a link to leave a review on AppSource.
 
 Good ratings and reviews lead to better store placement and improved customer perception of your product. Customers also use reviews as a forum to offer feedback and suggestions, particularly if feedback and support options are not available within the app or add-in. Be sure to:
 
@@ -160,11 +160,11 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 - Ads should not obstruct content or functionality. Do not use ads that overlay content, pop up new windows, or push functionality off-screen on a 1024 x 768 pixel browser window size.
 - Avoid sound- and video-based ads.
 - Differentiate ads from content and functionality. For example:
-    - Display small print in the region of the screen that shows the ad. 
+    - Display small print in the region of the screen that shows the ad.
     - Use a different background color or font style for the ad content.
     - Use special border treatments around the ad.
     - Use a layout placement away from regular content.
-- Do not include ads with inappropriate content. Ads are subject to the same policies that the content in apps and add-ins is. 
+- Do not include ads with inappropriate content. Ads are subject to the same policies that the content in apps and add-ins is.
 - Use a standard size and location for ads.
 
 ## See also
