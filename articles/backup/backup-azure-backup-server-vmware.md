@@ -2,7 +2,7 @@
 title: Back up VMware servers with Azure Backup Server
 description: Use Azure Backup Server to back up a VMware vCenter/ESXi servers to Azure or disk. This article provides step=by-step instruction for backing up (or protecting) your VMware workloads.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual

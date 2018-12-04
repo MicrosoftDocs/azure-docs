@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ---
 
 # What is FPGA and Project Brainwave?
@@ -32,7 +32,7 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale** and is available on Azure.
 
-**FPGAs make it possible to achieve low latency for real-time inferencing requests.** Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
+**FPGAs make it possible to achieve low latency for real-time inferencing requests.** Asynchronous requests (batch) are not needed. Batching can cause latency because more data needs to be processed, but it can improve throughput in some contexts. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
 ### Reconfigurable power
 **FPGAs can be reconfigured for different types of machine learning models.** This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used.
@@ -63,7 +63,7 @@ The following scenarios use FPGA on Project Brainwave architecture:
 
 Here is the workflow for creating an image recognition service in Azure using supported DNNs as a featurizer for deployment on Azure FPGAs:
 
-1. Use the Azure Machine Learning SDK for Python to create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
+1. Use the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) to create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
 
 1. Register the model using the SDK with the ZIP file in Azure Blob storage.
 
