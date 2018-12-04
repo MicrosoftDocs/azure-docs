@@ -6,10 +6,8 @@
     href: Overview/overview.md
 - name: Quickstarts
   items:
-  - name: Using QnA Maker portal
-    items: 
-    - name: Get answer from knowledge base
-      href: Quickstarts/get-answer-from-kb-in-portal.md
+  - name: Get answer using Postman
+    href: Quickstarts/get-answer-from-kb-using-postman.md
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base

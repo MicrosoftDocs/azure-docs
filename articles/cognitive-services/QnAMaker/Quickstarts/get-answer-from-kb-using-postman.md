@@ -25,7 +25,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 ## Publish to get endpoint
 
-When you are ready to generate an answer to a question from your knowledge base, [publish](publish-knowledge-base.md) your knowledge base.
+When you are ready to generate an answer to a question from your knowledge base, [publish](./How-to/publish-knowledge-base.md) your knowledge base.
 
 ## Use endpoint with Postman
 
