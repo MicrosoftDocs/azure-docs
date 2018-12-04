@@ -179,6 +179,24 @@ prediction = aks_service.run(input_data = test_sample)
 print(prediction)
 ```
 
+## Update the web service
+
+To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+
+```python
+from azureml.core.webservice import Webservice
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+# Update the image used by the service
+service.update(image = new-image)
+print(service.state)
+```
+
+> [!NOTE]
+> When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
+
 ## Cleanup
 
 To delete the service, image, and model, use the following code snippet:
