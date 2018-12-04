@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.topic: article
 ms.author: rogarana
-ms.date: 06/27/2018
+ms.date: 12/06/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
