@@ -89,7 +89,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 While you can use any of the above options, you can also install the environment and create a workspace at the same time with the following instructions. 
 
-1. Install Mini-conda from [here](https://conda.io/miniconda.html). Choose 3.7 or higher. Follow prompts to install. 
+1. Install [Mini-conda](https://conda.io/miniconda.html). Choose 3.7 or higher. Follow prompts to install. 
    >[!NOTE]
    >You can use an existing conda as long as it is version 4.4.10 or later. Use `conda -V` to display the version. You can update a conda version with the command: `conda update conda`. There's no need to install mini-conda specifically.
 
