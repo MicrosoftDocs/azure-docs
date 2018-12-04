@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # Understand AKS cluster performance with Azure Monitor for containers 
-Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from a AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also included when you you drill-down to a specific AKS cluster.
+Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from an AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also included when you drill down to a specific AKS cluster.
 
 This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
 
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Multi-cluster view from Azure Monitor 
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section select **Containers (preview)**.  
 
-![Azure Monitor multi-cluster dashbaord example](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
 
 On the **Monitored clusters** tab, you are able to learn the following:
 
@@ -40,7 +40,7 @@ On the **Monitored clusters** tab, you are able to learn the following:
 1. Are all of my [Azure Container Service Engine (ACS-engine)](https://github.com/Azure/acs-engine) deployments healthy?
 1. How many nodes, user and system pods are deployed per cluster.  
 
-The health statuses defined are: 
+The health statuses included are: 
 
 * **Healthy** – no issues detected for the VM and it is functioning as required. 
 * **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
@@ -74,7 +74,7 @@ The following table provides a breakdown of the calculation controlling the heal
 | |Critical |<60% |
 | |Unknown |If not reported in last 30 minutes |
 
-From the list of clusters, you can drill-down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
+From the list of clusters, you can drill down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
 Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights (preview)** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
@@ -101,7 +101,7 @@ When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatic
 
 As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For additional information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
-Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select the from one of the values shown in the **Select value(s)** field.  After the filter is configured it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
+Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
 ![Example using the filter to narrow down results](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -157,13 +157,13 @@ Here you can view the performance health of your controllers and ACI Virtual Nod
 
 ![<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
 
-The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
+The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
 
 ![Example Controllers hierarchy with Container Instances pods listed](./media/container-insights-analyze/controllers-view-aci.png)
 
 Click on the value under the **Node** column for the specific controller.   
 
-![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
+![Example drill down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
 
 The information that's displayed when you view controllers is described in the following table:
 
@@ -198,9 +198,9 @@ Here you can view the performance health of your Azure Kubernetes and Azure Cont
 
 ![<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
-From a container, you can drill-down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
+From a container, you can drill down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
 
-![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
+![Example drill down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
 
 The information that's displayed when you view containers is described in the following table:
 
