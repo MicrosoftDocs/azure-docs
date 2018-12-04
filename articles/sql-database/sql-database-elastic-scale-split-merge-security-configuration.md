@@ -172,7 +172,7 @@ Execute:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 To customize:
@@ -207,7 +207,7 @@ Upload certificate with the existing or generated .PFX file with the SSL key pai
 ## Update SSL certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha256" />
 
 ## Import SSL certification authority
 Follow these steps in all account/machine that will communicate with the service:
@@ -226,7 +226,7 @@ Change these settings to false in the service configuration file to turn the fea
 
 Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha256" />
 
 ## Create a self-signed certification authority
 Execute the following steps to create a self-signed certificate to act as a Certification Authority:
@@ -235,7 +235,7 @@ Execute the following steps to create a self-signed certificate to act as a Cert
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -269,7 +269,7 @@ Upload certificate with the existing or generated .CER file with the CA public k
 ## Update CA certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha256" />
 
 Update the value of the following setting with the same thumbprint:
 
@@ -284,7 +284,7 @@ The following steps must be executed in the same machine where the self-signed C
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -372,7 +372,7 @@ Upload certificate with the existing or generated .PFX file with the encryption 
 ## Update encryption certificate in service configuration file
 Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha256" />
 
 ## Common certificate operations
 * Configure the SSL certificate
