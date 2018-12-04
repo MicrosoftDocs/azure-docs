@@ -1,6 +1,6 @@
 ---
-title: Collect and analyze performance counters in Azure Log Analytics | Microsoft Docs
-description: Performance counters are collected by Log Analytics to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
+title: Collect and analyze performance counters in Azure Monitor | Microsoft Docs
+description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
 ms.component: 
 ---
 
-# Windows and Linux performance data sources in Log Analytics
-Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Log Analytics can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
+# Windows and Linux performance data sources in Azure Monitor
+Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Azure Monitor can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).
+Configure Performance counters from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).
 
-When you first configure Windows or Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
+When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
 For Windows performance counters, you can choose a specific instance for each performance counter. For Linux performance counters, the instance of each counter that you choose applies to all child counters of the parent counter. The following table shows the common instances available to both Linux and Windows performance counters.
 
@@ -86,7 +86,7 @@ The parameters in this element are described in the following table.
 | interval | Frequency at which the object's counters are collected. |
 
 
-The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Log Analytics](data-sources-linux-applications.md).
+The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Azure Monitor](data-sources-linux-applications.md).
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -180,7 +180,7 @@ Following is the default configuration for performance metrics.
 	</source>
 
 ## Data collection
-Log Analytics collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your subscription.
+Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your subscription.
 
 ## Performance record properties
 Performance records have a type of **Perf** and have the properties in the following table.

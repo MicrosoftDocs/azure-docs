@@ -1,6 +1,6 @@
 ---
-title: IIS logs in Azure Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  This article describes how to configure collection of IIS logs and details of the records they create in the Log Analytics workspace.
+title: IIS logs in Azure Monitor | Microsoft Docs
+description: Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor.  This article describes how to configure collection of IIS logs and details of the records they create in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,27 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 11/28/2018
 ms.author: bwren
 ms.comopnent: 
 ---
 
-# IIS logs in Log Analytics
-Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  
+# Collect IIS logs in Azure Monitor
+Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor and stored as [log data](data-collection.md).
 
 ![IIS logs](media/data-sources-iis-logs/overview.png)
 
 ## Configuring IIS logs
-Log Analytics collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx).
 
-Log Analytics only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging.  
-Log Analytics does not collect logs in NCSA or IIS native format.
+Azure Monitor only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging. It does not collect logs in NCSA or IIS native format.
 
-Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
+Configure IIS logs in Azure Monitor from the [Advanced Settings menu](agent-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
 
 ## Data collection
-Log Analytics collects IIS log entries from each agent each time the log is closed and a new one is created. This frequency is controlled by the **Log File Rollover Schedule** setting for the IIS site which is once a day by default. For example, if the settings is **Hourly**, then Log Analytics will collect the log each hour.  If the setting is **Daily**, then Log Analytics will collect the log every 24 hours.
+Azure Monitor collects IIS log entries from each agent each time the log is closed and a new one is created. This frequency is controlled by the **Log File Rollover Schedule** setting for the IIS site which is once a day by default. For example, if the settings is **Hourly**, then Azure Monitor will collect the log each hour.  If the setting is **Daily**, then Azure Monitor will collect the log every 24 hours.
 
 
 ## IIS log record properties
@@ -75,6 +74,5 @@ The following table provides different examples of log queries that retrieve IIS
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total bytes received by each IIS computer. |
 
 ## Next steps
-* Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
-* Configure alerts in Log Analytics to proactively notify you of important conditions found in IIS logs.
+* Configure Azure Monitor to collect other [data sources](agent-data-sources.md) for analysis.
+* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.
