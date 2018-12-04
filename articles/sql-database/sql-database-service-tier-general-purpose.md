@@ -42,6 +42,6 @@ General Purpose service tier is a default service tier in Azure SQL Database tha
 
 ## Next steps
 
-- Learn about [Business critical](sql-database-service-tier-business-critical.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
+- Learn about [Business Critical](sql-database-service-tier-business-critical.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
 - Learn about [Service Fabric](../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md).
