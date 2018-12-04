@@ -26,12 +26,12 @@ A Tile layer load in tiles from a server. These images can either be pre-rendere
 
 The tile URL passed into a Tile layer must be an http/https URL to a TileJSON resource or a tile URL template that uses the following parameters: 
 
-* `{x}`: X position of the tile. Also needs `{y}` and `{z}`.
-* `{y}`: Y position of the tile. Also needs `{x}` and `{z}`.
-* `{z}`: Zoom level of the tile. Also needs `{x}` and `{y}`.
-* `{quadkey}`: Tile quadkey identifier based on the Bing Maps tile system naming convention.
-* `{bbox-epsg-3857}`: A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
-* `{subdomain}`: A placeholder where the subdomain values if specified will be added.
+* `{x}` - X position of the tile. Also needs `{y}` and `{z}`.
+* `{y}` - Y position of the tile. Also needs `{x}` and `{z}`.
+* `{z}` - Zoom level of the tile. Also needs `{x}` and `{y}`.
+* `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
+* `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
+* `{subdomain}` - A placeholder where the subdomain values if specified will be added.
 
 ## Add a tile layer
 
