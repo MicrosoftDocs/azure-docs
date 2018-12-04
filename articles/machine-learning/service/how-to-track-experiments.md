@@ -41,28 +41,19 @@ If you want to track or monitor your experiment, you must add code to start logg
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 * __ScriptRunConfig__ - Add logging functions to your training script and load the entire script folder with the run.  **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
-## Set up the workspace and experiment
-Before adding logging and submitting an experiment, you must set up the workspace and experiment.
+## Set up the workspace
+Before adding logging and submitting an experiment, you must set up the workspace.
 
 1. Load the workspace. To learn more about setting the workspace configuration, follow the [quickstart](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
   ```python
-  from azureml.core import Workspace, Run
+  from azureml.core import Experiment, Run, Workspace
   import azureml.core
   
   ws = Workspace(workspace_name = <<workspace_name>>,
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
-
-2. Create the experiment.
-
-  ```python
-  from azureml.core import Experiment
-
-  # make up an arbitrary name
-  experiment_name = 'train-in-notebook'
-  ```
   
 ## Option 1: Use start_logging
 
@@ -97,19 +88,31 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
   ```python
-  experiment = Experiment(workspace = ws, name = experiment_name)
-  run = experiment.start_logging()
-  run.tag("Description","My first run!")
+  # Get an experiment object from Azure Machine Learning
+  experiment = Experiment(workspace = ws, name = "train-within-notebook")
+  
+  # Create a run object in the experiment
+  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
   run.log('alpha', 0.03)
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  run.log('mse', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl')
-  # Upload file directly to the outputs folder
-  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
+  # Create, fit, and test the scikit-learn Ridge regression model
+  regression_model = Ridge(alpha=0.03)
+  regression_model.fit(data['train']['X'], data['train']['y'])
+  preds = regression_model.predict(data['test']['X'])
+
+  # Output the Mean Squared Error to the notebook and to the run
+  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+  run.log('mse', mean_squared_error(data['test']['y'], preds))
+
+  # Save the model to the outputs directory for capture
+  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+
+  # Take a snapshot of the directory containing this notebook
+  run.take_snapshot('./')
+
+  # Complete the run
   run.complete()
+  
   ```
 
 The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
@@ -203,7 +206,8 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
   ```python
   from azureml.core import ScriptRunConfig
-
+  
+  experiment = Experiment(workspace=ws, name="train-on-local")
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
@@ -222,13 +226,13 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 
   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[For automated machine learning runs]** To access the charts from a previous run:
+2. **[For automated machine learning runs]** To access the charts from a previous run. Please replace `<<experiment_name>>` with the appropriate experiment name:
 
    ``` 
    from azureml.train.widgets import RunDetails
    from azureml.core.run import Run
 
-   experiment = Experiment (workspace, experiment_name)
+   experiment = Experiment (workspace, <<experiment_name>>)
    run_id = 'autoML_my_runID' #replace with run_ID
    run = Run(experiment, run_id)
    RunDetails(run).show()
