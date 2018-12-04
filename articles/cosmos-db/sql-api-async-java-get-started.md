@@ -11,10 +11,10 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-Customer intent: As a developer, I want to build a Java application with Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master and other capabilities offered by Azure Cosmos DB.
+Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 
 ---
-# Tutorial: Build a Java app with the Async Java SDK to manage data stored in SQL API account
+# Tutorial: Build a Java app with the Async Java SDK to manage data stored in a SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -26,7 +26,7 @@ Customer intent: As a developer, I want to build a Java application with Async J
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-As developer you may have applications that use NoSQL document data. You can use SQL API account in Azure cosmos DB, to store and access this document data. This tutorial shows you how to build a Java application with the Async Java SDK to store and manage document data. 
+As developer, you might have applications that use NoSQL document data. You can use the SQL API account in Azure cosmos DB to store and access this document data. This tutorial shows you how to build a Java application with the Async Java SDK to store and manage document data. 
 
 This tutorial covers the following tasks:
 
@@ -57,7 +57,7 @@ Create an Azure Cosmos account by using the following steps:
 
 ## <a id="GitClone"></a>Clone the GitHub repository
 
-Clone the GitHub repository for [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
+Clone the GitHub repository for [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started). For example, from a local directory, run the following to retrieve the sample project locally.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started.git
@@ -269,16 +269,16 @@ Running `mvn package` downloads the latest Azure Cosmos DB library from Maven an
 mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
 ```
 
-Congratulations! You've completed this NoSQL tutorial and have a working Java console application!
+You've now completed this NoSQL tutorial and have a working Java console application.
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+When they're no longer needed, you can delete the resource group, the Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, and then confirm the name of the resource group to delete.
 
 
 ## Next steps
 
-In this tutorial, you've learned how to build a Java app with the Async Java SDK to manage Azure Cosmos DB SQL API data. You can now proceed to the next article:
+In this tutorial, you've learned how to build a Java app with the Async Java SDK to manage SQL API data in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Build a Node.js console app with JavaScript SDK and Azure Cosmos DB](sql-api-nodejs-get-started.md)
