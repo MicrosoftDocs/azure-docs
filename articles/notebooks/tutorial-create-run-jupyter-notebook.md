@@ -84,7 +84,7 @@ The linear regression model you create in the notebook draws data from a file in
 
 1. Select **Save File** to save the file and return to the project dashboard.
 
-## Install project packages
+## Install project level packages
 
 Within a notebook, you can always use commands like `!pip install` in a code cell to install required packages. However, such commands are run every time you run the notebook's code cells, and can take considerable time. For this reason, you can instead install packages at the project level using a `requirements.txt` file.
 
