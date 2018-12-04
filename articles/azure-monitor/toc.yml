@@ -61,6 +61,8 @@
   items:
   - name: Azure management
     href: azure-management.md?toc=/azure/azure-monitor/toc.json
+  - name: Continuous monitoring
+    href: continuous-monitoring.md
   - name: Monitoring data
     items: 
     - name: Metrics and logs
