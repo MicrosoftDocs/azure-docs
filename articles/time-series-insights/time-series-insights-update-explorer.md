@@ -1,5 +1,5 @@
 ﻿---
-title: Visualize data in the explorer update | Microsoft Docs
+title: Visualize data in the Azure Time Series Insights explorer update | Microsoft Docs
 description: The Azure Time Series Insights update explorer
 author: ashannon7
 ms.author: anshan
