@@ -36,7 +36,7 @@ In this example, we will enable Security Center on a subscription with ID: d07c0
 
 5. Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
 
-6. Assign Security Center’s [default security policies](security-center-azure-policy.md).
+6. Assign Security Center’s [default security policies](tutorial-security-policy.md).
 
 ## Prerequisites
 
@@ -107,6 +107,6 @@ To learn more about how you can use PowerShell to automate onboarding to Securit
 
 To learn more about Security Center, see the following article:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

@@ -66,7 +66,7 @@ Select **Edit settings >** to edit the following Security Center settings at the
 - **Pricing tier**: Defines Free or Standard [pricing selection](security-center-pricing.md). The tier you choose determines which Security Center features are available for resources in scope.
 - **Edit security configurations**: Lets you view and modify the OS configurations that are assessed by Security Center to identify potential security vulnerabilities.
 
-For more information, see [Integrate Security Center security policies with Azure Policy](security-center-azure-policy.md).
+For more information, see [Integrate Security Center security policies with Azure Policy](tutorial-security-policy.md).
 
 ### Manage and govern your security posture
 The right-hand side of the dashboard under **Policy & compliance** provides you with insights that you can act on immediately to improve your overall security posture. Examples are:

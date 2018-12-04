@@ -265,7 +265,7 @@ In this article, you learned how just-in-time VM access in Security Center helps
 
 To learn more about Security Center, see the following:
 
-- [Setting security policies](security-center-azure-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Setting security policies](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
