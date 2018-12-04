@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Connect to Windows Virtual Desktop
+# Tutorial: Connect to Windows Virtual Desktop
 
 You can connect to a Windows Virtual Desktop deployment using old Windows clients.
 

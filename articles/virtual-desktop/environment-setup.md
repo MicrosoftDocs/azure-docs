@@ -28,7 +28,7 @@ Each session host must have an Windows Virtual Desktop host agent installed and 
 
 Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group is used to publish the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group is used to publish one or more RemoteApps which display on the RD client as the application window on the local RD client desktop.
 
-In case of connection issues, your tenant admin can use the newly introduced [diagnostics role service](diagnostics-role-service.md) to identify the root cause.
+In case of connection issues, your tenant admin can use the [diagnostics role service](diagnostics-role-service.md) to identify the root cause.
 
 ## End users
 

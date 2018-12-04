@@ -25,7 +25,7 @@ You may have an existing Remote Desktop tenant environment already connected to 
 
 ## Validating your connection
 
-The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Introducing the new diagnostics role service](diagnostics-role-service.md).
+The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Identify issues with the diagnostics role service](diagnostics-role-service.md).
 
 ## Validation scenarios for default desktop application group
 

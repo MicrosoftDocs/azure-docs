@@ -47,15 +47,15 @@ You can run the following cmdlets to create, view, and edit role asignments:
 
 You can modify the basic three cmdlets with the following parameters:
 
-* *AadTenantId*: specifies the Azure Active Directory tenant ID from which the service principal is a member.
-* *AppGroupName*: name of the Remote Desktop app group.
-* *Diagnostics*: indicates the diagnostics scope. (Must be paired with either the *Infrastructure* or *Tenant* parameters.)
-* *HostPoolName*: name of the Remote Desktop host pool.
-* *Infrastructure*: indicates the infrastructure scope.
-* *RoleDefinitionName*: name of the Remote Desktop Services role-based access control role that needs to be assigned to the user, group, or app; for example, Remote Desktop Services Owner, Remote Desktop Services Reader, and so on.
-* *ServerPrincipleName*: name of the Azure Active Directory application.
-* *SignInName*: the user's email address or user principal name.
-* *TenantName*: name of the Remote Desktop tenant.
+* **AadTenantId**: specifies the Azure Active Directory tenant ID from which the service principal is a member.
+* **AppGroupName**: name of the Remote Desktop app group.
+* **Diagnostics**: indicates the diagnostics scope. (Must be paired with either the **Infrastructure** or **Tenant** parameters.)
+* **HostPoolName**: name of the Remote Desktop host pool.
+* **Infrastructure**: indicates the infrastructure scope.
+* **RoleDefinitionName**: name of the Remote Desktop Services role-based access control role that needs to be assigned to the user, group, or app; for example, Remote Desktop Services Owner, Remote Desktop Services Reader, and so on.
+* **ServerPrincipleName**: name of the Azure Active Directory application.
+* **SignInName**: the user's email address or user principal name.
+* **TenantName**: name of the Remote Desktop tenant.
 
 ## Next steps
 
