@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
 
 # Data querying
@@ -61,7 +61,7 @@ The following are the time series query APIs available:
 
   The getSeries API returns a TSV (Time Series Value, a format Time Series Insights use for output JSON from query) for each variable for each interval, based on the provided Time Series ID and the set of provided variables.
 
-* [GET AGGREGATE API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api) – Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
+* [AGGREGATE SERIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api) – Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
 
   The aggregateSeries API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The aggregateSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
 
