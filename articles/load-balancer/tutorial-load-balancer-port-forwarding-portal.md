@@ -74,11 +74,13 @@ First, create a virtual network with two virtual machines to use for the back-en
    Make sure the following are selected:
    - **Virtual network**: **MyVnet**
    - **Subnet**: **MyBackendSubnet**
-   - **Public IP**: **MyVM1-ip**
    
    To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
    1. In the **Configure network security group** field, select **Create new**. 
    1. Type *MyNetworkSecurityGroup*, and select **OK**. 
+   
+   >[!NOTE]
+   >By default, the NSG already has a rule to open port 3389, VMs already contain a 1. Select **All resources** on the left menu. From the resource list, select **MyNetworkSecurityGroup** in the **MyResourceGroupLB** resource group.
    
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
    
@@ -86,13 +88,14 @@ First, create a virtual network with two virtual machines to use for the back-en
    
 1. Review the settings, and then select **Create**. 
 
-1. Follow the steps to create a second VM named *MyVM2*, with all the other settings the same as MyVM1. 
+1. Follow the steps to create a second VM named *MyVM2*, with all the other settings the same as MyVM1. For the Network Security Group, after selecting **Advanced**, you can drop down and select the **MyNetworkSecurityGroup** that you already created. 
 
 ### Create NSG rules for the VMs
 
-Create network security group (NSG) rules for the VMs, to allow inbound internet (HTTP) and remote desktop (RDP) connections.
+Create a network security group (NSG) rule for the VMs to allow inbound internet (HTTP) connections.
 
-1. Select **All resources** on the left menu. From the resource list, select **MyNetworkSecurityGroup** in the **MyResourceGroupLB** resource group.
+>[!NOTE]
+>By default, the NSG already has a rule to open port 3389, VMs already contain a 1. Select **All resources** on the left menu. From the resource list, select **MyNetworkSecurityGroup** in the **MyResourceGroupLB** resource group.
    
 1. Under **Settings**, select **Inbound security rules**, and then select **Add**.
    
@@ -119,13 +122,7 @@ Create network security group (NSG) rules for the VMs, to allow inbound internet
 
 ## Create a Standard load balancer
 
-In this section, you create a public load balancer that can balance traffic load over VMs. A Standard load balancer supports only a Standard public IP address. When you create a Standard load balancer, you must also create a new Standard public IP address as the load balancer front end (named **LoadBalancerFrontend* by default). 
-
-## Create a Standard load balancer
-
-A Standard load balancer supports only a Standard public IP address. When you create a Standard load balancer, you also create a new Standard public IP address, which is configured as the Standard load balancer front end named **LoadBalancerFrontend** by default. 
-
-**To create a Standard load balancer:**
+In this section, you create a public load balancer that can balance traffic load over VMs. A Standard load balancer supports only a Standard public IP address. When you create a Standard load balancer, you also create a new Standard public IP address, which is configured as the load balancer front end and named **LoadBalancerFrontend** by default. 
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
    
@@ -151,8 +148,6 @@ In this section, you configure load balancer settings for a back-end address poo
 
 To distribute traffic to the VMs, the load balancer uses a back-end address pool that contains the IP addresses of the virtual network interfaces (NICs) that are connected to the load balancer. 
 
-**To create a back-end address pool that includes VM1 and VM2:**
-
 1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
    
 1. Under **Settings**, select **Backend pools**, and then select **Add**.
@@ -177,8 +172,6 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
 
 To allow the load balancer to monitor VM status, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. 
 
-**To create a health probe to monitor the health of the VMs:**
-
 1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
    
 1. Under **Settings**, select **Health probes**, and then select **Add**.
@@ -194,15 +187,13 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
    
 1. Select **OK**.
    
-   ![Add a probe](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
+   ![Add a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
 
 ### Create a load balancer rule
 
 A load balancer rule defines how traffic is distributed to the VMs. The rule defines the front-end IP configuration for incoming traffic, the back-end IP pool to receive the traffic, and the required source and destination ports. 
 
 The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends network traffic to the back-end address pool **MyBackendPool**, also on port 80. 
-
-**To create the load balancer rule:**
 
 1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
    
@@ -220,13 +211,11 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+  ![Add a load balancer rule](./media/load-balancer-standard-public-portal/5-load-balancing-rules.png)
 
 ## Create an inbound NAT rule
 
 You can create a load balancer inbound network address translation (NAT) rule to forward traffic from a specific port of the front-end IP address to a specific port of a back-end VM.
-
-**To create inbound NAT port forwarding rules:**
 
 1. Select **All resources** in the left-hand menu, and then select **MyLoadBalancer** from the resource list.
    
@@ -299,16 +288,12 @@ Refresh the browser to see the load balancer distribute traffic across VMs. Some
 
 ![New IIS default page](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
 
-      ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
-
 ## Test port forwarding
 
 With port forwarding, you can remote desktop to a back-end VM by using the IP address of the load balancer and the front-end port value defined in the NAT rule. 
 
-In the portal, on the **Overview** page for **MyLoadBalancer**, copy one of its public IP addresses under **Public IP Address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **10.3.0.7**. 
-
-### RDP to the VM
-
+1. In the portal, on the **Overview** page for **MyLoadBalancer**, copy one of its public IP addresses under **Public IP Address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **10.3.0.7**. 
+   
 1. Open a command prompt, and use the following command to create a remote desktop session with MyVM2, using the load balancer's public IP address and the front-end port defined in the VM's NAT rule. 
    
    ```
@@ -323,7 +308,7 @@ In the portal, on the **Overview** page for **MyLoadBalancer**, copy one of its 
    
 1. Respond **Yes** to any certificate prompt. 
    
-The RDP connection succeeds, as the inbound NAT rule *MyNATRuleVM2* directs traffic from the load balancer's front-end port *4222* to MyVM2's port 3389 (the RDP port).
+The RDP connection succeeds, because the inbound NAT rule **MyNATRuleVM2** directs traffic from the load balancer's front-end port 4222 to MyVM2's port 3389 (the RDP port).
 
 ## Clean up resources
 
@@ -331,7 +316,7 @@ To delete the load balancer and all related resources when you no longer need th
 
 ## Next steps
 
-In this tutorial, you created a Standard load balancer. You created and configured network resources, back-end servers, a health probe, and rules for the load balancer. You set up and tested port forwarding from a specified port on the load balancer to a port on a back-end VM. 
+In this tutorial, you created a Standard load balancer. You created and configured network resources, back-end servers, a health probe, and rules for the load balancer. You installed IIS on the back-end VMs and used the load balancer's public IP address to test the load balancer in the browser. You set up and tested port forwarding from a specified port on the load balancer to a port on a back-end VM. 
 
 To learn more about Azure Load Balancer, continue to more load balancer tutorials.
 
