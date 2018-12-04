@@ -44,6 +44,8 @@ Next, you'll copy and paste the code from this guide into your project to implem
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=1-8)]
+
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
 using Microsoft.CognitiveServices.ContentModerator;
@@ -58,6 +60,8 @@ using System.Threading;
 ### Create the Content Moderator client
 
 Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the code alongside the **Program** class, in the same namespace. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
+
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=54-77)]
 
 ```csharp
 // Wraps the creation and configuration of a Content Moderator client.
@@ -90,6 +94,8 @@ public static class Clients
 
 Add the following static fields to the **Program** class in _Program.cs_. These specify the files for input text content and output JSON content.
 
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
+
 ```csharp
 // The name of the file that contains the text to evaluate.
 private static string TextFile = "TextFile.txt";
@@ -115,6 +121,8 @@ Add the following code to the **Main** method. The **ScreenText** method is the 
 - Use machine-learning-based models to classify the text into three categories.
 
 If you want to learn more about what these operations do, follow the link in the [Next steps](#next-steps) section.
+
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=23-48)]
 
 ```csharp
 // Load the input text.

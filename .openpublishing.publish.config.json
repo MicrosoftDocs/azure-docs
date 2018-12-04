@@ -283,6 +283,12 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-face-android-detect",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-content-moderator-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
