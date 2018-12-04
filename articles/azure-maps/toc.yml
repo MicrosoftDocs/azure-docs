@@ -69,7 +69,11 @@
     - name: Add a shape
       href: map-add-shape.md
     - name: Add a heat map layer
-      href: map-add-heat-map-layer.md      
+      href: map-add-heat-map-layer.md   
+    - name: Add an image layer
+      href: map-add-image-layer.md
+    - name: Add a tile layer
+      href: map-add-tile-layer.md
     - name: Add HTML Markers
       href: map-add-custom-html.md
     - name: Services
