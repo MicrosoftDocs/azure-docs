@@ -22,6 +22,7 @@ This document focuses on the following specific environments and tools:
 * [The Data Science Virtual Machine](#dsvm): A __pre-configured development/experimentation environment__ in the Azure cloud that is __designed for data science work__ and can be deployed to either CPU only VM instances or GPU based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular ML / deep learning frameworks, tools, and editors for developing ML solutions. It is probably __the most complete__ development environment for ML on the Azure platform.
 * [Jupyter Notebooks](#jupyter): If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 * [Visual Studio Code](#vscode): If you use Visual Studio Code, there are some useful extensions that you can install.
+* [Azure Databricks](#aml-databricks): A popular data analytics platform based on Apache Spark. Learn how to get the Azure Machine Learning SDK onto your cluster so you can deploy models.
 
 If you already have a Python 3 environment, or just want the basic steps for installing the SDK, see the [Local computer](#local) section.
 
@@ -216,6 +217,33 @@ To use Visual Studio Code for development, use the following steps:
 1. To install the Azure Machine Learning extension for Visual Studio Code, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
 
     For more information, see [Using Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
+
+<a name="aml-databricks"></a>
+
+## Azure Databricks
+
+You can use a custom version of the Azure Machine Learning SDK for Azure Databricks for end-to-end custom machine learning. Or, train your model within Databricks and use [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) to deploy the model
+
+To prepare your Databricks cluster and get sample notebooks:
+
+1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) with a Databricks runtime version of 4.x (high concurrency preferred) with **Python 3**. 
+
+1. Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library) the Azure Machine Learning SDK for Python `azureml-sdk[databricks]` PyPi package to your cluster. When you are done, you see the library attached as shown in this image. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
+
+   ![SDK installed on Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+
+   If this step fails, restart your cluster:
+   1. Select `Clusters`in the left pane. Select your cluster name in the table. 
+   1. On the `Libraries` tab, select `Restart`.
+
+1. Download the [Azure Databricks / Azure Machine Learning SDK notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+
+   >[!Warning]
+   > Many sample notebooks are available for use with Azure Machine Learning service. Only these sample notebooks  work with Azure Databricks:
+   > https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks
+
+1.  [Import this archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster and start exploring as [described here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks).
+
 
 ## <a id="workspace"></a>Create a workspace configuration file
 
