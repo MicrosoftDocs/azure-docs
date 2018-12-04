@@ -206,7 +206,7 @@ server.on("listening", () => {
 ## Next steps
 
 * [Monitor your telemetry in the portal](app-insights-dashboards.md)
-* [Write Analytics queries over your telemetry](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Write Analytics queries over your telemetry](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->
 
