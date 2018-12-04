@@ -44,15 +44,19 @@ This update includes the following improvements for Azure Stack:
 
 - This release adds Azure Stack integrated systems support for configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
-- This release adds support for Device Authentication with ADFS in particular when using Azure CLI. [@Matt add Link to CLI for ADFS]
+- This release adds support for Device Authentication with ADFS in particular when using Azure CLI. 
+<!-- @Matt add Link to CLI for ADFS -->
 
 - This release adds support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update and remove service principals for ADFS. (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update and remove service principals for ADFS. 
+<!-- @Matt add link to updated SPN - ADFS article -->
 
-- Added new scale unit node operations that allow an Azure Stack operator to start, stop, and shut down a scale unit node. [@Matt add link to updated node actions doc]
+- Added new scale unit node operations that allow an Azure Stack operator to start, stop, and shut down a scale unit node. 
+<!-- @Matt add link to updated node actions doc -->
 
-- Added new privileged endpoint command to update the BMC credential: the username and password are used to communicate with the physical machines. [@Matt add link to updated bmc doc]
+- Added new privileged endpoint command to update the BMC credential: the username and password are used to communicate with the physical machines. 
+<!-- @Matt add link to updated bmc doc -->
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
