@@ -108,9 +108,11 @@
   items:
   - name: Time Series Insights 
     items:
-    - name: Azure Time Series Insights GA
+    - name: Azure Time Series Insights (GA)
+      href: /rest/api/time-series-insights/ga
       items:
       - name: Query
+        href: /rest/api/time-series-insights/ga-query
         items:
         - name: API
           href: /rest/api/time-series-insights/ga-query-api
@@ -119,6 +121,7 @@
       - name: Reference Data API
         href: /rest/api/time-series-insights/ga-reference-data-api
     - name: Azure Time Series Insights (Preview)
+      href: /rest/api/time-series-insights/preview
       items:
       - name: Time Series Environment API
         href: /rest/api/time-series-insights/preview-env
