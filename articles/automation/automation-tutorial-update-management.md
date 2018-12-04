@@ -88,8 +88,8 @@ Select the signal that is appropriate for your update deployment. The following 
 
 |Signal Name|Dimensions|Description|
 |---|---|---|
-|**Total Update Deployment Runs**|Update Deployment Name</br>Status|This signal is used to alert on the overall status of an update deployment.|
-|**Total Update Deployment Machine Runs**|Update Deployment Name</br>Status</br>Target Computer</br>Update Deployment Run Id|This signal is used to alert on the status of an update deployment targeted at specific machines|
+|**Total Update Deployment Runs**|- Update Deployment Name</br>- Status|This signal is used to alert on the overall status of an update deployment.|
+|**Total Update Deployment Machine Runs**|- Update Deployment Name</br>- Status</br>- Target Computer</br>- Update Deployment Run Id|This signal is used to alert on the status of an update deployment targeted at specific machines|
 
 For the dimension values, select a valid value from the list. If the value you are looking for is not in the list, click the **\+** sign next to the dimension and type in the custom name. You can then select the value you want to look for. If you want to select all values from a dimension, click the **Select \*** button. If you do not choose a value for a dimension, that dimension will be ignored during evaluation.
 
