@@ -88,7 +88,7 @@ VMs that run in a cloud service are also supported. Only Cloud Services web and 
 \* These features are currently supported in public preview.
 
 
-## Supported PaaS features
+## Supported PaaS features 
 
 
 |Service|Recommendations|Threat detection|
@@ -105,7 +105,7 @@ VMs that run in a cloud service are also supported. Only Cloud Services web and 
 |NSGs|✔| NA|
 |Subscription|✔| ✔|
 
-\* These features are currently supported in public preview.
+\* These features are currently supported in public preview. 
 
 ## Next steps
 
