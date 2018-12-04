@@ -619,8 +619,6 @@
           items:
             - name: Manage access rights with RBAC
               href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Use an Azure AD identity with CLI or PowerShell
-              href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data Lake Storage Gen2 evaluation
       href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: How to
