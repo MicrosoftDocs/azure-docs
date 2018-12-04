@@ -51,7 +51,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ## night
 **night** is a dark version of the road map style with colored roads and symbols.
 
-![night](./media/supported-map-styles/night.png)
+![night](./media/supported-map-styles/night.PNG)
 
 **Applicable APIs:**
 * JS map control 
