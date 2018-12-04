@@ -9,16 +9,16 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
 
 # Azure Time Series Insights overview
 
-Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
 
 ## What is IoT data?
 
-IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. IoT data is often meaningful only in the context of additional data inputs coming from first- (such as CRM or ERP) or third-party data sources (for example, weather or location).
+IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. “ IoT data is often meaningful only in the context of additional data inputs coming from first-party data sources (such as CRM or ERP) or third-party data sources (for example, weather or location).
 
 As a result, only a negligible fraction of that data gets used for operational and business purposes. Such data provides consistent, comprehensive, current, and correct information for business reporting and analysis. Turning collected IoT data into actionable insights therefore requires a few of key capabilities:
 
@@ -40,7 +40,7 @@ Customers can store raw data in a schema-less, in-memory store, and perform inte
 
 TSI also offers operational insights capabilities currently in Public Preview. Together with interactive data exploration and operational intelligence, Time Series Insights enables customers to derive more value out of data collected from IoT assets. Specifically, Public Preview offering supports the following key capabilities:
 
-* A scalable, performance-, and cost-optimized time series data store that enables a cloud-based IoT solution to trend years’ worth of time series data in seconds.
+* A scalable, performance and cost-optimized time series data store that enables a cloud-based IoT solution to trend years’ worth of time series data in seconds.
 * Semantic model support to describe the domain and metadata associated with the derived and non-derived signals from assets and devices.
 * An enhanced user experience that combines asset-based data insights with rich, ad-hoc data analytics for driving business and operational intelligence
 * Integration with advanced machine learning and analytics tools like Azure Databricks, Apache Spark, Azure Machine Learning, Jupyter notebooks, Power BI, etc. to help customers tackle time series data challenges and drive operational efficiency.
@@ -86,6 +86,11 @@ You are ready to get started with the Azure TSI (Preview):
 
 > [!div class="nextstepaction"]
 > [Read the Quickstart guide](./time-series-insights-update-quickstart.md)
+
+Learn about use cases:
+
+> [!div class="nextstepaction"]
+> [Azure TSI use cases](./time-series-insights-update-use-cases.md)
 
 <!-- Images -->
 [1]: media/v2-update-overview/overview_one.png
