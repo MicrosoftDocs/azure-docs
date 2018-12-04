@@ -1,8 +1,6 @@
 ---
-title: 'Tutorial: Build a Java app with the Async Java SDK to manage Azure Cosmos DB SQL API data | Microsoft Docs'
-description: This tutorial shows you how to use Azure Cosmos DB SQL API accounts to store and access data by using an Async Java application. 
-keywords: nosql tutorial, online database, java console application
-services: cosmos-db
+title: 'Tutorial: Build a Java app with the Async Java SDK to manage SQL API account in Azure Cosmos DB'
+description: This tutorial shows you how to store and access data within SQL API account in Azure Cosmos DB by using an Async Java application. 
 author: SnehaGunda
 manager: kfile
 
@@ -12,9 +10,10 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
+Customer intent: As a developer, I want to build a Java application with Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master and other capabilities offered by Azure Cosmos DB.
 
 ---
-# Tutorial: Build a Java app with the Async Java SDK to manage Azure Cosmos DB SQL API data
+# Tutorial: Build a Java app with the Async Java SDK to manage data stored in SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -24,12 +23,12 @@ ms.author: sngun
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-This tutorial shows you how to build a Java application with the Async Java SDK to store and access Azure Cosmos DB SQL API data.
+As developer you may have applications that use NoSQL document data. You can use SQL API account in Azure cosmos DB, to store and access this document data. This tutorial shows you how to build a Java application with the Async Java SDK to store and manage document data. 
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Creating and connecting to an Azure Cosmos DB account
+> * Creating and connecting to an Azure Cosmos account
 > * Configuring your solution
 > * Creating a collection
 > * Creating JSON documents
@@ -41,14 +40,15 @@ Make sure you have the following resources:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
 * [Git](https://git-scm.com/downloads).
+
 * [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
+
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## Create an Azure Cosmos DB account
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Clone the GitHub project](#GitClone). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Clone the GitHub project](#GitClone).
+
+Create an Azure Cosmos account by using the following steps:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -73,21 +73,21 @@ The directory contains a `pom.xml` file and a `src/main/java/com/microsoft/azure
 </dependency>
 ```
 
-## <a id="Connect"></a>Connect to an Azure Cosmos DB account
+## <a id="Connect"></a>Connect to an Azure Cosmos account
 
 Next, head back to the [Azure portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. The `AccountSettings.java` file holds the primary key and URI values. 
 
-In the Azure portal, go to your Azure Cosmos DB account, and then click **Keys**. Copy the URI and the PRIMARY KEY from the portal and paste it into the `AccountSettings.java` file. 
+In the Azure portal, go to your Azure Cosmos account, and then click **Keys**. Copy the URI and the PRIMARY KEY from the portal and paste it into the `AccountSettings.java` file. 
 
 ```java
 public class AccountSettings 
 {
-  // Replace MASTER_KEY and HOST with values from your Azure Cosmos DB account.
+  // Replace MASTER_KEY and HOST with values from your Azure Cosmos account.
     
   // <!--[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine")]-->
   public static String MASTER_KEY = System.getProperty("ACCOUNT_KEY", 
           StringUtils.defaultString(StringUtils.trimToNull(
-          System.getenv().get("ACCOUNT_KEY")), "<Fill your Azure Cosmos DB account key>"));
+          System.getenv().get("ACCOUNT_KEY")), "<Fill your Azure Cosmos account key>"));
 
   public static String HOST = System.getProperty("ACCOUNT_HOST",
            StringUtils.defaultString(StringUtils.trimToNull(
@@ -267,6 +267,11 @@ mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSM
 ```
 
 Congratulations! You've completed this NoSQL tutorial and have a working Java console application!
+
+## Clean up resources
+
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+
 
 ## Next steps
 
