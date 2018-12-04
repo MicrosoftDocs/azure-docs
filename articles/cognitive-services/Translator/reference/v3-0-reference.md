@@ -51,22 +51,11 @@ Subscribe to Translator Text API or [Cognitive Services all-in-one](https://azur
 
 There are three headers that you can use to authenticate your subscription. This table provides describes how each is used:
 
-<table width="100%">
-  <th width="30%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.</td>
-  </tr>
-  <tr>
-    <td>Ocp-Apim-Subscription-Region</td>
-    <td>*Use with Cognitive Services all-in-one subscription if you are passing an all-in-one secret key.*<br/>The value is the region of the all-in-one subscription. This value is optional when not using an all-in-one subscription.</td>
-  </tr>
-</table> 
+|Headers|Description|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.|
+|Authorization|*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Use with Cognitive Services all-in-one subscription if you are passing an all-in-one secret key.*<br/>The value is the region of the all-in-one subscription. This value is optional when not using an all-in-one subscription.|
 
 ###  Secret key
 The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header. Simply add the `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header to your request.
