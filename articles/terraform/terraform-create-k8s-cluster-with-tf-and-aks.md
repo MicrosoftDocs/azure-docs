@@ -229,7 +229,7 @@ Create the Terraform configuration file that declares the resources for the Kube
         default = "eastus"
     }
 
-   # refer https://azure.microsoft.com/en-us/pricing/details/monitor/ for log analytics pricing 
+   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
    variable log_analytics_workspace_sku {
         default = "PerGB2018"
    }
@@ -405,7 +405,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
 ## Monitor health and logs
 When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
-see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview).
+see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## Next steps
 In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure: 
