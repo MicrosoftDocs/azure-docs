@@ -8,20 +8,20 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
 # Time Series Model
 
 This document details the **Time Series Model** (TSM) part of the Azure Time Series Insights (TSI) update. It describes the model itself, its capabilities, and how to get started building and updating your own model.
 
-Traditionally, the data collected from IoT devices lacks contextual information making it difficult to find and analyze sensors quickly. The main motivation for TSM is to simplify finding and analyzing IoT data by enabling curation, maintenance, and enrichment of time series data to help prepare consumer-ready data sets. **Time Series Models** play a vital role in queries and navigation since they contextualize device and non-device entities. Data persisted in TSM powers time series queries computations by leveraging the formulas stored in them.
+Traditionally, the data collected from IoT devices lacks contextual information making it difficult to find and analyze sensors quickly. The main motivation for TSM is to simplify finding and analyzing IoT data by enabling curation, maintenance, and enrichment of time series data to help prepare consumer-ready data sets. TSMs play a vital role in queries and navigation since they contextualize device and non-device entities. Data persisted in TSM powers time series queries computations by leveraging the formulas stored in them.
 
 ![tsm][1]
 
 ## Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure Time Series Insights (preview):
+With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure TSI (Preview):
 
 * The ability to author and manage computations or formulas, to transform data leveraging scalar functions, aggregate operations, etc.
 * Defining parent child relationships to enable navigation and reference to provide context to time series telemetry.
@@ -157,7 +157,7 @@ A **default** *type* JSON response:
 
 ## Variables
 
-Azure TSI types have variables, these are named calculations over values from the events. TSI variable definitions contain formula and computation rules. Variable definitions include kind, value, filter, reduction, and boundaries. Variables are stored in type definition in TSM and can be provided inline via Query APIs to override the stored definition.
+Azure TSI types have variables, which are named calculations over values from the events. TSI variable definitions contain formula and computation rules. Variable definitions include kind, value, filter, reduction, and boundaries. Variables are stored in type definition in TSM and can be provided inline via Query APIs to override the stored definition.
 
 The matrix below works as a legend for variable definitions:
 
@@ -181,7 +181,7 @@ Variable values are and should be used in computation. This is the column in the
 
 The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
 
-The Azure TSI (preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
+The Azure TSI (Preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
 
 ### Variable aggregation
 
@@ -271,7 +271,7 @@ In above example, ID1 shows as part of hierarchy H1 in the UI/UX, while the rest
 
 ## Time Series Model instances
 
-Instances are the time series themselves. In most cases this will be the *deviceId* or *assetId* that is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
+Instances are the time series themselves. In most cases, the *deviceId* or *assetId* will be the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
 
 Instances are defined by *timeSeriesId*, *typeId*, *hierarchyId*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, while additional *instanceFields* can be added for further instance property definition.
 
@@ -363,32 +363,11 @@ Response:
 }
 ```
 
-## Time Series Model Limits
-
-| Parameter |	Limits |
-| --- | --- |
-| Object size for model entities (Types, Hierarchies & Instances)|	32 KB, includes properties |
-| Keys allowed as TSID property configured via Azure Portal |	Max 3 |
-| Max # of Types in an environment |	1000|
-| Max # of variables in a type |	50|
-| Max # of Hierarchies in an environment|	32|
-| Max hierarchy depth |	32|
-| Max # of Hierarchies associated with 1 instance	|21|
-| Max # of Instances in an environment |	500,000|
-| Max # of Instance Fields per Instance |	50|
-| Model objects upsert/update/delete operation per second	|100 per second|
-| Time Series Model API Request Size:  Batch |	8 MB or 1000 model objects (whichever occurs first)|
-| Time Series Model request size:  Search/suggest	| 32 KB|
-| Time Series Model API Request Size:  Batch	| 32 MB|
-| Search/Suggest is 32 MB|	32 MB|
-
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
-
 ## Next steps
 
-Read the [Azure TSI (preview) Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+Read the [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+Read the about the new [Time series model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png
