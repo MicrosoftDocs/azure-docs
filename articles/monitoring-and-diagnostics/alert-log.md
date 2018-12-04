@@ -51,7 +51,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
    > [!NOTE]
 
-   > Alerts lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../log-analytics/log-analytics-queries.md) or [shared query in application insights analytics](../log-analytics/log-analytics-queries.md). 
+   > Alerts lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../azure-monitor/log-query/log-query-overview.md) or [shared query in application insights analytics](../azure-monitor/log-query/log-query-overview.md). 
 
 1.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
@@ -101,7 +101,7 @@ For **Log Alerts** alerts can be based on:
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
+Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../azure-monitor/log-query/portals.md#log-analytics-page
 ) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alert-log/AlertsAnalyticsCreate.png)
@@ -240,5 +240,5 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](monitor-alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](monitor-alerts-unified-log-webhook.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
-* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Learn more about [Log Analytics](../azure-monitor/log-query/log-query-overview.md). 
 

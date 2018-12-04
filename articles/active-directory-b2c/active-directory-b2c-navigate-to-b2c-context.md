@@ -21,7 +21,7 @@ In order to configure Azure AD B2C, you need to be in the context of your Azure 
 
 To navigate to your Azure AD B2C tenant, you must be logged into the Azure portal as a global administrator of the Azure AD B2C tenant.
 
-1. Sign into the [Azure portal](http://portal.azure.com).
+1. Sign into the [Azure portal](https://portal.azure.com).
 1. Switch tenants by clicking your email address or picture in the top-right corner.
 1. In the `Directory` list that appears, select the Azure AD B2C tenant that you wish to manage.
 
