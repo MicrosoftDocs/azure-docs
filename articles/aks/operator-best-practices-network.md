@@ -95,7 +95,7 @@ spec:
          servicePort: 80
 ```
 
-An ingress controller is a daemon that runs on an AKS node and watches for incoming requests. Traffic is then distributed based on the rules defined in the ingress resource. The most common ingress controller is based on [NGINX]. AKS doesn't restrict you to a specific controller, so you can use other controllers such as [Contour][contour], [Istio][istio], or [Traefik][traefik].
+An ingress controller is a daemon that runs on an AKS node and watches for incoming requests. Traffic is then distributed based on the rules defined in the ingress resource. The most common ingress controller is based on [NGINX]. AKS doesn't restrict you to a specific controller, so you can use other controllers such as [Contour][contour], [HAProxy][haproxy], or [Traefik][traefik].
 
 There are many scenarios for ingress, including the following how-to guides:
 
@@ -136,7 +136,7 @@ This article focused on network connectivity and security. For more information 
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
 [nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
 [contour]: https://github.com/heptio/contour
-[istio]: https://istio.io/
+[haproxy]: http://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
 
 <!-- INTERNAL LINKS -->
