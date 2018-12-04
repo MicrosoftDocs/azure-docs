@@ -19,9 +19,9 @@ abstract:
     image:
       alt: A video introduction to Azure IoT Time Series Insights features.
       height: 110
-      src: media/index/tsi-intro-shannon-bloch.png
+      src: media/index/new-tsi-intro.png
       width: 250  
-    title: Time Series Insight for IoT apps. (16:09)
+    title: Time Series Insight for IoT apps. (13:31)
     href:  https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player
     width: 250
 sections:
