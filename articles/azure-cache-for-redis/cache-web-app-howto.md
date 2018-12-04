@@ -17,7 +17,7 @@ ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
 
-#Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Redis Cache.
+#Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
 
 ---
 # Quickstart: Create an ASP.NET web app 
@@ -128,7 +128,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
     Install-Package StackExchange.Redis
     ```
 
-3. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
+3. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the StackExchange.Azure Cache for Redis client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
 
 ### To update the HomeController and Layout
 

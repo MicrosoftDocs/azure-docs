@@ -16,13 +16,13 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
-#Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Redis Cache.
+#Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
 # Quickstart: How to use Azure Cache for Redis with Node.js
 
 
 
-Azure Cache for Redis gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
+Azure Cache for Redis gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
 This topic shows you how to get started with Azure Cache for Redis using Node.js. 
 
@@ -84,7 +84,7 @@ bluebird.promisifyAll(redis.Multi.prototype);
 
 async function testCache() {
 
-    // Connect to the Redis cache over the SSL port using the key.
+    // Connect to the Azure Cache for Redis over the SSL port using the key.
     var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
         {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
         
@@ -149,7 +149,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a Node.js application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Cache for Redis from a Node.js application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)

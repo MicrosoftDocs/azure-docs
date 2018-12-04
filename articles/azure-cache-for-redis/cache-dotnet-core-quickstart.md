@@ -16,13 +16,13 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-#Customer intent: As a .NET Core developer, new to Azure Cache for Redis, I want to create a new .NET Core app that uses Redis Cache.
+#Customer intent: As a .NET Core developer, new to Azure Cache for Redis, I want to create a new .NET Core app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with a .NET Core app
 
 
 
-This quickstart shows you how to get started using Microsoft Azure Cache for Redis with .NET Core. Microsoft Azure Cache for Redis is based on the popular open-source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Cache for Redis is accessible from any application within Microsoft Azure.
+This quickstart shows you how to get started using Microsoft Azure Cache for Redis with .NET Core. Microsoft Azure Cache for Redis is based on the popular open-source Azure Cache for Redis. It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft. A cache created using Azure Cache for Redis is accessible from any application within Microsoft Azure.
 
 In this quickstart, you will use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C\# code in a .NET Core console app. You will create a cache, configure the .NET Core client app. Then, you will add, and update objects in the cache. 
 
@@ -102,7 +102,7 @@ Add the following `using` statement to *Program.cs*:
 using Microsoft.Extensions.Configuration;
 ```
 
-Add the following members to the `Program` class in *Program.cs*. This code initializes a configuration to access the user secret for the redis cache connection string.
+Add the following members to the `Program` class in *Program.cs*. This code initializes a configuration to access the user secret for the Azure Cache for Redis connection string.
 
 ```csharp
         private static IConfigurationRoot Configuration { get; set; }
@@ -207,7 +207,7 @@ In *Program.cs*, add the following code for the `Main` procedure of the `Program
 
 Save *Program.cs*.
 
-Azure Cache for Rediss have a configurable number of databases (default of 16) that can be used to logically separate the data within a Redis cache. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+Azure Cache for Rediss have a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 Cache items can be stored and retrieved by using the `StringSet` and `StringGet` methods.
 
@@ -323,7 +323,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a .NET Core application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Cache for Redis from a .NET Core application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)

@@ -26,7 +26,7 @@ In this scenario, you learn how to retrieve the hostname, ports, and keys used t
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-cache-for-redis/cache-keys-ports/cache-keys-ports.sh "Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Azure Cache for Redis")]
 
 
 ## Script explanation

@@ -26,7 +26,7 @@ In this scenario, you learn how to delete an Azure Cache for Redis.
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-cache-for-redis/delete-cache/delete-cache.sh "Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/delete-cache/delete-cache.sh "Azure Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
@@ -36,7 +36,7 @@ This script uses the following commands to delete an Azure Cache for Redis insta
 
 | Command | Notes |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | Delete Redis Cache instance. |
+| [az redis delete](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | Delete Azure Cache for Redis instance. |
 
 
 ## Next steps

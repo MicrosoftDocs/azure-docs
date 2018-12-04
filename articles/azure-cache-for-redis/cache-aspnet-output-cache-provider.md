@@ -23,7 +23,7 @@ The Redis Output Cache Provider is an out-of-process storage mechanism for outpu
 To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This topic provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 ## Store ASP.NET page output in the cache
-To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
+To configure a client application in Visual Studio using the Azure Cache for Redis Session State NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
 
 Run the following command from the `Package Manager Console` window.
     
@@ -76,7 +76,7 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache blade in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Configure the attributes with the values from your cache blade in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Azure Cache for Redis settings](cache-configure.md#configure-redis-cache-settings).
 
 * **host** – specify your cache endpoint.
 * **port** – use either your non-SSL port or your SSL port, depending on the ssl settings.

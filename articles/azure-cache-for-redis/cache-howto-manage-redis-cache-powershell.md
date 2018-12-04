@@ -151,11 +151,11 @@ The following table contains properties and descriptions for commonly used param
 | zset-max-ziplist-value |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
 | databases |Configures the number of databases. This property can be configured only at cache creation. |Standard and Premium |
 
-## To create a Redis Cache
+## To create an Azure Cache for Redis
 New Azure Cache for Redis instances are created using the [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet.
 
 > [!IMPORTANT]
-> The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` fail.
+> The first time you create an Azure Cache for Redis in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Azure Cache for Redis in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` fail.
 > 
 > `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 > 
@@ -169,7 +169,7 @@ To see a list of available parameters and their descriptions for `New-AzureRmRed
         New-AzureRmRedisCache
 
     SYNOPSIS
-        Creates a new redis cache.
+        Creates a new Azure Cache for Redis.
 
 
     SYNTAX
@@ -180,28 +180,28 @@ To see a list of available parameters and their descriptions for `New-AzureRmRed
 
 
     DESCRIPTION
-        The New-AzureRmRedisCache cmdlet creates a new redis cache.
+        The New-AzureRmRedisCache cmdlet creates a new Azure Cache for Redis.
 
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache to create.
+            Name of the Azure Cache for Redis to create.
 
         -ResourceGroupName <String>
-            Name of resource group in which to create the redis cache.
+            Name of resource group in which to create the Azure Cache for Redis.
 
         -Location <String>
-            Location in which to create the redis cache.
+            Location in which to create the Azure Cache for Redis.
 
         -RedisVersion <String>
             RedisVersion is deprecated and will be removed in future release.
 
         -Size <String>
-            Size of the redis cache. The default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
+            Size of the Azure Cache for Redis. The default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
             C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB.
 
         -Sku <String>
-            Sku of redis cache. The default value is Standard. Possible values are Basic, Standard and Premium.
+            Sku of Azure Cache for Redis. The default value is Standard. Possible values are Basic, Standard and Premium.
 
         -MaxMemoryPolicy <String>
             The 'MaxMemoryPolicy' setting has been deprecated. Please use 'RedisConfiguration' setting to set
@@ -220,14 +220,14 @@ To see a list of available parameters and their descriptions for `New-AzureRmRed
             The number of shards to create on a Premium Cluster Cache.
 
         -VirtualNetwork <String>
-            The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{
+            The exact ARM resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{
             subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
 
         -Subnet <String>
-            Required when deploying a redis cache inside an existing Azure Virtual Network.
+            Required when deploying an Azure Cache for Redis inside an existing Azure Virtual Network.
 
         -StaticIP <String>
-            Required when deploying a redis cache inside an existing Azure Virtual Network.
+            Required when deploying an Azure Cache for Redis inside an existing Azure Virtual Network.
 
         <CommonParameters>
             This cmdlet supports the common parameters: Verbose, Debug,
@@ -256,9 +256,9 @@ The `databases` setting can be configured only during cache creation. The follow
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-For more information on the `databases` property, see [Default Azure Cache for Redis server configuration](cache-configure.md#default-redis-server-configuration). For more information on creating a cache using the [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, see the previous [To create a Redis Cache](#to-create-a-redis-cache) section.
+For more information on the `databases` property, see [Default Azure Cache for Redis server configuration](cache-configure.md#default-redis-server-configuration). For more information on creating a cache using the [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, see the previous [To create an Azure Cache for Redis](#to-create-a-redis-cache) section.
 
-## To update a Redis cache
+## To update an Azure Cache for Redis
 Azure Cache for Redis instances are updated using the [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet.
 
 To see a list of available parameters and their descriptions for `Set-AzureRmRedisCache`, run the following command.
@@ -269,7 +269,7 @@ To see a list of available parameters and their descriptions for `Set-AzureRmRed
         Set-AzureRmRedisCache
 
     SYNOPSIS
-        Set redis cache updatable parameters.
+        Set Azure Cache for Redis updatable parameters.
 
     SYNTAX
         Set-AzureRmRedisCache -Name <String> -ResourceGroupName <String> [-Size <String>] [-Sku <String>]
@@ -277,21 +277,21 @@ To see a list of available parameters and their descriptions for `Set-AzureRmRed
         <Integer>] [<CommonParameters>]
 
     DESCRIPTION
-        The Set-AzureRmRedisCache cmdlet sets redis cache parameters.
+        The Set-AzureRmRedisCache cmdlet sets Azure Cache for Redis parameters.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache to update.
+            Name of the Azure Cache for Redis to update.
 
         -ResourceGroupName <String>
             Name of the resource group for the cache.
 
         -Size <String>
-            Size of the redis cache. The default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
+            Size of the Azure Cache for Redis. The default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
             C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB.
 
         -Sku <String>
-            Sku of redis cache. The default value is Standard. Possible values are Basic, Standard and Premium.
+            Sku of Azure Cache for Redis. The default value is Standard. Possible values are Basic, Standard and Premium.
 
         -MaxMemoryPolicy <String>
             The 'MaxMemoryPolicy' setting has been deprecated. Please use 'RedisConfiguration' setting to set
@@ -317,13 +317,13 @@ To see a list of available parameters and their descriptions for `Set-AzureRmRed
 
 The `Set-AzureRmRedisCache` cmdlet can be used to update properties such as `Size`, `Sku`, `EnableNonSslPort`, and the `RedisConfiguration` values. 
 
-The following command updates the maxmemory-policy for the Redis Cache named myCache.
+The following command updates the maxmemory-policy for the Azure Cache for Redis named myCache.
 
     Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
 <a name="scale"></a>
 
-## To scale a Redis cache
+## To scale an Azure Cache for Redis
 `Set-AzureRmRedisCache` can be used to scale an Azure Cache for Redis instance when the `Size`, `Sku`, or `ShardCount` properties are modified. 
 
 > [!NOTE]
@@ -377,7 +377,7 @@ When the scaling operation is complete, the `ProvisioningState` changes to `Succ
 
     Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
-## To get information about a Redis cache
+## To get information about an Azure Cache for Redis
 You can retrieve information about a cache using the [Get-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscache?view=azurermps-6.6.0) cmdlet.
 
 To see a list of available parameters and their descriptions for `Get-AzureRmRedisCache`, run the following command.
@@ -453,7 +453,7 @@ To return information about a specific cache, run `Get-AzureRmRedisCache` with t
     TenantSettings     : {}
     ShardCount         :
 
-## To retrieve the access keys for a Redis cache
+## To retrieve the access keys for an Azure Cache for Redis
 To retrieve the access keys for your cache, you can use the [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-6.6.0) cmdlet.
 
 To see a list of available parameters and their descriptions for `Get-AzureRmRedisCacheKey`, run the following command.
@@ -464,7 +464,7 @@ To see a list of available parameters and their descriptions for `Get-AzureRmRed
         Get-AzureRmRedisCacheKey
 
     SYNOPSIS
-        Gets the accesskeys for the specified redis cache.
+        Gets the accesskeys for the specified Azure Cache for Redis.
 
 
     SYNTAX
@@ -475,7 +475,7 @@ To see a list of available parameters and their descriptions for `Get-AzureRmRed
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache.
+            Name of the Azure Cache for Redis.
 
         -ResourceGroupName <String>
             Name of the resource group for the cache.
@@ -493,7 +493,7 @@ To retrieve the keys for your cache, call the `Get-AzureRmRedisCacheKey` cmdlet 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
-## To regenerate access keys for your Redis cache
+## To regenerate access keys for your Azure Cache for Redis
 To regenerate the access keys for your cache, you can use the [New-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/New-AzureRmRedisCacheKey?view=azurermps-6.6.0) cmdlet.
 
 To see a list of available parameters and their descriptions for `New-AzureRmRedisCacheKey`, run the following command.
@@ -504,17 +504,17 @@ To see a list of available parameters and their descriptions for `New-AzureRmRed
         New-AzureRmRedisCacheKey
 
     SYNOPSIS
-        Regenerates the access key of a redis cache.
+        Regenerates the access key of an Azure Cache for Redis.
 
     SYNTAX
         New-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> -KeyType <String> [-Force] [<CommonParameters>]
 
     DESCRIPTION
-        The New-AzureRmRedisCacheKey cmdlet regenerate the access key of a redis cache.
+        The New-AzureRmRedisCacheKey cmdlet regenerate the access key of an Azure Cache for Redis.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache.
+            Name of the Azure Cache for Redis.
 
         -ResourceGroupName <String>
             Name of the resource group for the cache.
@@ -536,15 +536,15 @@ To regenerate the primary or secondary key for your cache, call the `New-AzureRm
     PS C:\> New-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 
     Confirm
-    Are you sure you want to regenerate Secondary key for redis cache 'myCache'?
+    Are you sure you want to regenerate Secondary key for Azure Cache for Redis 'myCache'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## To delete a Redis cache
-To delete a Redis cache, use the [Remove-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscache?view=azurermps-6.6.0) cmdlet.
+## To delete an Azure Cache for Redis
+To delete an Azure Cache for Redis, use the [Remove-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscache?view=azurermps-6.6.0) cmdlet.
 
 To see a list of available parameters and their descriptions for `Remove-AzureRmRedisCache`, run the following command.
 
@@ -554,17 +554,17 @@ To see a list of available parameters and their descriptions for `Remove-AzureRm
         Remove-AzureRmRedisCache
 
     SYNOPSIS
-        Remove redis cache if exists.
+        Remove Azure Cache for Redis if exists.
 
     SYNTAX
         Remove-AzureRmRedisCache -Name <String> -ResourceGroupName <String> [-Force] [-PassThru] [<CommonParameters>
 
     DESCRIPTION
-        The Remove-AzureRmRedisCache cmdlet removes a redis cache if it exists.
+        The Remove-AzureRmRedisCache cmdlet removes an Azure Cache for Redis if it exists.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache to remove.
+            Name of the Azure Cache for Redis to remove.
 
         -ResourceGroupName <String>
             Name of the resource group of the cache to remove.
@@ -587,11 +587,11 @@ In the following example, the cache named `myCache` is removed.
     PS C:\> Remove-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 
     Confirm
-    Are you sure you want to remove redis cache 'myCache'?
+    Are you sure you want to remove Azure Cache for Redis 'myCache'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## To import a Redis cache
+## To import an Azure Cache for Redis
 You can import data into an Azure Cache for Redis instance using the `Import-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
@@ -651,7 +651,7 @@ The following command imports data from the blob specified by the SAS uri into A
 
     PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## To export a Redis cache
+## To export an Azure Cache for Redis
 You can export data from an Azure Cache for Redis instance using the `Export-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
@@ -712,7 +712,7 @@ The following command exports data from an Azure Cache for Redis instance into t
         -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## To reboot a Redis cache
+## To reboot an Azure Cache for Redis
 You can reboot your Azure Cache for Redis instance using the `Reset-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]

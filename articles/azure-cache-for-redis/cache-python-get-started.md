@@ -1,6 +1,6 @@
 ---
 title: Quickstart to create a Python app that uses Azure Cache for Redis | Microsoft Docs
-description: In this quickstart, you learn how to create an Python App that uses Redis Cache
+description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -17,7 +17,7 @@ ms.topic: quickstart
 ms.date: 05/11/2018
 ms.author: wesmc
 ms.custom: mvc
-#Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Redis Cache.
+#Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with Python
 
@@ -34,14 +34,14 @@ This quickstart shows how to connect to an Azure Cache for Redis with Python to 
 
 * [Python 2 or Python 3 environment](https://www.python.org/downloads/) installed with [pip](https://pypi.org/project/pip/). 
 
-## Create a Redis cache on Azure
+## Create an Azure Cache for Redis on Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## Install redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Redis Cache. Use the Python packages tool, *pip*, to install the redis-py package. 
+[Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Azure Cache for Redis. Use the Python packages tool, *pip*, to install the redis-py package. 
 
 The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2017 Developer Command prompt running with elevated Administrator privileges.
 
@@ -52,7 +52,7 @@ The following example uses *pip3* for Python3 to install the redis-py package on
 
 ## Read and write to the cache
 
-Run Python and test using the cache from the command line. Replace `<Your Host Name>` and `<Your Access Key>` with the values for your Redis Cache. 
+Run Python and test using the cache from the command line. Replace `<Your Host Name>` and `<Your Access Key>` with the values for your Azure Cache for Redis. 
 
 ```python
 >>> import redis
@@ -68,7 +68,7 @@ b'bar'
 
 Create a new script text file named *PythonApplication1.py*.
 
-Add the following script to *PythonApplication1.py* and save the file. This script will test the cache access. Replace `<Your Host Name>` and `<Your Access Key>` with the values for your Redis Cache. 
+Add the following script to *PythonApplication1.py* and save the file. This script will test the cache access. Replace `<Your Host Name>` and `<Your Access Key>` with the values for your Azure Cache for Redis. 
 
 ```python
 import redis

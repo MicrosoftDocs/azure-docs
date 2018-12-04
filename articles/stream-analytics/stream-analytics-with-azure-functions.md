@@ -60,7 +60,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. See the [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) section of the Functions documentation. This walks you through how to create a function app and an [HTTP-triggered function in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), by using the CSharp language.  
 
-2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace "\<your redis cache connection string goes here\>" with the Azure Cache for Redis primary connection string that you retrieved in the previous section.)  
+2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace "\<your Azure Cache for Redis connection string goes here\>" with the Azure Cache for Redis primary connection string that you retrieved in the previous section.)  
 
    ```csharp
    using System;
@@ -83,7 +83,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -187,7 +187,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. Browse to the Azure portal, and find your Azure Cache for Redis. Select **Console**.  
 
-2. Use [Redis cache commands](https://redis.io/commands) to verify that your data is in Redis cache. (The command takes the format Get {key}.) For example:
+2. Use [Azure Cache for Redis commands](https://redis.io/commands) to verify that your data is in Azure Cache for Redis. (The command takes the format Get {key}.) For example:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

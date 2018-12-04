@@ -26,18 +26,18 @@ In this scenario, you learn how to create a 6 GB Premium tier Azure Cache for Re
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-cache-for-redis/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands to create a resource group and a Premium tier redis cache with clustering enable. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group and a Premium tier Azure Cache for Redis with clustering enable. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Create Redis Cache instance. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Create Azure Cache for Redis instance. |
 
 
 ## Next steps

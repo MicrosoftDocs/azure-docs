@@ -274,7 +274,7 @@ Create a class that implements the interface com.microsoft.azure.eventprocessorh
 
 Use your custom implementation of the checkpoint manager (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Within your implementation, you can override the default checkpointing mechanism and implement our own checkpoints based on your own data store (SQL Server, CosmosDB, Redis Cache etc). We recommend that the store used to back your checkpoint manager implementation is accessible to all EPH instances that are processing events for the consumer group.
+Within your implementation, you can override the default checkpointing mechanism and implement our own checkpoints based on your own data store (SQL Server, CosmosDB, Azure Cache for Redis etc). We recommend that the store used to back your checkpoint manager implementation is accessible to all EPH instances that are processing events for the consumer group.
 
 You can use any datastore that is available in your environment.
 

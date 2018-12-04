@@ -26,7 +26,7 @@ In this scenario, you learn how to retrieve the details of an Azure Cache for Re
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-cache-for-redis/show-cache/show-cache.sh "Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Azure Cache for Redis")]
 
 ## Script explanation
 

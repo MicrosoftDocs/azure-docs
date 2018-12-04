@@ -1,6 +1,6 @@
 ---
-title: Provision Web App with Redis Cache
-description: Use Azure Resource Manager template to deploy web app with Redis Cache.
+title: Provision Web App with Azure Cache for Redis
+description: Use Azure Resource Manager template to deploy web app with Azure Cache for Redis.
 services: app-service
 documentationcenter: ''
 author: wesmc7777
@@ -17,13 +17,13 @@ ms.date: 01/06/2017
 ms.author: wesmc
 
 ---
-# Create a Web App plus Redis Cache using a template
-In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Redis cache. You will learn how to define which resources are deployed and
+# Create a Web App plus Azure Cache for Redis using a template
+In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You will learn how to define which resources are deployed and
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-For the complete template, see [Web App with Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+For the complete template, see [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
 ## What you will deploy
 In this template, you will deploy:
@@ -54,7 +54,7 @@ resource group id.
 ## Resources to deploy
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Redis Cache
+### Azure Cache for Redis
 Creates the Azure Cache for Redis that is used with the web app. The name of the cache is specified in the **cacheName** variable.
 
 The template creates the cache in the same location as the resource group.
@@ -81,7 +81,7 @@ The template creates the cache in the same location as the resource group.
 ### Web app
 Creates the web app with name specified in the **webSiteName** variable.
 
-Notice that the web app is configured with app setting properties that enable it to work with the Redis Cache. This app settings are dynamically created based on values provided during deployment.
+Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. This app settings are dynamically created based on values provided during deployment.
 
     {
       "apiVersion": "2015-08-01",

@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Redis Cache Documentation
+# Azure Cache for Redis Documentation
 
-Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Redis Cache from any application on Azure.
+Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Azure Cache for Redis from any application on Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -64,7 +64,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using .NET</h3>
+                        <h3>Get Started with Azure Cache for Redis using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using ASP.NET MVC</h3>
+                        <h3>Get Started with Azure Cache for Redis using ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using Node.js</h3>
+                        <h3>Get Started with Azure Cache for Redis using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using Java</h3>
+                        <h3>Get Started with Azure Cache for Redis using Java</h3>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using Python</h3>
+                        <h3>Get Started with Azure Cache for Redis using Python</h3>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Work with mutable and partial data in a Redis cache</h3>
+                        <h3>Work with mutable and partial data in an Azure Cache for Redis</h3>
                     </div>
                 </div>
             </div>

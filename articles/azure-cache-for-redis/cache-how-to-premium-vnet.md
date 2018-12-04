@@ -31,13 +31,13 @@ For information on other premium cache features, see [Introduction to the Azure 
 [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Cache for Redis, as well as subnets, access control policies, and other features to further restrict access.
 
 ## Virtual network support
-Virtual Network (VNet) support is configured on the **New Redis Cache** blade during cache creation. 
+Virtual Network (VNet) support is configured on the **New Azure Cache for Redis** blade during cache creation. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Once you have selected a premium pricing tier, you can configure Redis VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and then return to the **New Redis Cache** blade to create and configure your premium cache.
+Once you have selected a premium pricing tier, you can configure Redis VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and then return to the **New Azure Cache for Redis** blade to create and configure your premium cache.
 
-To configure the VNet for your new cache, click **Virtual Network** on the **New Redis Cache** blade, and select the desired VNet from the drop-down list.
+To configure the VNet for your new cache, click **Virtual Network** on the **New Azure Cache for Redis** blade, and select the desired VNet from the drop-down list.
 
 ![Virtual network][redis-cache-vnet]
 
@@ -81,9 +81,9 @@ The following list contains answers to commonly asked questions about the Azure 
 
 * [What are some common misconfiguration issues with Azure Cache for Redis and VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 * [How can I verify that my cache is working in a VNET?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-* [When trying to connect to my Redis cache in a VNET, why am I getting an error stating the remote certificate is invalid?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
+* [When trying to connect to my Azure Cache for Redis in a VNET, why am I getting an error stating the remote certificate is invalid?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Why does creating a Redis cache fail in some subnets but not others?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* [Why does creating an Azure Cache for Redis fail in some subnets but not others?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
 * [Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
@@ -162,9 +162,9 @@ Once the port requirements are configured as described in the previous section, 
   - Another way to test is to create a test cache client (which could be a simple console application using StackExchange.Redis) that connects to the cache and adds and retrieves some items from the cache. Install the sample client application onto a VM that is in the same VNET as the cache and run it to verify connectivity to the cache.
 
 
-### When trying to connect to my Redis cache in a VNET, why am I getting an error stating the remote certificate is invalid?
+### When trying to connect to my Azure Cache for Redis in a VNET, why am I getting an error stating the remote certificate is invalid?
 
-When trying to connect to a Redis cache in a VNET, you see a certificate validation error such as this:
+When trying to connect to an Azure Cache for Redis in a VNET, you see a certificate validation error such as this:
 
 `{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
 
@@ -183,8 +183,8 @@ If you are unable to resolve the DNS name, some client libraries include configu
 ### Can I use VNets with a standard or basic cache?
 VNets can only be used with premium caches.
 
-### Why does creating a Redis cache fail in some subnets but not others?
-If you are deploying an Azure Cache for Redis to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Redis cache.
+### Why does creating an Azure Cache for Redis fail in some subnets but not others?
+If you are deploying an Azure Cache for Redis to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Azure Cache for Redis.
 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
 

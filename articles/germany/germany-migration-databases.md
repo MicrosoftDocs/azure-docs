@@ -86,7 +86,7 @@ The recommended steps are:
 
 
 
-## Redis Cache
+## Azure Cache for Redis
 
 There are a few options to migrate to global Azure, depending on the requirements you have.
 

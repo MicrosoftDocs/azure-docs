@@ -61,7 +61,7 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-mon
 
 To configure a storage account for your cache metrics:
 
-1. Click **Diagnostics** from the **Resource menu** in the **Redis Cache** blade.
+1. Click **Diagnostics** from the **Resource menu** in the **Azure Cache for Redis** blade.
 2. Click **On**.
 3. Check **Archive to a storage account**.
 4. Select the storage account in which to store the cache metrics.

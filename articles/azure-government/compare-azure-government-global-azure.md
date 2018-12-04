@@ -75,7 +75,7 @@ For the most current list of services, see the [Products available by region](ht
 * [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse)
 * [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) 
 * [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db)
-* [Azure Cache for Redis](documentation-government-services-database.md#azure-redis-cache) 
+* [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis) 
 
 ## Data + Analytics
  

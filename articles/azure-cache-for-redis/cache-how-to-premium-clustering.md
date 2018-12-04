@@ -30,12 +30,12 @@ Azure Cache for Redis offers Redis cluster as [implemented in Redis](http://redi
 * More throughput: Throughput increases linearly as you increase the number of shards. 
 * More memory size: Increases linearly as you increase the number of shards.  
 
-Clustering does not increase the number of connections available for a clustered cache. For more information about size, throughput, and bandwidth with premium caches, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Clustering does not increase the number of connections available for a clustered cache. For more information about size, throughput, and bandwidth with premium caches, see [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Cache for Redis service. 
 
 ## Clustering
-Clustering is enabled on the **New Redis Cache** blade during cache creation. 
+Clustering is enabled on the **New Azure Cache for Redis** blade during cache creation. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -49,7 +49,7 @@ Each shard is a primary/replica cache pair managed by Azure, and the total size 
 
 ![Clustering][redis-cache-clustering-selected]
 
-Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in the Redis Cache blade. 
+Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in the Azure Cache for Redis blade. 
 
 > [!NOTE]
 > 

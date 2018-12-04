@@ -18,7 +18,7 @@ ms.author: wesmc
 
 ---
 # Azure Cache for Redis samples
-This topic provides a list of Azure Cache for Redis samples, covering scenarios such as connecting to a cache, reading and writing data to and from a cache, and using the ASP.NET Redis Cache providers. Some of the samples are downloadable projects, and some provide step-by-step guidance and include code snippets but do not link to a downloadable project.
+This topic provides a list of Azure Cache for Redis samples, covering scenarios such as connecting to a cache, reading and writing data to and from a cache, and using the ASP.NET Azure Cache for Redis providers. Some of the samples are downloadable projects, and some provide step-by-step guidance and include code snippets but do not link to a downloadable project.
 
 ## Hello world samples
 The samples in this section show the basics of connecting to an Azure Cache for Redis instance and reading and writing data to the cache using a variety of languages and Redis clients.
@@ -42,13 +42,13 @@ For more information, see the [StackExchange.Redis](https://github.com/StackExch
 
 [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) shows you one way to serialize .NET objects so you can write them to and read them from an Azure Cache for Redis instance. 
 
-## Use Redis Cache as a Scale out Backplane for ASP.NET SignalR
-The [Use Redis Cache as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how you can use Azure Cache for Redis as a SignalR backplane. For more information about backplane, see [SignalR Scaleout with Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+## Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR
+The [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how you can use Azure Cache for Redis as a SignalR backplane. For more information about backplane, see [SignalR Scaleout with Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
-## Redis Cache customer query sample
+## Azure Cache for Redis customer query sample
 This sample demonstrates compares performance between accessing data from a cache and accessing data from persistence storage. This sample has two projects.
 
-* [Demo how Redis Cache can improve performance by Caching data](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Demo how Azure Cache for Redis can improve performance by Caching data](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
 * [Seed the Database and Cache for the demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## ASP.NET Session State and Output Caching
@@ -58,7 +58,7 @@ The [Use Azure Cache for Redis to store ASP.NET SessionState and OutputCache](ht
 The [Manage Azure Cache for Redis using Azure Management Libraries](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample demonstrates how can you use Azure Management Libraries to manage - (Create/ Update/ delete) your Cache. 
 
 ## Custom monitoring sample
-The [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how you can access monitoring data for your Azure Cache for Redis outside of the Azure Portal.
+The [Access Azure Cache for Redis Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how you can access monitoring data for your Azure Cache for Redis outside of the Azure Portal.
 
 ## A Twitter-style clone written using PHP and Redis
 The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It is a minimal Twitter-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be very simple and at the same time to show different Redis data structures.

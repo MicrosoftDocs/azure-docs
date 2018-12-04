@@ -1,6 +1,6 @@
 ---
-title: Tutorial for creating a Web App with Redis Cache that uses the Cache-Aside pattern | Microsoft Docs
-description: Learn how to create a Web App with Redis Cache that uses the Cache-Aside pattern
+title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
+description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -17,7 +17,7 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
 
-#Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Redis Cache to improve performance and reduce back-end database load.
+#Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
 
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
@@ -240,11 +240,11 @@ For more information about this package, see the [EntityFramework](https://www.n
 
     ![Code changes](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework** scaffold. In the next section of the tutorial, you'll add Redis Cache to optimize the data access and provide additional features to the application.
+1. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework** scaffold. In the next section of the tutorial, you'll add Azure Cache for Redis to optimize the data access and provide additional features to the application.
 
     ![Starter application](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
-## Configure the app for Redis Cache
+## Configure the app for Azure Cache for Redis
 
 In this section of the tutorial, you configure the sample application to store and retrieve Contoso team statistics from an Azure Cache for Redis instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
@@ -636,7 +636,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 Run the application locally on your machine to verify the functionality that has been added to support the teams.
 
-In this test, the application and database, are both running locally. However, the Redis Cache is hosted remotely in Azure. Therefore, the cache will likely under-perform the database slightly. For best performance, the client application and Azure Cache for Redis instance should be in the same location. In the next section, you will deploy all resources to Azure to see the improved performance from using a cache.
+In this test, the application and database, are both running locally. However, the Azure Cache for Redis is hosted remotely in Azure. Therefore, the cache will likely under-perform the database slightly. For best performance, the client application and Azure Cache for Redis instance should be in the same location. In the next section, you will deploy all resources to Azure to see the improved performance from using a cache.
 
 To run the app locally:
 

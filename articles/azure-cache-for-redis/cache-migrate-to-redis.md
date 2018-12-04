@@ -49,7 +49,7 @@ Azure Managed Cache Service and Azure Cache for Redis are similar but implement 
 | Local cache |Stores a copy of cached objects locally on the client for extra-fast access. |Client applications would need to implement this functionality using a dictionary or similar data structure. |
 | Eviction Policy |None or LRU. The default policy is LRU. |Azure Cache for Redis supports the following eviction policies: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. The default policy is volatile-lru. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration). |
 | Expiration Policy |The default expiration policy is Absolute and the default expiration interval is 10 minutes. Sliding and Never policies are also available. |By default items in the cache do not expire, but an expiration can be configured on a per write basis using cache set overloads. |
-| Regions and Tagging |Regions are subgroups for cached items. Regions also support the annotation of cached items with additional descriptive strings called tags. Regions support the ability to perform search operations on any tagged items in that region. All items within a region are located within a single node of the cache cluster. |A Redis cache consists of a single node (unless Redis cluster is enabled) so the concept of Managed Cache Service regions does not apply. Redis supports searching and wildcard operations when retrieving keys so descriptive tags can be embedded within the key names and used to retrieve the items later. For an example of implementing a tagging solution using Redis, see [Implementing cache tagging with Redis](http://stackify.com/implementing-cache-tagging-redis/). |
+| Regions and Tagging |Regions are subgroups for cached items. Regions also support the annotation of cached items with additional descriptive strings called tags. Regions support the ability to perform search operations on any tagged items in that region. All items within a region are located within a single node of the cache cluster. |an Azure Cache for Redis consists of a single node (unless Redis cluster is enabled) so the concept of Managed Cache Service regions does not apply. Redis supports searching and wildcard operations when retrieving keys so descriptive tags can be embedded within the key names and used to retrieve the items later. For an example of implementing a tagging solution using Redis, see [Implementing cache tagging with Redis](http://stackify.com/implementing-cache-tagging-redis/). |
 | Serialization |Managed Cache supports NetDataContractSerializer, BinaryFormatter, and the use of custom serializers. The default is NetDataContractSerializer. |It is the responsibility of the client application to serialize .NET objects before placing them into the cache, with the choice of the serializer up to the client application developer. For more information and sample code, see [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
 | Cache emulator |Managed Cache provides a local cache emulator. |Azure Cache for Redis does not have an emulator, but you can [run the MSOpenTech build of redis-server.exe locally](cache-faq.md#cache-emulator) to provide an emulator experience. |
 
@@ -62,7 +62,7 @@ Microsoft Azure Cache for Redis is available in the following tiers:
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 
-A starting point for migration is to pick the size that matches the size of your previous Managed Cache Service cache, and then scale up or down depending on the requirements of your application. For more information on choosing the right Azure Cache for Redis offering, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+A starting point for migration is to pick the size that matches the size of your previous Managed Cache Service cache, and then scale up or down depending on the requirements of your application. For more information on choosing the right Azure Cache for Redis offering, see [What Azure Cache for Redis offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Create a Cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -115,7 +115,7 @@ Once the Managed Cache Service configuration is removed, you can configure the c
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 ## Migrate Managed Cache Service code
-The API for the StackExchange.Redis cache client is similar to the Managed Cache Service. This section provides an overview of the differences.
+The API for the StackExchange.Azure Cache for Redis client is similar to the Managed Cache Service. This section provides an overview of the differences.
 
 ### Connect to the cache using the ConnectionMultiplexer class
 In Managed Cache Service, connections to the cache were handled by the `DataCacheFactory` and `DataCache` classes. In Azure Cache for Redis, these connections are managed by the `ConnectionMultiplexer` class.
@@ -150,9 +150,9 @@ public static ConnectionMultiplexer Connection
 }
 ```
 
-The cache endpoint, keys, and ports can be obtained from the **Redis Cache** blade for your cache instance. For more information, see [Redis Cache properties](cache-configure.md#properties).
+The cache endpoint, keys, and ports can be obtained from the **Azure Cache for Redis** blade for your cache instance. For more information, see [Azure Cache for Redis properties](cache-configure.md#properties).
 
-Once the connection is established, return a reference to the Redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
+Once the connection is established, return a reference to the Azure Cache for Redis database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
 ```csharp
 IDatabase cache = Connection.GetDatabase();

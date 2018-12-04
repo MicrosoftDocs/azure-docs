@@ -1,5 +1,5 @@
 ---
-title: Provision a Redis Cache using Azure Resource Manager | Microsoft Docs
+title: Provision an Azure Cache for Redis using Azure Resource Manager | Microsoft Docs
 description: Use Azure Resource Manager template to deploy an Azure Cache for Redis.
 services: app-service
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 01/23/2017
 ms.author: wesmc
 
 ---
-# Create a Redis Cache using a template
+# Create an Azure Cache for Redis using a template
 In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
@@ -25,16 +25,16 @@ Currently, diagnostic settings are shared for all caches in the same region for 
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-For the complete template, see [Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+For the complete template, see [Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 > [!NOTE]
 > Resource Manager templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
 > 
-> * [Create a Premium Redis Cache with clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
-> * [Create Premium Redis Cache with data persistence](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [Create Premium Redis Cache with VNet and optional clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+> * [Create Premium Azure Cache for Redis with VNet and optional clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
-> To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Redis Cache`.
+> To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Azure Cache for Redis`.
 > 
 > 
 
@@ -53,7 +53,7 @@ environment you are deploying to. Do not define parameters for values that alway
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### redisCacheLocation
-The location of the Redis Cache. For best performance, use the same location as the app to be used with the cache.
+The location of the Azure Cache for Redis. For best performance, use the same location as the app to be used with the cache.
 
     "redisCacheLocation": {
       "type": "string"
@@ -86,7 +86,7 @@ A value that indicates whether diagnostics is enabled. Use ON or OFF.
     }
 
 ## Resources to deploy
-### Redis Cache
+### Azure Cache for Redis
 Creates the Azure Cache for Redis.
 
     {

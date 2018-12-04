@@ -22,9 +22,9 @@ ms.custom: mvc
 # Quickstart: How to use Azure Cache for Redis with Java
 
 
-Azure Cache for Redis gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
+Azure Cache for Redis gives you access to a dedicated Azure Cache for Redis, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This article shows you how to get started with Azure Cache for Redis using the [Jedis](https://github.com/xetorthio/jedis) Redis Cache client for Java.
+This article shows you how to get started with Azure Cache for Redis using the [Jedis](https://github.com/xetorthio/jedis) Azure Cache for Redis client for Java.
 
 ![Cache app completed](./media/cache-java-get-started/cache-app-complete.png)
 
@@ -97,7 +97,7 @@ public class App
         String cacheHostname = System.getenv("REDISCACHEHOSTNAME");
         String cachekey = System.getenv("REDISCACHEKEY");
 
-        // Connect to the Redis cache over the SSL port using the key.
+        // Connect to the Azure Cache for Redis over the SSL port using the key.
         JedisShardInfo shardInfo = new JedisShardInfo(cacheHostname, 6380, useSsl);
         shardInfo.setPassword(cachekey); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);      
@@ -170,7 +170,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Redis Cache with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)

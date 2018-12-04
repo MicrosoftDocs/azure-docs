@@ -36,13 +36,13 @@ The FAQs in this section cover some of the basics of Azure Cache for Redis.
 
 The following FAQs cover basic concepts and questions about Azure Cache for Redis and are answered in one of the other FAQ sections.
 
-* [What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
-* [What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
+* [What Azure Cache for Redis offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+* [What Azure Cache for Redis clients can I use?](#what-redis-cache-clients-can-i-use)
 * [Is there a local emulator for Azure Cache for Redis?](#is-there-a-local-emulator-for-azure-redis-cache)
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 ## Planning FAQs
-* [What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+* [What Azure Cache for Redis offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
 * [Azure Cache for Redis performance](#azure-redis-cache-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 * [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-redis-cache)
@@ -50,7 +50,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 
 ## Development FAQs
 * [What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
-* [What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
+* [What Azure Cache for Redis clients can I use?](#what-redis-cache-clients-can-i-use)
 * [Is there a local emulator for Azure Cache for Redis?](#is-there-a-local-emulator-for-azure-redis-cache)
 * [How can I run Redis commands?](#how-can-i-run-redis-commands)
 * [Why doesn't Azure Cache for Redis have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
@@ -79,7 +79,7 @@ The FAQs in this section cover common monitoring and troubleshooting questions. 
 * [Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 ### What is Azure Cache for Redis?
-Azure Cache for Redis is based on the popular open-source [Redis cache](http://redis.io). It gives you access to a secure, dedicated Redis cache, managed by Microsoft, and accessible from any application within Azure. For a more detailed overview, see the [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) product page on Azure.com.
+Azure Cache for Redis is based on the popular open-source [Azure Cache for Redis](http://redis.io). It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, and accessible from any application within Azure. For a more detailed overview, see the [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) product page on Azure.com.
 
 ### How can I get started with Azure Cache for Redis?
 There are several ways you can get started with Azure Cache for Redis.
@@ -95,7 +95,7 @@ If you don't already have an Azure account, you can:
 
 <a name="cache-size"></a>
 
-### What Redis Cache offering and size should I use?
+### What Azure Cache for Redis offering and size should I use?
 Each Azure Cache for Redis offering provides different levels of **size**, **bandwidth**, **high availability**, and **SLA** options.
 
 The following are considerations for choosing a Cache offering.
@@ -169,7 +169,7 @@ Yes, Azure Cache for Redis is available in Azure Government Cloud, Azure China C
 
 For more information on considerations when using Azure Cache for Redis with other clouds, see the following links.
 
-- [Azure Government Databases - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-redis-cache)
+- [Azure Government Databases - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
 - [Azure China Cloud - Azure Cache for Redis](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
@@ -205,7 +205,7 @@ Usually the default values of the client are sufficient. You can fine-tune the o
 	  * Set the `ClientName` property on each multiplexer to help with diagnostics.
 	  * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
 
-### What Redis cache clients can I use?
+### What Azure Cache for Redis clients can I use?
 One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](http://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
@@ -237,13 +237,13 @@ You can optionally configure a [redis.conf](http://redis.io/topics/config) file 
 <a name="cache-commands"></a>
 
 ### How can I run Redis commands?
-You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). You have several options to run Redis commands.
+You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). You have several options to run Redis commands.
 
 * If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). The Redis console provides a secure way to run Redis commands in the Azure portal.
 * You can also use the Redis command-line tools. To use them, perform the following steps:
 * Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 * Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
-* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
+* `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > The Redis command-line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
@@ -253,7 +253,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 <a name="cache-reference"></a>
 
 ### Why doesn't Azure Cache for Redis have an MSDN class library reference like some of the other Azure services?
-Microsoft Azure Cache for Redis is based on the popular open source Redis Cache and can be accessed by a wide variety of [Redis clients](http://redis.io/clients) for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
+Microsoft Azure Cache for Redis is based on the popular open source Azure Cache for Redis and can be accessed by a wide variety of [Redis clients](http://redis.io/clients) for many programming languages. Each client has its own API that makes calls to the Azure Cache for Redis instance using [Redis commands](http://redis.io/commands).
 
 Because each client is different, there is not one centralized class reference on MSDN, and each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
@@ -269,7 +269,7 @@ Yes, to use Azure Cache for Redis as a PHP session cache, specify the connection
 >
 >
 
-For more information about using Redis Cache as a PHP session cache with the PhpRedis client, see [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler).
+For more information about using Azure Cache for Redis as a PHP session cache with the PhpRedis client, see [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler).
 
 ### What are Redis databases?
 
@@ -315,7 +315,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 #### Performance testing
 * Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Because `redis-benchmark` does not support SSL, you must [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-* The client VM used for testing should be in the same region as your Redis cache instance.
+* The client VM used for testing should be in the same region as your Azure Cache for Redis instance.
 * We recommend using Dv2 VM Series for your client as they have better hardware and should give the best results.
 * Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing.
 * Enable VRSS on the client machine if you are on Windows. [See here for details](https://technet.microsoft.com/library/dn383582.aspx).
@@ -334,7 +334,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 ### How can I benchmark and test the performance of my cache?
 * [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 * You can use redis-benchmark.exe to load test your Redis server.
-* Ensure that the load testing client and the Redis cache are in the same region.
+* Ensure that the load testing client and the Azure Cache for Redis are in the same region.
 * Use redis-cli.exe and monitor the cache using the INFO command.
 * If your load is causing high memory fragmentation, you should scale up to a larger cache size.
 * For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
@@ -414,7 +414,7 @@ For more information about the different connections limits for each tier, see [
 ### How do I monitor the health and performance of my cache?
 Microsoft Azure Cache for Redis instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
 
-The Redis Cache **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
+The Azure Cache for Redis **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
 
 * **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
 * **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
@@ -454,7 +454,7 @@ The following are some common reason for a cache disconnect.
 ### Azure Cache for Redis
 Azure Cache for Redis is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
 
-Azure Cache for Redis gives customers the ability to use a secure, dedicated Redis cache, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
+Azure Cache for Redis gives customers the ability to use a secure, dedicated Azure Cache for Redis, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
 
 Unlike traditional caches which deal only with key-value pairs, Redis is popular for its highly performant data types. Redis also supports running atomic operations on these types, like appending to a string; incrementing the value in a hash; pushing to a list; computing set intersection, union and difference; or getting the member with highest ranking in a sorted set. Other features include support for transactions, pub/sub, Lua scripting, keys with a limited time-to-live, and configuration settings to make Redis behave more like a traditional cache.
 
