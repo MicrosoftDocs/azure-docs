@@ -1,15 +1,15 @@
 ---
-title: Get answer from knowledge base - QnA Maker
+title: Get answer from knowledge base with CURL or Postman - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 
+description: QnA Maker creates or refreshes the queryable endpoint when you publish the knowledge base. When publishing is complete, the HTTP request settings to generate an answer from your knowledge base are available.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim88
+ms.date: 12/04/2018
+ms.author: diberry
 ---
 
 # Get answer from knowledge base
@@ -26,7 +26,7 @@ When your knowledge base is published, the **Publish** page displays the HTTP re
 
 [![Publish results](../media/qnamaker-use-to-generate-answer/publish-settings.png)](../media/qnamaker-use-to-generate-answer/publish-settings.png#lightbox)
 
-To generate an answer with Postman, complete the following:
+To generate an answer with Postman, complete the following steps:
 
 1. Open Postman. 
 1. Select the building block to create a basic request.
@@ -58,7 +58,7 @@ When your knowledge base is published, the **Publish** page displays the HTTP re
 
 [![Publish results](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
-To generate an answer with CURL, complete the following:
+To generate an answer with CURL, complete the following steps:
 
 1. Copy the text in the CURL tab. 
 1. Open a command-line or terminal and paste the text.
