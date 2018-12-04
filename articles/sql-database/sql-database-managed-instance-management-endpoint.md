@@ -18,7 +18,7 @@ ms.date: 12/03/2018
 
 The Azure SQL Database Managed Instance [virtual cluster](sql-database-managed-instance-connectivity-architecture.md) contains a management endpoint that Microsoft uses for managing the Managed Instance. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level.
 
-When connections are initiated from inside the Managed Instance (backup, audit log) it appears that traffic originates from management endpoint public IP address. You could limit access to public services from Managed Instance by setting firewall rules to allow just Managed Instance IP address.
+When connections are initiated from inside the Managed Instance (backup, audit log) it appears that traffic originates from management endpoint public IP address. You could limit access to public services from Managed Instance by setting firewall rules to allow the Managed Instance IP address only.
 
 > [!NOTE]
 > This doesn’t apply to setting firewall rules for Azure services that are in the same region as Managed Instance as the Azure platform has an optimization for the traffic that goes between the services that are collocated.
@@ -37,7 +37,7 @@ Now do another `nslookup` for highlighted name removing the `.vnet.` segment. Yo
 
 ## Verifying the Managed Instance built-in firewall
 
-The Managed Instance [mandatory inbound security rules](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) require management ports 9000, 9003, 1438, 1440, 1452 to be open from **Any source** on the Network Security Group (NSG) that protects the Managed Instance. Although these ports are open on NSG level, they are protected on network level by built-in firewall.
+The Managed Instance [mandatory inbound security rules](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) require management ports 9000, 9003, 1438, 1440, 1452 to be open from **Any source** on the Network Security Group (NSG) that protects the Managed Instance. Although these ports are open at the NSG level, they are protected at the network level by the built-in firewall.
 
 To verify these ports, use any security scanner tool to test these ports. The following screenshot shows how to use one of these tools.
 
