@@ -21,7 +21,7 @@ ms.author: bwren
 
 Continuous Monitoring refers to the process and technology required to incorporate monitoring across each phase of your DevOps and IT operations lifecycles. It helps to continuously ensure the health, performance, and reliability of your application and infrastructure as it moves from development to production. Continuous Monitoring builds on the concepts of Continuous Integration and Continuous Deployment (CI/CD) which help you develop and deliver software faster and more reliably to provide continuous value to your users.
 
-[Azure Monitor](overview.md) is the unified monitoring solution in Azure that provides full-stack observability across applications and infrastructure in the cloud and on-premises. It works seamlessly with [Visual Studio and Visual Studio Code](https://visualstudio.microsoft.com/) during development and test and integrates with [Azure DevOps](/azure/devops/user-guide/index) for release management and work item management during deployment and operations. It even integrates across the ITSM and SIEM tools of your choice to help track issues and incidents within your existing IT processes.
+[Azure Monitor](../overview.md) is the unified monitoring solution in Azure that provides full-stack observability across applications and infrastructure in the cloud and on-premises. It works seamlessly with [Visual Studio and Visual Studio Code](https://visualstudio.microsoft.com/) during development and test and integrates with [Azure DevOps](/azure/devops/user-guide/index) for release management and work item management during deployment and operations. It even integrates across the ITSM and SIEM tools of your choice to help track issues and incidents within your existing IT processes.
 
 This article describes specific steps for using Azure Monitor to enable Continuous Monitoring throughout your workflows. It includes links to other documentation that provides details on implementing different features.
 
@@ -29,7 +29,7 @@ This article describes specific steps for using Azure Monitor to enable Continuo
 ## Enable monitoring for all your applications
 In order to gain observability across your entire environment, you need to enable monitoring on all your web applications and services. This will allow you to easily visualize end-to-end transactions and connections across all the components.
 
-- [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
+- [Azure DevOps Projects](../../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](../../application-insights/app-insights-vsts-continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
 - [Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
 - If you have access to the code for your application, then enable full monitoring with [Application Insights](../../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../../application-insights/quick-monitor-portal.md), [Java](../../application-insights/app-insights-java-quick-start.md), [Node.js](../../application-insights/app-insights-nodejs-quick-start.md), or [any other programming languages](../../application-insights/app-insights-platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
@@ -39,15 +39,15 @@ In order to gain observability across your entire environment, you need to enabl
 ## Enable monitoring for your entire infrastructure
 Applications are only as reliable as their underlying infrastructure. Having monitoring enabled across your entire infrastructure will help you achieve full observability and make it easier to discover a potential root cause when something fails. Azure Monitor helps you track the health and performance of your entire hybrid infrastructure including resources such as VMs, containers, storage, and network.
 
-- You automatically get [platform metrics, activity logs and diagnostics logs](../monitoring/monitoring-data-sources.md) from most of your Azure resources with no configuration.
-- Enable deeper monitoring for VMs with [Azure Monitor for VMs](../monitoring/monitoring-vminsights-overview.md).
--  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](../monitoring/monitoring-container-insights-overview.md).
-- Add [monitoring solutions](..//monitoring/monitoring-solutions-inventory.md) for different applications and services in your environment.
+- You automatically get [platform metrics, activity logs and diagnostics logs](../platform/data-sources.md) from most of your Azure resources with no configuration.
+- Enable deeper monitoring for VMs with [Azure Monitor for VMs](../insights/vminsights-overview.md).
+-  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](../insights/container-insights-overview.md).
+- Add [monitoring solutions](../insights/solutions-inventory.md) for different applications and services in your environment.
 
 
 [Infrastructure as code](/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
 
--  Use [Resource Manager templates](../log-analytics/log-analytics-template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
+-  Use [Resource Manager templates](../../log-analytics/log-analytics-template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
 - Use [Azure Policy](../../governance/policy/overview.md) to enforce different rules over your resources. This ensures that those resources stay compliant with your corporate standards and service level agreements. 
 
 
@@ -70,7 +70,7 @@ A critical aspect of monitoring is proactively notifying administrators of any c
 
 - Create [alerts in Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [dynamic thresholds](../../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
 - Define actions for alerts to use the most effective means of notifying your administrators. Available [actions for notification](../../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) are SMS, e-mails, push notifications, or voice calls.
-- Use more advanced actions to [connect to your ITSM tool](../log-analytics/log-analytics-itsmc-overview.md) or other alert management systems through [webhooks](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Use more advanced actions to [connect to your ITSM tool](../../log-analytics/log-analytics-itsmc-overview.md) or other alert management systems through [webhooks](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 - Remediate situations identified in alerts as well with [Azure Automation runbooks](../../automation/automation-webhooks.md) or [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) that can be launched from an alert using webhooks. 
 - Use [autoscaling](../../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
 
