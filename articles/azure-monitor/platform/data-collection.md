@@ -128,7 +128,7 @@ Logs are especially useful for combining data from a variety of sources, for com
 Logs collected by Azure Monitor are stored in Log Analytics which collects telemetry and other data from a variety of sources. It provides a rich query language and an analytics engine that gives you insights into the operation of your applications and resources. Other Azure services such as [Azure Security Center](../../security-center/security-center-intro.md) store their data in Log Analytics in order to provide a common data platform across Azure management.
 
 > [!IMPORTANT]
-> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../azure-monitor/platform/cross-workspace-query.md) to analyze application data together with other log data.
+> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md) to analyze application data together with other log data.
 
 
 ### Sources of log data
