@@ -147,37 +147,48 @@ Follow the instructions in the [Bind an existing custom SSL certificate](/azure/
 >[!NOTE]
 > If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
 
-The example configuration snippets in this section use MySQL database. For additional information, see the configuration docs for [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), and [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
-To configure Tomcat to use managed connections to databases using Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first 
-customize the CATALINA_OPTS environment variable read in by Tomcat at start up. Set these values through an app setting in App Service Maven plugin:
+| Database   | Driver Class Name                             | JDBC Driver                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+To configure Tomcat to use Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first 
+customize the `CATALINA_OPTS` environment variable that is read in by Tomcat at start up. Set these values through an app setting in the [App Service Maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-Or an equivalent App Service setting from the Azure portal.
+Or set the environment variables in the "Application Settings" blade in the Azure portal.
 
-Next, determine if the data source needs to be made available just to one application or to all of the applications running on the App Service plan.
+>[!NOTE]
+> If you are using Azure Database for Postgres, replace `ssl=true` with `sslmode=require` in the JDBC connection string.
 
-For application-level data sources: 
+Next, determine if the data source should be available to one application or to all applications running on the Tomcat servlet.
 
-1. Add a `context.xml` file if it does not exist to your web application and add it the `META-INF` directory of your WAR file when the project is built.
+#### For application-level data sources: 
 
-2. In this file, add a `Context` path entry to link the data source to a JNDI address.
+1. Create a `context.xml` file in the `META-INF/` directory of your project. Create the `META-INF/` directory if it does not exist.
+
+2. In `context.xml`, add a `Context` element to link the data source to a JNDI address. Replace the `driverClassName` placeholder with your driver's class name from the table above.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -186,38 +197,50 @@ For application-level data sources:
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-For shared server-level resources:
+#### For shared server-level resources:
 
 1. Copy the contents of `/usr/local/tomcat/conf` into `/home/tomcat/conf` on your App Service Linux instance using SSH if you don't have a configuration there already.
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. Add the context to your `server.xml`
+2. Add a Context element in your `server.xml` within the `<Server>` element.
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. Update your application's `web.xml` to use the data source in your application.
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. To upload these files to your App Service instance, perform the following steps:  
+#### Finally, place the driver JARs in the Tomcat classpath and restart your App Service: 
+
+1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. (Create this directory if it does not already exist.) To upload these files to your App Service instance, perform the following steps:  
     1. Install the Azure App Service webpp extension:
 
       ```azurecli-interactive
@@ -232,7 +255,9 @@ For shared server-level resources:
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration and classes.
+    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/en-us/azure/app-service/app-service-deployment-credentials).
+
+2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 
 ## Docker containers
 
