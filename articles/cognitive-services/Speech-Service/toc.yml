@@ -6,7 +6,7 @@
   items:
   - name: What is the Speech Service?
     href: overview.md
-  - name: Try the Speech service for free
+  - name: Try the Speech Service for free
     href: get-started.md
 - name: Quickstarts
   items:
@@ -41,6 +41,8 @@
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
   - name: Text-to-speech
     items:
+    - name: 'Using C#, REST'
+      href: quickstart-dotnet-text-to-speech.md
     - name: 'Using Python, REST'
       href: quickstart-python-text-to-speech.md
   - name: Get started with Speech Devices SDK
@@ -96,6 +98,8 @@
       href: how-to-customize-language-model.md
     - name: Customize pronunciation
       href: how-to-customize-pronunciation.md
+    - name: Create custom Speech Recognition endpoint
+      href: how-to-create-custom-endpoint.md
     - name: Customize voice fonts (bot brand voice)
       href: how-to-customize-voice-font.md
     - name: Customize device wake word (Devices SDK)

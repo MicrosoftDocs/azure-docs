@@ -41,7 +41,7 @@ If you find your data factory doesn't have a service identity associated followi
 
 - [Generate service identity using PowerShell](#generate-service-identity-using-powershell)
 - [Generate service identity using REST API](#generate-service-identity-using-rest-api)
-- [Generate service identity using an Azure Resource Manager template](#generate-service-identity-using-resource-management-template)
+- [Generate service identity using an Azure Resource Manager template](#generate-service-identity-using-azure-resource-manager-template)
 - [Generate service identity using SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
