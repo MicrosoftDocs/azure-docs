@@ -60,7 +60,7 @@ Change to the following folder in the downloaded / cloned repo and run all subse
 cd scenarios/intelligent-routing-with-istio
 ```
 
-First, create a namespace in your AKS cluster for the sample AKS voting app named `voting` as follows:
+First, create a namespace in your AKS cluster for the sample AKS voting app named *voting* as follows:
 
 ```console
 kubectl create namespace voting
@@ -72,7 +72,7 @@ Label the namespace with `istio-injection=enabled`. This label instructs Istio t
 kubectl label namespace voting istio-injection=enabled
 ```
 
-Now let's create the components for the AKS Voting app. Create these components in the `voting` namespace created in a previous step.
+Now let's create the components for the AKS Voting app. Create these components in the *voting* namespace created in a previous step.
 
 ```console
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
@@ -92,13 +92,13 @@ service/voting-app created
 > [!NOTE]
 > Istio has some specific requirements around pods and services. For more information, see the [Istio Requirements for Pods and Services documentation][istio-requirements-pods-and-services].
 
-To see the pods that have been created, use the [kubectl get pods][kubectl get] command as follows:
+To see the pods that have been created, use the [kubectl get pods][kubectl-get] command as follows:
 
 ```console
 kubectl get pods -n voting
 ```
 
-The following example output shows there are three instances of the `voting-app` pod and a single instance of both the `voting-analytics` and `voting-storage` pods. Each of the pods has two containers. One of these containers is the component, and the other is the `istio-proxy`:
+The following example output shows there are three instances of the *voting-app* pod and a single instance of both the *voting-analytics* and *voting-storage* pods. Each of the pods has two containers. One of these containers is the component, and the other is the *istio-proxy*:
 
 ```
 NAME                                    READY     STATUS    RESTARTS   AGE
@@ -115,7 +115,7 @@ To see information about the pod, use the [kubectl describe pod][kubectl-describ
 kubectl describe pod voting-app-1-0-6c65c4bdd4-bdmld --namespace voting
 ```
 
-The`istio-proxy` container has automatically been injected by Istio to manage the network traffic to and from your components, as shown in the following example output:
+The *istio-proxy* container has automatically been injected by Istio to manage the network traffic to and from your components, as shown in the following example output:
 
 ```
 [...]
@@ -181,7 +181,7 @@ Your browser alternates between the two views shown below. Since you are using a
 
 ![Version 1.1 of the analytics component running in our AKS Voting app.](media/istio/update-app-01.png)
 
-You can visualize the switching between the two versions of the `voting-analytics` component as follows. Remember to use the IP address of your own Istio Ingress Gateway.
+You can visualize the switching between the two versions of the *voting-analytics* component as follows. Remember to use the IP address of your own Istio Ingress Gateway.
 
 ```console
 INGRESS_IP=52.187.250.239
@@ -210,7 +210,7 @@ You use the `istioctl` client binary to replace the Virtual Service definition o
 
 You also add a [Policy][istio-reference-policy] to the *voting* namespace to ensure that all communicate between services is secured using mutual TLS and client certificates.
 
-As there is an existing Virtual Service definition for `voting-app` that you replace, use the `istioctl replace` command as follows:
+As there is an existing Virtual Service definition for *voting-app* that you replace, use the `istioctl replace` command as follows:
 
 ```console
 istioctl replace -f istio/step-2a-update-voting-app-virtualservice.yaml --namespace voting
@@ -248,7 +248,7 @@ If you open the AKS Voting app in a browser again, only the new version *1.1* of
 
 You can more easily visualize that we are now only routed to version *1.1* of your *voting-analytics* component as follows. Remember to use the IP address of your Istio ingress gateway.
 
-You can visualize that you are now only routed to version *1.1* of your *voting-analytics*component as follows. Remember to use the IP address of your own Istio Ingress Gateway:
+You can visualize that you are now only routed to version *1.1* of your *voting-analytics* component as follows. Remember to use the IP address of your own Istio Ingress Gateway:
 
 ```azurecli-interactive
 INGRESS_IP=52.187.250.239
@@ -265,7 +265,7 @@ The following example output shows the relevant part of the returned web site:
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-Confirm that Istio uses mutual TLS to secure communications between each of our services. The following commands check the TLS settings for each of the `voting-app` services:
+Confirm that Istio uses mutual TLS to secure communications between each of our services. The following commands check the TLS settings for each of the *voting-app* services:
 
 ```console
 istioctl authn tls-check voting-app.voting.svc.cluster.local
@@ -317,7 +317,7 @@ Updated config destination-rule/voting/voting-storage to revision 150940
 Updated config virtual-service/voting/voting-storage to revision 150941
 ```
 
-Next, let's add the Kubernetes objects for the new version *2.0* components. You also update the *voting-storage*service to include the `3306` port for MySQL:
+Next, let's add the Kubernetes objects for the new version *2.0* components. You also update the *voting-storage* service to include the *3306* port for MySQL:
 
 ```console
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
