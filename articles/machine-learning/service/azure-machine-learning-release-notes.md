@@ -19,9 +19,9 @@ In this article, learn about the Azure Machine Learning service releases.
 Azure Machine Learning service is now generally available.
 
 ### Azure Machine Learning Compute
-+ With this release we are announcing a new managed compute experience through [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute can be used for Training and Batch inferencing, is single- to multi-node compute, and does the cluster management and job scheduling for the user. It autoscales by default, has support for both CPU and GPU resources and also allows using Low-Priority VMs for reduced cost. It replaces Batch AI compute for Azure Machine Learning.
+With this release, we are announcing a new managed compute experience through [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute can be used for Training and Batch inferencing, is single- to multi-node compute, and does the cluster management and job scheduling for the user. It autoscales by default, has support for both CPU and GPU resources and also allows using Low-Priority VMs for reduced cost. It replaces Batch AI compute for Azure Machine Learning.
   
-  Azure Machine Learning Compute can be created in Python, using Azure portal, or the CLI. It must be created in the region of your workspace, and cannot be attached to any other workspace. This compute uses a Docker container for your run, and packages your dependencies to replicate the same environment across all your nodes.
+Azure Machine Learning Compute can be created in Python, using Azure portal, or the CLI. It must be created in the region of your workspace, and cannot be attached to any other workspace. This compute uses a Docker container for your run, and packages your dependencies to replicate the same environment across all your nodes.
 
 > [!Warning]
 > We recommend creating a new workspace to use Azure Machine Learning Compute. There is a remote chance that users trying to create Azure Machine Learning Compute from an existing workspace might see an error. Existing compute in your workspace should continue to work unaffected.
@@ -45,7 +45,7 @@ Azure Machine Learning service is now generally available.
     + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) now copies to and from a SQL datasource
     + Schedule functionality in SDK to create and update schedules for running published pipelines
 
-+ **Bugs fixed**
+<!--+ **Bugs fixed**-->
 
 ### Azure Machine Learning Data Prep SDK v0.5.2
 
