@@ -35,7 +35,7 @@ The new Logs experience in the Azure portal is based on the Advanced Analytics P
 
 ### Q. Why can't I see Query Explorer and Save buttons in the new Logs experience?
 
-**Query Explorer**, **Save** and **Set Alert** buttons are not available when exploring Logs in the context of a specific resource. To create alerts, save or load a query, Logs must be scoped to a workspace. To open Logs in workspace context, select **All services** > **Monitor** > **Logs**. The last used workspace is selected, but you can select any other workspace. See [Viewing and analyzing data in Log Analytics](../../log-analytics/portals.md) for more information.
+**Query Explorer**, **Save** and **Set Alert** buttons are not available when exploring Logs in the context of a specific resource. To create alerts, save or load a query, Logs must be scoped to a workspace. To open Logs in workspace context, select **All services** > **Monitor** > **Logs**. The last used workspace is selected, but you can select any other workspace. See [Viewing and analyzing data in Log Analytics](../log-query/portals.md) for more information.
 
 ### Q. How do I extract Custom Fields in the new Logs experience? 
 
@@ -59,7 +59,7 @@ A: To view VM Logs, you need to be granted with read permission to the workspace
 
 ### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
 
-A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](../../log-analytics/../../log-analytics/log-analytics-oms-portal-transition.md) for more information.
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../log-analytics/log-analytics-oms-portal-transition.md) for more information.
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.

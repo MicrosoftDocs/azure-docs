@@ -704,7 +704,7 @@
         - name: Examples
           href: log-query/examples.md
         - name: Cross-resource searches
-          href: platform/cross-workspace-query.md
+          href: log-query/cross-workspace-query.md
         - name: app expression
           href: log-query/app-expression.md
         - name: workspace expression
