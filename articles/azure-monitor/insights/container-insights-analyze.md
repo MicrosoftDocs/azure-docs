@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ms.author: magoedte
 ---
 
@@ -37,15 +37,20 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
-1. Are all of my Azure Container Service Engine deployments healthy?
+1. Are all of my [Azure Container Service Engine (ACS-engine)](https://github.com/Azure/acs-engine) deployments healthy?
 1. How many nodes, user and system pods are deployed per cluster.  
 
-The health states defined are: 
+The health statuses defined are: 
 
-1. **Healthy** – no issues detected for the VM and it is functioning as required. 
-2. **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
-3. **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
-4. **Unknown** – if the service was not able to make a connection with the node or pod, the status changes to an unknown state.​
+* **Healthy** – no issues detected for the VM and it is functioning as required. 
+* **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
+* **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
+* **Unknown** – if the service was not able to make a connection with the node or pod, the status changes to an unknown state.
+* **Not found** - Either the workspace, the resource group or subscription containing the workspace for this solution has been deleted.
+* **Unauthorized** - User doesn’t have required to  permission to read the data in the workspace.
+* **Error** - Error occurred while attempting to read data from the workspace.
+* **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
+* **No data** - Data has not reported to the workspace in the last 30 minutes.
 
 Health state calculates overall cluster status as *worst of*” the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
 
@@ -94,7 +99,7 @@ When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatic
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For additional information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data).
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For additional information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
 Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select the from one of the values shown in the **Select value(s)** field.  After the filter is configured it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
@@ -220,10 +225,7 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
-| ![Unauthorized status icon](./media/container-insights-analyze/containers-unauth-icon.png)| User doesn’t have required to  permission to read the data in the workspace |
-| ![Not found status icon](./media/container-insights-analyze/containers-not-found-icon.png)| Either the workspace, the resource group or subscription containing the workspace for this solution has been deleted. |
-| ![Mis-configured status icon](./media/container-insights-analyze/containers-ms-configured-icon.png)| Azure Monitor for containers was not configured correctly in the specified workspace. |
-| ![Error status icon](./media/container-insights-analyze/containers-error-icon.png)| Error occurred reading data from the workspace. |
+
 
 ## Container data-collection details
 Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
