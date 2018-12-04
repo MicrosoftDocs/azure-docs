@@ -51,36 +51,36 @@ Follow these steps to create a blank SQL database.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
-1. Fill out the **SQL Database** form with the following information, as shown on the preceding image:
+   1. Fill out the **SQL Database** form with the following information, as shown on the preceding image:
 
-   | Setting       | Suggested value | Description |
-   | ------------ | ------------------ | ------------------------------------------------- |
-   | **Database name** | *yourDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
-   | **Subscription** | *yourSubscription*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
-   | **Select source** | Blank database | Specifies that a blank database should be created. |
+      | Setting       | Suggested value | Description |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Database name** | *yourDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
+      | **Subscription** | *yourSubscription*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+      | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+      | **Select source** | Blank database | Specifies that a blank database should be created. |
 
-1. Click **Server** to use an existing server or create and configure a new server for your database. Either select the server or click **Create a new server** and fill out the **New server** form with the following information:
+   1. Click **Server** to use an existing server or create and configure a new server for your database. Either select the server or click **Create a new server** and fill out the **New server** form with the following information:
 
-   | Setting       | Suggested value | Description |
-   | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
-   | **Server admin login** | Any valid name | For valid login names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
-   | **Password** | Any valid password | Your password must have at least eight characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+      | Setting       | Suggested value | Description |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+      | **Server admin login** | Any valid name | For valid login names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
+      | **Password** | Any valid password | Your password must have at least eight characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+      | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
-   ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
+      ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
-   Click **Select**.
+      Click **Select**.
 
-1. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. You may explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. By default, the **Standard** [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is selected, but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+   1. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. You may explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. By default, the **Standard** [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is selected, but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-   > [!IMPORTANT]
-   > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+      > [!IMPORTANT]
+      > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
-1. After selecting the service tier, the number of DTUs, and the amount of storage, click **Apply**.  
+      After selecting the service tier, the number of DTUs, and the amount of storage, click **Apply**.
 
-1. Enter a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](/sql/t-sql/statements/collations)
+   1. Enter a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](/sql/t-sql/statements/collations)
 
 1. Now that you've completed the **SQL Database** form, click **Create** to provision the database. This step may take a few minutes.
 
@@ -134,11 +134,11 @@ Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) 
 
    ![connect to server](./media/sql-database-design-first-database/connect.png)
 
-1. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter *yourDatabase* to connect to this database.
+   1. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter *yourDatabase* to connect to this database.
 
-   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+      ![connect to db on server](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-1. Click **Connect**. The **Object Explorer** window opens in SSMS.
+   1. Click **Connect**. The **Object Explorer** window opens in SSMS.
 
 1. In **Object Explorer**, expand **Databases** and then expand *yourDatabase* to view the objects in the sample database.
 
@@ -224,13 +224,13 @@ The following diagram shows how these tables are related to each other. Some of 
 
 1. Open a command prompt window and navigate to the *sampleData* folder.
 
-1. Execute the following commands to insert sample data into the tables replacing the values for *yourServer*, *yourDatabase*, *yourUsername*, and *yourPassword* with the values for your environment.
+1. Execute the following commands to insert sample data into the tables replacing the values for *server*, *database*, *username*, and *password* with the values for your environment.
   
    ```cmd
-   bcp Course in SampleCourseData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
-   bcp Person in SamplePersonData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
-   bcp Student in SampleStudentData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
-   bcp Credit in SampleCreditData -S <yourServer>.database.windows.net -d <yourDatabase> -U <yourUsername> -P <yourPassword> -q -c -t ","
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
    ```
 
 You have now loaded sample data into the tables you created earlier.
@@ -252,7 +252,7 @@ Execute the following queries to retrieve information from the database tables. 
        AND Grade > 75
    ```
 
-1. In a SQL Server Management Studio query window, execute following query:
+1. In a query window, execute following query:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
