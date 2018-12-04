@@ -2,15 +2,11 @@
 title: Azure Data Lake Storage Gen2 Storm performance tuning guidelines | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Storm performance tuning guidelines
 services: storage
-documentationcenter: ''
-author: stewu
-manager: amitkul
-editor: stewu
+author: swums
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.date: 12/19/2016
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: stewu
 
 ---
