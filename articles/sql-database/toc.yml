@@ -160,7 +160,7 @@
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Connectivity architecture
         href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Management endpoints 
+      - name: Management endpoint
         href: sql-database-managed-instance-management-endpoint.md   
       - name: Connect applications
         href: sql-database-managed-instance-connect-app.md
