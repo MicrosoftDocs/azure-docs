@@ -55,13 +55,13 @@ Before adding logging and submitting an experiment, you must set up the workspac
                resource_group = <<resource_group>>)
    ```
 
-2. Create the experiment.
+2. Set the experiment name.
 
   ```python
   from azureml.core import Experiment
 
   # make up an arbitrary name
-  experiment_name = 'train-in-notebook'
+  experiment_name = 'train-within-notebook'
   ```
   
 ## Option 1: Use start_logging
@@ -97,19 +97,31 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
   ```python
+  # Get an experiment object from Azure Machine Learning
   experiment = Experiment(workspace = ws, name = experiment_name)
-  run = experiment.start_logging()
-  run.tag("Description","My first run!")
+  
+  # Create a run object in the experiment
+  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
   run.log('alpha', 0.03)
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  run.log('mse', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl')
-  # Upload file directly to the outputs folder
-  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
+  # Create, fit, and test the scikit-learn Ridge regression model
+  regression_model = Ridge(alpha=0.03)
+  regression_model.fit(data['train']['X'], data['train']['y'])
+  preds = regression_model.predict(data['test']['X'])
+
+  # Output the Mean Squared Error to the notebook and to the run
+  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+  run.log('mse', mean_squared_error(data['test']['y'], preds))
+
+  # Save the model to the outputs directory for capture
+  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+
+  # Take a snapshot of the directory containing this notebook
+  run.take_snapshot('./')
+
+  # Complete the run
   run.complete()
+  
   ```
 
 The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
