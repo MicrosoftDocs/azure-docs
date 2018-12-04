@@ -307,16 +307,13 @@ Depending on the upgrade strategy you choose, the steps will differ. The current
 
 First, make sure that you've created the Gen2 account, and then copied over data and meta from Gen1 to Gen2 by using an appropriate tool. Those tools are called out in [Data upgrade](#data-upgrade) section of this guide.
 
-Then, [upgrade](https://docs.databricks.com/user-guide/clusters/index.html) your existing Databricks cluster to start using Databricks runtime 5.1 or higher, which should support Data Lake Storage Gen2.
+Then, [upgrade](https://docs.azuredatabricks.net/user-guide/clusters/index.html) your existing Databricks cluster to start using Databricks runtime 5.1 or higher, which should support Data Lake Storage Gen2.
 
-The steps thereafter are based on how the existing Databricks workspace accesses data in the Data Lake Storage Gen1 account. It can be done either through [mountpoints](https://docs.databricks.com/spark/latest/data-sources/azure/azure-datalake.html#mount-azure-data-lake-store-with-dbfs) or by calling adl:// URIs directly from the notebooks.
+The steps thereafter are based on how the existing Databricks workspace accesses data in the Data Lake Storage Gen1 account. It can be done either by calling adl:// URIs [directly](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html#access-azure-data-lake-store-directly) from notebooks, or through [mountpoints](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html#mount-azure-data-lake-store-with-dbfs).
 
-If you are accessing [directly](https://docs.databricks.com/spark/latest/data-sources/azure/azure-datalake.html#access-azure-data-lake-store-directly) from notebooks by providing the full adl:// URIs, you'll need to go through each notebook and change the configuration to access the corresponding Data Lake Storage Gen2 URI.
+If you are accessing directly from notebooks by providing the full adl:// URIs, you'll need to go through each notebook and change the configuration to access the corresponding Data Lake Storage Gen2 URI.
 
-If you are using [mountpoints](https://docs.databricks.com/spark/latest/data-sources/azure/azure-datalake.html#mount-azure-data-lake-store-with-dbfs),
-you'll need to go through each notebook and change the configuration to access the corresponding Data Lake Storage Gen2 URI.
-
-Going forward, you'll need to reconfigure it to point to Data Lake Storage Gen2 account. No more changes are needed, and the notebooks should be able to work as before. 
+Going forward, you'll need to reconfigure it to point to Data Lake Storage Gen2 account. No more changes are needed, and the notebooks should be able to work as before.
 
 If you are using any of the other upgrade strategies, you can create a variation of the above steps to meet your requirements.
 
