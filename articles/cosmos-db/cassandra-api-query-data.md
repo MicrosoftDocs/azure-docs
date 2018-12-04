@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Query data from an Azure Cosmos DB Cassandra API account'
+title: 'Tutorial: Query data from a Cassandra API account in Azure Cosmos DB'
 description: This tutorial shows how to query user data from an Azure Cosmos DB Cassandra API account by using a Java application.
-services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
@@ -9,11 +8,12 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
+Customer intent: As a developer, I want to build a Java application to query data stored in Cassandra API account of Azure Cosmos DB so that customers can manage the key, value data and utilize the global distribution, elastic scaling, multi-master and other capabilities offered by Azure Cosmos DB.
 ---
 
-# Tutorial: Query data from an Azure Cosmos DB Cassandra API account
+# Tutorial: Query data from a Cassandra API account in Azure Cosmos DB
 
-This tutorial shows how to query user data from an Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, and user city. 
+As a developer you may have applications that use key, value pairs. You can use Cassandra API account in Azure Cosmos DB to store and query the key, value data. This tutorial shows how to query user data from a Cassandra API account in Azure Cosmos DB by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, and user city. 
 
 This tutorial covers the following tasks:
 
@@ -100,9 +100,13 @@ Use the following steps to query data from your Cassandra API account:
 
 2. Now, in the Azure portal, open the **Data Explorer** and confirm that the user table is deleted.
 
+## Clean up resources
+
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+
 ## Next steps
 
-* In this tutorial, you've learned how to query data from an Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
+* In this tutorial, you've learned how to query data from a Cassandra API account in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Migrate data to Cassandra API account](cassandra-import-data.md)
