@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/4/2018
 ms.author: wgries
 ms.component: files
 ---
@@ -20,7 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V4 Release | 4.0.1.0 | November 13, 2018 | Supported (recommended version) |
+| December update rollup - [KB4459988](https://support.microsoft.com/help/4459988)| 4.1.0.0 | December 4, 2018 | Supported (recommended version) |
+| V4 Release | 4.0.1.0 | November 13, 2018 | Supported |
 | September update rollup | 3.3.0.0 | September 24, 2018 | Supported |
 | August update rollup | 3.2.0.0 | August 15, 2018 | Supported |
 | General availability | 3.1.0.0 | July 19, 2018 | Supported |
@@ -37,6 +38,16 @@ The following versions are supported for the Azure File Sync agent:
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 4.1.0.0
+The following release notes are for version 4.1.0.0 of the Azure File Sync agent released December 4, 2018. These notes are in addition to the release notes listed for version 4.0.1.0.
+
+List of issues fixed in this release:  
+- A Stop error 0x3B or Stop error 0x1E may occur when a VSS snapshot is created.  
+- The server may become unresponsive because of a cloud-tiering memory leak.  
+- Agent installation fails with the following error: Error 1921. Service 'Storage Sync Agent' (FileSyncSvc) could not be stopped.  Verify that you have sufficient privileges to stop system services.  
+- The Storage Sync Agent (FileSyncSvc) service may crash when memory usage is high.  
+- Miscellaneous reliability improvements for cloud tiering and sync.
 
 ## Agent version 4.0.1.0
 The following release notes are for version 4.0.1.0 of the Azure File Sync agent (released November 13, 2018).
@@ -102,7 +113,7 @@ The following items don't sync, but the rest of the system continues to operate 
 ## Agent version 3.3.0.0
 The following release notes are for version 3.3.0.0 of the Azure File Sync agent released September 24, 2018. These notes are in addition to the release notes listed for version 3.1.0.0.
 
-This release includes the following fix:
+List of issues fixed in this release:
 - Registered server state is “Appears offline” after the Azure File Sync agent is upgraded to version 3.1 or 3.2.
 - Storage Sync Agent (FileSyncSvc) service crashes due to files that have long paths.
 - Server registration fails with error: Could not load file or assembly Kailani.Afs.StorageSyncProtocol.V3.
