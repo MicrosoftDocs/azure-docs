@@ -353,6 +353,34 @@ script:
 
 ```
 
+You can also use Azure DevOps. Below is example `azure-pipelines.yml` script for building and publishing to Azure.
+
+```yml
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+- script: |
+     sudo apt-get install python3-setuptools
+     sudo python3 -m pip install --upgrade pip setuptools wheel
+  displayName: 'Install python tools'
+
+- script: |
+    sudo npm i -g azure-functions-core-tools --unsafe-perm true
+  displayName: 'Install Azure Functions Core Tools'
+
+- script: |
+    sudo python3 -m pip install -r requirements.txt
+    dotnet build extensions.csproj -o bin --no-incremental
+  displayName: 'Build functions app'
+
+- script: |
+    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)"
+    az account get-access-token --query "accessToken" | func azure functionapp publish $(APP_NAME) --build-native-deps
+  displayName: 'Publish functions app'
+
+```
+
 ## Known issues and FAQ
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
