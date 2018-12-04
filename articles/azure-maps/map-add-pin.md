@@ -33,8 +33,9 @@ A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 ## Add a custom icon to a symbol layer
 
-Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom symbol icon to the map resources and then use it to render point data with a custom symbol on the map.
+Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom symbol icon to the map resources and then use it to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case we want to render the temperature property of the point feature as the text value. This can be achieved with this expression: `['get', 'temperature']`. 
 
+<br/>
 
 <iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -43,6 +44,7 @@ Symbol layers are rendered using WebGL. As such all resources, such as icon imag
 
 The symbol layer has many styling options available. Here is a tool to test out these various styling options.
 
+<br/>
 
 <iframe height='700' scrolling='no' title='Symbol Layer Options' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Symbol Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
