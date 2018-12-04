@@ -62,6 +62,8 @@
     href: service-fabric-mesh-howto-containerize-vs.md
   - name: Optimize Visual Studio performance
     href: service-fabric-mesh-howto-optimize-vs.md
+  - name: Configure Gateway resources
+    href: service-fabric-mesh-howto-configure-gateways.md
   - name: Auto scale services
     href: service-fabric-mesh-howto-auto-scale-services.md
   - name: Store state with Azure Files volume
