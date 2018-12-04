@@ -123,7 +123,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-sup1sup1-15).
 
 ## DSv3-series
 
@@ -136,7 +136,7 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 |Standard_D32s_v3|16|
 |Standard_D64s_v3|32|
 
-For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1).
+For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup).
 
 ## Dv2-series
 
@@ -160,7 +160,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_D14_v2|8|
 |Standard_D15_v2|10|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-11-15).
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-sup1sup1-15).
 
 ## Dv3-series
 
@@ -173,7 +173,7 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 |Standard_D32_v3|16|
 |Standard_D64_v3|32|
 
-For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1).
+For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv3-series-sup1sup).
 
 ## ESv3-series
 
@@ -232,7 +232,7 @@ For more information, see [Compute optimized virtual machine sizes](../articles/
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1).
+For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fs-series-sup1sup).
 
 ## Fsv2-series
 
@@ -246,7 +246,7 @@ For more information, see [Compute optimized virtual machine sizes](../articles/
 |Standard_F64s_v2|32|
 |Standard_F72s_v2|36|
 
-For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-1).
+For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-sup1sup).
 
 ## H-series
 
