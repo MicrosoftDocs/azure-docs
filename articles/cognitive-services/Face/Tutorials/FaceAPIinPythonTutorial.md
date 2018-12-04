@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Install the Face Python SDK by opening the command prompt and running the following command:
 
-```
+```shell
 pip install cognitive_face
 ```
 
