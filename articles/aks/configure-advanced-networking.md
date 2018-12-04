@@ -160,7 +160,7 @@ Learn more about networking in AKS in the following articles:
 
 ### ACS Engine
 
-[Azure Container Service Engine (ACS Engine)][acs-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Docker-enabled clusters on Azure. Kubernetes, DC/OS, Swarm Mode, and Swarm orchestrators can be deployed with ACS Engine.
+[Azure Container Service Engine (ACS Engine)][aks-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Docker-enabled clusters on Azure. Kubernetes, DC/OS, Swarm Mode, and Swarm orchestrators can be deployed with ACS Engine.
 
 Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] and [Azure CNI][cni-networking] plugins. As such, both basic and advanced networking scenarios are supported by ACS Engine.
 
@@ -169,7 +169,7 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
