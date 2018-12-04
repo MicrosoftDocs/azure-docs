@@ -104,7 +104,7 @@ Once Log Analytics starts collecting from the custom log, its records will be av
 
 
 ### Step 6. Parse the custom log entries
-The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Log Analytics](log-analytics-parse-text.md) for options on parsing **RawData** into multiple properties.
+The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Log Analytics](../log-query/parse-text.md) for options on parsing **RawData** into multiple properties.
 
 ## Removing a custom log
 Use the following process in the Azure portal to remove a custom log that you previously defined.
@@ -116,7 +116,7 @@ Use the following process in the Azure portal to remove a custom log that you pr
 ## Data collection
 Log Analytics will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Log Analytics will collect entries from where it last left off, even if those entries were created while the agent was offline.
 
-The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Log Analytics](log-analytics-parse-text.md) for methods to parse each imported log entry into multiple properties.
+The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
 
 ## Custom log record properties
 Custom log records have a type with the log name that you provide and the properties in the following table.
@@ -125,7 +125,7 @@ Custom log records have a type with the log name that you provide and the proper
 |:--- |:--- |
 | TimeGenerated |Date and time that the record was collected by Log Analytics.  If the log uses a time-based delimiter then this is the time collected from the entry. |
 | SourceSystem |Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or System Center Operations Manager <br> Linux – All Linux agents |
-| RawData |Full text of the collected entry. You will most likely want to [parse this data into individual properties](log-analytics-parse-text.md). |
+| RawData |Full text of the collected entry. You will most likely want to [parse this data into individual properties](../log-query/parse-text.md). |
 | ManagementGroupName |Name of the management group for System Center Operations Manage agents.  For other agents, this is AOI-\<workspace ID\> |
 
 
@@ -141,28 +141,28 @@ The following section walks through an example of creating a custom log.  The sa
 ### Upload and parse a sample log
 We provide one of the log files and can see the events that it will be collecting.  In this case New Line is a sufficient delimiter.  If a single entry in the log could span multiple lines though, then a timestamp delimiter would need to be used.
 
-![Upload and parse a sample log](media/log-analytics-data-sources-custom-logs/delimiter.png)
+![Upload and parse a sample log](media/data-sources-custom-logs/delimiter.png)
 
 ### Add log collection paths
 The log files will be located in *C:\MyApp\Logs*.  A new file will be created each day with a name that includes the date in the pattern *appYYYYMMDD.log*.  A sufficient pattern for this log would be *C:\MyApp\Logs\\\*.log*.
 
-![Log collection path](media/log-analytics-data-sources-custom-logs/collection-path.png)
+![Log collection path](media/data-sources-custom-logs/collection-path.png)
 
 ### Provide a name and description for the log
 We use a name of *MyApp_CL* and type in a **Description**.
 
-![Log name](media/log-analytics-data-sources-custom-logs/log-name.png)
+![Log name](media/data-sources-custom-logs/log-name.png)
 
 ### Validate that the custom logs are being collected
 We use a query of *Type=MyApp_CL* to return all records from the collected log.
 
-![Log query with no custom fields](media/log-analytics-data-sources-custom-logs/query-01.png)
+![Log query with no custom fields](media/data-sources-custom-logs/query-01.png)
 
 ### Parse the custom log entries
 We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* fields and we can see the difference in the records that are returned by the query.
 
-![Log query with custom fields](media/log-analytics-data-sources-custom-logs/query-02.png)
+![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
 
 ## Next steps
 * See [Parse text data in Log Analytics](log-analytics-parse-text.md) for methods to parse each imported log entry into multiple properties.
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.
+* Learn about [log searches](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
