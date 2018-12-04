@@ -573,8 +573,6 @@
       href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Processing big data
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Working with open source applications
-      href: ../blobs/data-lake-storage-compatible-oss-other-applications.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Quickstarts
     items:
     - name: Create a Data Lake Storage Gen2 capable Storage account

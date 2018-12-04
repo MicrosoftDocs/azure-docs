@@ -62,6 +62,20 @@ The following are the equivalent entities, as described by different concepts. U
 | Blobs – General purpose object storage | Container              | Virtual Directory (SDK only – does not provide atomic manipulation) | Blob           |
 | ADLS Gen2 – Analytics Storage          | Filesystem             | Directory                                                           | File           |
 
+## Open source platforms that work with Data Lake Storage Gen2
+
+Several open source platforms support Data Lake Storage Gen2. Those platforms appear in the following table.
+
+> [!NOTE]
+> Only the versions that appear in this table are supported.
+
+| Platform |  Supported version(s) | More information |
+| --- | --- | --- |
+| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+| [Hadoop](https://hadoop.apache.org/) | 3.0+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1+ | [Claudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime Versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+
 ## Next steps
 
 The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
