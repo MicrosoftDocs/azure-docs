@@ -27,7 +27,7 @@ An ExpressRoute circuit has multiple routing domains associated with it:
 -	[Azure Public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) - Services such as Azure Storage, SQL databases, and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. Public peering has been deprecated for new creations and Microsoft Peering should be used instead for Azure PaaS services.
 -	[Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) - Connectivity to Microsoft online services (Office 365, Dynamics 365, and Azure PaaS services) is through the Microsoft peering. Microsoft peering is the recommended routing domain to connect to Azure PaaS services.
 
-Learn more about and compare ExpressRoute routing domains [here](../expressroute/expressroute-circuit-peerings.md#comparison).
+Learn more about and compare ExpressRoute routing domains [here](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
 ## On-premises to Azure replication with ExpressRoute
 
