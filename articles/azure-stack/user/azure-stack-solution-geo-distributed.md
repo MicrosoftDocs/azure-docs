@@ -77,7 +77,7 @@ In this part, you will create a web app.
 
 > [!div class="checklist"]
 > - Create web apps and publish
-> - Add Code to VSTS Project
+> - Add Code to Azure Repos
 > - Point the app build to multiple cloud targets.
 > - Manage and configure the CD process
 
@@ -104,9 +104,9 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 > [!Note]  
 > Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
 
-#### Add Code to VSTS Project
+#### Add Code to Azure Repos
 
-1. Sign in to Visual Studio with an **account that has project creation rights** on VSTS.
+1. Sign in to Visual Studio with an **account that has project creation rights** on Azure Repos.
 
     Hybrid Continuous Integration/Continuous Delivery (CI/CD) can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
@@ -122,13 +122,13 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **Check in the code to VSTS** using Team Explorer.
+1.  **Check in the code to Azure Repos** using Team Explorer.
 
-2.  Confirm that the **application code** has been checked into Visual Studio Team Services.
+2.  Confirm that the **application code** has been checked into Azure Repos.
 
 ### Create the build definition
 
-1. **Log into VSTS** to confirm ability to create build definitions.
+1. **Log into Azure Pipelines** to confirm ability to create build definitions.
 
 2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
 
@@ -138,11 +138,11 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 **Using an Azure Hosted Agent**
 
-Using a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
+Using a hosted agent in Azure Pipelines is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
 
 ### Manage and configure the CD process
 
-Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
+Azure DevOps and Azure DevOps Server provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
 
 #### Create release definition
 

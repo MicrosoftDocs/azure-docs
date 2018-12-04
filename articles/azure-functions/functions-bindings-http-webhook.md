@@ -38,7 +38,7 @@ The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](
 
 ## Trigger
 
-The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks. 
+The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks.
 
 By default, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x. To modify the response, configure an [HTTP output binding](#output).
 
@@ -49,8 +49,9 @@ See the language-specific example:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### Trigger - C# example
 
@@ -272,6 +273,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### Trigger - Python example
+
+The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+Here's the *function.json* file:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+The [configuration](#trigger---configuration) section explains these properties.
+
+Here's the Python code:
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### Trigger - Java example
 
 The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function returns an HTTP status code 200 response with a request body that prefixes the triggering request body with a "Hello, " greeting.
@@ -303,7 +359,7 @@ Here's the Java code:
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -348,12 +404,11 @@ For C# and F# functions, you can declare the type of your trigger input to be ei
 
 For JavaScript functions, the Functions runtime provides the request body instead of the request object. For more information, see the [JavaScript trigger example](#trigger---javascript-example).
 
-
 ### Customize the HTTP endpoint
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
 
@@ -385,7 +440,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 This allows the function code to support two parameters in the address, _category_ and _id_. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -417,7 +472,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
@@ -529,17 +584,15 @@ When using one of these function app-level security methods, you should set the 
 ### Webhooks
 
 > [!NOTE]
-> Webhook mode is only available for version 1.x of the Functions runtime.
+> Webhook mode is only available for version 1.x of the Functions runtime. This change was made to improve the performance of HTTP triggers in version 2.x.
 
-Webhook mode provides additional validation for webhook payloads. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks.
+In version 1.x, webhook templates provide additional validation for webhook payloads. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks. 
 
 #### GitHub webhooks
 
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
 
 #### Slack webhooks
 
@@ -556,7 +609,7 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 
 The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan). 
+If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan).
 
 ## Trigger - host.json properties
 
@@ -570,7 +623,7 @@ Use the HTTP output binding to respond to the HTTP request sender. This binding 
 
 ## Output - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries, there are no attribute properties that correspond to these *function.json* properties. 
+The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries, there are no attribute properties that correspond to these *function.json* properties.
 
 |Property  |Description  |
 |---------|---------|

@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# PowerShell cmdlets
+# PowerShell cmdlets (Preview)
 
 This article lists the PowerShell cmdlets for Windows Virtual Desktop.
 

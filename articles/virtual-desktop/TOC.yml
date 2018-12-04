@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Windows Virtual Desktop?
+  - name: What is Windows Virtual Desktop? (Preview)
     href: overview.md
 
 - name: Tutorials
@@ -19,11 +19,11 @@
     href: connect.md
 - name: Concepts
   items:
-  - name: Windows Virtual Desktop environment
+  - name: Windows Virtual Desktop environment (Preview)
     href: environment-setup.md
   - name: Identify issues with the diagnostics role service
     href: diagnostics-role-service.md
-  - name: Delegated access in Windows Virtual Desktop
+  - name: Delegated access in Windows Virtual Desktop (Preview)
     href: delegated-access-virtual-desktop.md
 - name: How-to
   items:
@@ -31,5 +31,5 @@
     href: tenant-setup-remote-desktop.md
 - name: Reference
   items:
-  - name: PowerShell cmdlets
+  - name: PowerShell cmdlets (Preview)
     href: powershell-cmdlet-table.md
