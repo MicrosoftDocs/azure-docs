@@ -1049,7 +1049,7 @@
         },
         {
             "source_path": "articles/active-directory/pp/msi-howto-assign-access-portal.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal",
             "redirect_document_id": false
         },
         {
@@ -15043,7 +15043,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health-faq.md",
-            "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-faq",
+            "redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
             "redirect_document_id": false
         },
         {
@@ -15546,7 +15546,7 @@
 },
 {
 "source_path": "articles/active-directory/connect/active-directory-aadconnect-health-version-history.md",
-"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-version-history",
 "redirect_document_id": false
 },
 {
@@ -31340,6 +31340,181 @@
             "source_path":  "articles/log-analytics/log-analytics-queries.md",
             "redirect_url":  "/azure/azure-monitor/log-query/log-query-overview",
             "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/splunk-cheatsheet.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/splunk-cheatsheet",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/sql-cheatsheet.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/sql-cheatsheet",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/get-started-analytics-portal.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/get-started-portal",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/get-started-queries.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/get-started-queries",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/search-queries.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/search-queries",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/useful-operators.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/useful-operators",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/advanced-aggregations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/advanced-aggregations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/advanced-query-writing.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/advanced-query-writing",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/aggregations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/aggregations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/charts.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/charts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/datetime-operations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/datetime-operations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/joins.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/joins",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/json-data-structures.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/json-data-structures",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/string-operations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/string-operations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/app-expression.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/app-expression",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/examples.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/examples",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/query-language.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/query-language",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/workspace-expression.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/workspace-expression",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/data-explorer-difference.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/data-explorer-difference",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/functions.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/functions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-cross-workspace-search.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/cross-workspace-query",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-custom-fields.md",
+            "redirect_url":  "/azure/azure-monitor/platform/custom-fields",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-collector-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-collector-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-ingestion-time.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-ingestion-time",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-security.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-security",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-faq.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-flow-tutorial.md",
+            "redirect_url":  "/azure/azure-monitor/platform/flow-tutorial",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-service-manager-script.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-service-manager-script",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-log-search-portals.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/portals",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-log-search-takeaction.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/take-action",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
+            "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
+            "redirect_url":  "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/marketplace/toc_old.md",
+            "redirect_url":  "/azure/marketplace",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/azure-stack/user/media/azure-stack-app-service-deploy-offline/temp.md",
+            "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
+            "redirect_document_id":  false
         }
     ]
 }

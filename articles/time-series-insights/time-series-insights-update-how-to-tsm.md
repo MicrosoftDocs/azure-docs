@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
 # Data modeling in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following the Azure Time Series Insights (preview). It details several common data scenarios.
+This document describes how to work with **Time Series Models** following the Azure Time Series Insights (Preview). It details several common data scenarios.
 
-Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the Private Preview.
+Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the update.
 
 ## Types
 
@@ -125,9 +125,11 @@ Read the [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.m
 
 ## Next steps
 
-Read [Time Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
+Read about [Data modeling](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
 
-View the Azure TSI (preview) Explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
+View the Azure TSI (Preview) explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
+
+Learn about supported JSON shapes by reading [Supported JSON Shapes](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png
