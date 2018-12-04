@@ -150,7 +150,7 @@
   - name: Manage with DevOps tools
     items:
     - name: Azure DevOps project for IoT Edge
-      href: devops-project.md
+      href: how-to-devops-project.md
     - name: CI/CD in Azure DevOps
       href: how-to-ci-cd.md
   - name: Troubleshoot

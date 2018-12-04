@@ -117,7 +117,6 @@ This release pipeline has an enabled CD trigger, which runs a deployment every t
 
 1. On the left, select **Tasks**. The tasks are the activities that your deployment process performs. In this example, a task was created to deploy your module images to Azure IoT Edge. To know more about Azure IoT Edge tasks for CD, you can visit [Configure Azure Pipelines for continuous deployment](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-deployment).
 
-
     ![CD](media/how-to-devops-project/dev-release.png)
 
 1. On the right, select **View releases**. This view shows a history of releases.
