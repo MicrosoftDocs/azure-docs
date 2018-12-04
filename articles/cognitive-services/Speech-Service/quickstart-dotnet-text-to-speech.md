@@ -232,7 +232,5 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-## See also
-
 * [Creating custom voice fonts](how-to-customize-voice-font.md)
 * [Record voice samples to create a custom voice](record-custom-voice-samples.md)
