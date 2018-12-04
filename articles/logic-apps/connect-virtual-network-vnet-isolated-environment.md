@@ -87,7 +87,7 @@ to the Azure Logic Apps service as described.
    1. Under **Role**, select **Network Contributor**. 
    
    1. Under **Assign access to**, select 
-   **Azure AD user, group, or application**.
+   **Azure AD user, group, or service principal**.
 
    1. Under **Select**, enter **Azure Logic Apps**. 
 

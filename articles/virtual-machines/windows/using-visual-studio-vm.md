@@ -28,15 +28,16 @@ New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 ## What configurations and versions are available?
 Images for the most recent major versions, Visual Studio 2017 and Visual Studio 2015, can be found in the Azure Marketplace. For each major version, you see the originally released (RTW) version and the latest updated versions. Each of these versions offers the Visual Studio Enterprise and the Visual Studio Community editions. These images are updated at least every month to include the latest Visual Studio and Windows updates. While the names of the images remain the same, each image's description includes the installed product version and the image's "as of" date.
 
-| Release version                                              | Editions                     |     Product version     |
-|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.0     |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.18    |
-|   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
-|         Visual Studio 2015: RTW                              |             None             | (Expired for servicing) |
+| Release version                                              | Editions                     |     Product version      |
+|:------------------------------------------------------------:|:----------------------------:|:------------------------:|
+|   Visual Studio 2019: Preview (Preview 1 )                   |           Enterprise         | Version 16.0.0 Preview 1 |
+| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |       Version 15.9.0     |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.18     |
+|   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
+|         Visual Studio 2015: RTW                              |             None             | (Expired for servicing)  |
 
 > [!NOTE]
-> In accordance with Microsoft servicing policy, the originally released (RTW) version of Visual Studio 2015 has expired for servicing. Visual Studio 2015 Update 3 is the only remaining version offered for the Visual Studio 2015 product line.  Also, since Visual Studio 2017 version 15.9 released, we've discontinued the 'latest preview' images that included previews of version 15.9.
+> In accordance with Microsoft servicing policy, the originally released (RTW) version of Visual Studio 2015 has expired for servicing. Visual Studio 2015 Update 3 is the only remaining version offered for the Visual Studio 2015 product line.
 
 For more information, see the [Visual Studio Servicing Policy](https://www.visualstudio.com/productinfo/vs-servicing-vs).
 

@@ -16,7 +16,7 @@ ms.author: magoedte
 ms.component: 
 ---
 # Log Analytics data security
-This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../security/security-microsoft-trust-center.md).  
+This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
 
 This article explains how data is collected, processed, and secured by Log Analytics. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Log Analytics. 
 
@@ -137,12 +137,12 @@ Azure Log Analytics meets the following requirements:
 ## Cloud computing security data flow
 The following diagram shows a cloud security architecture as the flow of information from your company and how it is secured as is moves to the Log Analytics service, ultimately seen by you in the Azure portal. More information about each step follows the diagram.
 
-![Image of Log Analytics data collection and security](./media/log-analytics-data-security/log-analytics-data-security-diagram.png)
+![Image of Log Analytics data collection and security](./media/data-security/log-analytics-data-security-diagram.png)
 
 ## 1. Sign up for Log Analytics and collect data
 For your organization to send data to Log Analytics, you configure a Windows or Linux agent running on Azure virtual machines, or on virtual or physical computers in your environment or other cloud provider.  If you use Operations Manager, from the management group you configure the Operations Manager agent. Users (which might be you, other individual users, or a group of people) create one or more Log Analytics workspaces, and register agents by using one of the following accounts:
 
-* [Organizational ID](../active-directory/fundamentals/sign-up-organization.md)
+* [Organizational ID](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft Account - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
 A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region. Each workspace is replicated to other datacenters in the region, primarily for Log Analytics service availability.
@@ -151,7 +151,7 @@ For Operations Manager, the Operations Manager management group establishes a co
 
 All communication between connected systems and the Log Analytics service is encrypted. The TLS (HTTPS) protocol is used for encryption.  The Microsoft SDL process is followed to ensure Log Analytics is up-to-date with the most recent advances in cryptographic protocols.
 
-Each type of agent collects data for Log Analytics. The type of data that is collected is depends on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
+Each type of agent collects data for Log Analytics. The type of data that is collected is depends on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
 
 ## 2. Send data from agents
 You register all agent types with an enrollment key and a secure connection is established between the agent and the Log Analytics service using certificate-based authentication and SSL with port 443. Log Analytics uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices.
@@ -175,7 +175,7 @@ The retention period of collected data stored in the database depends on the sel
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 ## Next steps
-* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](log-analytics-quick-collect-azurevm.md).  
+* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
 
-*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](log-analytics-quick-collect-linux-computer.md) or [Quickstart for Windows computers](log-analytics-quick-collect-windows-computer.md)
+*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) or [Quickstart for Windows computers](../../log-analytics/log-analytics-quick-collect-windows-computer.md)
 

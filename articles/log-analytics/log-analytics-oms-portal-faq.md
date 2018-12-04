@@ -122,4 +122,4 @@ https://\<your workspace name\>.portal.mms.microsoft.com. We recommend using Azu
 ## Next steps
 
 - [Find and install management solutions](../azure-monitor/insights/solutions.md) using the Azure portal.
-- Learn about [Log Search in the Azure portal](log-analytics-log-search-portals.md).
+- Learn about [Log Search in the Azure portal](../azure-monitor/log-query/portals.md).
