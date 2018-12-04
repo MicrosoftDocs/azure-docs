@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Add an Image Layer to a map
 
-This article shows you how you can overlay an image to fixed set of coordinates on the map. There are many scenarios in which overlaying an image on the map is done. Here are few examples of the type of images often overlaied on maps;
+This article shows you how you can overlay an image to fixed set of coordinates on the map. There are many scenarios in which overlaying an image on the map is done. Here are few examples of the type of images often overlaid on maps;
 
 * Images captured from drones.
 * Building floorplans.
@@ -33,11 +33,11 @@ This sample shows how to overlay an image of a [map of Newark New Jersey from 19
 
 In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
-In the second block of code, an [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and cooridinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+In the second block of code, an [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
 
 ## Import a KML Ground Overlay as an Image Layer
 
-This sample shows how to overlay KML Ground Overlay information as an image layer on the map. KML ground overlays provide north, south, east, and west coordinates and a counter-clockwise rotation,where as the image layer expects coordinates for each corner of the image. The KML ground overlay in this sample is of the Chartres cathedral and sourced from [wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+This sample shows how to overlay KML Ground Overlay information as an image layer on the map. KML ground overlays provide north, south, east, and west coordinates and a counter-clockwise rotation, where as the image layer expects coordinates for each corner of the image. The KML ground overlay in this sample is of the Chartres cathedral and sourced from [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
 <iframe height='500' scrolling='no' title='KML Ground Overlay as Image Layer' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML Ground Overlay as Image Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
