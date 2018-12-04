@@ -161,7 +161,49 @@ With the service principal assigned to the *viewers* role, you now specify prope
 
 ## Visualize data
 
-```kusto
-StormEvents
-| summarize event_count=count() by bin(StartTime, 1d)
-```
+Now you've finished configuring Azure Data Explorer as a data source for Grafana, it's time to visualize data. We'll show a basic example here, but there's a lot more you can do. We recommend looking at [Write queries for Azure Data Explorer](write-queries.md) for examples of other queries to run against the sample data set.
+
+1. In Grafana, on the left menu, select the plus icon then **Dashboard**.
+
+    ![Create dashboard](media/grafana/create-dashboard.png)
+
+1. Under the **Add** tab, select **Graph**.
+
+    ![Add graph](media/grafana/add-graph.png)
+
+1. On the graph panel, select **Panel Title** then **Edit**.
+
+    ![Edit panel](media/grafana/edit-panel.png)
+
+1. At the bottom of the panel, select **Data Source** then select the data source that you configured.
+
+    ![Select data source](media/grafana/select-data-source.png)
+
+1. In the query pane, copy in the following query then select **Run**. The query buckets the count of events by day for the sample data set.
+
+    ```kusto
+    StormEvents
+    | summarize event_count=count() by bin(StartTime, 1d)
+    ```
+
+    ![Run query](media/grafana/run-query.png)
+
+1. The graph doesn't show any results because it's scoped by default to data from the last six hours. On the top bar, select **Last 6 hours**.
+
+    ![Last six hours](media/grafana/last-six-hours.png)
+
+1. Specify a custom range that covers 2007, the year included in our StormEvents sample data set. Select **Apply**.
+
+    ![Custom date range](media/grafana/custom-date-range.png)
+
+    Now the graph shows the data from 2007, bucketed by day.
+
+    ![Finished graph](media/grafana/finished-graph.png)
+
+1. On the top bar, select the save icon: ![Save icon](media/grafana/save-icon.png).
+
+## Next steps
+
+[Write queries for Azure Data Explorer](write-queries.md)
+
+[Tutorial: Visualize data from Azure Data Explorer in Power BI](visualize-power-bi.md)
