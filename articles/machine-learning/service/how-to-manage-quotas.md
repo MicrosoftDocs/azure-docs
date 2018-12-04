@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 9/24/2018
+ms.date: 12/04/2018
 ---
 
 # Manage and request quotas for Azure resources
 
-As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for training or inferencing your models. This article gives more details on the pre-configured limits on various Azure resources for your subscription and also contains handy links to request quota enhancements for each type of resource.
+As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for training or inferencing your models. This article gives more details on the pre-configured limits on various Azure resources for your subscription and also contains handy links to request quota enhancements for each type of resource. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints.
 
-Keep these quotas in mind as you design and scale up your Azure ML resources. For example, if your cluster doesn't reach the target number of nodes you specified, then you might have reached a Batch AI cores limit for your subscription. If you plan to run production workloads in Batch AI, you may need to increase one or more of the quotas above the default. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables. If there is no Maximum Limit column, then the resource doesn't have adjustable limits. 
+Keep these quotas in mind as you design and scale up your Azure ML resources for production workloads. For example, if your cluster doesn't reach the target number of nodes you specified, then you might have reached a Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits. 
 
 ## Special considerations
 
 + A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support.
 
-+ Your quota is shared across all the services, except for Batch AI, in your subscription, Azure Machine Learning being one of them. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
++ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a seperate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
 + Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, and so on.
 
@@ -42,17 +42,28 @@ It is important to emphasize that virtual machine cores have a regional total li
 
 For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
 
-### Batch AI clusters
-In Batch AI, there is a default quota limit on both the number of cores and number of clusters allowed per region in a subscription. Batch AI quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
+### Azure Machine Learning Compute
+For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
 
 Available resources:
-+ Dedicated cores per region have a default limit of 10 - 24.  The number of dedicated cores per Batch AI subscription can be increased. Contact Azure support to discuss increase options.
++ Dedicated cores per region have a default limit of 10 - 24.  The number of dedicated cores per subscription can be increased. Contact Azure support to discuss increase options.
 
-+ Low-priority cores per region have a default limit of 10 - 24.  The number of low-priority cores per Batch AI subscription can be increased. Contact Azure support to discuss increase options.
++ Low-priority cores per region have a default limit of 10 - 24.  The number of low-priority cores per subscription can be increased. Contact Azure support to discuss increase options.
 
-+ Clusters per region have a default limit of 20 and a maximum limit of 200. Contact Azure support if you want to request an increase beyond this limit.
++ Clusters per region have a default limit of 100 and a maximum limit of 200. Contact Azure support if you want to request an increase beyond this limit.
 
-For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#batch-ai-limits).
++ There are **other strict limits**  which cannot be exceeded once hit.
+
+| **Resource** | **Maximum limit** |
+| --- | --- |
+| Maximum workspaces per resource group | 800 |
+| Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
+| Maximum GPU MPI processes per node | 1-4 |
+| Maximum GPU workers per node | 1-4 |
+| Maximum job lifetime | 7 days<sup>1</sup> |
+| Maximum parameter servers per node | 1 |
+
+<sup>1</sup> The maximum lifetime refers to the time that a run start and when it finishes. Completed runs persist indefinitely; data for runs not completed within the maximum lifetime is not accessible.
 
 ### Container instances
 
@@ -74,21 +85,22 @@ Viewing your quota for various resources, such as Virtual Machines, Storage, Net
 
 1. From the list of subscriptions, select the subscription whose quota you are looking for.
 
-   **There is a caveat**, specifically for viewing the Batch AI quota. As mentioned above, that quota is separate from the compute quota on your subscription. 
-   For Batch AI, after selecting **All services**, search for Batch AI and open the service.
+   **There is a caveat**, specifically for viewing the Azure Machine Learning Compute quota. As mentioned above, that quota is separate from the compute quota on your subscription. 
+   
+1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown
 
-1. Under **Settings**, select **Usage + quotas** to view your current quota limits and usage.
+1. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
 
-1. Select your subscription to view the quota limits. Remember to filter to the service and region you are interested in.
+1. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
 
 
 ## Request quota increases
 
-If you want to raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge. 
+If you want to raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
 
 The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then the resource doesn't have adjustable limits. [This](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) article covers the quota increase process in more detail.
 
-When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as AzureML quota, Batch AI quota, or Storage quota. 
+When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as Machine Learning service quota, Container instances or Storage quota. In addition for Azure Machine Learning Compute, you can simply click on the **Request Quota** button while viewing the quota following the steps above.
 
 > [!NOTE]
 > [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
