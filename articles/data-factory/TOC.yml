@@ -446,6 +446,8 @@
     items:
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
+    - name: Transform data with Databricks
+      href: solution-template-databricks-notebook.md
 - name: Reference
   items:
   - name: .NET
