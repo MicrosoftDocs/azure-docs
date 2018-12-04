@@ -18,7 +18,7 @@ ms.author: cshoe
 
 This article demonstrates how to create automated tests for Azure Functions. 
 
-While testing all code is recommended, you may get the best results by wrapping up logic used in a Function and creating tests outside the Function. Abstracting logic away limits a Function's lines of code and allows the Function to be solely responsible for calling other classes and/or modules. However, this article demonstrates how to create automated tests against an HTTP and timer-triggered function.
+Testing all code is recommended, however you may get the best results by wrapping up a Function's logic and creating tests outside the Function. Abstracting logic away limits a Function's lines of code and allows the Function to be solely responsible for calling other classes or modules. However, this article demonstrates how to create automated tests against an HTTP and timer-triggered function.
 
 The content that follows is split into two different sections meant to target different languages and environments. You can learn to build tests in:
 
@@ -46,7 +46,7 @@ To set up your environment, create a Function and test app. The following steps 
 
 Now that the applications are created, you can create the classes used to run the automated tests.
 
-Each function takes an instance if `ILogger` to handle message logging. Some tests either do not log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged in order to determine whether or not a test is passing.
+Each function takes an instance if `ILogger` to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
 The `ListLogger` class is meant to implement the `ILogger` interface and hold in internal list of messages for evaluation during a test.
 
@@ -89,7 +89,7 @@ namespace Functions.Tests
 
 The `ListLogger` class implements the following members as contracted by the [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) interface:
 
-- **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) class in order to allow the test to function.
+- **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) class to allow the test to function.
 
 - **IsEnabled**: A default value of `false` is provided.
 
@@ -227,9 +227,9 @@ The members implemented in this class are:
 
 - **Http_trigger_should_return_known_string**: This test creates a request with the query string values of `name=Bill` to an Http function and checks that the expected response is returned.
 
-- **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to pass in a series of sample data via the query string to the HTTP function.
+- **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
-- **Timer_should_log_message**: This creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
+- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
 
 ### Run tests
 
@@ -299,7 +299,7 @@ test('Http trigger should return known text', async () => {
     expect(context.res.body).toEqual('Hello Bill');
 });
 ```
-The HTTP function from the template returns a string of "Hello" concatenated with the name provided in the query string. This test creates a fake instance of a request and passes it to the HTTP function. Once the function is run then the test evaluates to ensure that the *log* method is called once and the returned text equals "Hello Bill".
+The HTTP function from the template returns a string of "Hello" concatenated with the name provided in the query string. This test creates a fake instance of a request and passes it to the HTTP function. The test checks that the *log* method is called once and the returned text equals "Hello Bill".
 
 Next, use the VS Code Functions extension to create a new JavaScript Timer Function and name it *TimerTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 
@@ -326,7 +326,7 @@ npm test
 
 ### Debug tests
 
-To debug your tests add the following configuration to your *launch.json* file:
+To debug your tests, add the following configuration to your *launch.json* file:
 
 ```json
 {
