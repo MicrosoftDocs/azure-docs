@@ -40,10 +40,16 @@ This update includes the following improvements for Azure Stack:
 
 - Enhanced Azure Stack operator experience for managing updates from the **Update** blade.
 
+- Support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 - This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
 - This release adds Azure Stack integrated systems support for configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
+- Added new privileged endpoint commands to update and remove service principles for ADFS. For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+
+- New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
+
+- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
 - This release adds support for Device Authentication with ADFS in particular when using Azure CLI. 
 <!-- @Matt add Link to CLI for ADFS -->
 
