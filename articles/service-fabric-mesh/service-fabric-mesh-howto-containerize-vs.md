@@ -45,7 +45,7 @@ Once that has downloaded, in Visual Studio 2017 open **ContainersSFLab\eShopLega
  
 Add container orchestration support to an existing ASP.NET or Console project using the Service Fabric Mesh tools as follows:
 
-In the Visual Studio solution explorer, right-click the project name (in the example, **eShopLegacyWebForms**) and then choose **Add** > **Container orchestrator support**.
+In the Visual Studio solution explorer, right-click the project name (in the example, **eShopLegacyWebForms**) and then choose **Add** > **Container Orchestrator Support**.
 The **Add Container Orchestrator Support** dialog appears.
 
 ![Visual Studio add container orchestrator dialog](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
