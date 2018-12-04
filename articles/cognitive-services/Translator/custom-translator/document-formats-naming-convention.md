@@ -44,10 +44,10 @@ Each document in the zip file with the extension TXT, HTML, HTM, PDF, DOCX, ALIG
 {document name}\_{language code}
 where {document name} is the name of your document, {language code} is the ISO LanguageID (two characters), indicating that the document contains sentences in that language. There must be an underscore (_) before the language code.
 
-Translation Memory files (TMX, XLF, XLIFF, LCL, XLSX) are not required to follow the specific language naming convention.  
-
 For example, to upload two parallel documents within a zip for an English to
 Spanish system, the files should be named “data_en” and “data_es”.
+
+Translation Memory files (TMX, XLF, XLIFF, LCL, XLSX) are not required to follow the specific language naming convention.  
 
 ## Next steps
 
