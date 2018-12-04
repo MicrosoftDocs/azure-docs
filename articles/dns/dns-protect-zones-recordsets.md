@@ -1,5 +1,5 @@
 ---
-title: Protecting DNS Zones and Records
+title: Protecting Azure DNS Zones and Records
 description: How to protect DNS zones and record sets in Microsoft Azure DNS.
 services: dns
 author: vhorne
