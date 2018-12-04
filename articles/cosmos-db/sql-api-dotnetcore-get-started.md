@@ -2,7 +2,6 @@
 title: 'Tutorial: Build a .NET Core app to manage data stored in SQL API account of Azure Cosmos DB'
 description: This tutorial creates an online database and C# console application using the Azure Cosmos DB SQL API .NET Core SDK. 
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -15,8 +14,10 @@ Customer intent: As a developer, I want to build a .Net Core application to acce
 # Tutorial: Build a .NET Core app to manage data stored in SQL API account
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)

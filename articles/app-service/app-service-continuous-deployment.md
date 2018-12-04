@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 
 ---
@@ -44,7 +44,7 @@ In the **Build provider** page, choose the build provider and click > **Continue
 
 In the **Configure** page, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
-### Option 2: use Azure DevOps Services continuous delivery
+### Option 2: use Azure Pipelines (preview)
 
 > [!NOTE]
 > For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
@@ -87,15 +87,18 @@ In the **Summary** page, verify your options and click **Finish**.
 
 When configuration completes, new commits in the selected repository are deployed continuously into your App Service app.
 
-## Deploy continuously from Azure DevOps Services
+## Deploy continuously from Azure Repos (DevOps Services)
 
-To enable continuous deployment with Azure DevOps Services, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
+To enable continuous deployment with from [Azure Repos](https://docs.microsoft.com/azure/devops/repos/index), navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **Azure DevOps Services** > **Continue**. 
+In the left menu, click **Deployment Center** > **Azure Repos** > **Continue**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
 In the **Build provider** page, choose the build provider and click > **Continue**.
+
+> [!NOTE]
+> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 ### Option 1: use App Service Kudu build server
 
@@ -108,9 +111,6 @@ In the **Configure** page, select the Azure DevOps Services organization, projec
 >
 
 In the **Configure** page, in the **Code** section, select the Azure DevOps Services organization, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
-
-> [!NOTE]
-> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In the **Configure** page, in the **Build** section, specify the language framework that Azure DevOps Services should use to run the build tasks for your selected repository. When finished, click **Continue**.
 
@@ -143,11 +143,11 @@ In the left menu, click **Deployment Center** > **GitHub** or **Azure DevOps Ser
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure portal]: https://portal.azure.com
-[VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
+[Azure DevOps portal]: https://azure.microsoft.com/services/devops/
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [How to use PowerShell for Azure]: /powershell/azureps-cmdlets-docs
 [Git Documentation]: http://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
-[Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Get started with Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Create a repo (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
+[Get started with Azure DevOps Services]: https://docs.microsoft.com/azure/devops/user-guide/devops-alm-overview

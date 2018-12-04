@@ -97,5 +97,5 @@ Once you publish your first app, there's a lot more you can do with Application 
 * [Working with existing on-premises Proxy servers](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Set a custom home page](application-proxy-configure-custom-home-page.md)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+For the latest news and updates, check out the [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
 

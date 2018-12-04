@@ -10,7 +10,6 @@ ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
@@ -78,7 +77,7 @@ The main categories of data are:
 ## Case Study: Real Madrid F.C.
 The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
 
-The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
+The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
 For Real Madrid, it's vital to monitor the system's performance. Azure Application Insights provides a comprehensive view across the system, ensuring a reliable and high level of service. 
 

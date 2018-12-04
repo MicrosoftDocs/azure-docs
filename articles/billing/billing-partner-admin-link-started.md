@@ -3,6 +3,8 @@ title: Link Azure account to partner ID | Microsoft Docs
 description: Track engagements with Azure customers by linking partner ID to the user account that you use to manage the customer's resources. 
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
+
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -38,7 +40,7 @@ When you have access to the customer's resources, use Azure portal, PowerShell, 
 
 2. Sign in to the Azure portal.
 
-3. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
+3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) ID of your organization.
 
   ![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.PNG)
 
@@ -119,7 +121,7 @@ Join the discussion in the [Microsoft Partner Community](https://aka.ms/PALdiscu
 
 **Who can link the partner ID?**
 
-Any user from the partner organization who is managing customer's resource can link the partner ID to the account.
+Any user from the partner organization who is managing customer's Azure resources can link the partner ID to the account.
 
 **Once a partner ID is linked can it be changed?**
 

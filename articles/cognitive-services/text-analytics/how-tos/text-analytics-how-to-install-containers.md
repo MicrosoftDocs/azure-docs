@@ -38,7 +38,7 @@ Docker must be configured to allow the containers to connect with and send billi
 
 For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server requirements and recommendations
+### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
@@ -46,7 +46,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |-----------|---------|-------------|
 |Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
 |Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 8 GB memory | 1 core, 8 GB memory |
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
 
 ## Download container images from Microsoft Container Registry
 
@@ -144,11 +144,13 @@ For more information about these options, see [Configure containers](../text-ana
 In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
 
 * Text Analytics provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
-* Container images are downloaded from a private container registry in Azure.
+* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
-* ** Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.  
+
+> [!IMPORTANT]
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 

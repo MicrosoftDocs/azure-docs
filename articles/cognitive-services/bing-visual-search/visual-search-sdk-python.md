@@ -26,7 +26,16 @@ Code scenarios are documented under the following headings:
 * [Tags, actions, and actionType](#tags-actions)
 
 ## Application dependencies
-* A cognitive services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with 1 call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
+ 
 * If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 * The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
 ```

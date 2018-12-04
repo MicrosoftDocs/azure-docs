@@ -1,9 +1,8 @@
 ---
-title: Node.js tutorial for the SQL API for Azure Cosmos DB | Microsoft Docs
+title: Node.js tutorial for the SQL API for Azure Cosmos DB
 description: A Node.js tutorial that demonstrates how to connect to and query Azure Cosmos DB using the SQL API
 services: cosmos-db
 author: deborahc
-editor: monicar
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -17,7 +16,9 @@ ms.author: dech
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -493,9 +494,9 @@ Congratulations! You have successfully created an Azure Cosmos DB item.
 
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
-Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
+Azure Cosmos DB supports [rich queries](how-to-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
 
-1. Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
+1. Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](how-to-sql-query.md).
 
    ```nodejs
    /**
