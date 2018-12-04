@@ -2,15 +2,11 @@
 title: Azure Data Lake Storage Gen2 MapReduce Performance Tuning Guidelines | Microsoft Docs
 description: Azure Data Lake Storage Gen2 MapReduce Performance Tuning Guidelines
 services: storage
-documentationcenter: ''
-author: stewu
-manager: amitkul
-editor: stewu
+author: swums
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.date: 11/05/2018
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: stewu
 
 ---
