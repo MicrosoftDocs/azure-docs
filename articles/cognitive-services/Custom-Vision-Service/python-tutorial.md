@@ -53,7 +53,7 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key, endpoint=ENDPOINT)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Create a new project
 print ("Creating project...")
@@ -115,7 +115,6 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
 

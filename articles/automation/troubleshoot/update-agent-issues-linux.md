@@ -13,7 +13,7 @@ manager: carmonm
 
 # Understand the Linux agent check results in Update Management
 
-There may be many reasons your machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
+There may be many reasons your Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
 
 ## Start the troubleshooter
 
@@ -49,7 +49,8 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 ### OMS agent
 
-This checks ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux).
+This checks ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+).
 
 ### OMS Agent status
 

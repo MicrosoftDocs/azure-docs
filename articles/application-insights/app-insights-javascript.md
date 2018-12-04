@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-
 ---
 # Application Insights for web pages
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
@@ -73,7 +70,7 @@ The script contains the instrumentation key that directs the data to your Applic
 
 ([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
-*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
+*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](https://github.com/johnhidey/angular-appinsights).)*
 
 ## Detailed configuration
 There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.

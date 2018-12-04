@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -48,6 +46,13 @@ ms.custom: H1Hack27Feb2017
 ## Release Notes
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="3.0.0.1-preview"/>3.0.0.1-preview
+* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview.
+* Target .NET Standard, which supports .NET framework 4.6.1+ and .NET Core 2.0+
+* New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes. 
+* Support for streams. 
+* Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
 
 ### <a name="2.1.3"/>2.1.3
 

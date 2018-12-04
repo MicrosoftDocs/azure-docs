@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | [Web/worker roles per deployment](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |

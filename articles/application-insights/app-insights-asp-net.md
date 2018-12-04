@@ -10,7 +10,6 @@ ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
@@ -146,7 +145,7 @@ There are alternative topics to look at if you are interested in:
 
 * **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
 * **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
-* **[Analytics](../log-analytics/query-language/get-started-analytics-portal.md)** - The powerful query language.
+* **[Analytics](../azure-monitor/log-query/get-started-portal.md)** - The powerful query language.
 
 ### Alerts
 

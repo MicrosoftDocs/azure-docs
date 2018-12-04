@@ -4,11 +4,10 @@ description: This article describes how to use Azure Stream Analytics to save ou
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
+ms.date: 11/21/2017
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
 Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
@@ -20,7 +19,10 @@ For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s
 > Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
 
 ## Basics of Cosmos DB as an output target
-The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics doesn't create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are controlled by you, and so that you can tune the performance, consistency, and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics doesn't create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are controlled by you, and so that you can tune the performance, consistency, and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+
+> [!Note]
+> You must add 0.0.0.0 to the list of allowed IPs from you Azure Cosmos DB firewall.
 
 Some of the Cosmos DB collection options are detailed below.
 

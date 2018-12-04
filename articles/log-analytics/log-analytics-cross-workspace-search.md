@@ -1,6 +1,6 @@
 ---
 title: Search across resources with Azure Log Analytics  | Microsoft Docs
-description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription. 
+description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
@@ -98,9 +97,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## Using cross-resource query for multiple resources
-When using cross-resource queries to correlate data from multiple Log Analytics and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Log Analytics](query-language/functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
+When using cross-resource queries to correlate data from multiple Log Analytics and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Log Analytics](../azure-monitor/log-query/functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
 
-Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](query-language/functions.md#create-a-function) with the alias _applicationsScoping_.
+Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](../azure-monitor/log-query/functions.md#create-a-function) with the alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -114,7 +113,7 @@ app('Contoso-app5').requests
 
 
 
-You can now [use this function](query-language/functions.md#use-a-function) in a cross-resource query like the following. The function alias _applicationsScoping_ returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
+You can now [use this function](../azure-monitor/log-query/functions.md#use-a-function) in a cross-resource query like the following. The function alias _applicationsScoping_ returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
 
 ```Kusto
 applicationsScoping 
