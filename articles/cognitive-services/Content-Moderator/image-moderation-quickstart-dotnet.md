@@ -141,7 +141,7 @@ public class EvaluationData
 
 Add the following method to the **Program** class. This method evaluates a single image in three different ways and returns the evaluation results. If you want to learn more about what the individual operations do, follow the link in the [Next steps](#next-steps) section.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-82)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
 
 ```csharp
 // Evaluates an image using the Image Moderation APIs.
