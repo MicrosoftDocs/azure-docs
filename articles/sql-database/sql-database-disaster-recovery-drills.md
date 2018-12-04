@@ -31,7 +31,7 @@ To prevent the potential data loss when conducting a disaster recovery drill, pe
 
 ### Outage simulation
 
-To simulate the outage, you can rename the source database. This causes application connectivity failures.
+To simulate the outage, you can rename the source database. This name change causes application connectivity failures.
 
 ### Recovery
 
@@ -48,7 +48,7 @@ For a database that is protected using failover groups, the drill exercise invol
 
 ### Outage simulation
 
-To simulate the outage, you can disable the web application or virtual machine connected to the database. This results in the connectivity failures for the web clients.
+To simulate the outage, you can disable the web application or virtual machine connected to the database. This outage simulation results in the connectivity failures for the web clients.
 
 ### Recovery
 
