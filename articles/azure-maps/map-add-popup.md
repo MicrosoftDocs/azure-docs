@@ -34,7 +34,7 @@ The last block of code creates a function that is triggered by the `mouseover` e
 
 ## Reusing a popup with multiple points
 
-When you have a lot of points and only want to show one popup at a time, the best approach is to create one popup and reuse it rather than creating a popup for each point feature. By doing this the number of DOM elements created by the application is greatly reduced which can provide better performance. This sample creates 3 point features. If you click on any of them, a popup will be displayed with the content for that point feature.
+When you have a lot of points and only want to show one popup at a time, the best approach is to create one popup and reuse it rather than creating a popup for each point feature. By doing this, the number of DOM elements created by the application is greatly reduced which can provide better performance. This sample creates 3 point features. If you click on any of them, a popup will be displayed with the content for that point feature.
 
 
 <iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
