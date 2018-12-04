@@ -128,7 +128,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
     ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ``` 
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates, see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
