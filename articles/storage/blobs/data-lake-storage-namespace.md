@@ -4,8 +4,8 @@ description: Describes the concept of the hierarchical namespace for Azure Data 
 services: storage
 author: jamesbak
 ms.service: storage
-ms.topic: article
-ms.date: 06/27/2018
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ---
@@ -15,9 +15,6 @@ ms.component: data-lake-storage-gen2
 A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file system performance at object storage scale and prices is the addition of a **hierarchical namespace**. This allows the collection of objects/files within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the hierarchical namespace enabled, a storage account becomes capable of providing the scalability and cost-effectiveness of object storage, with file system semantics that are familiar to analytics engines and frameworks.
 
 ## The benefits of the hierarchical namespace
-
-> [!NOTE]
-> During the public preview of Azure Data Lake Storage Gen2, some of the features listed below may vary in their availability. As new features and regions are released during the preview program, this information will be communicated via our dedicated Yammer group.  
 
 The following benefits are associated with file systems that implement a hierarchical namespace over blob data:
 
@@ -39,8 +36,6 @@ The reasons for enabling the hierarchical namespace are determined by a TCO anal
 
 Some object store workloads may not gain any benefit by enabling the hierarchical namespace. Examples of these workloads include backups, image storage, and other applications where object organization is stored separately from the objects themselves (*e.g.*, in a separate database).
 
-> [!NOTE]
-> With the preview release, if you enable the hierarchical namespace, there is no interoperability of data or operations between Blob and Data Lake Storage Gen2 REST APIs. This functionality will be added during preview.
 
 ## Next steps
 

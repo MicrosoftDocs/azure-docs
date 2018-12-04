@@ -2,11 +2,10 @@
 title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2 Preview
 description: The ABFS Hadoop Filesystem driver
 services: storage
-keywords: 
 author: jamesbak
-ms.topic: article
+ms.topic: conceptual
 ms.author: jamesbak
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---

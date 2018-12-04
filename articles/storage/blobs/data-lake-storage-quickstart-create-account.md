@@ -4,10 +4,9 @@ description: Quickly learn to create a new storage account with access to Data L
 services: storage
 author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.author: jamesbak
 ---
 
