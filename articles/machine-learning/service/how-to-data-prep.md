@@ -39,11 +39,9 @@ The SDK is similar in core-functionality to other popular data manipulation libr
 * Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point
 * Strength in processing large data sets, but carry an overhead that slows work with small data sets
 
-The SDK offers practicality and convenience when working with small data sets, with added scalability for modern big-data applications. 
-
-To install the SDK in your Python environment, use:
-```shell
-pip install azureml-dataprep
+To install the SDK into your Python environment, use:
+```cmd
+pip install --upgrade azureml-dataprep
 ```
 
 To import the package in your Python code, use:
