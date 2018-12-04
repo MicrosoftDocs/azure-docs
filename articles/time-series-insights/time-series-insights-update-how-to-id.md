@@ -8,16 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/03/2018
 ---
 
 # Best practices when choosing a Time Series ID
 
-This document covers the Azure Time Series Insights (preview) partition key, the **Time Series ID**, and best practices to choose one.
+This document covers the Azure Time Series Insights (Preview) partition key, the **Time Series ID**, and best practices to choose one.
 
 ## Choose a Time Series ID
 
-The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (preview) environment to use a different **Time Series ID**. In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.
+The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI (Preview) environment to use a different **Time Series ID**. In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.
 
 > [!IMPORTANT]
 > The **Time Series ID** is case-sensitive and immutable (it cannot be changed once set).
@@ -25,7 +25,7 @@ The choice of the **Time Series ID** is like selecting a partition key for a dat
 With that in mind, selecting the appropriate **Time Series ID** is critical. Consider the following properties when selecting a **Time Series ID**:
 
 > [!div class="checklist"]
-> * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **Device ID**, **Sensor ID**, etc.  
+> * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like **DeviceID**, **SensorID**, etc. in your JSON.
 > * It should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
 > * A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.
 > * If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.
@@ -47,10 +47,10 @@ The following scenarios describe selecting more than one key property as your **
 
   * You require multiple properties to show uniqueness in the same fleet of assets. For example, let’s say you are a smart building manufacturer and deploy sensors in every room. In each room, you typically have the same values for **sensorId**, including **sensor1**, **sensor2**, **sensor3**, and so on.
   * Additionally, you have overlapping floor and room numbers across sites in the property **flrRm** which contain values like `1a`, `2b`, `3a`, and so on.
-  * Finally, you have a property, **location** which contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
+  * Finally, you have a property, **location** that contains values like `Redmond`, `Barcelona`, `Tokyo`, and so on. To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – **sensorId**, **flrRm**, and **location**.
 
 ## Next steps
 
-Read more about [Azure Time Series Insights (preview) Time Series Models](./time-series-insights-update-tsm.md).
+Read more about [Data modeling](./time-series-insights-update-tsm.md).
 
-Plan your [Azure Time Series Insights (preview) environment](./time-series-insights-update-plan.md).
+Plan your [Azure Time Series Insights (Preview) environment](./time-series-insights-update-plan.md).
