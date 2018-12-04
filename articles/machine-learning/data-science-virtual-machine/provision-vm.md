@@ -146,7 +146,7 @@ Open Visual Studio by double-clicking the desktop icon or the **Start** menu. Se
 * Azure HDInsight Hadoop and Spark
 * Azure Data Lake 
 
-There's also a plug-in called ```Visual Studio Tools for AI``` that seamlessly integrates to Azure Machine Learning and helps you rapidly build AI applications. 
+There's also a plug-in called ```Azure Machine Learning for Visual Studio Code``` that seamlessly integrates to Azure Machine Learning and helps you rapidly build AI applications. 
 
 > [!NOTE]
 > You might get a message that your evaluation period is expired. Enter your Microsoft account credentials. Or create a new free account to get access to Visual Studio Community. 

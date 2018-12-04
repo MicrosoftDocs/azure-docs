@@ -29,22 +29,22 @@ Explanations of the columns are as follows:
 - **Operations Manager** - Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../../log-analytics/log-analytics-om-agents.md) that's connected to Log Analytics. 
 -  **Azure Storage** - Solution collects data from an Azure storage account. 
 - **Operations Manager required?** - A connected Operations Manager management group is required for data collection by the management solution. 
-- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. It will need to be able to communicate to Log Analytics through the [Log Analytics gateway](../../log-analytics/log-analytics-oms-gateway.md).
+- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. It will need to be able to communicate to Log Analytics through the [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Collection frequency** - Specifies the frequency that data is collected by the management solution. 
 
 
 
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | on notification |
+| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | on notification |
 | [AD Assessment](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [AD Replication Status](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 days |
 | [Agent Health](solution-agenthealth.md) | Windows and Linux | &#8226; | &#8226; | | | &#8226; | 1 minute |
-| [Alert Management](../../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |on arrival |
-| [Alert Management](../../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minute |
-| [Alert Management](../../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutes |
+| [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |on arrival |
+| [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minute |
+| [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutes |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
-| [Application Insights Connector (Preview)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | on notification |
+| [Application Insights Connector (Preview)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | on notification |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
@@ -74,4 +74,4 @@ Explanations of the columns are as follows:
 
 
 ## Next steps
-* Learn how to [create queries](../../log-analytics/log-analytics-queries.md) to analyze data collected by management solutions.
+* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by management solutions.
