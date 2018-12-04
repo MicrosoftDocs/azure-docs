@@ -162,12 +162,6 @@ registered_model.delete()
 Azure Machine Learning models running on FPGAs provide SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients. [Learn how to secure the web service](how-to-secure-web-service.md).
 
 
-## Sample notebook
-
-Concepts in this article are demonstrated in the [Project Brainwave notebooks](https://aka.ms/aml-notebook-proj-brainwave).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
 ## Next steps
 
 Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
