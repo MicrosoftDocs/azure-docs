@@ -7,7 +7,7 @@ author: nitinme
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/05/2018
 ms.author: nitinme
 ---
 

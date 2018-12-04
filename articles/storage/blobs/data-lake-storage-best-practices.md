@@ -7,7 +7,7 @@ author: sachinsbigdata
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 12/05/2018
 ms.author: sachins
 ---
 
