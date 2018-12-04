@@ -2,13 +2,12 @@
 title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Storage Gen2
 services: storage
-author: nitinme
-
+author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: nitinme
+ms.date: 12/06/2018
+ms.author: jamesbak
 ---
 
 # Access control in Azure Data Lake Storage Gen2

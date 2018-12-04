@@ -2,11 +2,10 @@
 title: Use the Azure Data Lake Storage Gen2 Preview URI
 description: Use the Azure Data Lake Storage Gen2 Preview URI
 services: storage
-keywords: 
 author: jamesbak
-ms.topic: article
+ms.topic: conceptual
 ms.author: jamesbak
-ms.date: 06/27/2018
+ms.date: 12/06/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
