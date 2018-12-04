@@ -74,7 +74,7 @@ There are two different ways to view an existing quota:
 ### Resource providers
 
 1. On the default dashboard of the Admin portal, find the **Resource providers** tile.
-2. Select the service with the quota that you want to view, like **Compute** or **Storage**.
+2. Select the service with the quota that you want to view, like **Compute**, **Network**, or **Storage**.
 3. Select **Quotas**, and then select the quota you want to view.
 
 ## Edit a quota
@@ -92,14 +92,16 @@ There are two different ways to edit a quota:
 5.	In the blade that opens, select **Edit in Compute**, **Edit in Network**, or **Edit in Storage**.
     ![Quotas](media/azure-stack-quota-types/quotas3.png "View quotas")    
 
-### Edit original configuration
-  
-You can choose to edit the original configuration of a quota instead of [using an add-on plan](create-add-on-plan.md). When you edit a quota, the new configuration automatically applies globally to all plans that use that quota and all existing subscriptions that use those plans. The editing of a quota is different than when you use an add-on plan to provide a modified quota, which a user chooses to subscribe to. 
+Alternatively, you can follow this procedure to edit a quota:
 
-1. On the default dashboard of the Admin portal, find the **Resource providers** tile.
+1. On the default dashboard of the administrator portal, find the **Resource providers** tile.
 2. Select the service with the quota that you want to modify, like **Compute**, **Network**, or **Storage**.
 3. Next, select **Quotas**, and then select the quota you want to change.
 4. On the **Set quotas** pane, edit the values, and then select **Save**.
+
+### Edit original configuration
+  
+You can choose to edit the original configuration of a quota instead of [using an add-on plan](create-add-on-plan.md). When you edit a quota, the new configuration automatically applies globally to all plans that use that quota and all existing subscriptions that use those plans. The editing of a quota is different than when you use an add-on plan to provide a modified quota, which a user chooses to subscribe to. 
 
 The new values for the quota apply globally to all plans that use the modified quota and to all existing subscriptions that use those plans. 
 
