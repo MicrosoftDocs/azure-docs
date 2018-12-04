@@ -39,7 +39,7 @@ In addition, Business Critical cluster has built-in [Read Scale-Out](sql-databas
 
 ## When to choose this service tier?
 
-Business Critical service tier is designed for the applications that require low-latency responses from the underlying SSD storage (1-2ms in average), fast recovery in the case of infrastructure failure, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database that don't affects resource usage on the primary database node.
+Business Critical service tier is designed for the applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.
 
 ## Next steps
 
