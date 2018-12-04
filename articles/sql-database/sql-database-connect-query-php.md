@@ -32,6 +32,9 @@ To complete this sample, make sure you have the following prerequisites:
 
     - **Windows**, install PHP for IIS Express and Chocolatey, then install the ODBC driver and SQLCMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
+> [!NOTE]
+> For information and tips on PHP installation across additional Linux and Mac distributions, see the [Linux and macOS installation tutorial](/sql/connect/php/installation-tutorial-linux-mac).
+
 ## Get database connection
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]

@@ -224,13 +224,13 @@ The following diagram shows how these tables are related to each other. Some of 
 
 1. Open a command prompt window and navigate to the *sampleData* folder.
 
-1. Execute the following commands to insert sample data into the tables replacing the values for *server*, *database*, *username*, and *password* with the values for your environment.
+1. Execute the following commands to insert sample data into the tables replacing the values for *server*, *database*, *user*, and *password* with the values for your environment.
   
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <username> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 You have now loaded sample data into the tables you created earlier.
@@ -252,7 +252,7 @@ Execute the following queries to retrieve information from the database tables. 
        AND Grade > 75
    ```
 
-1. In a query window, execute following query:
+1. In a query window, execute the following query:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
