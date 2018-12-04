@@ -3,9 +3,9 @@ title: Upgrade from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
 description: Upgrade your solution to use Azure Data Lake Storage Gen2 Preview
 services: storage
 author: normesta
-ms.topic: article
+ms.topic: conceptual
 ms.author: normesta
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
