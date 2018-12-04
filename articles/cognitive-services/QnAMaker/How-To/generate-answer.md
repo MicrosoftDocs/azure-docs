@@ -1,5 +1,5 @@
 ---
-title: Get answer from knowledge base with CURL or Postman - QnA Maker
+title: "Quickstart: Get answer from knowledge base with CURL or Postman - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: QnA Maker creates or refreshes the queryable endpoint when you publish the knowledge base. When publishing is complete, the HTTP request settings to generate an answer from your knowledge base are available.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/04/2018
 ms.author: diberry
 ---
 
-# Get answer from knowledge base
+# Quickstart: Get answer from knowledge base
 
 QnA Maker creates or refreshes the queryable endpoint when you publish the knowledge base. When publishing is complete, the HTTP request settings to generate an answer from your knowledge base are available. 
 
 ## Publish to get endpoint
 
-When you are ready to generate an answer to a question from your knowledge base, [publish](publish-knowledge-base) your knowledge base.
+When you are ready to generate an answer to a question from your knowledge base, [publish](publish-knowledge-base.md) your knowledge base.
 
 ## Use endpoint with Postman
 
@@ -40,7 +40,7 @@ To generate an answer with Postman, complete the following steps:
 1. Add the first header key of **Content-Type** with a value of `application/json`.
 1. Add the second header key of **Authorization** with the value of the word `Endpointkey`, then a space, then the key from the Publish page. 
 
-    [![In Postman, set the headers](../media/qnamaker-use-to-generate-answer/set-postman-headers.png)](../media/qnamaker-use-to-generate-answer/set-postman-header.png#lightbox)
+    [![In Postman, set the headers](../media/qnamaker-use-to-generate-answer/set-postman-headers.png)](../media/qnamaker-use-to-generate-answer/set-postman-headers.png#lightbox)
 
 1. Select the **Body** tab.
 1. Select the **raw** format and enter the JSON that represents the question.

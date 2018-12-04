@@ -13,7 +13,7 @@
     - name: Publish a knowledge base
       href: Quickstarts/publish-knowledge-base-in-portal.md
     - name: Get answer from knowledge base
-      href: Quickstarts/get-answer-in-portal.md
+      href: How-To/generate-answer.md
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
@@ -99,8 +99,6 @@
       href: How-To/test-knowledge-base.md
   - name: Use knowledge base
     items: 
-    - name: Get answer from knowledge base
-      href: How-To/use-knowledge-base.md
     - name: Use metadata with GenerateAnswer API
       href: How-To/metadata-generateanswer-usage.md  
     - name: With a bot  
