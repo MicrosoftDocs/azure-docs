@@ -22,7 +22,7 @@ abstract:
       src: media/index/tsi-intro-shannon-bloch.png
       width: 250  
     title: Time Series Insight for IoT apps. (16:09)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Time-Series-Insight-for-IoT-apps/player
+    href:  https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player
     width: 250
 sections:
 - title: 5-Minute Quickstarts
