@@ -60,7 +60,7 @@ To generate an answer with CURL, complete the following steps:
 
 ## Use endpoint with Postman
 
-The publish page also provides information to [generate an answer](../Quickstarts/get-answer-from-kb-.md) with Postman. 
+The publish page also provides information to [generate an answer](../Quickstarts/get-answer-from-kb-using-postman.md) with Postman. 
 
 ## Next steps
 
