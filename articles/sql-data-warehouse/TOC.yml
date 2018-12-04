@@ -66,7 +66,7 @@
       href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Firewall rules
       href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json      
-    - name: Firewall virtual network rules
+    - name: Virtual network service endpoints
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Authentication
       href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
