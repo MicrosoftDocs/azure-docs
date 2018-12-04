@@ -34,7 +34,7 @@ If your VMs aren't currently connected to an existing Log Analytics workspace, y
 If you choose to use the script-based method, see [Deploy Azure Monitor for VMs (preview)](vminsights-onboard.md). 
 
 ## What can I do if my VM is already reporting to an existing workspace?
-If you are already collecting data from your virtual machines, you might have already configured them to report data to an existing Log Analytics workspace. As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs for that pre-existing workspace. 
+If you're already collecting data from your virtual machines, you might have already configured them to report data to an existing Log Analytics workspace. As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs for that pre-existing workspace. 
 We are actively working to support additional regions.
 
 >[!NOTE]
@@ -51,7 +51,7 @@ When you deploy an Azure VM from the Azure portal, the following events occur:
 
 During deployment, we check the status for each of the preceding steps and return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring and health data in the Azure portal take an additional 5 to 10 minutes. 
 
-If you have initiated the deployment and see messages indicating the VM needs to be deployed, allow up to 30 minutes for the VM to complete the process. 
+If you have initiated the deployment and see messages indicating that the VM needs to be deployed, allow up to 30 minutes for the VM to complete the process. 
 
 ## I don’t see some or any data in the performance charts for my VM
 If performance data isn't displayed in the disk table or the performance charts, your performance counters might not be configured in the workspace. To resolve this issue, run the PowerShell script that's documented in the "Enable with PowerShell" section of [Deploy Azure Monitor for VMs (preview)](vminsights-onboard.md#enable-with-powershell).
@@ -71,34 +71,34 @@ The Azure Monitor for VMs Map feature is based on Service Map, but it has the fo
 
 ## Why do my performance charts show dotted lines?
 
-Performance charts display dotted lines for a few reasons:
+Performance charts display dotted lines instead of solid lines for a couple of reasons:
 * There might be a gap in data collection. 
 
 * The default setting for data sampling is every 60 seconds. You might see dotted lines if you choose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart. Let's say you've chosen a sampling frequency of 10 minutes and each bucket on the chart is 5 minutes. In this case, choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dots.
 
 ## Are groups supported with Azure Monitor for VMs?
-Yes, after you've installed the Dependency agent we collect information from the VMs to display groups based upon subscription, resource group, virtual machine scale sets, and cloud services. If you've been using Service Map and have created machine groups, these groups are displayed as well. Computer groups will also appear in the groups filter if you've created them for the workspace you are viewing. 
+Yes, after you've installed the Dependency agent we collect information from the VMs to display groups based upon subscription, resource group, virtual machine scale sets, and cloud services. If you've been using Service Map and have created machine groups, these groups are displayed as well. Computer groups will also appear in the groups filter if you've created them for the workspace you're viewing. 
 
-## How can I display the details about what is driving the 95th percentile line in the aggregate performance charts?
+## How can I display the details about what's driving the 95th percentile line in the aggregate performance charts?
 By default, the list is sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric. An exception is the **Available memory** chart, which shows the machines with the lowest value of the fifth percentile. Select the chart to open the **Top N List** view with the appropriate metric selected.
 
 ## How does the Map feature handle duplicate IPs across various virtual networks and subnets?
-If you are duplicating IP ranges by using either VMs or Azure virtual machine scale sets across subnets and virtual networks, it can cause the Azure Monitor for VMs Map feature to display incorrect information. We're aware of this issue and we are investigating options to improve the experience.
+If you're duplicating IP ranges by using either VMs or Azure virtual machine scale sets across subnets and virtual networks, it can cause the Azure Monitor for VMs Map feature to display incorrect information. We're aware of this issue and we are investigating options to improve the experience.
 
 ## Does the Map feature support IPv6?
 The Map feature currently supports only IPv4, and we are investigating support for IPv6. We also support IPv4 that's tunneled inside IPv6.
 
-## When I load a map for a resource group or other large group, the map is difficult to view
+## When I load a map for a resource group or other large group, why is the map difficult to view?
 Although we have improved the Map feature to handle large and complex configurations, we realize a map can have many nodes, connections, and nodes working as a cluster. We are committed to continuing to enhance support to increase scalability.  
 
-## Why does the network chart on the Performance tab look different than the network chart on the Azure VM Overview page?
+## Why does the network chart on the Performance tab look different from the network chart on the Azure VM Overview page?
 
-The Overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM Overview page displays only network traffic that will be billed. This display doesn't include traffic between virtual networks. The data and charts shown for Azure Monitor for VMs is based on data from the guest VM, and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including traffic between virtual networks.
+The Overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM Overview page displays only network traffic that will be billed. This display doesn't include traffic between virtual networks. The data and charts shown for Azure Monitor for VMs is based on data from the guest VM, and the network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including traffic between virtual networks.
 
 ## What are the limitations of the Log Analytics Free pricing plan?
-If you have configured Azure Monitor with a Log Analytics workspace by using the *Free* pricing tier, the Azure Monitor for VMs Map feature supports connecting only five machines to the workspace. 
+If you've configured Azure Monitor with a Log Analytics workspace by using the *Free* pricing tier, the Azure Monitor for VMs Map feature supports connecting only five machines to the workspace. 
 
-If you have five VMs connected to a free workspace and you disconnect one VM and then later connect a new VM, the new VM isn't monitored and reflected on the Map page. In this scenario, when you open the new VM you will be prompted to use the **Try Now** option and select **Insights (preview)** from the left pane, even after it has been installed on the VM. However, you aren't prompted with options as you normally would be if the VM weren't deployed to Azure Monitor for VMs. 
+For example, let's say you have five VMs connected to a free workspace. If you disconnect one VM and then later connect a new one, the new VM isn't monitored and reflected on the Map page. In this scenario, when you open the new VM you're prompted to use the **Try Now** option and select **Insights (preview)** from the left pane, even after it has been installed on the VM. However, you aren't prompted with options as you normally would be if the VM weren't deployed to Azure Monitor for VMs. 
 
 ## Next steps
 To understand the requirements and methods for enabling monitoring of your virtual machines, review [Deploy Azure Monitor for VMs (preview)](vminsights-onboard.md).
