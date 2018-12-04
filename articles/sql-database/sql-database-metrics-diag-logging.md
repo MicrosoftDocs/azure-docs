@@ -321,7 +321,7 @@ In the case you are using elastic pools or Managed Instances, you will also need
 
 ### Use the SQL Analytics solution
 
-SQL Analytics is a hierarchical dashboard that allows you to move through the hierarchy of SQL Database resources. To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md).
+SQL Analytics is a hierarchical dashboard that allows you to move through the hierarchy of SQL Database resources. To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../azure-monitor/insights/azure-sql.md).
 
 ## Stream into Event Hubs
 
