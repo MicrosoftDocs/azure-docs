@@ -30,13 +30,13 @@ The tutorial in this article shows you how to create a flow that automatically s
 1. Click **Search hundreds of connectors and triggers**.
 2. Type **Schedule** in the search box.
 3. Select **Schedule**, and then select **Schedule - Recurrence**.
-4. In the **Frequency** box select **Day** and in the **Interval** box, enter **1**.<br><br>![Microsoft Flow trigger dialog box](media/log-analytics-flow-tutorial/flow01.png)
+4. In the **Frequency** box select **Day** and in the **Interval** box, enter **1**.<br><br>![Microsoft Flow trigger dialog box](media/flow-tutorial/flow01.png)
 
 
 ## Step 3: Add a Log Analytics action
 1. Click **+ New step**, and then click **Add an action**.
 2. Search for **Log Analytics**.
-3. Click **Azure Log Analytics – Run query and visualize results**.<br><br>![Log Analytics run query window](media/log-analytics-flow-tutorial/flow02.png)
+3. Click **Azure Log Analytics – Run query and visualize results**.<br><br>![Log Analytics run query window](media/flow-tutorial/flow02.png)
 
 ## Step 4: Configure the Log Analytics action
 
@@ -50,30 +50,30 @@ The tutorial in this article shows you how to create a flow that automatically s
 	| sort by Computer
 ```
 
-2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/log-analytics-flow-tutorial/flow03.png)
+2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/flow-tutorial/flow03.png)
 
 ## Step 5: Configure the flow to send email
 
 1. Click **New step**, and then click **+ Add an action**.
 2. Search for **Office 365 Outlook**.
-3. Click **Office 365 Outlook – Send an email**.<br><br>![Office 365 Outlook selection window](media/log-analytics-flow-tutorial/flow04.png)
+3. Click **Office 365 Outlook – Send an email**.<br><br>![Office 365 Outlook selection window](media/flow-tutorial/flow04.png)
 
 4. Specify the email address of a recipient in the **To** window and a subject for the email in **Subject**.
 5. Click anywhere in the **Body** box.  A **Dynamic content** window opens with values from previous actions.  
 6. Select **Body**.  This is the results of the query in the Log Analytics action.
 6. Click **Show advanced options**.
-7. In the **Is HTML** box, select **Yes**.<br><br>![Office 365 email configuration window](media/log-analytics-flow-tutorial/flow05.png)
+7. In the **Is HTML** box, select **Yes**.<br><br>![Office 365 email configuration window](media/flow-tutorial/flow05.png)
 
 ## Step 6: Save and test your flow
-1. In the **Flow name** box, add a name for your flow, and then click **Create flow**.<br><br>![Save flow](media/log-analytics-flow-tutorial/flow06.png)
+1. In the **Flow name** box, add a name for your flow, and then click **Create flow**.<br><br>![Save flow](media/flow-tutorial/flow06.png)
 2. The flow is now created and will run after a day which is the schedule you specified. 
-3. To immediately test the flow, click **Run Now** and then **Run flow**.<br><br>![Run flow](media/log-analytics-flow-tutorial/flow07.png)
-3. When the flow completes, check the mail of the recipient that you specified.  You should have received a mail with a body similar to the following:<br><br>![Sample email](media/log-analytics-flow-tutorial/flow08.png)
+3. To immediately test the flow, click **Run Now** and then **Run flow**.<br><br>![Run flow](media/flow-tutorial/flow07.png)
+3. When the flow completes, check the mail of the recipient that you specified.  You should have received a mail with a body similar to the following:<br><br>![Sample email](media/flow-tutorial/flow08.png)
 
 
 ## Next steps
 
-- Learn more about [log searches in Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+- Learn more about [log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 
