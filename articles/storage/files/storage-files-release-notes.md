@@ -49,8 +49,6 @@ List of issues fixed in this release:
 - The Storage Sync Agent (FileSyncSvc) service may crash when memory usage is high.  
 - Miscellaneous reliability improvements for cloud tiering and sync.
 
-
-
 ## Agent version 4.0.1.0
 The following release notes are for version 4.0.1.0 of the Azure File Sync agent (released November 13, 2018).
 
