@@ -98,6 +98,12 @@
       maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
+    - name: Create virtual nodes (preview)
+      items:
+      - name: Azure CLI
+        href: virtual-nodes-cli.md
+      - name: Azure portal
+        href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
