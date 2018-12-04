@@ -262,4 +262,4 @@ This solution does not have a set of sample log searches shown on the dashboard.
 
 ## Next steps
 
-- Use [Log Search](../../log-analytics/log-analytics-queries.md) to view detailed information for your Application Insights apps.
+- Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information for your Application Insights apps.

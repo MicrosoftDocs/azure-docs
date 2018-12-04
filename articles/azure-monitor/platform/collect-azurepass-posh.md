@@ -76,7 +76,7 @@ You will be prompted to answer the same information as when you ran the script t
 
 ## Next steps
 
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 
 * Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md)( to parse the event records into individual fields.
 
