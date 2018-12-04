@@ -76,7 +76,7 @@ The following table outlines the Docker orchestration and operating system monit
     - Kubernetes events, Kubernetes inventory, and container processes are only supported with version 1.4.1-45 and later of the Log Analytics agent for Linux
 - ACS Docker Swarm
 
-[!INCLUDE [log-analytics-agent-note.md](../../../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note.md](../../../includes/log-analytics-agent-note.md)] 
 
 ### Supported Windows operating system
 

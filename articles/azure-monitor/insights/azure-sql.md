@@ -36,7 +36,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 | [Azure storage account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Log Analytics doesn't read the data from a storage account. |
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
 | [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
-| [System Center Operations Manager management group](om-agents.md) | No | A direct connection from the Operations Manager agent to Log Analytics is not used by the solution. |
+| [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Log Analytics is not used by the solution. |
 
 ## Configuration
 
@@ -174,7 +174,7 @@ Once the new role is created, assign this role to each user that you need to gra
 
 ## Analyze data and create alerts
 
-Data analysis in Azure SQL Analytics is based on [Log Analytics language](./query-language/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+Data analysis in Azure SQL Analytics is based on [Log Analytics language](../log-query/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
 
 Automated alerting in the solution is based on writing a Log Analytics query that triggers an alert upon a condition met. Find below several examples on Log Analytics queries upon which alerting can be set up in the solution.
 
