@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the OAuth2 protocol identity provider. This is the primary protocol for authorization and delegated authentication. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). With OAuth2 technical profile you can federate with an OAuth2 based identity provider, such as Facebook and Live.com, allowing you users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the OAuth2 protocol identity provider. This is the primary protocol for authorization and delegated authentication. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). With OAuth2 technical profile you can federate with an OAuth2 based identity provider, such as Facebook and Live.com, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Protocol
 

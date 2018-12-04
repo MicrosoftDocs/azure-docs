@@ -30,8 +30,8 @@ The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Py
 
 Install the SDK in your Python environment using the following command.
 
-```shell
-pip install azureml-dataprep
+```cmd
+pip install --upgrade azureml-dataprep
 ```
 
 Use the following code to import the package.
