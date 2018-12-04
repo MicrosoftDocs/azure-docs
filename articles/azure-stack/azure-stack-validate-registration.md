@@ -50,14 +50,14 @@ The following prerequisites must be in place:
 **Azure Active Directory environment:**
  - Identify the username and password for an account that is an owner for the Azure subscription you will use with Azure Stack.  
  - Identify the subscription ID for the Azure subscription you will use. 
- - Identify the AzureEnvironment you will use. Supported values for the environment name parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+ - Identify the **AzureEnvironment** you will use. Supported values for the environment name parameter are **AzureCloud**, **AzureChinaCloud** or **AzureUSGovernment**, depending which Azure subscription you are using.
 
 ## Validate Azure registration
 
-1. On a computer that meets the prerequisites, open an administrative PowerShell prompt and then run the following command to install the AzsReadinessChecker.
+1. On a computer that meets the prerequisites, open an administrative PowerShell prompt and then run the following command to install the **AzsReadinessChecker**.
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
     ```
 
 2. From the PowerShell prompt, run the following to set `$registrationCredential` as the account that is the subscription owner. Replace `subscriptionowner@contoso.onmicrosoft.com` with your account and tenant: 
@@ -71,11 +71,11 @@ The following prerequisites must be in place:
    ``` 
 
 4. From the PowerShell prompt, run the following to start validation of your subscription: 
-   - Specify the value for AzureEnvironment as `AzureCloud`, `AzureGermanCloud`, or `AzureChinaCloud`.  
+   - Specify the value for AzureEnvironment as **AzureCloud**, **AzureGermanCloud**, or **AzureChinaCloud**.  
    - Provide your Azure Active Directory administrator and your Azure Active Directory tenant name. 
 
    ```powershell
-   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
    ```
 
 5. After the tool runs, review the output. Confirm the status is OK for both logon and the registration requirements. A successful validation appears similar to the following example:
@@ -100,13 +100,13 @@ By default, both files are written to *C:\Users\<username>\AppData\Local\Temp\Az
 For more information, [Azure Stack validation report](azure-stack-validation-report.md).
 
 ## Validation failures
-If a validation check fails, details about the failure display in the PowerShell window. The tool also logs information to the AzsReadinessChecker.log.
+If a validation check fails, details about the failure display in the PowerShell window. The tool also logs information to the AzsReadinessChecker.log file.
 
-The following examples provide guidance on common validation failures.
+The following examples provide guidance on common validation failures:
 
 ### User must be an owner of the subscription	
 
-```PowerShell
+```shell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
@@ -124,14 +124,14 @@ Invoke-AzsRegistrationValidation Completed
 
 ### Expired or temporary password
  
-```PowerShell
+```shell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
-Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with AADSTS50055: Force Change P
+Checking Registration failed with: Retrieving TenantId for subscription [subscription ID] using account admin@contoso.onmicrosoft.com failed with AADSTS50055: Force Change P
 assword.
-Trace ID: 48fe06f5-a5b4-4961-ad45-a86964689900
-Correlation ID: 3dd1c9b2-72fb-46a0-819d-058f7562cb1f
+Trace ID: [Trace ID]
+Correlation ID: [Correlation ID]
 Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unauthorized.
 
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
@@ -151,7 +151,7 @@ Alternatively, sign in to https://portal.azure.com as the account and the user w
 
 ### Unknown user type  
 
-```PowerShell
+```shell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
@@ -170,9 +170,9 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-
 ## Next Steps
-[Validate Azure identity](azure-stack-validate-identity.md)
-[View the readiness report](azure-stack-validation-report.md)
-[General Azure Stack integration considerations](azure-stack-datacenter-integration.md)
+
+- [Validate Azure identity](azure-stack-validate-identity.md)
+- [View the readiness report](azure-stack-validation-report.md)
+- [General Azure Stack integration considerations](azure-stack-datacenter-integration.md)
 
