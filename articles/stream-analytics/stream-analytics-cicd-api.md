@@ -22,11 +22,11 @@ REST APIs can be called from both Linux and Windows. The following commands demo
 
 For Linux, you can use `Curl` or `Wget` commands:
 
-```curl
+```bash
 curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body>}” { <url> }   
 ```
 
-```wget
+```bash
 wget -q -O- --{ <method> }-data="<request body>”--header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
 ```
  
@@ -136,8 +136,8 @@ For more information, see the [API documentation](/rest/api/streamanalytics/stre
  
 ## Publish Edge package 
  
-To publish a Stream Analytics job on IoT Edge, call the POST method using the Edge Package Publish API: 
- 
+To publish a Stream Analytics job on IoT Edge, call the POST method using the Edge Package Publish API.
+
 |Method|Request URL|
 |------|-----------|
 |POST|https://management.azure.com/subscriptions/{**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview|
@@ -146,8 +146,7 @@ This asynchronous operation returns a status of 202 until the job has been succe
 
 Example of an Edge package publish call using **curl**: 
 
-```curl
-
+```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
 ```
  
@@ -155,7 +154,9 @@ After making the POST call, you should expect a response with an empty body. Loo
  
 Example of the URL from the HEAD of response:
 
+```
 https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/023a4d68-ffaf-4e16-8414-cb6f2e14fe23?api-version=2017-04-01-preview 
+```
  
 Wait for one to two minutes before running the following command to make an API call with the URL you found in the HEAD of the response. Retry the command if you do not get a 200 response.
  
