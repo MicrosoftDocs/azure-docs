@@ -14,7 +14,7 @@ ms.author: pabouwer
 
 [Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] documentation.
 
-This article shows you how to install Istio. The Istio `istioctl` client binary is installed onto your client machine, then the Istio components are installed into a Kubernetes cluster on AKS. These instructions reference Istio version **1.0.4**. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases].
+This article shows you how to install Istio. The Istio `istioctl` client binary is installed onto your client machine, then the Istio components are installed into a Kubernetes cluster on AKS. These instructions reference Istio version *1.0.4*. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases].
 
 In this article, you learn how to:
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 The steps detailed in this article assume you've created an AKS cluster (Kubernetes 1.10 and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
-To install Istio, you need [Helm][helm] correctly installed and configured in your cluster. If you need help with installing Helm, see the [AKS Helm installation guidance][helm-install].
+To install Istio, you need [Helm][helm] version *2.10.0* or later correctly installed and configured in your cluster. If you need help with installing Helm, see the [AKS Helm installation guidance][helm-install]. If you don't have at least version *2.10.0* of Helm installed, upgrade, or see the [Istio - Installation with Helm guide][istio-install-helm] for other installation options.
 
 This article separates the Istio installation guidance into several discrete steps. Each of these steps is described so you learn how to install Istio, and learn how Istio works with Kubernetes. The end result is the same in structure as the official Istio installation [guidance][istio-install-k8s-quickstart].
 
@@ -36,20 +36,33 @@ This article separates the Istio installation guidance into several discrete ste
 
 First, download and extract the latest Istio release. The steps a little different for a bash shell on MacOS, Linux, or Windows Subsystem for Linux, and a PowerShell shell. Choose one of the following install steps for your preferred environment:
 
-**Bash**:
+* [Bash on MacOS, Linux, or Windows Subsystem for Linux](#bash)
+* [PowerShell](#powershell)
+
+### Bash
+
+On MacOS, use `curl` to download the latest Istio release and then extract with `tar` as follows:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
 ISTIO_VERSION=1.0.4
 
-# Linux or Windows Subsystem for Linux
-curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
-
 # MacOS
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
-**PowerShell**:
+On Linux or Windows Subsystem for Linux, use `curl` to download the latest Istio release and then extract with `tar` as follows:
+
+```bash
+# Specify the Istio version that will be leveraged throughout these instructions
+ISTIO_VERSION=1.0.4
+
+curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
+```
+
+### PowerShell
+
+In PowerShell, use [Invoke-WebRequest][Invoke-WebRequest] to download the latest Istio release and then extract with [Expand-Archive][Expand-Archive] as follows:
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -62,14 +75,14 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 
 ## Install the Istio client binary
 
-The Istio `istioctl` client binary runs on your client machine and allows you to manage Istio routing rules and policies. Again, the install steps are a little different between client operating systems, so choose the steps for your OS:
+The `istioctl` client binary runs on your client machine and allows you to manage Istio routing rules and policies. Again, the install steps are a little different between client operating systems. Choose one of the following install steps for your preferred environment.
 
 > [!IMPORTANT]
 > Run all of the remaining steps from the top-level folder of the Istio release that you downloaded and extracted in the previous section.
 
-### Linux or Windows Subsystem for Linux
+### MacOS
 
-Use the following commands to install the Istio `istioctl` client binary in a **bash**-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
+To install the Istio `istioctl` client binary in a bash-based shell on MacOS, use the following commands. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -80,20 +93,20 @@ sudo mv ./bin/istioctl /usr/local/bin/istioctl
 If you'd like command-line completion for the Istio `istioctl` client binary, then set it up as follows:
 
 ```bash
-# generate the bash completion file and source it in your current shell
+# Generate the bash completion file and source it in your current shell
 istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
-# source the bash completion file in your .bashrc so that the command-line completions 
+# Source the bash completion file in your .bashrc so that the command-line completions
 # are permanently available in your shell
 echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 ```
 
 Now move onto the section to [Install the Istio Kubernetes components](#install-the-istio-kubernetes-components).
 
-### MacOS
+### Linux or Windows Subsystem for Linux
 
-To install the Istio `istioctl` client binary in a **bash**-based shell on MacOS, use the following commands. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
+Use the following commands to install the Istio `istioctl` client binary in a bash-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -104,11 +117,11 @@ sudo mv ./bin/istioctl /usr/local/bin/istioctl
 If you'd like command-line completion for the Istio `istioctl` client binary, then set it up as follows:
 
 ```bash
-# generate the bash completion file and source it in your current shell
+# Generate the bash completion file and source it in your current shell
 istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
-# source the bash completion file in your .bashrc so that the command-line completions 
+# Source the bash completion file in your .bashrc so that the command-line completions
 # are permanently available in your shell
 echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 ```
@@ -117,7 +130,7 @@ Now move onto the section to [Install the Istio Kubernetes components](#install-
 
 ### Windows
 
-To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to a new user program location and make it available via your `PATH`.
+To install the Istio `istioctl` client binary in a Powershell-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to a new user program location and make it available via your `PATH`.
 
 ```powershell
 cd istio-$ISTIO_VERSION
@@ -129,10 +142,7 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 
 ## Install the Istio Kubernetes components
 
-Now use Helm to install the Istio components into your AKS cluster. Install the Istio resources into the `istio-system` namespace, and enable additional options for security and monitoring as follows:
-
-> [!NOTE]
-> If you don't have at least version `2.10.0` of Helm installed, see the [Istio - Installation with Helm guide][istio-install-helm] for other installation options.
+To install the Istio components into your AKS cluster, use Helm. Install the Istio resources into the `istio-system` namespace, and enable additional options for security and monitoring as follows:
 
 ```azurecli
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
@@ -146,19 +156,21 @@ The Helm chart deploys a large number of objects. The deployment can take 2 to 3
 
 ## Validate the installation
 
-To make sure that you have a successful deployment of Istio, let's validate the installation. First confirm that the expected services have been created. Use the [kubectl get svc][kubectl-get-svc] command to view the running services. Query the *istio-system* namespace, where the Istio and add-on components were installed by the Helm chart:
+To make sure that you have a successful deployment of Istio, let's validate the installation.
 
-```azurecli
+First confirm that the expected services have been created. Use the [kubectl get svc][kubectl-get] command to view the running services. Query the *istio-system* namespace, where the Istio and add-on components were installed by the Helm chart:
+
+```console
 kubectl get svc --namespace istio-system --output wide
 ```
 
 The following example output shows the services that should now be running:
 
-- `istio-*` services
-- `jaeger-*`, `tracing`, and `zipkin` add-on tracing services
-- `prometheus` add-on metrics service
-- `grafana` add-on analytics and monitoring dashboard service
-- `kiali` add-on service mesh dashboard service
+- *istio-** services
+- *jaeger-**, *tracing*, and *zipkin* add-on tracing services
+- *prometheus* add-on metrics service
+- *grafana* add-on analytics and monitoring dashboard service
+- *kiali* add-on service mesh dashboard service
 
 If the `istio-ingressgateway` shows an external ip of `<pending>`, wait a few minutes until an IP address has been assigned by Azure networking.
 
@@ -182,18 +194,18 @@ tracing                  ClusterIP      10.0.139.121   <none>           80/TCP  
 zipkin                   ClusterIP      10.0.60.155    <none>           9411/TCP                                                                                                                  3m        app=jaeger
 ```
 
-Next, confirm that the pods that have been created. Use the [kubectl get pods][kubectl-get-pods] command, and again query the `istio-system` namespace:
+Next, confirm that the required pods have been created. Use the [kubectl get pods][kubectl-get] command, and again query the *istio-system* namespace:
 
-```azurecli
+```console
 kubectl get pods --namespace istio-system
 ```
 
 The following example output shows the pods that are running:
 
-- the `istio-*` pods
-- the `prometheus-*` add-on metrics pod
-- the `grafana-*` add-on analytics and monitoring dashboard pod
-- the `kiali` add-on service mesh dashboard pod
+- the *istio-** pods
+- the *prometheus-** add-on metrics pod
+- the *grafana-** add-on analytics and monitoring dashboard pod
+- the *kiali* add-on service mesh dashboard pod
 
 ```console
 NAME                                     READY     STATUS      RESTARTS   AGE
@@ -300,10 +312,7 @@ To explore more installation and configuration options for Istio, see the follow
 - [Istio - Helm installation guide][istio-install-helm]
 - [Istio - Helm installation options][istio-install-helm-options]
 
-You can also follow additional scenarios using the Bookinfo Application example on the Istio site.
-
-> [!div class="nextstepaction"]
-> [Istio Bookinfo Application example][istio-bookinfo-example]
+You can also follow additional scenarios using the [Istio Bookinfo Application example][istio-bookinfo-example].
 
 <!-- LINKS - external -->
 [istio]: https://istio.io
@@ -322,12 +331,13 @@ You can also follow additional scenarios using the Bookinfo Application example 
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
-[kubectl-get-svc]:
-[kubectl-get-pods]:
-[kubectl-describe]:
-[kubectl-port-forward]:
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [istio-scenario-routing]: ./istio-scenario-routing.md
 [helm-install]: ./kubernetes-helm.md
+[Invoke-WebRequest]: /powershell/module/microsoft.powershell.utility/invoke-webrequest
+[Expand-Archive]: /powershell/module/Microsoft.PowerShell.Archive/Expand-Archive
