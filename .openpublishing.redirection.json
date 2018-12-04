@@ -31442,6 +31442,61 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/log-analytics/log-analytics-cross-workspace-search.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/cross-workspace-query",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-custom-fields.md",
+            "redirect_url":  "/azure/azure-monitor/platform/custom-fields",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-collector-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-collector-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-ingestion-time.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-ingestion-time",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-security.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-security",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-faq.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-flow-tutorial.md",
+            "redirect_url":  "/azure/azure-monitor/platform/flow-tutorial",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-service-manager-script.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-service-manager-script",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-log-search-portals.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/portals",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-log-search-takeaction.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/take-action",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

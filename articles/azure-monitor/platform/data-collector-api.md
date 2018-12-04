@@ -28,7 +28,7 @@ You can use the HTTP Data Collector API to send data to Log Analytics from any c
 All data in the Log Analytics repository is stored as a record with a particular record type.  You format your data to send to the HTTP Data Collector API as multiple records in JSON.  When you submit the data, an individual record is created in the repository for each record in the request payload.
 
 
-![HTTP Data Collector overview](media/log-analytics-data-collector-api/overview.png)
+![HTTP Data Collector overview](media/data-collector-api/overview.png)
 
 
 
@@ -147,19 +147,19 @@ The data type that Log Analytics uses for each property depends on whether the r
 
 For example, this submission entry would create a record with three properties, **number_d**, **boolean_b**, and **string_s**:
 
-![Sample record 1](media/log-analytics-data-collector-api/record-01.png)
+![Sample record 1](media/data-collector-api/record-01.png)
 
 If you then submitted this next entry, with all values formatted as strings, the properties would not change. These values can be converted to existing data types:
 
-![Sample record 2](media/log-analytics-data-collector-api/record-02.png)
+![Sample record 2](media/data-collector-api/record-02.png)
 
 But, if you then made this next submission, Log Analytics would create the new properties **boolean_d** and **string_d**. These values can't be converted:
 
-![Sample record 3](media/log-analytics-data-collector-api/record-03.png)
+![Sample record 3](media/data-collector-api/record-03.png)
 
 If you then submitted the following entry, before the record type was created, Log Analytics would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
 
-![Sample record 4](media/log-analytics-data-collector-api/record-04.png)
+![Sample record 4](media/data-collector-api/record-04.png)
 
 ## Data limits
 There are some constraints around the data posted to the Log Analytics Data collection API.
@@ -195,7 +195,7 @@ This table lists the complete set of status codes that the service might return:
 To query data submitted by the Log Analytics HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, then you'd return all records with **Type=MyCustomLog_CL**.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
 
 > `MyCustomLog_CL`
 
@@ -464,6 +464,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## Next steps
-- Use the [Log Search API](../azure-monitor/log-query/log-query-overview.md) to retrieve data from the Log Analytics repository.
+- Use the [Log Search API](../../azure-monitor/log-query/log-query-overview.md) to retrieve data from the Log Analytics repository.
 
-- Learn more about how [create a data pipeline with the Data Collector API](../azure-monitor/platform/create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.
+- Learn more about how [create a data pipeline with the Data Collector API](../../azure-monitor/platform/create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.
