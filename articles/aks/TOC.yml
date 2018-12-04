@@ -73,6 +73,8 @@
         href: operator-best-practices-cluster-security.md
       - name: Container security
         href: operator-best-practices-container-security.md
+      - name: Business continuity (BC) and disaster recovery (DR)
+        href: operator-best-practices-multi-region.md
     - name: For application developers
       items:
       - name: Resource management
@@ -103,6 +105,12 @@
       maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
+    - name: Create virtual nodes (preview)
+      items:
+      - name: Azure CLI
+        href: virtual-nodes-cli.md
+      - name: Azure portal
+        href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
@@ -153,7 +161,7 @@
       href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
   - name: Monitoring and logging
     items:
-    - name: Azure container health solution
+    - name: Azure Monitor for containers
       href: ../monitoring/monitoring-container-health.md
       maintainContext: true
     - name: View the master component logs
@@ -210,6 +218,9 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
+    - name: Use Azure Database for PostgreSQL
+      href: ../postgresql/concepts-aks.md
+      maintainContext: true
   - name: DevOps
     items:
     - name: Use Ansible to create AKS clusters
@@ -263,7 +274,7 @@
   - name: Provide product feedback
     href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 
 ---
 
 # Azure Monitor on Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Applies to: Azure Stack integrated systems*
 
 This article provides an overview of the Azure Monitor service in Azure Stack. It discusses the operation of Azure Monitor and additional information on how to use Azure Monitor on Azure Stack. 
 

@@ -2,23 +2,27 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Functions
+  - name: About Azure Functions
     href: functions-overview.md
+  - name: Durable Functions
+    href: durable/durable-functions-overview.md 
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - portal
-    href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Python
+    href: functions-create-first-function-python.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: Create function - portal
+    href: functions-create-first-azure-function.md
   - name: Create function - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
@@ -84,6 +88,8 @@
       href: functions-reference-node.md   
     - name: Java
       href: functions-reference-java.md 
+    - name: Python
+      href: functions-reference-python.md
   - name: Diagnostics
     href: ../app-service/app-service-diagnostics.md
   - name: Performance considerations
@@ -93,45 +99,7 @@
   - name: IP addresses
     href: ip-addresses.md 
   - name: On-premises functions
-    href: functions-runtime-overview.md
-  - name: Durable Functions
-    items:
-    - name: Overview 
-      href: durable-functions-overview.md
-    - name: Function types and features
-      href: durable-functions-types-features-overview.md
-    - name: Bindings
-      href: durable-functions-bindings.md
-    - name: Checkpoint and replay 
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Custom orchestration status
-      href: durable-functions-custom-orchestration-status.md
-    - name: Instance management
-      href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
-    - name: Error handling
-      href: durable-functions-error-handling.md
-    - name: Diagnostics
-      href: durable-functions-diagnostics.md
-    - name: Timers
-      href: durable-functions-timers.md
-    - name: External events
-      href: durable-functions-external-events.md
-    - name: Eternal orchestrations
-      href: durable-functions-eternal-orchestrations.md
-    - name: Singleton orchestrations
-      href: durable-functions-singletons.md
-    - name: Sub-orchestrations
-      href: durable-functions-sub-orchestrations.md
-    - name: Task hubs
-      href: durable-functions-task-hubs.md
-    - name: Versioning
-      href: durable-functions-versioning.md
-    - name: Performance and scale
-      href: durable-functions-perf-and-scale.md
-    - name: Disaster recovery and geo-distribution
-      href: durable-functions-disaster-recovery-geo-distribution.md      
+    href: functions-runtime-overview.md 
 - name: How-to guides
   items:
   - name: Develop
@@ -150,6 +118,8 @@
        href: functions-create-maven-intellij.md
      - name: Eclipse development
        href: functions-create-maven-eclipse.md
+     - name: Create Linux function app  
+       href: create-function-app-linux-app-service-plan.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
@@ -180,10 +150,36 @@
       href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
+  - name: Secure
+    items:
+    - name: Buy SSL cert
+      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Authenticate users
+      items:
+      - name: Authenticate with Azure AD
+        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Facebook
+        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Google
+        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Microsoft account
+        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Authenticate with Twitter
+        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Advanced auth
+      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Restrict IPs
+      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Use a managed identity
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Reference secrets from Key Vault
+      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Integrate
     items:   
     - name: Connect to SQL Database
       href: functions-scenario-database-table-cleanup.md
+    - name: Connect to a Virtual Network
+      href: functions-create-vnet.md
     - name: Create an Open API 2.0 definition
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow
@@ -193,31 +189,21 @@
     - name: Call a function from Microsoft Flow 
       href: functions-flow-scenario.md
     - name: Use a managed identity
-      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Durable Functions
-    items:
-    - name: Install 
-      href: durable-functions-install.md
-    - name: Chaining 
-      href: durable-functions-sequence.md
-    - name: Fan-out/fan-in 
-      href: durable-functions-cloud-backup.md
-    - name: Monitors
-      href: durable-functions-monitor.md
-    - name: Human interaction 
-      href: durable-functions-phone-verification.md
-    - name: Unit testing
-      href: durable-functions-unit-testing.md
-    - name: Event publishing
-      href: durable-functions-event-publishing.md
-    - name: Use WebJobs SDK
-      href: durable-functions-webjobs-sdk.md  
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
       href: functions-recover-storage-account.md   
 - name: Reference
   items:
+  - name: API references
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
+  - name: App settings reference
+    href: functions-app-settings.md
   - name: Bindings
     items:
     - name: Blob storage
@@ -259,15 +245,14 @@
     - name: Twilio
       href: functions-bindings-twilio.md    
   - name: host.json reference
+    href: functions-host-json.md      
     items:
     - name: Functions 2.x
       href: functions-host-json.md  
     - name: Functions 1.x
-      href: functions-host-json-v1.md  
-  - name: App settings reference
-    href: functions-app-settings.md     
+      href: functions-host-json-v1.md    
   - name: OpenAPI reference
-    href: functions-api-definition.md     
+    href: functions-api-definition.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -288,6 +273,8 @@
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Azure Functions GitHub repository
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates
