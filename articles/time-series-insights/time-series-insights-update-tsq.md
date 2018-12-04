@@ -35,18 +35,18 @@ Below are the core APIs we support.
 
 The following are the environment APIs available:
 
-* Get Environments API – Returns the list of environments that the caller is authorized to access.
-* Get Environment Availability API – Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events if exist.
-* Get Event Schema API – Returns the event schema metadata for a given search span. This API helps retrieve all metadata/properties available in the schema for the given search span.
+* [GET ENVIRONMENT API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api) – Returns the list of environments that the caller is authorized to access.
+* [GET ENVIRONMENT AVAILABILITY API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api) – Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events if exist.
+* [GET EVENT SCHEMA API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api) – Returns the event schema metadata for a given search span. This API helps retrieve all metadata/properties available in the schema for the given search span.
 
 ### Time series model-query (TSM-Q) APIs
 
 The following are the time series model query APIs available:
 
-* Model Settings API - Enables get and patch on the default type and the model name of the environment.
-* Types API – Enables CRUD on Time Series Types and their associated Variables.
-* Hierarchies API – Enables CRUD on Time Series Hierarchies and their associated field paths.
-* Instances API – Enables CRUD on Time Series Instances and their associated instance fields.
+* [MODEL SETTINGS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api) - Enables get and patch on the default type and the model name of the environment.
+* [TYPES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api) – Enables CRUD on Time Series Types and their associated Variables.
+* [HIERARCHIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api) – Enables CRUD on Time Series Hierarchies and their associated field paths.
+* [INSTANCES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api) – Enables CRUD on Time Series Instances and their associated instance fields.
 
 ### Time series query (TSQ) APIs
 
