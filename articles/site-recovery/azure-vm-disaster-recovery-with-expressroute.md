@@ -32,7 +32,7 @@ ExpressRoute enables you to extend on-premises networks into the Microsoft Azure
 Before you begin, make sure you understand the following concepts:
 
 - ExpressRoute [circuits](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [locations](../expressroute/expressroute-locations.md).
 - Azure VM [replication architecture](azure-to-azure-architecture.md)
 - How to [set up replication](azure-to-azure-tutorial-enable-replication.md) for Azure VMs.
