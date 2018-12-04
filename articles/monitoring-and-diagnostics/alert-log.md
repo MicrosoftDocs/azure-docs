@@ -101,7 +101,7 @@ For **Log Alerts** alerts can be based on:
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
+Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../azure-monitor/log-query/portals.md#log-analytics-page
 ) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alert-log/AlertsAnalyticsCreate.png)
