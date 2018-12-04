@@ -1,7 +1,7 @@
 ---
 title: Create effective listings in AppSource and within Office
 description: Make sure that the information you submit, including your title, description, logos, and images, clearly communicates the benefits and functionality that your solution provides.
-ms.date: 1/11/2018
+ms.date: 12/04/2018
 ---
 
 # Create effective listings in AppSource and within Office
@@ -10,7 +10,7 @@ The information and images that you submit to the Seller Dashboard become the Ap
 
 Apply the following when you create your title, description, and images:
 
-- Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?* 
+- Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?*
 - Use unique logos for each submission.
 - Include images that show off your UI. Be sure to remove any personal information from your images.
 - If you update your functionality, update your description too.
@@ -25,11 +25,11 @@ Create a simple and direct title. The shorter the title the better. Remember, th
 
 In your title:
 
-- Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does. 
+- Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does.
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
 - Use title case. Capitalize the first letter of each word, except articles and prepositions. For example, Apartment Search for Contoso.
 - Don't include the Microsoft product name. This appears on your landing page, and in AppSource and in-product Store search results.
-- Avoid acronyms that might be unfamiliar to potential users. 
+- Avoid acronyms that might be unfamiliar to potential users.
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
 
@@ -38,7 +38,7 @@ In your title:
 
 You specify your add-in name in two places, so be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) element (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
 - The Seller Dashboard add-in submission form. This specifies the name that is displayed in AppSource and the in-product Store.
 
 <a name="bk_describe"> </a>
@@ -72,7 +72,7 @@ In your long description, answer the following questions:
 
 Most users read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
 
-You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting: 
+You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting:
 
 Features:
 
@@ -110,7 +110,7 @@ For SharePoint Add-ins, you include an image in your add-in package, and upload 
 
 ### Create an icon for your add-in
 
-For Office Add-ins that you are submitting to AppSource, you have to link to an image by using the [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
+For Office Add-ins that you are submitting to AppSource, you have to link to an image by using the [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) in the manifest. This image represents your add-in within an Office application.
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
 
@@ -120,16 +120,18 @@ The formatting requirements for this image differ depending on the add-in type. 
 |Source location|The image specified must be secured with HTTPS.|The image specified does not have to be secured with HTTPS.|
 |Size|For best appearance, make your icon 64 x 64 pixels. There is no specific size limit, but Outlook will resize the icon to 64 x 64 if necessary. This might result in a less-than-optimal icon display. |Must be 32 x 32 pixels.|
 |Display location|Exchange Administration Center|Office client interface. The Insertion dialog, MRU list, or context box.|
-|Localization| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.|
+|Localization| [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) supports culture-specific images in the manifest.| [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) supports culture-specific images in the manifest.|
 
-For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
+You should also link to a version of your icon that can be used on high DPI screens by including the [HighResolutionIconUrl element](/office/dev/add-ins/reference/manifest/highresolutioniconurl) in the manifest. For Outlook add-ins, this image must be 128 x 128 pixels. For task pane and content add-ins, we recommend the image be at least 64 x 64 pixels. All other formatting requirements are the same as those listed in the previous table for the IconUrl element.
+
+For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96 x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
 
 <a name="bk_screenshots"> </a>
 ## Use images effectively
 
 Make your store images rich and informative. Help customers understand how your solution solves problems. Make it clear at a glance. Follow our best practices for [crafting effective AppSource store images](craft-effective-appsource-store-images.md). Remember to communicate only the essential information in your images, and apply the following best practices:
 
-- Keep images legible. 
+- Keep images legible.
 - Show real content rather than an empty document.
 - Focus on your solution.
 - Use captions to describe features and value.
@@ -140,7 +142,7 @@ Make your store images rich and informative. Help customers understand how your 
 
 <a name="bk_ratings"> </a>
 ## Use ratings and reviews
-Users will recieve an email soon after acquiring your add-in that will provide them a link to leave a review on AppSource.
+Users will receive an email soon after acquiring your add-in that will provide them a link to leave a review on AppSource.
 
 Good ratings and reviews lead to better store placement and improved customer perception of your product. Customers also use reviews as a forum to offer feedback and suggestions, particularly if feedback and support options are not available within the app or add-in. Be sure to:
 
@@ -160,11 +162,11 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 - Ads should not obstruct content or functionality. Do not use ads that overlay content, pop up new windows, or push functionality off-screen on a 1024 x 768 pixel browser window size.
 - Avoid sound- and video-based ads.
 - Differentiate ads from content and functionality. For example:
-    - Display small print in the region of the screen that shows the ad. 
+    - Display small print in the region of the screen that shows the ad.
     - Use a different background color or font style for the ad content.
     - Use special border treatments around the ad.
     - Use a layout placement away from regular content.
-- Do not include ads with inappropriate content. Ads are subject to the same policies that the content in apps and add-ins is. 
+- Do not include ads with inappropriate content. Ads are subject to the same policies that the content in apps and add-ins is.
 - Use a standard size and location for ads.
 
 ## See also
