@@ -112,7 +112,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### Debug the Docker image locally
-Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
 
 First we need to find out the image location:
 
