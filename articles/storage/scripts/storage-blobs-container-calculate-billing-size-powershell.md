@@ -114,7 +114,7 @@ Following is the breakdown:
 
 ## Sample script
 
-[!code-powershell[main](https://github.com/Azure/azure-powershell/blob/preview/src/Storage/Commands.Storage.Test/Scripts/GetBillableSize.ps1 "Calculate container size")]
+[!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size-ex.ps1 "Calculate container size")]
 
 ## Next steps
 
