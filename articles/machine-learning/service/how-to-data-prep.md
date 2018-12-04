@@ -31,8 +31,11 @@ The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Py
   + Auto Read File
   + Ragged-right schema processing
 
-* A single API that works on small data locally or large data in the cloud, with **few to no code changes**.
-* The ability to scale more effectively on a single machine through the use of a streaming approach to processing the data, rather than loading into memory.
+* A single API that works on small data locally and on large data in the cloud with **few-to-no code changes**
+
+* The ability to scale more effectively on a single machine using a streaming approach to data processing rather than loading into memory.
+
+The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more flexibility. _Other tools_ are typically either:
 
 ### Install the SDK
 
