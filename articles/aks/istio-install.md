@@ -325,7 +325,7 @@ You can also follow additional scenarios using the [Istio Bookinfo Application e
 [istio-install-helm]: https://istio.io/docs/setup/kubernetes/helm-install/
 [istio-install-helm-options]: https://istio.io/docs/reference/config/installation-options/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
-[install-wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+[install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 [kubernetes-crd]: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/
 [grafana]: https://grafana.com/
 [prometheus]: https://prometheus.io/
