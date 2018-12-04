@@ -36,14 +36,14 @@ You can also define custom roles for use with containers and queues. For more in
 
 ## Assign a role to a security principal
 
-Assign an RBAC role to an Azure identity to grant permissions to containers or queues in your storage account. You can scope the role assignment to the storage account, or to a specific container or queue. The following table summarizes the access rights granted by the built-in roles, depending on scope: 
+Assign an RBAC role to an Azure identity to grant permissions to containers or queues in your storage account. You can scope the role assignment to the storage account, or to a specific container or queue. The following table summarizes the access rights granted by the built-in roles, depending on scope:
 
-|                                 |     Blob Data Contributor                                                 |     Blob Data Reader                                                |     Queue Data Contributor                                  |     Queue Data Reader                                 |
-|---------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------|
-|    Scoped to subscription       |    Read/write access to all containers and blobs in the subscription       |    Read access to all containers and blobs in the subscription       |    Read/write access to all queues in the subscription       |    Read access to all queues in the subscription         |
-|    Scoped to resource group     |    Read/write access to all containers and blobs in the resource group     |    Read access to all containers and blobs in the resource group     |    Read/write access to all queues in the resource group     |    Read access to all queues in the resource group     |
-|    Scoped to storage account    |    Read/write access to all containers and blobs in the storage account    |    Read access to all containers and blobs in the storage account    |    Read/write access to all queues in the storage account    |    Read access to all queues in the storage account    |
-|    Scoped to container/queue    |    Read/write access to the specified container and its blobs              |    Read access to the specified container and its blobs              |    Read/write access to the specified queue                  |    Read access to the specified queue                    |
+|Scope|Blob Data Owner|Blob Data Contributor|Blob Data Reader|Queue Data Contributor|Queue Data Reader|
+|---|---|---|---|---|---|
+|Subscrition level|Read/write access to all containers and blobs in the subscription|Read/write access to all containers and blobs in the subscription| Read access to all containers and blobs in the subscription|Read/write access to all queues in the subscription|Read access to all queues in the subscription|
+|Resource group level|Read/write access to all containers and blobs in the resource group|Read/write access to all containers and blobs in the resource group|Read access to all containers and blobs in the resource group|Read/write access to all queues in the resource group|Read access to all queues in the resource group|
+|Storage account level|Read/write access to all containers and blobs in the storage account|Read/write access to all containers and blobs in the storage account|Read access to all containers and blobs in the storage account|Read/write access to all queues in the storage account|Read access to all queues in the storage account|
+|Container/queue level|Read/write access to the specified container and its blobs|Read/write access to the specified container and its blobs|Read access to the specified container and its blobs|Read/write access to the specified queue|Read access to the specified queue|
 
 > [!NOTE]
 > As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or a container or queue.
