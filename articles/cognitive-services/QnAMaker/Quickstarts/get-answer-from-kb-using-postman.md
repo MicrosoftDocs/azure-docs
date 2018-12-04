@@ -20,7 +20,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 ## Prerequisites
 
-* Latest [**Postman**](https://www.visualstudio.com/downloads/).
+* Latest [**Postman**](https://www.getpostman.com/).
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) and have a [knowledge base with questions and answers](../Tutorials/create-publish-query-in-portal.md). 
 
 ## Publish to get endpoint
