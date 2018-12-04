@@ -526,7 +526,9 @@
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: Upgrade agent
+        - name: View container live logs
+          href: insights/container-insights-live-logs.md
+        - name: Manage agent
           href: insights/container-insights-agent-upgrade.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
