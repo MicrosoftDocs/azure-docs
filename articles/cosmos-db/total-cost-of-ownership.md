@@ -56,14 +56,15 @@ The serverless provisioning model of Cosmos DB eliminates the need to over-provi
 * Learn more about [logical partitions](partition-data.md)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
+* Learn more about [How Cosmos pricing works](how-pricing-works.md)
 * Learn more about [How Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md)
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
-* Learn more about Understanding your Cosmos DB bill
-* Learn more about Optimizing throughput cost
-* Learn more about Optimizing storage cost
-* Learn more about Optimizing the cost of reads and writes
-* Learn more about Optimizing the cost of queries
-* Learn more about Optimizing the cost of multi-region Cosmos accounts
+* Learn more about [Understanding your Cosmos DB bill](understand-your-bill.md)
+* Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
+* Learn more about [Optimizing storage cost](optimize-cost-storage.md)
+* Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn more about [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 * Learn more about [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)
 * Learn more about [Cosmos DB Emulator](local-emulator.md)
