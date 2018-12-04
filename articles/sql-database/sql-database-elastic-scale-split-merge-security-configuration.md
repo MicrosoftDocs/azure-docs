@@ -207,7 +207,7 @@ Upload certificate with the existing or generated .PFX file with the SSL key pai
 ## Update SSL certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha256" />
+    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## Import SSL certification authority
 Follow these steps in all account/machine that will communicate with the service:
@@ -226,7 +226,7 @@ Change these settings to false in the service configuration file to turn off the
 
 Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha256" />
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## Create a self-signed certification authority
 Execute the following steps to create a self-signed certificate to act as a Certification Authority:
@@ -269,7 +269,7 @@ Upload certificate with the existing or generated .CER file with the CA public k
 ## Update CA certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha256" />
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
 Update the value of the following setting with the same thumbprint:
 
@@ -372,7 +372,7 @@ Upload certificate with the existing or generated .PFX file with the encryption 
 ## Update encryption certificate in service configuration file
 Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha256" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## Common certificate operations
 * Configure the SSL certificate
