@@ -52,7 +52,7 @@ If you don't have a workspace, you can create one with one of the following meth
 * [The Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md)
 * [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md) 
 
-If you're enabling monitoring for a single Azure VM from the Azure portal, you can create a workspace during this process. 
+If you're enabling monitoring for a single Azure VM in the Azure portal, you can create a workspace during this process. 
 
 To enable the solution for the at-scale scenario, first configure the following in your Log Analytics workspace:
 
@@ -179,10 +179,10 @@ To enable and access the features in Azure Monitor for VMs, you need to be assig
 
 For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md).
 
-## Enable monitoring from the Azure portal
+## Enable monitoring in the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Select **Virtual Machines**. 
 1. From the list, select a VM. 
 1. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
@@ -204,7 +204,7 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 ## Deploy at scale
 In this section, you deploy Azure Monitor for VMs at scale by using either Azure Policy or Azure PowerShell. 
 
-Before you deploy your VMs, pre-configure your Log Analytics workspace as follows:
+Before you deploy your VMs, pre-configure your Log Analytics workspace by doing the following:
 
 1. If you don't already have a workspace, create one that can support Azure Monitor for VMs.  
     Before you proceed, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) to understand the cost, management, and compliance considerations.      
@@ -327,12 +327,12 @@ The policy definitions are listed in the following table:
 |Name |Description |Type |  
 |-----|------------|-----|  
 |[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |  
-|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't in the list defined and the agent isn't installed. |Policy |  
-|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't in the list defined and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is in the list defined and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is in the list defined and the agent isn't installed. |Policy |  
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |  
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |  
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
 
 Standalone policy (not included with the initiative) is described here: 
 
@@ -551,15 +551,11 @@ This section explains how to deploy virtual machines or physical computers that 
 
 The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
-<<<<<<< HEAD
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../azure-monitor/platform/log-analytics-agent.md. 
-=======
 Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md). 
->>>>>>> 8f82e580cd8621b67cf99c7073a67058c9c01d03
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Summarized steps:
+The steps are summarized as follows:
 
 1. Install Log Analytics Agent for Windows or Linux.
 1. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
@@ -594,7 +590,7 @@ The Dependency agent is installed on Linux servers from *InstallDependencyAgent-
 |:--|:--|
 | -help | Get a list of the command-line options. |
 | -s | Perform a silent installation with no user prompts. |
-| --check | Check permissions and the operating system but don't install the agent. |
+| --check | Check permissions and the operating system, but don't install the agent. |
 
 For example, to run the installation program with the `-help` parameter, type **InstallDependencyAgent-Linux64.bin -help**.
 
@@ -755,4 +751,4 @@ For more information about data collection and usage, see the [Microsoft Online 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 ## Next steps
 
-With monitoring enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
+Now that monitoring is enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
