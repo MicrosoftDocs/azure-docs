@@ -1049,7 +1049,7 @@
         },
         {
             "source_path": "articles/active-directory/pp/msi-howto-assign-access-portal.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal",
             "redirect_document_id": false
         },
         {
@@ -15043,7 +15043,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health-faq.md",
-            "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-faq",
+            "redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
             "redirect_document_id": false
         },
         {
@@ -15546,7 +15546,7 @@
 },
 {
 "source_path": "articles/active-directory/connect/active-directory-aadconnect-health-version-history.md",
-"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-version-history",
 "redirect_document_id": false
 },
 {
@@ -31500,6 +31500,21 @@
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
+            "redirect_url":  "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/marketplace/toc_old.md",
+            "redirect_url":  "/azure/marketplace",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/azure-stack/user/media/azure-stack-app-service-deploy-offline/temp.md",
+            "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
+            "redirect_document_id":  false
         }
     ]
 }
