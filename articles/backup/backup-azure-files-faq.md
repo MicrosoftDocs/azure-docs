@@ -2,8 +2,8 @@
 title: Back up Azure Files FAQ
 description: This article provides details about how to protect your Azure file shares.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
