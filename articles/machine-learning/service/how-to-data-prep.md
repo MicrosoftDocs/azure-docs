@@ -39,9 +39,11 @@ The SDK is similar in core-functionality to other popular data manipulation libr
 * Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point
 * Strength in processing large data sets, but carry an overhead that slows work with small data sets
 
-To install the SDK into your Python environment, use:
-```cmd
-pip install --upgrade azureml-dataprep
+The SDK offers practicality and convenience when working with small data sets, with added scalability for modern big-data applications. 
+
+To install the SDK in your Python environment, use:
+```shell
+pip install azureml-dataprep
 ```
 
 To import the package in your Python code, use:
@@ -130,7 +132,5 @@ To see detailed examples and code for each preparation step, follow these how-to
 ![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
 ## Next steps
-
-Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
 
 Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
