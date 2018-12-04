@@ -87,6 +87,6 @@ In the search bar, you can filter by key word to highlight that text in the log.
 To suspend auto-scroll and control the behavior of the pane and allow you to manually scroll through the new log data read, click on the **Scroll** option.  To re-enable auto-scroll, simply click the **Scroll** option again.  You can also pause retrieval of log data by clicking on the **Pause** option and when you are ready to resume, simply click **Play**.  
 
 ![Live logs pane pause live view](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
- 
- 
- 
+
+## Next steps
+To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
