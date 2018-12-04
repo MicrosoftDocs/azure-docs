@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Manage user storage in Windows Virtual Desktop
 
-After creating the host pools, you'll need to manage user storage in the Windows Virtual Desktop environment. You can do this by setting up virtual machines (VMs) as file shares.
+After creating the host pools and managing their apps, you'll need to manage user storage in the Windows Virtual Desktop environment. You can do this by setting up virtual machines (VMs) as file shares.
 
 In this tutorial, you'll learn how to:
 
