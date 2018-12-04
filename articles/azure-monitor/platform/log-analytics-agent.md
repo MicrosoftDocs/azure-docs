@@ -68,7 +68,7 @@ If you are using a distro or version that is not currently supported and doesn't
 >
 
 ## TLS 1.2 protocol
-To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## Network firewall requirements
 The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Log Analytics.  
@@ -120,6 +120,6 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 
 * Review [data sources](../../azure-monitor/platform/agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 
 * Learn about [monitoring solutions](../../azure-monitor/insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.

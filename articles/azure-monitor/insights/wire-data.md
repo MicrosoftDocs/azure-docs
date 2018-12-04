@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: na
 ---
 
 # Wire Data 2.0 (Preview) solution in Log Analytics
@@ -447,4 +446,4 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 
 ## Next steps
 
-- [Search logs](../../log-analytics/log-analytics-queries.md) to view detailed wire data search records.
+- [Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed wire data search records.
