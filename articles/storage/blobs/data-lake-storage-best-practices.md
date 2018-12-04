@@ -17,19 +17,17 @@ In this article, you learn about best practices and considerations for working w
 
 ## Security considerations
 
-Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and directories. The access controls can also be used to create defaults that can be applied to new files or directories. When permissions are set to existing directories and child objects, the permissions need to be propagated recursively on each object. If there are large numbers of files, propagating the permissions can take a long time. The time taken can range between 30-50 objects processed per second. Hence, plan the directory structure and user groups appropriately. Otherwise, it can cause unexpected delays and issues when you work with your data.
-
-Assume you have a directory with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole directory could take an hour. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and directories. The access controls can also be used to create default permissions that can be automatically applied to new files or directories. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
 ### Use security groups versus individual users
 
 WWhen working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to directories and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 entries per ACL (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. For more information about these ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the maximum number of access control entries per access control list (ACL). Currently, that number is 32, (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. Each directory can have two types of ACL, the access ACL and the default ACL, for a total of 64 access control entries. For more information about these ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### Security for groups
 
-When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the account, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
+When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the filesystem, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
 
 ### Security for service principals
 
@@ -45,7 +43,7 @@ Adding Azure Databricks clusters to a virtual network that may be allowed to acc
 
 ## Performance and scale considerations
 
-One of the most powerful features of Data Lake Storage Gen2 is that it removes the hard limits on data throughput. Removing the limits enables customers to grow their data size and accompanied performance requirements without needing to shard the data. One of the most important considerations for optimizing Data Lake Storage Gen2 performance is that it performs the best when given parallelism.
+One of the most powerful features of Data Lake Storage Gen2 is that it significantly raises the hard limits on data throughput. Raising the limits enables customers to grow their data size and accompanied performance requirements without needing to shard the data. One of the most important considerations for optimizing Data Lake Storage Gen2 performance is that it performs the best when given parallelism.
 
 ### Improve throughput with parallelism
 
