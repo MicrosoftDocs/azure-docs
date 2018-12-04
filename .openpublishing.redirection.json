@@ -31337,6 +31337,7 @@
             "redirect_document_id":  true
         },
         {
+<<<<<<< HEAD
             "source_path":  "articles/log-analytics/log-analytics-queries.md",
             "redirect_url":  "/azure/azure-monitor/log-query/log-query-overview",
             "redirect_document_id":  true
@@ -31439,6 +31440,11 @@
         {
             "source_path":  "articles/log-analytics/query-language/functions.md",
             "redirect_url":  "/azure/azure-monitor/log-query/functions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
+            "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
         }
     ]
