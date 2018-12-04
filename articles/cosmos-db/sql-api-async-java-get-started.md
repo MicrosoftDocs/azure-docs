@@ -112,7 +112,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Create a database
 
-Create your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) by using the createDatabaseIfNotExists() method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
+Create your Azure Cosmos DB database by using the `createDatabaseIfNotExists()` method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -156,7 +156,7 @@ private void createDatabaseIfNotExists() throws Exception
 
 ## <a id="CreateColl"></a>Create a collection
 
-You can create a collection by using the createDocumentCollectionIfNotExists() method of the DocumentClient class. A collection is a container of JSON documents and the associated JavaScript application logic.
+You can create a collection by using the `createDocumentCollectionIfNotExists()` method of the DocumentClient class. A collection is a container of JSON documents and the associated JavaScript application logic.
 
 > [!WARNING]
 > **createCollection** creates a new collection with reserved throughput, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -220,7 +220,7 @@ public static Family getJohnsonFamilyDocument() {
 
 ## <a id="Query"></a>Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments) method.
+Azure Cosmos DB supports rich queries against JSON documents stored in each collection. The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the `queryDocuments` method.
 
 ```java
 private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) 
