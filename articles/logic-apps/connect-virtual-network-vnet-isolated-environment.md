@@ -209,9 +209,9 @@ Connectors without the **ISE** label run in the global Logic Apps service.
 
 * After you inject your ISE into an Azure virtual network, 
 the logic apps in your ISE can directly access resources in that virtual network. 
-For on-premises systems in a virtual network that's linked to an ISE, 
-logic apps can directly access those systems by using any 
-of these items: 
+For on-premises systems that are connected to a virtual network, 
+inject an ISE into that network so your logic apps can directly 
+access those systems by using any of these items: 
 
   * ISE connector for that system, for example, SQL Server
   

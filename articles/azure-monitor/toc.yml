@@ -106,7 +106,7 @@
   - name: Analyze data
     items: 
     - name: Log Analytics
-      href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
+      href: log-query/log-query-overview.md
     - name: Log query portals
       href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
     - name: OMS portal transition
@@ -660,55 +660,55 @@
     - name: Query log data
       items:
       - name: Query language Documentation
-        href: ../log-analytics/query-language/query-language.md
+        href: log-query/query-language.md
       - name: Language differences
-        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
+        href: log-query/data-explorer-difference.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
-          href: ../log-analytics/query-language/get-started-analytics-portal.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/get-started-portal.md
         - name: Get started with queries
-          href: ../log-analytics/query-language/get-started-queries.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/get-started-queries.md
         - name: Search queries
-          href: ../log-analytics/query-language/search-queries.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/search-queries.md
         - name: Useful operators
-          href: ../log-analytics/query-language/useful-operators.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/useful-operators.md
       - name: Lessons
         items:
         - name: String operations
-          href: ../log-analytics/query-language/string-operations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/string-operations.md
         - name: Date and time operations
-          href: ../log-analytics/query-language/datetime-operations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/datetime-operations.md
         - name: Aggregation functions
-          href: ../log-analytics/query-language/aggregations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/aggregations.md
         - name: Advanced aggregations
-          href: ../log-analytics/query-language/advanced-aggregations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/advanced-aggregations.md
         - name: Joins
-          href: ../log-analytics/query-language/joins.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/joins.md
         - name: JSON and data structures
-          href: ../log-analytics/query-language/json-data-structures.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/json-data-structures.md
         - name: Advanced query writing
-          href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/advanced-query-writing.md
         - name: Charts and diagrams
-          href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/charts.md
         - name: Functions
-          href: ../log-analytics/query-language/functions.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/functions.md
       - name: Cheatsheets
         items:
         - name: SQL
-          href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/sql-cheatsheet.md
         - name: Splunk
-          href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/splunk-cheatsheet.md
       - name: Query language
         items:
         - name: Examples
-          href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/examples.md
         - name: Cross-resource searches
           href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
         - name: app expression
-          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/app-expression.md
         - name: workspace expression
-          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/workspace-expression.md
       - name: Log data
         items:
         - name: Application data
