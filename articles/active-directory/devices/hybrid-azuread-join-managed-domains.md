@@ -138,7 +138,7 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
-- Configure Seamless Single Sign On (SSO)
+- Configure Seamless Single Sign-On (SSO)
 
 - Control Windows down-level devices 
 
@@ -170,7 +170,7 @@ Additionally, you need to enable **Allow updates to status bar via script** in t
 
 ### Configure Seamless SSO
 
-To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass Through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### Control Windows down-level devices 
