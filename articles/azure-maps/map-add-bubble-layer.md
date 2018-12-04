@@ -11,14 +11,14 @@ manager:
 ms.custom: codepen
 ---
 
-# Add a Bubble Layer to a map
+# Add a bubble layer to a map
 
 This article shows you how you can render point data from a data source as a Bubble layer on a map. Bubble layers render points as circles on the map with fixed pixel radius. 
 
-> [TIP]
+> [!TIP]
 > Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', '$type', 'Point']`
 
-## Add a Bubble Layer
+## Add a bubble layer
 
 <iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -31,7 +31,7 @@ A [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 The array of Point objects, the data source, and the bubble layer are created and added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that the circle is displayed after the map has fully loaded.
 
-## Add Labels over a Bubble Layer
+## Add labels over a bubble layer
 
 <iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -46,11 +46,12 @@ A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 The data source and the layers are created and added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that data is displayed after the map has fully loaded.
 
-## Customize a Bubble Layer
+## Customize a bubble layer
 
 The Bubble layer only has a few styling options. Here is a tool to try them out.
 
-<iframe height='700' scrolling='no' title='Bubble Layer Options' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=html,result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>Bubble Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+
+<iframe height='700' scrolling='no' title='Bubble Layer Options' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>Bubble Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Next steps

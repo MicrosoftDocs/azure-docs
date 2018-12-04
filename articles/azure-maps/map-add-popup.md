@@ -32,11 +32,12 @@ The fourth block of code creates a [popup object](https://docs.microsoft.com/jav
 
 The last block of code creates a function that is triggered by the `mouseover` event listener. It sets the content and properties of the popup and adds the popup object to the map.
 
-## Reusing a Popup with Multiple Points
+## Reusing a popup with multiple points
 
 When you have a lot of points and only want to show one popup at a time, the best approach is to create one popup and reuse it rather than creating a popup for each point feature. By doing this the number of DOM elements created by the application is greatly reduced which can provide better performance. This sample creates 3 point features. If you click on any of them, a popup will be displayed with the content for that point feature.
 
-<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+
+<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Next steps
@@ -47,7 +48,7 @@ Learn more about the classes and methods used in this article:
 > [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 See the following great articles for full code samples:
 

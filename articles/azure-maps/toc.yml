@@ -74,7 +74,7 @@
       href: map-add-image-layer.md
     - name: Add a tile layer
       href: map-add-tile-layer.md
-    - name: Add HTML Markers
+    - name: Add HTML markers
       href: map-add-custom-html.md
     - name: Services
       items:  

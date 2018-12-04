@@ -11,7 +11,7 @@ manager:
 ms.custom: codepen
 ---
 
-# Add a Heat Map Layer
+# Add a heat map layer
 
 Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data using a range of colors. They are often used to show the data "hot spots" on a map and are a great way to render large point data sets.  For example, rendering tens of thousands of points within the map view as symbols cover most of the map area and would result in many symbols being covered by others, making it difficult to gain much insight into the data. However, visualizing this same data set as a heat map makes it easy to see where the point data is the densest and the relative density to other areas. There are many scenarios in which heat maps, are used. Here are few examples;
 
@@ -19,19 +19,20 @@ Heat maps, also known as point density maps, are a type of data visualization us
 * Rendering data for noise sensors as a heat map not only shows the insanity of the noise where the sensor is but can also provide insights into the dissipation over a distance. The noise level at any one site may not be high, however if the noise coverage area from multiple sensors overlaps, it's possible that this overlapping area may experience higher noise levels, and thus  would be visible in the heat map.
 * Visualizing a GPS trace that includes the speed as a weight height map where the intensity of each data point is based on the speed is a great way to quickly see where the vehicle was speeding.
 
-> [TIP]
+> [!TIP]
 > Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', '$type', 'Point']`
 
-## Add a Heat Map Layer
+## Add a heat map layer
 
 To render a data source of points as a heat map simple pass your data source into an instance of the HeatMapLayer class and add it to the map as shown here.
 
-<iframe height='500' scrolling='no' title='Simple Heat Map Layer' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Simple Heat Map Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+
+<iframe height='500' scrolling='no' title='Simple Heat Map Layer' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Simple Heat Map Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 In this sample, each heat point has a radius of 10 pixels at all zoom levels. When adding the heat map layer to the map, this sample inserts it below the label layer. This creates a better user experience as the labels are clearly visible above the heat map. The data in this sample is sourced from the [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) and consists of points that represents significant earthquakes that have occurred in the last 30 days.
 
-## Customizing the Heat Map Layer
+## Customizing the heat map layer
 
 The previous example customized the heat map by setting the radius and opacity options. The heat map layer provides several options for customization;
 
@@ -48,6 +49,7 @@ The previous example customized the heat map by setting the radius and opacity o
 * In addition to the base layer options; min/max zoom, visible and filter, there is also a `source` option if you want to update the data source and `source-layer` option if your data source is a vector tile source.
 
 Here is a tool to test out the different heat map layer options.
+
 
 <iframe height='700' scrolling='no' title='Heat Map Layer Options' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Heat Map Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

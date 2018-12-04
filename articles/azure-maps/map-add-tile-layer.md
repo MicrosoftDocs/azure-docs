@@ -1,6 +1,6 @@
 ---
-title: Add an Image layer to Azure Maps | Microsoft Docs
-description: How to add an Image Layer to the Javascript map
+title: Add an tile layer to Azure Maps | Microsoft Docs
+description: How to add an tile Layer to the Javascript map
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/3/2018
@@ -11,7 +11,7 @@ manager:
 ms.custom: codepen
 ---
 
-# Add an Image Layer to a map
+# Add an tile layer to a map
 
 This article shows you how you can overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. More information on Azure Maps tiling system can be found in the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
 
@@ -33,20 +33,22 @@ The tile URL passed into a Tile layer must be an http/https URL to a TileJSON re
 * `{bbox-epsg-3857}`: A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
 * `{subdomain}`: A placeholder where the subdomain values if specified will be added.
 
-## Add a Tile Layer
+## Add a tile layer
 
  This sample shows how to create a tile layer which points to a set of tiles that use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
 
-<iframe height='500' scrolling='no' title='Tile Layer using X, Y, and Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>Tile Layer using X, Y, and Z</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+
+<iframe height='500' scrolling='no' title='Tile Layer using X, Y, and Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>Tile Layer using X, Y, and Z</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
 In the second block of code, an [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is created by passing a formatted URL to a tile service, the tile size, and an opacity to make it semi-transparent. Additionally, when adding the tile layer to the map, it is added below the `labels` layer so that the labels are still clearly visible.
 
-## Customize a Tile Layer
+## Customize a tile layer
 
 The Tile layer only has a many styling options. Here is a tool to try them out.
+
 
 <iframe height='700' scrolling='no' title='Tile Layer Options' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Tile Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
