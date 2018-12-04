@@ -7,7 +7,7 @@
  ms.service: time-series-insights
  author: kingdomofends
  ms.author: adgera
- ms.date: 11/21/2018
+ ms.date: 11/30/2018
 ---
 
 ## Azure Time Series Insights (Preview) documents
@@ -17,4 +17,8 @@
 * [Preview data modeling](../articles/time-series-insights/time-series-insights-update-tsm.md)
 * [Preview data querying](../articles/time-series-insights/time-series-insights-update-tsq.md)
 * [Preview TSI Javascript SDK](../articles/time-series-insights/tutorial-explore-js-client-lib.md)
+<<<<<<< HEAD
 * [Preview provisioning](../articles/time-series-insights/time-series-insights-update-create-environment.md)
+=======
+* [Preview provisioning](../articles/time-series-insights/time-series-insights-update-create-environment.md)
+>>>>>>> ae37f8e8a9922fbd58712a1a4ff7ddbf5424c726
