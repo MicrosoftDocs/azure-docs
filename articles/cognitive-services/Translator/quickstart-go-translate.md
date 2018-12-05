@@ -57,10 +57,9 @@ func main() {
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
      * want to use env variables.
      */
-    var subscriptionKey = os.Getenv("TRANSLATOR_TEXT_KEY")
-    if len(subscriptionKey) <= 0 {
-        fmt.Println("\nWARNING: Subscription key is not set. Please check your environment variables.\n")
-        os.Exit(0)
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
     /*
      * This calls our translate function, which we'll
