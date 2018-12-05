@@ -19,7 +19,7 @@ ms.component:
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates
-You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
 * Create a workspace including setting pricing tier 
 * Add a solution
@@ -130,7 +130,7 @@ The following parameters set a default value:
         azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
         ```
 
-The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/template-workspace-configuration/template-output-01.png)
 
 ## Configure a Log Analytics workspace
 The following template sample illustrates how to:
@@ -517,6 +517,6 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Add an existing storage account to Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/extensions/oms-linux.md).
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
 
