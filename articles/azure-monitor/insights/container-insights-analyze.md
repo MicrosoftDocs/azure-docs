@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # Understand AKS cluster performance with Azure Monitor for containers 
-You can view the performance of your Azure Kubernetes Service (AKS) clusters from two perspectives with Azure Monitor for containers, directly from an AKS cluster or all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also possible when you view a specific AKS cluster.
+With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of your Azure Kubernetes Service (AKS) clusters from two perspectives, directly from an AKS cluster or all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also possible when you monitor a specific AKS cluster.
 
 This article will help you understand the experience between the two perspectives, and how it helps you quickly assess, investigate, and resolve issues detected.
 
