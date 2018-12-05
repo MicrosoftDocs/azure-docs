@@ -11,13 +11,11 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
 **Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica.
-
-## Overview of Read Scale-Out
 
 Each database in the Premium tier ([DTU-based purchasing model](sql-database-service-tiers-dtu.md)) or in the Business Critical tier ([vCore-based purchasing model](sql-database-service-tiers-vcore.md)) is automatically provisioned with several AlwaysON replicas to support the availability SLA.
 
@@ -58,6 +56,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
+
+## Verifying that a connection is to a read-only replica
 
 You can verify whether you are connected to a read-only replica by running the following query. It will return READ_ONLY when connected to a read-only replica.
 
