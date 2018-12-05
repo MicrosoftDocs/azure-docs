@@ -54,7 +54,7 @@ Plan your backup-recovery and disaster-recovery strategy for each application to
 | **Azure Stack deployed into CSP datacenter and operated by CSP** | User VMs are deployed to the CSP operated Azure Stack. User VMs are restored from backup or failed over directly to Azure. | CSP operates the primary and secondary instances of Azure Stack in their own datacenters. User VMs are restored or failed over between the two Azure Stack instances. | CSP operates Azure Stack in the primary site. Customer’s datacenter is the restore or failover target. |
 | **Azure Stack deployed into customer datacenter and operated by customer** | User VMs are deployed to the customer operated Azure Stack. User VMs are restored from backup or failed over directly to Azure. | Customer operates the primary and secondary instances of Azure Stack in their own datacenters. User VMs are restored or failed over between the two Azure Stack instances. | Customer operates Azure Stack in the primary site. CSP’s datacenter is the restore or failover target. |
 
-![Source-target combinations](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Source-target combinations](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## Application recovery objectives
 
@@ -73,7 +73,7 @@ Another metric is **Mean Time to Recover** (MTTR), which is the average time tha
 
 The most common protection scheme for VM-based applications is to use backup software. Backing up a VM typically includes the operating system, operating system configuration, application binaries, and application data. The backups are created by taking a snapshot of the volumes, disks, or the entire VM. With Azure Stack, you have the flexibility of backing up from within the context of the guest OS or from the Azure Stack storage and compute APIs. Azure Stack does not support taking backups at the hypervisor level.
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. The cloud you choose is completely within your control and is based on your data privacy and sovereignty requirements.
  
@@ -103,7 +103,7 @@ An alternate approach to supporting high availability is to replicate your appli
 
 With this approach, the application is deployed in one cloud and its VM is replicated to the other cloud. If a failover is triggered, the secondary VMs need to be powered on in the second cloud. In some scenarios, the failover creates the VMs and attaches disks to them. This process can take a long time to complete, especially with a multi-tiered application that requires a specific start-up sequence. There may also be steps that must be run before the application is ready to start servicing requests.
 
-![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Replication-manual failover](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Downtime measured in minutes
  - RPO: Variable data loss (depending on replication frequency)

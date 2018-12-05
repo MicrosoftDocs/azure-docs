@@ -1,6 +1,6 @@
 ---
 title: Manage cost of data in Azure Log Analytics | Microsoft Docs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.   
+description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
@@ -89,7 +88,7 @@ To get you started, here are the recommended settings for the alert:
 * Alert rule name: Daily data limit reached
 * Severity: Warning (Sev 1)
 
-Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## Change the data retention period 
 The following steps describe how to configure how long log data is kept by in your workspace.

@@ -16,7 +16,9 @@ ms.author: jejiang
 
 # Use Azure HDInsight Tools for Visual Studio Code
 
-Learn how to use the [Azure HDInsight Tools for Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) (VS Code) to create and submit [Apache Hive](https://hive.apache.org/) batch jobs, interactive Apache Hive queries, and PySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code. These include Windows, Linux, and macOS. You can find the prerequisites for different platforms.
+Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Apache Hive batch jobs, interactive  Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install the HDInsight tools in VS Code and then we'll walk through how to submit jobs to Hive and Spark. 
+
+The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code, which include Windows, Linux, and macOS. Below you'll find the prerequisites for different platforms.
 
 
 ## Prerequisites
