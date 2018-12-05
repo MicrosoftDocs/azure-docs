@@ -21,7 +21,16 @@ ms.author: ambapat
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords). Because this data is sensitive and business critical, you must secure access to your key vaults, allowing only authorized applications and users. This article provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access.
 
 ## Overview
-You control access to a key vault through two separate interfaces: the *management plane* and the *data plane*. For both planes, a caller (a user or an application) must have proper authentication and authorization to access a key vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller can perform.
+Access to a key vault is controlled through two separate interfaces: management plane and data plane. 
+**Management plane** deals with managing the vault, for example - creating a vault, updating a vault, deleting a vault. 
+**Data plane** deals with secrets inside a vault, that is create, update, delete and read a secret inside the vault. 
+For both planes, proper authentication and authorization are required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller is allowed to perform.
+
+For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
+
+Here is a brief overview of the topics covered:
+
+[Authentication using Azure Active Directory](#authentication-using-azure-active-directory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
 
 For authentication, both planes use Azure Active Directory (Azure AD). For authorization, the management plane uses role-based access control (RBAC), while the data plane uses Key Vault access policy.
 

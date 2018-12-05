@@ -204,7 +204,7 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Enable replication traffic between two instances**
 
-  Because each instance is isolated in its own VNET, two-directional traffic between these VNETs must be allowed. See [Replication with SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+  Because each instance is isolated in its own VNET, two-directional traffic between these VNETs must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 - **Configure a failover group to manage failover of entire instance**
 
