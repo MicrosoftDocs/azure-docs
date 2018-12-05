@@ -24,7 +24,7 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Prepare a BACPAC file
-> * Open a Quickstart template
+> * Open an existing template
 > * Edit the template
 > * Deploy the template
 > * Verify the deployment
@@ -120,7 +120,7 @@ A Blob container is needed before you can upload any files.
 
 You need these three values in [Deploy the template](#deploy-the-template).
 
-## Open a Quickstart template
+## Open an existing template
 
 In this session, you modify the template you created in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) to call the BACPAC file with a SAS token.  The template developed in the SQL extension tutorial is shared at [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json).
 
