@@ -36,17 +36,17 @@ The following example describes how to create a C# Function app in Visual Studio
 
 To set up your environment, create a Function and test app. The following steps help you create the
 
-- [Create a new Functions app](./functions-create-first-azure-function.md) and name it *Functions*
-- [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpFunction*.
-- Create a timer function from the template and name it *TimerFunction*.
-- Create an xUnit Test app and name it *Functions.Test*.
-- Reference the *Functions* app from *Functions.Test*.
+1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it *Functions*
+2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpFunction*.
+3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it *TimerFunction*.
+4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) and name it *Functions.Test*.
+5. Reference the *Functions* app from *Functions.Test* app.
 
 ### Create test classes
 
 Now that the applications are created, you can create the classes used to run the automated tests.
 
-Each function takes an instance if `ILogger` to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
+Each function takes an instance of [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
 The `ListLogger` class is meant to implement the `ILogger` interface and hold in internal list of messages for evaluation during a test.
 
@@ -87,7 +87,7 @@ namespace Functions.Tests
 }
 ```
 
-The `ListLogger` class implements the following members as contracted by the [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) interface:
+The `ListLogger` class implements the following members as contracted by the `ILogger` interface:
 
 - **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) class to allow the test to function.
 
