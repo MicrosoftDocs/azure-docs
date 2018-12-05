@@ -211,7 +211,7 @@
     - name: Compare data transfer solutions
       href: ../common/storage-choose-data-transfer-solution.md
       items:
-      - name: Large datasets, low network bandwidth
+      - name: Large dataset, low network bandwidth
         href: ../common/storage-solution-large-dataset-low-network.md
       - name: Large dataset, moderate to high network bandwidth
         href: ../common/storage-solution-large-dataset-moderate-high-network.md
