@@ -304,7 +304,7 @@ When the script completes, copy the management IP address, which is needed for c
 > [!IMPORTANT] 
 > If you created a new Blob container, it might be encrypted with a default key that is not saved outside of the cluster. Before you store data on the container, you must create your own encryption key and save it in a persistent location. If you do not replace the default key, it is possible to lose access to the encrypted data in the Blob core filer if the vFXT cluster fails.
 >
-> If your script shows `WARNING` messages like those circled in the screenshot below, follow instructions in [Configure storage](avere-vftx-add-storage.md) to create a new encryption key for your Blob container. Use the cluster configuration tool, Avere Control Panel, to replace the default key.
+> If your script shows `WARNING` messages like those circled in the screenshot below, follow instructions in [Configure storage](avere-vfxt-add-storage.md) to create a new encryption key for your Blob container. Use the cluster configuration tool, Avere Control Panel, to replace the default key.
 
 ![Command line output of the script displaying warning messages about creating a new encryption key](media/avere-vfxt-key-warning.png)
 
