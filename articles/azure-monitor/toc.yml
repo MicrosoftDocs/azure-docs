@@ -717,6 +717,8 @@
           href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Standard properties
           href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
+        - name: Parse text data
+          href: log-query/parse-text.md
       - name: Take action from search results
         href: log-query/take-action.md
       - name: Computer groups
