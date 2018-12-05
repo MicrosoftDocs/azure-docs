@@ -229,9 +229,9 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
 ## <a id="fpga"></a> Deploy to field-programmable gate arrays (FPGA)
 
-Hardware Accelerated Models powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning, or customizable with weights trained from your own data.
+Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning, or customizable with weights trained from your own data.
 
-For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
+For a walkthrough of deploying a model using Project Brainwave, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
 ## Testing web service deployments
 
@@ -290,4 +290,5 @@ Once you have the credentials, use the steps in the [Deploy Azure IoT Edge modul
 
 ## Next steps
 
-Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
+* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
