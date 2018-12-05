@@ -37,7 +37,7 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. 
+* Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. A download link of the completed template is provided in this article.
 * To increase security, use a generated password for the SQL Server administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
@@ -47,13 +47,13 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-In this section, you prepare the BACPAC file so it is accessible securely when you deploy the Resource Manager template. There are five procedures in this section:
+In this section, you prepare the BACPAC file so the file is accessible securely when you deploy the Resource Manager template. There are five procedures in this section:
 
 * Download the BACPAC file.
-* Create a storage account.
-* Create a Blob container.
-* Upload the BACPAC file.
-* Retrieve the SAS token.
+* Create an Azure Storage account.
+* Create a Storage account Blob container.
+* Upload the BACPAC file to the container.
+* Retrieve the SAS token of the BACPAC file.
 
 ### Download the BACPAC file
 
@@ -82,43 +82,48 @@ Download the [BACPAC file](https://armtutorials.blob.core.windows.net/sqlextensi
 
 A Blob container is needed before you can upload any files. 
 
-1. Select the storage account to open it. You shall see only one storage account listed in the resource group.
+1. Select the storage account to open it. You shall see only one storage account listed in the resource group. Your storage account name is different from the one shown in the fowllowing screenshot.
 
     ![Resource Manager tutorial storage account](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 
-    Your storage account name shall be different from the one shown in the screenshot.
 2. Select the **Blobs** tile.
 
     ![Resource Manager tutorial blobs](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
-3. Select **+ Container** from the top
+3. Select **+ Container** from the top to create a new container.
 4. Enter the following values:
 
     * **Name**: enter **sqlbacpac**. 
     * **Public access level**: use the default value, **Private (no anonymous access)**.
-10. Select **OK**.
-11. Select **sqlbacpac** to open the newly created container.
-12. Select **Upload**.
-13. Enter the following values:
+5. Select **OK**.
+6. Select **sqlbacpac** to open the newly created container.
+
+### Upload the BACPAC file to the container
+
+1. Select **Upload**.
+2. Enter the following values:
 
     * **Files**: Following the instructions to select the BACPAC file you downloaded earlier. The default name is **SQLDatabaseExtension.bacpac**.
     * **Authentication type**: Select **SAS**.  *SAS* is the default value.
-14. Select **Upload**.  Once the file is uploaded successfully, the file name shall be listed in the container.
-15. Right-click **SQLDatabaseExtension.bacpac** from the container, and then select **Generate SAS**.
-16. Enter the following values:
+3. Select **Upload**.  Once the file is uploaded successfully, the file name shall be listed in the container.
+
+### <a name="generate-a-sas-token" />Generate a SAS token
+
+1. Right-click **SQLDatabaseExtension.bacpac** from the container, and then select **Generate SAS**.
+2. Enter the following values:
 
     * **Permission**: Use the default, **Read**.
     * **Start and expiry date/time**: The default value gives you eight hours to use the SAS token. If you need more time to complete this tutorial, update **Expiry**.
     * **Allowed IP addresses**: Leave this field blank.
     * **Allowed protocols**: use the default value: **HTTPS**.
     * **Signing key**: use the default value: **Key 1**.
-17. Select **Generate blob SAS token and URL**.
-18. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name divides the URL into three parts:
+3. Select **Generate blob SAS token and URL**.
+4. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name divides the URL into three parts:
 
     - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
     - **BACPAC file name**: SQLDatabaseExtension.bacpac.
     - **Artifact location SAS token**: Make sure the token precedes with a "?."
 
-You need these three values in [Deploy the template](#deploy-the-template).
+    You need these three values in [Deploy the template](#deploy-the-template).
 
 ## Open an existing template
 
@@ -151,13 +156,13 @@ Add the following additional parameters:
 "_artifactsLocation": {
     "type": "string",
     "metadata": {
-        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
+        "description": "The base URI where artifacts required by this template are located."
     }
 },
 "_artifactsLocationSasToken": {
     "type": "securestring",
     "metadata": {
-        "description": "The sasToken required to access _artifactsLocation. "
+        "description": "The sasToken required to access _artifactsLocation."
     },
     "defaultValue": ""
 },
@@ -205,6 +210,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).
+For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Generate a SAS token](#generate-a-sas-token).
 
 ## Verify the deployment
 
