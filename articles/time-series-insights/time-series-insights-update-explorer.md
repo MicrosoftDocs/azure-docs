@@ -1,6 +1,6 @@
 ﻿---
 title: Visualize data in the Azure Time Series Insights explorer update | Microsoft Docs
-description: The Azure Time Series Insights update explorer
+description: This article describes features and options available in the Azure Time Series Insights (preview) explorer web app.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,66 +11,66 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Visualize data in the explorer (Preview)
+# Visualize data in the explorer (preview)
 
-This article describes features and options available within The Azure Time Series Insights (Preview) [explorer web application](https://insights.timeseries.azure.com/preview/samples).
+This article describes features and options available in the Azure Time Series Insights (preview) [explorer web app](https://insights.timeseries.azure.com/preview/samples).
 
 ## Prerequisites
 
-Before you use the Azure Time Series Insights (Preview) explorer, you must:
+Before you use the Azure Time Series Insights (preview) explorer, you must:
 
-* Have a Time Series Insights environment provisioned. Learn more about provisioning a Time Series Insights environment here.
-* Provide data access to the Time Series Insights environment you created for the account. Access can be supplied to others as well as yourself.
+* Have a Time Series Insights environment set up. Learn more about setting up a Time Series Insights environment here.
+* Provide data access to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment.
 
-## Learn about the Azure Time Series Insights (Preview) explorer
+## Learn about the Azure Time Series Insights (preview) explorer
 
   ![explorer-one][1]
 
-The Azure Time Series Insights (Preview) explorer is broken up into the following seven elements:
+The Azure Time Series Insights (preview) explorer consists of the following elements:
 
-1. TSI (Preview) navigation bar allows you to switch between analytics and model pages.
-1. TSI (Preview) hierarchy tree select specific data elements to be charted.
-1. TSI (Preview) time series well shows all your currently selected data elements.
-1. TSI (Preview) chart panel displays your current working chart.
-1. TSI (Preview) timeline allows you to modify your working time span.
-1. TSI (Preview) app bar contains your user management options (like current tenant), and allows you to change theme and language settings.
+* **Navigation bar**: Lets you switch between analytics and model pages.
+* **Hierarchy tree**: Lets you select specific data elements to be charted.
+* **Time series well**: Displays your currently selected data elements.
+* **Chart panel**: Displays your current working chart.
+* **Timeline**: Lets you modify your working time span.
+* **App bar**: Contains your user management options, such as current tenant, and lets you change theme and language settings.
 
-## TSI (Preview) environment panel
+## Time Series Insights (preview) environment panel
 
-The environment panel displays all the TSI environments you have access to. This includes a listing of pay-as-you-go environments (Preview) as well as S1/S2 environments (GA). Simply click the TSI environment you want to use.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (preview) and S1/S2 environments (GA). Simply click the Time Series Insights environment you want to use.
 
   ![explorer-two][2]
 
-## Time Series Insights (Preview) Navigation Menu
+## Time Series Insights (preview) navigation menu
 
   ![explorer-three][3]
 
-The navigation menu allows you to switch between the TSI applications:
+With the navigation menu, you can switch between the Time Series Insights apps:
 
-* Analyze – Allows you to chart & perform rich analytics on your modeled or unmodeled time series data.
+* **Analyze**: Lets you chart and perform rich analytics on your modeled or unmodeled time series data.
 
-* Model - Allows you to push new TSI update types, hierarchies, and instances to your TSI model.
+* **Model**: Lets you push new Time Series Insights update types, hierarchies, and instances to your Time Series Insights model.
 
-## Time Series Insights update Model Authoring
+## Time Series Insights update model authoring
 
-This application gives you the ability to perform CRUD operations on your Time Series Model.  
+With this app, you can perform Create, Read, Update, and Delete (CRUD) operations on your Time Series Model.  
 
-* TSM type - TSI types enable defining variables or formulas for doing computations, they are associated with a given TSI instance. A type can have one or more variables.
-* TSM hierarchy - Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your TSI data.
-* TSM instance - Instances are the time series themselves. In most cases, this will be the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
+* **Time Series Model type**: Time Series Insights types enable defining variables or formulas for doing computations. They are associated with a given Time Series Insights instance. A type can have one or more variables.
+* **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
+* **Time Series Model instance**: Instances are the time series themselves. In most cases, they are the DeviceID or AssetID, which is the unique identifier of the asset in the environment.
 
-To learn more about the TSM, read [Times Series Models](./time-series-insights-update-tsm.md).
+To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
-## Time Series Insights (Preview) Model Search Panel
+## Time Series Insights (preview) model search panel
 
-The model search panel allows you to easily search and navigate your TSM hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well.
+The model search panel lets you easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are added to both the current chart and the data well.
 
   ![explorer-four][4]
 
-## Time Series Insights (Preview) well
+## Time Series Insights (preview) well
 
-The well displays instance fields and other metadata associated with selected time series instances. The checkboxes on the right-hand side allow you to hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by clicking the red x control to the right of the element.
+The well displays instance fields and other metadata associated with selected time series instances. The check boxes at the right side let you hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by clicking the red x control to the right of the element.
 
   ![explorer-five][5]
 
@@ -79,68 +79,67 @@ You can also pop out the telemetry panel to get a better vertical view of the el
   ![explorer-six][6]
 
 > [!NOTE]
-> If you see the following icon, the instance does not have any data during the timespan selected.
-> To fix, you can increase the timespan selected and/or confirm that the instance is pushing data.
+> If you see the following message, the instance does not have any data during the time span selected. To resolve the issue, you can increase the time span or confirm that the instance is pushing data.
 
   ![explorer-seven][7]
 
-## Time Series Insights (Preview) Chart
+## Time Series Insights (preview) chart
 
-The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
+With the chart, you can display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
 
   ![explorer-eight][8]
 
-1. **Selected Date range** – The currently selected date range for the chart panel, this controls which data elements will be available for visualization.
+1. **Selected Date range**: Controls which data elements are available for visualization.
 
-1. **Inner Date range slider tool** - Use the two endpoint controls by clicking and dragging them over the desired time span.
+1. **Inner Date range slider tool**: Use the two endpoint controls by dragging them over the desired time span.
 
-1. **Time span collapse control** - This control collapses and expands the time span panel editor.
+1. **Time span collapse control**: Collapses and expands the time span panel editor.
 
-1. **Y-Axis format control** – Click this control to cycle through the available Y-Axis view options. The available Y-Axis view options are:
+1. **Y-axis format control**: Cycles through the available Y-axis view options:
 
-    * `Default`  - each line has an individual Y-axis
-    * `Stacked` – this allows you to stack multiple lines on the same Y-axis, with the Y-axis data changing based on the line selected
-    * `Shared` – All Y-axis data displayed together
+    * `Default`: Each line has an individual Y-axis.
+    * `Stacked`: Lets you stack multiple lines on the same Y-axis, with the Y-axis data changing based on the line selected.
+    * `Shared`: All Y-axis data displayed together.
 
-1. **Current data element** – The currently selected data element and its associated details.
+1. **Current data element**: The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by left-clicking a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click zoom as shown below. You can also:
+You can further drill into a specific data slice by left-clicking a data point on the current graph and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click zoom as shown in this following image:
 
   ![explorer-nine][9]
 
-After performing the zoom action, you will now see your selected data set. Click on the Y-axis format control to cycle through the three different Y-axis representations of your TSI data.
+After you perform the zoom action, you will see your selected dataset. Click the Y-axis format control to cycle through the three Y-axis representations of your Time Series Insights data.
 
   ![explorer-ten][10]
 
-Here you can see an example of a shared Y-axes.
+Here you can see an example of shared Y-axes:
 
   ![explorer-eleven][11]
 
-## Time Series Insights (Preview) Time Editor Panel
+## Time Series Insights (preview) time editor panel
 
-When working with TSI, you first will select a time span. The selected time span will control the data set that is available for manipulation with the TSI update widgets. The following web controls are available in the TSI update for selecting your working time span.
+When you work with Time Series Insights, you first select a time span. The selected time span controls the dataset that is available for manipulation with the Time Series Insights update widgets. The following web controls are available in the Time Series Insights update for selecting your working time span.
 
   ![explorer-twelve][12]
 
-1. **Inner-date range slider tool** - Use the two endpoint controls by clicking and dragging them over the desired time span. This “Inner Date” range will be constrained by the “Outer Date” range slider control referred to below.
+1. **Inner-date range slider tool**: Use the two endpoint controls by dragging them over the desired time span. This inner-date range is constrained by the outer-date range slider control.
 
-1. Increase and decrease date range buttons** - Increase or decrease your time span by clicking either button for the interval you want.
+1. **Increase and decrease date range buttons**: Increase or decrease your time span by selecting either button for the interval you want.
 
-1. **Time span collapse control** - This web control allows you to hide all the controls except for the Inner Date range slider tool.
+1. **Time span collapse control**: This web control lets you hide all the controls except for the inner-date range slider tool.
 
-1. **Outer-date range slider control** - Using the endpoint controls select the Outer Date range, which will be available for your "Inner Date" range control.
+1. **Outer-date range slider control**: Use the endpoint controls to select the outer-date range, which will be available for your inner-date range control.
 
-1. **Quick times date range drop-down** - Gives you the ability to quickly switch between preset time span selections such as the last 30 minutes, the last 12 hours, custom range, etc. Changing this value also changes the available interval ranges discussed in the interval size slider tool next.
+1. **Quick times date range drop-down**: Lets you quickly switch between preset time span selections, such as the last 30 minutes, the last 12 hours, or a custom range. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
 
-1. **Interval-size slider tool** - The interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
+1. **Interval-size slider tool**: Lets you zoom in and out of intervals over the same time span. This action provides more precise control of movement between large slices of time. It displays smooth trends down to slices as small as a millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection, which balances resolution, query speed, and granularity.
 
-1. **Date range to and from web control** - With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different Time Zones. After you make the changes, you would like to apply to your current work space click the save button.
+1. **Date range to and from web control**: With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different time zones. After you make the changes, to apply to your current workspace, select **Save**.
 
   ![explorer-thirteen][13]
 
-## Time Series Insights (Preview) navigation panel
+## Time Series Insights (preview) navigation panel
 
-The TSI update navigation panel provides the following functionality:
+The Time Series Insights update navigation panel provides the following functionality:
 
   ![explorer-fourteen][14]
 
@@ -148,7 +147,7 @@ The TSI update navigation panel provides the following functionality:
 
   ![explorer-fifteen][15]
 
-Click the circled link web control to generate a URL to save or share your current Azure TSI working session, which includes:
+Select the link web control (highlighted) to generate a URL to save or share your current Azure Time Series Insights working session, which includes:
 
 * Currently selected time range
 * Currently selected interval size
@@ -158,63 +157,61 @@ Click the circled link web control to generate a URL to save or share your curre
 
   ![explorer-sixteen][16]
 
-* Displays your current TSI login account information
-* Allows you switch between the available TSI themes.
+* Displays your current Time Series Insights login account information.
+* Lets you switch between the available Time Series Insights themes.
 
 ### Theme selection
 
-The Azure TSI (Preview) supports two themes:
+The Azure Time Series Insights (preview) supports two themes:
 
-* **Light Theme**: This is the default theme shown throughout this document.
-* **Dark theme**:  This option renders the explorer into a dark theme as shown below:
+* **Light Theme**: The default theme shown throughout this document.
+* **Dark theme**:  Renders the explorer as shown here:
 
   ![explorer-seventeen][17]
 
 Here you can also change between supported languages.
 
-## S1/S2 Environment Controls
+## S1/S2 environment controls
 
-### Time Series Insights (Preview) Terms Panel
+### Time Series Insights (preview) terms panel
 
-This section just applies to existing S1/S2 environments attempting to use the explorer in the updated UI. You might want to do this to use the GA product and update (Preview) in conjunction with one another. We’ve added some functionality from the existing UI to the updated explorer, but know you can always get the full UI experience for S1/S2 environment in the existing TSI explorer.  
+This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the GA product and update (preview) in combination. We’ve added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer.  
 
-In lieu of the hierarchy, you will see the TSI terms panel. This is where you define queries in your environment. It gives you the ability to filter your data based using a predicate.
+In lieu of the hierarchy, you will see the Time Series Insights terms panel, where you define queries in your environment. It lets you filter your data based on a predicate.
 
   ![explorer-eighteen][18]
 
-The TSI (Preview) Terms Editor Panel takes the following parameters
+The Time Series Insights (preview) terms editor panel takes the following parameters:
 
-**Where**: The where clause enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search. Supported operand types include:
+**Where**: The where clause lets you quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting an operand, the predicate is automatically updated based on that search. Supported operand types include:
 
 | Operation	| Supported types	| Notes |
 | --- | --- | --- |
-| `<`, `>`, `<=`, `>=` |	Double, DateTime, TimeSpan	| |
-| `=`, `!=`, `<>`	| String, Bool, Double, DateTime, TimeSpan, NULL	|
-| `IN` |	String, Bool, Double, DateTime, TimeSpan, NULL |	All operands should be of the same type or be NULL constant. |
+| `<`, `>`, `<=`, `>=` |	Double, DateTime, time span	| |
+| `=`, `!=`, `<>`	| String, Bool, Double, DateTime, time span, NULL	|
+| `IN` |	String, Bool, Double, DateTime, time span, NULL |	All operands should be of the same type or be NULL constant. |
 | `HAS` |	String |	Only constant string literals are allowed at right-hand side. Empty string and NULL are not allowed. |
 
 ### Examples of Where clauses
 
   ![explorer-nineteen][19]
 
-**Measure**: This drop down shows all numeric columns (**Doubles**) that you can use as elements for your current chart.
+**Measure**: This drop-down displays all numeric columns (**Doubles**) that you can use as elements for your current chart.
 
-**Split by**: This drop down shows all of the categorical columns (Strings) in your model available, that you can use to group your data by. 
-You can add up to five terms to view on the same X-axis. Enter your desired parameters and then use the **Add** button to add a fresh term.
+**Split by**: This drop-down displays all the available categorical columns (Strings) in your model that you can group your data by. You can add up to five terms to view on the same X-axis. Enter your desired parameters, and then select **Add** to add a fresh term.
 
   ![explorer-twenty][20]
 
-You can hide and show elements from the chart panel by clicking on the visible icon as shown below. You can completely remove queries by clicking the red `X` shown below.
+You can show and hide elements in the chart panel by selecting the visible icon as shown in the following image. You can completely remove queries by clicking the red **x**.
 
   ![explorer-twenty-one][21]
 
 ## Next steps
 
-Read the [Azure TSI (Preview) storage and ingress](./time-series-insights-update-storage-ingress.md).
-
-Read about [Data modeling](./time-series-insights-update-tsm.md).
-
-Learn about [Diagnosing and troubleshooting](./time-series-insights-update-how-to-troubleshoot.md).
+See the following articles:
+* [Azure Time Series Insights (preview) storage and ingress](./time-series-insights-update-storage-ingress.md)
+* [Data modeling](./time-series-insights-update-tsm.md)
+* [Diagnosing and troubleshooting](./time-series-insights-update-how-to-troubleshoot.md)
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png
