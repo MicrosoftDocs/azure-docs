@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: .net
 author: nikmd23
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-
 ---
 
 # Dependency auto-collection

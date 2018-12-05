@@ -48,7 +48,7 @@ sections:
         image:
           src: media/index/i_scale.svg
         title: Scalability
-      - href: /azure/sql-database/sql-database-servers-databases
+      - href: /azure/sql-database/sql-database-single-index
         html: <p>Use the Single database hosted in logical servers for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
@@ -63,12 +63,12 @@ sections:
         image:
           src: media/index/i_mi.svg
         title: Managed Instance
-      - href: /azure/sql-database/sql-database-business-continuity
+      - href: /azure/sql-database/sql-database-paas
         html: <p>Built-in High-availability, automated backups, and geo-replication, will prevent maintenance operations, infrastructure or hardware failures from stopping your business.</p>
         image:
           src: media/index/gear.svg
-        title: Business continuity
-      - href: /azure/sql-database/sql-database-security-overview
+        title: Platform as a Service
+      - href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your database with Azure AD authentication, Virtual Networks, Firewalls, Always Encrypted connections. Identify threats and vulnerabilities with built-in security.</p>
         image:
           src: media/index/i_security.svg

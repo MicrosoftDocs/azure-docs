@@ -5,12 +5,10 @@ services: application-insights
 documentationcenter: ''
 author: lgayhardt
 manager: carmonm
-
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.reviewer: sdash
@@ -181,7 +179,7 @@ From an availability test result, you can see the transaction details across all
 
 * Inspect the response received from your server.
 * Diagnose failure with correlated server side telemetry collected while processing the failed availability test.
-* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
 Learn more about the end to end transaction diagnostics experience [here](app-insights-transaction-diagnostics.md).

@@ -128,6 +128,8 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+    - name: Using API
+      href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
     - name: Install tools
@@ -148,7 +150,7 @@
     items:
     - name: Input
       href: stream-analytics-troubleshoot-input.md
-    - name: Ouput
+    - name: Output
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
