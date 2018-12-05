@@ -90,7 +90,7 @@ To add Blob storage after creating the cluster, follow these steps.
    * **Resource group** - same as the vFXT cluster group (optional)
    * **Location** - same as the vFXT cluster
    * **Performance** - Standard (Premium storage is unsupported)
-   * **Account kind** - General purpose V2 (StorageV2)
+   * **Account kind** - General-purpose V2 (StorageV2)
    * **Replication** - Locally redundant storage (LRS)
    * **Access tier** - Hot
    * **Secure transfer required** - disable this option (non-default value)
