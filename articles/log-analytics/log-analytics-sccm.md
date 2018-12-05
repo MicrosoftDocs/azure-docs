@@ -37,7 +37,7 @@ The following steps summarize the steps to configure Configuration Manager integ
 You can read more about connecting Configuration Manager to Log Analytics at [Sync data from Configuration Manager to the Microsoft Log Analytics](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## Grant Configuration Manager with permissions to Log Analytics
-In the following procedure, you grant the *Contributor* role in your Log Analytics workspace to the AD application and service principal you created earlier for Configuration Manager.  If you do not already have a workspace, see [Create a workspace in Azure Log Analytics](log-analytics-quick-create-workspace.md) before proceeding.  This allows Configuration Manager to authenticate and connect to your Log Analytics workspace.  
+In the following procedure, you grant the *Contributor* role in your Log Analytics workspace to the AD application and service principal you created earlier for Configuration Manager.  If you do not already have a workspace, see [Create a workspace in Azure Log Analytics](../azure-monitor/learn/quick-create-workspace.md) before proceeding.  This allows Configuration Manager to authenticate and connect to your Log Analytics workspace.  
 
 > [!NOTE]
 > You must specify permissions in Log Analytics for Configuration Manager. Otherwise, you receive an error message when you use the configuration wizard in Configuration Manager.

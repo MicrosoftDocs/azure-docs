@@ -21,7 +21,9 @@ In this article, you can learn about automated machine learning. The Azure Machi
 1. You configure the type of machine learning problem you are trying to solve. Categories of supervised learning are supported:
    + Classification
    + Regression
-   + Forecasting
+   + Forecasting 
+
+   While automated machine learning is generally available, **the forecasting feature is still in public preview.**
 
    See the [list of models](how-to-configure-auto-train.md#select-your-experiment-type) Azure Machine Learning can try when training.
 
