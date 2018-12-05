@@ -223,7 +223,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file using SAS token. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
 
 > [!div class="nextstepaction"]
 > [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)

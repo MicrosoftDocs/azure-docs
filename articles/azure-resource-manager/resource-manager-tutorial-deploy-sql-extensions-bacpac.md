@@ -18,7 +18,7 @@ ms.author: jgao
 
 # Tutorial: Import SQL BACPAC files with Azure Resource Manager templates
 
-Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager templates. In this tutorial, you create a template to deploy an Azure SQL Server, a SQL Database, and a BACPAC file. For information about deploying Azure virtual machine extensions using Azure Resource Manager templates, see [# Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md).
+Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager templates. Deployment artifacts are any files, in addition to the main template file that are needed to complete a deployment. The BACPAC file is an artifact. In this tutorial, you create a template to deploy an Azure SQL Server, a SQL Database, and import a BACPAC file. For information about deploying Azure virtual machine extensions using Azure Resource Manager templates, see [# Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 
@@ -168,7 +168,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file. The BACPAC file is stored in an Azure storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see
 
 > [!div class="nextstepaction"]
-> [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Secure the artifacts](./resource-manager-tutorial-secure-artifacts.md)
