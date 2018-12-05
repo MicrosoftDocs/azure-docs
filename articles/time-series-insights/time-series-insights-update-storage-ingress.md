@@ -151,7 +151,7 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
 
 ### Data deletion
 
-Do not delete blobs since Time Series Insights (Preview) maintains metadata about the blobs inside of TSI update.
+Do not delete blobs since Azure TSI (Preview) maintains metadata about the blobs inside of TSI update.
 
 ## Ingress
 
