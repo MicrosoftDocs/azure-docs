@@ -67,7 +67,7 @@ excess container on a host.
 
 For more information about Container Solution, please refer to the
 [Container Solution Log
-Analytics](../../log-analytics/log-analytics-containers.md).
+Analytics](../../azure-monitor/insights/containers.md).
 
 ## Installing Log Analytics on Kubernetes
 
