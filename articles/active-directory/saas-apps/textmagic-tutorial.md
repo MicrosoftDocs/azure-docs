@@ -1,10 +1,10 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with TextMagic | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TextMagic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 3e5b49d2-7096-46bc-a9ce-90e09177ba28
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/05/2018
 ms.author: jeedes
 
 ---
@@ -28,7 +28,7 @@ Integrating TextMagic with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to TextMagic (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## Prerequisites
 
@@ -46,13 +46,15 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding TextMagic from the gallery
-1. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD single sign-on
 
 ## Adding TextMagic from the gallery
+
 To configure the integration of TextMagic into Azure AD, you need to add TextMagic from the gallery to your list of managed SaaS apps.
 
 **To add TextMagic from the gallery, perform the following steps:**
@@ -61,35 +63,33 @@ To configure the integration of TextMagic into Azure AD, you need to add TextMag
 
 	![The Azure Active Directory button][1]
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-1. To add new application, click **New application** button on the top of dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-1. In the search box, type **TextMagic**, select **TextMagic** from result panel then click **Add** button to add the application.
+4. In the search box, type **TextMagic**, select **TextMagic** from result panel then click **Add** button to add the application.
 
 	![TextMagic in the results list](./media/textmagic-tutorial/tutorial_textmagic_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with TextMagic based on a test user called "Britta Simon."
+In this section, you configure and test Azure AD single sign-on with TextMagic based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in TextMagic is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in TextMagic needs to be established.
 
-In TextMagic, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with TextMagic, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a TextMagic test user](#create-a-textmagic-test-user)** - to have a counterpart of Britta Simon in TextMagic that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a TextMagic test user](#creating-a-textmagic-test-user)** - to have a counterpart of Britta Simon in TextMagic that is linked to the Azure AD representation of user.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configuring Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your TextMagic application.
 
@@ -99,150 +99,158 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/textmagic-tutorial/tutorial_textmagic_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
 
-1. On the **TextMagic Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+    ![Configure Single Sign-On](common/tutorial_general_301.png)
+
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+
+	![Configure Single Sign-On](common/editconfigure.png)
+
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
 	![TextMagic Domain and URLs single sign-on information](./media/textmagic-tutorial/tutorial_textmagic_url.png)
 
     In the **Identifier** textbox, type a URL: `https://my.textmagic.com/saml/metadata`
 
-1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+5. TextMagic application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes & Claims** dialog.
 
-	![TextMagic Domain and URLs single sign-on information](./media/textmagic-tutorial/url1.png)
+	![image](./media/textmagic-tutorial/i4-attribute.png)
 
-    In the **Sign-on URL** textbox, type a URL: `https://my.textmagic.com/login/sso`
+6. In the **User Claims** section on the **User Attributes & Claims** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
+	| Name  | Source Attribute  | Namespace |
+	| --------------- | --------------- | --------------- |
+	| company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstName 			  | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastName 			  | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| phone 			  | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    
+	a. Click on **Edit icon** to edit the **Name identifier** claim and click on **Add new claim** to open the **Manage user claims** dialog.
 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+	![image](./common/new_save_attribute.png)
+
+	![image](./common/new_attribute_details.png)
+
+	b. In the **Name**textbox, type the attribute name shown for that row.
+
+	c. Enter the **Namespace** value.
+
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Ok**.
+
+	g. Click **Save**. 
+
+7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Base64)** and then save certificate file on your computer.
 
 	![The Certificate download link](./media/textmagic-tutorial/tutorial_textmagic_certificate.png) 
 
-1. Click **Save** button.
+8. On the **Set up TextMagic** section, copy the appropriate URL as per your requirement.
 
-	![Configure Single Sign-On Save button](./media/textmagic-tutorial/tutorial_general_400.png)
-	
-1. On the **TextMagic Configuration** section, click **Configure TextMagic** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+	a. Login URL
 
-	![TextMagic Configuration](./media/textmagic-tutorial/tutorial_textmagic_configure.png) 
+	b. Azure AD Identifier
 
-1. In a different web browser window, log in to your TextMagic company site as an administrator.
+	c. Logout URL
 
-1. Select **Account settings** under the username.
+	![TextMagic Configuration](common/configuresection.png)
 
-	![TextMagic Configuration](./media/textmagic-tutorial/config1.png) 
-1. Click on the TAB  **“Single Sign-On (SSO)”** and fill in the following fields:  
+9. In a different web browser window, log in to your TextMagic company site as an administrator.
+
+10. Select **Account settings** under the username.
+
+	![TextMagic Configuration](./media/textmagic-tutorial/config1.png)
+
+11. Click on the TAB  **Single Sign-On (SSO)** and fill in the following fields:  
 	
 	![TextMagic Configuration](./media/textmagic-tutorial/config2.png)
 
-	a. In **Identity provider Entity ID:** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+	a. In **Identity provider Entity ID:** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	b. In **Identity provider SSO URL:** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+	b. In **Identity provider SSO URL:** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. In **Identity provider SLO URL:** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+	c. In **Identity provider SLO URL:** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
 	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
 
-	e. Click **Save**.
-
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### Create an Azure AD test user
+### Creating an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+	![Create Azure AD User][100]
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/textmagic-tutorial/create_aaduser_01.png)
+	![Creating an Azure AD test user](common/create_aaduser_01.png) 
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/textmagic-tutorial/create_aaduser_02.png)
+	![Creating an Azure AD test user](common/create_aaduser_02.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field, enter **BrittaSimon**.
+  
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/textmagic-tutorial/create_aaduser_03.png)
+    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
 
-1. In the **User** dialog box, perform the following steps:
+    d. Select **Create**.
+  
+### Creating a TextMagic test user
 
-    ![The User dialog box](./media/textmagic-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a TextMagic test user
-
-Application supports Just in time user provisioning and after authentication users will be created in the application automatically. You need to fill in the information once at the first login to activate the sub-account into the system.
+Application supports **Just in time user provisioning** and after authentication users will be created in the application automatically. You need to fill in the information once at the first login to activate the sub-account into the system.
 There is no action item for you in this section.
 
-### Assign the Azure AD test user
+### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to TextMagic.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
 
-**To assign Britta Simon to TextMagic, perform the following steps:**
+	![Assign User][201]
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **TextMagic**.
 
-	![Assign User][201] 
+	![Configure Single Sign-On](./media/textmagic-tutorial/tutorial_textmagic_app.png) 
 
-1. In the applications list, select **TextMagic**.
+3. In the menu on the left, click **Users and groups**.
 
-	![The TextMagic link in the Applications list](./media/textmagic-tutorial/tutorial_textmagic_app.png)  
+	![Assign User][202]
 
-1. In the menu on the left, click **Users and groups**.
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![The "Users and groups" link][202]
+	![Assign User][203]
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![The Add Assignment pane][203]
+6. In the **Add Assignment** dialog select the **Assign** button.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the TextMagic tile in the Access Panel, you should get automatically signed-on to your TextMagic application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/textmagic-tutorial/tutorial_general_01.png
-[2]: ./media/textmagic-tutorial/tutorial_general_02.png
-[3]: ./media/textmagic-tutorial/tutorial_general_03.png
-[4]: ./media/textmagic-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/textmagic-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/textmagic-tutorial/tutorial_general_200.png
-[201]: ./media/textmagic-tutorial/tutorial_general_201.png
-[202]: ./media/textmagic-tutorial/tutorial_general_202.png
-[203]: ./media/textmagic-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png
