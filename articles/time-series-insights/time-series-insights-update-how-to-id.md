@@ -17,10 +17,10 @@ This article covers the Azure Time Series Insights (preview) partition key, the 
 
 ## Choose a Time Series ID
 
-Choosing a Time Series ID is like choosing a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing Time Series Insights (preview) environment to use a different Time Series ID. In other words, when an environment is created with a Time Series ID, the policy is an immutable property that cannot be changed.
+Choosing a Time Series ID is like choosing a partition key for a database. It's an important decision that should be made at design time. You can't update an existing Time Series Insights (preview) environment to use a different Time Series ID. In other words, when an environment is created with a Time Series ID, the policy is an immutable property that can't be changed.
 
 > [!IMPORTANT]
-> The Time Series ID is case-sensitive and immutable (it cannot be changed after it is set).
+> The Time Series ID is case-sensitive and immutable (it can't be changed after it is set).
 
 With that in mind, selecting the appropriate Time Series ID is critical. When you select a Time Series ID, consider the following best practices:
 
@@ -40,15 +40,15 @@ The following scenarios describe selecting more than one key property as your Ti
 ### Scenario 1
 
 * You have legacy fleets of assets, each with a unique key. 
-* For example, one fleet is uniquely identified by the property *deviceId* and another where the unique property is *objectId*. For each fleet, the other fleet’s unique property is not present. In this example, you would select two keys, deviceId and objectId, as unique keys. 
+* For example, one fleet is uniquely identified by the property *deviceId* and another where the unique property is *objectId*. Neither fleet contains the other fleet’s unique property. In this example, you would select two keys, deviceId and objectId, as unique keys. 
 * We accept null values, and the lack of a property’s presence in the event payload counts as a `null` value. This is also the appropriate way to handle sending data to two different event sources where the data in each event source has a unique Time Series ID.
 
 ### Scenario 2
 
-* You require multiple properties to show uniqueness in the same fleet of assets. 
-* For example, let’s say you are a smart building manufacturer and deploy sensors in every room. In each room, you typically have the same values for *sensorId*, such as *sensor1*, *sensor2*, and *sensor3*.
-* Additionally, your building has overlapping floor and room numbers across sites in the property *flrRm*, which contain values like *1a*, *2b*, *3a*, and so on.
-* Finally, you have a property, *location*, which contains values such as *Redmond*, *Barcelona*, and *Tokyo*. To create uniqueness, you would designate all three of these properties as your Time Series ID keys: sensorId, flrRm, and location.
+* You require multiple properties to be unique within the same fleet of assets. 
+* For example, let’s say you're a smart building manufacturer and deploy sensors in every room. In each room, you typically have the same values for *sensorId*, such as *sensor1*, *sensor2*, and *sensor3*.
+* Additionally, your building has overlapping floor and room numbers across sites in the property *flrRm*, which have values such as *1a*, *2b*, *3a*, and so on.
+* Finally, you have a property, *location*, which contains values such as *Redmond*, *Barcelona*, and *Tokyo*. To create uniqueness, you would designate the following three properties as your Time Series ID keys: *sensorId*, *flrRm*, and *location*.
 
 ## Next steps
 
