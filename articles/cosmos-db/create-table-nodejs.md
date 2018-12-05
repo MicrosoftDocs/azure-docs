@@ -1,9 +1,8 @@
 ---
-title: 'Quickstart: Table API with Node.js - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Table API with Node.js - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Node.js
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table

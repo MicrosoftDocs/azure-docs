@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 7/16/2018
+ms.date: 12/4/2018
 ms.author: victorh
 ---
 
@@ -85,7 +85,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
+These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## Delete all resources
  

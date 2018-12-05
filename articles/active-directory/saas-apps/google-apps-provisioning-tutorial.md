@@ -64,7 +64,7 @@ This section guides you through the process of connecting your Azure AD to the u
 > [!NOTE]
 > Another viable option for automating user provisioning to G Suite is to use [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS provisions your on-premises Active Directory identities to G Suite. In contrast, the solution in this tutorial provisions your Azure Active Directory (cloud) users and email-enabled groups to G Suite. 
 
-1. Sign in to the [Google Apps Admin console](http://admin.google.com/) with your administrator account, and then select **Security**. If you don't see the link, it might be hidden under the **More Controls** menu at the bottom of the screen.
+1. Sign in to the [Google Apps Admin console](https://admin.google.com/) with your administrator account, and then select **Security**. If you don't see the link, it might be hidden under the **More Controls** menu at the bottom of the screen.
    
     ![Select security.][10]
 
@@ -107,7 +107,7 @@ This section guides you through the process of connecting your Azure AD to the u
 
 1. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google, take the following steps:
    
-    a. In the [Google Apps Admin Console](http://admin.google.com/), select **Domains**.
+    a. In the [Google Apps Admin Console](https://admin.google.com/), select **Domains**.
      
      ![Select Domains][20]
 
@@ -126,7 +126,7 @@ This section guides you through the process of connecting your Azure AD to the u
      > [!WARNING]
      > If you change the primary domain for your G Suite tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under [Step 2: Enable single sign-on](#step-two-enable-single-sign-on).
        
-1. In the [Google Apps Admin console](http://admin.google.com/), select **Admin Roles**.
+1. In the [Google Apps Admin console](https://admin.google.com/), select **Admin Roles**.
    
      ![Select Google Apps][26]
 

@@ -2,12 +2,12 @@
 title: Manage Azure Recovery Services vaults and servers
 description: Manage jobs and alerts in an Azure Recovery Services vault.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
+ms.author: raynew
 ---
 # Monitor and manage Recovery Services vaults
 

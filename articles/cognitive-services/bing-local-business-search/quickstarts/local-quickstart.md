@@ -23,7 +23,7 @@ This example application gets local response data from the API for the search qu
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create the request 
 
@@ -33,15 +33,15 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
-    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
+    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search";   
 
     const string searchTerm = "restaurant in Bellevue";
     // Construct the URI of the search request
-    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "appid=" + accessKey;
+    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + mkt=en-us;
 
     // Run the Web request and get response.
     WebRequest request = HttpWebRequest.Create(uriQuery);
-    //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -73,7 +73,7 @@ namespace localSearch
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
 
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search";   
 
         const string searchTerm = "restaurant in Bellevue";
 
@@ -89,7 +89,7 @@ namespace localSearch
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Searching locally for: " + searchTerm);
 
-            SearchResult result = BingLocalSearch(searchTerm);
+            SearchResult result = BingLocalSearch(searchTerm, accessKey);
 
             Console.WriteLine("\nRelevant HTTP Headers:\n");
             foreach (var header in result.relevantHeaders)
@@ -105,15 +105,14 @@ namespace localSearch
         /// <summary>
         /// Performs a Bing Local business search and return the results as a SearchResult.
         /// </summary>
-        static SearchResult BingLocalSearch(string searchQuery)
+        static SearchResult BingLocalSearch(string searchQuery, string key)
         {
             // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + 
-                                "&appid=" + accessKey + "&market=en-us";
+            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "&mkt=en-us";
 
             // Perform the Web request and get the response
             WebRequest request = HttpWebRequest.Create(uriQuery);
-            //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+            request.Headers["Ocp-Apim-Subscription-Key"] = key; 
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
             string json = new StreamReader(response.GetResponseStream()).ReadToEnd();

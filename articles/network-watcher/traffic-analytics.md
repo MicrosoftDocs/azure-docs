@@ -38,7 +38,7 @@ Azure virtual networks have NSG flow logs, which provide you information about i
 - **Network security group (NSG)**: Contains a list of security rules that allow or deny network traffic to resources connected to an Azure Virtual Network. NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). For more information, see [Network security group overview](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network security group (NSG) flow logs**: Allow you to view information about ingress and egress IP traffic through a network security group. NSG flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, five-tuple information about the flow (source/destination IP address, source/destination port, and protocol), and if the traffic was allowed or denied. For more information about NSG flow logs, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: An Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data provided through the Azure API. Once collected, the data is available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics are built using Log Analytics as a foundation. For more information, see [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log analytics workspace**: An instance of log analytics, where the data pertaining to an Azure account, is stored. For more information about log analytics workspaces, see [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log analytics workspace**: An instance of log analytics, where the data pertaining to an Azure account, is stored. For more information about log analytics workspaces, see [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: A regional service that enables you to monitor and diagnose conditions at a network scenario level in Azure. You can turn NSG flow logs on and off with Network Watcher. For more information, see [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## How traffic analytics works
@@ -49,9 +49,39 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 
 ## Supported regions
 
-You can use traffic analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, Canada Central, West Europe, North Europe, UK West, UK South,  Japan East, India Central, Australia East, Australia Southeast, and Southeast Asia. 
+You can use traffic analytics for NSGs in any of the following supported regions:
 
-The log analytics workspace must exist in the West Central US, East US, West Europe, South UK, Central Canada, Japan East, India Central Australia Southeast, or the Southeast Asia region.
+* Canada Central
+* West Central US
+* East US
+* East US 2
+* North Central US
+* South Central US
+* Central US
+* West US
+* West US 2
+* West Europe
+* North Europe
+* Brazil South
+* UK West
+* UK South
+* Australia East
+* Australia Southeast
+* Southeast Asia
+* Central India
+* South India
+* Japan East 
+
+The Log Analytics workspace must exist in the following regions:
+* Canada Central
+* West Central US
+* East US
+* West Europe
+* UK South
+* Australia Southeast
+* Southeast Asia
+* Central India
+* Japan East
 
 ## Prerequisites
 

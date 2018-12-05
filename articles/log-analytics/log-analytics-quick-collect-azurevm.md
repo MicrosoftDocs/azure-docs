@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
@@ -19,7 +18,7 @@ ms.component:
 ---
 
 # Collect data about Azure Virtual Machines
-[Azure Log Analytics](log-analytics-queries.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
+[Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
  
 This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
@@ -121,4 +120,4 @@ Now that you are collecting operational and performance data from your Windows o
 To learn how to view and analyze the data, continue to the tutorial.   
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](log-analytics-tutorial-viewdata.md)
+> [View or analyze data in Log Analytics](../azure-monitor/learn/tutorial-viewdata.md)

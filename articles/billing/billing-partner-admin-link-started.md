@@ -3,6 +3,8 @@ title: Link Azure account to partner ID | Microsoft Docs
 description: Track engagements with Azure customers by linking partner ID to the user account that you use to manage the customer's resources. 
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
+
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -24,7 +26,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Guest user:** Your customer can add you as a guest user and assign any RBAC roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Directory account:**  Your customer can create a new user from your organization in their directory and assign any RBAC role.
+- **Directory account:**  Your customer can create a user account for you in their own directory and assign any RBAC role.
 
 - **Service principal:**  Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal.
 

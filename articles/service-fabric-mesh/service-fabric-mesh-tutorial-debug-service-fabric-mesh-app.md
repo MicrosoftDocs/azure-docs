@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app on my local development cluster
@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 
 This tutorial is part two of a series and shows you how to build and debug an Azure Service Fabric Mesh app on your local development cluster.
 
-In this tutorial you will learn:
+In this tutorial you'll learn:
 
 > [!div class="checklist"]
 > * What happens when you build an Azure Service Fabric Mesh application
@@ -48,7 +48,7 @@ Before you begin this tutorial:
 
 ## Download the to-do sample application
 
-If you did not create the to-do sample application in [part one of this tutorial series](service-fabric-mesh-tutorial-create-dotnetcore.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
+If you didn't create the to-do sample application in [part one of this tutorial series](service-fabric-mesh-tutorial-create-dotnetcore.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -70,9 +70,11 @@ Press **F5** to compile and run your service locally. When the project is run an
 
 After the local deployment is finished, and Visual Studio is running your app, a browser window will open to a default sample web page.
 
-**Debugging tips**
+## Debugging tips
 
-There is currently an issue that causes the call to `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` to fail connect to the service. This can happen whenever your host IP address changes. To resolve this:
+Make your first debugging run (F5) much faster by following the instructions in [Optimize Visual Studio performance](service-fabric-mesh-howto-optimize-vs.md).
+
+There's currently an issue that causes the call to `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` to fail connect to the service. This can happen whenever your host IP address changes. To resolve this:
 
 1. Remove the app from the local cluster (in Visual Studio, **Build** > **Clean Solution**).
 2. From the Service Fabric Local Cluster Manager, select **Stop Local CLuster**, and then **Start Local Cluster**.
@@ -86,13 +88,13 @@ If you get build errors in **service.yaml**, make sure that spaces, not tabs, ar
 
 ### Debug in Visual Studio
 
-When you debug a Service Fabric Mesh application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
+When you debug a Service Fabric Mesh application in Visual Studio, you're using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
 1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **Get** method (line 17).
 2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **OnGet** method (line 15).
 3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front-end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
 4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you'll hit the controller's `Get()` breakpoint. In this method, you can see how the list of to-do items is retrieved from the in-memory list.
-5. When you are done, stop debugging your project in Visual Studio by pressing **Shift+F5**.
- 
+5. When you're done, stop debugging your project in Visual Studio by pressing **Shift+F5**.
+
 ## Next steps
 
 In this part of the tutorial, you learned:

@@ -35,7 +35,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 2. In the search bar, type **Service Map** and press **Enter**.
 3. In the marketplace search results page, select **Service Map** from the list.<br><br> ![Select Service Map solution from Azure Marketplace search results](./media/service-map/marketplace-search-results.png)<br>
 4. On the **Service Map** overview pane, review the solution details and then click **Create** to begin the onboarding process to your Log Analytics workspace.<br><br> ![Onboard the Service Map solution](./media/service-map/service-map-onboard.png).
-5. In the **Configure a solution** pane, select an existing or create a new Log Analytics workspace.  For further information on how to create a new workspace, see [Create a Log Analytics workspace in the Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md). After providing the required information, click **Create**.  
+5. In the **Configure a solution** pane, select an existing or create a new Log Analytics workspace.  For further information on how to create a new workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/learn/quick-create-workspace.md). After providing the required information, click **Create**.  
 
 While the information is verified and the solution is deployed, you can track its progress under **Notifications** from the menu. 
 
@@ -275,7 +275,7 @@ The **Machine Updates** pane displays data from the Update Management solution f
 ![Machine Change Tracking pane](media/service-map/machine-updates.png)
 
 ## Log Analytics records
-Service Map computer and process inventory data is available for [search](../../log-analytics/log-analytics-queries.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Service Map computer and process inventory data is available for [search](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
@@ -502,7 +502,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 
 ## Next steps
-Learn more about [log searches](../../log-analytics/log-analytics-queries.md) in Log Analytics to retrieve data that's collected by Service Map.
+Learn more about [log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
 
 
 ## Troubleshooting

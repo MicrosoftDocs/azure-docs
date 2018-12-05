@@ -8,7 +8,7 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
 
 ---
@@ -26,11 +26,16 @@ This tutorial describes how to send events to an event hub from an application w
 
 To complete this tutorial, you need the following prerequisites:
 
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Python 3.4 or later.
 
 
 ## Create an Event Hubs namespace and an event hub
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
+
+Get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
+
+Now,  proceed with the following steps in this tutorial.
 
 ## Install Python package
 

@@ -45,7 +45,7 @@ This region does not currently support the Health feature of Azure Monitor for V
 >Azure virtual machines can be on-boarded from any region and are not limited to the supported regions for the Log Analytics workspace.
 >
 
-If you do not have a workspace, you can create it through [Azure CLI](../../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
+If you do not have a workspace, you can create it through [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), through [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md), in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), or with [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
 
 Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
@@ -149,8 +149,8 @@ The following table describes the connected sources that the Map feature support
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../log-analytics/log-analytics-agent-overview.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../log-analytics/log-analytics-agent-overview.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | No | |  
 
 The Dependency agent can be downloaded from the following location.
@@ -183,7 +183,7 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../log-analytics/log-analytics-quick-create-workspace.md) in one of the supported regions listed earlier.   
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) in one of the supported regions listed earlier.   
 
 After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
 
@@ -203,7 +203,7 @@ Summarized are the steps you need to perform to pre-configure your Log Analytics
 If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section to create one.  
 
 #### Enable performance counters
-If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../../azure-monitor/platform/data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 #### Install the ServiceMap and InfrastructureInsights solutions
 This method includes a JSON template that specifies the configuration to enable the solution components to your Log Analytics workspace.  
@@ -530,9 +530,9 @@ Failed: (0)
 ## Enable for Hybrid environment
 This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by Azure Monitor for VMs.  
 
-The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
+The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../azure-monitor/platform/gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
 
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).  
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../azure-monitor/platform/log-analytics-agent.md).  
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -590,7 +590,7 @@ Files for the Dependency agent are placed in the following directories:
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
 ### Enable performance counters
-If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../../azure-monitor/platform/data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 ### Onboard Azure Monitor for VMs
 This method includes a JSON template that specifies the configuration to enable the solution components to your Log Analytics workspace.  

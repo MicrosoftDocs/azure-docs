@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 Key transactions (Max transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
 
 |Key type|HSM-Key<br>CREATE Key|HSM-key<br>All other transactions|Software-key<br>CREATE Key|Software-key<br>All other transactions|
