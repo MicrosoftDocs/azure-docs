@@ -38,7 +38,7 @@ There are a handful of steps you have to walk through to get your resource group
 
 ### Create the resource group
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [`New-AzureRmResourceGroup`](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). This example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [`New-AzureRmResourceGroup`](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). This example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -58,7 +58,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### Add a subnet
 
-Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *default* with [`Add-AzureRmVirtualNetworkSubnetConfig`](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
+Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *default* with [`Add-AzureRmVirtualNetworkSubnetConfig`](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -81,7 +81,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create the first VM with [`New-AzureRmVM`](/powershell/module/azurerm.compute/new-azurermvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM.
+Create the first VM with [`New-AzureRmVM`](/powershell/module/azurerm.compute/new-azurermvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM:
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -131,10 +131,10 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Open a command prompt on your local computer. Run this command. Replace `<publicIpAddress>` with the public IP address returned from the last step:
+Open a command prompt on your local computer. Run the `mstsc` command. Replace `<publicIpAddress>` with the public IP address returned from the last step:
 
 > [!NOTE]
-> if you've been running these commands from a PowerShell prompt on your local computer, and you're on AzureRM PowerShell module version 5.4.1 or later, you can continue in that interface.
+> If you've been running these commands from a PowerShell prompt on your local computer, and you're on AzureRM PowerShell module version 5.4.1 or later, you can continue in that interface.
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -155,7 +155,7 @@ A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote 
 
 ## Communicate between VMs
 
-1. in the Remote Desktop of *myVm1*, open PowerShell.
+1. In the Remote Desktop of *myVm1*, open PowerShell.
 
 1. Enter `ping myVm2`.
 
