@@ -61,6 +61,8 @@
   items:
   - name: Azure management
     href: azure-management.md?toc=/azure/azure-monitor/toc.json
+  - name: Continuous monitoring
+    href: continuous-monitoring.md
   - name: Monitoring data
     items: 
     - name: Metrics and logs
@@ -198,7 +200,7 @@
         - name: VM Extension for Linux
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
-          href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+          href: platform/om-agents.md
         - name: OMS Gateway
           href: platform/gateway.md
         - name: Agent management
@@ -513,7 +515,7 @@
         - name: Workbooks
           href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
       - name: Web App Analytics solution
-        href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-web-apps-analytics.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
@@ -531,7 +533,7 @@
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
-        href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
+        href: insights/containers.md
       - name: Monitor Docker applications
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor resource groups
@@ -539,7 +541,7 @@
     - name: Monitor databases
       items:
       - name: Azure SQL
-        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
     - name: Monitor networks
