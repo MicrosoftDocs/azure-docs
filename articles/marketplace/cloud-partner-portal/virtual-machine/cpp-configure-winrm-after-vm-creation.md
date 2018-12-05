@@ -27,7 +27,7 @@ This article explains how to configure an existing Azure-hosted virtual machine 
 
 ## Enabling port traffic
 
-The WinRM over HTTPS protocol uses port 5896, which is not enabled by default on preconfigured Windows VMs offered on the Azure Marketplace. To enable this protocol, use the following steps to add a new rule to the network security group (NSG) with the [Azure portal](https://portal.azure.com).  For more information about NSGs, see [Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).
+The WinRM over HTTPS protocol uses port 5896, which is not enabled by default on pre-configured Windows VMs offered on the Azure Marketplace. To enable this protocol, use the following steps to add a new rule to the network security group (NSG) with the [Azure portal](https://portal.azure.com).  For more information about NSGs, see [Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
 1.	Navigate to the blade **Virtual machines >**  <*vm-name*>  **> Settings/Networking**.
 2.	Click on the NSG name (in this example, **testvm11002**) to display its properties:
@@ -48,7 +48,7 @@ The WinRM over HTTPS protocol uses port 5896, which is not enabled by default on
 
 Use the following steps to enable and configure the Windows Remote Management feature on your Windows VM.   
 
-1. Establish a Remote Desktop connection to your Azure-hosted VM.  For more information, see [How to connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).  The remaining steps will be run on your VM.
+1. Establish a Remote Desktop connection to your Azure-hosted VM.  For more information, see [How to connect and sign in to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).  The remaining steps will be run on your VM.
 2. Download the following files and save them to a folder on your VM:
     - [ConfigureWinRM.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/ConfigureWinRM.ps1)
     - [makecert.exe](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/makecert.exe)
