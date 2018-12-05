@@ -352,18 +352,6 @@ There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
 * Reduce the number of streams to be retrieved when running the cmdlet. To do this you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
-  
-One recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
-
-Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on Hybrid Runbook Workers should still be developed to support restart behaviors in case of unexpected local infrastructure issues.
-
-Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on a number of resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes decreasing the total amount of time for the parent runbook to complete.
-
-The PowerShell cmdlets that enable the child runbook scenario are:
-
-[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - This cmdlet allows you to start a runbook and pass parameters to the runbook
-
-[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - This cmdlet allows you to check the job status for each child if there are operations that need to be performed after the child runbook completes.
 
 ## Common errors when importing modules
 
