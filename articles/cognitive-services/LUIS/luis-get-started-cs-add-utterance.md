@@ -94,9 +94,7 @@ Add the POST request method to the **Program** class.
 
 Add example utterances from file method to the **Program** class.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 After the changes are applied to the model, train the model. Add method to the **Program** class.
 
