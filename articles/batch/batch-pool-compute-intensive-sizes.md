@@ -12,7 +12,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/05/2018
 ms.author: danlep
 
 
@@ -81,29 +81,29 @@ To configure a specialized VM size for your Batch pool, you have several options
 
   Or, create a [custom Windows or Linux VM image](batch-custom-images.md) on which you have installed drivers, software, or other settings required for the VM size. 
 
+* Create a Batch [application package](batch-application-packages.md) from a zipped driver installation package, and configure Batch to deploy the application package on pool nodes. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node. Consider using an application package if your workload has dependencies on a particular driver version.
+
 * Use a pool [start task](batch-api-basics.md#start-task). Upload an installation package or installation script as a resource file to an Azure storage account in the same region as the Batch account. Create a start task command line to install the resource file silently when the pool starts. For more information, see the [REST API documentation](/rest/api/batchservice/add-a-pool-to-an-account#bk_starttask).
 
   > [!NOTE] 
   > The start task must run with elevated (admin) permissions, and it must wait for success.
   >
 
-* Create a Batch [application package](batch-application-packages.md) from a zipped driver installation package, and configure Batch to deploy the application package on pool nodes. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node. Consider using an application package if your workload has dependencies on a particular driver version.
-
-* [Batch Shipyard](https://github.com/Azure/batch-shipyard) automatically configures the GPU and RDMA to work transparently with containerized workloads on Azure Batch. Batch Shipyard is entirely driven with configuration files. There are many sample recipe configurations available that enable GPU and RDMA workloads such as the [CNTK GPU Recipe](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) which preconfigures GPU drivers on N-series VMs and loads Microsoft Cognitive Toolkit software as a Docker image.
+* [Batch Shipyard](https://github.com/Azure/batch-shipyard) automatically configures the GPU and RDMA drivers to work transparently with containerized workloads on Azure Batch. Batch Shipyard is entirely driven with configuration files. There are many sample recipe configurations available that enable GPU and RDMA workloads such as the [CNTK GPU Recipe](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) which preconfigures GPU drivers on N-series VMs and loads Microsoft Cognitive Toolkit software as a Docker image.
 
 
 ## Example: NVIDIA GPU drivers on Windows NC VM pool
 
-To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. Here are sample steps to use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
+To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
 
-1. Download a [setup package](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe) for the GPU drivers on Windows Server 2016 from the NVIDIA website. Save the file locally using the short name *GPUDriverSetup.exe*.
+1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](http://us.download.nvidia.com/Windows/) - for example, [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe) . Save the file locally using a short name like *GPUDriverSetup.exe*.
 2. Create a zip file of the package.
 3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *GPUDriver*, and a version such as *411.82*.
 1. Using the Batch APIs or Azure portal, create a pool in the virtual machine configuration with the desired number of nodes and scale. The following table shows sample settings to install the NVIDIA GPU drivers silently using a start task:
 
 | Setting | Value |
 | ---- | ----- | 
-| **Image Type** | Marketplace (Linux/Windows)) |
+| **Image Type** | Marketplace (Linux/Windows) |
 | **Publisher** | MicrosoftWindowsServer |
 | **Offer** | WindowsServer |
 | **Sku** | 2016-Datacenter |
@@ -111,9 +111,9 @@ To run CUDA applications on a pool of Windows NC nodes, you need to install NVDI
 | **Application package references** | GPUDriver, version 411.82 |
 | **Start task enabled** | True<br>**Command line** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**User identity** - Pool autouser, admin<br/>**Wait for success** - True
 
-## Example: NVIDIA GPU drivers on Linux NC VM pool
+## Example: NVIDIA GPU drivers on a Linux NC VM pool
 
-To run CUDA applications on a pool of Linux NC nodes, you need to install necessary NVIDIA Tesla GPU drivers from the CUDA Toolkit. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
+To run CUDA applications on a pool of Linux NC nodes, you need to install necessary NVIDIA Tesla GPU drivers from the CUDA Toolkit. Here are sample steps to create and deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
 
 1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with a managed disk.
 2. Add the [NVIDIA GPU Drivers extension](../virtual-machines/extensions/hpccompute-gpu-linux.md
@@ -125,7 +125,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 | Setting | Value |
 | ---- | ---- |
 | **Image Type** | Custom Image |
-| **Custom Image** | Name of the image |
+| **Custom Image** | *Name of the image* |
 | **Node agent SKU** | batch.node.ubuntu 16.04 |
 | **Node size** | NC6 Standard |
 
@@ -145,8 +145,24 @@ To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to co
 | Setting | Value |
 | ---- | ---- |
 | **Image Type** | Custom Image |
-| **Custom Image** | Name of the image |
+| **Custom Image** | *Name of the image* |
 | **Node agent SKU** | batch.node.windows amd64 |
+| **Node size** | H16r Standard |
+| **Internode communication enabled** | True |
+| **Max tasks per node** | 1 |
+
+## Example: Intel MPI on a Linux H16r VM pool
+
+To run MPI applications on a pool of Linux H-series nodes, one option is to use the [CentOS (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-batch.centos-container-rdma?tab=Overview) image from the Azure Marketplace. Linux RDMA drivers and Intel MPI are preinstalled. This image also supports Docker container workloads.
+
+Using the Batch APIs or Azure portal, create a pool using this image and with the desired number of nodes and scale. The following table shows sample pool settings:
+
+| Setting | Value |
+| ---- | ---- |
+| **Image Type** | Marketplace (Linux/Windows) |
+| **Publisher** | microsoft-azure-batch |
+| **Offer** | centos-container-rdma |
+| **Sku** | 7-4 |
 | **Node size** | H16r Standard |
 | **Internode communication enabled** | True |
 | **Max tasks per node** | 1 |
