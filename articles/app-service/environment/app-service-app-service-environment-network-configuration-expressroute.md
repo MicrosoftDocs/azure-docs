@@ -58,7 +58,7 @@ To fulfill the DNS requirements, make sure a valid DNS infrastructure is configu
 
 To fulfill the inbound network access requirements, configure a [network security group (NSG)][NetworkSecurityGroups] on the App Service Environment subnet. The NSG allows the required access [to control inbound traffic to App Service Environment][requiredports].
 
-## Outbound network connectivity for App Service Environment
+## Outbound network connectivity
 
 By default, a newly created ExpressRoute circuit advertises a default route that allows outbound internet connectivity. App Service Environment can use this configuration to connect to other Azure endpoints.
 
@@ -84,7 +84,7 @@ For background information about user-defined routes, see [Virtual network traff
 
 To learn how to create and configure user-defined routes, see [Route network traffic with a route table by using PowerShell][UDRHowTo].
 
-## UDR configuration for App Service Environment
+## UDR configuration
 
 This section shows an example UDR configuration for App Service Environment.
 
@@ -152,8 +152,7 @@ To get started with App Service Environment for PowerApps, see [Introduction to 
 [NetworkSecurityGroups]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
 
-<!-- Update link that redirects to the Azure Hub page. -->
-<!-- [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+<!-- Old link -- [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
 [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell
 
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
