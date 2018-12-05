@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,9 +27,9 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 ## Prerequisites
 
 * Windows 10 April 2018 Update, or newer client that is:
-   * [Azure AD joined](../device-management-azure-portal.md)
-   or 
-   * [Hybrid Azure AD joined](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Azure AD joined machine](../device-management-azure-portal.md)
+   or
+   * [Hybrid Azure AD joined machine](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller for the next logon after resetting the password.
 * Azure AD self-service password reset must be enabled.
 
 ## Configure Reset password link using Intune

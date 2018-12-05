@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 ---
 # Create your first Java web app in Azure
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -36,7 +36,7 @@ When you have completed this quickstart, your application will look similar to t
 
 To complete this quickstart, install:
 
-* The free <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. This quickstart uses Eclipse Neon.
+* The free <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. This quickstart uses Eclipse Neon.
 * The <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit for Eclipse</a>.
 
 > [!NOTE]
