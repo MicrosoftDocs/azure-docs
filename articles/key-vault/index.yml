@@ -56,18 +56,16 @@ sections:
         src: media/index/logo_nodejs.svg
       text: Node.js
       href: /azure/key-vault/quick-create-node
-    
 - title: Step-by-Step Tutorials
   items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
+   - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Get Started with Key Vault from a Web Application</a> 
+      - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine in .NET</a> 
+      - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine in .NET</a>
+      - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine in Python</a>
+      - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine in Python</a> 
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
