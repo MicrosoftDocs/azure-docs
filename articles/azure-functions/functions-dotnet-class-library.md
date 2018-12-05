@@ -77,7 +77,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the additional parameters that you can include:
 
 * [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
-* An `ILogger` or `TraceWriter` parameter for [logging](#logging).
+* An `ILogger` or `TraceWriter` ([version 1.x-only](functions-versions.md#creating-1x-apps)) parameter for [logging](#logging).
 * A `CancellationToken` parameter for [graceful shutdown](#cancellation-tokens).
 * [Binding expressions](functions-triggers-bindings.md#binding-expressions-and-patterns) parameters to get trigger metadata.
 
