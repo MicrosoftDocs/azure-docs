@@ -21,12 +21,12 @@ The steps you take to set up a site-to-site VPN between clouds are similar to th
 1. Define address space.
 1. Define subnets.
 1. Define a gateway subnet.
-1. Define a gateway for the Azure Virtual Network network.
+1. Define a gateway for the virtual network.
 1. Define a gateway for the local network (your local VPN device).
 1. Configure a local VPN device.
 1. Build the connection.
 
-To connect vIrtual networks between global Azure and Azure Germany:
+To connect virtual networks between global Azure and Azure Germany:
 
 1. Complete steps 1-5 in the preceding procedure in global Azure.
 1. Complete steps 1-5 in Azure Germany.
@@ -43,7 +43,7 @@ Migrating virtual networks from Azure Germany to global Azure isn't supported at
 
 For more information:
 
-- Refresh your knowledge by completing the [Virtual Network tutorials](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Azure Virtual Network tutorials](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials).
 - Review the [virtual networks overview](../virtual-network/virtual-networks-overview.md).
 - Learn how to [plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
