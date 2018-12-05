@@ -308,8 +308,6 @@ When the script completes, copy the management IP address, which is needed for c
 
 ![Command line output of the script displaying warning messages about creating a new encryption key](media/avere-vfxt-key-warning.png)
 
-### Storage encryption key
-
 ## Next step
 
 Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support, add storage if needed, or create a new encryption key for your Blob storage.
