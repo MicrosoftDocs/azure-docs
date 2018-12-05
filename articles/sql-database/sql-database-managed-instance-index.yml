@@ -64,6 +64,10 @@ sections:
   items:
   - type: paragraph
     text: 'We are continously improving Managed Instance with new features:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="sql-database-managed-instance#business-critical-service-tier">Business Critical service tier</a> is now in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">General Availability (GA)</a>.
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
