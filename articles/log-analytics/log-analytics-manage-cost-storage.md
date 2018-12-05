@@ -88,7 +88,7 @@ To get you started, here are the recommended settings for the alert:
 * Alert rule name: Daily data limit reached
 * Severity: Warning (Sev 1)
 
-Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## Change the data retention period 
 The following steps describe how to configure how long log data is kept by in your workspace.

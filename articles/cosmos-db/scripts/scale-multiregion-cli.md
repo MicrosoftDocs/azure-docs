@@ -1,12 +1,11 @@
 ---
-title: Azure CLI Script-Multi-region replication for Azure Cosmos DB | Microsoft Docs
+title: Azure CLI Script-Multi-region replication for Azure Cosmos DB
 description: Azure CLI Script Sample - Multi-region replication for Azure Cosmos DB
 author: markjbrown
-
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
 ---
 
 # Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using the Azure CLI

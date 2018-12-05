@@ -30,7 +30,7 @@ Azure Stack integrated systems are offered through a partnership of Microsoft an
 
 ## Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) is a single-node deployment of Azure Stack, that you can use to evaluate and learn about Azure Stack.  You can also use ASDK as a developer environment to build apps using the APIs and tooling that's consistent with Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) is a single-node deployment of Azure Stack, that you can use to evaluate and learn about Azure Stack.  You can also use ASDK as a developer environment to build apps using the APIs and tooling that's consistent with Azure.
 
 >[!Note]
 >The ASDK isn't intended to be used as a production environment.

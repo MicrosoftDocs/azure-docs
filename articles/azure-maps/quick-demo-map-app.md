@@ -3,7 +3,7 @@ title: Interactive Map Search with Azure Maps | Microsoft Docs
 description: Azure Quickstart - Launch a demo interactive map search using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -30,7 +30,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
     - The *Name* of your new account.
     - The *Subscription* that you want to use for this account.
     - The *Resource group* for this account. You may choose to *Create new* or *Use existing* resource group.
-    - Select the *Resource group location*.
+    - Select the *Pricing Tier* of your choice.
     - Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     - Finally, click the **Create** button.
 

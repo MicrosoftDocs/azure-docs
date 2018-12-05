@@ -91,6 +91,9 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
     image.wait_for_creation(show_output = True)
     ```
 
+> [!NOTE]
+> When creating an image that uses GPU acceleration, the GPU base image must be used on Microsoft Azure Services only.
+
 ## Create the AKS Cluster
 
 The following code snippet demonstrates how to create the AKS cluster. This process takes around 20 minutes to complete:
@@ -178,6 +181,24 @@ test_sample = bytes(test_sample,encoding = 'utf8')
 prediction = aks_service.run(input_data = test_sample)
 print(prediction)
 ```
+
+## Update the web service
+
+To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+
+```python
+from azureml.core.webservice import Webservice
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+# Update the image used by the service
+service.update(image = new-image)
+print(service.state)
+```
+
+> [!NOTE]
+> When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
 
 ## Cleanup
 

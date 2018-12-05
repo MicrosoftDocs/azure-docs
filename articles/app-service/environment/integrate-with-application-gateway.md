@@ -128,6 +128,6 @@ After setup is completed and you have allowed a short amount of time for your DN
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md
