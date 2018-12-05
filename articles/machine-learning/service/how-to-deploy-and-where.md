@@ -189,7 +189,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     **Time estimate**: Approximately 20 minutes.
 
     > [!TIP]
-    > If you have existing AKS cluster (version 1.11.3) in your Azure subscription, you can use it to deploy your image. The following code demonstrates how to attach a cluster to your workspace:
+    > If you have existing AKS cluster in your Azure subscription, you can use it to deploy your image. To attach an existing cluster, it must use Azure Kubernetes Service version 1.11.3. The following code demonstrates how to attach an existing cluster to your workspace:
     >
     > ```python
     > # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
