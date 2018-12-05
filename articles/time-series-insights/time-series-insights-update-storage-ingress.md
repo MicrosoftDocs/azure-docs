@@ -1,6 +1,6 @@
 ﻿---
-title: Data storage and ingress in The Azure Time Series Insights (preview) | Microsoft Docs
-description: Understanding data storage and ingress in The Azure Time Series Insights (preview)
+title: Data storage and ingress in The Azure Time Series Insights (Preview) | Microsoft Docs
+description: Understanding data storage and ingress in The Azure Time Series Insights (Preview)
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,19 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ---
 
 # Data storage and ingress in the Azure Time Series Insights (Preview)
 
-This article describes changes to data storage and ingress from the Azure Time Series Insights (Preview). It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
+This article describes changes to data storage and ingress from the Azure Time Series Insights (TSI) Preview. It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
 
 ## Data storage
 
-When creating a Time Series Insights update (**PAYG SKU**) environment, you are creating two resources:
+When creating an Azure TSI Preview (**PAYG SKU**) environment, you are creating two resources:
 
 * An Azure TSI environment.
-* An Azure storage general-purpose V1 account where the data will be stored.
+* An Azure Storage general-purpose V1 account where the data will be stored.
 
 The TSI (Preview) uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account.
 
@@ -29,13 +29,13 @@ Like any other Azure Storage blob, you can read and write to your Azure TSI-crea
 > [!TIP]
 > It is important to remember TSI performance can be adversely affected by reading or writing to your blobs too frequently.
 
-For an overview of Azure Blob Storage works, read the [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+For an overview of Azure Blob Storage, read the [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
 For more about the Parquet file type, review [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
 
 ## Parquet file format
 
-Parquet is column-oriented data file format that was designed for:
+Parquet is column-oriented, data, file format that was designed for:
 
 * Interoperability
 * Space efficiency
@@ -43,7 +43,7 @@ Parquet is column-oriented data file format that was designed for:
 
 Azure TSI chose Parquet since it provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
 
-For a better understanding of what the Parquet file format is all about, head over to the [official Parquet page](https://parquet.apache.org/documentation/latest/).
+To gain a better understanding of the Parquet file format is all about, read the [official Parquet documentation](https://parquet.apache.org/documentation/latest/).
 
 ## Event structure in Parquet
 
@@ -71,7 +71,7 @@ Azure TSI events are mapped to Parquet file contents as follows:
 * All other properties map to columns will end with `_string` (string), `_bool` (boolean), `_datetime` (datetime), and `_double` (double) depending on property type.
 * That's the first version of the file format, and we refer to it as **V=1**.  If this feature evolves the name will be incremented accordingly to **V=2**, **V=3**, and so on.
 
-## How to partition
+## Partitions
 
 Each Azure TSI (Preview) environment must have a **Time Series ID** property and a **Timestamp** property, which uniquely identify it. Your **Time Series ID** acts as a logical partition for your data and provides the Azure TSI (Preview) environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure TSI (Preview) in an Azure Storage account.
 
@@ -84,7 +84,7 @@ Initially, at ingress time, data is partitioned by the **Timestamp** so a single
 
 If you are uploading historical data or batch messages, you should designate the **Timestamp** property in your data that maps to the appropriate **Timestamp** value you wish to store with your data.  The **Timestamp** property is case-sensitive. For more, read the [Time Series Model article](./time-series-insights-update-tsm.md).
 
-## Physical partition
+## Physical partitions
 
 A physical partition is a block blob stored in Azure Storage. The actual size of the blobs will vary as it depends on the push rate, however we expect blobs to be approximately 20-50 MB in size. Because of that expectation, the TSI team selected 20 MB to be the size to optimize query performance. This could change over time based on file size and the velocity of data ingress.
 
@@ -93,7 +93,7 @@ A physical partition is a block blob stored in Azure Storage. The actual size of
 > * Azure blobs are occasionally repartitioned for better performance by being dropped and recreated.
 > * Also note that the same TSI data can be present in multiple blobs.
 
-## Logical partition
+## Logical partitions
 
 A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. The TSI (Preview) will logically partition each blob based on two properties:
 
@@ -161,14 +161,15 @@ The Azure TSI (Preview) supports the same event sources and file types that it d
 
 Supported event sources include:
 
-* Azure IoT Hub
-* Azure Event Hubs
-  * Note: Azure Event Hub instances support Kafka.
+- Azure IoT Hub
+- Azure Event Hubs
+  
+  > [!NOTE]
+  > Azure Event Hub instances support Kafka.
 
 Supported file types include:
 
-* JSON
-  * For more on the supported JSON shapes we can handle, see the [How to shape JSON](./time-series-insights-send-events.md#json) documentation.
+* JSON: For more on the supported JSON shapes we can handle, see the [How to shape JSON](./time-series-insights-send-events.md#json) documentation.
 
 ### Data availability
 
@@ -181,7 +182,7 @@ In public preview, Azure TSI (Preview) indexes data using a blob-size optimizati
 
 ### Scale
 
-Azure TSI (Preview) will support an initial ingress scale of up to 6 Mbps per environment. Enhanced scaling support is ongoing. Documentation will be updated to reflect those improvements.
+Azure TSI (Preview) supports an initial ingress scale of up to 6 Mbps per environment. Enhanced scaling support is ongoing. Documentation will be updated to reflect those improvements.
 
 ## Next steps
 
