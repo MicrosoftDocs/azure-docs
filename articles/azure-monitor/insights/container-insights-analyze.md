@@ -37,7 +37,7 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
-1. Are all of my [Azure Container Service Engine (ACS-engine)](https://github.com/Azure/acs-engine) deployments healthy?
+1. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
 1. How many nodes, user and system pods are deployed per cluster.  
 
 The health statuses included are: 
@@ -267,8 +267,7 @@ It's often useful to build queries that start with an example or two and then mo
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | List all of a container's lifecycle information| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes events|
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Image inventory | 
-| **Select the Line chart display option**:<br> Perf<br> &#124; Perf
-&#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores"
+| **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores"
 &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
-| **Select the Line chart display option**:<br> Perf &#124; Perf &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes"
+| **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes"
 &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
