@@ -48,7 +48,7 @@ Azure DNS provides the following capabilities:
   By default, registration virtual networks also act as resolution virtual networks, in the sense that DNS resolution against the zone works from any of the virtual machines within the registration virtual network.
 
   > [!NOTE]
-  > If a registration virtual network is specified, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs, but the VM records are indeed registered and will resolve successfully.
+  > If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs. The VM records are indeed registered and will resolve successfully.
 
 * **Forward DNS resolution is supported across virtual networks that are linked to the private zone as resolution virtual networks**. For cross-virtual network DNS resolution, there is no explicit dependency such that the virtual networks are peered with each other. However, customers might want to peer virtual networks for other scenarios (for example, HTTP traffic).
 
@@ -62,7 +62,7 @@ Azure DNS is subject to the following limitations:
 * Up to 10 resolution virtual networks are allowed per private zone.
 * A specific virtual network can be linked to only one private zone as a registration virtual network.
 * A specific virtual network can be linked to up to 10 private zones as a resolution virtual network.
-* If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone aren't viewable or retrievable from the Azure Powershell and Azure CLI APIs, but the VM records are indeed registered and will resolve successfully.
+* If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs. The VM records are indeed registered and will resolve successfully.
 * Reverse DNS works only for private IP space in the registration virtual network.
 * Reverse DNS for a private IP that isn't registered in the private zone (for example, a private IP for a virtual machine in a virtual network that is linked as a resolution virtual network to a private zone) returns *internal.cloudapp.net* as the DNS suffix. However, this suffix isn't resolvable.
 * The virtual network needs to be empty (that is, no VM records exist) when it initially (that is, for the first time) links to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
