@@ -76,7 +76,7 @@ The zip file also provides the values of some of the important settings on the A
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* For more information about gateway SKUs, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+* For Gateway SKU recommendations, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >The Basic SKU does not support IKEv2 or RADIUS authentication.
