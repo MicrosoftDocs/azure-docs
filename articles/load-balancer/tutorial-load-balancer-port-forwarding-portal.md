@@ -27,8 +27,8 @@ Port forwarding lets you connect to virtual machines (VMs) in an Azure virtual n
 In this tutorial, you set up port forwarding on an Azure Load Balancer. You learn how to:
 
 > [!div class="checklist"]
-> * Create a load balancer to balance network traffic over VMs. 
-> * Create a virtual network and VMs with network security group (NSG) rules. 
+> * Create a public Standard load balancer to balance network traffic over VMs. 
+> * Create a virtual network and VMs with a network security group (NSG) rule. 
 > * Add the VMs to the load balancer back-end address pool.
 > * Create a load balancer health probe and traffic rules.
 > * Create load balancer inbound NAT port-forwarding rules.
@@ -51,7 +51,7 @@ First, create a public Standard load balancer that can balance traffic load over
    - **SKU**: Select **Standard**.
    - **Public IP address**: Select **Create new**, then type *MyPublicIP* in the field.
    - **Availability options**: Drop down and select **Availability zone**.
-   - **Availability zone**: Drop down and select **1**.
+   - **Availability zone**: Drop down and select **Zone-redundant**.
    - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
    - **Location**: Select **West Europe**. 
    
@@ -85,8 +85,6 @@ Create a virtual network with two virtual machines, and add the VMs to the back-
    - **Subscription** > **Resource Group**: Drop down and select **MyResourceGroupLB**.
    - **Virtual machine name**: Type *MyVM1*.
    - **Region**: Select **West Europe**. 
-   - **Availability options**: Drop down and select **Availability zone**. 
-   - **Availability zone**: Drop down and select **1**.
    - **Username**: Type *azureuser*.
    - **Password**: Type *Azure1234567*. 
      Retype the password in the **Confirm password** field.
@@ -96,6 +94,8 @@ Create a virtual network with two virtual machines, and add the VMs to the back-
    Make sure the following are selected:
    - **Virtual network**: **MyVNet**
    - **Subnet**: **MyBackendSubnet**
+   
+1. Under **Public IP**, select **Create new**, select **Standard** on the **Create public IP address** page, and then select **OK**. 
    
 1. Under **Network Security Group**, select **Advanced** to create a new network security group (NSG), a type of firewall. 
    1. In the **Configure network security group** field, select **Create new**. 
@@ -238,11 +238,9 @@ Create a load balancer inbound network address translation (NAT) rule to forward
 
 ## Test the load balancer
 
-Install Internet Information Services (IIS) on the back-end servers, and customize the default web page to show the machine name. Use the load balancer's public IP address to test the load balancer. 
+Install Internet Information Services (IIS) on the back-end servers, and customize the default web page to show the machine name. Then, use the load balancer's public IP address to test the load balancer. 
 
 Each back-end VM serves a different version of the default IIS web page, so you can see the load balancer distribute requests between the two VMs.
-
-On the **Overview** page for **MyLoadBalancer**, under **Public IP address**, copy the public IP address. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.211.48**. 
 
 ### Connect to the VMs with RDP
 
@@ -279,13 +277,15 @@ Use PowerShell to install IIS and replace the default IIS web page with a page t
     
     #Add custom htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    
    ```
    
 1. Close the RDP connections with MyVM1 and MyVM2 by selecting **Disconnect**. Do not shut down the VMs.
 
 ### Test load balancing
 
-Paste or type the load balancer's public IP address (*40.67.211.48*) into the address bar of your internet browser. 
+In the portal, on the **Overview** page for **MyLoadBalancer**, copy the public IP address under **Public IP address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.218.235**. 
+Paste or type the load balancer's public IP address (*40.67.218.235*) into the address bar of your internet browser. 
 
 The customized IIS web server default page appears in the browser. The message reads either **Hello World from MyVM1**, or **Hello World from MyVM2**.
 
@@ -297,12 +297,12 @@ Refresh the browser to see the load balancer distribute traffic across VMs. Some
 
 With port forwarding, you can remote desktop to a back-end VM by using the IP address of the load balancer and the front-end port value defined in the NAT rule. 
 
-1. In the portal, on the **Overview** page for **MyLoadBalancer**, copy its public IP address. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.211.48**. 
+1. In the portal, on the **Overview** page for **MyLoadBalancer**, copy its public IP address. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.218.235**. 
    
 1. Open a command prompt, and use the following command to create a remote desktop session with MyVM2, using the load balancer's public IP address and the front-end port you defined in the VM's NAT rule. 
    
    ```
-   mstsc /v:40.67.211.48:4222
+   mstsc /v:40.67.218.235:4222
    ```
   
 1. Open the downloaded RDP file, and select **Connect**.
@@ -323,7 +323,7 @@ To delete the load balancer and all related resources when you no longer need th
 
 ## Next steps
 
-In this tutorial, you created a Standard load balancer. You created and configured network resources, back-end servers, a health probe, and rules for the load balancer. You installed IIS on the back-end VMs and used the load balancer's public IP address to test the load balancer. You set up and tested port forwarding from a specified port on the load balancer to a port on a back-end VM. 
+In this tutorial, you created a Standard public load balancer. You created and configured network resources, back-end servers, a health probe, and rules for the load balancer. You installed IIS on the back-end VMs and used the load balancer's public IP address to test the load balancer. You set up and tested port forwarding from a specified port on the load balancer to a port on a back-end VM. 
 
 To learn more about Azure Load Balancer, continue to more load balancer tutorials.
 
