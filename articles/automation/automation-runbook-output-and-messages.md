@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 # Runbook output and messages in Azure Automation
-Most Azure Automation runbooks have some form of output. This output could be an error message to the user or a complex object you intend to use with another runbook. Windows PowerShell provides [multiple streams](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) to send output from a script or workflow. Azure Automation works with each of these streams differently. You should follow best practices for how to use each when you're creating a runbook.
+Most Azure Automation runbooks have some form of output. This output could be an error message to the user or a complex object you intend to use with another runbook. Windows PowerShell provides [multiple streams](/powershell/module/microsoft.powershell.core/about/about_redirection) to send output from a script or workflow. Azure Automation works with each of these streams differently. You should follow best practices for how to use each when you're creating a runbook.
 
 The following table provides a brief description of each of the streams and their behavior in the Azure portal for published runbooks and when [testing a runbook](automation-testing-runbook.md). Further details on each stream are provided in later sections.
 
