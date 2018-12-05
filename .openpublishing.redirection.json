@@ -31642,6 +31642,56 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-windows-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-windows-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-cli.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-posh.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-posh",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-service-providers.md",
+            "redirect_url":  "/azure/azure-monitor/platform/service-providers",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-standard-properties.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-standard-properties",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-template-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/template-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-response.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-response",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-viewdata.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-viewdata",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

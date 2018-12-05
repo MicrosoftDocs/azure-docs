@@ -31,7 +31,7 @@ Log Analytics provides log collection and analysis for Azure Monitor. It's built
 
 - [Query language reference](/azure/kusto/query)  is the complete language reference for the Data Explorer query language.
 - [Log Analytics query language differences](data-explorer-difference.md) describes differences between versions of the Data Explorer query language.
-- [Standard properties in Log Analytics records](../../log-analytics/log-analytics-standard-properties.md) describes properties that are standard to all Log Analytics data.
+- [Standard properties in Log Analytics records](../../azure-monitor/platform/log-standard-properties.md) describes properties that are standard to all Log Analytics data.
 - [Perform cross-resource log searches in Log Analytics](../../azure-monitor/log-query/cross-workspace-query.md) describes how to write queries that use data from multiple Log Analytics workspaces and Application Insights applications.
 
 
