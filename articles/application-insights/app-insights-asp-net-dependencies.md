@@ -11,14 +11,12 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 12/05/2018
 ms.author: mbullwin
 
 ---
 # Set up Application Insights: Dependency tracking
 A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
-
-![sample charts](./media/app-insights-asp-net-dependencies/10-intro.png)
 
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
@@ -26,13 +24,16 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
   * SQL databases
   * ASP.NET web and WCF services that use HTTP-based bindings
   * Local or remote HTTP calls
-  * Azure Cosmos DB, table, blob storage, and queue
+  * Azure Cosmos DB, table, blob storage, and queue 
 * Web pages
   * AJAX calls
 
 Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around selected methods. Performance overhead is minimal.
 
 You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+
+> [!NOTE]
+> Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../cosmos-db/performance-tips#networking) is used. TCP mode won't be captured by Application Insights.
 
 ## Set up dependency monitoring
 Partial dependency information is collected automatically by the [Application Insights SDK](app-insights-asp-net.md). To get complete data, install the appropriate agent for the host server.
