@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Send errors to Stackify for logging | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to add an error logging policy to send errors to Stackify for logging..
+title: Azure API management policy sample - Send errors to Stackify for logging | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to add an error logging policy to send errors to Stackify for logging..
 services: api-management
 documentationcenter: ''
 author: vladvino

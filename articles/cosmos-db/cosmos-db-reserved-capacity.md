@@ -1,9 +1,8 @@
 ---
-title: Prepay for Azure Cosmos DB resources to save money | Microsoft Docs
+title: Prepay for Azure Cosmos DB resources to save money
 description: Learn how to buy Azure Cosmos DB reserved capacity to save on your compute costs.
 services: cosmos-db
 author: rimman
-manager: kfile
 
 ms.service: cosmos-db
 ms.topic: conceptual

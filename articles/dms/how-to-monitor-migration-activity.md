@@ -19,7 +19,7 @@ In this article, you learn how to monitor the progress of a migration at both a 
 ## Monitor at the database level
 To monitor activity at the database level, view the database-level blade:
 
-![Database-level blade](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Database-level blade](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Selecting the database hyperlink will show you the list of tables and their migration progress.
@@ -99,7 +99,7 @@ To monitor activity at the table level, view the table-level blade. The top port
 
 The bottom portion of the blade lists the tables and shows a quick summary of migration progress.
 
-![Table-level blade - quick summary](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Table-level blade - quick summary](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 The following table describes the fields shown in the table-level details.
 
@@ -118,9 +118,9 @@ The following table describes the fields shown in the table-level details.
 ## Monitor at table level – Detailed Summary
 There are two tabs that show migration progress in Full load and Incremental data sync.
 	
-![Full load tab](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Full load tab](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Incremental data sync tab](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Incremental data sync tab](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 The following table describes the fields shown in table level migration progress.
 
