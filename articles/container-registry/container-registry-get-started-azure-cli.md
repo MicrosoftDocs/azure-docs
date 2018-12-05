@@ -2,13 +2,12 @@
 title: Quickstart - Create a private Docker registry in Azure with the Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ---
 # Quickstart: Create a container registry using the Azure CLI
@@ -17,7 +16,7 @@ Azure Container Registry is a managed Docker container registry service used for
 
 This quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Create a resource group
 

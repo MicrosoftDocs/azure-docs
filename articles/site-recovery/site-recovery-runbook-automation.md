@@ -1,22 +1,14 @@
 ﻿---
-title: Add Azure Automation runbooks to recovery plans in Azure Site Recovery | Microsoft Docs
-description: Learn how Azure Site Recovery can help you extend recovery plans by using Azure Automation. Learn how to complete complex tasks during recovery to Azure.
-services: site-recovery
-documentationcenter: ''
-author: ruturaj
+title: Add Azure Automation runbooks to Site Recovery recovery plans | Microsoft Docs
+description: Learn how to extend recovery plans with Azure Automation for disaster recovery with Azure Site Recovery.
+author: rajani-janaki-ram
 manager: gauravd
-editor: ''
-
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
-
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: rajanaki
 ---
+
 # Add Azure Automation runbooks to recovery plans
 In this article, we describe how Azure Site Recovery integrates with Azure Automation to help you extend your recovery plans. Recovery plans can orchestrate recovery of VMs that are protected with Site Recovery. Recovery plans work both for replication to a secondary cloud, and for replication to Azure. Recovery plans also help make the recovery **consistently accurate**, **repeatable**, and **automated**. If you fail over your VMs to Azure, integration with Azure Automation extends your recovery plans. You can use it to execute runbooks, which offer powerful automation tasks.
 
@@ -216,7 +208,7 @@ In the following example, we use a new technique and create a [complex variable]
 4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
 	```
-	$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+	$VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
 	```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
@@ -226,13 +218,13 @@ In the following example, we use a new technique and create a [complex variable]
 		$vmMap = $RecoveryPlanContext.VmMap
 
 		foreach($VMID in $VMinfo) {
-			Write-output $VMDetailsObj.value.$VMID
-
-			if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+			$VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+			Write-output $VMDetails
+			if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
 				$VM = $vmMap.$VMID
 				# Access the properties of the variable
-				$NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-				$NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+				$NSGname = $VMDetails.NSGName
+				$NSGRGname = $VMDetails.NSGResourceGroupName
 
 				# Add code to apply the NSG properties to the VM
 			}
@@ -255,8 +247,8 @@ For another example, see the following video. It demonstrates how to recover a t
 
 ## Additional resources
 * [Azure Automation service Run As account](../automation/automation-create-runas-account.md)
-* [Azure Automation overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation overview")
-* [Azure Automation sample scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
+* [Azure Automation overview](https://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation overview")
+* [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
 
 ## Next steps
 [Learn more](site-recovery-failover.md) about running failovers.

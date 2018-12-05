@@ -13,11 +13,12 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
+ms.reviewer: hectorl
 ---
 # Enable backup for Azure Stack from the administration portal
-Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment using cloud recovery in the event of [a catastrophic failure](.\azure-stack-backup-recover-data.md). The purpose of cloud recovery is to ensure that your operators and users can log back into the portal after recovery is complete. Users will have their subscriptions restored including role-based access permissions and roles, original plans, offers, and previously defined compute, storage, and network quotas.
+Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment using cloud recovery in the event of [a catastrophic failure](./azure-stack-backup-recover-data.md). The purpose of cloud recovery is to ensure that your operators and users can log back into the portal after recovery is complete. Users will have their subscriptions restored including role-based access permissions and roles, original plans, offers, and previously defined compute, storage, and network quotas.
 
 However, the Infrastructure Backup Service does not backup IaaS VMs, network configurations, and storage resources such as storage accounts, blobs, tables, and so on, so users logging in after cloud recovery completes will not see any of their previously existing resources. Platform as a Service (PaaS) resources and data are also not backed up by the service. 
 
@@ -31,7 +32,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 ## Enable or reconfigure backup
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
-2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
+2. Select **All services**, and then under the **ADMINISTRATION** category select **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Type the path to the **Backup storage location**. Use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data after a disaster, the  device should be in a separate location.
 
     > [!Note]  
@@ -52,31 +53,31 @@ Administrators and users are responsible for backing up and restoring IaaS and P
     ```
 10. Select **OK** to save your backup controller settings.
 
-    ![Azure Stack - Backup controller settings](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - Backup controller settings](media/azure-stack-backup/backup-controller-settings.png)
 
 ## Start backup
 To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. After the task completes, you can confirm the settings in **Essentials**:
 
-![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - on-demand backup](media/azure-stack-backup/scheduled-backup.png)
 
 You can also run the PowerShell cmdlet **Start-AzsBackup** on your Azure Stack administration computer. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## Enable or disable automatic backups
 Backups are automatically scheduled when you enable backup. You can check the next schedule backup time in **Essentials**. 
 
-![Azure Stack - on-demand backup](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - on-demand backup](media/azure-stack-backup/on-demand-backup.png)
 
 If you need to disable future scheduled backups, click on **Disable Automatic Backups**. Disabling automatic backups will keep backup settings configured and will retain the backup schedule. This action simply tells the scheduler to skip future backups. 
 
-![Azure Stack - disable scheduled backups](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack - disable scheduled backups](media/azure-stack-backup/disable-auto-backup.png)
 
 Confirm that future scheduled backups have been disabled in **Essentials**:
 
-![Azure Stack - confirm backups have been disabled](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - confirm backups have been disabled](media/azure-stack-backup/confirm-disable.png)
 
 Click on **Enable Automatic Backups** to inform the scheduler to start future backups at the scheduled time. 
 
-![Azure Stack - enable scheduled backups](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack - enable scheduled backups](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

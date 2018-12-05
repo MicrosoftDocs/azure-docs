@@ -25,6 +25,11 @@ You are most likely to experience latency and throttling when you:
 - Push large amounts of historical events to an event source, resulting in a lag (Time Series Insights will need to catch up).
 - Join reference data with telemetry, resulting in larger event size.  From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
+## Video: 
+
+### In this video, we cover Time Series Insights data ingress behavior and how to plan for it.</br>
+
+> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## Monitor latency and throttling with alerts
 
@@ -55,7 +60,7 @@ From there, you can configure alerts using the following metrics:
 
 If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
 
-For example, if you have a single unit S1 environment and see that there is a five million message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster.  The catch-up period is a common occurence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
+For example, if you have a single unit S1 environment and see that there is a five million message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster.  The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 
 Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency.  
 

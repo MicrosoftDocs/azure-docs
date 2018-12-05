@@ -27,7 +27,7 @@
     href: concept-authentication-methods.md
   - name: Converged registration
     href: concept-registration-mfa-sspr-converged.md
-  - name: Self-service password reset
+  - name: Password reset
     items:
     - name: How password reset works
       href: concept-sspr-howitworks.md
@@ -47,7 +47,7 @@
       href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
-    - name: Create an Auth Provider
+    - name: Manage an Auth Provider
       href: concept-mfa-authprovider.md
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
@@ -63,14 +63,16 @@
       href: concept-password-ban-bad-on-premises.md
 - name: How-to guides
   items:
-  - name: Password reset
+  - name: Self-service password reset
     items:
-    - name: Deploy password reset
+    - name: Deploy self-service password reset
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
     - name: Enable password writeback
       href: howto-sspr-writeback.md
+    - name: SSPR for Windows 7, 8, and 8.1
+      href: howto-sspr-windows-7-8.md
   - name: Cloud-based MFA
     items:
     - name: Deploy cloud-based MFA
@@ -99,29 +101,37 @@
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
-  - name: Banned password lists
+  - name: Azure AD password protection
     items:
     - name: Configure the banned password list
-      href: howto-password-ban-bad.md
-    - name: Deploy Azure AD password protection
-      href: howto-password-ban-bad-on-premises.md
-    - name: Configure Azure AD password protection
-      href: howto-password-ban-bad-on-premises-operations.md
-    - name: Monitor Azure AD password protection
-      href: howto-password-ban-bad-on-premises-troubleshoot.md
+      href: howto-password-ban-bad-configure.md
+    - name: On-premises integration
+      items:
+      - name: Deploy Azure AD password protection
+        href: howto-password-ban-bad-on-premises-deploy.md
+      - name: Configure Azure AD password protection
+        href: howto-password-ban-bad-on-premises-operations.md
+      - name: Monitor Azure AD password protection
+        href: howto-password-ban-bad-on-premises-troubleshoot.md
+      - name: Frequently asked questions
+        href: howto-password-ban-bad-on-premises-faq.md
+      - name: On-premises agent version history
+        href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Windows Hello for Business
     href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+  - name: Password-less phone sign-in
+    href: howto-authentication-phone-sign-in.md
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
-      href: ../active-directory-certificate-based-authentication-get-started.md
+      href: active-directory-certificate-based-authentication-get-started.md
       items:
       - name: CBA on Android Devices
-        href: ../active-directory-certificate-based-authentication-android.md
+        href: active-directory-certificate-based-authentication-android.md
       - name: CBA on iOS Devices
-        href: ../active-directory-certificate-based-authentication-ios.md
+        href: active-directory-certificate-based-authentication-ios.md
   - name: Develop
     items:
     - name: Build MFA into custom apps
@@ -207,6 +217,6 @@
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

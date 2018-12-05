@@ -1,53 +1,84 @@
 ---
-title: Restore or permanently remove a recently deleted user in Azure Active Directory | Microsoft Docs
-description: How to restore a deleted user, view restorable users, or permanently delete a user in Azure Active Directory
+title: How to restore or permanently remove a recently deleted user in Azure Active Directory | Microsoft Docs
+description: Learn how to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: lizross 
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
 
-# Restore a deleted user in Azure Active Directory
+# How to: Restore or permanently remove a recently deleted user with Azure Active Directory
+After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the user is automatically, and permanently, deleted.
 
-This article contains instructions to restore or permanently delete a previously deleted user. When you delete a user in the Azure Active Directory (Azure AD), the deleted user is retained for 30 days from the deletion date. During that time, the user and its properties can be restored. 
+You can view your restorable users, restore a deleted user, or permanently delete a user using Azure Active Directory (Azure AD) in the Azure portal.
 
-> [!WARNING]
-> After it is permanently deleted, the user cannot be restored.
-
-## How to restore a recently deleted user
-When a user is recently deleted, all directory information is preserved. If the user is restored, that information is restored as well.
-
-1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users** &gt; **Deleted users**. 
-2. Select one or more recently deleted users.
-3. Select **Restore user**.
-
-## How to permanently delete a recently deleted user
-
-1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users** &gt; **Deleted users**. 
-2. Select one or more recently deleted users.
-3. Select **Delete permanently**.
+>[!Important]
+>Neither you nor Microsoft customer support can restore a permanently deleted user.
 
 ## Required permissions
-The following permissions are sufficient to restore a user.
+You must have one of the following roles to restore and permanently delete users.
 
-Role | Permissions 
---------- | ---------
-Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can restore deleted users 
-Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can permanently delete users
+- Company Administrator
+
+- Partner Tier1 Support
+
+- Partner Tier2 Support
+
+- User Account Administrator
+
+## View your restorable users
+You can see all the users that were deleted less than 30 days ago. These users can be restored.
+
+### To view your restorable users
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+
+2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
+
+    Review the list of users that are available to restore.
+
+    ![Users - Deleted users page, with users that can still be restored](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
+
+## Restore a recently deleted user
+While a user's account is suspended, all the related directory information is preserved. When you restore a user, this directory information is also restored.
+
+### To restore a user
+1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.
+
+2. Select **Restore user**.
+
+    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+## Permanently delete a user
+You can permanently delete a user from your directory without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.
+
+>[!Note]
+>If you permanently delete a user by mistake, you'll have to create a new user and manually enter all the previous information. For more information about creating a new user, see [Add or delete users](add-users-azure-active-directory.md).
+
+### To permanently delete a user
+
+1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Rae Huff_.
+
+2. Select **Delete permanently**.
+
+    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## Next steps
-These articles provide additional information on Azure Active Directory user management.
+After you've restored or deleted your users, you can perform the following basic processes:
 
-* [Quickstart: Add or delete users to Azure Active Directory](add-users-azure-active-directory.md)
-* [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Add guest users from another directory](../b2b/what-is-b2b.md) 
-* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Add or delete users](add-users-azure-active-directory.md)
+
+- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+
+- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+
+- [Add guest users from another directory](../b2b/what-is-b2b.md) 
+
+For more information about other available user management tasks, [Azure Active Directory user management documentation](../users-groups-roles/index.yml).

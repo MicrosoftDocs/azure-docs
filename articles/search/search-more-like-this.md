@@ -1,7 +1,7 @@
 ---
 title: moreLikeThis in Azure Search (preview) | Microsoft Docs
 description: Preliminary documentation for the moreLikeThis (preview) feature, exposed in the Azure Search REST API.
-authors: mhko
+author: mhko
 manager: jlembicz
 services: search
 ms.service: search

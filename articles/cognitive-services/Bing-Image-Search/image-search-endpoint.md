@@ -1,9 +1,10 @@
 ---
-title: Image search endpoints | Microsoft Docs
-description: Summary of the Image search API endpoint.
+title: Image search endpoints - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: A list of available endpoints for the Bing Image Search API.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
@@ -12,22 +13,23 @@ ms.author: v-gedod
 ---
 
 # Image Search endpoints
+
 The **Image Search API**  includes three endpoints.  Endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
 ## Endpoints
 To get image results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters to define further specifications.
 
 **Endpoint 1:** Returns images that are relevant to the user's search query defined by `?q=""`.
-``` 
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
 **Endpoint 2:** Returns insights about an image, using either `GET` or `POST`.
-``` 
+```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 A GET request returns insights about an image, such as Web pages that include the image. Include the [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter with a `GET` request.
 
-Or, you can include a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. This will return an [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) to use as a parameter in a subsequent `GET` request, which returns information about people in the image.  Set `modules` to `All` to get all insights, except `RecognizedEntities` in the results of the `POST` without making another call using the `insightsToken`. 
+Or, you can include a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. This will return an [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) to use as a parameter in a subsequent `GET` request, which returns information about people in the image.  Set `modules` to `All` to get all insights, except `RecognizedEntities` in the results of the `POST` without making another call using the `insightsToken`.
 
 
 **Endpoint 3:** Returns images that are trending based on search requests made by others. The images are separated into different categories, for example, based on noteworthy people or events.

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: cwatson
 
 ---
 # Understand free service to meter mapping
@@ -49,10 +49,6 @@ Every Azure service emits usage against meters, which the Azure billing system u
 
 \** Shared meters can be consumed through multiple services. For instance, both Virtual machines and Storage emit usage against Data Transfer Out(GB) meter.
 
+## Need help? Contact us.
 
-
-
-
-## Need help? Contact support
-
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

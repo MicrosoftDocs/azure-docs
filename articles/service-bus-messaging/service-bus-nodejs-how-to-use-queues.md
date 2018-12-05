@@ -3,7 +3,7 @@ title: How to use Service Bus queues in Node.js | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure from a Node.js app.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: sethm
+ms.date: 09/10/2018
+ms.author: spelluru
 
 ---
 # How to use Service Bus queues with Node.js

@@ -4,8 +4,8 @@ description: How to setup machines for management with Azure Automation State Co
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
@@ -53,7 +53,7 @@ are provided in the following [**Troubleshooting Azure virtual machine onboardin
 
 ### Azure portal
 
-In the [Azure portal](http://portal.azure.com/), click **Browse** -> **Virtual machines
+In the [Azure portal](https://portal.azure.com/), click **Browse** -> **Virtual machines
 (classic)**. Select the Windows VM you want to onboard. On the virtual machine's dashboard blade,
 click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**.
 Enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4) required for your use case, your
@@ -155,7 +155,7 @@ If the machine does not have the PowerShell desired state extension installed an
 Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
 required for your use case, and optionally a node configuration to assign to the VM.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### Azure Resource Manager templates
 
@@ -181,9 +181,9 @@ On-premises Windows machines and Windows machines in non-Azure clouds (such as A
 can also be onboarded to Azure Automation State Configuration, as long as they have outbound access
 to the internet, via a few simple steps:
 
-1. Make sure the latest version of [WMF 5](http://aka.ms/wmf5latest) is installed on the machines you want to onboard to Azure Automation State Configuration.
+1. Make sure the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the machines you want to onboard to Azure Automation State Configuration.
 1. Follow the directions in following section [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) to generate a folder containing the needed DSC metaconfigurations.
-1. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed**:
+1. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](https://aka.ms/wmf5latest) installed**:
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -223,7 +223,7 @@ the internet, via a few simple steps:
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
+The machine this command is run from must have the latest version of [WMF 5](https://aka.ms/wmf5latest) installed.
 
 1. If you cannot apply the PowerShell DSC metaconfigurations remotely, for each Linux machine to onboard, copy the metaconfiguration corresponding to that machine from the folder in step 5 onto the Linux machine. Then call `SetDscLocalConfigurationManager.py` locally on each Linux machine you want to onboard to Azure Automation State Configuration:
 
@@ -244,7 +244,7 @@ PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
 
 ### Using a DSC Configuration
 
-1. Open the VSCode (or your favorite editor) as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
+1. Open the VSCode (or your favorite editor) as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](https://aka.ms/wmf5latest) installed.
 1. Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
 
 > [!NOTE]

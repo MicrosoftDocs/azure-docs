@@ -1,18 +1,17 @@
 ---
-title: Translator Text translate text with Ruby | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you translate text from one language to another using the Translator Text API with Ruby in Cognitive Services.
+title: "Quickstart: Translate text, Ruby - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you translate text from one language to another using the Translator Text API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Translate text with Ruby
+# Quickstart: Translate text with the Translator Text REST API (Ruby)
 
 In this quickstart, you translate text from one language to another using the Translator Text API.
 

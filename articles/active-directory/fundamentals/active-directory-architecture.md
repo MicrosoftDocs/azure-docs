@@ -1,22 +1,21 @@
 ---
-title: Learn about the Azure AD architecture | Microsoft Docs
-description: Explains what an Azure AD tenant is, and how to manage Azure through Azure AD
+title: What is the Azure Active Directory architecture? | Microsoft Docs
+description: Learn what an Azure Active Directory tenant is and how to manage Azure through Azure Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-ms.assetid: 
+
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
+ms.reviewer: jeffsta
+custom: it-pro
 ---
 
-# Understand Azure Active Directory architecture
+# What is the Azure Active Directory architecture?
 Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity).

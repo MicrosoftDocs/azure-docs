@@ -12,9 +12,16 @@ ms.workload: data-services
 ms.topic: article 
 ms.custom: mvc 
 ms.date: 10/05/2017 
---- 
+
+ROBOTS: NOINDEX
+---
+
 
 # Predictive maintenance for real-world scenarios
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance, and to minimize costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
@@ -36,10 +43,10 @@ The business problem for this simulated data is to predict issues that are cause
 ## Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Follow the [Quickstart installation guide](../service/quickstart-installation.md) to install the program and create a workspace.
+* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Follow the [Quickstart installation guide](quickstart-installation.md) to install the program and create a workspace.
 * Azure Machine Learning Operationalization requires a local deployment environment and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
-This example runs on any Machine Learning Workbench compute context. However, it's recommended to run the example with at least 16 GB of memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+This example runs on any Machine Learning Workbench compute context. However, it's recommended to run the example with at least 16 GB of memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model operationalization was done by using version 0.1.0a22 of the Azure Machine Learning CLI.
 
@@ -66,7 +73,7 @@ This command provides an authentication key to use with the https:\\aka.ms\devic
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-It's preferable to run on a [DSVM for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. After the DSVM is configured, prepare the remote Docker environment with the following two commands:
+It's preferable to run on a [DSVM for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. After the DSVM is configured, prepare the remote Docker environment with the following two commands:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
@@ -88,13 +95,13 @@ The example notebooks are stored in the Code directory. The notebooks are set up
 
 ## Data description
 
-The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) consists of five comma-separated values (.csv) files. Use the following links to get detailed descriptions about the data sets.
+The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) consists of the following [five comma-separated values (.csv) files](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data):
 
-* [Machines](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): Features that differentiate each machine, such as age and model.
-* [Error](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): The error log contains non-breaking errors that are thrown while the machine is still operational. These errors are not considered failures, though they can be predictive of a future failure event. The date-time values for the errors are rounded to the closest hour since the telemetry data is collected at an hourly rate.
-* [Maintenance](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): The maintenance log contains both scheduled and unscheduled maintenance records. Scheduled maintenance corresponds with the regular inspection of components. Unscheduled maintenance can arise from mechanical failure or other performance degradation. The date-time values for maintenance are rounded to the closest hour since the telemetry data is collected at an hourly rate.
-* [Telemetry](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): The telemetry data consists of time series measurements from multiple sensors within each machine. The data is logged by averaging sensor values over each one hour interval.
-* [Failures](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): Failures correspond to component replacements within the maintenance log. Each record contains the Machine ID, component type, and replacement date and time. These records are used to create the machine learning labels that the model is trying to predict.
+* [Machines](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): Features that differentiate each machine, such as age and model.
+* [Errors](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): The error log contains non-breaking errors that are thrown while the machine is still operational. These errors are not considered failures, though they can be predictive of a future failure event. The date-time values for the errors are rounded to the closest hour since the telemetry data is collected at an hourly rate.
+* [Maintenance](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): The maintenance log contains both scheduled and unscheduled maintenance records. Scheduled maintenance corresponds with the regular inspection of components. Unscheduled maintenance can arise from mechanical failure or other performance degradation. The date-time values for maintenance are rounded to the closest hour since the telemetry data is collected at an hourly rate.
+* [Telemetry](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): The telemetry data consists of time series measurements from multiple sensors within each machine. The data is logged by averaging sensor values over each one hour interval.
+* [Failures](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): Failures correspond to component replacements within the maintenance log. Each record contains the Machine ID, component type, and replacement date and time. These records are used to create the machine learning labels that the model is trying to predict.
 
 To download the raw data sets from the GitHub repository, and create the PySpark data sets for this analysis, see the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter Notebook scenario in the Code folder.
 

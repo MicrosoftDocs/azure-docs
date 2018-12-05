@@ -10,18 +10,18 @@
  ms.custom: include file
 ---
 
-
 When you send template notifications, you only need to provide a set of properties. In this scenario, the set of properties contain the localized version of the current news.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### Send notifications using a C# console app
+
 This section shows how to send notifications using a console app. The code broadcasts notifications to both Windows Store and iOS devices. Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code:
 
 ```csharp
@@ -62,6 +62,7 @@ private static async void SendTemplateNotificationAsync()
 The SendTemplateNotificationAsync method delivers the localized piece of news to **all** your devices, irrespective of the platform. Your notification hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
 
 ### Sending notification with Mobile Services
+
 In your Mobile Services scheduler, use the following script:
 
 ```csharp
@@ -78,4 +79,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-

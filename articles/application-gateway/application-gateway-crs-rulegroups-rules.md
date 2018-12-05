@@ -289,7 +289,7 @@ The following tables are the Rule groups and rules that are available when using
 |943017|Rule 943017|
 |943018|Rule 943018|
 
-##<a name="owasp229"></a> OWASP_2.2.9
+## <a name="owasp229"></a> OWASP_2.2.9
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 

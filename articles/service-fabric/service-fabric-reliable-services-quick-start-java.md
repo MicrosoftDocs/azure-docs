@@ -1,5 +1,5 @@
 ---
-title: Create your first reliable Azure microservice in Java | Microsoft Docs
+title: Create your first Azure Service Fabric reliable service in Java | Microsoft Docs
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 services: service-fabric
 documentationcenter: java

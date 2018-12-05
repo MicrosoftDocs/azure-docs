@@ -1,10 +1,8 @@
 ---
-title: Azure Cosmos DB Table API for Java | Microsoft Docs
+title: Azure Cosmos DB Table API for Java
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
@@ -18,6 +16,7 @@ ms.custom:
 # Azure Cosmos DB Table API for Java: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)

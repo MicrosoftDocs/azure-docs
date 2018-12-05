@@ -39,7 +39,7 @@ In this tutorial series, you learn how to:
 ## Prerequisites
 
 * Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment.
-* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/free/).
 
 ## Get application code
@@ -63,6 +63,8 @@ Inside the **azure-vote** directory, run the following command to build the imag
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> If you are getting permission denied then follow [this](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation on how to work with docker without sudo.
 
 This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
 

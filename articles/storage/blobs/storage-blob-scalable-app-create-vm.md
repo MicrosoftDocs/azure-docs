@@ -50,7 +50,6 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
-  -EnableEncryptionService Blob
 ```
 
 ## Create a virtual machine

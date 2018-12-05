@@ -3,11 +3,11 @@ title: Memory and concurrency limits - Azure SQL Data Warehouse | Microsoft Docs
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/10/2018
+ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -23,10 +23,15 @@ The following tables show the maximum capacity for the data warehouse at differe
 
 ### Gen2
 
-Gen2 provides 2.5x more memory per query than the Gen1. This extra memory helps the Gen2 deliver its fast performance.  The performance levels for the Gen2 range from DW1000c to DW30000c. 
+Gen2 provides 2.5x more memory per query than the Gen1. This extra memory helps the Gen2 deliver its fast performance.  The performance levels for the Gen2 range from DW100c to DW30000c. 
 
 | Performance level | Compute nodes | Distributions per Compute node | Memory per data warehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
+| DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1200                          |
@@ -71,6 +76,11 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 | Service Level | Maximum concurrent queries | Concurrency slots available |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
+| DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -86,7 +96,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 **Dynamic resource classes**
 
 > [!NOTE]
-> The smallrc resource class on Gen2 dynamically adds memory as the service level increases and only supports a max 32 concurrent queries.  The concurrency slots and memory used by smallrc increases as the service level increases. 
+> The smallrc resource class on Gen2 dynamically adds memory as the service level increases and only supports a max 32 concurrent queries at DW1000c and 4 and DW100c.  Once the instance is scaled beyond DW1500c, the concurrency slots and memory used by smallrc increases as the service level increases. 
 >
 >
 
@@ -94,6 +104,11 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
+| DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |

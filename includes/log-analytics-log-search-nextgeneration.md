@@ -1,2 +1,0 @@
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](../articles/log-analytics/log-analytics-log-search-upgrade.md), then the following queries need to be converted. You can use the [language converter](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter) to perform this translation.

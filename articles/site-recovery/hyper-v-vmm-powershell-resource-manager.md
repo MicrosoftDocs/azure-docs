@@ -1,17 +1,16 @@
 ﻿---
-title: Replicate Hyper-V VMs in Virtual Machine Manager clouds to a secondary site with PowerShell (Azure Resource Manager) | Microsoft Docs
-description: Describes how to replicate Hyper-V VMs in Virtual Machine Manager clouds to a secondary Virtual Machine Manager site by using PowerShell (Resource Manager)
+title: Set up disaster recovery of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery and PowerShell | Microsoft Docs
+description: Describes how to set up disaster recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using Azure Site Recovery and PowerShell.
 services: site-recovery
-author: sujaytalasila
+author: sujayt
 manager: rochakm
-
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 ---
 
-# Replicate Hyper-V VMs to a secondary site by using PowerShell (Resource Manager)
+# Set up disaster recovery of Hyper-V VMs to a secondary site by using PowerShell (Resource Manager)
 
 This article shows how to automate the steps for replication of Hyper-V VMs in System Center Virtual Machine Manager clouds to a Virtual Machine Manager cloud in a secondary on-premises site by using [Azure Site Recovery](site-recovery-overview.md).
 
@@ -69,7 +68,7 @@ Make sure you have Azure PowerShell ready to go:
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Create a new Recovery Services vault. Save the vault object in a variable to be used later. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     You can retrieve the vault object after you create it by using the Get-AzureRMRecoveryServicesVault cmdlet.
 

@@ -26,7 +26,7 @@ This sample requires the Azure PowerShell Storage module version **4.0.2** or la
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-This sample also requires the latest version of [AzCopy on Windows](http://aka.ms/downloadazcopy). The default install directory is `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
+This sample also requires the latest version of [AzCopy on Windows](https://aka.ms/downloadazcopy). The default install directory is `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
 
 This sample takes in a source storage account name and key, a target storage account name and key, and the full filepath of the AzCopy.exe (if it is not installed at the default directory).
 

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
 ---
@@ -38,7 +38,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram: 
 
-![Incrementally load data](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Incrementally load data](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Here are the important steps to create this solution: 
 

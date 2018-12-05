@@ -4,7 +4,7 @@ description: Learn how to change the availability set for your virtual machines 
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: cynthn
+ms.author: zarhoads
 
 ---
 # Change the availability set for a Windows VM
@@ -31,13 +31,10 @@ The following script provides an example of gathering the required information, 
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get VM Details
-    $originalVM = get-azurermvm `
+# Get the details of the VM to be moved to the Availablity Set
+    $originalVM = Get-AzureRmVM `
 	   -ResourceGroupName $resourceGroup `
 	   -Name $vmName
-
-# Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
 
 # Create new availability set if it does not exist
     $availSet = Get-AzureRmAvailabilitySet `
@@ -53,6 +50,9 @@ The following script provides an example of gathering the required information, 
 	   -PlatformUpdateDomainCount 2 `
 	   -Sku Aligned
     }
+    
+# Remove the original VM
+    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
 
 # Create the basic configuration for the replacement VM
     $newVM = New-AzureRmVMConfig `

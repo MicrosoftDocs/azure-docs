@@ -19,9 +19,9 @@ ms.author: cephalin
 ---
 # Enable diagnostics logging for web apps in Azure App Service
 ## Overview
-Azure provides built-in diagnostics to assist with debugging an [App Service web app](http://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging an [App Service web app](https://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-This article uses the [Azure portal](https://portal.azure.com), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -33,10 +33,10 @@ You can enable or disable the following kinds of logs:
 
 * **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). It may contain information that can help determine why the server returned the error code.
 * **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It is useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
-* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
+* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
 ### Application diagnostics
-Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
+Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -61,7 +61,7 @@ For **Application logging**, you can turn on the file system option temporarily 
 
 For **Web server logging**, you can select **storage** or **file system**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. 
 
-If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).
+If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using Azure CLI.
 
 By default, logs are not automatically deleted (with the exception of **Application Logging (Filesystem)**). To automatically delete logs, set the **Retention Period (Days)** field.
 
@@ -69,31 +69,27 @@ By default, logs are not automatically deleted (with the exception of **Applicat
 > If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
-> 2. Enable logging to the storage account blob or table again. Save your setting.
+> 2. Enable logging to the storage account blob again. Save your setting.
 >
 >
 
-Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
+Any combination of file system or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
 
-While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
+While both storage locations provide the same basic information for logged events, **blob storage** logs additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
 
 > [!NOTE]
-> Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://azure.microsoft.com/en-us/downloads/).
->
-> [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
+> Information stored in **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> How to: Download logs
-Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Interface.
+Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure CLI.
 
 The directory structure that the logs are stored in is as follows:
 
 * **Application logs** - /LogFiles/Application/. This folder contains one or more text files containing information produced by application logging.
 * **Failed Request Traces** - /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred.
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments. You can also find deployment logs under D:\home\site\deployments.
 
 ### FTP
@@ -102,19 +98,7 @@ To open an FTP connection to your app's FTP server, see [Deploy your app to Azur
 
 Once connected to your web app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
 
-### Download with Azure PowerShell
-To download the log files, start a new instance of Azure PowerShell and use the following command:
-
-    Save-AzureWebSiteLog -Name webappname
-
-This command saves the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
-
-> [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### Download with Azure Command-Line Interface
+### Download with Azure CLI
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -122,7 +106,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -139,7 +123,7 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 [Learn more about performance tracking with Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> How to: Stream logs
-While developing an application, it is often useful to see logging information in near-real time. You can stream logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.
+While developing an application, it is often useful to see logging information in near-real time. You can stream logging information to your development environment using Azure CLI.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
@@ -149,29 +133,7 @@ While developing an application, it is often useful to see logging information i
 >
 >
 
-### Streaming with Azure PowerShell
-To stream logging information, start a new instance of Azure PowerShell and use the following command:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-This command connects to the web app specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) is streamed to the local console.
-
-To filter specific events, such as errors, use the **-Message** parameter. For example:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-To filter specific log types, such as HTTP, use the **-Path** parameter. For example:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-To see a list of available paths, use the -ListPath parameter.
-
-> [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### Streaming with Azure Command-Line Interface
+### Streaming with Azure CLI
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -187,13 +149,15 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../cli-install-nodejs.md).
+> If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a> How to: Understand diagnostics logs
 ### Application diagnostics logs
-Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage. The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message.
+Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system or blob storage. 
+
+The base set of data stored is the same across both storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message. Using the file system for log storage is useful when you need immediate access to troubleshoot an issue because the log files are updated near instantaneously. Blob storage is use for archival purposes because the files are cached and then flushed to the storage container on a schedule.
 
 **File system**
 
@@ -207,27 +171,9 @@ For example, an error event would appear similar to the following sample:
 
 Logging to the file system provides the most basic information of the three available methods, providing only the time, process ID, event level, and message.
 
-**Table storage**
-
-When logging to table storage, additional properties are used to facilitate searching the data stored in the table as well as more granular information on the event. The following properties (columns) are used for each entity (row) stored in the table.
-
-| Property name | Value/format |
-| --- | --- |
-| PartitionKey |Date/time of the event in yyyyMMddHH format |
-| RowKey |A GUID value that uniquely identifies this entity |
-| Timestamp |The date and time that the event occurred |
-| EventTickCount |The date and time that the event occurred, in Tick format (greater precision) |
-| ApplicationName |The web app name |
-| Level |Event level (for example, error, warning, information) |
-| EventId |The event ID of this event<p><p>Defaults to 0 if none specified |
-| InstanceId |Instance of the web app that the even occurred on |
-| Pid |Process ID |
-| Tid |The thread ID of the thread that produced the event |
-| Message |Event detail message |
-
 **Blob storage**
 
-When logging to blob storage, data is stored in comma-separated values (CSV) format. Similar to table storage, additional fields are logged to provide more granular information about the event. The following properties are used for each row in the CSV:
+When logging to blob storage, data is stored in comma-separated values (CSV) format. Additional fields are logged to provide more granular information about the event. The following properties are used for each row in the CSV:
 
 | Property name | Value/format |
 | --- | --- |
@@ -247,7 +193,7 @@ The data stored in a blob would look similar to the following example:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> The first line of the log contains the column headers as represented in this example.
+> For ASP.NET Core, logging is accomplished using the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider This provider deposits additional log files into the blob container. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 
@@ -260,7 +206,7 @@ Failed request traces are stored in XML files named **fr######.xml**. To make it
 Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred. Since they are simply HTML documents, they can be viewed using a web browser.
 
 ### Web server logs
-The web server logs are formatted using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+The web server logs are formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > The logs produced by Azure web apps do not support the **s-computername**, **s-ip**, or **cs-version** fields.
@@ -270,7 +216,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 ## <a name="nextsteps"></a> Next steps
 * [How to Monitor Web Apps](web-sites-monitor.md)
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analyze web app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

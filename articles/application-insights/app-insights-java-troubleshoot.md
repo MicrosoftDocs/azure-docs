@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: java
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-
 ---
 # Troubleshooting and Q and A for Application Insights for Java
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
@@ -39,7 +36,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
 #### I used to see data, but it has stopped
-* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Check the [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 * Have you recently upgraded your SDK? Please ensure that only Unique SDK jars are present inside the project directory. There should not be two different versions of SDK present.
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.

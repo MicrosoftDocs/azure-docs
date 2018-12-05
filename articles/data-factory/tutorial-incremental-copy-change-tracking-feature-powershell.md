@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ---
@@ -440,26 +440,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. Log in to [Azure portal](https://portal.azure.com).
 2. Click **All services**, search with the keyword `data factories`, and select **Data factories**. 
 
-    ![Data factories menu](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Data factories menu](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. Search for **your data factory** in the list of data factories, and select it to launch the Data factory page. 
 
-    ![Search for your data factory](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![Search for your data factory](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. In the Data factory page, click **Monitor & Manage** tile. 
 
-    ![Monitor & Manage tile](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![Monitor & Manage tile](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. The **Data Integration Application** launches in a separate tab. You can see all the **pipeline runs** and their statuses. Notice that in the following example, the status of the pipeline run is **Succeeded**. You can check parameters passed to the pipeline by clicking link in the **Parameters** column. If there was an error, you see a link in the **Error** column. Click the link in the **Actions** column. 
 
-    ![Pipeline runs](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline. 
 
-    ![Activity runs](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image. 
 
 
 ### Review the results
 You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container. 
 
-![Output file from full copy](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 The file should have the data from the Azure SQL database:
 
@@ -628,16 +628,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### Monitor the incremental copy pipeline
 1. In the **Data Integration Application**, refresh the **pipeline runs** view. Confirm that you see the IncrementalCopyPipeline in the list. Click the link in the **Actions** column.  
 
-    ![Pipeline runs](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline. 
 
-    ![Activity runs](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image. 
 
 ### Review the results
 You see the second file in the `incchgtracking` folder of the `adftutorial` container. 
 
-![Output file from incremental copy](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row. 
 

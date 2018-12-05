@@ -3,7 +3,7 @@ title: Create Azure Service Bus namespace and queue using Azure Resource Manager
 description: Create a Service Bus namespace and a queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
-ms.author: sethm
+ms.date: 09/11/2018
+ms.author: spelluru
 
 ---
 # Create a Service Bus namespace and a queue using an Azure Resource Manager template

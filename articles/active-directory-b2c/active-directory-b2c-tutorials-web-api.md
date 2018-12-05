@@ -6,7 +6,7 @@ author: davidmu1
 manager: mtillman
 
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -36,19 +36,13 @@ In this tutorial, you learn how to:
 
 Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/developer-glossary.md#resource-server) by [client applications](../active-directory/develop/developer-glossary.md#client-application) that present an [access token](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/developer-glossary.md#application-object) in your tenant. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![Switch directories](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial.
 
-3. Choose the directory that contains your tenant.
-
-    ![Select directory](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial.
-
-5. Select **Applications** and then select **Add**.
+2. Select **Applications** and then select **Add**.
 
     To register the sample web API in your tenant, use the following settings.
     
@@ -63,7 +57,7 @@ Web API resources need to be registered in your tenant before they can accept an
     | **App ID URI** | myAPISample | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/developer-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
     | **Native client** | No | Since this is a web API and not a native client, select No. |
     
-6. Click **Create** to register your API.
+3. Click **Create** to register your API.
 
 Registered APIs are displayed in the applications list for the Azure AD B2C tenant. Select your web API from the list. The web API's property pane is displayed.
 
@@ -122,7 +116,7 @@ The sample web API is included in the project you downloaded in the prerequisite
 
 There are two projects in the sample solution:
 
-**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** policy to sign up or sign in users with an email address.
+**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** user flow to sign up or sign in users with an email address.
 
 **Web API sample app (TaskService):** Web API that supports the create, read,  update, and delete task list functionality. The web API is secured by Azure AD B2C and called by the web app.
 
@@ -164,10 +158,10 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Update the policy setting with the name generated when you created your sign up and sign in policy.
+4. Update the user flow setting with the name generated when you created your sign up and sign-in user flow.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configure the scopes setting to match what you created in the portal.
@@ -189,7 +183,7 @@ You need to run both the **TaskWebApp** and **TaskService** projects.
     `https://localhost:44316/` is the web app.
     `https://localhost:44332/` is the web API.
 
-6. In the web app, click the sign up / sign in link in the menu banner to sign up for the web application. Use the account you created in the [web app tutorial](active-directory-b2c-tutorials-web-app.md). 
+6. In the web app, click the sign-up / sign-in link in the menu banner to sign up for the web application. Use the account you created in the [web app tutorial](active-directory-b2c-tutorials-web-app.md). 
 7. Once signed in, click the **To-do list** link and create a to-do list item.
 
 When you create a to-do list item, the web app makes a request to the web API to generate the to-do list item. You're protected web app is calling the protected web API in your Azure AD B2C tenant.

@@ -33,7 +33,7 @@ In subsequent tutorials, the container image is uploaded to an Azure Container R
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and `docker` commands. For a primer on container basics, see [Get started with Docker][docker-get-started].
 
-To complete this tutorial, you need a local Docker development environment. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
+To complete this tutorial, you need a local Docker development environment running Linux containers. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
 
 Azure Cloud Shell does not include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
 
@@ -94,7 +94,7 @@ To see the running application, enter http://localhost:8080 in a local web brows
 
 ## Clean up resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance
+Now that the application's functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance.
 
 Stop and remove the container instances and resources with the [docker-compose down][docker-compose-down] command:
 

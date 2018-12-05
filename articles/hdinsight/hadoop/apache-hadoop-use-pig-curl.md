@@ -1,25 +1,25 @@
 ---
-title: Use Hadoop Pig with REST in HDInsight - Azure 
-description: Learn how to use REST to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
+title: Use Apache Hadoop Pig with REST in HDInsight - Azure 
+description: Learn how to use REST to run Pig Latin jobs on an Apache Hadoop cluster in Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Pig jobs with Hadoop on HDInsight by using REST
+# Run Pig jobs with Apache Hadoop on HDInsight by using REST
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight using the WebHCat REST API.
+Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight using the WebHCat REST API.
 
 > [!NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](../hdinsight-hadoop-linux-information.md).
+> If you are already familiar with using Linux-based Apache Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Prerequisites
 

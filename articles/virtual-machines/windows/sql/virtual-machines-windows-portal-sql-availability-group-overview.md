@@ -23,7 +23,7 @@ ms.author: mikeray
 
 This article introduces SQL Server availability groups on Azure Virtual Machines. 
 
-Always On availability groups on Azure Virtual Machines are similar to Always On availability groups on premises. For more information, see [Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+Always On availability groups on Azure Virtual Machines are similar to Always On availability groups on premises. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
 The diagram illustrates the parts of a complete SQL Server Availability Group in Azure Virtual Machines.
 
@@ -31,7 +31,7 @@ The diagram illustrates the parts of a complete SQL Server Availability Group in
 
 The key difference for an Availability Group in Azure Virtual Machines is that the Azure virtual machines, require a [load balancer](../../../load-balancer/load-balancer-overview.md). The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group each group requires a listener. One load balancer can support multiple listeners.
 
-When you are ready to build a SQL Server availability aroup on Azure Virtual Machines, refer to these tutorials.
+When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
 
 ## Automatically create an availability group from a template
 

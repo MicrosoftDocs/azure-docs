@@ -47,23 +47,36 @@ sections:
     - html: <a href="/azure/virtual-network/tutorial-create-route-table-portal">Route network traffic</a>
     - html: <a href="/azure/virtual-network/tutorial-restrict-network-access-to-resources">Restrict network access to resources</a>
     - html: <a href="/azure/virtual-network/tutorial-connect-virtual-networks-portal">Connect virtual networks</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Introduction to Azure networking
+      href: /learn/modules/intro-to-azure-networking/
+      image: 
+        src: /learn/achievements/intro-to-azure-networking.svg
+        href: /learn/modules/intro-to-azure-networking/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: Implementing Microsoft Azure Networking
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-    - title: Planning and Designing Microsoft Azure Networking Solutions
-      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Azure Solution Architect
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-    - title: Microsoft Azure Administration for AWS Administrators
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
+    - title: Azure Administration for AWS Administrators
       href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

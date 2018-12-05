@@ -16,7 +16,7 @@ ms.date: 02/28/2018
 Server-level firewall rules allow administrators to manage access to an Azure Database for MySQL Server from a specific IP address or a range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for MySQL firewalls, see [Azure Database for MySQL server firewall rules](./concepts-firewall-rules.md)
 
 ## Prerequisites
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## Firewall rule commands:

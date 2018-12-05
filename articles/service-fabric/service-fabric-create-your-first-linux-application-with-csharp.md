@@ -1,6 +1,6 @@
 ---
-title: Create your first Azure microservices app on Linux using C#| Microsoft Docs
-description: Create and deploy a Service Fabric application using C#
+title: Create your first Azure Service Fabric app on Linux using C#| Microsoft Docs
+description: Learn how to create and deploy a Service Fabric application using C# and .NET Core 2.0.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -37,27 +37,19 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
 
 1. Install nodejs and NPM on your machine
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. Install the Service Fabric Yeoman C# application generator from NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## Create the application

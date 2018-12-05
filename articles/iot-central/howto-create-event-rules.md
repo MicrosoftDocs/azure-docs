@@ -10,7 +10,9 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create an eEvent rule and set up notifications in your Azure IoT Central application
+# Create an Event rule and set up notifications in your Azure IoT Central application
+
+*This article applies to operators, builders, and administrators.*
 
 You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow. In just a few clicks, you can define the condition for which to monitor your device data and configure the corresponding action. This article explains how to create rules to monitor events sent by the device.
 
@@ -29,22 +31,22 @@ To create an event rule, the device template must have at least one event measur
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-    ![No rules yet](media\howto-create-event-rules\Rules_Landing_Page.png)
+    ![No rules yet](media/howto-create-event-rules/Rules_Landing_Page.png)
 
 
-1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
 
 
-1. Click on the **Event** tile to create a rule.
+1. Click on the **Event** tile to create an event monitoring rule.
 
-    ![Rule types](media\howto-create-event-rules\Rule_Types.png)
+    ![Rule types](media/howto-create-event-rules/Rule_Types.png)
 
     
 1. Enter a name that helps you to identify the rule in this device template.
 
 1. To immediately enable the rule for all the devices created from this template, toggle **Enable rule for all devices for this template**.
 
-    ![Rule Detail](media\howto-create-event-rules\Rule_Detail.png)
+    ![Rule Detail](media/howto-create-event-rules/Rule_Detail.png)
 
     The rule automatically applies to all the devices under the device template.
 
@@ -56,7 +58,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Choose the event that you want to monitor from the Measurement dropdown. In this example, **Fan Motor Error** event has been selected.
 
-   ![Condition](media\howto-create-event-rules\Condition_Filled_Out.png) 
+   ![Condition](media/howto-create-event-rules/Condition_Filled_Out.png) 
 
 
 1. Optionally, you can also set **Count** as **Aggregation** and provide the corresponding threshold.
@@ -66,7 +68,7 @@ Condition defines the criteria that is monitored by the rule.
  
     For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than", and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is  evaluated once every 5 minutes. 
 
-    ![Add Event Condition](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
+    ![Add Event Condition](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE] 
     >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
@@ -77,16 +79,18 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions. 
 
-    ![Add Action](media\howto-create-event-rules\Add_Action.png)
+    ![Add Action](media/howto-create-event-rules/Add_Action.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media\howto-create-event-rules\Configure_Action.png)
+   ![Configure Action](media/howto-create-event-rules/Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
+
+1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 

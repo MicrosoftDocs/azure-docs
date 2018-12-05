@@ -1,14 +1,17 @@
 ---
-title: Register your application - Azure Cognitive Services | Microsoft Docs
-description: A step-by-step guide how to register a new app with Azure Custom Decision Service
+title: Register your application - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: A step-by-step guide how to register a new app with Azure Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.reviewer: marcozo;alekh;marossi
+ms.reviewer: marcozo
 ---
 
 # Register your application

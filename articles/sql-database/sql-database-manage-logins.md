@@ -3,15 +3,16 @@ title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/15/2018
-ms.author: carlrab
-
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/29/2018
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
@@ -21,7 +22,7 @@ After firewall rules configuration, you can connect to Azure [SQL Database](sql-
 >  This topic applies to Azure SQL server, and to SQL Database and SQL Data Warehouse databases created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
 
 > [!TIP]
-> For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
+> For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). This tutorial does not apply to **Azure SQL Database Managed Instance**.
 
 ## Unrestricted administrative accounts
 There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the properties of your SQL server.
@@ -44,7 +45,7 @@ The **Server admin** and **Azure AD admin** accounts has the following character
 - Can view the `sys.sql_logins` system table.
 
 ### Configuring the firewall
-When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-get-started-powershell.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
+When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-powershell-samples.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### Administrator access path
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
@@ -61,6 +62,10 @@ For a walk-through of creating a server, a database, server-level firewall rules
 
 
 ## Additional server-level administrative roles
+
+>[!IMPORTANT]
+>This section does not apply to **Azure SQL Database Managed Instance** as these roles are specific to **Azure SQL Database**.
+
 In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the master database to which user accounts can be added that grant permissions to either create databases or manage logins.
 
 ### Database creators

@@ -1,16 +1,18 @@
 ---
-title: Frequently Asked Questions (FAQ) about Azure Autosuggest API | Microsoft Docs
-description: Get answers to common questions about Azure Cognitive Services Autosuggest API on Azure.
+title: Frequently Asked Questions (FAQ) - Bing Autosuggest API
+titlesuffix: Azure Cognitive Services
+description: Get answers to common questions about Bing Autosuggest API.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
 ---
-# Frequently Asked Questions (FAQ) about Autosuggest API (Cognitive Services)
+# Frequently Asked Questions (FAQ) about Bing Autosuggest API
  
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Autosuggest API for Azure Cognitive Services.
 

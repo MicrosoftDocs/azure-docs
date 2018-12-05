@@ -5,7 +5,7 @@ services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume

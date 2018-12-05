@@ -19,7 +19,7 @@ ms.author: mazha
 ---
 # Core Reports from Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 By using Verizon Core Reports via the Manage portal for Verizon profiles, you can view usage patterns for your CDN with the following reports:
 

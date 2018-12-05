@@ -68,7 +68,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - Decreasing server storage size is not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Point-in-time-restore
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.
@@ -76,9 +76,6 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
-
-### Subscription management
-- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

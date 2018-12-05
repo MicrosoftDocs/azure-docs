@@ -17,7 +17,7 @@
 | --- | --- | --- |
 | Virtual networks |50 |100 |
 | Local network sites |20 |contact support |
-| DNS Servers per virtual network |20 |100 |
+| DNS Servers per virtual network |20 |20 |
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |
@@ -41,11 +41,11 @@ The following limits apply only for networking resources managed through Azure R
 | Virtual networks |1000 |
 | Subnets per virtual network |3000 |
 | Virtual network peerings per Virtual Network |100 |
-| DNS Servers per virtual network |25 |
+| DNS Servers per virtual network |20 |
 | Private IP Addresses per virtual network |65536 |
 | Private IP Addresses per network interface |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |
-| Network Interfaces (NIC) |24000 |
+| Network Interfaces (NIC) |65536 |
 | Network Security Groups (NSG) |5000 |
 | NSG rules per NSG |1000 |
 | IP addresses and ranges specified for source or destination in a security group |4000 |
@@ -56,30 +56,31 @@ The following limits apply only for networking resources managed through Azure R
 | User defined route tables |200 |
 | User defined routes per route table |400 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |
+| Virtual network TAPs |100 |
+| Network interface TAP configurations per virtual network TAP |100 |
 
 #### <a name="publicip-address"></a>Public IP address limits
-
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
-| Public IP addresses - dynamic |(Basic) 200 |contact support |
+| Public IP addresses - dynamic |(Basic) 1000 |contact support |
 | Public IP addresses - static |(Basic) 200 |contact support |
 | Public IP addresses - static |(Standard) 200 |contact support |
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
 
-| Resource | Default limit | Maximum Limit |
+| Resource | Default limit |
 | --- | --- | --- |
-| Load Balancers | 100 | 1000 |
-| Rules per resource, Basic | 250 | 250 |
-| Rules per resource, Standard | 1500 | 1500 |
-| Rules per IP configuration | 299 |299 |
-| Frontend IP configurations, Basic | 10 | 200 |
-| Frontend IP configurations, Standard | 10 | 600 |
-| Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
-| Backend pool, Standard | 1000, single VNet | 1000, single VNet |
-| Backend resources per Load Balancer, Standard * | 150 | 150 |
-| HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
+| Load Balancers | 1000 | 
+| Rules per resource, Basic | 250 |
+| Rules per resource, Standard | 1500 | 
+| Rules per IP configuration | 299 |
+| Frontend IP configurations, Basic | 200 |
+| Frontend IP configurations, Standard | 600 |
+| Backend pool, Basic | 100, single Availability Set |
+| Backend pool, Standard | 1000, single VNet |
+| Backend resources per Load Balancer, Standard * | 150 |
+| HA Ports, Standard | 1 per internal frontend |
 
 ** Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 

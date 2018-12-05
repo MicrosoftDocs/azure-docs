@@ -5,7 +5,7 @@ description: Give locally-managed external partners access to both local and clo
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 
 ms.author: mimart
@@ -30,17 +30,17 @@ Two common approaches for this are to:
 - Designate an unused on-premises Active Directory attribute (for example, extensionAttribute1) to use as the source attribute. 
 - Alternatively, derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises Active Directory UserPrincipalName attribute ends with the domain *@partners.contoso.com*.
  
-For detailed attribute requirements, see [Enable synchronization of UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
+For detailed attribute requirements, see [Enable synchronization of UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
 ## Configure Azure AD Connect to sync users to the cloud
 
 After you identify the unique attribute, you can configure Azure AD Connect to sync these users to the cloud as Azure AD B2B users (that is, users with UserType = Guest). From an authorization point of view, these users are indistinguishable from B2B users created through the Azure AD B2B collaboration invitation process.
 
-For implementation instructions, see [Enable synchronization of UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
+For implementation instructions, see [Enable synchronization of UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## Next steps
 
 - [Azure Active Directory B2B collaboration for hybrid organizations](hybrid-organizations.md)
 - [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
-- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
+- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

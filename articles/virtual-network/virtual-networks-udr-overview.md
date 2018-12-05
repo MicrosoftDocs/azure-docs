@@ -101,13 +101,13 @@ You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the 
 
 The name displayed and referenced for next hop types is different between the Azure portal and command-line tools, and the Azure Resource Manager and classic deployment models. The following table lists the names used to refer to each next hop type with the different tools and [deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Next hop type                   |Azure CLI 2.0 and PowerShell (Resource Manager) |Azure CLI 1.0 and PowerShell (classic)|
+|Next hop type                   |Azure CLI and PowerShell (Resource Manager) |Azure classic CLI and PowerShell (classic)|
 |-------------                   |---------                                       |-----|
 |Virtual network gateway         |VirtualNetworkGateway                           |VPNGateway|
-|Virtual network                 |VNetLocal                                       |VNETLocal (not available in the CLI 1.0 in asm mode)|
-|Internet                        |Internet                                        |Internet (not available in the CLI 1.0 in asm mode)|
+|Virtual network                 |VNetLocal                                       |VNETLocal (not available in the classic CLI in asm mode)|
+|Internet                        |Internet                                        |Internet (not available in the classic CLI in asm mode)|
 |Virtual appliance               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Null (not available in the CLI 1.0 in asm mode)|
+|None                            |None                                            |Null (not available in the classic CLI in asm mode)|
 |Virtual network peering         |VNet peering                                    |Not applicable|
 |Virtual network service endpoint|VirtualNetworkServiceEndpoint                   |Not applicable|
 
@@ -161,9 +161,9 @@ When you override the 0.0.0.0/0 address prefix, in addition to outbound traffic 
         - Not have a network security group rule associated to it that prevents communication to the device
         - Not deny the communication
         - Be able to network address translate and forward, or proxy the traffic to the destination resource in the subnet, and return the traffic back to the Internet. 
-    - **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an Internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute's [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering). 
+    - **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an Internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute's [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering). 
 
-If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [GatewaySubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly.
+If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For details, see the *Why are certain ports opened on my VPN gateway?* question in the [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
 See [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
 

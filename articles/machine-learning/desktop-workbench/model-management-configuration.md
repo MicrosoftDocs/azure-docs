@@ -11,8 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+
+ROBOTS: NOINDEX
 ---
 # Model management setup
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## Overview
 This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 

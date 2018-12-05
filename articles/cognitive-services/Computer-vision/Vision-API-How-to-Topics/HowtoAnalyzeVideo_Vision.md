@@ -1,18 +1,21 @@
 ﻿---
-title: Real-time video analysis with the Computer Vision API | Microsoft Docs
-description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API in Cognitive Services.
+title: "Example: Real-time video analysis with the Computer Vision API"
+titlesuffix: Azure Cognitive Services
+description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ---
 
 # How to Analyze Videos in Real-time
 This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
+
 - Acquire frames from a video source
 - Select which frames to analyze
 - Submit these frames to the API
@@ -54,10 +57,10 @@ while (true)
 	}
 }
 ```
-This launches each analysis in a separate Task, which can run in the background while we continue grabbing new frames. This avoids blocking the main thread while waiting for an API call to return, however we have lost some of the guarantees that the simple version provided -- multiple API calls might occur in parallel, and the results might get returned in the wrong order. This could also cause multiple threads to enter the ConsumeResult() function simultaneously, which could be dangerous, if the function is not thread-safe. Finally, this simple code does not keep track of the Tasks that get created, so exceptions will silently disappear. Thus, the final ingredient for us to add is a "consumer" thread that will track the analysis tasks, raise exceptions, kill long-running tasks, and ensure the results get consumed in the correct order, one at a time.
+This approach launches each analysis in a separate Task, which can run in the background while we continue grabbing new frames. It avoids blocking the main thread while waiting for an API call to return, however we have lost some of the guarantees that the simple version provided -- multiple API calls might occur in parallel, and the results might get returned in the wrong order. This approach could also cause multiple threads to enter the ConsumeResult() function simultaneously, which could be dangerous, if the function is not thread-safe. Finally, this simple code does not keep track of the Tasks that get created, so exceptions will silently disappear. Thus, the final ingredient for us to add is a "consumer" thread that will track the analysis tasks, raise exceptions, kill long-running tasks, and ensure the results get consumed in the correct order, one at a time.
 
 ### A Producer-Consumer Design
-In our final "producer-consumer" system, we have a producer thread that looks very similar to our previous infinite loop. However, instead of consuming analysis results as soon as they are available, the producer simply puts the tasks into a queue to keep track of them.
+In our final "producer-consumer" system, we have a producer thread that looks similar to our previous infinite loop. However, instead of consuming analysis results as soon as they are available, the producer simply puts the tasks into a queue to keep track of them.
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
@@ -121,7 +124,7 @@ To get your app up and running as quickly as possible, we have implemented the s
 
 The library contains the class FrameGrabber, which implements the producer-consumer system discussed above to process video frames from a webcam. The user can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired, or a new analysis result is available.
 
-To illustrate some of the possibilities, there are two sample apps that uses the library. The first is a simple console app, and a simplified version of this is reproduced below. It grabs frames from the default webcam, and submits them to the Face API for face detection.
+To illustrate some of the possibilities, there are two sample apps that use the library. The first is a simple console app, and a simplified version of this is reproduced below. It grabs frames from the default webcam, and submits them to the Face API for face detection.
 ```CSharp
 using System;
 using VideoFrameAnalyzer;
@@ -166,7 +169,7 @@ namespace VideoFrameConsoleApplication
 	}
 }
 ```
-The second sample app is a bit more interesting, and allows you to choose which API to call on the video frames. On the left hand side, the app shows a preview of the live video, on the right hand side it shows the most recent API result overlaid on the corresponding frame.
+The second sample app is a bit more interesting, and allows you to choose which API to call on the video frames. On the left-hand side, the app shows a preview of the live video, on the right-hand side it shows the most recent API result overlaid on the corresponding frame.
 
 In most modes, there will be a visible delay between the live video on the left, and the visualized analysis on the right. This delay is the time taken to make the API call. The exception to this is in the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer using OpenCV, before submitting any images to Cognitive Services. By doing this, we can visualize the detected face immediately, and then update the emotions later once the API call returns. This demonstrates the possibility of a "hybrid" approach, where some simple processing can be performed on the client, and then Cognitive Services APIs can be used to augment this with more advanced analysis when necessary.
 
@@ -194,7 +197,7 @@ When you're ready to integrate, **simply reference the VideoFrameAnalyzer librar
 As with all the Cognitive Services, Developers developing with our APIs and samples are required to follow the "[Developer Code of Conduct for Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)." 
 
 
-The image, voice, video or text understanding capabilities of VideoFrameAnalyzer uses Microsoft Cognitive Services. Microsoft will receive the images, audio, video, and other data that you upload (via this app) and may use them for service improvement purposes. We ask for your help in protecting the people whose data your app sends to Microsoft Cognitive Services. 
+The image, voice, video or text understanding capabilities of VideoFrameAnalyzer uses Azure Cognitive Services. Microsoft will receive the images, audio, video, and other data that you upload (via this app) and may use them for service improvement purposes. We ask for your help in protecting the people whose data your app sends to Azure Cognitive Services. 
 
 
 ## Summary

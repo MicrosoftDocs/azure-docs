@@ -67,7 +67,7 @@ After you know the blob URL, you can download the VHD by using the [Azure portal
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### Download a VHD by using PowerShell
-In addition to using the Azure portal, you can use the [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet to download the operating system VHD.
+In addition to using the Azure portal, you can use the [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) cmdlet to download the operating system VHD.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -110,11 +110,11 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### Create a storage account by using PowerShell
-Using PowerShell, create a storage account by using the [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet.
+Using PowerShell, create a storage account by using the [New-AzureStorageAccount](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Then you can create a container within that storage account by using the [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
+Then you can create a container within that storage account by using the [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
@@ -137,7 +137,7 @@ Create a container as follows.
 After the storage account and container are created, you can upload your prepared VHDs. You can use PowerShell, the Linux command-line tool, or other Azure Storage management tools.
 
 ### Upload a VHD via PowerShell
-Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
+Use the [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

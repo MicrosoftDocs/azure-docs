@@ -20,35 +20,39 @@ This article provides information about how to configure role-based access contr
 
 When you first deploy the Remote Monitoring solution, there are two roles: **Admin** and **Read Only**.
 
-Any user in the **Admin** role has full access to the solution. A user in the **Read Only** role can't do any of the following tasks:
+Any user in the **Admin** role has full access to the solution, including the following permissions below. A user in the **Read Only** role will only have access to view the solution.
 
-- Update alarms
-- Delete alarms
-- Create devices
-- Update devices
-- Delete devices
-- Create device groups
-- Update device groups
-- Delete device groups
-- Create rules
-- Update rules
-- Delete rules
-- Create jobs
-- Update SIM management
+| Permission            | Admin | Read Only |
+|----------------       |-------|-----------|
+| View Solution         | Yes   | Yes       |
+| Update alarms         | Yes   | No        |
+| Delete alarms         | Yes   | No        |
+| Create devices        | Yes   | No        |
+| Update devices        | Yes   | No        |
+| Delete devices        | Yes   | No        |
+| Create device groups  | Yes   | No        |
+| Update device groups  | Yes   | No        |
+| Delete device groups  | Yes   | No        |
+| Create rules          | Yes   | No        |
+| Update rules          | Yes   | No        |
+| Delete rules          | Yes   | No        |
+| Create jobs           | Yes   | No        |
+| Update SIM management | Yes   | No        |
 
-The person who deploys the Remote Monitoring solution is automatically assigned to the **Admin** role and is an Azure Active Directory application owner. As an application owner you can assign roles to other users in the Azure portal.
+By default, the user who deployed the solution is automatically assigned the **Admin** role and is an Azure Active Directory application owner. As an application owner, you can assign roles to other users through the Azure portal. If you want another user to assign roles in the solution, they must also be set as an application owner in the Azure portal.
 
-If you want another user to assign roles in the solution, they must also be set as an application owner in the Azure portal.
+> [!NOTE]
+> The user who deployed the solution is the **only person** who can view it immediately after its been created. To grant others access to view the application as either a Read Only, Admin, or a Custom role, see the following directions below on add or remove users.
 
 ## Add or remove users
 
-Use the Azure portal to add or remove a user from the Remote Monitoring solution. The following steps use the [Azure Active Directory enterprise application](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) that was created for you when you deployed the Remote Monitoring solution.
+As an Azure Active Directory application owner, you can use the Azure portal to add or remove a user to a role from the Remote Monitoring solution. The following steps use the [Azure Active Directory enterprise application](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) that was created when you deployed the Remote Monitoring solution.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Check the [user is in the directory](../active-directory/fundamentals/add-users-azure-active-directory.md) you're using. You chose the directory to use when you signed in to the [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) site. The directory name is visible in the top-right corner of the [page](https://www.azureiotsolutions.com/Accelerators).
 
-1. Find the **Enterprise application** for your solution in the Azure portal. The application name is the name of your Remote Monitoring solution. In the following screenshot, the solution and application display names are **contoso-rm4**.
+1. Find the **Enterprise application** for your solution in the Azure portal. Once there, filter the list by setting **Application Type** to **All Applications**. Search for your application by application name. The application name is the name of your Remote Monitoring solution. In the following screenshot, the solution and application display names are **contoso-rm4**.
 
     ![Enterprise application](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
@@ -131,11 +135,11 @@ The following steps describe how to add a role to an application in Azure Active
 
 ### Define a policy for the new role
 
-After to add the role to the app in the Azure portal, you need to define a policy in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) for the role that assigns the permissions needed to manage devices.
+After to add the role to the app in the Azure portal, you need to define a policy in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) for the role that assigns the permissions needed to manage devices.
 
-1. Clone the [Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) repository from GitHub to your local machine.
+1. Clone the [Remote Monitoring Microservices](https://github.com/Azure/remote-monitoring-services-dotnet) repository from GitHub to your local machine.
 
-1. Edit the **Services/data/policies/roles.json** file to add the policy for the **ManageDevices** role as shown in the following snippet. The **ID** and **Role** values must match the role definition in the app manifest from the previous section. The list of allowed actions allows someone in the **ManageDevices** role to create, update, and delete devices connected to the solution:
+1. Edit the **auth/Services/data/policies/roles.json** file to add the policy for the **ManageDevices** role as shown in the following snippet. The **ID** and **Role** values must match the role definition in the app manifest from the previous section. The list of allowed actions allows someone in the **ManageDevices** role to create, update, and delete devices connected to the solution:
 
     ```json
     {
@@ -181,7 +185,7 @@ After to add the role to the app in the Azure portal, you need to define a polic
 
 ### How the web UI enforces permissions
 
-The web UI uses the [Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) to determine what actions a user is allowed to take and what controls are visible in the UI. For example, if your solution is called **contoso-rm4**, the web UI retrieves a list of allowed actions for the current user by sending the following request:
+The web UI uses the [Authentication and Authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) to determine what actions a user is allowed to take and what controls are visible in the UI. For example, if your solution is called **contoso-rm4**, the web UI retrieves a list of allowed actions for the current user by sending the following request:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -223,7 +227,7 @@ For more information, see [Protected Components](https://github.com/Azure/pcs-re
 
 The microservices also check permissions to protect against unauthorized API requests. When a microservice receives an API request, it decodes and validates the JWT token to get the user ID and permissions associated with the user's role.
 
-The following snippet from the [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) file in the [IoTHub Manager microservice](https://github.com/Azure/iothub-manager-dotnet), shows how the permissions are enforced:
+The following snippet from the [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) file in the [IoTHub Manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), shows how the permissions are enforced:
 
 ```csharp
 [HttpDelete("{id}")]
@@ -237,6 +241,8 @@ public async Task DeleteAsync(string id)
 ## Next steps
 
 In this article, you learned how role-based access controls are implemented in the Remote Monitoring solution accelerator.
+
+See [Configure access controls for the Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) for information about managing access to the Time Series Insights explorer in the Remote Monitoring solution accelerator.
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

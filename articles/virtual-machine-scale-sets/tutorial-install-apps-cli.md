@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Install applications in a scale set with Azure CLI 2.0 | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to install applications into virtual machine scale sets with the Custom Script Extension
+title: Tutorial - Install applications in a scale set with Azure CLI | Microsoft Docs
+description: Learn how to use the Azure CLI to install applications into virtual machine scale sets with the Custom Script Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
 
 ---
-# Tutorial: Install applications in virtual machine scale sets with the Azure CLI 2.0
+# Tutorial: Install applications in virtual machine scale sets with the Azure CLI
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -31,13 +31,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
 
-The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI 2.0, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
+The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
 To use the Custom Script Extension with the Azure CLI, you create a JSON file that defines what files to obtain and commands to execute. These JSON definitions can be reused across scale set deployments to apply consistent application installs.
 
@@ -45,7 +45,7 @@ To use the Custom Script Extension with the Azure CLI, you create a JSON file th
 ## Create Custom Script Extension definition
 To see the Custom Script Extension in action, let's create a scale set that installs the NGINX web server and outputs the hostname of the scale set VM instance. The following Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
-In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` in the Cloud Shell to create the file and see a list of available editors.
+In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor customConfig.json` in the Cloud Shell to create the file and see a list of available editors.
 
 ```json
 {
@@ -163,7 +163,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
-In this tutorial, you learned how to automatically install and update applications on your scale set with the Azure CLI 2.0:
+In this tutorial, you learned how to automatically install and update applications on your scale set with the Azure CLI:
 
 > [!div class="checklist"]
 > * Automatically install applications to your scale set

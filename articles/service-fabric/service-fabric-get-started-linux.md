@@ -206,27 +206,20 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 
 1. Install Node.js and npm on your machine.
 
-    * Ubuntu
-        ```bash
-        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-        sudo apt-get install -y nodejs 
-        ```
-
-    * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-        ```bash
-        sudo yum install nodejs
-        sudo yum install npm
-        ```
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node
+    ```
 2. Install the [Yeoman](http://yeoman.io/) template generator from npm on your machine.
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Install the Service Fabric Yeo container generator and guest executable generator from npm.
 
     ```bash
-    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
@@ -258,7 +251,7 @@ To build Service Fabric services using Java, install JDK 1.8 and Gradle to run b
 You also need to install the Service Fabric Yeo generator for Java executables. Make sure you have [Yeoman installed](#set-up-yeoman-generators-for-containers-and-guest-executables), and then run the following command:
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
  
 ## Install the Eclipse plug-in (optional)
@@ -308,8 +301,8 @@ To remove the Service Fabric SDKs, run the following commands.
 
     ```bash
     sudo apt-get remove servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
 
@@ -317,9 +310,9 @@ To remove the Service Fabric SDKs, run the following commands.
 * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
     ```bash
-    sudo yum remote servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    sudo yum remove servicefabric servicefabicsdkcommon
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     ```
 
 ## Next steps

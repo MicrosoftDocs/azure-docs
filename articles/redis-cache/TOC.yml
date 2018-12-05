@@ -120,6 +120,8 @@
     href: https://docs.microsoft.com/rest/api/redis/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-redis-cache
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing

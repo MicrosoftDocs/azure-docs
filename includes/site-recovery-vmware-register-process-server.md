@@ -1,5 +1,12 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 * Connect to the Process Server virtual machine using Remote Desktop Connection.
-* You can launch the cspsconfigtool.exe by clicking on the shortcut available on the desktop. (The tool will be automatically launched if this the first time you are logging into the process sever).
+* You can launch the cspsconfigtool.exe by clicking on the shortcut available on the desktop. (The tool will be automatically launched if this the first time you are logging into the process server).
   - Configuration Server's fully qualified name (FQDN) or IP Address
   - Port on which the Configuration server is listening on. The value should be 443
   - Connection Passphrase to connect to the configuration server.

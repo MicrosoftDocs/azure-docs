@@ -19,6 +19,8 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvi
 
 ## Managed virtual machine disks
 
+Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
+
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
 ## Unmanaged virtual machine disks
@@ -29,4 +31,3 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvi
 ## See also
 
 [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-

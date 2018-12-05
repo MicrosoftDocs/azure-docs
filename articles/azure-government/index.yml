@@ -41,7 +41,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to acess and manage the Azure Government cloud:'
+    text: 'Learn how to access and manage the Azure Government cloud:'
   - type: list
     style: icon48
     items: 
@@ -62,14 +62,14 @@ sections:
   - type: list
     style: icon48
     items: 
+    - image: 
+        src: media/index/DevOpsPipelines.svg
+      text: Azure Pipelines
+      href: connect-with-azure-pipelines.md
     - image:
         src: media/index/logo_vs.svg
       text: Visual Studio
       href: documentation-government-get-started-connect-with-vs.md
-    - image:
-        src: media/index/logo_vsts.svg
-      text: VSTS
-      href: documentation-government-get-started-connect-with-vsts.md
     - image:
         src: media/index/SSMS_Logo.svg
       text: SSMS

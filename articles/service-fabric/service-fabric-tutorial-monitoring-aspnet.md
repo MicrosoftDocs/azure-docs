@@ -34,7 +34,7 @@ In this tutorial series you learn how to:
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Set up monitoring and diagnostics for the application
 
 ## Prerequisites
@@ -75,6 +75,8 @@ Follow these steps to configure Application Insights for both VotingWeb and Voti
 1. Right-click on the name of the service, and click **Configure Application Insights...**.
 
     ![Configure AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>Depending on the project type, when you Right-click on the name of the service, you may need to click Add-> Application Insights Telemetry ...
 
 2. Click **Start Free**.
 3. Sign in to your account (with which you also set up your Azure subscription) and select the subscription in which you created the Application Insights resource. Find the resource under *Existing Application Insights resource* in the "Resource" dropdown. Click **Register** to add Application Insights to your service.

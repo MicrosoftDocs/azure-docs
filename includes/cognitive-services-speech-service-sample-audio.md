@@ -7,4 +7,4 @@ ms.author: wolfma
 ---
 
 > [!NOTE]
-> Need a sample audio? Please right-click and choose **Save target as** on this link: [whatstheweatherlike.wav](https://raw.githubusercontent.com/Azure-Samples/Cognitive-Speech-STT-Android/95b698b584bce01d7cfa7faa15fb254482b6402e/samples/SpeechRecoExample/assets/whatstheweatherlike.wav)
+> Need a sample audio? Right-click this [WAV file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) and choose **Save target as**.

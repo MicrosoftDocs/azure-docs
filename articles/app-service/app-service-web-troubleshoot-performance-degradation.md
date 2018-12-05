@@ -20,7 +20,7 @@ ms.author: cephalin
 
 ---
 # Troubleshoot slow web app performance issues in Azure App Service
-This article helps you troubleshoot slow web app performance issues in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+This article helps you troubleshoot slow web app performance issues in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -42,7 +42,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
+[App Service Web Apps](app-service-web-overview.md) gives you various options at each step.
 
 <a name="observe" />
 
@@ -84,7 +84,7 @@ You can also monitor your application performance by using a *site extension*.
 
 Each App Service web app provides an extensible management end point that allows you to use a powerful set of tools deployed as site extensions. Extensions include: 
 
-- Source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to a web app.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
@@ -123,22 +123,10 @@ If you have access to the web application source code, Application diagnostics e
 
 For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
 
-#### Use the Azure App Service support portal
-Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**
+#### Use the diagnostics tool
+App Service provides an intelligent and interactive experience to help you troubleshoot your web app with no configuration required. When you do run into issues with your web app, the diagnostics tool will point out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
 
-The Azure App Service support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
-
-1. Observe current behavior
-2. Analyze by collecting diagnostics information and running the built-in analyzers
-3. Mitigate
-
-If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which collects HTTP logs, event viewer logs, memory dumps, PHP error logs, and PHP process report.
-
-Once the data is collected, the support portal runs an analysis on the data and provides you with an HTML report.
-
-In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
-
-For more information on the Azure App Service support portal, see [New Updates to Support Site Extension for Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+To access App Service diagnostics, navigate to your App Service app or App Service Environment in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
 
 #### Use the Kudu Debug Console
 Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This console is called the *Kudu Console* or the *SCM Dashboard* for your web app.
@@ -155,7 +143,7 @@ Some of the things that Kudu provides are:
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
 
 For more information on features available in Kudu, see
-[Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+[Azure DevOps tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

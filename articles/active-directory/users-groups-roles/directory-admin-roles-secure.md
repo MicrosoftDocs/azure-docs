@@ -79,9 +79,9 @@ Stage 1 of the roadmap is focused on critical tasks that are fast and easy to im
 
 #### Turn on Azure AD Privileged Identity Management
 
-If you have not already turned on Azure AD Privileged Identity Management (PIM), do so in your production tenant. After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly-privileged roles in your directory.
+If you have not already turned on Azure AD Privileged Identity Management (PIM), do so in your production tenant. After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
 
-Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. These solutions help you protect access to applications and resources across the on-premises environment and into the cloud. If you do not already have Azure AD Premium P2 or EMS E5 and wish to evaluate more of the capabilities referenced in this roadmap, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use these license trials to try Azure AD Privileged Identity Management and Azure AD Identity Protection, to monitor activity using Azure AD advanced security reporting, auditing, and alerts.
+Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. These solutions help you protect access to applications and resources across the on-premises environment and into the cloud. If you don't already have Azure AD Premium P2 or EMS E5 and wish to evaluate more of the features referenced in this roadmap, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use these license trials to try Azure AD Privileged Identity Management and Azure AD Identity Protection, to monitor activity using Azure AD advanced security reporting, auditing, and alerts.
 
 After you have turned on Azure AD Privileged Identity Management:
 
@@ -99,7 +99,7 @@ The first person to use Azure AD Privileged Identity Management in your tenant i
 
 After turning on Azure AD Privileged Identity Management, view the users who are in the directory roles Global administrator, Privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. If you do not have Azure AD PIM in your tenant, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role as this role is generic: a user who is assigned this admin role has the same permissions across all cloud services for which your organization has subscribed, regardless of whether they’ve been assigned this role in the Office 365 portal, the Azure portal, or by using the Azure AD module for Microsoft PowerShell. 
 
-Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
+Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to admin roles:
 
 * Individually assigned to administrative users, and can also be used for non-administrative purposes (for example, personal email)
 * Individually assigned to administrative users and designated for administrative purposes only
@@ -110,7 +110,7 @@ Remove any accounts that are no longer needed in those roles, and categorize the
 
 #### Define at least two emergency access accounts 
 
-Ensure that you do not get into a situation where they could be inadvertently locked out of the administration of your Azure AD tenant due to an inability to sign in or activate an existing individual user's account as an administrator. For example, if the organization is federated to an on-premises identity provider, that identity provider may be unavailable so users cannot sign in on-premises. You can mitigate the impact of accidental lack of administrative access by storing two or more emergency access accounts in your tenant.
+Make sure that you don't get into a situation where they could be inadvertently locked out of the administration of your Azure AD tenant due to an inability to sign in or activate an existing individual user's account as an administrator. For example, if the organization is federated to an on-premises identity provider, that identity provider may be unavailable so users cannot sign in on-premises. You can mitigate the impact of accidental lack of administrative access by storing two or more emergency access accounts in your tenant.
 
 Emergency access accounts help organizations restrict privileged access within an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to emergency for 'break glass' scenarios where normal administrative accounts cannot be used. Organizations must ensure the aim of controlling and reducing the emergency account's usage to only that time for which it is necessary. 
 
@@ -124,11 +124,11 @@ Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual us
 
 ![Stage 2](./media/directory-admin-roles-secure/stage-two.png)
 
-Stage 2 of the roadmap is focused on mitigating the most frequently used attack techniques of credential theft and abuse and is designed to be implemented in approximately 2-4 weeks. This stage of the Secured Privileged Access roadmap includes the following actions.
+Stage 2 of the roadmap focuses on mitigating the most frequently used attack techniques of credential theft and abuse and can be implemented in approximately 2-4 weeks. This stage of the Secured Privileged Access roadmap includes the following actions.
 
 ### General preparation
 
-#### Conduct a inventory of services, owners, and admins
+#### Conduct an inventory of services, owners, and admins
 
 With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/security-management-and-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
 
@@ -156,7 +156,7 @@ Ensure that all users have signed into their administrative accounts and changed
 
 #### Turn on password hash synchronization
 
-Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises infrastructure such as AD or ADFS servers fail or becomes temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises AD instance. Also, it allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has leveraged their same email address and password on other services not connected to Azure AD.  For more information, see [Implement password hash synchronization with Azure AD Connect sync](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises infrastructure such as AD or ADFS servers fail or becomes temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises AD instance. Also, it allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has leveraged their same email address and password on other services not connected to Azure AD.  For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### Require multi-factor authentication (MFA) for users in all privileged roles as well as exposed users
 
@@ -244,7 +244,7 @@ Attackers may attempt to target privileged accounts to gain access to an organiz
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 
-The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more information, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more information, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
@@ -297,7 +297,7 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 
 #### Implement user provisioning for connected apps
 
-Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../active-directory-saas-app-provisioning.md).
+Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
 
 #### Integrate information protection
 
@@ -334,7 +334,7 @@ In addition to managing your privileged access accounts, we recommend you review
 * Only grant privileged access when needed, and remove it afterward (just-in-time).
 * Retain and review audit activity relating to privileged accounts.
 
-For more information on building a complete security roadmap, see [Microsoft cloud IT architecture resources](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or see [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+For more information on building a complete security roadmap, see [Microsoft cloud IT architecture resources](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or see [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 This final ongoing stage of the Secured Privileged Access roadmap includes the following components.
 
@@ -385,7 +385,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
-For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](http://aka.ms/Office365SIM).
+For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
 
 ## FAQ: Common questions we receive regarding securing privileged access  
 

@@ -3,17 +3,17 @@ title: Deploy and manage Apache Storm topologies in Azure HDInsight
 description: Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on Windows-based HDInsight. Use Hadoop tools for Visual Studio.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
 # Deploy and manage Apache Storm topologies on Windows-based HDInsight
 
-The Storm Dashboard allows you to easily deploy and run Apache Storm topologies to your HDInsight cluster by using your web browser. You can also use the dashboard to monitor and manage running topologies. If you use Visual Studio, the HDInsight Tools for Visual Studio provide similar features in Visual Studio.
+The [Apache Storm](http://storm.apache.org/) Dashboard allows you to easily deploy and run Apache Storm topologies to your HDInsight cluster by using your web browser. You can also use the dashboard to monitor and manage running topologies. If you use Visual Studio, the HDInsight Tools for Visual Studio provide similar features in Visual Studio.
 
 The Storm Dashboard and the Storm features in the HDInsight Tools rely on the Storm REST API, which can be used to create your own monitoring and management solutions.
 
@@ -83,7 +83,7 @@ Selecting a link from the **Topology summary** section displays the following in
 
   * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
 
-      For more information, see [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      For more information, see [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **Kill**: Terminates a Storm topology after the specified timeout.
 
@@ -113,7 +113,7 @@ Selecting a spout from the **Spouts** or **Bolts** sections displays the followi
 
 ## HDInsight Tools for Visual Studio
 
-The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about creating your own topologies by using the HDInsight Tools, see [Develop C# topologies using the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+The [HDInsight Tools](https://azure.microsoft.com/resources/videos/hdinsight-tools-for-visual-studio/) can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about creating your own topologies by using the HDInsight Tools, see [Develop C# topologies using the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 Use the following steps to deploy a sample to your Storm on HDInsight cluster, then view and manage the topology.
 
@@ -154,7 +154,7 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
 The Storm UI is built on top of the REST API, so you can perform similar management and monitoring functionality by using the REST API. You can use the REST API to create custom tools for managing and monitoring Storm topologies.
 
-For more information, see [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
+For more information, see [Apache Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 ### Base URI
 
@@ -169,7 +169,8 @@ Requests to the REST API must use **basic authentication**, so you use the HDIns
 
 ### Return values
 
-Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers are not be accessible from the Internet.
+Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for [Apache ZooKeeper](https://zookeeper.apache.org/)
+ servers are not be accessible from the Internet.
 
 ## Next Steps
 
@@ -177,9 +178,9 @@ Now that you've learned how to deploy and monitor topologies by using the Storm 
 
 * [Develop C# topologies using the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [Develop Java-based topologies using Maven](apache-storm-develop-java-topology.md)
+* [Develop Java-based topologies using Apache Maven](apache-storm-develop-java-topology.md)
 
-For a list of more example topologies, see [Example topologies for Storm on HDInsight](apache-storm-example-topology.md).
+For a list of more example topologies, see [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md).
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png

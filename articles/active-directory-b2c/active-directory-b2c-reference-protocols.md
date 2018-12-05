@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -30,8 +30,8 @@ Every app that uses Azure AD B2C needs to be registered in your B2C directory in
 After you register your app, it communicates with Azure Active Directory (Azure AD) by sending requests to the endpoint:
 
 ```
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 ```
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
@@ -46,12 +46,12 @@ In nearly all OAuth and OpenID Connect flows, four parties are involved in the e
 
 * The **resource server** is where the resource or data resides. It trusts the authorization server to securely authenticate and authorize the OAuth client. It also uses bearer access tokens to ensure that access to a resource can be granted.
 
-## Policies
+## Policies and user flows
 Arguably, Azure AD B2C policies are the most important features of the service. Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing policies. These allow Azure AD B2C to perform much more than simple authentication and authorization. 
 
-Policies fully describe consumer identity experiences, including sign-up, sign-in, and profile editing. Policies can be defined in an administrative UI. They can be executed by using a special query parameter in HTTP authentication requests. 
+To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. User flows fully describe consumer identity experiences, including sign-up, sign-in, and profile editing. User flows can be defined in an administrative UI. They can be executed by using a special query parameter in HTTP authentication requests. 
 
-Policies are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies.md).
+Policies and user flows are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C user flow reference guide](active-directory-b2c-reference-policies.md).
 
 ## Tokens
 The Azure AD B2C implementation of OAuth 2.0 and OpenID Connect makes extensive use of bearer tokens, including bearer tokens that are represented as JSON web tokens (JWTs). A bearer token is a lightweight security token that grants the "bearer" access to a protected resource.
@@ -62,7 +62,7 @@ Some security tokens have built-in mechanisms that prevent unauthorized parties 
 
 If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
 
-For additional bearer token security considerations, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+For additional bearer token security considerations, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
 More information about the different types of tokens that are used in Azure AD B2C are available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
 

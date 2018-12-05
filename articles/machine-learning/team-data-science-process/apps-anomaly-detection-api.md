@@ -1,22 +1,16 @@
-﻿---
+---
 title: Azure Machine Learning Anomaly Detection API | Microsoft Docs
 description: Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 services: machine-learning
-documentationcenter: ''
-author: alokkirpal
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok
-
+ms.author: tdsp
+ms.custom: "(previous author=alokkirpal, ms.author=alok)"
 ---
 
 # Machine Learning Anomaly Detection API
@@ -120,7 +114,7 @@ More detailed information on these input parameters is listed in the table below
 
 | Input Parameters | Description | Default Setting | Type | Valid Range | Suggested Range |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
+| detectors.historywindow |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
 | detectors.spikesdips | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
 | bileveldetector.sensitivity |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
 | trenddetector.sensitivity |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
@@ -159,7 +153,7 @@ More detailed information on these input parameters is listed in the table below
 | preprocess.aggregationInterval |Aggregation interval in seconds for aggregating input time series |0 (no aggregation is performed) |integer |0: skip aggregation, > 0 otherwise |5 minutes to 1 day, time-series dependent |
 | preprocess.aggregationFunc |Function used for aggregating data into the specified AggregationInterval |mean |enumerated |mean, sum, length |N/A |
 | preprocess.replaceMissing |Values used to impute missing data |lkv (last known value) |enumerated |zero, lkv, mean |N/A |
-| detectors.historyWindow |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
+| detectors.historywindow |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
 | detectors.spikesdips | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
 | bileveldetector.sensitivity |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
 | postrenddetector.sensitivity |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |

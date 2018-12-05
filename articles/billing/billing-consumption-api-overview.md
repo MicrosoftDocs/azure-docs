@@ -78,7 +78,7 @@ The API includes:
 -	**Enterprise Customers Only** This API is only available EA customers. 
     - Customers must have Enterprise Admin permissions to call this API 
 
-For more information, see the technical specification for the [Balances API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount).
+For more information, see the technical specification for the [Balances API](https://docs.microsoft.com/rest/api/consumption/balances).
 
 ## Budgets API
 

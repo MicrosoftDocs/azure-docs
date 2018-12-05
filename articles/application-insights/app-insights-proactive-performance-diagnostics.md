@@ -1,21 +1,18 @@
-﻿---
+---
 title: Smart Detection - performance anomalies | Microsoft Docs
 description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-
 ---
 # Smart Detection - Performance Anomalies
 
@@ -43,7 +40,7 @@ No, a notification doesn't mean that your app definitely has a problem. It's sim
 The notifications include diagnostic information. Here's an example:
 
 
-![Here is an example of Server Response Time Degradation detection](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Here is an example of Server Response Time Degradation detection](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Triage**. The notification shows you how many users or how many operations are affected. This can help you assign a priority to the problem.
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
@@ -57,7 +54,7 @@ The notifications include diagnostic information. Here's an example:
 
 Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](app-insights-resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
   
-  ![Smart Detection Settings](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Smart Detection Settings](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * You can use the **unsubscribe** link in the Smart Detection email to stop receiving the email notifications.
 
@@ -139,7 +136,7 @@ Modern application more and more adopt micro services design approach, which in 
 
 Example dependency degradation notification:
 
-![Here is an example of Dependency Duration Degradation detection](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Here is an example of Dependency Duration Degradation detection](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Notice that it tells you:
 
@@ -157,7 +154,7 @@ Notice that it tells you:
 
 Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slower on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
 
-Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
+Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it's too late: the affected users are already switching to your competitors!
 
 Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
 
@@ -181,8 +178,8 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
-* [Analytics](app-insights-analytics-tour.md)
-* [Analytics smart diagnostics](app-insights-analytics-diagnostics.md)
+* [Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Analytics smart diagnostics](app-insights-analytics.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 

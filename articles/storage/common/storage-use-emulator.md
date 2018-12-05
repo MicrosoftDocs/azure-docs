@@ -20,10 +20,8 @@ The storage emulator currently runs only on Windows. For those considering a sto
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
-> <p/>
+> 
 > The storage emulator depends on specific versions of the OData libraries. Replacing the OData DLLs used by the storage emulator with other versions is unsupported, and may cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
->
->
 
 ## How the storage emulator works
 The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
@@ -64,7 +62,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
   You can also use the following command, which directs the emulator to use the default SQL Server instance:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
 
@@ -89,10 +87,10 @@ Some Azure storage client libraries, such as the Xamarin library, only support a
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
 
 1. Install Azure PowerShell if you haven't already (using the latest version of the Azure PowerShell cmdlets is recommended). For installation instructions, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
-2. Open Azure PowerShell and run the following commands, replacing `ACCOUNT_NAME` and `ACCOUNT_KEY==` with your own credentials, and `CONTAINER_NAME` with a name of your choosing:
+2. Open Azure PowerShell and run the following commands, replacing `CONTAINER_NAME` with a name of your choosing:
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -104,7 +102,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 The resulting shared access signature URI for the new container should be similar to:
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 The shared access signature created with this example is valid for one day. The signature grants full access (read, write, delete, list) to blobs within the container.
@@ -182,6 +180,7 @@ Because the storage emulator is an emulated environment running in a local SQL i
 The following differences apply to Blob storage in the emulator:
 
 * The storage emulator only supports blob sizes up to 2 GB.
+* The maximum length of a blob name in the storage emulator is 256 characters, while the maximum length of a blob name in Azure Storage is 1024 characters.
 * Incremental copy allows snapshots from overwritten blobs to be copied, which returns a failure on the service.
 * Get Page Ranges Diff does not work between snapshots copied using Incremental Copy Blob.
 * A Put Blob operation may succeed against a blob that exists in the storage emulator with an active lease, even if the lease ID has not been specified in the request.

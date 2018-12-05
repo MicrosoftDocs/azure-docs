@@ -118,7 +118,7 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -144,7 +144,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 1. Prepare the cluster by finishing all the prerequisite steps.
 2. Deploy the patch orchestration app like any other Service Fabric app. You can deploy the app by using PowerShell or Azure Service Fabric CLI. Follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) or [Deploy application using Azure Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. To configure the application at the time of deployment, pass the `ApplicationParamater` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, powershell (Deploy.ps1) and bash (Deploy.sh) scripts are provided along with the application. To use the script:
+3. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, powershell (Deploy.ps1) and bash (Deploy.sh) scripts are provided along with the application. To use the script:
 
     - Connect to a Service Fabric cluster.
     - Execute the Deploy script. Optionally pass the application parameter to the script. for example: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 
@@ -370,5 +370,8 @@ The patch orchestration app collects telemetry to track usage and performance. T
 ### Version 2.0.0
 - Public release
 
-### Version 2.0.1 (Latest)
+### Version 2.0.1
 - Recompiled the app using latest Service Fabric SDK
+
+### Version 2.0.2 (Latest)
+- Fixed an issue with health warning getting left behind during restart.

@@ -7,18 +7,32 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: 1. Deploy and configure
+  - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
-  - name: 2. Monitor diagnostic logs
+  - name: Deploy in hybrid network
+    href: tutorial-hybrid-ps.md
+  - name: Filter inbound traffic with DNAT
+    href: tutorial-firewall-dnat.md
+  - name: Monitor diagnostic logs
     href: tutorial-diagnostics.md
 - name: Samples
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
+  - name: Log Analytics
+    href: log-analytics-samples.md
+- name: Concepts
+  items:
+    - name: FQDN tags
+      href: fqdn-tags.md
+    - name: Infrastructure FQDNs
+      href: infrastructure-fqdns.md
+    - name: Logs and metrics
+      href: logs-and-metrics.md
+    - name: Rule processing logic
+      href: rule-processing.md
 - name: How-to guides
   items:
-    - name: Sign up for public preview
-      href: public-preview.md
     - name: Deploy using a template
       href: deploy-template.md
 - name: Reference
@@ -50,6 +64,6 @@
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/

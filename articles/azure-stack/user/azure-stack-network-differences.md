@@ -5,11 +5,10 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 manager: femila
-ms.author: brenduns
-ms.date: 08/02/2018
+ms.date: 10/22/2018
 ms.topic: article
 ms.service: azure-stack
-ms.author: brenduns
+ms.author: mabrigg
 ms.reviewer: scottnap
 
 ---

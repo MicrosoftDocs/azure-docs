@@ -11,9 +11,15 @@ ms.custom: mvc
 ms.component: metrics
 ---
 
-# Archive Azure monitoring data
+# Archive Azure metric and log data using Azure Storage
 
-Several layers of your Azure environment produce log and metric data that can be archived to an Azure Storage Account. You may want to do this to preserve a history of monitoring data over time in an inexpensive, non-searchable store after that data has passed its retention period in Log Analytics or Azure Monitor. This tutorial steps through the process of configuring your Azure environment to archive data to a storage account.
+Several layers of your Azure environment produce log and metric data that can be archived to an Azure Storage account. You may want to do this to preserve a history of monitoring data over time in an inexpensive, non-searchable store after that data has passed its retention period. 
+
+- Azure Monitor platform metrics are kept for 93 days. 
+- Resource diagnostic logs only appear if routed to Log Analytics, where they have a configurable retention period with a minimum of 30 days. 
+- Activity log entries are kept for 90 days.  
+
+This tutorial steps through the process of configuring your Azure environment to archive data to a storage account.
 
 > [!div class="checklist"]
 > * Create a storage account to hold monitoring data
@@ -31,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
-First you need to set up a storage account to which the monitoring data will be archived. To do this, [follow the steps here](../storage/common/storage-create-storage-account.md).
+First you need to set up a storage account to which the monitoring data will be archived. To do this, [follow the steps here](../storage/common/storage-quickstart-create-account.md).
 
 ## Route subscription logs to the storage account
 
@@ -187,4 +193,4 @@ In this tutorial, you learned how to set up monitoring data from your Azure envi
 To get more out of your data and derive additional insights, also  send your data into Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md)
+> [Get started with Log Analytics](../azure-monitor/log-query/log-query-overview.md)

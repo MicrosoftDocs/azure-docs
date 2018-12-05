@@ -1,23 +1,18 @@
 ---
 title: X12 messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange X12 messages in EDI format for B2B enterprise integration with Azure Logic Apps
+description: Exchange X12 messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: 
-
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.author: LADocs; padmavc
-
 ---
-# Exchange X12 messages for enterprise integration with logic apps
+
+# Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
 Before you can exchange X12 messages for Azure Logic Apps, 
 you must create an X12 agreement and 

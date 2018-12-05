@@ -1,76 +1,72 @@
 ---
-title: Quickstart learning how to call a Language Understanding (LUIS) app using C# | Microsoft Docs
-description: In this quickstart, you learn to call a LUIS app using C#.
+title: C# Quickstart - predict intent - LUIS
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using C#, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.  
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using C#. 
+#Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using C# so that I can see the JSON prediction response.
 ---
 
-# Quickstart: Call a LUIS endpoint using C#
-In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
+# Quickstart: Get intent using C#
 
-<!-- green checkmark -->
-<!--
-> [!div class="checklist"]
-> * Create LUIS subscription and copy key value for later use
-> * View LUIS endpoint results from browser to public sample IoT app
-> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
--->
-
-<!-- link to free account -->
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
-## Create LUIS endpoint key
+## Prerequisites
 
-1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-2. Log in to the Azure portal at https://portal.azure.com. 
-
-3. Follow the steps in [Creating Endpoint Keys using Azure](./luis-how-to-azure-subscription.md) to get a key.
-
-4. Go back to the [LUIS](luis-reference-regions.md) website. Log in using your Azure account. 
-
-    [![](media/luis-get-started-cs-get-intent/app-list.png "Screenshot of app list")](media/luis-get-started-cs-get-intent/app-list.png)
-
-## Understand what LUIS returns
-
-To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app is an IoT app that detects whether the user wants to turn on or turn off lights.
-
-1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copy the URL and substitute your endpoint key for the value of the `subscription-key` field.
-2. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent and the `HomeAutomation.Room` entity with the value `bedroom`.
-
-    ![JSON result detects the intent TurnOn](./media/luis-get-started-cs-get-intent/turn-on-bedroom.png)
-3. Change the value of the `q=` parameter in the URL to `turn off the living room light`, and press Enter. The result now indicates that the LUIS detected the `HomeAutomation.TurnOff` intent and the `HomeAutomation.Room` entity with value `living room`. 
-
-    ![JSON result detects the intent TurnOff](./media/luis-get-started-cs-get-intent/turn-off-living-room.png)
+* [Visual Studio Community 2017 edition](https://visualstudio.microsoft.com/vs/community/)
+* C# programming language (included with VS Community 2017)
+* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## Consume a LUIS result using the Endpoint API with C# 
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-You can use C# to access the same results you saw in the browser window in the previous step. 
+## Get LUIS key
 
-1. Create a new console application in Visual Studio. Copy the code that follows and save it into an *.cs file:
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## Get intent with browser
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## Get intent programmatically
+
+Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to get the same results as you saw in the browser window in the previous section. 
+
+1. Create a new console application in Visual Studio. 
+
+    ![LUIS user settings menu access](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+
+2. In the Visual Studio project, in the Solutions Explorer, select **Add reference**, then select **System.Web** from the Assemblies tab.
+
+    ![LUIS user settings menu access](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+
+3. Overwrite Program.cs with the following code:
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
-1. Replace the value of the `subscriptionKey` variable with your LUIS endpoint key.
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
-3. In the Visual Studio project, add a reference to **System.Web**.
+4. Replace the value of `YOUR_KEY` with your LUIS key.
 
-4. Run the console application. It displays the same JSON that you saw earlier in the browser window.
+5. Build and run the console application. It displays the same JSON that you saw earlier in the browser window.
 
-![Console window displays JSON result from LUIS](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+    ![Console window displays JSON result from LUIS](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+
+## LUIS keys
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
-The two resources created in this tutorial are the LUIS endpoint key and the C# project. Delete the LUIS endpoint key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
+
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Add utterances](luis-get-started-cs-add-utterance.md)
+> [Add utterances and train with C#](luis-get-started-cs-add-utterance.md)

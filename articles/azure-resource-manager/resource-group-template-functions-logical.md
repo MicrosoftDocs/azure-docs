@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
 
 ---
@@ -235,6 +235,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -246,6 +250,7 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | yesOutput | String | yes |
 | noOutput | String | no |
+| objectOutput | Object | { "test": "value1" } |
 
 To deploy this example template with Azure CLI, use:
 

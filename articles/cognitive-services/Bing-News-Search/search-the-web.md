@@ -1,10 +1,11 @@
 ---
-title: What is Bing News Search? | Microsoft Docs
+title: What is Bing News Search?
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing News Search API to search the web for news.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4B35B035-34FB-403A-9F52-6470AF726FB6
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
@@ -39,7 +40,7 @@ Host: api.cognitive.microsoft.com
 
 If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
-To get news from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
+To get news from a specific domain, use the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -259,7 +260,7 @@ If there are other articles that are related to a news article, the news article
 
 To get started quickly with your first request, see [Making Your First Request](./quickstart.md).
 
-Familiarize yourself with the [Bing News Search API v7] (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects.
+Familiarize yourself with the [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects.
 
 To improve your search box user experience, see [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). As the user enters their query term, you can call this API to get relevant query terms that were used by others.
 

@@ -1,18 +1,18 @@
 ---
-title: Use MapReduce and PowerShell with Hadoop - Azure HDInsight 
-description: Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.
+title: Use MapReduce and PowerShell with Apache Hadoop - Azure HDInsight 
+description: Learn how to use PowerShell to remotely run MapReduce jobs with Apache Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run MapReduce jobs with Hadoop on HDInsight using PowerShell
+# Run MapReduce jobs with Apache Hadoop on HDInsight using PowerShell
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 

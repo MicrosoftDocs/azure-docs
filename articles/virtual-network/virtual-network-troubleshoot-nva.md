@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
 
 ---
@@ -22,7 +22,10 @@ ms.author: genli
 
 You may experience VM or VPN connectivity issues and errors when using a third party Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
 
-Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
+Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. 
+
+> [!NOTE]
+> If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -34,6 +37,7 @@ Technical support for third-party NVAs and their integration with the Azure plat
 - UDRs on virtual network subnets that direct traffic from NVA
 - Routing tables and rules within the NVA (for example, from NIC1 to NIC2)
 - Tracing on NVA NICs to verify receiving and sending network traffic
+- When using a Standard SKU and  Public IP's there must be a NSG created and an explicit rule to allow the traffic to be routed to the NVA.
 
 ## Basic troubleshooting steps
 
@@ -71,17 +75,20 @@ Use PowerShell
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
+**Check for NSG when using Standard SKU Pubilc IP**
+When using a Standard SKU and Public IP's there must be a NSG created and an explicit rule to allow the traffic to the NVA.
+
 **Check whether the traffic can be routed to the NVA**
 
 1. On [Azure portal](https://portal.azure.com), open **Network Watcher**, select **Next Hop**.
-2. Specify a VM that you want to be the NVA the next hop, and a destination IP address at which to view the next hop. 
+2. Specify a VM that is configured to redirect the traffic to the NVA, and a destination IP address at which to view the next hop. 
 3. If the NVA is not listed as the **next hop**,  check and update the Azure route tables.
 
 **Check whether the traffic can reach the NVA**
 
 1.	In [Azure portal](https://portal.azure.com), open **Network Watcher**, and then select **IP Flow Verify**. 
-2.	Specify a VM and the IP address of the NVA, and then check whether the traffic is blocked by any Network security groups (NSG).
-3.	If there is an NSG rule that blocks the traffic, locate the NSG in **effective security** rules and then update it to allow traffic to pass. Then run **IP Flow Verify** again and use **Connectivity Check** to test TCP communications from VM to your internal or external IP address.
+2.	Specify the VM and the IP address of the NVA, and then check whether the traffic is blocked by any Network security groups (NSG).
+3.	If there is an NSG rule that blocks the traffic, locate the NSG in **effective security** rules and then update it to allow traffic to pass. Then run **IP Flow Verify** again and use **Connection troubleshoot** to test TCP communications from VM to your internal or external IP address.
 
 **Check whether NVA and VMs are listening for expected traffic**
 

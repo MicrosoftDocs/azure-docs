@@ -1,16 +1,19 @@
 ---
-title: Get started with the Microsoft Speech Recognition API in JavaScript | Microsoft Docs
-description: Use the Microsoft Speech Recognition API in Cognitive Services to develop applications that continuously convert spoken audio to text.
+title: Get started with the Bing Speech Recognition API in JavaScript | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use the Bing Speech Recognition API in Cognitive Services to develop applications that continuously convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
 # Get started with the Speech Recognition API in JavaScript
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 You can develop applications that convert spoken audio to text by using the Speech Recognition API. The JavaScript client library uses the [Speech Service WebSocket protocol](../API-Reference-REST/websocketprotocol.md), which allows you to talk and receive transcribed text simultaneously. This article helps you to get started with the Speech Recognition API in JavaScript.
 

@@ -1,35 +1,29 @@
 ---
 title: Execution of data science projects - Azure Machine Learning | Microsoft Docs
 description: How a data scientist can track the progress of a data science project.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 
 # Track progress of data science projects
 
-Data science group managers, team leads, and project leads need to track the progress of their team projects, what work has been done on them and by whom, and remains on the to-do lists. 
+Data science group managers, team leads, and project leads need to track the progress of their projects, what work has been done on them and by whom, and remains on the to-do lists. 
 
-## VSTS dashboards
-If you are using Visual Studio Team Services (VSTS), you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
+## Azure DevOps dashboards
+If you are using Azure DevOps, you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
 
-For more information on how to create and customize dashboards and widgets on Visual Studio Team Services, see the following sets of instructions:
+For more information on how to create and customize dashboards and widgets on Azure DevOps, see the following sets of instructions:
 
-- [Add and manage dashboards](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
-- [Add widgets to a dashboard](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
+- [Add and manage dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
+- [Add widgets to a dashboard](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
 
 ## Example dashboard
 
@@ -47,7 +41,7 @@ The remaining panels show the cumulative flow diagram (CFD), burndown, and burnu
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-For a description of how to build these charts, see  the quickstarts and tutorials at [Dashboards](https://docs.microsoft.com/vsts/report/dashboards/).
+For a description of how to build these charts, see  the quickstarts and tutorials at [Dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/).
  
 ## Next steps
 

@@ -1,17 +1,13 @@
 ---
-title: Learn how to set time to live value for Azure Cosmos DB documents created through MongoDB API to automatically purge them from the system after a period of time.
-description: Documentation for the MongoDB per-document TTL feature.
+title: MongoDB per-document TTL feature in Azure Cosmos DB
+description: Learn how to set time to live value for Azure Cosmos DB documents created through MongoDB API to automatically purge them from the system after a period of time.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
-
+ms.author: orkostak
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: orkostak
-
 ---
 # Expire data in Azure Cosmos DB MongoDB API
 
@@ -39,7 +35,8 @@ The command in the above example will create an index with TTL functionality. On
 >
 	
 Additionally, a C# example: 
-```C# 
+
+```csharp
 var options = new CreateIndexOptions {ExpireAfter = TimeSpan.FromSeconds(10)}; 
 var field = new StringFieldDefinition<BsonDocument>("_ts"); 
 var indexDefinition = new IndexKeysDefinitionBuilder<BsonDocument>().Ascending(field); 

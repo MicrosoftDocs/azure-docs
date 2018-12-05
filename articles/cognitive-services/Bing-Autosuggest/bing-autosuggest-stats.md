@@ -1,14 +1,14 @@
 ---
-title: Bing analytics for Bing Web Search APIs | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Bing analytics for Bing Autosuggest API
+titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing Autosuggest API. 
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-autosuggest
-ms.topic: article
+ms.component: bing-autosuggest
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi
 ---

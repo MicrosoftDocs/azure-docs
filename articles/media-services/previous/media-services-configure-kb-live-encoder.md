@@ -13,13 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 11/04/2018
 ms.author: juliako;dbgeorge
 
 ---
 # Use the Haivision KB live encoder to send a single bitrate live stream
 > [!div class="op_single_selector"]
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -58,7 +57,7 @@ Video:
 -   Codec: H.264
 -   Profile: High (Level 4.0)
 -   Bitrate: 5000 kbps
--   Keyframe: 2 seconds (60 seconds)
+-   Keyframe: 2 seconds (60 frames)
 -   Frame Rate: 30
 
 Audio:
