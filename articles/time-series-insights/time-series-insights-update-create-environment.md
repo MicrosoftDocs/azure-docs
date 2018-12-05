@@ -92,7 +92,7 @@ In this section, you will perform basic analytics on your time series data using
 
      ![tutorial-thirteen][13]
 
-## Define a Type & Hierarchy 
+## Define a Type and Hierarchy
 
 In this section, you will author a type, hierarchy, and associate them with your time series instances. Read more about [Time Series Models](./time-series-insights-update-tsm.md).
 
