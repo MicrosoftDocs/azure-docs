@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: alkohli
 ---
 
@@ -21,7 +21,7 @@ To understand an overview of all the available data transfer options, go to [Cho
 
 Large datasets imply that you have few TBs to few PBs of data. You have limited to no network bandwidth, your network is slow, or it is unreliable. Also:
 
-- You are limited by costs of network transfer.
+- You are limited by costs of network transfer from your Internet Service Providers (ISPs).
 - Security or organizational policies do not allow outbound connections when dealing with sensitive data.
 
 In all the above instances, use a physical device to do a one-time bulk data  transfer. Choose from Data Box Disk, Data Box, Data Box Heavy devices which are supplied by Microsoft, or Import/Export using your own disks.

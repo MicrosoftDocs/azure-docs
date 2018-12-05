@@ -7,12 +7,12 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: alkohli
 ---
 # Choose an Azure solution for data transfer
 
-This article provides an overview of all the Azure data transfer solutions and links out to recommended options depending on the network bandwidth in your environment and the size of the data you intend to transfer.
+This article provides an overview of some of the common Azure data transfer solutions. The article also links out to recommended options depending on the network bandwidth in your environment and the size of the data you intend to transfer.
 
 ## Types of data movement
 
@@ -26,10 +26,10 @@ The data movement can be of the following types:
 
 - **Shippable devices** - Use physical shippable devices when you want to do offline one-time bulk data transfer. Microsoft sends you a disk, or a secure specialized device. Alternatively, you can purchase and ship your own disks. You copy data to the device and then ship it to Azure where the data is uploaded.  The available options for this case are Data Box Disk, Data Box, Data Box Heavy, and Import/Export (use your own disks).
 
-- **Network Transfer** - You transfer your data to Azure over your network connection.  This can be done in many ways.
+- **Network Transfer** - You transfer your data to Azure over your network connection. This can be done in many ways.
 
     - **Graphical interface** - If you occasionally transfer just a few files and do not need to automate the data transfer, you can choose a graphical interface tool such as Azure Storage Explorer or a web-based exploration tool in Azure portal.
-    - **Scripted or programmatic transfer** - You can use optimized software tools that we provide or call our REST APIs directly. The available scriptable tools are AzCopy, Azure PowerShell, and Azure CLI. For programmatic interface, use one of the SDKs for .NET, Java, Python, Node/JS, C++, Go, PHP or Ruby.
+    - **Scripted or programmatic transfer** - You can use optimized software tools that we provide or call our REST APIs/SDKs directly. The available scriptable tools are AzCopy, Azure PowerShell, and Azure CLI. For programmatic interface, use one of the SDKs for .NET, Java, Python, Node/JS, C++, Go, PHP or Ruby.
     - **On-premises devices** - We supply you a physical or virtual device that resides in your datacenter and optimizes data transfer over the network. These devices also provide a local cache of frequently used files. The physical device is the Data Box Edge and the virtual device is the Data Box Gateway. Both run permanently in your premises and connect to Azure over the network.
     - **Managed data pipeline** - You can set up a cloud pipeline to regularly transfer files between several Azure services, on-premises or a combination of two. Use Azure Data Factory to set up and manage data pipelines, and move and transform data for analysis.
 
@@ -56,4 +56,7 @@ Answer the following questions to help select a data transfer solution:
     - [Azure Data Box family for offline transfers](https://docs.microsoft.com/azure/databox/).
     - [Azure Data Box family for online transfers](https://docs.microsoft.com/azure/databox-online/).
 - [Learn what is Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+- Use the REST APIs to transfer data
 
+    - [In .NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage)
+    - [In Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client)

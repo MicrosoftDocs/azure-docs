@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: alkohli
 ---
 
@@ -38,7 +38,7 @@ The options recommended in this scenario are:
     - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
     - **Azure PowerShell** - For users comfortable with system administration, use the Azure Storage module in Azure PowerShell to transfer data. PowerShell cmdlet.
     - **Azure CLI** - Use this cross-platform tool to manage Azure services and upload data to Azure Storage.
-    - **Azure Storage REST APIs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure client libraries offered in multiple languages.
+    - **Azure Storage REST APIs/SDKs** – When building an application, you can develop the application against Azure Storage REST APIs/SDKs and use the Azure client libraries offered in multiple languages.
 
 
 ## Comparison of key capabilities

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: alkohli
 ---
 
@@ -27,14 +27,22 @@ The options recommended in this scenario depend on whether you have moderate net
 
 ### Moderate network bandwidth (100 Mbps - 1 Gbps)
 
-With moderate network bandwidth, you need to project the time for data transfer over the network.
+With moderate network bandwidth, you need to project the time for data transfer over the network. Depending on the time required for data transfer, you can choose to use an offline transfer or over the network transfer.
 
-- **Azure Data Box for offline transfers** – Choose from Data Box Disk, Data Box, Data Box Heavy, or Import/Export to do these offline bulk transfers when you have moderate bandwidth and large datasets.
+To confirm whether a physical device is the right option, use the following table. It shows the projected time for network data transfer, for various available bandwidths. If network transfer is projected to be too slow, you should use a physical device.  
+
+![Network transfer or offline transfer](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
+
+- **Azure Data Box family for offline transfers** – Use devices from Microsoft-supplied Data Box devices to move large amounts of data to Azure when you’re limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
+- **Azure Import/Export** – Use Azure Import/Export service by shipping your own disk drives to securely import large amounts of data to Azure Blob storage and Azure Files. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites.
+
+If the network transfer is projected to be reasonable, then you can use any of the following tools detailed in [High network bandwidth](#high-network-bandwidth).
+
 
 ### High network bandwidth (1 Gbps - 100 Gbps)
 
 - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
-- **Azure Storage REST APIs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure client libraries offered in multiple languages.
+- **Azure Storage REST APIs/SDKs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure SDKs offered in multiple languages.
 - **Azure Data Box family for online transfers** – Data Box Edge and Data Box Gateway are online network devices that can move data into and out of Azure. Data Box Edge uses artificial intelligence (AI)-enabled Edge compute to pre-process data before upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities.
 - **Azure Data Factory** – Use Azure Data Factory to regularly transfer files between several Azure services, on-premises, or a combination of the two. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that ingest data from disparate data stores and automate data movement and data transformation.
 
@@ -45,9 +53,11 @@ The following tables summarize the differences in key capabilities for the recom
 
 ### Moderate network bandwidth
 
+If using offline data transfer, use the following table to understand the differences in key capabilities. 
+
 |                                     |    Data Box Disk   (preview)    |    Data Box                                      |    Data Box Heavy (preview)              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
-|    Data size                        |    Up to 35 TBs                 |    Up to 80 TBs                                  |    Up to 800 TB                          |    Variable                            |
+|    Data size                        |    Up to 35 TBs                 |    Up to 80 TBs per device                       |    Up to 800 TB per device               |    Variable                            |
 |    Data type                        |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
 |    Form factor                      |    5 SSDs per order             |    1 X 50-lbs. desktop-sized device per order    |    1 X ~500-lbs. large device per order    |    Up to 10 HDDs/SSDs per order        |
 |    Initial setup time               |    Low <br>(15 mins)            |    Low to moderate <br> (<30 mins)               |    Moderate<br>(1-2 hours)               |    Moderate to difficult<br>(variable) |
@@ -56,10 +66,13 @@ The following tables summarize the differences in key capabilities for the recom
 |    Encryption                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    Hardware                         |     Microsoft supplied          |    Microsoft supplied                            |    Microsoft supplied                    |    Customer supplied                   |
 |    Network interface                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    Partner integration              |    Some                         |    High                                          |    High                                  |    Some                                |
+|    Partner integration              |    Some                         |    [High](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [High](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Some                                |
 |    Shipping                         |    Microsoft managed            |    Microsoft managed                             |    Microsoft managed                     |    Customer managed                    |
-|    Pricing                          |    [Pricing]                    |   [Pricing]                                      |  [Pricing]                               |   [Pricing]                            |
+| Use when data moves         |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
+|    Pricing                          |    [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
+
+If using online data transfer, use the table in the following section for high network bandwidth.
 
 ### High network bandwidth
 
@@ -80,7 +93,7 @@ The following tables summarize the differences in key capabilities for the recom
 
     - [Transfer data with Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
     - [Transfer data with Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-- [Transfer data with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transfer data with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - Understand how to:
     - [Transfer data with Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares.md).
     - [Transform data with Data Box Edge before sending to Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
