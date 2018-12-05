@@ -83,7 +83,7 @@ This update includes the following improvements for Azure Stack:
 ### Changes
 
 <!-- 2635202 - IS, ASDK -->
-- Infrastructure backup service moves from the [public infrastructure network](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) to the [public VIP network](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Customers will need to ensure the service has access the backup storage location from the public VIP network.  
+- Infrastructure backup service moves from the [public infrastructure network](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) to the [public VIP network](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Customers will need to ensure the service has access the backup storage location from the public VIP network.  
 
 > [!IMPORTANT]  
 > If you have a firewall that does not allow connections from the public VIP network to the file server, this change will cause infrastructure backups to fail with "Error 53 The network path was not found." This is a breaking change that has no reasonable workaround. Based on customer feedback, Microsoft will revert this change in a hotfix. 
