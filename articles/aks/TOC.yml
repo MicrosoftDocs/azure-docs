@@ -211,6 +211,12 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
+    - name: Use Istio
+      items:
+      - name: Install and configure
+        href: istio-install.md
+      - name: Intelligent routing and canary releases
+        href: istio-scenario-routing.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true

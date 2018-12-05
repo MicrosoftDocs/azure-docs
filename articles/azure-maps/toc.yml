@@ -64,13 +64,21 @@
       href: choose-map-style.md
     - name: Add map controls
       href: map-add-controls.md
-    - name: Add symbols and markers
+    - name: Add a symbol layer
       href: map-add-pin.md
     - name: Add a popup
-      href: map-add-popup.md
+      href: map-add-popup.md      
+    - name: Add a bubble layer
+      href: map-add-bubble-layer.md
     - name: Add a shape
       href: map-add-shape.md
-    - name: Add custom HTML
+    - name: Add a heat map layer
+      href: map-add-heat-map-layer.md   
+    - name: Add an image layer
+      href: map-add-image-layer.md
+    - name: Add a tile layer
+      href: map-add-tile-layer.md
+    - name: Add HTML markers
       href: map-add-custom-html.md
     - name: Services
       items:  
