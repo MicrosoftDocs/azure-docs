@@ -26,7 +26,7 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace, whic
 
 ## Log queries
 
-You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](../../log-analytics/log-analytics-log-search-portals.md), [configuring an alert rule](../../monitoring-and-diagnostics/alert-metric.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
+You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](../../azure-monitor/log-query/portals.md), [configuring an alert rule](../../monitoring-and-diagnostics/alert-metric.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
 
 
 
@@ -34,7 +34,7 @@ You require a log query to retrieve any data from Log Analytics.  Whether you're
 
 The different ways that you will use queries in Log Analytics include the following:
 
-- **Portals.** You can perform interactive analysis of log data in the [Azure portal](../../log-analytics/log-analytics-log-search-portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
+- **Portals.** You can perform interactive analysis of log data in the [Azure portal](../../azure-monitor/log-query/portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
 - **Alert rules.** [Alert rules](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard](../../azure-monitor/platform/dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../../azure-monitor/platform/view-designer.md).  Log queries provide the data used by [tiles](../../azure-monitor/platform/view-designer-tiles.md) and [visualization parts](../../azure-monitor/platform/view-designer-parts.md) in each view.  
@@ -91,7 +91,7 @@ union Update, workspace("contoso-workspace").Update
 ## How Log Analytics data is organized
 When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](../../log-analytics/log-analytics-quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single table, but others may use a variety of options to include data from multiple tables.
 
-While [Application Insights](../../application-insights/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](../../log-analytics/log-analytics-cross-workspace-search.md) to combine Application Insights data with other data in Log Analytics.
+While [Application Insights](../../application-insights/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](../../azure-monitor/log-query/cross-workspace-query.md) to combine Application Insights data with other data in Log Analytics.
 
 
 ![Tables](media/log-query-overview/queries-tables.png)
@@ -104,5 +104,5 @@ While [Application Insights](../../application-insights/app-insights-overview.md
 
 ## Next steps
 
-- Learn about the [portals that you use to create and edit log searches](../../log-analytics/log-analytics-log-search-portals.md).
+- Learn about the [portals that you use to create and edit log searches](../../azure-monitor/log-query/portals.md).
 - Check out a [tutorial on writing queries](../../azure-monitor/log-query/get-started-queries.md) using the new query language.
