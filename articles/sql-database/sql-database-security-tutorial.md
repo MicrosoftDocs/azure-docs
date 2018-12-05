@@ -26,7 +26,7 @@ SQL Database secures the data in a single Azure SQL database by:
 SQL Database also has sophisticated monitoring, auditing, and threat detection.
 
 > [!IMPORTANT]
-> Azure SQL Database secures a database in a Managed Instance by using Network Security Rules and private endpoints. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance-index.md) and [Azure SQL Database Managed Instance Connectivity Architecture](sql-database-managed-instance-connectivity-architecture.md).
+> Azure SQL Database secures a database in a Managed Instance by using Network Security Rules and private endpoints. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance-index.yml) and [Azure SQL Database Managed Instance Connectivity Architecture](sql-database-managed-instance-connectivity-architecture.md).
 
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to:
 
