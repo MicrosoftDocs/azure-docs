@@ -69,7 +69,7 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### Associate the subnet to the virtual network
 
-You can write the subnet configuration to the virtual network with [`Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This command creates the subnet:
+You can write the subnet configuration to the virtual network with [`Set-AzureRmVirtualNetwork`](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This command creates the subnet:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
