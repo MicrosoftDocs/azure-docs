@@ -59,9 +59,9 @@ sections:
 
 - title: Step-by-Step Tutorials
   items:
-   - type: list
-      style: ordered
-      items:
+  - type: list
+     style: ordered
+     items:
       - html: <p><a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Get Started with Key Vault from a Web Application</a> 
       - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine in .NET</a> 
       - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine in .NET</a>
