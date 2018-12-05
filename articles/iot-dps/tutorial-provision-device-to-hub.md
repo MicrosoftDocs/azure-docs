@@ -86,7 +86,7 @@ Once your device boots, the following actions should take place:
 
     ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-For more information, see the TPM simulator sample application, [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
+For more information, see the provisioning device client sample, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). The sample demonstrates provisioning a simulated device using TPM, X.509 certificates and symmetric keys. Refer back to the [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509), and [Symmetric key](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) attestation quickstarts for step-by-step instructions on using the sample.
 
 ## Next steps
 In this tutorial, you learned how to:

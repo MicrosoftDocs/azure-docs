@@ -26,7 +26,7 @@ In Log Analytics you can leverage log searches by constructing queries to analyz
 
 To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](log-analytics-quick-collect-azurevm.md).  
 
-Creating and editing queries, in addition to working interactively with returned data, can be accomplished one of two ways.  For basic queries, use the Log Search page in the Azure portal, or for advanced querying, you can use the Advanced Analytics portal. To learn more about the difference in functionality between the two portals, see [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md)
+Creating and editing queries, in addition to working interactively with returned data, can be accomplished one of two ways.  For basic queries, use the Log Search page in the Azure portal, or for advanced querying, you can use the Advanced Analytics portal. To learn more about the difference in functionality between the two portals, see [Portals for creating and editing log queries in Azure Log Analytics](../azure-monitor/log-query/portals.md)
 
 In this tutorial, we will be working with Log Search in the Azure portal. 
 

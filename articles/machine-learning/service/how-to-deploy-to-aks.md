@@ -91,6 +91,9 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
     image.wait_for_creation(show_output = True)
     ```
 
+> [!NOTE]
+> When creating an image that uses GPU acceleration, the GPU base image must be used on Microsoft Azure Services only.
+
 ## Create the AKS Cluster
 
 The following code snippet demonstrates how to create the AKS cluster. This process takes around 20 minutes to complete:

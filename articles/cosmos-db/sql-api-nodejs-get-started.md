@@ -1,9 +1,8 @@
 ---
-title: Node.js tutorial for the SQL API for Azure Cosmos DB | Microsoft Docs
+title: Node.js tutorial for the SQL API for Azure Cosmos DB
 description: A Node.js tutorial that demonstrates how to connect to and query Azure Cosmos DB using the SQL API
 services: cosmos-db
 author: deborahc
-editor: monicar
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
