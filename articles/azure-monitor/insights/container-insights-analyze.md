@@ -18,9 +18,9 @@ ms.author: magoedte
 ---
 
 # Understand AKS cluster performance with Azure Monitor for containers 
-Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from an AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also possible when you view a specific AKS cluster.
+You can view the performance of your Azure Kubernetes Service (AKS) clusters from two perspectives with Azure Monitor for containers, directly from an AKS cluster or all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also possible when you view a specific AKS cluster.
 
-This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
+This article will help you understand the experience between the two perspectives, and how it helps you quickly assess, investigate, and resolve issues detected.
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
@@ -46,7 +46,7 @@ The health statuses included are:
 * **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal operational state as expected.
 * **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
 * **Unknown** – if the service was not able to make a connection with the node or pod, the status changes to an unknown state.
-* **Not found** - Either the workspace, the resource group or subscription containing the workspace for this solution has been deleted.
+* **Not found** - Either the workspace, the resource group, or subscription containing the workspace for this solution has been deleted.
 * **Unauthorized** - User doesn’t have required permissions to read the data in the workspace.
 * **Error** - Error occurred while attempting to read data from the workspace.
 * **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
@@ -99,9 +99,9 @@ When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatic
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For additional information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
-Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
+Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
 ![Example using the filter to narrow down results](./media/container-insights-analyze/add-filter-option-01.png)
 
