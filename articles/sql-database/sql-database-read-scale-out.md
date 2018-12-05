@@ -39,7 +39,7 @@ One of the benefits of replicas is that the replicas are always in the transacti
 > [!NOTE]
 > Replication latencies within the region are low and this situation is rare.
 
-## Connecting to a read-only replica
+## Connect to a read-only replica
 
 When you enable Read Scale-Out for a database, the `ApplicationIntent` option in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only replica. Specifically, if the `ApplicationIntent` value is `ReadWrite` (the default value), the connection will be directed to the database’s read-write replica. This is identical to existing behavior. If the `ApplicationIntent` value is `ReadOnly`, the connection is routed to a read-only replica.
 
@@ -57,7 +57,7 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-## Verifying that a connection is to a read-only replica
+## Verify that a connection is to a read-only replica
 
 You can verify whether you are connected to a read-only replica by running the following query. It will return READ_ONLY when connected to a read-only replica.
 
@@ -72,7 +72,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Read Scale-Out is enabled by default in [Managed Instance](sql-database-managed-instance.md) Business Critical tier. It should be explicitly enabled in [database placed on logical server](sql-database-logical-servers.md) Premium and Business Critical tiers. The methods for enabling and disabling Read Scale-Out is described here.
 
-### Enable and disable Read Scale-Out using Azure PowerShell
+### PowerShell: Enable and disable Read Scale-Out
 
 Managing Read Scale-Out in Azure PowerShell requires the December 2016 Azure PowerShell release or newer. For the newest PowerShell release, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -96,7 +96,7 @@ To create a new database with read scale-out enabled (replacing the items in the
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### Enabling and disabling Read Scale-Out using the Azure SQL Database REST API
+### REST API: Enable and disable Read Scale-Out
 
 To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
