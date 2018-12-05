@@ -44,7 +44,7 @@ The WinRM over HTTPS protocol uses port 5896, which is not enabled by default on
     ![Listing of inbound network security rules](./media/nsg-new-inbound-listing.png)
 
 
-## Configure the virtual machine to enable WinRM 
+## Configure VM to enable WinRM 
 
 Use the following steps to enable and configure the Windows Remote Management feature on your Windows VM.   
 
@@ -62,6 +62,6 @@ Use the following steps to enable and configure the Windows Remote Management fe
     This script depends upon the other two files being in the same folder.
 
 
-## Next Steps
+## Next steps
 
 Once you have configured WinRM, you are ready to [deploy your VM from its constituent VHDs](./cpp-deploy-vm-vhd.md).

@@ -31,7 +31,7 @@ a broad overview of the Azure Marketplace, including how to publish on this mark
 experience with your product page and optional Test Drive experience, how user leads are generated and how you can consume them, and optimize customer
 engagement.
 
-> [!VIDEO <https://channel9.msdn.com/Events/Build/2017/P4026>]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
 
 
 ## VM Publishing process flow

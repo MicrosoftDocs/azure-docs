@@ -40,5 +40,5 @@ The WinRM endpoint for a windows-based VM can be configured during two different
 - After deployment - on an existing VM hosted on Azure.  Use this approach if you already have a VM solution deployed on Azure, and need to enable Window Remote Management for it.  This approach requires manual changes in the Azure portal and the execution of a script on the target VM. 
 
 
-## Next Steps
+## Next steps
 If you are creating a new VM, you can enable WinRM during [deployment of your VM from its VHDs](./cpp-deploy-vm-vhd.md).  Otherwise, WinRM can be enabled in an existing VM  
