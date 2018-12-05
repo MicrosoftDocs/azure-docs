@@ -10,7 +10,6 @@ ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
@@ -99,9 +98,8 @@ Microsoft uses the data only in order to provide the service to you.
 ## Where is the data held?
 * In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
 
-
 #### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
-* No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
+* No. Your application can run anywhere, either in your own on-premises hosts or in the cloud.
 
 ## How secure is my data?
 Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -278,6 +276,9 @@ For [SDKs for other platforms][platforms], see their documents.
 | SDK diagnostics |Trace message or Exception |
 
 You can [switch off some of the data by editing ApplicationInsights.config][config]
+
+> [!NOTE]
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).

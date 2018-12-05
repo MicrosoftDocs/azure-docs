@@ -1,4 +1,4 @@
-- name: Azure Machine Learning Documentation (Preview)
+- name: Azure Machine Learning Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -12,6 +12,9 @@
   - name: What's happening to Workbench?
     displayName: desktop
     href: overview-what-happened-to-workbench.md 
+  - name: Release notes
+    displayName: what's new
+    href: azure-machine-learning-release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -21,18 +24,22 @@
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
-  - name: 'Train models: Part 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Deploy models: Part 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Train automated ML models 
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Image classification (MNIST data)
+    items:
+    - name: 1. Train a model
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Deploy a model
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regression (NYC Taxi data)
+    items:
+    - name: 1. Prepare data for modeling
+      href: tutorial-data-prep.md
+    - name: 2. Auto-train an ML model
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Samples
-  items:
-  - name: Jupyter notebooks (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Concepts   
   items: 
   - name: Model management
@@ -48,11 +55,11 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Configure an environment
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Configure your dev environment
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: VS Code Tools for AI
-      displayName: Visual Studio Code, vscode
+    - name: Visual Studio Code extension
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Get started
         href: how-to-vscode-tools.md
@@ -71,7 +78,7 @@
   - name: Train models
     items:    
     - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Access data in training
       href: how-to-access-data.md
@@ -123,12 +130,16 @@
     - name: Consume in real-time
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Run batch predictions
+      href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
-    - name: Collect and evaluate data 
+    - name: Collect and evaluate model data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
+  - name: Create your first pipeline
+    href: how-to-create-your-first-pipeline.md 
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -154,9 +165,6 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Release notes
-    displayName: what's new
-    href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
@@ -330,8 +338,6 @@
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: Model data collection API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Old concepts
-      href: ../desktop-workbench/overview-general-concepts.md    
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    

@@ -10,7 +10,6 @@ ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
@@ -45,6 +44,7 @@ Let's take a look at how we can learn more about both of these causes.
 > [!NOTE]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and  their values are no longer populated. 
 > These are **Computer** as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**.
+> See below for the new way to query the amount of ingested data per computer. 
 
 ### Data volume 
 On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. The query used to generate this is
@@ -62,24 +62,32 @@ You can drill in further to see data trends for specific data types, for example
 
 ### Nodes sending data
 
-To understand the number of nodes reporting data in the last month, use
+To understand the number of computers (nodes) reporting data in the last month, use
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To see the count of events ingested per computer, use
+To see the **size** of billable events ingested per computer, use
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Use these queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying this with the Usage data type. 
+
+To see the **count** of events ingested per computer, use
 
 `union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last`
 
-Use this query sparingly as it is expensive to execute. To see the count of billable events ingested per computer, use 
+To see the count of billable events ingested per computer, use 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize count() by Computer  | sort by count_ nulls last`
 
-If you want to see which billable data types are sending data to a specific computer, use:
+If you want to see counts for billable data types are sending data to a specific computer, use:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
