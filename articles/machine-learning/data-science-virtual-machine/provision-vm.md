@@ -193,7 +193,7 @@ The **Power BI Desktop** is installed to help you build dashboards and visualiza
 
 The Azure Machine Learning SDK for Python is used by data scientists and AI developers to build and run machine learning workflows with the [Azure Machine Learning service](../service/overview-what-is-azure-ml.md). You can interact with the service in any Python environment, including Jupyter Notebooks or your favorite Python IDE, using open-source frameworks, such as TensorFlow and scikit-learn.
 
-To get started using the Python SDK, see [Use Python to get started with Azure Machine Learning](../service/quickstart-create-workspace-with-python).
+To get started using the Python SDK, see [Use Python to get started with Azure Machine Learning](../service/quickstart-create-workspace-with-python.md).
 
 The Python SDK is preinstalled on the Microsoft Data Science Virtual Machine.
 
