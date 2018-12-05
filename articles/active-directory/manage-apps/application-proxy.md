@@ -56,16 +56,16 @@ With Azure AD Application Proxy you can access different types of internal appli
 * Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
 
 ## How does Application Proxy work?
-There are two components that you need to configure to make Application Proxy work: a connector and an external endpoint. 
+There are two components that you need to configure to make Application Proxy work: a connector and an endpoint. 
 
 The connector is a lightweight agent that sits on a Windows Server inside your network. The connector facilitates the traffic flow from the Application Proxy service in the cloud to your application on-premises. It only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md). 
 
-The external endpoint is how your users reach your applications while outside of your network. They can either go directly to an external URL that you determine, or they can access the application through the MyApps portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.
+The endpoint can be a URL or an [end-user portal](end-user-experiences.md). Users can reach applications while outside of your network by accessing an an external URL. Users within your network can access the application through a a URL or an [end-user portal](end-user-experiences.md). When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.
 
  ![AzureAD Application Proxy diagram](./media/application-proxy/azureappproxxy.png)
 
-1. The user accesses the application through the Application Proxy service and is directed to the Azure AD sign-in page to authenticate.
-2. After a successful sign-in, a token is generated and sent to the client device.
+1. After the user has accessed the application through a website, the user is directed to the Azure AD sign-in page. 
+2. After a successful sign-in, a token is generated and sent to the user's client device.
 3. The client sends the token to the Application Proxy service, which retrieves the user principal name (UPN) and security principal name (SPN) from the token, then directs the request to the Application Proxy connector.
 4. If you have configured single sign-on, the connector performs any additional authentication required on behalf of the user.
 5. The connector sends the request to the on-premises application.  
