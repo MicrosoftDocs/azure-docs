@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Configure containers
 
-The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
+The Language Understanding (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
 
 Container settings are [hierarchical](#hierarchical-settings) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](#command-line-argument-settings).
 
@@ -59,7 +59,7 @@ The following table describes the configuration settings supported under the `Ap
 
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to track billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
 
 This setting can be found in two places:
 
@@ -77,6 +77,8 @@ The `Eula` setting indicates that you've accepted the license for the container.
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
 |Yes| `Eula` | String | License acceptance<br><br>Example:<br>`Eula=accept` |
+
+Cognitive Services containers are licensed under your agreement governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the Microsoft Online Subscription Agreement (which incorporates the Online Services Terms). For previews, you also agree to the Supplemental Terms of Use for Microsoft Azure Previews. By using the container you agree to these terms.
 
 ## Fluentd settings
 
