@@ -14,13 +14,13 @@ ms.date: 12/05/2018
 
 # Azure Time Series Insights overview
 
-Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data that's ideal for ad-hoc data exploration, as well as operational analysis. Azure TSI is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
 
 ## Defining IoT data
 
-IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. IoT data is often meaningful only in the context of additional data inputs coming from first-party data sources (such as CRM or ERP) or third-party data sources (for example, weather or location).
+IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. IoT data is often meaningful only in the context of additional data inputs coming from first-party such as CRM or ERP) or third-party data sources (for example, weather or location).
 
-As a result, only a negligible fraction of that data gets used for operational and business purposes. Such data provides consistent, comprehensive, current, and correct information for business reporting and analysis. Turning collected IoT data into actionable insights therefore requires a few of key capabilities:
+As a result, only a negligible fraction of that data gets used for operational and business purposes. Such data provides consistent, comprehensive, current, and correct information for business reporting and analysis. Turning collected IoT data into actionable insights thus requires a few key capabilities:
 
 * Data processing to clean, filter, interpolate, transform, and prepare data for analysis
 * Structure to navigate and understand the data (to normalize and contextualize the data)
@@ -32,15 +32,15 @@ Typical IoT data flow can be depicted as follows:
 
 ## Azure Time Series Insights for industrial IoT
 
-The current IoT landscape is diverse. It includes customers spanning manufacturing, automobiles, energy, utilities, smart buildings, and consulting. Scenarios include ad-hoc data exploration where the shape of the data is unknown, as well as operational analysis over schematized (explicitly modeled) data to drive operational efficiency. These scenarios typically exist side-by-side and support different use cases. Platform capabilities like multi-layered storage (warm and cold), the ability to store decades worth of time series data, and the ability to explicitly model and optimize queries for asset-based operational intelligence are becoming key to the success of industrial IoT enterprises and their digital revolution.
+The current IoT landscape is diverse. It includes customers spanning the manufacturing, automotive, energy, utilities, smart buildings, and consulting industries. Scenarios include ad-hoc data exploration where the shape of the data is unknown, as well as operational analysis over schematized (explicitly modeled) data to drive operational efficiency. These scenarios typically exist side-by-side and support different use cases. Platform capabilities like multi-layered storage (warm and cold), the ability to store decades worth of time series data, and the ability to explicitly model and optimize queries for asset-based operational intelligence are becoming key to the success of industrial IoT enterprises and their digital revolution.
 
-Azure TSI is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration as well as operational insights. TSI offers a fully managed cloud service for analyzing IoT-scale time series data.
+Azure TSI is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration, as well as operational insights. TSI offers a fully managed cloud service for analyzing IoT-scale time series data.
 
-Customers can store raw data in a schema-less, in-memory store, and perform interactive ad-hoc queries through a distributed query engine and API as well as leverage our rich user experience for visualizing billions of events in seconds. Learn more about our [data exploration capabilities](./time-series-insights-overview.md).
+Customers can store raw data in a schema-less, in-memory, store. Customers can then perform interactive ad-hoc queries through a distributed query engine and API leveraging our rich user experience for visualizing billions of events in seconds. Learn more about our [data exploration capabilities](./time-series-insights-overview.md).
 
 TSI also offers operational insights capabilities currently in Preview. Together with interactive data exploration and operational intelligence, TSI enables customers to derive more value out of data collected from IoT assets. Specifically, the Preview offering supports the following key capabilities:
 
-* A scalable, performance and cost-optimized time series data store that enables a cloud-based IoT solution to trend years’ worth of time series data in seconds.
+* A scalable, performance, and cost-optimized time series data store that enables a cloud-based IoT solution to trend years’ worth of time series data in seconds.
 * Semantic model support to describe the domain and metadata associated with the derived and non-derived signals from assets and devices.
 * An enhanced user experience that combines asset-based data insights with rich, ad-hoc data analytics for driving business and operational intelligence
 * Integration with advanced machine learning and analytics tools like Azure Databricks, Apache Spark, Azure Machine Learning, Jupyter notebooks, Power BI, etc. to help customers tackle time series data challenges and drive operational efficiency.
