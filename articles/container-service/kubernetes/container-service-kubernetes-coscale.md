@@ -30,7 +30,7 @@ As shown in this article, you can install agents on a Kubernetes cluster to run 
 
 ## Prerequisites
 
-You first need to [create a CoScale account](https://www.coscale.com/free-trial).
+You first need to [create a CoScale account](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
 
