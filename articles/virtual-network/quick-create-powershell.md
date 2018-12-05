@@ -38,7 +38,7 @@ There are a handful of steps you have to walk through to get your resource group
 
 ### Create the resource group
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [`New-AzureRmResourceGroup`](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). This example creates a resource group named *myResourceGroup* in the *eastus* location:
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). This example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -46,7 +46,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ### Create the virtual network
 
-Create a virtual network with [`New-AzureRmVirtualNetwork`](/powershell/module/azurerm.network/new-azurermvirtualnetwork). This example creates a default virtual network named *myVirtualNetwork* in the *EastUS* location:
+Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). This example creates a default virtual network named *myVirtualNetwork* in the *EastUS* location:
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -58,7 +58,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### Add a subnet
 
-Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *default* with [`Add-AzureRmVirtualNetworkSubnetConfig`](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
+Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *default* with [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -69,7 +69,7 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### Associate the subnet to the virtual network
 
-You can write the subnet configuration to the virtual network with [`Set-AzureRmVirtualNetwork`](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This command creates the subnet:
+You can write the subnet configuration to the virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This command creates the subnet:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
@@ -81,7 +81,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create the first VM with [`New-AzureRmVM`](/powershell/module/azurerm.compute/new-azurermvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM:
+Create the first VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM:
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -122,7 +122,7 @@ You'll have to create another user and password. Azure takes a few minutes to cr
 
 ## Connect to a VM from the internet
 
-Use [`Get-AzureRmPublicIpAddress`](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of a VM. This example returns the public IP address of the *myVm1* VM:
+Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of a VM. This example returns the public IP address of the *myVm1* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -186,7 +186,7 @@ A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote 
 
 1. Close the remote desktop connection to *myVm1*.
 
-1. Do the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again. This time, connect to *myVm2*.
+1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to *myVm2*.
 
 1. From a command prompt on the *myVm2* VM, enter `ping myvm1`.
 
