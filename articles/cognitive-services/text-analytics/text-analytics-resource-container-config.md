@@ -86,7 +86,7 @@ The following table describes the configuration settings supported under the `Au
 
 ## Billing configuration setting
 
-The `Billing` configuration setting specifies the endpoint URI of the Text Analytics resource on Azure used to track billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a Text Analytics resource on Azure.
+The `Billing` configuration setting specifies the endpoint URI of the Text Analytics resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a Text Analytics resource on Azure.
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
@@ -97,6 +97,8 @@ The `Eula` configuration setting indicates that you've accepted the license for 
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
+
+Cognitive Services containers are licensed under your agreement governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the Microsoft Online Subscription Agreement (which incorporates the Online Services Terms). For previews, you also agree to the Supplemental Terms of Use for Microsoft Azure Previews. By using the container you agree to these terms.
 
 ## Fluentd configuration settings
 

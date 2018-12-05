@@ -39,13 +39,15 @@ For dictionaries, Custom Translator supports all file formats those are supporte
 
 Documents can be grouped into a single zip file and uploaded. The Custom Translator supports zip file formats (ZIP, GZ, and TGZ).
 
-Each document in the zip file must follow this naming convention:
+Each document in the zip file with the extension TXT, HTML, HTM, PDF, DOCX, ALIGN must follow this naming convention:
 
 {document name}\_{language code}
 where {document name} is the name of your document, {language code} is the ISO LanguageID (two characters), indicating that the document contains sentences in that language. There must be an underscore (_) before the language code.
 
 For example, to upload two parallel documents within a zip for an English to
 Spanish system, the files should be named “data_en” and “data_es”.
+
+Translation Memory files (TMX, XLF, XLIFF, LCL, XLSX) are not required to follow the specific language naming convention.  
 
 ## Next steps
 

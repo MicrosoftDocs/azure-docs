@@ -282,7 +282,7 @@ Read about how to [enable diagnostics settings at resource creation by using a R
 
 Azure SQL Analytics is a cloud solution that monitors the performance of Azure SQL databases, elastic pools, and Managed Instance at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
-![Azure SQL Analytics Overview](../log-analytics/media/log-analytics-azure-sql/azure-sql-sol-overview.png)
+![Azure SQL Analytics Overview](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 SQL Database metrics and diagnostics logs can be streamed into Azure SQL Analytics by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the portal. You can also enable Log Analytics by using a diagnostics setting via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 

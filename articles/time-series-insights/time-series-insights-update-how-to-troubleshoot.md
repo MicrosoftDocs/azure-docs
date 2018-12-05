@@ -86,7 +86,7 @@ If the **Timestamp** property isn’t explicitly specified, we will leverage an 
 
 1. You may be accessing a Time Series Insights S1 or S2 environment
 
-   Time Series Models are supported only in `PAYG` environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update explorer.
+   Time Series Models are supported only in **PAYG** environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update explorer.
 
    ![access][5]
 

@@ -51,6 +51,8 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192-1920 GB (24 GB per vCore) | Determined by the max storage size per instance |
 
+- Both user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
+
 ## Supported regions
 
 Managed Instanced can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).

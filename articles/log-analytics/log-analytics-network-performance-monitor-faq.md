@@ -40,7 +40,7 @@ The capability to monitor networks using Linux-based nodes is currently in priva
 For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500-MB memory and one core. You do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
 
 ### To use NPM, should I connect my nodes as Direct agent or through System Center Operations Manager?
-Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](../azure-monitor/platform/agent-windows.md) as well as [connected through Operations Manager](log-analytics-om-agents.md).
+Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](../azure-monitor/platform/agent-windows.md) as well as [connected through Operations Manager](../azure-monitor/platform/om-agents.md).
 
 For ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. For on-premises nodes, the nodes connected as Direct Agents as well as through Operations Manager are supported for monitoring an ExpressRoute circuit.
 
