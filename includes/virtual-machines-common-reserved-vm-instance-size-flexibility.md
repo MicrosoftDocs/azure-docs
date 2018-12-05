@@ -123,7 +123,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-sup1sup1-15).
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
 
 ## DSv3-series
 
@@ -160,7 +160,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_D14_v2|8|
 |Standard_D15_v2|10|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-sup1sup1-15).
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-11-15).
 
 ## Dv3-series
 
