@@ -71,7 +71,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Edit the template
 
-You need to add two additional resources to the template.
+Add two additional resources to the template.
 
 * To allow the SQL database extension to import BACPAC files, you need to allow access to Azure services. Add the following JSON to the SQL server definition:
 
@@ -128,7 +128,7 @@ You need to add two additional resources to the template.
     * **storageKeyType**: The type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Because the provided BACPAC file is shared on an Azure Storage account with public access, `SharedAccessKey' is used here.
     * **storageKey**: The storage key to use. If storage key type is SharedAccessKey, it must be preceded with a "?."
     * **storageUri**: The storage uri to use. If you choose not to use the BACPAC file provided, you need to update the values.
-    * **administratorLoginPassword**: The password of the SQL administrator. It is recommended to use a generated password. See [Prerequisites](#prerequisites).
+    * **administratorLoginPassword**: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Deploy the template
 
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -TemplateFile azuredeploy.json
 ```
 
-It is recommended to use a generated password. See [Prerequisites](#prerequisites).
+Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 

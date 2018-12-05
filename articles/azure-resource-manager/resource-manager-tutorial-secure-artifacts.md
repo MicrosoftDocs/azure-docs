@@ -18,7 +18,7 @@ ms.author: jgao
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact. The artifact is stored in an Azure storage account with public access. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact. The artifact is stored in an Azure storage account with public access. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 This tutorial covers the following tasks:
 
@@ -47,7 +47,7 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-In this section, you prepare the BACPAC file so it is accessible securely when you deploy the resource manager template. There are five procedures in this section:
+In this section, you prepare the BACPAC file so it is accessible securely when you deploy the Resource Manager template. There are five procedures in this section:
 
 * Download the BACPAC file.
 * Create a storage account.
@@ -69,13 +69,13 @@ Download the [BACPAC file](https://armtutorials.blob.core.windows.net/sqlextensi
     * **Subscription**: Select your Azure subscription.
     * **Resource Group**: Select **Create new** and give it a name. A resource group is a container for Azure resources for the management purpose. In this tutorial, you can use the same resource group for the storage account and the Azure SQL Database. Make a note of this resource group name, you need it when you create the Azure SQL Database later in the tutorials.
     * **Location**: Select a region. For example, **Central US**. 
-    * **Storage Account Type**: use the default value which is **Standard_LRS**.
-    * **Location**: Use the default value which is **[resourceGroup().location]**. That means you use the resource group location for the storage account.
+    * **Storage Account Type**: use the default value, which is **Standard_LRS**.
+    * **Location**: Use the default value, which is **[resourceGroup().location]**. That means you use the resource group location for the storage account.
     * **I agree to the terms and conditions started above**: (selected)
 3. Select **Purchase**.
 4. Select the notification icon (the bell icon) on the upper right corner of the portal to see the deployment status.
 
-    ![resource manager tutorial portal notifications pane](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
+    ![Resource Manager tutorial portal notifications pane](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
 5. After the storage account is deployed successfully, select **Go to resource group** from the notification pane to open the resource group.
 
 ### Create a Blob container
@@ -84,12 +84,12 @@ A Blob container is needed before you can upload any files.
 
 1. Select the storage account to open it. You shall see only one storage account listed in the resource group.
 
-    ![resource manager tutorial storage account](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
+    ![Resource Manager tutorial storage account](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 
     Your storage account name shall be different from the one shown in the screenshot.
 2. Select the **Blobs** tile.
 
-    ![resource manager tutorial blobs](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
+    ![Resource Manager tutorial blobs](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
 3. Select **+ Container** from the top
 4. Enter the following values:
 
@@ -112,7 +112,7 @@ A Blob container is needed before you can upload any files.
     * **Allowed protocols**: use the default value: **HTTPS**.
     * **Signing key**: use the default value: **Key 1**.
 17. Select **Generate blob SAS token and URL**.
-18. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name devids the URL into three parts:
+18. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name divides the URL into three parts:
 
     - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
     - **BACPAC file name**: SQLDatabaseExtension.bacpac.
@@ -170,7 +170,7 @@ Add the following additional parameters:
 }
 ```
 
-![resource manager tutorial secure artifacts parameters](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
+![Resource Manager tutorial secure artifacts parameters](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
 Update the value of the following two elements:
 
@@ -204,7 +204,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -TemplateFile originalbacpac.json
 ```
 
-It is recommended to use a generated password. See [Prerequisites](#prerequisites).
+Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 
