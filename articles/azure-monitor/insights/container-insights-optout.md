@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/30/2018
 ms.author: magoedte
 ---
 
-# How to stop monitoring your Azure Kubernetes Service (AKS) with Azure Monitor for containers (Preview)
+# How to stop monitoring your Azure Kubernetes Service (AKS) with Azure Monitor for containers
 
 If, after you enable monitoring of your AKS cluster, you decide you no longer want to monitor it, you can *opt out*.  This article shows how to accomplish this using the Azure CLI or with the provided Azure Resource Manager templates.  
 
