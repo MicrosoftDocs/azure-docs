@@ -69,7 +69,7 @@ To disable collection of environmental variables on a new or existing container,
 
 Run the following command to apply the change to your AKS container: `kubectl apply -f  <path to yaml file>`.
 
-To verify the configuration change took affect, select a container in the **Containers** view in Azure Monitor for containers and in the property panel, expand **Environment Variables** and it should show only the variable created earlier - **AZMON_COLLECT_ENV = FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.   
+To verify the configuration change took affect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV = FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.   
 
 To re-enable discovery of the environmental variables, apply the same process earlier and change the value from **False** to **True**, and then re-run the `kubectl` command to update the container.  
 
