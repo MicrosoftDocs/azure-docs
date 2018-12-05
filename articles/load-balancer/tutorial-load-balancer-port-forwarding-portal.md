@@ -50,10 +50,10 @@ First, create a public Standard load balancer that can balance traffic load over
    - **Type**: Select **Public**. 
    - **SKU**: Select **Standard**.
    - **Public IP address**: Select **Create new**, then type *MyPublicIP* in the field.
-   - **Availability options**: Drop down and select **Availability zone**.
-   - **Availability zone**: Drop down and select **Zone-redundant**.
+   - **Configure public IP address** > **Availability zone**: Select **Zone-redundant**.
    - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
    - **Location**: Select **West Europe**. 
+     
      >[!NOTE]
      >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
    
@@ -108,7 +108,7 @@ Create a virtual network with two virtual machines, and add the VMs to the back-
    
 1. Add the VM to a load balancer back-end pool that you create:
    
-   1. Under **LOAD BALANCING** > **Place this virtual machine behind an existing load balancing solution?**, select **Yes**. 
+   1. Under **LOAD BALANCING SETTINGS** > **Place this virtual machine behind an existing load balancing solution?**, select **Yes**. 
    1. For **Load balancing options**, drop down and select **Azure load balancer**. 
    1. For **Select a load balancer**, drop down and select **MyLoadBalancer**. 
    1. Under **Select a backend pool**, select **Create new**, then type *MyBackendPool*, and select **Create**. 
@@ -281,7 +281,6 @@ Use PowerShell to install IIS and replace the default IIS web page with a page t
     
     #Add custom htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
-    
     
    ```
    
