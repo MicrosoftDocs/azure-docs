@@ -88,22 +88,26 @@
   items:
   - name: Purchasing models
     items: 
-    - name: vCore vs. DTU 
+    - name: Overview 
       href: sql-database-service-tiers.md
-    - name: vCore-based purchasing model
-      items:
-      - name: Choosing a vCore service tier
-        href: sql-database-service-tiers-vcore.md
-      - name: General Purpose / Business Critical
-        href: sql-database-service-tiers-general-purpose-business-critical.md
-      - name: Hyperscale
-        href: sql-database-service-tier-hyperscale.md
-      - name: Hyperscale FAQ
-        href: sql-database-service-tier-hyperscale-faq.md
-    - name: DTU service tiers
+    - name: vCore-based model
+      href: sql-database-service-tiers-vcore.md
+    - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
-      href: sql-database-reserved-capacity.md 
+      href: sql-database-reserved-capacity.md
+  - name: Compute & storage
+    items:
+    - name: Overview
+      href: sql-database-service-tiers-general-purpose-business-critical.md
+    - name: General Purpose / Standard
+      href: sql-database-service-tier-general-purpose.md
+    - name: Business Critical / Premium
+      href: sql-database-service-tier-business-critical.md
+    - name: Hyperscale
+      href: sql-database-service-tier-hyperscale.md
+    - name: Hyperscale FAQ
+      href: sql-database-service-tier-hyperscale-faq.md
   - name: Single databases
     items:
     - name: Single database
@@ -160,7 +164,7 @@
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Connectivity architecture
         href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Management endpoints 
+      - name: Management endpoint
         href: sql-database-managed-instance-management-endpoint.md   
       - name: Connect applications
         href: sql-database-managed-instance-connect-app.md
@@ -276,7 +280,7 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
-    - name: TDE with Azure SQL
+    - name: Transparent Data Encryption (TDE)
       items:
       - name: TDE with Azure SQL  
         href: transparent-data-encryption-azure-sql.md

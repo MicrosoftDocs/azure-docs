@@ -47,6 +47,13 @@ Azure Machine Learning service has varying support across the various compute ta
 >
 > Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
 
+> [!NOTE]
+> Some compute targets rely on Docker container images when training a model. The GPU base image must be used on Microsoft Azure Services only. For model training, these services are:
+>
+> * Azure Machine Learning Compute
+> * Azure Kubernetes Service
+> * The Data Science Virtual Machine.
+
 ## Workflow
 
 The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
@@ -276,7 +283,6 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 
     ```
-
 
 ## <a id="databricks"></a>Azure Databricks
 
