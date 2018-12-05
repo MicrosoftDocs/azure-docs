@@ -30,7 +30,7 @@ If you choose to install and use the PowerShell locally, this tutorial also requ
 
 ## Sample scripts
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-tde-byok/setup-tde-byok-sqlmi.ps1 "Set up BYOK TDE for SQL Managed Instance")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.ps1 "Set up BYOK TDE for SQL Managed Instance")]
 
 ## Next steps
 
