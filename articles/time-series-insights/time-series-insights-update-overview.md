@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 12/05/2018
 ---
 
 # Azure Time Series Insights overview
@@ -34,11 +34,11 @@ Typical IoT data flow can be depicted as follows:
 
 The current IoT landscape is diverse. It includes customers spanning manufacturing, automobile, oil & gas, power & utility, smart buildings, and consulting. Scenarios include ad-hoc data exploration where the shape of the data is unknown, as well as operational analysis over schematized (explicitly modeled) data to drive operational efficiency. These scenarios typically exist side-by-side and support different use cases. Platform capabilities like multi-layered storage (warm and cold), the ability to store decades worth of time series data, and the ability to explicitly model and optimize queries for asset-based operational intelligence are becoming key to the success of industrial IoT enterprises and their digital revolution.
 
-Azure TSI is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration as well as operational insights. Time Series Insights offers a fully managed cloud service for analyzing IoT-scale time series data.
+Azure TSI is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration as well as operational insights. TSI offers a fully managed cloud service for analyzing IoT-scale time series data.
 
 Customers can store raw data in a schema-less, in-memory store, and perform interactive ad-hoc queries through a distributed query engine and API as well as leverage our rich user experience for visualizing billions of events in seconds. Learn more about our [data exploration capabilities](./time-series-insights-overview.md).
 
-TSI also offers operational insights capabilities currently in Public Preview. Together with interactive data exploration and operational intelligence, Time Series Insights enables customers to derive more value out of data collected from IoT assets. Specifically, Public Preview offering supports the following key capabilities:
+TSI also offers operational insights capabilities currently in Preview. Together with interactive data exploration and operational intelligence, TSI enables customers to derive more value out of data collected from IoT assets. Specifically, the Preview offering supports the following key capabilities:
 
 * A scalable, performance and cost-optimized time series data store that enables a cloud-based IoT solution to trend years’ worth of time series data in seconds.
 * Semantic model support to describe the domain and metadata associated with the derived and non-derived signals from assets and devices.
@@ -65,20 +65,20 @@ With the introduction of these key industrial IoT capabilities, Azure TSI provid
 
 * Seamless integration with other data solutions
   
-  * Since data in Azure Time Series Insights is stored in open-sourced Apache Parquet files, customers can easily integrate with other data solutions (first or third party) for end-to-end scenarios including business intelligence, advanced machine learning, predictive analytics, etc.
+  * Since data in Azure TSI is stored in open-sourced Apache Parquet files, customers can easily integrate with other data solutions (first or third party) for end-to-end scenarios including business intelligence, advanced machine learning, predictive analytics, etc.
 
 * Near real-time data exploration
 
-  * Azure  Time Series Insights explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
+  * Azure  TSI explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
 
 * Root-cause analysis and anomaly detection
 
-  * Azure Time Series Insights explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
+  * Azure TSI explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
 
-* Build custom applications on Time Series Insights platform
+* Build custom applications on TSI platform
 
-  * Azure Time Series Insights supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of Time Series Insights platform to suit the needs of individual businesses.
-  * Customers can also use Time Series Insights query APIs directly to drive data into custom IoT applications.
+  * Azure TSI supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of TSI platform to suit the needs of individual businesses.
+  * Customers can also use TSI query APIs directly to drive data into custom IoT applications.
 
 ## Next steps
 
