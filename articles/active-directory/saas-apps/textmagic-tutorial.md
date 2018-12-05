@@ -126,23 +126,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| lastName 			  | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 	| phone 			  | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     
-	a. Click on **Edit icon** to edit the **Name identifier** claim and click on **Add new claim** to open the **Manage user claims** dialog.
+	a. Click on **Edit icon** to edit the **Name identifier value** from **user.userprinicipalname** to **user.mail**.
+
+	![TextMagic Attribute](./media/textmagic-tutorial/tutorial_textmagic_email.png)
+
+	b. Click on **Add new claim** to open the **Manage user claims** dialog.
 
 	![image](./common/new_save_attribute.png)
 
 	![image](./common/new_attribute_details.png)
 
-	b. In the **Name**textbox, type the attribute name shown for that row.
+	c. In the **Name**textbox, type the attribute name shown for that row.
 
-	c. Enter the **Namespace** value.
+	d. Enter the **Namespace** value.
 
-	d. Select Source as **Attribute**.
+	e. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+	f. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Click **Ok**.
+	g. Click **Ok**.
 
-	g. Click **Save**. 
+	h. Click **Save**. 
 
 7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Base64)** and then save certificate file on your computer.
 
