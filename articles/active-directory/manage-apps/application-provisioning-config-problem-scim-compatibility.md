@@ -27,11 +27,11 @@ Azure AD's support for the SCIM 2.0 protocol is described in [Using System for C
 This article describes current and past issues with the Azure AD user provisioning service's adherance to the SCIM 2.0 protocol, and how to work around these issues.
 
 > [!IMPORTANT]
-> The latest update to the Azure AD user provisioning service was made on December 3rd, 2018. This update addressed known compatibility issues listed in the table below. See the frequently asked questions below for more information about this update.
+> The latest update to the Azure AD user provisioning service SCIM client was made on December 3rd, 2018. This update addressed the known compatibility issues listed in the table below. See the frequently asked questions below for more information about this update.
 
 ## SCIM 2.0 compliance issues and status
 
-| **SCIM 2.0 Compliance Issue** |  **Fixed?** | **Fix date**  |  
+| **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  
 |---|---|---|
 | Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 3rd, 2018 | 
 | Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 3rd, 2018  | 
@@ -43,21 +43,18 @@ This article describes current and past issues with the Azure AD user provisioni
 
 No. As it would have constituted a breaking change to SCIM apps that were coded to work with the older behavior, the changes were not automatically applied to existing apps.
 
-The changes are applied to all new non-gallery SCIM apps added after December 3rd, 2018.
+The changes are applied to all new non-gallery SCIM apps added and configured in the Azure portal after December 3rd, 2018.
 
 For information on how to migrate a pre-existing user provisioning job to include the latest fixes, see the next section.
 
 ## Can I migrate an exisitng user provisioning job to include the service fixes?
 
-Yes. 
+Yes. If you are already using this application instance for single sign-on, and need to migrate the exisitng provisioning job to include the latest fixes, follow the procedure below. This procedure describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to create a SCIM provisioning job that exhibits the old behavior.
 
-However, if an application is still in development and has not yet been deployed for either single sign-on or user provisioning, the easiest solution is to delete the application entry in the Azure Active Directory > Enterprise Applications section of the Azure portal, and then add a new entry for the application using the Create applicaiton > Non-gallery option.
-
-If you are already using an application instance for single sign-on, and need to migrate the exisitng provisioning job to include the latest fixes, follow the procedure below. This procedure describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to create a SCIM provisioning job that exhibits the old behavior.
-
-The steps below assume that the “Non-Gallery Application” custom app has been added to Azure AD using the app gallery, but a provisioning configuration has not yet been saved.
+> [!NOTE]
+> If your application is still in development and has not yet been deployed for either single sign-on or user provisioning, the easiest solution is to delete the application entry in the **Azure Active Directory > Enterprise Applications** section of the Azure portal, and simply add a new entry for the application using the **Create applicaiton > Non-gallery** option. This is an alternative to running the procedure below.
  
-1. Sign into the Azure portal @ https://portal.azure.com.
+1. Sign into the Azure portal at https://portal.azure.com.
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
 3.	In the **Properties** section of your existing SCIM app, copy the **Object ID**.
 4.  In a new web browser window, go to https://developer.microsoft.com/en-us/graph/graph-explorer 
@@ -99,7 +96,7 @@ Yes. If you had coded an application to the old behavior that existed prior to t
 
 The steps below assume that the “Non-Gallery Application” custom app has been added to Azure AD using the app gallery, but a provisioning configuration has not yet been saved.
  
-1.	Sign into the Azure portal @ https://portal.azure.com.
+1.	Sign into the Azure portal at https://portal.azure.com.
 2. in the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
 3.	In the **Properties** section of your new custom app, copy the **Object ID**.
 4.  In a new web browser window, go to https://developer.microsoft.com/en-us/graph/graph-explorer 
