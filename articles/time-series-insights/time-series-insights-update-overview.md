@@ -16,7 +16,7 @@ ms.date: 12/05/2018
 
 Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
 
-## What is IoT data?
+## Defining IoT data
 
 IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. “ IoT data is often meaningful only in the context of additional data inputs coming from first-party data sources (such as CRM or ERP) or third-party data sources (for example, weather or location).
 
@@ -32,7 +32,7 @@ Typical IoT data flow can be depicted as follows:
 
 ## Azure Time Series Insights for industrial IoT
 
-The current IoT landscape is diverse. It includes customers spanning manufacturing, automobile, oil & gas, power & utility, smart buildings, and consulting. Scenarios include ad-hoc data exploration where the shape of the data is unknown, as well as operational analysis over schematized (explicitly modeled) data to drive operational efficiency. These scenarios typically exist side-by-side and support different use cases. Platform capabilities like multi-layered storage (warm and cold), the ability to store decades worth of time series data, and the ability to explicitly model and optimize queries for asset-based operational intelligence are becoming key to the success of industrial IoT enterprises and their digital revolution.
+The current IoT landscape is diverse. It includes customers spanning manufacturing, automobiles, energy, utilities, smart buildings, and consulting. Scenarios include ad-hoc data exploration where the shape of the data is unknown, as well as operational analysis over schematized (explicitly modeled) data to drive operational efficiency. These scenarios typically exist side-by-side and support different use cases. Platform capabilities like multi-layered storage (warm and cold), the ability to store decades worth of time series data, and the ability to explicitly model and optimize queries for asset-based operational intelligence are becoming key to the success of industrial IoT enterprises and their digital revolution.
 
 Azure TSI is a comprehensive end-to-end Platform-As-A-Service offering for both IoT data exploration as well as operational insights. TSI offers a fully managed cloud service for analyzing IoT-scale time series data.
 
@@ -69,7 +69,7 @@ With the introduction of these key industrial IoT capabilities, Azure TSI provid
 
 * Near real-time data exploration
 
-  * Azure  TSI explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
+  * Azure TSI explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
 
 * Root-cause analysis and anomaly detection
 
