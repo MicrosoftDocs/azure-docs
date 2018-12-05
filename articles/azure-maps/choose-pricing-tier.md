@@ -38,7 +38,7 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 | *Matrix Routing (preview)               |        ✓           |     ✓    |
 
 > [!Note]
-> *Access to these capabilities from S0 pricing tier will be deprecated after February 4th'2019.
+> Access to these capabilities from S0 pricing tier will be deprecated after February 4th, 2019.
 
 Some additional data points worth considering are, what kind of enterprise do you have or how critical is the application being built?
 
