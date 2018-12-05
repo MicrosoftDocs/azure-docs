@@ -222,7 +222,7 @@ The transact requirements for different offer types are covered in this section.
 
 * Both a Dev Center and a Microsoft account are required for the transact publishing option, regardless of the offer’s pricing model.
 * The Dev Center account holds all relevant financial details required for Microsoft to collect fees from the customer on the publisher’s behalf and pay out the publisher.
-* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Publisher Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
+* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Partner Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
 
 *For more information on setting up these accounts, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 
