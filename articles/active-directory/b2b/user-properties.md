@@ -23,7 +23,7 @@ Depending on the inviting organization's needs, an Azure AD B2B collaboration us
 
 - State 1: Homed in an external instance of Azure AD and represented as a guest user in the inviting organization. In this case, the B2B user signs in by using an Azure AD account that belongs to the invited tenant. If the partner organization doesn't use Azure AD, the guest user in Azure AD is still created. The requirements are that they redeem their invitation and Azure AD verifies their email address. This arrangement is also called a just-in-time (JIT) tenancy or a "viral" tenancy.
 
-- State 2: Homed in a Microsoft account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account, a social account (google.com or similar), or another external identity provider. The invited user's identity is created as a Microsoft account in inviting organization’s  directory during offer redemption.
+- State 2: Homed in a Microsoft or other account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account or a social account (google.com or similar). The invited user's identity is created as a Microsoft account in the inviting organization’s directory during offer redemption.
 
 - State 3: Homed in the host organization's on-premises Active Directory and synced with the host organization's Azure AD. You can use Azure AD Connect to sync the partner accounts to the cloud as Azure AD B2B users with UserType = Guest. See [Grant locally-managed partner accounts access to cloud resources](hybrid-on-premises-to-cloud.md).
 
@@ -48,7 +48,7 @@ For guest users in State 1, the **Source** is **External Azure Active Directory*
 
 ![State 1 guest user after offer redemption](media/user-properties/after-redemption-state1.png)
 
-For guest users in State 2,  the **Source** is **Microsoft Account**.
+For guest users in State 2, the **Source** is **Microsoft Account**.
 
 ![State 2 guest user after offer redemption](media/user-properties/after-redemption-state2.png)
 
