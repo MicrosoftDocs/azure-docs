@@ -408,8 +408,6 @@
         href: migration-classic-resource-manager-community-tools.md
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
-- name: Troubleshoot
-  href: ../troubleshooting/index.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -448,3 +446,5 @@
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
+- name: Troubleshoot
+  href: ../troubleshooting/index.md
