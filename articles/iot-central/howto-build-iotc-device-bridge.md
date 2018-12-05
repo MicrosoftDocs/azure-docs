@@ -37,7 +37,6 @@ The instructions are listed in detail in the README file in the Github repo.
 The Azure resources will be hosted in your Azure subscription. You can learn more about pricing in the [README file](https://aka.ms/iotcentralgithubdevicebridge).
 
 ## Next steps
-
 Now that you've learned how to build the IoT Central device bridge, here is the suggested next step:
 
 > [!div class="nextstepaction"]
