@@ -20,10 +20,6 @@ The two regions in Germany are entirely separate from global Azure. The clouds i
 ## Migration process
 
 The process that you use to migrate a workload from Azure Germany to global Azure typically is similar to the process that's used to migrate applications to the cloud. The steps in the migration process are:
-- Assess
-- Plan
-- Migrate
-- Validate
 
 ![Image that shows the four steps in the migration process: Assess, Plan, Migrate, Validate](./media/germany-migration-main/migration-steps.png)
 
