@@ -199,7 +199,7 @@ A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote 
     Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
     Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
     Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-     Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
 
     Ping statistics for 10.0.0.4:
         Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
