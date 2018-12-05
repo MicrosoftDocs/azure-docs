@@ -182,9 +182,9 @@ If the customer purchases using an Enterprise Agreement:
 |Billing Date | Oct 15, 2018 |
 |Escrow Period (credit cards only, 30 days) | n/a |
 |Collection Period Start | Oct 15, 2018 |
-|Collection Period End (maximum, 90 days) | Jan 15, 2018 |
+|Collection Period End (maximum, 90 days) | Jan 15, 2019 |
 |Customer Payment Date | Dec 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | Jan 15, 2018 |
+|Payout Calculation Date (monthly on the 15th) | Jan 15, 2019 |
 |Payout Date | Feb 15, 2019 |
 
 **Free credits and monetary commitment** 
