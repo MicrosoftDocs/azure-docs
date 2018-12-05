@@ -860,7 +860,7 @@
     - name: Azure CLI samples
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Resource Manager templates
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+      href: platform/template-workspace-configuration.md
     - name: API
       items:  
       - name: Walkthrough using REST API

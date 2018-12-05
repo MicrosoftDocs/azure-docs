@@ -16,7 +16,7 @@ ms.component:
 ---
 
 # Standard properties in Log Analytics records
-Data in [Log Analytics](../../log-analytics/../../azure-monitor/log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+Data in [Log Analytics](../log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
@@ -83,6 +83,6 @@ AzureActivity
 
 ## Next steps
 
-- Read more about how [Log Analytics data is stored](../../log-analytics/../../azure-monitor/log-query/log-query-overview.md).
+- Read more about how [Log Analytics data is stored](../log-query/log-query-overview.md).
 - Get a lesson on [writing queries in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
 - Get a lesson on [joining tables in Log Analytics queries](../../azure-monitor/log-query/joins.md).
