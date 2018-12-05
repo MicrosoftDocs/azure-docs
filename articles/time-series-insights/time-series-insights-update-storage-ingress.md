@@ -114,7 +114,7 @@ Azure TSI will publish up to two copies of each event in your Azure Storage acco
 
 Additionally, TSI will repartition the Parquet files to optimize for the Azure TSI APIs, and the most recently repartitioned file will also be saved.
 
-During Public Preview, data will be stored indefinitely in your Azure Storage account. The ability to delete data will be added in the future, allowing a greater degree of control of managing old data.
+During Public Preview, data will be stored indefinitely in your Azure Storage account.
 
 ### Writing and editing Time Series Insights blobs
 
@@ -150,8 +150,6 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
     * Learn about other ways to export data from your Azure Storage account by visiting [Storage import and export data from blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)
 
 ### Data deletion
-
-The Azure TSI (Preview) does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
 
 Do not delete blobs since Time Series Insights (Preview) maintains metadata about the blobs inside of TSI update.
 

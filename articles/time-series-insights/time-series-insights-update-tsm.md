@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
 
 # Time Series Model
@@ -39,121 +39,32 @@ There are three major components of TSM:
 
 **Time Series Model** *types* enable defining variables or formulas for doing computations and are associated with a given TSI instance. A type can have one or more variables. For example, a TSI instance might be of type **Temperature Sensor**, which consists of the variables: *avg temperature*, *min temperature*, and *max temperature*. We create a default type when the data starts flowing into TSI. It can be retrieved and updated from model settings. Default types will have a variable that counts the number of events.
 
-## Time Series Model type JSON request and response example
+## Time Series Model type JSON example
 
-Given a POST HTTP request:
-
-```plaintext
-https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/types/$batch?api-version=API_VERSION
-```
-
-| Name | Description | Example |
-| --- | --- | --- |
-| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
-| API_VERSION  |  The API specification | `2018-11-01-preview` |
-
-With the following JSON body and variable attributes:
-
-| Attribute | Required or Optional |
-| --- | --- |
-| **kind**  |  Required  |
-| **filter**  |  Optional |
-| **value**  | Null or not specified  |
-| **interpolation**  |  Optional |
-| **aggregation**  |  Required |
+Sample:
 
 ```JSON
 {
-    "get": null,
-    "put": [
-        {
-            "name": "SampleType",
-            "description": "This is type 2",
-            "variables": {
-                "Avg Temperature": {
-                    "kind": "numeric",
-                    "filter": null,
-                    "value": { "tsx": "$event.temperature.Double" },
-                    "interpolation": "None",
-                    "aggregation": {"tsx": "avg($value)"}
-                },
-                "Count Temperature": {
-                    "kind": "aggregate",
-                    "filter": null,
-                    "value": null,
-                    "interpolation": "None",
-                    "aggregation": {"tsx": "count()"}
-                },
-                "Min Temperature": {
-                    "kind": "aggregate",
-                    "filter": null,
-                    "value": null,
-                    "interpolation": "None",
-                    "aggregation": {"tsx": "min($event.temperature)"}
-                },
-            }
+    "name": "SampleType",
+    "description": "This is sample type",
+    "variables": {
+        "Avg Temperature": {
+            "kind": "numeric",
+            "filter": null,
+            "value": { "tsx": "$event.temperature.Double" },
+            "aggregation": {"tsx": "avg($value)"}
+        },
+        "Count Temperature": {
+            "kind": "aggregate",
+            "filter": null,
+            "value": null,
+            "aggregation": {"tsx": "count()"}
         }
-    ]
-}
-```
-
-Response:
-
-```JSON
-{
-    "get": null,
-    "put": [
-        {
-            "timeSeriesType": {
-                "id": "fc4f526c-da6e-4b85-87f7-16f6cf9b69be",
-                "name": "type2",
-                "description": "This is type 2",
-                "variables": {
-                    "Avg Temperature": {
-                        "kind": "numeric",
-                        "filter": null,
-                        "value": { "tsx": "$event.temperature.Double" },
-                        "interpolation": "None",
-                        "aggregation": {"tsx": "avg($value)"}
-                    },
-                    "Count Temperature": {
-                        "kind": "aggregate",
-                        "filter": null,
-                        "value": null,
-                        "interpolation": "None",
-                        "aggregation": {"tsx": "count()"}
-                    },
-                    "Min Temperature": {
-                        "kind": "aggregate",
-                        "filter": null,
-                        "value": null,
-                        "interpolation": "None",
-                        "aggregation": {"tsx": "min($event.temperature)"}
-                    }
-                }
-            },
-            "error": null
-        }
-    ]
+    }
 }
 ``````
 
-A **default** *type* JSON response:
-
-```JSON
-{
-    "modelSettings": {
-        "name": "DefaultModel",
-        "timeSeriesIdProperties": [
-            {
-                "name": "someType1",
-                "type": "String"
-            }
-        ],
-        "defaultTypeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393"
-    }
-}
-```
+Read more about Time Series Model types from the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ## Variables
 
@@ -167,7 +78,8 @@ The matrix below works as a legend for variable definitions:
 
 The following variable kinds are supported:
 
-* Numeric – Continuous
+* Numeric
+* Aggregate
 
 ### Variable filter
 
@@ -177,15 +89,9 @@ Variable filters specify an optional filter clause to restrict the number of row
 
 Variable values are and should be used in computation. This is the column in the events that we should refer to.
 
-### Variable interpolation
-
-The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
-
-The Azure TSI (Preview) supports the following variable interpolation: `linear`, `stepright`, and `none`.
-
 ### Variable aggregation
 
-The aggregate function the variable enables part of computation. If variable interpolation is `null` or `none`, then TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**). If variable interpolation is `stepright` or `linear`, then TSI will support **twmin**, **twmax**, **twavg**, and **twsum**. Count cannot be specified in interpolation.
+The aggregate function the variable enables part of computation. TSI will support regular aggregates (namely, **min**, **max**, **avg**, **sum**, and **count**).
 
 ## Time Series Model hierarchies
 
@@ -193,61 +99,24 @@ Hierarchies organize instances by specifying property names and their relationsh
 
 Hierarchies are defined by **Hierarchy ID**, **name**, and **source**. Hierarchies have paths, a path is top-down parent-child order of the hierarchy the user wants to create. The parent/children properties map instance fields.
 
-### Time Series Model hierarchy JSON request and response example
+### Time Series Model hierarchy JSON example
 
-Given a POST HTTP request:
-
-```plaintext
-https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/hierarchies/$batch?api-version=API_VERSION
-```
-
-| Name | Description | Example |
-| --- | --- | --- |
-| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
-| API_VERSION  |  The API specification | `2018-11-01-preview` |
-
-With JSON body:
+Sample:
 
 ```JSON
 {
-    "get": null,
-    "put": [
-        {
-            "id": "4c6f1231-f632-4d6f-9b63-e366d04175e3",
-            "name": "Location",
-            "source": {
-                "instanceFieldNames": [
-                    "state",
-                    "city"
-                ]
-            }
-        }
-    ]
+    "id": "4c6f1231-f632-4d6f-9b63-e366d04175e3",
+    "name": "Location",
+    "source": {
+        "instanceFieldNames": [
+                "state",
+                "city"
+            ]
+    }
 }
 ```
 
-Response:
-
-```JSON
-{
-    "get": null,
-    "put": [
-        {
-            "hierarchy": {
-                "id": "4c6f1231-f632-4d6f-9b63-e366d04175e3",
-                "name": "Location",
-                "source": {
-                    "instanceFieldNames": [
-                        "state",
-                        "city"
-                    ]
-                }
-            },
-            "error": null
-        }
-    ]
-}
-```
+Read more about Time Series Model hierarchies from the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### Hierarchy definition behavior
 
@@ -277,76 +146,30 @@ Instances are defined by *timeSeriesId*, *typeId*, *hierarchyId*, and *instanceF
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
 
-## Time Series Model instance JSON request and response example
+## Time Series Model instance JSON example
 
-Given a POST HTTP request:
-
-```plaintext
-https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/instances/$batch?api-version=API_VERSION
-```
-
-| Name | Description | Example |
-| --- | --- | --- |
-| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
-| API_VERSION  |  The API specification | `2018-11-01-preview` |
-
-With JSON body:
+Sample:
 
 ```JSON
 {
-    "get": null,
-    "put": [
-        {
-            "name": "SampleName",
-            "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
-            "timeSeriesId": [
-                "samplePartitionKeyValueOne"
-            ],
-            "description": "floor 100",
-            "hierarchyIds": [
-                "e37a4666-9650-42e6-a6d2-788f12d11158"
-            ],
-            "instanceFields": {
-                "state": "California",
-                "city": "Los Angeles"
-            }
-        }
-    ]
+    "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
+    "timeSeriesId": ["sampleTimeSeriesId"],
+    "description": "Sample Instance",
+    "hierarchyIds": [
+        "1643004c-0a84-48a5-80e5-7688c5ae9295"
+    ],
+    "instanceFields": {
+        "state": "California",
+        "city": "Los Angeles"
+    }
 }
 ```
 
-Response:
-
-```JSON
-{
-    "get": null,
-    "put": [
-        {
-            "instance": null,
-            "error": null
-        },
-        {
-            "instance": null,
-            "error": null
-        }
-    ]
-}
-```
+Read more about Time Series Model instances from the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## Time Series Model settings example
 
-Given a POST HTTP request:
-
-```plaintext
-https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/modelSettings?api-version=API_VERSION
-```
-
-| Name | Description | Example |
-| --- | --- | --- |
-| YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
-| API_VERSION  |  The API specification | `2018-11-01-preview` |
-
-Response:
+Sample:
 
 ```JSON
 {
@@ -354,7 +177,7 @@ Response:
         "name": "DefaultModel",
         "timeSeriesIdProperties": [
             {
-                "name": "someType1",
+                "name": "id",
                 "type": "String"
             }
         ],
@@ -362,6 +185,8 @@ Response:
     }
 }
 ```
+
+Read more about Time Series Model settings from the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## Next steps
 

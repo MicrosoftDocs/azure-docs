@@ -410,7 +410,7 @@ From the Hive directory prompt, run the following command:
 > 
 > 
 
-When exploring a dataset, we frequently want to examine the number of co-occurences of groups of values. This section provides an example of how to do this for cabs and drivers.
+When exploring a dataset, we frequently want to examine the number of co-occurrences of groups of values. This section provides an example of how to do this for cabs and drivers.
 
 The **sample\_hive\_trip\_count\_by\_medallion\_license.hql** file groups the fare dataset on **medallion** and **hack_license**, and returns counts of each combination. Here are its contents:
 
