@@ -358,6 +358,9 @@ The following device attributes can be used.
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains “M365Managed”)
 
+> [!Note]  
+> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) for more details. 
+
 ## Next steps
 
 These articles provide additional information on groups in Azure Active Directory.

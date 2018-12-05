@@ -4,7 +4,7 @@ description: This article describes how to migrate on-premises machines to Azure
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -106,7 +106,10 @@ Run a failover for the machines you want to migrate.
 3. The encryption key setting isn't relevant for this scenario.
 4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. Check that the Azure VM appears in Azure as expected.
-6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
+6. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
+
+    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
     ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 

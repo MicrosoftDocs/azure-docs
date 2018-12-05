@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 12/5/2018
 ms.author: roiyz
 
 ---
@@ -21,11 +21,9 @@ ms.author: roiyz
 
 ## Overview
 
-This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the NVIDIA End-User License Agreement. During the installation process, your virtual machine may reboot to complete the driver setup.
+This extension installs NVIDIA GPU drivers on Windows N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
 An extension is also available to install NVIDIA GPU drivers on [Linux N-series VMs](hpccompute-gpu-linux.md).
-
-Terms of NVIDIA End-User License Agreement are located here - https://go.microsoft.com/fwlink/?linkid=874330
 
 ## Prerequisites
 
@@ -41,7 +39,7 @@ This extension supports the following OSs:
 
 ### Internet connectivity
 
-The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target virtual machine is connected to the internet and have access.
+The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target VM is connected to the internet and have access.
 
 ## Extension schema
 
@@ -67,7 +65,7 @@ The following JSON shows the schema for the extension.
 }
 ```
 
-### Property values
+### Properties
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -78,7 +76,6 @@ The following JSON shows the schema for the extension.
 
 
 ## Deployment
-
 
 ### Azure Resource Manager Template 
 

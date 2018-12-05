@@ -43,6 +43,8 @@ Yes, Azure automatically applies security patches to the nodes in your cluster o
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes][cordon-drain], then bring each node back up with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. OS reboots are managed across the cluster using the same [cordon and drain process][cordon-drain] as a cluster upgrade.
 
+For more information about using kured, see [Apply security and kernel updates to nodes in AKS][node-updates-kured].
+
 ## Why are two resource groups created with AKS?
 
 Each AKS deployment spans two resource groups:
@@ -93,6 +95,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-advanced-networking.md
 [aks-rbac-aad]: ./aad-integration.md
+[node-updates-kured]: node-updates-kured.md
 
 <!-- LINKS - external -->
 
@@ -101,3 +104,4 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+

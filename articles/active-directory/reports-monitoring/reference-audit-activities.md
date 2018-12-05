@@ -15,27 +15,26 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 # Azure AD audit activity reference
 
-With reporting in Azure Active Directory (Azure AD), you can get the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
 
 The reporting architecture in Azure AD consists of the following components:
 
-- **Activity** 
-    - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
-    - **Audit logs** - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like users, apps, groups, roles, policies, authentications etc..
-- **Security** 
-    - **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see Risky sign-ins.
-    - **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see Users flagged for risk.
+- **Activity reports** 
+    - [Sign-ins](concept-sign-ins.md) – Provides information about the usage of managed applications and user sign-in activities
+    - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
+    
+- **Security reports** 
+    - [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 This articles lists the audit activities that can be logged in your audit logs.
- 
-
 
 ## Access reviews
 
@@ -69,9 +68,6 @@ This articles lists the audit activities that can be logged in your audit logs.
 |User Management|Get V1 applications|
 |User Management|Get V2 application|
 |User Management|Get V2 applications|
-
-
-
 
 ## Account provisioning
 
@@ -590,13 +586,8 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Policy Management|User registered for self-service password reset|
 
 
-
-
 ## Next steps
 
-For an overview of:
-
-- Reporting, see the [Azure Active Directory reporting](overview-reports.md).
-
-- Audit activity reports, see [Audit activity reports in the Azure Active Directory portal](concept-audit-logs.md). 
-
+- [Azure AD reports overview](overview-reports.md).
+- [Audit logs report](concept-audit-logs.md). 
+- [Programmatic access to Azure AD reports](concept-reporting-api.md)

@@ -43,15 +43,20 @@ The following steps add a NAS core filer:
 
 1. From the Avere Control Panel, click the **Settings** tab at the top.
 
-2. Click **Core Filer** > **Manage Core Filers** on the left.
+1. Click **Core Filer** > **Manage Core Filers** on the left.
 
-3. Click **Create**.
+1. Click **Create**.
 
-   ![Screenshot of the Add new core filer page with the core filer name and its fully qualified domain name](media/avere-vfxt-add-core-filer.png)
+   ![Screenshot of the Add new core filer page with a cursor over the Create button](media/avere-vfxt-add-core-filer-start.png)
+
+1. Fill in the required information in the wizard: 
 
    * Name your core filer.
    * Provide a fully qualified domain name (FQDN) if available. Otherwise, provide an IP address or hostname that resolves to your core filer.
    * Choose your filer class from the list. If unsure, choose **Other**.
+
+     ![Screenshot of the Add new core filer page with the core filer name and its fully qualified domain name](media/avere-vfxt-add-core-filer.png)
+  
    * Click **Next** and choose a cache policy. 
    * Click **Add Filer**.
    * For more detailed information, refer to [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) in the Avere cluster settings guide.
@@ -105,7 +110,7 @@ To add Blob storage after creating the cluster, follow these steps.
 
 1. Open the Avere Control Panel for your cluster. Click **Settings**, then open **Cluster** > **Cloud Credentials** on the left navigation pane. On the Cloud Credentials page, click **Add Credential**.
 
-   ![Clicking the Add Credential button on the Cloud Credentials configuration page](media/avere-vfxt-new-credential-button.png)
+   ![Click the Add Credential button on the Cloud Credentials configuration page](media/avere-vfxt-new-credential-button.png)
 
 1. Fill in the following information to create a credential for the cloud core filer: 
 

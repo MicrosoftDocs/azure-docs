@@ -1,15 +1,15 @@
 ---
 title: Manage the configuration server for VMware and physical server disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to manage an existing configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: raynew
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
 
-# Manage the configuration server for VMware VMs
+# Manage the configuration server for VMware VM disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 
@@ -120,7 +120,7 @@ You can reregister the configuration server in the same vault if you need to. If
 2. Open an admin PowerShell command window, and run the following command:
 
     ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
 3. Launch the configuration server appliance browser portal using the shortcut on your desktop.
@@ -218,9 +218,16 @@ For configuration server deployments before May 2016, certificate expiry was set
 2. The expiry date appears under **Configuration Server health**.
 3. Select **Renew Certificates**.
 
-## Update Windows licence
+## Refresh Configuration server
 
-The licence provided with the OVF template is an evaluation licence valid for 180 days. For uninterrupted usage, you must activate Windows with a procured licence.
+1. In the Azure portal, navigate to **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers**
+2. Click on the configuration server you wish to refresh.
+3. On the blade with details of chosen configuration server, click **More** > **Refresh Server**.
+4. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
+
+## Update Windows license
+
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license.
 
 ## Failback requirements
 

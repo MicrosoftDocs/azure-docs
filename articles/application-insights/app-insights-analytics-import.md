@@ -10,7 +10,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
@@ -365,5 +364,5 @@ Use this code for each blob.
 
 ## Next steps
 
-* [Tour of the Log Analytics query language](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Tour of the Log Analytics query language](../azure-monitor/log-query/get-started-portal.md)
 * If you're using Logstash, use the [Logstash plugin to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

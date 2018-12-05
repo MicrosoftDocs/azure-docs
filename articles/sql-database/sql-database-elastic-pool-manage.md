@@ -3,7 +3,7 @@ title: Create and manage elastic pools - Azure SQL database | Microsoft Docs
 description: Create and manage Azure SQL elastic pools.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

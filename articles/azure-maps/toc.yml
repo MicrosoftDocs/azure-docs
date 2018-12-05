@@ -18,10 +18,14 @@
     href: tutorial-route-location.md
   - name: 3 - Multiple routes by mode of travel
     href: tutorial-prioritized-routes.md
+  - name: 4 - Create a store locator
+    href: tutorial-create-store-locator.md
 - name: Concepts
   items:
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
+  - name: Choose the right pricing tier
+    href: choose-pricing-tier.md
   - name: Coverage
     items:
     - name: Geocoding coverage
@@ -42,6 +46,8 @@
     items:
     - name: Manage accounts and keys
       href: how-to-manage-account-keys.md
+    - name: Manage pricing tier
+      href: how-to-manage-pricing-tier.md
     - name: View usage metrics
       href: how-to-view-api-usage.md
   - name: Get map data from REST APIs
@@ -58,13 +64,21 @@
       href: choose-map-style.md
     - name: Add map controls
       href: map-add-controls.md
-    - name: Add symbols and markers
+    - name: Add a symbol layer
       href: map-add-pin.md
     - name: Add a popup
-      href: map-add-popup.md
+      href: map-add-popup.md      
+    - name: Add a bubble layer
+      href: map-add-bubble-layer.md
     - name: Add a shape
       href: map-add-shape.md
-    - name: Add custom HTML
+    - name: Add a heat map layer
+      href: map-add-heat-map-layer.md   
+    - name: Add an image layer
+      href: map-add-image-layer.md
+    - name: Add a tile layer
+      href: map-add-tile-layer.md
+    - name: Add HTML markers
       href: map-add-custom-html.md
     - name: Services
       items:  

@@ -4,7 +4,7 @@ description: Learn how Azure SQL Database supports cloud business continuity and
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -22,7 +22,7 @@ Azure SQL Database is an implementation of the latest stable SQL Server Database
 - Malicious attacker succeeded to delete data or drop a database.
 - Earthquake caused a power outage and temporary disabled data-center.
 
-These cases cannot be controlled by Azure SQL Database, so you would need to do use the business continuity features in SQL Database that enables you to recover your data and keep your applications running.
+These cases cannot be controlled by Azure SQL Database, so you would need to use the business continuity features in SQL Database that enables you to recover your data and keep your applications running.
 
 This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 

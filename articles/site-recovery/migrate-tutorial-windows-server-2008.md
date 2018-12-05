@@ -6,7 +6,7 @@ manager: abhemraj
 ms.service: site-recovery
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 09/22/2018
+ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
 ---
@@ -66,7 +66,7 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
 
 - You may be unable to RDP to Windows Server 2008 SP2 servers running the 32-bit operating system immediately after they are failed over or test failed over to Azure. Restart the failed over virtual machine from the Azure portal and try connecting again. If you are still unable to connect, check if the server is configured to allow remote desktop connections, and ensure that there are no firewall rules or network security groups blocking the connection. 
   > [!TIP]
-  > A test failover is highly recommended before migrating servers. Ensure that  you've performed atleast one successful test failover on each server that you  are migrating. As part of the test failover, connect to the test failed over  machine and ensure things work as expected.
+  > A test failover is highly recommended before migrating servers. Ensure that  you've performed at least one successful test failover on each server that you  are migrating. As part of the test failover, connect to the test failed over  machine and ensure things work as expected.
   >
   >The test failover operation is non-disruptive and helps you test migrations by  creating virtual machines in an isolated network of your choice. Unlike the  failover operation, during the test failover operation, data replication  continues to progres. You can perform as many test failovers as you like before  you are ready to migrate. 
   >
@@ -150,7 +150,10 @@ Run a failover for the machines you want to migrate.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shut down the server before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
+5. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
+
+    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
    ![Complete migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
