@@ -99,6 +99,21 @@
 ### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
 <!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
 
+<!-- new for SaaS 12/05/2018 -->
+## [SaaS application offer](./cloud-partner-portal/cpp-saas-offer.md)
+### [Prerequisites](./cloud-partner-portal/cpp-prerequisites.md)
+### [Create SaaS application offer](./cloud-partner-portal/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/cpp-offer-settings-tab.md)
+#### [Technical Info tab](./cloud-partner-portal/cpp-technical-info-tab.md)
+#### [Plans tab](./cloud-partner-portal/cpp-plans-tab.md)
+#### [Channel Info tab](./cloud-partner-portal/cpp-channel-info-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/cpp-testdrive-tab.md)
+#### [Storefront Details tab](./cloud-partner-portal/cpp-storefront-tab.md)
+#### [Contacts tab](./cloud-partner-portal/cpp-contacts-tab.md)
+### [Publish offer](./cloud-partner-portal/cpp-publish-offer.md)
+### [Update existing offer](./cloud-partner-portal/cpp-update-existing-offer.md)
+
+
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
