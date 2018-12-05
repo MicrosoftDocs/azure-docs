@@ -223,8 +223,8 @@ If your application uses managed instance as the data tier, follow these general
 
   > [!NOTE]
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
-  > - To connect to a read-only replica in the primary location, use use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net.
-  > - To connect to a read-only replica in the primary location, use use &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net.
+  > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net.
+  > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net.
 - **Be prepared for perf degradation**
 
   SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the network security guidelines in this article <link>.
