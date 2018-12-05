@@ -1,6 +1,6 @@
 ﻿---
-title: How to diagnose and troubleshoot the Azure Time Series Insights (Preview) | Microsoft Docs
-description: Understanding how to diagnose and troubleshoot with the Azure Time Series Insights (Preview) 
+title: Diagnose and troubleshoot the Azure Time Series Insights Preview | Microsoft Docs
+description: Understand how to diagnose and troubleshoot with the Azure Time Series Insights Preview 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,102 +9,103 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
+
 ---
 
-# How to diagnose and troubleshoot
+# Diagnose and troubleshoot
 
-This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
+This article summarizes several common issues you might encounter when you work with your Azure Time Series Insights environment. The article also describes potential causes and solutions for each issue.
 
-## Problem: I can’t find my environment in the Time Series Insights (Preview) explorer
+## Problem: I can’t find my environment in the Time Series Insights Preview explorer
 
-This may occur if you don’t have permissions to access the TSI environment. Users will need “reader” level access role to view their TSI environment. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on the TSI resource in [Azure Portal](https://portal.azure.com/).
+This issue might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, visit the Data Access Policies section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
-  ![environment][1]
+  ![Environment][1]
 
-## Problem: No data is seen in the Time Series Insights (Preview) explorer
+## Problem: No data is seen in the Time Series Insights Preview explorer
 
-There are several common reasons why you might not see your data in the [Azure TSI (Preview) explorer](https://insights.timeseries.azure.com/preview):
+There are several common reasons why you might not see your data in the [Azure Time Series Insights Preview explorer](https://insights.timeseries.azure.com/preview).
 
-1. Your event source may not be receiving data.
+- Your event source might not be receiving data.
 
-    Verify that your event source (Event Hub or IoT Hub) is receiving data from your tags / instances. You can do so by navigating to the overview page of your resource in the Azure portal.
+    Verify that your event source, which is an event hub or an IoT hub, is receiving data from your tags or instances. To verify, go to the overview page of your resource in the Azure portal.
 
-    ![dashboard-insights][2]
+    ![Dashboard-insights][2]
 
-1. Your event source data is not in JSON format
+- Your event source data isn't in JSON format.
 
-    Azure TSI supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
+    Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-1. Your event source key is missing a required permission
+- Your event source key is missing a required permission.
 
-    * For an IoT Hub, you need to provide the key that has service connect permission.
+    * For an IoT hub, you need to provide the key that has **service connect** permission.
 
-    ![configuration][3]
+    ![Configuration][3]
 
-    * As shown in the preceding image, either of the policies *iothubowner* and service would work, because both have service connect permission.
-    * For an event hub, you need to provide the key that has Listen permission.
+    * As shown in the preceding image, both of the policies **iothubowner** and **service** work because they have **service connect** permission.
+    * For an event hub, you need to provide the key that has **Listen** permission.
   
-    ![permissions][4]
+    ![Permissions][4]
 
-    * As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
+    * As shown in the preceding image, both of the **read** and **manage** policies work because they have **Listen** permission.
 
-1. Your consumer group provided is not exclusive to TSI
+- Your consumer group provided isn't exclusive to Time Series Insights.
 
-    During registration of an IoT Hub or Event Hub, you specify the consumer group that should be used for reading the data. That consumer group must not be shared. If the consumer group is shared, the underlying Event Hub automatically disconnects one of the readers randomly. Provide a unique consumer group for TSI to read from.
+    During registration of an IoT hub or event hub, you specify the consumer group that's used to read the data. Don't share that consumer group. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers at random. Provide a unique consumer group for Time Series Insights to read from.
 
-1. Your Time Series ID property specified at the time of provisioning is incorrect, missing, or null
+- Your **Time Series ID** property specified at the time of provisioning is incorrect, missing, or null.
 
-    This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see the [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you cannot update an existing Time Series Insights update environment to use a different **Time Series ID**.
+    This issue might occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. For more information, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights update environment to use a different Time Series ID.
 
-## Problem: Some data is shown, but some is missing
+## Problem: Some data shows, but some is missing
 
-1. You may be sending data without the Time Series ID
+You might be sending data without the Time Series ID.
 
-    This error may occur when you’re sending events without the Time Series ID field in the payload. See [Supported JSON shapes](./how-to-shape-query-json.md) for more information.
+- This issue might occur when you send events without the Time Series ID field in the payload. For more information, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-1. This may occur because your environment is being throttled.
+- This issue might occur because your environment is being throttled.
 
     > [!NOTE]
-    > At this time, Azure TSI supports a maximum ingestion rate of 6 MBps.
+    > At this time, Azure Time Series Insights supports a maximum ingestion rate of 6 Mbps.
 
-## Problem: My event source's timestamp property name setting doesn't work
+## Problem: My event source's Timestamp property name setting doesn't work
 
 Ensure that the name and value conform to the following rules:
 
-* The **Timestamp** property name is case-sensitive.
-* The **Timestamp** property value that's coming from your event source, as a JSON string, should have the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
+* The **Timestamp** property name is case sensitive.
+* The **Timestamp** property value that comes from your event source, as a JSON string, has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
 
-The easiest way to ensure that your timestamp property name is captured and working properly is to use the TSI explorer. Within the TSI explorer, use the chart to select a period of time after you provided the timestamp property name. Right-click the selection and choose the **explore events** option. The first column header should be your **Timestamp** property name and it should have a `($ts)` next to the word `Timestamp`, rather than:
+The easiest way to ensure that your **Timestamp** property name is captured and working properly is to use the Time Series Insights explorer. Within the Time Series Insights explorer, use the chart to select a period of time after you provided the **Timestamp** property name. Right-click the selection, and select the **explore events** option. The first column header is your **Timestamp** property name. It should have `($ts)` next to the word `Timestamp`, rather than:
 
-* `(abc)`, which would indicate TSI is reading the data values as strings
-* Calendar icon, which would indicate TSI is reading the data value as datetime
-* `#`, which would indicate TSI is reading the data values as an integer
+* `(abc)`, which indicates that Time Series Insights reads the data values as strings.
+* Calendar icon, which indicates that Time Series Insights reads the data value as datetime.
+* `#`, which indicates that Time Series Insights reads the data values as an integer.
 
-If the **Timestamp** property isn’t explicitly specified, we will leverage an event’s IoT Hub or Event Hub **Enqueued Time** as the default timestamp.
+If the **Timestamp** property isn’t explicitly specified, an event’s IoT hub or event hub **Enqueued Time** is used as the default time stamp.
 
 ## Problem: I can’t edit or view my Time Series Model
 
-1. You may be accessing a Time Series Insights S1 or S2 environment
+- You might be accessing a Time Series Insights S1 or S2 environment.
 
-   Time Series Models are supported only in **PAYG** environments. See this article for more information on accessing your S1/S2 environment from the Time Series Insights Update explorer.
+   Time Series Models are supported only in **PAYG** environments. See this article for more information on how to access your S1/S2 environment from the Time Series Insights Update explorer.
 
-   ![access][5]
+   ![Access][5]
 
-1. You may not have permissions to view and edit the model
+- You might not have permissions to view and edit the model.
 
-   Users need “contributor” level access to edit & view their Time Series Model. You may verify the current access levels and grant additional access by visiting the Data Access Policies section on your Time Series Insights resource in Azure Portal.
+   Users need contributor-level access to edit and view their Time Series Model. To verify the current access levels and grant additional access, visit the Data Access Policies section on your Time Series Insights resource in the Azure portal.
 
-## Problem: All my instances in Time Series Insights (Preview) explorer don’t have a parent
+## Problem: All my instances in Time Series Insights Preview explorer don’t have a parent
 
-This may occur if your environment doesn’t have a **Time Series Model** Hierarchy defined. See this article for more information on [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+This issue might occur if your environment doesn’t have a **Time Series Model** hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
-  ![tsm][6]
+  ![Time Series Models][6]
 
 ## Next steps
 
-Read [How to work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+- Read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
-Read [Supported JSON shapes](./how-to-shape-query-json.md).
+- Read [Supported JSON shapes](./how-to-shape-query-json.md).
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png

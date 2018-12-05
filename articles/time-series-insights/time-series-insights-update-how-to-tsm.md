@@ -1,6 +1,6 @@
 ---
 title: Data modeling in Azure Time Series Insights | Microsoft Docs
-description: Understanding data modeling in Azure Time Series Insights
+description: Understand data modeling in Azure Time Series Insights
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -13,123 +13,123 @@ ms.date: 12/03/2018
 
 # Data modeling in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following the Azure Time Series Insights (Preview). It details several common data scenarios.
+This document describes how to work with Time Series Models following the Azure Time Series Insights Preview. It details several common data scenarios.
 
-Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the update.
+To learn more about how to use the update, read [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 ## Types
 
-### How to create a single type
+### Create a single type
 
-1. Start by heading to the TSM model selector panel and select types from the menu. Then, collapse the panel to focus on TSM types:
+1. Go to the Time Series Models selector panel, and select **Types** from the menu. Collapse the panel to focus on the Time Series Models types.
 
-    ![portal_one][1]
+    ![Portal_one][1]
 
-1. Click on **Add**.
-1. Input all details pertaining to types and click **Create**. Doing so should create types in the environment:
+1. Select **Add**.
+1. Input all details that pertain to types, and select **Create**. This action creates types in the environment.
 
-    ![portal_two][2]
+    ![Portal_two][2]
 
-### How to bulk upload one or more types
+### Bulk upload one or more types
 
-1. Click on **upload JSON**.
-1. Choose that file that contains the type payload.
-1. Click on **upload**
+1. Select **Upload JSON**.
+1. Select the file that contains the type payload.
+1. Select **Upload**.
 
-    ![portal_three][3]
+    ![Portal_three][3]
 
-### How to edit a single type
+### Edit a single type
 
-* Select the type and click on **Edit** button. Make required changes and click **Save**:
+Select the type, and select **Edit**. Make the required changes, and select **Save**.
 
-    ![portal_four][4]
+![Portal_four][4]
 
-### How to delete a type
+### Delete a type
 
-* Select the type and click on **Delete** button. If no instances are associated to the types, it will be deleted:
+Select the type, and select **Delete**. If no instances are associated with the types, it's deleted.
 
-    ![portal_five][5]
+![Portal_five][5]
 
 ## Hierarchies
 
-### How to create a single hierarchy
+### Create a single hierarchy
 
-1. Start by heading to the TSM model selector panel and select hierarchies from the menu. Then, collapse the panel to focus on TSM types:
+1. Go to the Time Series Models selector panel, and select **Hierarchies** from the menu. Collapse the panel to focus on the Time Series Models hierarchies.
 
-    ![portal_six][6]
+    ![Portal_six][6]
 
-1. Click on **Add**
+1. Select **Add**.
 
-    ![portal_seven][7]
+    ![Portal_seven][7]
 
-1. Click on **Add Level** in the right pane:
+1. Select **Add Level** in the right pane.
 
-    ![portal_eight][8]
+    ![Portal_eight][8]
 
-1. Enter the hierarchy details and click **Create**:
+1. Enter the hierarchy details, and select **Create**.
 
-    ![portal_nine][9]
+    ![Portal_nine][9]
 
-### How to bulk upload one or more hierarchies
+### Bulk upload one or more hierarchies
 
-1. Click on **Upload JSON**.
-1. Choose the file that contains the hierarchy payload.
-1. Click on **Upload**:
+1. Select **Upload JSON**.
+1. Select the file that contains the hierarchy payload.
+1. Select **Upload**.
 
-    ![portal_ten][10]
+    ![Portal_ten][10]
 
-### How to edit a single hierarchy
+### Edit a single hierarchy
 
-* Select the Hierarchy and click on the **Edit** button. Make required changes and click **Save**:
+Select the hierarchy, and select **Edit**. Make the required changes, and select **Save**.
 
-    ![portal_eleven][11]
+![Portal_eleven][11]
 
-### How to delete a hierarchy
+### Delete a hierarchy
 
-* Select the hierarchy and click on **Delete** button. If no instances are associated to the hierarchy, it will be deleted.
+Select the hierarchy, and Select **Delete**. If no instances are associated with the hierarchy, it's deleted.
 
-    ![portal_twelve][12]
+![Portal_twelve][12]
 
 ## Instances
 
-### How to create a single instance
+### Create a single instance
 
-1. Start by heading to the TSM model selector panel and select instances from the menu. Then,  collapse the panel to focus on TSM types:
+1. Go to the Time Series Models selector panel, and select **Instances** from the menu. Collapse the panel to focus on the Time Series Models instances.
 
-    ![portal_thirteen][13]
+    ![Portal_thirteen][13]
 
-1. Click on **Add**:
+1. Select **Add**.
 
-    ![portal_fourteen][14]
+    ![Portal_fourteen][14]
 
-1. Enter the instance details, select type and hierarchy association and click **Create**.
+1. Enter the instance details, select the type and hierarchy association, and select **Create**.
 
-### How to bulk upload one or more instances
+### Bulk upload one or more instances
 
-1. Click on **Upload JSON**.
-1. Choose the file that contains the instances payload:
+1. Select **Upload JSON**.
+1. Select the file that contains the instances payload.
 
-    ![portal_fifteen][15]
+    ![Portal_fifteen][15]
 
-1. Click on **Upload**.
+1. Select **Upload**.
 
-### How to edit a single instance
+### Edit a single instance
 
-* Select the instance and click on the **Edit** button. Make required changes and click **Save**:
+Select the instance, and select **Edit**. Make the required changes, and select **Save**.
 
-    ![portal_sixteen][16]
+![Portal_sixteen][16]
 
-### How to delete an instance
+### Delete an instance
 
-* Select the instance and click on **Delete** button. If no events are associated to the instances, it will be deleted.
+Select the instance, and select **Delete**. If no events are associated with the instances, it's deleted.
 
 ## Next steps
 
-Read about [Data modeling](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
+- For more information about Time Series Models, read [Data modeling](./time-series-insights-update-tsm.md).
 
-View the Azure TSI (Preview) explorer [article](./time-series-insights-update-explorer.md) to learn more about the preview.
+- To learn more about the preview, read the Azure Time Series Insights Preview explorer [article](./time-series-insights-update-explorer.md).
 
-Learn about supported JSON shapes by reading [Supported JSON Shapes](./time-series-insights-send-events.md#json).
+- To learn about supported JSON shapes, read [Supported JSON Shapes](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png
