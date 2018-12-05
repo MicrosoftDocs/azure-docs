@@ -24,6 +24,7 @@ This article gives you technical details into how the Azure Active Directory Sea
 ## How does Seamless SSO work?
 
 This section has three parts to it:
+
 1. The setup of the Seamless SSO feature.
 2. How a single user sign-in transaction on a web browser works with Seamless SSO.
 3. How a single user sign-in transaction on a native client works with Seamless SSO.
@@ -31,6 +32,7 @@ This section has three parts to it:
 ### How does set up work?
 
 Seamless SSO is enabled using Azure AD Connect as shown [here](how-to-connect-sso-quick-start.md). While enabling the feature, the following steps occur:
+
 - A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD) in each AD forest.
 - The computer account's Kerberos decryption key is shared securely with Azure AD. If there are multiple AD forests, each one will have its own Kerberos decryption key.
 - In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.

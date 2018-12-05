@@ -3,7 +3,7 @@ title: Azure Security Center Data Security | Microsoft Docs
 description: This document explains how data is managed and safeguarded in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
-ms.author: yurid
+ms.date: 11/28/2018
+ms.author: rkarlin
 
 ---
 # Azure Security Center Data Security
@@ -27,7 +27,7 @@ Azure Security Center analyzes data from the following sources to provide visibi
 
 - Azure Services: Uses information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
 - Network Traffic: Uses sampled network traffic metadata from Microsoft’s infrastructure, such as source/destination IP/port, packet size, and network protocol.
-- Partner Solutions: Uses security alerts from integrated partner solutions, such as firewalls and antimalware solutions. 
+- Partner Solutions: Uses security alerts from integrated partner solutions, such as firewalls and antimalware solutions.
 - Your Virtual Machines and Servers: Uses configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files from your virtual machines. In addition, when an alert is created, Azure Security Center may generate a snapshot of the VM disk affected and extract machine artifacts related to the alert from the VM disk, such as a registry file, for forensics purposes.
 
 
@@ -40,7 +40,7 @@ Azure Security Center analyzes data from the following sources to provide visibi
 
 ## Data location
 
-**Your Workspace(s)**: A workspace is specified for the following Geos, and data collected from your Azure virtual machines, including crash dumps, and some types of alert data, are stored in the nearest workspace. 
+**Your Workspace(s)**: A workspace is specified for the following Geos, and data collected from your Azure virtual machines, including crash dumps, and some types of alert data, are stored in the nearest workspace.
 
 | VM Geo                        | Workspace Geo |
 |-------------------------------|---------------|
@@ -49,20 +49,20 @@ Azure Security Center analyzes data from the following sources to provide visibi
 | Asia Pacific, Japan, India    | Asia Pacific  |
 | Australia                     | Australia     |
 
- 
+
 VM disk snapshots are stored in the same storage account as the VM disk.
- 
-For virtual machines and servers running in other environments, e.g. on-premises, you can specify the workspace and region where collected data is stored. 
+
+For virtual machines and servers running in other environments, e.g. on-premises, you can specify the workspace and region where collected data is stored.
 
 **Azure Security Center Storage**: Information about security alerts, including partner alerts, is stored regionally according to the location of the related Azure resource, whereas Information about security health status and recommendation is stored centrally in either the United States or Europe according to customer’s location.
 Azure Security Center collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises. Azure Security Center performs this analysis within the same Geo as the workspace, and deletes the ephemeral copies when analysis is complete.
 
-Machine artifacts are stored centrally in the same region as the VM. 
+Machine artifacts are stored centrally in the same region as the VM.
 
 
 ## Managing data collection from virtual machines
 
-When you enable Security Center in Azure, data collection is turned on for each of your Azure subscriptions. You can also turn on data collection for your subscriptions in the Security Policy section of Azure Security Center. When Data collection is turned on, Azure Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure virtual machines and any new ones that are created. 
+When you enable Security Center in Azure, data collection is turned on for each of your Azure subscriptions. You can also turn on data collection for your subscriptions in the Security Policy section of Azure Security Center. When Data collection is turned on, Azure Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure virtual machines and any new ones that are created.
 The Microsoft Monitoring agent scans for various security-related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent reads event log entries and ETW traces and copies them to your workspace(s) for analysis. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s), enable process creation events, and enable command line auditing.
 
 If you are using Azure Security Center Free, you can also disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions on the Standard tier. VM disk snapshots and artifact collection will still be enabled even if data collection has been disabled.
@@ -76,7 +76,7 @@ Customers can consume Security Center related data from different data streams, 
 
 
 > [!NOTE]
-> Security recommendations can be also consumed via REST API. Read [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) for more information. 
+> Security recommendations can be also consumed via REST API. Read [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) for more information.
 
 ## See also
 In this document, you learned how data is managed and safeguarded in Azure Security Center. To learn more about Azure Security Center, see:

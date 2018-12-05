@@ -72,6 +72,6 @@ The following table provides different examples of log searches that retrieve Wi
 
 ## Next steps
 * Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse the event records into individual fields.
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
+* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](data-sources-performance-counters.md) from your Windows agents.

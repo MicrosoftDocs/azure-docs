@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -30,12 +30,12 @@ In an Azure AD tenant, users that belong to the tenant sign-in with an email add
 
 In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, click **Identity providers** and then select **Username** under Local accounts. 
 
-User accounts for applications must always be created through a sign-up policy, sign-up or sign-in policy, or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
+User accounts for applications must always be created through a sign-up user flow, sign-up or sign-in user flow, or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
 
-Azure AD B2C has also added support for [custom policies](active-directory-b2c-overview-custom.md).  These [custom policies](active-directory-b2c-overview-custom.md) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
+Azure AD B2C has also added support for [custom policies](active-directory-b2c-overview-custom.md).  These [custom policies](active-directory-b2c-overview-custom.md) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
 
 Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -75,8 +75,8 @@ Currently there is no way to change the "From:" field on the email.
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
-### What password policy is used for local accounts in Azure AD B2C?
-The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+### What password user flow is used for local accounts in Azure AD B2C?
+The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.

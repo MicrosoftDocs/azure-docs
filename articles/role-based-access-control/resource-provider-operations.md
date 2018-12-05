@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -1224,9 +1224,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Consumption/marketplaces/read | List the marketplace resource usage details for a scope for EA and WebDirect subscriptions. |
 > | Action | Microsoft.Consumption/operations/read | List all supported operations by Microsoft.Consumption resource provider. |
 > | Action | Microsoft.Consumption/pricesheets/read | List the Pricesheets data for a subscription or a management group. |
-> | Action | Microsoft.Consumption/reservationDetails/read | List the utilization details for reserved instances by reservation order or managment groups. The details data is per instance per day level. |
+> | Action | Microsoft.Consumption/reservationDetails/read | List the utilization details for reserved instances by reservation order or management groups. The details data is per instance per day level. |
 > | Action | Microsoft.Consumption/reservationRecommendations/read | List single or shared recommendations for Reserved instances for a subscription. |
-> | Action | Microsoft.Consumption/reservationSummaries/read | List the utilization summary for reserved instances by reservation order or managment groups. The summary data is either at monthly or daily level. |
+> | Action | Microsoft.Consumption/reservationSummaries/read | List the utilization summary for reserved instances by reservation order or management groups. The summary data is either at monthly or daily level. |
 > | Action | Microsoft.Consumption/reservationTransactions/read | List the transaction history for reserved instances by management groups. |
 > | Action | Microsoft.Consumption/tenants/register/action | Register action for scope of Microsoft.Consumption by a tenant. |
 > | Action | Microsoft.Consumption/terms/read | List the terms for a subscription or a management group. |

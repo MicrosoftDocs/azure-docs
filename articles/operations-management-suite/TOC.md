@@ -11,7 +11,7 @@
 # How to
 
 ## Analyze
-### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automate
 ### [Azure Automation overview](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -34,9 +34,9 @@
 #### [AD Assessment](../azure-monitor/insights/ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../azure-monitor/insights/ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Agent Health](oms-solution-agenthealth.md)
-#### [Alert Management](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Alert Management](../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Networking Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Containers](../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault Analytics](../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Network Performance Monitor](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Office 365](oms-solution-office-365.md)
