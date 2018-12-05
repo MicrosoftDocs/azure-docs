@@ -106,7 +106,7 @@ u.RawQuery = q.Encode()
 Next, create an anonymous structure for the request body and encode it as JSON with `json.Marshal()`. Add this code to the `translate` function.
 
 ```go
-// Create an anonymous struct for our request body and encode it to JSON
+// Create an anonymous struct for your request body and encode it to JSON
 body := []struct {
 	Text string
 }{
