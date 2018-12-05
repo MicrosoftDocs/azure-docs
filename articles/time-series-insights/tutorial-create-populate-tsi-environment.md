@@ -22,10 +22,10 @@ This tutorial will guide you through the process of creating a Time Series Insig
 > * Run a device simulation to stream data into the TSI environment
 > * Verify the simulated telemetry data
 
-## Video: 
+## Video
 
 In this video, we show you how to use an Azure IoT Solution Accelerator to generate data that can be used to get started with Time Series Insights.
-<br></br>
+
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## Prerequisites

@@ -18,7 +18,7 @@ Azure Time Series Insights (TSI) is an end-to-end Platform-As-A-Service to inges
 
 ## Defining IoT data
 
-IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. “ IoT data is often meaningful only in the context of additional data inputs coming from first-party data sources (such as CRM or ERP) or third-party data sources (for example, weather or location).
+IoT data is any "industrial" data available in asset intensive organizations. IoT data is often highly unstructured since it's sent from a wide-range of assets that record fairly noisy measurements such as temperature, motion, humidity. Additionally, these data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from those streams must be cleaned up before any analysis can occur. IoT data is often meaningful only in the context of additional data inputs coming from first-party data sources (such as CRM or ERP) or third-party data sources (for example, weather or location).
 
 As a result, only a negligible fraction of that data gets used for operational and business purposes. Such data provides consistent, comprehensive, current, and correct information for business reporting and analysis. Turning collected IoT data into actionable insights therefore requires a few of key capabilities:
 
