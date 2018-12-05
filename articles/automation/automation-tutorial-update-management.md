@@ -80,11 +80,11 @@ In this step, you learn to set up an alert to let you know the status of an upda
 
 ### Alert conditions
 
-In the Azure portal, go to **Monitor**, and then select **Create Alert**.
+In your Automation Account, under **Monitoring** go to **Alerts**, and then click **+ New alert rule**.
 
-Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
+Your Automation Account is already selected as the resource. If you want to change it you can click **Select** and on the **Select a resource** page, select **Automation Accounts** in the **Filter by resource type** dropdown. Select your Automation Account, and then select **Done**.
 
-Select the signal that is appropriate for your update deployment. The following table shows the details of the two available signals for update deployments:
+Click **Add condition** to select the signal that is appropriate for your update deployment. The following table shows the details of the two available signals for update deployments:
 
 |Signal Name|Dimensions|Description|
 |---|---|---|
@@ -103,7 +103,7 @@ Under **2. Define alert details**, enter a name and description for the alert. S
 
 ![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Action groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
 In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
 
