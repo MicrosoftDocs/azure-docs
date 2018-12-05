@@ -9,7 +9,7 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # Transform data with the Azure Machine Learning Data Prep SDK
@@ -211,16 +211,16 @@ builder.preview(skip=30)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|31|11/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|32|11/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|33|11/2/2015 0:54|Feb 1, 2015 12AM-2AM|
-|34|11/2/2015 1:00|Feb 1, 2015 12AM-2AM|
-|35|11/2/2015 1:54|Feb 1, 2015 12AM-2AM|
-|36|11/2/2015 2:54|Feb 1, 2015 2AM-4AM|
-|37|11/2/2015 3:54|Feb 1, 2015 2AM-4AM|
-|38|11/2/2015 4:00|Feb 1, 2015 4AM-6AM|
-|39|11/2/2015 4:54|Feb 1, 2015 4AM-6AM|
+|30|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
+|31|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
+|32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
+|33|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
+|34|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
+|35|1/2/2015 1:54|Feb 1, 2015 12AM-2AM|
+|36|1/2/2015 2:54|Feb 1, 2015 2AM-4AM|
+|37|1/2/2015 3:54|Feb 1, 2015 2AM-4AM|
+|38|1/2/2015 4:00|Feb 1, 2015 4AM-6AM|
+|39|1/2/2015 4:54|Feb 1, 2015 4AM-6AM|
 
 Here you see an issue with the generated program. Based solely on the one example you provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what you want in this case. To fix this issue, provide another example using the `add_example()` function on the `builder` variable.
 

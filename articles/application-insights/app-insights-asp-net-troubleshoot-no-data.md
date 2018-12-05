@@ -137,7 +137,7 @@ Fix:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In the [Microsoft Azure home dashboard](https://portal.azure.com), look at the Service Health map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-* Check also [our status blog](https://blogs.msdn.com/b/applicationinsights-status/).
+* Check also [our status blog](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Did you write any code for the [server-side SDK](app-insights-api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](app-insights-api-filtering-sampling.md) that might be filtering out too much?
 * If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](app-insights-api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
 

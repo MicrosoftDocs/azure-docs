@@ -84,5 +84,5 @@ AzureActivity
 ## Next steps
 
 - Read more about how [Log Analytics data is stored](../log-analytics/../azure-monitor/log-query/log-query-overview.md).
-- Get a lesson on [writing queries in Log Analytics](../log-analytics/query-language/get-started-queries.md).
-- Get a lesson on [joining tables in Log Analytics queries](../log-analytics/query-language/joins.md).
+- Get a lesson on [writing queries in Log Analytics](../azure-monitor/log-query/get-started-queries.md).
+- Get a lesson on [joining tables in Log Analytics queries](../azure-monitor/log-query/joins.md).

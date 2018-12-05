@@ -122,5 +122,5 @@ To maintain a familiar model between infrastructure metrics already collected by
 
 ## Next steps
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
+* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
 
