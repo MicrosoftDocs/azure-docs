@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -168,9 +168,9 @@ The following table lists the behavior for the preference variable values that a
 | SilentlyContinue |Continues executing the runbook without logging the message. This has the effect of ignoring the message. |
 | Stop |Logs the message and suspends the runbook. |
 
-## Retrieving runbook output and messages
+## <a name="runbook-output"></a>Retrieving runbook output and messages
 ### Azure portal
-You can view the details of a runbook job in the Azure portal from the Jobs tab of a runbook. The Summary of the job displays the input parameters and the [Output Stream](#output-stream) in addition to general information about the job and any exceptions if they occurred. The History includes messages from the [Output Stream](#output-stream) and [Warning and Error Streams](#warning-and-error-streams) in addition to the [Verbose Stream](#verbose-stream) and [Progress Records](#progress-records) if the runbook is configured to log verbose and progress records.
+You can view the details of a runbook job in the Azure portal from the Jobs tab of a runbook. The Summary of the job displays the input parameters and the [Output Stream](#output-stream) in addition to general information about the job and any exceptions if they occurred. The History includes messages from the [Output Stream](#output-stream) and [Warning and Error Streams](#warning-and-error-streams) in addition to the [Verbose Stream](#verbose-stream) and [Progress Records](#progress-records) if the runbook is configured to log verbose and progress records. When 
 
 ### Windows PowerShell
 In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) cmdlet. This cmdlet requires the ID of the job and has a parameter called Stream where you specify which stream to return. You can specify **Any** to return all streams for the job.
