@@ -201,9 +201,9 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## Managing personal inforamation
+## Managing personal information
 
-The StorSimple Device Manager for both physical and virtual series collects personal information in the follwing key instances:
+The StorSimple Device Manager for both physical and virtual series collects personal information in the following key instances:
 
 - Alert user settings where email address of users are configured. This information can be viewed and cleared by the administrator. This applies to both the StorSimple 8000 series devices and StorSimple Virtual Arrays.
  * To view and clear the settings for StorSimple 8000 series, follow the steps in [View and manage StorSimple alerts](storsimple-8000-manage-alerts.md#configure-alert-settings)

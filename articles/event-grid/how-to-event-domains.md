@@ -1,42 +1,61 @@
 ---
-title: How to manage large sets of topics in Azure Event Grid and publish events to them using Event Domains
-description: Shows how to create and manage topics in Azure Event Grid and publish events to them using Event Domains.
+title: Manage large sets of topics in Azure Event Grid with event domains
+description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
 services: event-grid
 author: banisadr
 
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/08/2018
 ---
 
-# Manage topics and publish events using Event Domains
+# Manage topics and publish events using event domains
 
 This article shows how to:
 
-* Create an Event Grid Domain
-* Subscribe to topics
+* Create an Event Grid domain
+* Subscribe to event grid topics
 * List keys
-* Publish events to a Domain
+* Publish events to a domain
+
+To learn about event domains, see [Understand event domains for managing Event Grid topics](event-domains.md).
+
+## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## Create an Event Domain
 
-Creating an Event Domain can be done via the `eventgrid` extension for [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Once you've created a Domain, you can use it to manage large sets of topics.
+To manage large sets of topics, create an event domain.
+
+For Azure CLI, use:
 
 ```azurecli-interactive
-# if you haven't already installed the extension, do it now.
+# If you haven't already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
 az eventgrid domain create \
   -g <my-resource-group> \
-  --name <my-domain-name>
+  --name <my-domain-name> \
   -l <location>
 ```
 
-Successful creation will return the following:
+For PowerShell, use:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain-name> `
+  -Location <location>
+```
+
+Successful creation returns the following values:
 
 ```json
 {
@@ -53,24 +72,59 @@ Successful creation will return the following:
 }
 ```
 
-Note the `endpoint` and `id` as they will be required to manage the Domain and publish events.
+Note the `endpoint` and `id` as they're required to manage the domain and publish events.
+
+## Manage access to topics
+
+Managing access to topics is done via [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Role assignment uses role-based access control to limit operations on Azure resources to authorized users at a certain scope.
+
+Event Grid has two built-in roles, which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
+
+The following Azure CLI command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
+
+```azurecli-interactive
+az role assignment create \
+  --assignee alice@contoso.com \
+  --role "EventGrid EventSubscription Contributor (Preview)" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+The following PowerShell command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
+
+```azurepowershell-interactive
+New-AzureRmRoleAssignment `
+  -SignInName alice@contoso.com `
+  -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
+  -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+For more information about managing access for Event Grid operations, see [Event Grid security and authentication](./security-authentication.md).
 
 ## Create topics and subscriptions
 
-The Event Grid service automatically creates and manages the corresponding topic in a Domain based on the call to create an event subscription for a Domain topic. There's no separate step to create a topic in a Domain. Similarly, when the last event subscription for a topic is deleted, the topic is deleted as well.
+The Event Grid service automatically creates and manages the corresponding topic in a domain based on the call to create an event subscription for a domain topic. There's no separate step to create a topic in a domain. Similarly, when the last event subscription for a topic is deleted, the topic is deleted as well.
 
-Subscribing to a topic in a domain is the same as subscribing to any other Azure resource:
+Subscribing to a topic in a domain is the same as subscribing to any other Azure resource. For the source resource ID, specify the event domain ID returned when creating the domain earlier. To specify the topic you want to subscribe to, add `/topics/<my-topic>` to the end of the source resource ID. To create a domain scope event subscription that receives all events in the domain, specify the event domain ID without specifying any topics.
+
+Typically, the user you granted access to in the preceding section would create the subscription. To simplify this article, you create the subscription. 
+
+For Azure CLI, use:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --name <event-subscription> \
-  --resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/<my-topic>" \
-  --endpoint https://contoso.azurewebsites.net/api/f1?code=code
+  --source-resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" \
+  --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-The resource ID given is the same ID returned when creating the Domain earlier. To specify the topic you want to subscribe to, add `/topics/<my-topic>` to the end of the resource ID.
+For PowerShell, use:
 
-To create a Domain scope event subscription that receives all events in the Domain, give the domain as the `resource-id` without specifying any topics for example `/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>`.
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
+  -EventSubscriptionName <event-subscription> `
+  -Endpoint https://contoso.azurewebsites.net/api/updates
+```
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -78,31 +132,14 @@ If you need a test endpoint to subscribe your events to, you can always deploy a
 
 Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
 
-## Manage access to topics
-
-Managing access to topics is done via [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Role assignment uses Role Based Access Check to limit operations on Azure resources to authorized users at a certain scope.
-
-Event Grid has two built-in roles which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
-
-The following command would limit `alice@contoso.com` to creating and deleting event subscriptions only on topic `foo`:
-
-```azurecli-interactive
-az role assignment create --assignee alice@contoso.com --role "EventGrid EventSubscription Contributor (Preview)" --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/foo
-```
-
-See [Event Grid security and authentication](./security-authentication.md) for more on:
-
-* Management access control
-* Operation types
-* Creating custom role definitions
 
 ## Publish events to an Event Grid Domain
 
-Publishing events to a Domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). The only difference is that you need to specify the topic you wish each event to go to. The following array of events would result in event with `"id": "1111"` to topic `foo` while event with `"id": "2222"` would be sent to topic `bar`:
+Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). The only difference is that you need to specify the topic you wish each event to go to. The following array of events would result in event with `"id": "1111"` to topic `foo` while event with `"id": "2222"` would be sent to topic `bar`:
 
 ```json
 [{
-  "topic": "foo",
+  "topic": "demotopic1",
   "id": "1111",
   "eventType": "maintenanceRequested",
   "subject": "myapp/vehicles/diggers",
@@ -114,7 +151,7 @@ Publishing events to a Domain is the same as [publishing to a custom topic](./po
   "dataVersion": "1.0"
 },
 {
-  "topic": "bar",
+  "topic": "demotopic2",
   "id": "2222",
   "eventType": "maintenanceCompleted",
   "subject": "myapp/vehicles/tractors",
@@ -127,7 +164,7 @@ Publishing events to a Domain is the same as [publishing to a custom topic](./po
 }]
 ```
 
-To get the keys for a Domain use:
+To get the keys for a domain with Azure CLI, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -135,8 +172,16 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-And then use your favorite method of making an HTTP POST to publish your events to your Event Grid Domain.
+For PowerShell, use:
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
 
 ## Next steps
 
-* For more information on high-level concepts in Event Domains and why they're useful, see the [conceptual overview of Event Domains](./event-domains.md).
+* For more information on high-level concepts in Event domains and why they're useful, see the [conceptual overview of Event Domains](event-domains.md).

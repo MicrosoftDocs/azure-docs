@@ -1,6 +1,6 @@
 ---
 title: Deploy the remote monitoring solution locally - Docker - Azure | Microsoft Docs 
-description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
+description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Docker for testing and development.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The article shows you how to deploy the microservices to local Docker containers. A local microservices deployment uses the following cloud services: IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You learn how to deploy the microservices to local Docker containers. A local microservices deployment uses the following cloud services: IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
 
 If you want to run the Remote Monitoring solution accelerator in an IDE on your local machine, see [Deploy the Remote Monitoring solution accelerator locally - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -65,13 +65,13 @@ docker-compose up
 The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On following runs, Docker runs the containers immediately.
 
 > [!TIP]
-> We frequently publish new Docker images with new functionality. You can use the following set of commands to cleanup your local Docker containers and corresponding images before you pull the latest ones. 
+> Microsoft frequently publishes new Docker images with new functionality. You can use the following set of commands to cleanup your local Docker containers and corresponding images before you pull the latest ones:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 entries for the specified container.
 
@@ -96,14 +96,4 @@ Use the `docker-compose down --rmi all` command to remove the Docker images and 
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up a local development environment
-> * Configure the solution accelerator
-> * Deploy the solution accelerator
-> * Sign in to the solution accelerator
-
 Now that you've deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

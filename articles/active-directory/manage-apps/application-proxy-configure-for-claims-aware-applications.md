@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 
 ---
 
@@ -51,7 +51,7 @@ If all the internal URLs for your applications are fully qualified domain names 
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## Next steps
-* [Enable single-sign on](application-proxy-single-sign-on.md) for applications that aren't claims-aware
+* [Enable single-sign on](configure-single-sign-on-portal.md) for applications that aren't claims-aware
 * [Enable native client apps to interact with proxy applications](application-proxy-configure-native-client-application.md)
 
 

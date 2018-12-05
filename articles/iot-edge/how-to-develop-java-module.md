@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop and debug Java modules for Azure 
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/21/2018
@@ -61,7 +61,7 @@ The following steps show you how to create an IoT Edge module based on Java usin
 7. Choose **Java Module** as the template for the first module in the solution.
 8. Provide a name for your module. Choose a name that's unique within your container registry. 
 8. Provide a value for groupId or accept the default **com.edgemodule**.
-9. Provide the image repository for the module. VS Code autopopulates the module name, so you just have to replace **localhost:5000** with your own registry information. If you use a local Docker registry for testing, then localhost is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name.
+9. Provide the image repository for the module. VS Code autopopulates the module name, so you just have to replace **localhost:5000** with your own registry information. If you use a local Docker registry for testing, then localhost is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. The final string looks like \<registry name\>.azurecr.io/\<modulename\>.
 
    ![Provide Docker image repository](./media/how-to-develop-node-module/repository.png)
 
@@ -76,6 +76,8 @@ Within the solution you have three items:
    >The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables. 
 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+* A **deployment.debug.template.json** file containers the debug version of your module images with proper container options.
+
 
 ## Develop your module
 
@@ -87,6 +89,14 @@ Visual Studio Code has support for Java. Learn more about [how to work with Java
 
 ## Launch and debug module code without container
 The IoT Edge Java module depends on Azure IoT Java Device SDK. In the default module code, you initialize a **ModuleClient** with environment settings and input name, which means the IoT Edge Java module requires the environment settings to start and run, and you also need to send or route messages to the input channels. Your default Java module only contains one input channel and the name is **input1**.
+
+### Setup IoT Edge simulator for IoT Edge solution
+
+In your development machine, you can start IoT Edge simulator instead of installing the IoT Edge security daemon to run your IoT Edge solution. 
+
+1. In device explorer on the left side, right-click on your IoT Edge device ID, select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+
+2. You can see the IoT Edge Simulator has been successfully setup in integrated terminal.
 
 ### Setup IoT Edge simulator for single module app
 
@@ -129,7 +139,7 @@ The IoT Edge Java module depends on Azure IoT Java Device SDK. In the default mo
 
 ## Build module container for debugging and debug in attach mode
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the Java pipe module. The simulated temperature sensor keeps sending messages to Java pipe module, and then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, Java modules only support debugging in linux-amd64 and linux-arm32v7 containers.
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the Java pipe module. The simulated temperature sensor keeps sending messages to Java pipe module, and then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. By default, **deployment.debug.template.json** contains the debug version of the image. Currently, Java modules only support debugging in linux-amd64 and linux-arm32v7 containers. You can swtich your Azure IoT Edge default platform in VS Code status bar.
 
 ### Setup IoT Edge simulator for IoT Edge solution
 
@@ -141,12 +151,9 @@ In your development machine, you can start IoT Edge simulator instead of install
 
 ### Build and run container for debugging and debug in attach mode
 
-1. In VS Code, navigate to the `deployment.template.json` file. Update your module image URL by adding **.debug** to the end.
+1. Navigate to `App.java`. Add a breakpoint in this file.
 
-2. Replace the Java module createOptions in **deployment.template.json** with below content and save this file: 
-    ```json
-    "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5005/tcp\":[{\"HostPort\":\"5005\"}]}}}"
-    ```
+2. In the VS Code file explorer, select the `deployment.debug.template.json` file for your solution, in the context-menu, click **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to Docker Explorer to watch container status.
 
 5. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (Java)**.
 

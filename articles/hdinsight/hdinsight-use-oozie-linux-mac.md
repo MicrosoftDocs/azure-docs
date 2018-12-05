@@ -747,7 +747,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

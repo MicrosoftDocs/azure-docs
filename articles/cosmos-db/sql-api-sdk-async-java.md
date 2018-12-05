@@ -1,15 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 11/29/2018
 ms.author: moderakh
 
 ---
@@ -48,6 +47,14 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 </table></br>
 
 ## Release notes
+
+### <a name="2.3.0"/>2.3.0
+* Fixed a resource leak bug.
+* Added support for MultiPolygon
+* Added support for custom headers in RequestOptions.
+
+### <a name="2.2.2"/>2.2.2
+* Fixed a packaging bug.
 
 ### <a name="2.2.1"/>2.2.1
 * Fixed a NPE bug in write retry path.
@@ -115,8 +122,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.2.1](#2.1.0) |Nov 2, 2018|--- |
-| [2.2.0](#2.2.1) |September 22, 2018|--- |
+| [2.3.0](#2.3.0) |Nov 29, 2018|--- |
+| [2.2.2](#2.2.2) |Nov 8, 2018|--- |
+| [2.2.1](#2.2.1) |Nov 2, 2018|--- |
+| [2.2.0](#2.2.0) |September 22, 2018|--- |
 | [2.1.0](#2.1.0) |September 5, 2018|--- |
 | [2.0.1](#2.0.1) |August 16, 2018|--- |
 | [2.0.0](#2.0.0) |June 20, 2018|--- |

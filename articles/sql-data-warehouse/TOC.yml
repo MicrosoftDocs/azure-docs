@@ -17,7 +17,10 @@
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
+  href: release-notes.md
   items:
+    - name: October 2018 
+      href: release-notes-october-2018.md
     - name: September 2018 
       href: release-notes-september-2018.md
     - name: August 2018 
@@ -267,6 +270,8 @@
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md
+  - name: Gen2 lower compute tier
+    href: gen2-lower-tier-regions.md
   - name: PowerShell cmdlets
     href: sql-data-warehouse-reference-powershell-cmdlets.md
   - name: REST APIs

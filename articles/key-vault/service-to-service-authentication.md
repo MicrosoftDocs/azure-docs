@@ -7,7 +7,7 @@ manager: mbaldwin
 services: key-vault
 
 ms.author: bryanla
-ms.date: 09/05/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod:
 ms.service: key-vault
@@ -180,18 +180,16 @@ To use a certificate to sign into Azure AD:
 
 1. Create a [service principal certificate](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-2. Deploy the certificate to either the _LocalMachine_ or _CurrentUser_ store. 
+2. Deploy the certificate to either the *LocalMachine* or *CurrentUser* store. 
 
 3. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}
+          CertificateStoreLocation={CertificateStore}
     ```
  
-    Replace _{AppId}_, _{TenantId}_, and _{Thumbprint}_ with values generated in Step 1.
-
-    **CertificateStoreLocation** must be either _CurrentUser_ or _LocalMachine_, based on your deployment plan.
+    Replace *{AppId}*, *{TenantId}*, and *{Thumbprint}* with values generated in Step 1. Replace *{CertificateStore}* with either `LocalMachine` or `CurrentUser`, based on your deployment plan.
 
 4. Run the application. 
 

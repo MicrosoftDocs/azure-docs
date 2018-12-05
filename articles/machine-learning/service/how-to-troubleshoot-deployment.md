@@ -1,6 +1,6 @@
 ---
 title: Deployment troubleshooting guide for Azure Machine Learning service
-description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with Azure Machine Learning service.
+description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
+ms.date: 12/04/2018
 ---
 
-# Troubleshooting Azure Machine Learning service deployments
+# Troubleshooting Azure Machine Learning service AKS and ACI deployments
 
-In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Machine Learning service.
+In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
 
 When deploying a model in Azure Machine Learning service, the system performs a number of tasks. This is a complex sequence of events and sometimes issues arise. The deployment tasks are:
 
@@ -112,7 +112,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### Debug the Docker image locally
-Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
 
 First we need to find out the image location:
 

@@ -1,13 +1,11 @@
 ---
-title: Connect Apache Spark to Azure Cosmos DB | Microsoft Docs
+title: Connect Apache Spark to Azure Cosmos DB
 description: Learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB. You can perform distributed aggregations on the multi-tenant, globally distributed database system from Microsoft.
 keywords: apache spark
 services: cosmos-db
 author: tknandu
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
@@ -80,7 +78,7 @@ Run the following steps to connect Spark to Azure Cosmos DB by using pyDocumentD
 
 6. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Python** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-7. Run a few Spark queries by using the flights sample data hosted in the "doctorwho" Azure Cosmos DB account. (This account is publicly accessible.) The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. You can import the notebook to your Azure Databricks account and run it. The following section explains the functionality of the code blocks in detail.
+7. Run a few Spark queries by using the flights sample data hosted in the "doctorwho" Azure Cosmos DB account. This account is publicly accessible. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) notebook. You can import the notebook to your Azure Databricks account and run it. The following section explains the functionality of the code blocks in detail.
 
 The following code snippet shows how to import the pyDocumentDB SDK, and run a query in the Spark context. As noted in the code snippet, the pyDocumentDB SDK contains the connection parameters required to connect to the Azure Cosmos DB account. It imports the required libraries, and configures the master key and host, to create the Azure Cosmos DB client (pydocumentdb.document_client).
 
@@ -206,7 +204,7 @@ This article demonstrates the use of the Spark connector Java SDK in the followi
 
 ### Read Twitter data from Azure Cosmos DB
  
-In this section, you run Spark queries to read a batch of Twitter data from Azure Cosmos DB. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files and go to `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
+In this section, you run Spark queries to read a batch of Twitter data from Azure Cosmos DB. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) notebook. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
 1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**. 
 
@@ -265,7 +263,7 @@ Depending on the scenario, you should use different configuration values to opti
 
 ### Read Twitter data that is streaming to Azure Cosmos DB
 
-In this section, you run Spark queries to read a change feed of streaming Twitter data. While you run the queries in this section, make sure that your Twitter feed app is running and pumping data to Azure Cosmos DB. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
+In this section, you run Spark queries to read a change feed of streaming Twitter data. While you run the queries in this section, make sure that your Twitter feed app is running and pumping data to Azure Cosmos DB. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) notebook. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
 1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**.  
 
@@ -332,7 +330,7 @@ Java SDK supports the following connection settings:
 
 ### Write Twitter data to Azure Cosmos DB 
 
-In this section, you run Spark queries to write a batch of Twitter data to a new collection in the same database. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
+In this section, you run Spark queries to write a batch of Twitter data to a new collection in the same database. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) notebook. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
 1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**.  
 
@@ -425,7 +423,7 @@ Java SDK supports the following values for configuration mapping:
 
 ### Write Twitter data that is streaming to Azure Cosmos DB 
 
-In this section, you run Spark queries to write a change feed of streaming Twitter data to a new collection in the same database. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
+In this section, you run Spark queries to write a change feed of streaming Twitter data to a new collection in the same database. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) notebook. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
 1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**.  
 

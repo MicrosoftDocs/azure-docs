@@ -1840,7 +1840,7 @@ equals('abc', 'abcd')
 And returns these results: 
 
 * First example: Both values are equivalent, so the function returns `true`.
-* Second exmaple: Both values aren't equivalent, so the function returns `false`.
+* Second example: Both values aren't equivalent, so the function returns `false`.
 
 <a name="first"></a>
 
@@ -1875,7 +1875,7 @@ first(createArray(0, 1, 2))
 And return these results: 
 
 * First example: `"h"`
-* Second exmaple: `0`
+* Second example: `0`
 
 <a name="float"></a>
 
@@ -3550,7 +3550,7 @@ These examples get the specified number of
 items from the front of these collections:
 
 ```
-take('abcde`, 3)
+take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
@@ -4263,7 +4263,7 @@ xml('<value>')
 This example creates the XML version for this string, 
 which contains a JSON object: 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 And returns this result XML: 
 
@@ -4286,7 +4286,7 @@ Suppose you have this JSON object:
 
 This example creates XML for a string that contains this JSON object:
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 And returns this result XML: 
 

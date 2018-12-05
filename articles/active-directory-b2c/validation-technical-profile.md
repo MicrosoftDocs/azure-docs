@@ -27,7 +27,7 @@ A validation technical profile is an ordinary technical profile from any protoco
 }
 ```
 
-Claims that are retuned from a validation technical profile are added back to the claims bag. You can use those claims in the next validation technical profiles.
+Claims that are returned from a validation technical profile are added back to the claims bag. You can use those claims in the next validation technical profiles.
 
 Validation technical profiles are executed in the sequence that they appear in the **ValidationTechnicalProfiles** element. You can configure in a validation technical profile whether the execution of any subsequent validation technical profiles should continue if the validation technical profile raises an error or is successful.  
 
@@ -49,8 +49,8 @@ The **ValidationTechnicalProfile** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Posible values: `true` or `false` (default,  processing of further validation profiles will stop and an error returned). 
-|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Posible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Possible values: `true` or `false` (default,  processing of further validation profiles will stop and an error returned). 
+|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:
 
@@ -77,8 +77,8 @@ The **Precondition** element contains following elements:
 Following example uses these validation technical profiles: 
 
 1. The first validation technical profile checks user credentials and doesn't continue if an error occurs, such as invalid username or bad password. 
-2. The next validation technical profile, doesn't execute if the userType claim does not exist, or if the value of the userType is `Partner`. The validation technical profile tries to read the user profile from the internal customer database and continue if an error occurs, such as REST API service not avaible, or any internal error.
-3. The last validation technical profile, doesn't execute if the userType claim has not existed, or if the value of the userType is `Customer`. The validation technical profile tries to read the user profile from the internal partner database and continues if an error occurs, such as REST API service not avaible, or any internal error.
+2. The next validation technical profile, doesn't execute if the userType claim does not exist, or if the value of the userType is `Partner`. The validation technical profile tries to read the user profile from the internal customer database and continue if an error occurs, such as REST API service not available, or any internal error.
+3. The last validation technical profile, doesn't execute if the userType claim has not existed, or if the value of the userType is `Customer`. The validation technical profile tries to read the user profile from the internal partner database and continues if an error occurs, such as REST API service not available, or any internal error.
 
 ```XML
 <ValidationTechnicalProfiles>

@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure SQL Database Using Dynamic Management Views | Microsoft Docs
+title: Monitoring performance Azure SQL Database Using DMVs | Microsoft Docs
 description: Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 10/22/2018
 ---
-# Monitoring Azure SQL Database using dynamic management views
+# Monitoring performance Azure SQL Database using dynamic management views
 
 Microsoft Azure SQL Database enables a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This topic provides information on how to detect common performance problems by using dynamic management views.
 
@@ -327,7 +327,7 @@ ORDER BY start_time ASC;
 
 ## Identify memory grant wait performance issues
 
-If your top wait type is `RESOURCE_SEMAHPORE` and you don't have high a CPU issue, you may have a memory grant waiting issue.
+If your top wait type is `RESOURCE_SEMAHPORE` and you don't have a high CPU usage issue, you may have a memory grant waiting issue.
 
 ### Determine if a `RESOURCE_SEMAHPORE` wait is a top wait
 
