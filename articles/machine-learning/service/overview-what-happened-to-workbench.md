@@ -37,11 +37,11 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 ## Support timeline
 
-You can continue to use your experimentation and model management accounts as well as the Machine Learning Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the three to four months after that release. You can still find the documentation for the old features in the [Resources section](../desktop-workbench/tutorial-classifying-iris-part-1.md) at the bottom of the table of contents.
+You can continue to use your Machine Learning Experimentation and Model Management accounts as well as the Machine Learning Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the three to four months after that release. You can still find the documentation for the old features in the [Resources section](../desktop-workbench/tutorial-classifying-iris-part-1.md) at the bottom of the table of contents.
 
 |Retirement&nbsp;phase|Support details for earlier features|
 |:---:|----------------|
-|December 4, 2018|The ability to create **Azure Machine Learning Experimentation accounts** and **Model Management accounts** in the Azure portal and from the CLI has ended. The ability to create Machine Learning compute environments from the CLI has also ended. If you have an existing account, the CLI and the desktop Machine Learning Workbench continue to work in this phase.|
+|December 4, 2018|The ability to create Azure Machine Learning Experimentation and Model Management accounts in the Azure portal and from the CLI has ended. The ability to create Machine Learning compute environments from the CLI has also ended. If you have an existing account, the CLI and the desktop Machine Learning Workbench continue to work in this phase.|
 |January 9, 2019|Support for everything else, including the remaining APIs and the desktop Machine Learning Workbench ends on this date.|
 
 [Start migrating](how-to-migrate.md) today. All the latest capabilities are available by using the new <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [the CLI](reference-azure-machine-learning-cli.md), and the [portal](quickstart-get-started.md).
@@ -76,21 +76,21 @@ Learn how to [get started in Python with the main SDK](quickstart-get-started.md
 
 ## What about my registered models and images?
  
-The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To do this, [download the models and re-register them](how-to-migrate.md) in your new workspace. 
+The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, [download the models and re-register them](how-to-migrate.md) in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
+The images that you created in your old image registry must be re-created in the new workspace to continue to use them. To re-create your images, follow the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
 
 ## What about deployed web services?
 
-The models you deployed as web services using your Model Management account will continue to work for as long as Azure Container Service (ACS) is supported. Those web services will even work after support has ended for Model Management accounts. However, when support for the old CLI ends, so does your ability to manage those web services.
+The models you deployed as web services by using your Machine Learning Model Management account will continue to work for as long as Azure Container Service is supported. Those web services will work even after support has ended for Machine Learning Model Management accounts. However, when support for the old CLI ends, so does your ability to manage those web services.
 
-In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. You can also [deploy to FPGAs and to the IoT edge](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
+In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. You can also [deploy to FPGAs and to Azure IoT Edge](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models by using the new SDK or CLI. 
 
-## What about the old SDK & CLI?
+## What about the old SDK and CLI?
 
-Yes, they will continue to work until January (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
+Yes, they'll continue to work till January. See the preceding [timeline](#timeline). We recommend that you start creating your new experiments and models with the latest SDK or CLI.
 
-In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
+By using the new Python SDK in the latest release, you can interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
 ## What about Azure Machine Learning for Visual Studio Code?
 
