@@ -264,12 +264,12 @@ Note: this technology is currently in preview and is only available for English 
 ## Generating Thumbnails
 A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision API feature helps solve the problem.
 
-After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
+After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'area of interest'. The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
 
 The thumbnail algorithm works as follows:
 
-1. Removes distracting elements from the image and recognizes the main object, the 'region of interest' (ROI).
-2. Crops the image based on the identified region of interest.
+1. Removes distracting elements from the image and recognizes the main object, the 'area of interest'.
+2. Crops the image based on the identified area of interest.
 3. Changes the aspect ratio to fit the target thumbnail dimensions.
 
 ![Thumbnails](./Images/thumbnail-demo.png)
