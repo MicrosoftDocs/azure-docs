@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -331,6 +331,27 @@ The PowerShell cmdlets that enable the child runbook scenario are:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - This cmdlet allows you to start a runbook and pass parameters to the runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - This cmdlet allows you to check the job status for each child if there are operations that need to be performed after the child runbook completes.
+
+### <a name="429"></a>Scenario: 429: The request rate is currently too large. Please try again
+
+#### Issue
+
+Your receive the following error message when running the `Get-AzureRmAutomationJobOutput` cmdlet:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### Cause
+
+This error may occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### Resolution
+
+There are two ways to resolve this error:
+
+* Edit the runbook, and reduce the number of job streams that it emits​.
+* Reduce the number of streams to be retrieved when running the cmdlet. To do this you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
 
 ## Common errors when importing modules
 

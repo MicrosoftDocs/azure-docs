@@ -177,5 +177,5 @@ To access your Log Analytics workspace, you sign into the Azure portal using the
 ## Next steps
 * Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
 
-*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) or [Quickstart for Windows computers](../../log-analytics/log-analytics-quick-collect-windows-computer.md)
+*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) or [Quickstart for Windows computers](../../azure-monitor/learn/quick-collect-windows-computer.md)
 
