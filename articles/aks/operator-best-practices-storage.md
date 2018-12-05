@@ -105,11 +105,11 @@ This article focused on storage best practices in AKS. For more information abou
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
 [vm-sizes]: ../virtual-machines/linux/sizes.md
-[dynamic-disks]: azure-disks-dynamic.md
+[dynamic-disks]: azure-disks-dynamic-pv.md
 [dynamic-files]: azure-files-dynamic-pv.md
-[reclaim-policy]: concepts-storage.md#reclaim-policy
+[reclaim-policy]: concepts-storage.md#storage-classes
 [aks-concepts-storage-pvcs]: concepts-storage.md#persistent-volume-claims
-[aks-concepts-storage-classes]: concepts-storage.md
+[aks-concepts-storage-classes]: concepts-storage.md#storage-classes
 [managed-disks]: ../virtual-machines/linux/managed-disks-overview.md
 [best-practices-multi-region]: operator-best-practices-multi-region.md
 [remove-state]: operator-best-practices-multi-region.md#remove-service-state-from-inside-containers
