@@ -55,11 +55,11 @@ First, create a public Standard load balancer that can balance traffic load over
    - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
    - **Location**: Select **West Europe**. 
      >[!NOTE]
-     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview#regions-that-support-availability-zones). 
+     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
    
 1. Select **Create**.
    
-![Create a load balancer](./media/tutorial-load-balancer-port-forwarding-portal/load-balancer.png)
+![Create a load balancer](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
 
 ## Create and configure back-end servers
 
