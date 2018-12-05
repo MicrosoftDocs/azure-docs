@@ -32,7 +32,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram: 
 
-![Incrementally load data](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![Incrementally load data](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 Here are the important steps to create this solution: 
 

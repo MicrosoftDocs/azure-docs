@@ -90,11 +90,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## Modify ASP.NET code
 
-In your **DotNetAppSqlDb** project in Visual Studio, open _packages.config_ and add the following line in the list of packages.
+In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 Open _Models\MyDatabaseContext.cs_ and add the following `using` statements to the top of the file:
