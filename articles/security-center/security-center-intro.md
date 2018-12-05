@@ -22,8 +22,7 @@ ms.author: rkarlin
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
-Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, as you move lower in the management stack - from SaaS (software as a service) to IaaS (infrastructure as a service)
-- more of the responsibility for the service protection shifts to Azure. Azure Security Center provides you the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
+Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, as you move lower in the management stack - from SaaS (software as a service) to IaaS (infrastructure as a service) - more of the responsibility for the service protection shifts to Azure. Azure Security Center provides you the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
 
 Azure Security Center addresses the three most urgent security challenges:
 
