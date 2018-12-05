@@ -27,18 +27,18 @@ The Azure CLI 2.0 is used to create and manage Azure resources from the command 
  
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-* [Collect data from Azure virtual machines](log-analytics-quick-collect-azurevm.md)
-* [Collect data from hybrid Linux computer](log-analytics-quick-collect-linux-computer.md)
-* [Collect data from hybrid Windows computer](log-analytics-quick-collect-windows-computer.md)
+* [Collect data from Azure virtual machines](../../log-analytics/log-analytics-quick-collect-azurevm.md)
+* [Collect data from hybrid Linux computer](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+* [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create a workspace
-Create a worksapce with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+Create a worksapce with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 The following parameters set a default value:
 
@@ -117,12 +117,12 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-![Example result when deployment is complete](media/log-analytics-quick-create-workspace-cli/template-output-01.png)
+![Example result when deployment is complete](media/quick-create-workspace-cli/template-output-01.png)
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  
 
-* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Add [System Center Operations Manager as a data source](../azure-monitor/platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
-* Connect [Configuration Manager](log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
-* Review the [management solutions](../azure-monitor/insights/solutions.md) available and how to add or remove a solution from your workspace.
+* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
+* Add [System Center Operations Manager as a data source](../../azure-monitor/platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
+* Connect [Configuration Manager](../../log-analytics/log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
+* Review the [management solutions](../../azure-monitor/insights/solutions.md) available and how to add or remove a solution from your workspace.

@@ -27,13 +27,13 @@ The Azure PowerShell module is used to create and manage Azure resources from th
  
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-* [Collect data from Azure virtual machines](log-analytics-quick-collect-azurevm.md)
-* [Collect data from hybrid Linux computer](log-analytics-quick-collect-linux-computer.md)
-* [Collect data from hybrid Windows computer](log-analytics-quick-collect-windows-computer.md)
+* [Collect data from Azure virtual machines](../../log-analytics/log-analytics-quick-collect-azurevm.md)
+* [Collect data from hybrid Linux computer](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+* [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -117,12 +117,12 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-![Example result when deployment is complete](media/log-analytics-quick-create-workspace-posh/template-output-01.png)
+![Example result when deployment is complete](media/quick-create-workspace-posh/template-output-01.png)
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  
 
-* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Add [System Center Operations Manager as a data source](../azure-monitor/platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
-* Connect [Configuration Manager](log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
-* Review the [management solutions](../azure-monitor/insights/solutions.md) available and how to add or remove a solution from your workspace.
+* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
+* Add [System Center Operations Manager as a data source](../../azure-monitor/platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
+* Connect [Configuration Manager](../../log-analytics/log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
+* Review the [management solutions](../../azure-monitor/insights/solutions.md) available and how to add or remove a solution from your workspace.
