@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
 
 ---
@@ -74,17 +74,8 @@ The following JSON shows the schema for the extension.
 | type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
-### Settings
-
-All settings are optional. The default behavior is install the latest supported driver as applicable.
-
-| Name | Description | Default Value | Valid Values | Data Type |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: GRID driver version<br> NC/ND: CUDA driver version | latest | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
-| installGridND | Install GRID driver on ND series VMs | false | true, false | boolean |
 
 ## Deployment
-
 
 ### Azure Resource Manager Template 
 
@@ -131,8 +122,6 @@ Set-AzureRmVMExtension
 
 ### Azure CLI
 
-The following example mirrors the above ARM and PowerShell example and also adds custom settings as an example for non-default driver installation. Specifically, it installs a specific GRID driver even if an ND series VM is being provisioned.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -141,8 +130,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 

@@ -12,9 +12,9 @@ ms.date: 04/16/2018
 
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
-# Quickstart: Create a Kafka on HDInsight cluster
+# Quickstart: Create an Apache Kafka on HDInsight cluster
 
-Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
+[Apache Kafka](https://kafka.apache.org/) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
 In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using Azure PowerShell. You also learn how to use included utilities to send and receive messages using Kafka.
 
@@ -23,7 +23,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 > [!IMPORTANT]
 > The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network.
 >
-> For more information, see the [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+> For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
 ## Prerequisites
 
@@ -91,9 +91,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## Create a Kafka cluster
+## Create an Apache Kafka cluster
 
-Create a Kafka on HDInsight cluster with [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Create an Apache Kafka on HDInsight cluster with [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -178,11 +178,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
+## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information
 
-When working with Kafka, you must know the *Zookeeper* and *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
+When working with Kafka, you must know the *Apache Zookeeper* and *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
 
-In this section, you get the host information from the Ambari REST API on the cluster.
+In this section, you get the host information from the Apache Ambari REST API on the cluster.
 
 1. From the SSH connection to the cluster, use the following command to install the `jq` utility. This utility is used to parse JSON documents, and is useful in retrieving the host information:
    
@@ -237,7 +237,7 @@ In this section, you get the host information from the Ambari REST API on the cl
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## Manage Kafka topics
+## Manage Apache Kafka topics
 
 Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` utility to manage topics.
 
@@ -263,7 +263,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         > [!IMPORTANT] 
         > Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 
-        To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
+        To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
 
         For the highest availability of your Kafka data, you should rebalance the partition replicas for your topic when:
 
@@ -325,7 +325,7 @@ To store records into the test topic you created earlier, and then read them usi
 
 4. Use __Ctrl + C__ to stop the consumer.
 
-You can also programmatically create producers and consumers. For an example of using this API, see the [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
+You can also programmatically create producers and consumers. For an example of using this API, see the [Apache Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
 
 ## Clean up resources
 
@@ -343,4 +343,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use Apache Spark with Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Use Apache Spark with Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

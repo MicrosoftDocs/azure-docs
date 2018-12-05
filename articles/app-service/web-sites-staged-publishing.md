@@ -54,7 +54,7 @@ The app must be running in the **Standard**, **Premium**, or **Isolated* tier in
 4. In your app's resource blade, click  **Deployment slots**, then click a deployment slot to open that slot's resource blade, with a set of metrics and configuration just like any other app. The name of the slot is shown at the top of the blade to remind you that you are viewing the deployment slot.
    
     ![Deployment Slot Title][StagingTitle]
-5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](app-service-deploy-local-git.md).
 
@@ -171,12 +171,12 @@ If any errors are identified in production after a slot swap, roll the slots bac
 <a name="Warm-up"></a>
 
 ## Custom warm-up before swap
-Some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
+When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
             <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostname="[app hostname]" />
+            <add initializationPage="/Home/About" hostName="[app hostname]" />
         </applicationInitialization>
     </system.webServer>
 
@@ -261,7 +261,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Next steps
-[Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Azure App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)  
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 

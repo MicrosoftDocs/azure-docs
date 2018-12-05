@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB indexing policies | Microsoft Docs
+title: Azure Cosmos DB indexing policies
 description:  Understand how indexing works in Azure Cosmos DB. Learn how to configure and change the indexing policy for automatic indexing and greater performance.
 author: markjbrown
 

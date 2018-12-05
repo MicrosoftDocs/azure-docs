@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -54,7 +54,7 @@ This update includes the following improvements for Azure Stack:
 <!-- TBD - IS ASDK --> 
 - Fixed an issue in which you created virtual machines on the Azure Stack user portal, and the portal displayed an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
-- The following managed disk issues are fixed in 1809, and are also fixed in the 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- The following managed disk issues are fixed in 1809, and are also fixed in the 1808 [Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Fixed the issue in which attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) failed with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -76,18 +76,18 @@ This update includes the following improvements for Azure Stack:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
-      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066).
       2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 
 ### Changes
 
 <!-- 2635202 - IS, ASDK -->
-- Infrastructure backup service moves from the [public infrastructure network](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) to the [public VIP network](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Customers will need to ensure the service has access the backup storage location from the public VIP network.  
+- Infrastructure backup service moves from the [public infrastructure network](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) to the [public VIP network](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Customers will need to ensure the service has access the backup storage location from the public VIP network.  
 
 > [!IMPORTANT]  
 > If you have a firewall that does not allow connections from the public VIP network to the file server, this change will cause infrastructure backups to fail with "Error 53 The network path was not found." This is a breaking change that has no reasonable workaround. Based on customer feedback, Microsoft will revert this change in a hotfix. 
-Please review the [post update steps section](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resouces. 
+Please review the [post update steps section](#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resouces. 
 in 1811, this change will be applied to all systems. If you applied the hotfix in 1809, there is no further action required.  
 
 ### Common Vulnerabilities and Exposures
@@ -143,7 +143,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4471992 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/).
+- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
@@ -173,7 +173,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 > Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## Known issues (post-installation)
 
@@ -226,7 +226,7 @@ The following are post-installation known issues for this build version.
    
   Run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
 
-  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4471993/), so be sure to install this hotfix if you're experiencing the issue. 
+  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4477849/), so be sure to install this hotfix if you're experiencing the issue. 
 
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
