@@ -124,15 +124,16 @@ Now that you've encoded the request body as JSON, you can build your POST reques
 // Build the HTTP POST request
 req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
 if err != nil {
-	log.Fatal(err)
+    log.Fatal(err)
 }
+// Add required headers to the request
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API
 res, err := http.DefaultClient.Do(req)
 if err != nil {
-	log.Fatal(err)
+    log.Fatal(err)
 }
 ```
 
