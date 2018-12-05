@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -138,7 +138,7 @@ Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+$adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location

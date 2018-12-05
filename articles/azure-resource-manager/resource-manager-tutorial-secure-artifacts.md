@@ -116,7 +116,7 @@ A Blob container is needed before you can upload any files.
 
     - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
     - **BACPAC file name**: SQLDatabaseExtension.bacpac.
-    - **Artifact location SAS token**: Make sure it starts with a "?".
+    - **Artifact location SAS token**: Make sure the token precedes with a "?."
 
 You need these three values in [Deploy the template](#deploy-the-template).
 

@@ -63,7 +63,7 @@ Take these steps to create an IoT Edge module based on Azure IoT Python SDK usin
 
 7. Enter a name for your module. Choose a name that's unique within your container registry. 
 
-8. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. 
+8. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. The final string looks like \<registry name\>.azurecr.io/\<modulename\>.
 
    ![Provide Docker image repository](./media/how-to-develop-c-module/repository.png)
 
@@ -105,7 +105,7 @@ In each module folder, there are several Docker files for different container ty
     ptvsd.break_into_debugger()
     ```
 
-   For example, if you want to debug `receive_message_callback` method. You can insect the single line of code like below.
+   For example, if you want to debug `receive_message_callback` method. You can insert the single line of code like below.
 
     ```python
     def receive_message_callback(message, hubManager):

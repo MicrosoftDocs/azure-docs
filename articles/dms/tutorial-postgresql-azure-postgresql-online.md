@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/04/2018
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Create a migration project by using the Azure Database Migration Service.
 > * Run the migration.
 > * Monitor the migration.
+
+> [!NOTE]
+> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium (Preview) pricing tier.
 
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
@@ -44,7 +47,7 @@ To complete this tutorial, you need to:
 - There are two methods for invoking the CLI:
     - In the upper-right corner of the Azure postal, select the Cloud Shell button:
  
-       ![Cloud Shell button in the Azure portal](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Cloud Shell button in the Azure portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
      

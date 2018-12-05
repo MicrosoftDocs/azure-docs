@@ -143,7 +143,7 @@ To inform the StorSimple Device Manager service of the change, you need to acces
     
 4. In the StorSimple Device Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. In the **Synchronize storage account key** blade, if the primary access key was changed (regenerated), click Primary, and then click **Sync Key**. If the secondary key was changed, click **Secondary**, and then click **Sync Key**.
    
-    ![Sync access key](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
+    ![Sync access key](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
 ## Next steps
 * Learn how to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

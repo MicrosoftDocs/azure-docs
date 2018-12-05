@@ -25,7 +25,7 @@ You can configure the Azure Stack to use PowerShell to manage resources such as 
 
 ## Prerequisites
 
-Run the following prerequisites either from the [development kit](.\asdk\asdk-connect.md#connect-with-rdp) or from a Windows-based external client if you are [connected to the ASDK through VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
+Run the following prerequisites either from the [development kit](./asdk/asdk-connect.md#connect-with-rdp) or from a Windows-based external client if you are [connected to the ASDK through VPN](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
  - Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  

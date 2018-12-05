@@ -66,8 +66,17 @@
       href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Streaming live 
+  - name: Streaming live events
     href: live-streaming-overview.md
+    items:
+    - name: Using a cloud DVR
+      href: live-event-cloud-dvr.md
+    - name: Feature comparison
+      href: live-event-types-comparison.md
+    - name: States and billing
+      href: live-event-states-billing.md
+    - name: Latency
+      href: live-event-latency.md
 - name: How-to guides
   items:
   - name: Migrate from v2 to v3
@@ -82,6 +91,14 @@
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
+  - name: Create filters
+    items:
+    - name: With .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: With REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: With CLI
+      href: filters-dynamic-manifest-cli-howto.md
   - name: Encode 
     items:
     - name: Customize Transform presets - .NET Core
