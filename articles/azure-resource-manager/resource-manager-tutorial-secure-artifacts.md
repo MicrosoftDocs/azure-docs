@@ -82,7 +82,7 @@ Download the [BACPAC file](https://armtutorials.blob.core.windows.net/sqlextensi
 
 A Blob container is needed before you can upload any files. 
 
-1. Select the storage account to open it. You shall see only one storage account listed in the resource group. Your storage account name is different from the one shown in the fowllowing screenshot.
+1. Select the storage account to open it. You shall see only one storage account listed in the resource group. Your storage account name is different from the one shown in the following screenshot.
 
     ![Resource Manager tutorial storage account](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 
