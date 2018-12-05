@@ -30,7 +30,7 @@ Azure Cache for Redis offers Redis cluster as [implemented in Redis](http://redi
 * More throughput: Throughput increases linearly as you increase the number of shards. 
 * More memory size: Increases linearly as you increase the number of shards.  
 
-Clustering does not increase the number of connections available for a clustered cache. For more information about size, throughput, and bandwidth with premium caches, see [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Clustering does not increase the number of connections available for a clustered cache. For more information about size, throughput, and bandwidth with premium caches, see [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Cache for Redis service. 
 

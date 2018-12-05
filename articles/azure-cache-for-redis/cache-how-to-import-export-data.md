@@ -40,7 +40,7 @@ Import can be used to bring Redis compatible RDB files from any Redis server run
 >
 >
 
-1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal and click **Import data** from the **Resource menu**.
+1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and click **Import data** from the **Resource menu**.
 
     ![Import data][cache-import-data]
 2. Click **Choose Blob(s)** and select the storage account that contains the data to import.
@@ -68,7 +68,7 @@ Import can be used to bring Redis compatible RDB files from any Redis server run
 ## Export
 Export allows you to export the data stored in Azure Cache for Redis to Redis compatible RDB file(s). You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Cache for Redis server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
-1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal and click **Export data** from the **Resource menu**.
+1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and click **Export data** from the **Resource menu**.
 
     ![Choose storage container][cache-export-data-choose-storage-container]
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
@@ -142,7 +142,7 @@ Azure Cache for Redis persistence allows you to persist data stored in Redis to 
 Import/ Export allows you to bring data into or export from Azure Cache for Redis. It does not configure backup and restore using Redis persistence.
 
 ### Can I automate Import/Export using PowerShell, CLI, or other management clients?
-Yes, for PowerShell instructions see [To import an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) and [To export an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache).
+Yes, for PowerShell instructions see [To import an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) and [To export an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
 
 ### I received a timeout error during my Import/Export operation. What does it mean?
 If you remain on the **Import data** or **Export data** blade for longer than 15 minutes before initiating the operation, you receive an error with an error message similar to the following example:

@@ -24,7 +24,7 @@ Metrics for Azure Cache for Redis instances are collected using the Redis [INFO]
 
 <a name="view-cache-metrics"></a>
 
-To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Cache for Redis provides some built-in charts on the **Overview** blade and the **Redis metrics** blade. Each chart can be customized by adding or removing metrics and changing the reporting interval.
+To view cache metrics, [browse](cache-configure.md#configure-azure-cache-for-redis-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Cache for Redis provides some built-in charts on the **Overview** blade and the **Redis metrics** blade. Each chart can be customized by adding or removing metrics and changing the reporting interval.
 
 ![Redis metrics](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 

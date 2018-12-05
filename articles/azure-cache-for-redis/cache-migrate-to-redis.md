@@ -62,7 +62,7 @@ Microsoft Azure Cache for Redis is available in the following tiers:
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 
-A starting point for migration is to pick the size that matches the size of your previous Managed Cache Service cache, and then scale up or down depending on the requirements of your application. For more information on choosing the right Azure Cache for Redis offering, see [What Azure Cache for Redis offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+A starting point for migration is to pick the size that matches the size of your previous Managed Cache Service cache, and then scale up or down depending on the requirements of your application. For more information on choosing the right Azure Cache for Redis offering, see [What Azure Cache for Redis offering and size should I use](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
 ## Create a Cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

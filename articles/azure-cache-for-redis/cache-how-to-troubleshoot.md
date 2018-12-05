@@ -157,7 +157,7 @@ High CPU usage can mean that the client side can fail to process a response from
 Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
 
 #### Resolution
-* Review any advice and alerts mentioned in the [Azure Cache for Redis Advisor](cache-configure.md#redis-cache-advisor).
+* Review any advice and alerts mentioned in the [Azure Cache for Redis Advisor](cache-configure.md#azure-cache-for-redis--advisor).
 * Also review the other recommendations in this topic, and [Best Practices for Azure Redis](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f) to see if you have employed all options to further optimize your cache and your client. 
 * Review the [Azure Cache for Redis performance](cache-faq.md#azure-cache-for-redis-performance) charts and see if you may be near the upper thresholds of your current tier. If necessary, [Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity. If you are using Premium tier already, you might want to [scale out with clustering](cache-how-to-premium-clustering.md)
 
@@ -254,7 +254,7 @@ This error message contains metrics that can help point you to the cause and pos
    For more information, see [Memory Pressure on the server](#memory-pressure-on-the-server).
 
 ## Additional information
-* [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+* [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
 * [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)

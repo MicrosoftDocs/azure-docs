@@ -30,10 +30,10 @@ You can monitor the following metrics to help determine if you need to scale.
 * Network Bandwidth
 * CPU Usage
 
-If you determine that your cache is no longer meeting your application's requirements, you can scale to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Azure Cache for Redis offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+If you determine that your cache is no longer meeting your application's requirements, you can scale to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Azure Cache for Redis offering and size should I use](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
 ## Scale a cache
-To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure portal](https://portal.azure.com) and click **Scale** from the **Resource menu**.
+To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and click **Scale** from the **Resource menu**.
 
 ![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 

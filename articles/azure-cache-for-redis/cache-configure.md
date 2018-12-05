@@ -191,7 +191,7 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
 | Memory usage |[Cache performance - size](cache-faq.md#cache-performance) |
 
-To upgrade your cache, click **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+To upgrade your cache, click **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
 ### Scale

@@ -71,7 +71,7 @@ If you reboot both the **Master** and **Slave** nodes, all data in the cache (or
 If you reboot just one of the nodes, data is not typically lost, but it still may be. For example if the master node is rebooted and a cache write is in progress, the data from the cache write is lost. Another scenario for data loss would be if you reboot one node and the other node happens to go down due to a failure at the same time. For more information about possible causes for data loss, see [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
-Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
+Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ### What pricing tiers can use the reboot functionality?
 Reboot is available for all pricing tiers.
