@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
 
 ---
@@ -88,7 +88,8 @@ These items should be treated as sensitive data and specified in the extensions 
 		"settings": {
 			"fileUris": [
 				"script location"
-			]
+			],
+			"timestamp":123456789
 		},
 		"protectedSettings": {
 			"commandToExecute": "myExecutionCommand",
@@ -109,6 +110,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| timestamp  (e.g) | 123456789 | 32-bit integer |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (e.g) | examplestorageacct | string |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -119,6 +121,8 @@ These items should be treated as sensitive data and specified in the extensions 
 #### Property value details
  * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
+* `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
+  script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
 
