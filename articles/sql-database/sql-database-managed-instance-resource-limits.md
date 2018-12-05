@@ -46,8 +46,12 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | Max storage size | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
-| Max database files per instance | Up to 280 | Unlimited |
-| IO throughput (approximate) | 5000 IOPS per core with 200,000 maximum IOPS |
+| Max database files per instance | Up to 280 | 32,767 files per database |
+| IOPS (approximate) | 500-7500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| IO latency (approximate) | 5-10 ms | 1-2 ms |
+| Max tempDB size | 192-1920 GB (24 GB per vCore) | Determined by the max storage size per instance |
+
+- Both user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 
 ## Supported regions
 

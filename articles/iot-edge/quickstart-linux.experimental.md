@@ -55,13 +55,17 @@ Cloud resources:
 
 IoT Edge device:
 
-* A Linux device or virtual machine to act as your IoT Edge device. If you want to create a virtual machine in Azure, use the following command to get started quickly:
+* A Linux device or virtual machine to act as your IoT Edge device. It's recommended to use the Microsoft provided [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtual machine, which will preinstall the IoT Edge runtime. Create this virtual machine using the following command:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You use this public IP address to connect to the virtual machine later in the quickstart.
+   When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You will use this public IP address to connect to the virtual machine later in the quickstart.
+
+* If you prefer to run the Azure IoT Edge runtime on your local system follow instructions at [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md).
+
+* If you'd like to use an ARM32 based device, such as Raspberry Pi, follow the instructions at [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 ## Create an IoT hub
 
@@ -104,7 +108,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 3. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
-## Install and start the IoT Edge runtime
+## Connect the IoT Edge device to IoT Hub
 
 Install and start the Azure IoT Edge runtime on your IoT Edge device. 
 ![Register a device](./media/quickstart-linux/start-runtime.png)
@@ -113,82 +117,21 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 During the runtime configuration, you provide a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure. 
 
-### Connect to your IoT Edge device
+### Set the connection string on the IoT Edge device
 
-The steps in this section all take place on your IoT Edge device. If you're using your own machine as the IoT Edge device, you can skip this part. If you're using a virtual machine or secondary hardware, you want to connect to that machine now. 
+* If you're using the Azure IoT Edge on Ubuntu virtual machine, use the device connection string you copied earlier to remotely configure your IoT Edge device:
 
-If you created an Azure virtual machine for this quickstart, retrieve the public IP address that was output by the creation command. You can also find the public IP address on your virtual machine's overview page in the Azure portal. Use the following command to connect to your virtual machine. Replace **{publicIpAddress}** with your machine's address. 
-
-```azurecli-interactive
-ssh azureuser@{publicIpAddress}
-```
-
-### Register your device to use the software repository
-
-The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
-
-The steps in this section are for x64 devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux or device architectures, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
-
-1. On the machine that you're using as an IoT Edge device, install the repository configuration.
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
    ```
 
-2. Install a public key to access the repository.
+   For the remaining steps, retrieve the public IP address that was output by the creation command. You can also find the public IP address on your virtual machine's overview page in the Azure portal. Use the following command to connect to your virtual machine. Replace **{publicIpAddress}** with your machine's address. 
 
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```azurecli-interactive
+   ssh azureuser@{publicIpAddress}
    ```
 
-### Install a container runtime
-
-The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
-
-1. Update **apt-get**.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-2. Install **Moby**, a container runtime.
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-3. Install the CLI commands for Moby. 
-
-   ```bash
-   sudo apt-get install moby-cli
-   ```
-
-### Install and configure the IoT Edge security daemon
-
-The security daemon installs as a system service so that the IoT Edge runtime starts every time your device boots. The installation also includes a version of **hsmlib** that allows the security daemon to interact with the device's hardware security. 
-
-1. Download and install the IoT Edge Security Daemon. 
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install iotedge
-   ```
-
-2. Open the IoT Edge configuration file. It's a protected file so you may have to use elevated privileges to access it.
-   
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-3. Add the IoT Edge device connection string. Find the variable **device_connection_string** and update its value with the string that you copied after registering your device. This connection string associates your physical device with the device identity that you created in Azure.
-
-4. Save and close the file. 
-
-   `CTRL + X`, `Y`, `Enter`
-
-5. Restart the IoT Edge security daemon to apply your changes.
+* If you're running IoT Edge on your local machine or an ARM32 device, open the configuration file located at /etc/iotedge/config.yaml and update the **device_connection_string** variable with the value you copied earlier, then restart the IoT Edge security daemon to apply your changes:
 
    ```bash
    sudo systemctl restart iotedge
@@ -236,7 +179,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that will se
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials.
 
-Open the command prompt on your IoT Edge device again. Confirm that the module deployed from the cloud is running on your IoT Edge device:
+Open the command prompt on your IoT Edge device again, or use the SSH connection from Azure CLI. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
    ```bash
    sudo iotedge list

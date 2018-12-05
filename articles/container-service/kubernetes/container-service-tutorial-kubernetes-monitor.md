@@ -139,7 +139,7 @@ After the agents are running, it takes several minutes for Log Analytics to inge
 
 ## Access monitoring data
 
-View and analyze the container monitoring data with the [Container solution](../../log-analytics/log-analytics-containers.md) in either the Log Analytics portal or the Azure portal.
+View and analyze the container monitoring data with the [Container solution](../../azure-monitor/insights/containers.md) in either the Log Analytics portal or the Azure portal.
 
 To install the Container solution using the [Log Analytics portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
