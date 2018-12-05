@@ -14,6 +14,10 @@ This step sets up backend storage system for your vFXT cluster.
 
 > [!TIP]
 > If you used the `create-cloudbacked-cluster` prototype script to create a new Blob container along with the Avere vFXT cluster, that container is already set up for use and you do not need to add storage.
+>
+> However, if your new Blob container was encrypted with a default encryption key, you must replace the default key with a new key before storing data. The default key is saved only in the cluster, and cannot be retrieved if the cluster fails.
+>
+> After connecting to the Avere Control Panel, click the **Settings** tab, then choose **Core Filer** > **Cloud Encryption Settings**. In the **Local Key Store** section, you can either download the recovery file for the existing key (the recovery file is encrypted with the cluster password) or follow the instructions in the **Generate a New Master Key** section of the page to create a new encryption key that you control. 
 
 Follow these instructions if you used the `create-minimal-cluster` prototype script for your cluster, or if you want to add an additional hardware or cloud-based storage system.
 
