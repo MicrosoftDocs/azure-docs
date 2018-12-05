@@ -2,18 +2,10 @@
 title: 'About Azure Point-to-Site VPN connections | Microsoft Docs'
 description: This article helps you understand Point-to-Site connections and helps you decide which P2S VPN gateway authentication type to use.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: cherylmc
 
@@ -82,11 +74,8 @@ The zip file also provides the values of some of the important settings on the A
 
 ## <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to internet traffic conditions and your application behaviors.
-* Pricing information can be found on the Pricing page 
-* SLA (Service Level Agreement) information can be found on the SLA page.
 
 >[!NOTE]
 >The Basic SKU does not support IKEv2 or RADIUS authentication.
