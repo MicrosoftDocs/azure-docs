@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.author: barclayn
+ms.date: 12/5/2018
+ms.author: johncdawson
 
 ---
 
@@ -69,7 +69,7 @@ After a customer has an approved registration for the Dedicated HSM service, the
 
 ### Hardware issues
 
-The HSM device has redundant and replaceable power supplies and fan units. Fan unit removal will cause a tamper event if removed when the device is powered on. When a component failure occurs, Microsoft will use the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to our customers service availability.
+The HSM device has redundant and replaceable power supplies and fan units. Fan unit removal will cause a tamper event and the power supply is hot-swappable. When a component failure occurs, Microsoft will use the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to our customers service availability.
 Any more serious failure of the device will result in that device being replaced by a fresh one from the free pool. The customer simply includes the new device in the existing HA pair for it to synchronize and return to full operational state. The failed device will have its data bearing devices removed and shredded on site at the data center. Only the chassis will be returned to Gemalto for recycling.
 
 
