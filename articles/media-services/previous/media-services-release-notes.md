@@ -472,7 +472,7 @@ The following changes are included in the June 2013 Media Services SDK releases.
     * StorageAccount property
     * StorageAccountName property
   
-    For more information, see [Manage Media Services assets across multiple storage accounts](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+      For more information, see [Manage Media Services assets across multiple storage accounts](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Notification-related APIs. Starting with version 2.2.0.0, you can listen to Azure Queue storage notifications. For more information, see [Handle Media Services job notifications](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property

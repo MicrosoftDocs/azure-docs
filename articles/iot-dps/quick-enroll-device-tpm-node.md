@@ -69,7 +69,7 @@ These steps show how to programmatically create an individual enrollment for a T
     1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
     2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
-    ![Get provisioning service connection string from the portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
+       ![Get provisioning service connection string from the portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
 
 2. You also need the endorsement key for your device. If you have followed the [Create and provision a simulated device](quick-create-simulated-device.md) quickstart to create a simulated TPM device, use the key created for that device. Otherwise, to create a sample individual enrollment, you can use the following endorsement key supplied with the SDK:

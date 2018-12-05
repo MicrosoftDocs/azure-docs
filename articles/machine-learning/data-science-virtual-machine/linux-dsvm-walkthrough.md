@@ -312,19 +312,19 @@ The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-pla
 
 > [!NOTE]
 > To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 

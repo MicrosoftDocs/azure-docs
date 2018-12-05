@@ -85,7 +85,7 @@ Learn more about the Dependency agent support for the [Windows](../azure-monitor
     - Processes running inside the machine, you can expand each machine box to view the processes
     - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
- ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.

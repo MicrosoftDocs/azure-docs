@@ -33,8 +33,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | How is it configured / installed on the DSVM?  | The Microsoft Cognitive Toolkit (CNTK) is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
 | Links to Samples      | Sample Jupyter notebooks are included.     |
 | Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/>
- * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the CNTK directory for samples. |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the CNTK directory for samples. |
 
 ## TensorFlow
 
@@ -45,8 +44,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | How is it configured / installed on the DSVM?  | TensorFlow is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).  |
 | Links to Samples      | Sample Jupyter notebooks are included.     |
 | Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/>
- * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the TensorFlow directory for samples.  |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the TensorFlow directory for samples.  |
 
 ## Horovod
 
@@ -68,8 +66,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | How is it configured / installed on the DSVM?  | TensorFlow is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |
 | Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/>
- * In Jupyter: Download the samples from the Github location, connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the sample directory. |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Download the samples from the Github location, connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the sample directory. |
 
 ## Caffe
 
@@ -81,6 +78,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | How to switch to Python 2.7 | Run `source activate root` |
 | Links to Samples      | Samples are included in `/opt/caffe/examples`.      |
 | Related Tools on the DSVM      | Caffe2      |
+
 ### How to use / run it?  
 
 Use X2Go to log in to your VM, then start a new terminal and enter
@@ -118,8 +116,7 @@ Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 ac
 | How is it configured / installed on the DSVM?  | Chainer is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL and ChainerCV are also installed.   |
 | Links to Samples      | Sample notebooks are included in JupyterHub. |
 | Related Tools on the DSVM      | Caffe      |
-| How to use / run it?  | * At the terminal: activate the [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) environment, run _python_, then import chainer. <br/>
-* In JupyterHub: [connect to JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then navigate to the Chainer directory to find sample notebooks.
+| How to use / run it?  | * At the terminal: activate the [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) environment, run _python_, then import chainer. <br/> * In JupyterHub: [connect to JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then navigate to the Chainer directory to find sample notebooks.
 
 
 ## Deep Water
@@ -154,8 +151,7 @@ To use Deep Water:
 | How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Linux. Python bindings are installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R bindings are also installed on Ubuntu.   |
 | Links to Samples      | Sample Jupyter notebooks are included.    |
 | Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/>
- * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the mxnet directory for samples.  |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the mxnet directory for samples.  |
  | Build notes | MXNet is built from source on Linux. This build includes CUDA, cuDNN, NCCL, and MKL. |
 
 ## NVIDIA DIGITS
@@ -165,6 +161,7 @@ To use Deep Water:
 | What is it?   | Deep learning system from NVIDIA for rapidly training deep learning models      |
 | Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | DIGITS is installed in `/dsvm/tools/DIGITS` and is available a service called _digits_.   |
+
 ### How to use / run it?  
 
 Log in to the VM with X2Go. At a terminal, start the service:
@@ -194,12 +191,7 @@ The service takes about one minute to start. Start a web browser and navigate to
 | Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Theano is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal, activate the Python version you want (root or py35), run python, then import theano. <br/> 
-* In Jupyter, select the Python 2.7 or 3.5 kernel, then import theano.  
-<br/>
-To work around a recent MKL bug, you need to first set the MKL threading layer:<br/><br/>
-_export MKL_THREADING_LAYER=GNU_
-|
+| How to use / run it?    | * At a terminal, activate the Python version you want (root or py35), run python, then import theano. <br/> * In Jupyter, select the Python 2.7 or 3.5 kernel, then import theano.  <br/>To work around a recent MKL bug, you need to first set the MKL threading layer:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
 
 
 
@@ -223,8 +215,7 @@ _export MKL_THREADING_LAYER=GNU_
 | Links to Samples      | Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.      |
 | Related Tools on the DSVM      | Torch      |
 | How to use / run it | 
-* At a terminal: activate the correct environment, then run Python. <br/>
- * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
+* At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
 
 ## MXNet Model Server
 
