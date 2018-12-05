@@ -29,9 +29,6 @@ You can turn two-factor verification on for many accounts that you use every day
 |Work or school accounts|The account you've been given by your work or school organization, for example alain@contoso.com.|
 |Personal accounts|The Microsoft and non-Microsoft accounts you've personally opened, such as for Outlook.com, Xbox LIVE, Google, Facebook, and more.|
 
-## What happens if I can't use a QR code?
-If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. For more information and how to do it, see [Manually add your account](microsoft-authenticator-app-add-account-manual.md).
-
 ## In this section
 |Article |Description |
 |------|------------|

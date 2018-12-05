@@ -38,7 +38,7 @@ You can add your work or school account, given to you by your organization, to t
 4. Use your device's camera to scan the QR code from the **Configure mobile app** screen on your PC, and then choose **Done**.
 
     >[!Note]
-    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
+    >If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. For more information and how to do it, see [Manually add your account](microsoft-authenticator-app-add-account-manual.md).
 
 5. Review the **Accounts** screen of the app on your device, to make sure your account is right and that there's an associated six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
