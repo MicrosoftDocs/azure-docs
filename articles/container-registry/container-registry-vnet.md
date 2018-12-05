@@ -50,18 +50,11 @@ az vm create \
     --name myDockerVM \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --generate-ssh-keys \
+    --generate-ssh-keys
 ```
 
 It takes a few minutes for the VM to be created. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. Use this address to make SSH connections to the VM.
 
-### Verify the virtual network
-
-When you create a VM, Azure automatically creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you named your virtual machine *myDockerVM*, the virtual network is named *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*. Verify this either in the Azure portal or with the [az network vnet list][az-network-vnet-list] command:
-
-```azurecli
-az network vnet list -g myResourceGroup --query "[].{Name: name}"
-```
 
 ### Install Docker
 
@@ -174,7 +167,7 @@ You can pull the sample `hello-world` image in your registry. Substitute the tag
 sudo docker pull mycontainerregistry717.azurecr.io/hello-world:tag
 ``` 
 
-### Verify that container registry isn't accessible from the internet
+## Verify that container registry isn't accessible from the internet
 
 Although you are able on the virtual machine to pull an image pulled from the private container registry, the registry can't be accessed from other networks. For example, you can't login to the registry over the internet from a different login host (such as your local computer) using the `docker login` command. 
 
