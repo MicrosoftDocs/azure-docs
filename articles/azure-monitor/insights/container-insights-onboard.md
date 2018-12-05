@@ -13,24 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 12/05/2018
 ms.author: magoedte
 ---
 
 # How to onboard Azure Monitor for containers  
 This article describes how to set up Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
-Azure Monitor for containers can be enabled for new deployments of AKS using the following supported methods:
-
-* Deploy a managed Kubernetes cluster from the Azure portal or with Azure CLI
-* Creating a Kubernetes cluster using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
-
-If you have already deployed an AKS cluster without monitoring enabled, you can use one of the following supported methods to monitor them:
+Azure Monitor for containers can be enabled for new, or one or more existing deployments of AKS using the following supported methods:
 
 * From the Azure portal or with Azure CLI
-* Using Terraform 
-
-You can also enable monitoring for one or more existing AKS clusters from the Azure portal or with Azure CLI. 
+* Using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 ## Prerequisites 
 Before you start, make sure that you have the following:
@@ -42,7 +35,9 @@ Before you start, make sure that you have the following:
 
 ## Components 
 
-Your ability to monitor performance relies on a containerized Log Analytics agent for Linux, which collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable Azure Monitor for containers. The version deployed is microsoft/oms:ciprod04202018 or later and is represented by a date in the following format: *mmddyyyy*. 
+Your ability to monitor performance relies on a containerized Log Analytics agent for Linux  specifically developed for Azure Monitor for containers. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. The  agent version is microsoft/oms:ciprod04202018 or later, and is represented by a date in the following format: *mmddyyyy*. 
+
+When a new version of the agent is released, it is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). 
 
 >[!NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring by using either Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
