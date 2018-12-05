@@ -25,8 +25,8 @@ This article describes different options for parsing data in Log Analytics recor
 ## Parsing methods
 You can parse data either at ingestion time when the data is collected or at query time when analyzing the data with a query. Each strategy has unique advantages as described below.
 
-### Parse data at ingestion time
-When you parse data at ingestion time, you configure [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) that create new properties in the table. Queries don't have to include any parsing logic and simply use these properties as any other field in the table.
+### Parse data at collection time
+When you parse data at collection time, you configure [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) that create new properties in the table. Queries don't have to include any parsing logic and simply use these properties as any other field in the table.
 
 Advantages to this method include the following:
 
@@ -85,6 +85,15 @@ MyCustomLog_CL
 | project EventTime, Code, Status, Message
 ```
 
+Following is another example that breaks out the user name of a UPN in the _AzureActivity_ table.
+
+```Kusto
+AzureActivity
+| parse  Caller with UPNUserPart "@" * 
+| where UPNUserPart != "" //Remove non UPN callers (apps, SPNs, etc)
+| distinct UPNUserPart, Caller
+```
+
 
 ### Regular expressions
 If your data can be identified with a regular expression, you can use [functions that use regular expressions](/azure/kusto/query/re2) to extract individual values. The following example uses [extract](/kusto/query/extractfunction) to break out the _UPN_ field from _AzureActivity_ records and then return distinct users.
@@ -98,7 +107,7 @@ AzureActivity
 To enable efficient parsing at large scale, Log Analytics uses re2 version of Regular Expressions, which is similar but not identical to some of the other regular expression variants. Refer to the [re2 expression syntax](https://aka.ms/kql_re2syntax) for details.
 
 
-### Parse delimited data in a query
+## Parse delimited data in a query
 Delimited data separates fields with a common character such as a comma in a CSV file. Use the [split](/azure/kusto/query/splitfunction) function to parse delimited data using a delimiter that you specify. You can use this with [extend](/azure/kusto/query/extendoperator) operator to return all fields in the data or to specify individual fields to be included in the output.
 
 > [!NOTE]
