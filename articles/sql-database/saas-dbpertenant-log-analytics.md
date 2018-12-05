@@ -145,4 +145,4 @@ Try the [Tenant analytics tutorial](saas-dbpertenant-log-analytics.md).
 ## Additional resources
 
 * [Additional tutorials that build on the initial Wingtip Tickets SaaS database-per-tenant application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
+* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)

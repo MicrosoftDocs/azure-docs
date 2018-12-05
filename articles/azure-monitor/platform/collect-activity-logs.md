@@ -52,7 +52,7 @@ Unlike most other Log Analytics solutions, data isn't collected for activity log
 | --- | --- | --- |
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
-| [SCOM management group](../../log-analytics/log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
+| [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collect information from Azure storage. |
 
 ## Prerequisites
@@ -97,4 +97,4 @@ Activity log data only appears *after* you've configured your activity logs to g
 ## Next steps
 
 - Create an [alert](../../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
-- Use [Log Search](../../log-analytics/log-analytics-queries.md) to view detailed information from your activity logs.
+- Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information from your activity logs.

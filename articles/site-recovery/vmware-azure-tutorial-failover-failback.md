@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---

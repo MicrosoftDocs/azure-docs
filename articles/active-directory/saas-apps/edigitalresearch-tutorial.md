@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company-name>.edigitalresearch.com/login/consume`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [eDigitalResearch support team](http://www.maruedr.com/contact) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [eDigitalResearch support team](https://www.maruedr.com/contact) to get these values.
  
 
 
@@ -128,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![eDigitalResearch Configuration](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-1. To configure single sign-on on **eDigitalResearch** side, you need to send the downloaded **Certificate (Base64) File**, **SAML Entity ID**, and **Sign-Out URL** to [eDigitalResearch support team](http://www.maruedr.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **eDigitalResearch** side, you need to send the downloaded **Certificate (Base64) File**, **SAML Entity ID**, and **Sign-Out URL** to [eDigitalResearch support team](https://www.maruedr.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in eDigitalResearch. 
 
-Work with the [eDigitalResearch support team](http://www.maruedr.com/contact) to get users created.		
+Work with the [eDigitalResearch support team](https://www.maruedr.com/contact) to get users created.		
 	
  > [!NOTE]
  > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.

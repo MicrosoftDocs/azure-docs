@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer:
 
@@ -225,7 +225,8 @@ In this example, a hashtable is constructed with paths and passwords to each Paa
 **Example: Validate Azure identity**
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
-Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
 In this example, the Service Admin account credentials are prompted for securely and Start-AzsReadinessChecker checks the Azure account and Azure Active Directory are valid for an AAD deployment with a tenant directory name of “azurestack.contoso.com”
@@ -242,9 +243,10 @@ In this example, the Service Admin account credentials are prompted for securely
 
 **Example: Validate Azure registration**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
-Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID"
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
 In this example, the Subscription Owner credentials are prompted for securely and Start-AzsReadinessChecker then performs validation against the given account and subscription to ensure it can be used for Azure Stack registration. 
@@ -252,8 +254,8 @@ In this example, the Subscription Owner credentials are prompted for securely an
 
 **Example: Validate Azure registration with deployment data (deployment team)**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
@@ -443,7 +445,7 @@ Specifies the instance of Azure Services containing the accounts, directories, a
 |Type:                       |String   |
 |Position:                   |Named    |
 |Default value:              |None     |
-|Valid values:               |'AzureCloud','AzureChinaCloud','AzureGermanCloud' |
+|Valid values:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Accept pipeline input:      |False    |
 |Accept wildcard characters: |False    |
 
