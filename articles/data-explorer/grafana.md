@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 12/05/2018
 ---
 
 # Visualize data from Azure Data Explorer in Grafana
