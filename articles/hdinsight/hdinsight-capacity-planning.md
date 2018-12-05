@@ -2,14 +2,13 @@
 title: Cluster capacity planning in Azure HDInsight 
 description: 'How to specify an HDInsight cluster for capacity and performance.'
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
+ms.date: 12/04/2018
+ms.author: hrasheed
 ---
 # Capacity planning for HDInsight clusters
 
@@ -27,7 +26,7 @@ The key questions to ask for capacity planning are:
 
 The Azure region determines where your cluster is physically provisioned. To minimize the latency of reads and writes, the cluster should be near your data.
 
-HDInsight is available in many Azure regions. To find the closest region, see the *HDInsight Linux* entry under *Data + Analytics* in [Azure Products Available by Region](https://azure.microsoft.com/regions/services/).
+HDInsight is available in many Azure regions. To find the closest region, see the *HDInsight* entry under *Analytics* in [Products Available by Region](https://azure.microsoft.com/regions/services/).
 
 ## Choose storage location and size
 
