@@ -164,5 +164,5 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 ![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
 
 ## Next steps
-* See [Parse text data in Log Analytics](log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
+* See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
 * Learn about [log searches](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
