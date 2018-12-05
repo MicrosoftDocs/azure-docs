@@ -23,7 +23,7 @@ The window will appear as shown:
 ## Metrics available for Stream Analytics
 | Metric                 | Definition                               |
 | ---------------------- | ---------------------------------------- |
-| Backlogged Input Events       | Number of input events that are`` backlogged. |
+| Backlogged Input Events       | Number of input events that are backlogged. |
 | Data Conversion Errors | Number of output events that could not be converted to the expected output schema. |
 | Early Input Events       | Number of events received early. |
 | Failed Function Requests | Number of failed Azure Machine Learning function calls (if present). |

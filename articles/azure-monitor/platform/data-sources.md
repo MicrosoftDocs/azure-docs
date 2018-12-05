@@ -63,7 +63,7 @@ While the Activity Log provides information about operations performed on an Azu
 You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Log Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) for analysis. Some resources can write directly to Log Analytics while others write to a storage account before being [imported into Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### Monitoring Solutions
- [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Log Analytics where it may be analyzed using the [query language](../../log-analytics/log-analytics-queries.md) or [views](../../azure-monitor/platform/view-designer.md) that are typically included in the solution.
+ [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Log Analytics where it may be analyzed using the [query language](../../azure-monitor/log-query/log-query-overview.md) or [views](../../azure-monitor/platform/view-designer.md) that are typically included in the solution.
 
 ## Guest operating system
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into the same monitoring tools as the Azure services themselves.
@@ -104,7 +104,7 @@ In addition to the standard tiers of an application, you may need to monitor oth
 ![Custom data collection](media/data-sources/custom-collection.png)
 
 ### Data Collector API
-Azure Monitor can collect log data from any REST client using the [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 ## Next steps
 

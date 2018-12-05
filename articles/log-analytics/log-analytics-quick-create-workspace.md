@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: magoedte
@@ -59,6 +58,6 @@ While the information is verified and the workspace is created, you can track it
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights. 
 
 * To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* [Add System Center Operations Manager as a data source](log-analytics-om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace. 
+* [Add System Center Operations Manager as a data source](../azure-monitor/platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace. 
 * Connect [Configuration Manager](log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
 * Review the [management solutions](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) available and how to add or remove a solution from your workspace.

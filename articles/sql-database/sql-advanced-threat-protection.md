@@ -10,7 +10,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
+ms.date: 12/05/2018
 ---
 # Advanced Threat Protection for Azure SQL Database
 
@@ -26,7 +26,7 @@ SQL Advanced Threat Protection (ATP) provides a set of advanced SQL security cap
 
 Enable SQL ATP once to enable all of these included features. With one click, you can enable ATP on your entire database server, applying to all databases on the server. 
 
-ATP pricing aligns with Azure Security Center standard tier at $15/node/month, where each protected SQL Database server is counted as one node. The first 60 days after enablement are considered a free trial period and are not charged. For more information, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+ATP pricing aligns with Azure Security Center standard tier, where each protected SQL Database server is counted as one node. Newly protected resources qualify for a free trial of Security Center standard tier. For more information, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## Getting Started with ATP 
@@ -39,7 +39,7 @@ Enable ATP by navigating to **Advanced Threat Protection** under the **Security*
 ![Enable ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> The cost of ATP is $15/node/month, where a node is the entire SQL logical server. You are thus paying only once for protecting all databases on the server with ATP. The first 60 days are considered a free trial.
+> The cost of ATP is aligned with Azure Security Center standard tier pricing per node, where a node is the entire SQL logical server. You are thus paying only once for protecting all databases on the server with ATP. You can try ATP out initially with a free trial.
 
 ## 2. Configure Vulnerability Assessment
 
