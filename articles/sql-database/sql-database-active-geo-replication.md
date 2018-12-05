@@ -22,7 +22,7 @@ Active geo-replication is designed as a business continuity solution that allows
 ![active geo-replication](./media/sql-database-active-geo-replication/geo-replication.png )
 
 > [!IMPORTANT]
-> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-groups.md). Also, active geo-replication is not supported for databases created within a Managed Instance. Consider using [failover groups](sql-database-auto-failover-groups.md) with Managed Instances.
+> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md). Also, active geo-replication is not supported for databases created within a Managed Instance. Consider using [failover groups](sql-database-auto-failover-group.md) with Managed Instances.
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can initiate failover to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
@@ -155,7 +155,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 - For sample scripts, see:
   - [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-- SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-groups.md).
+- SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md).
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).

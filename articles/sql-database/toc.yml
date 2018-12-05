@@ -195,7 +195,7 @@
       - name: Active geo-replication
         href: sql-database-active-geo-replication.md
       - name: Auto-failover groups
-        href: sql-database-auto-failover-groups.md
+        href: sql-database-auto-failover-group.md
       - name: Configure active geo-replication - Portal
         href: sql-database-active-geo-replication-portal.md
       - name: Configure security for replicas
