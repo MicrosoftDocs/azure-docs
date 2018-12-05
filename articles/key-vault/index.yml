@@ -70,17 +70,17 @@ sections:
       - html: How to use Azure Key Vault with Azure Linux Virtual Machine in ; <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">Python</a>
       - html: How to use Azure Key Vault with Azure Windows Virtual Machine in ; <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">Python</a> 
 
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Manage secrets in your server apps with Azure Key Vault
-      href: /learn/modules/manage-secrets-with-azure-key-vault/
-      image: 
-        src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
-        href: /learn/modules/manage-secrets-with-azure-key-vault/
+ - title: Build your skills with Microsoft Learn
+   items:
+   - type: list
+     style: cards
+     className: cardsFTitle
+     items:
+     - title: Manage secrets in your server apps with Azure Key Vault
+       href: /learn/modules/manage-secrets-with-azure-key-vault/
+       image: 
+         src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
+         href: /learn/modules/manage-secrets-with-azure-key-vault/
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-key-vault">More interactive learning...</a>
 - title: Reference
