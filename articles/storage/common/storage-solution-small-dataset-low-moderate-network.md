@@ -19,7 +19,7 @@ To understand an overview of all the available data transfer options, go to [Cho
 
 ## Scenario description
 
-Small datasets refer to data sizes in the order of GBs. Low to moderate network bandwidth implies 45 Mbps (T3 connection in datacenter) to 1 Gbps.
+Small datasets refer to data sizes in the order of GBs to a few TBs. Low to moderate network bandwidth implies 45 Mbps (T3 connection in datacenter) to 1 Gbps.
 
 - If you are transferring only a handful of files and you don’t need to automate data transfer, consider the tools with a graphical interface.
 - If you are comfortable with system administration, consider command line or programmatic/scripting tools.
@@ -28,7 +28,7 @@ Small datasets refer to data sizes in the order of GBs. Low to moderate network 
 
 The options recommended in this scenario are:
 
-- **Graphical interface tools** such as Azure Storage Explorer and Azure Storage in Azure portal. These provide an easy way to view your data and quickly transfer a few files or objects.
+- **Graphical interface tools** such as Azure Storage Explorer and Azure Storage in Azure portal. These provide an easy way to view your data and quickly transfer a few files.
 
     - **Azure Storage Explorer** - This cross-platform tool lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob storage to manage blobs and folders, as well as upload and download blobs between your local file system and Blob storage, or between storage accounts.
     - **Azure portal** - Azure Storage in Azure portal provides a web-based interface to explore files and upload new files one at a time. This is a good option if you do not want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
@@ -36,7 +36,7 @@ The options recommended in this scenario are:
 - **Scripting/programmatic tools** such as AzCopy/PowerShell/Azure CLI and Azure Storage REST APIs.
 
     - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
-    - **Azure PowerShell** - For users comfortable with system administration, use the Azure Storage module in Azure PowerShell to transfer data. PowerShell cmdlet.
+    - **Azure PowerShell** - For users comfortable with system administration, use the Azure Storage module in Azure PowerShell to transfer data.
     - **Azure CLI** - Use this cross-platform tool to manage Azure services and upload data to Azure Storage.
     - **Azure Storage REST APIs/SDKs** – When building an application, you can develop the application against Azure Storage REST APIs/SDKs and use the Azure client libraries offered in multiple languages.
 
@@ -45,7 +45,7 @@ The options recommended in this scenario are:
 
 The following table summarizes the differences in key capabilities.
 
-| Feature                                                            | Azure Storage Explorer                    | Azure portal  | AzCopy            | Azure Storage REST APIs/SDKs |
+| Feature                                                            | Azure Storage Explorer                    | Azure portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure Storage REST APIs or SDKs |
 |----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
 | Availability                                                       | Download and install <br>Standalone tool | Web-based exploration tools in Azure portal           | Command line tool |Programmable interfaces in .NET, Java, Python, JavaScript, C++, Go, Ruby and PHP                                                         |
 | Graphical   interface                                              | Yes                                       | Yes                                                     | No                | No                                                      |
