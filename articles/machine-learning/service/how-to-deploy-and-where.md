@@ -44,7 +44,7 @@ The process of deploying a model is similar for all compute targets:
 
         * `deploy`: When using this method, you do not need to register the model or create the image. However you cannot control the name of the model or image, or associated tags and descriptions.
         * `deploy_from_model`: When using this method, you do not need to create an image. But you do not have control over the name of the image that is created.
-        * `deploy_from_image`: You must register the model and create an image before using this method.
+        * `deploy_from_image`: Register the model and create an image before using this method.
 
         The examples in this document use `deploy_from_image`.
 
@@ -80,9 +80,9 @@ model = Model.register(model_path = "model.pkl",
 
 Deployed models are packaged as an image. The image contains the dependencies needed to run the model.
 
-For **Azure Container Instance**, **Azure Kubernetes Service**, and **Azure IoT Edge** deployments, the `azureml.core.image.ContainerImage` class is used to create an image configuration. This is then used to create a new Docker image. 
+For **Azure Container Instance**, **Azure Kubernetes Service**, and **Azure IoT Edge** deployments, the `azureml.core.image.ContainerImage` class is used to create an image configuration. The image configuration is then used to create a new Docker image. 
 
-The following is an example of creating a new image configuration:
+The following code demonstrates how to create a new image configuration:
 
 ```python
 from azureml.core.image import ContainerImage
@@ -121,7 +121,7 @@ image = ContainerImage.create (name = "myimage",
 
 **Time estimate**: Approximately 3 minutes.
 
-Images are versioned automatically when you register multiple images with the same name. For example, the first image registered as "myimage" is assigned an ID of "myimage:1". The next time you register an image as "myimage", the ID of the new image is "myimage:2"
+Images are versioned automatically when you register multiple images with the same name. For example, the first image registered as `myimage` is assigned an ID of `myimage:1`. The next time you register an image as `myimage`, the ID of the new image is `myimage:2`.
 
 Image creation takes around 5 minutes.
 
@@ -130,7 +130,7 @@ Image creation takes around 5 minutes.
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
 - You need to quickly deploy and validate your model. ACI deployment is finished in less than 5 minutes.
-- You need to deploy your model in a development or test environment. ACI allows you to deploy 20 container groups per subscription. For more information, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
+- You are testing a model that is under development. ACI allows you to deploy 20 container groups per subscription. For more information, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
 
 To deploy to Azure Container Instances, use the following steps:
 
@@ -166,7 +166,6 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
     > [!IMPORTANT]
     > Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
-
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
@@ -229,7 +228,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
 ## <a id="fpga"></a> Deploy to field-programmable gate arrays (FPGA)
 
-Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning, or customizable with weights trained from your own data.
+Project Brainwave makes it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning, or customizable with weights trained from your own data.
 
 For a walkthrough of deploying a model using Project Brainwave, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
@@ -264,7 +263,7 @@ model.delete()
 
 An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Machine learning models can be deployed to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
 
-Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model using the steps in this document, it is stored in the container registery for your Azure Machine Learning service workspace.
+Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model using the steps in this document, it is stored in the container registry for your workspace.
 
 Use the following steps to get the container registry credentials for your Azure Machine Learning service workspace:
 
@@ -278,7 +277,7 @@ Use the following steps to get the container registry credentials for your Azure
 
     ![An image of the access keys screen](./media/how-to-deploy-to-iot/findaccesskey.png)
 
-1. Save the values for login server, username, and password. 
+1. Save the values for **login server**, **username**, and **password**. 
 
 Once you have the credentials, use the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
 
