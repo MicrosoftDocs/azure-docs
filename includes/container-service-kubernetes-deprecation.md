@@ -11,4 +11,4 @@ ms.author: iainfou
 >
 > In 2017, we introduced Azure Kubernetes Service (AKS) for simplifying Kubernetes management, deployment, and operations. If you use the Kubernetes orchestrator, please migrate to AKS by January 31, 2020. To get started, see [migrate to Azure Kubernetes Service](../articles/aks/acs-aks-migration.md).
 >
-> For more information, see the [Azure Container Service deprecation announcement on Azure.com](https://azure.microsoft.com/eupdates/azure-container-service-will-retire-on-january-31-2020/)
+> For more information, see the [Azure Container Service deprecation announcement on Azure.com](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)
