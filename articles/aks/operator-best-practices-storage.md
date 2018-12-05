@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/04/2018
 ms.author: iainfou
 ---
 
@@ -17,7 +17,10 @@ As you create and manage clusters in Azure Kubernetes Service (AKS), your applic
 This best practices article focuses on storage considerations for cluster operators. In this article, you learn:
 
 > [!div class="checklist"]
-> * 
+> * What types of storage are available
+> * How to correctly size AKS nodes for storage performance
+> * Differences between dynamic and static provisioning of volumes
+> * Ways to back up and secure your data volumes
 
 ## Choose the appropriate storage type
 
@@ -56,8 +59,54 @@ For more information about available VM sizes, see [Sizes for Linux virtual mach
 
 **Best practice guidance** - To reduce management overhead and let you scale, don't statically create and assign persistent volumes. Use dynamic provisioning. In your storage classes, define the appropriate reclaim policy to minimize unneeded storage costs once pods are deleted.
 
-Don't statically create PVs, use dynamic creation to allow for scale
-Set reclaim policy appropriately using storage classes
+When you need to attach storage to pods, you use persistent volumes. These persistent volumes can be created manually or dynamically. Manual creation of persistent volumes adds management overhead, and limits your ability to scale. Use dynamic persistent volume provisioning to simplify storage management and allow your applications to grow and scale as needed.
+
+A persistent volume claim (PVC) lets you dynamically create storage as needed. The following example creates a *5Gi* volume that uses Azure Premium Disks:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: managed-premium
+  resources:
+    requests:
+      storage: 5Gi
+```
+
+The underlying Azure disks are created as pods request them. In the pod definition, you request a volume be created and attached to a designed mount path, as shown in the following example:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: mypod
+    image: nginx:1.15.7
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azure-managed-disk
+```
+
+As part of your storage class definitions, set the appropriate *reclaimPolicy*. This reclaimPolicy controls the behavior of the underlying Azure storage resource when the pod is deleted and the persistent volume may no longer be required. The underlying storage resource can be deleted, or retained for use with a future pod. The reclaimPolicy can set to *retain* or *delete*. Understand your application needs, and implement regular checks for storage that is retained to minimize the amount of un-used storage that is used and billed.
+
+For more information about creating volumes, see how to dynamically create and use a persistent volume with [Azure Disks][dynamic-disks] or [Azure Files][dynamic-files]. You also learn more about [storage reclaim policies][reclaim-policy].
 
 ## Secure and backup your data
 
@@ -76,3 +125,6 @@ This article focused on storage best practices in AKS. For more information abou
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[dynamic-disks]: azure-disks-dynamic.md
+[dynamic-files]: azure-files-dynamic-pv.md
+[reclaim-policy]: concepts-storage.md#reclaim-policy
