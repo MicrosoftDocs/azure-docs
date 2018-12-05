@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Identify language from text, C# - Translator Text API"
+title: "Quickstart: Detect text language, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to detect the language of provided text using .NET Core and the Translator Text REST API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/26/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Detect text language with the Translator Text REST API (C#)
+# Quickstart: Use the Translator Text API to detect text language using C#
 
 In this quickstart, you'll learn how to detect the language of provided text using .NET Core and the Translator Text REST API.
 

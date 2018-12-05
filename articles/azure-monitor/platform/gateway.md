@@ -77,7 +77,7 @@ The Log Analytics gateway is available in the following languages:
 - Spanish (International)
 
 ### Supported encryption protocols
-The Log Analytics gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).  To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the gateway to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+The Log Analytics gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).  To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the gateway to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### Supported number of agent connections
 The following table highlights the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.

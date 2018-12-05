@@ -54,6 +54,9 @@ Configure the Docker image that is used to store all the model files.
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configImage)]
 
+> [!NOTE]
+> When creating an image that uses GPU acceleration, the GPU base image must be used on Microsoft Azure Services only.
+
 ## Configure the ACI container
 
 Configure the ACI container by specify the number of CPUs and gigabyte of RAM needed for your ACI container. The default of one core and 1 gigabyte of RAM is sufficient for many models. If you feel you need more later, recreate the image and redeploy the service.  
