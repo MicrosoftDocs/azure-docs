@@ -58,7 +58,7 @@ The following Linux operating systems are supported:
 >
 
 ## VMs and Cloud Services
-VMs that run in a cloud services are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
+VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
 
 ## Supported IaaS features
