@@ -353,7 +353,7 @@ Install and start Rattle with the following commands:
 >
 >
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
 
 To load and configure the dataset:
 
