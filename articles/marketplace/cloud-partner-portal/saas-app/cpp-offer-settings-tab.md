@@ -40,4 +40,4 @@ Select **Save** to save your progress.
 
 ## Next steps
 
-[Technical Info tab](./cpp-technical-tab.md)
+[Technical Info tab](./cpp-technical-info-tab.md)

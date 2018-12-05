@@ -50,8 +50,8 @@ Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then 
 The New Offer page for the SaaS offer type provides a set of tabs and form fields that you'll use to create a new offer. Each of the following articles explains how to use the tab to define the asset groups and supporting services for your new offer.
 
 - [Offer Settings tab](./cpp-offer-settings-tab.md)
-- [Technical Info tab](./cpp-technical-tab.md)
-- [Channel Info tab](./cpp-channel-tab.md)
+- [Technical Info tab](./cpp-technical-info-tab.md)
+- [Channel Info tab](./cpp-channel-info-tab.md)
 - [Test Drive tab](./cpp-testdrive-tab.md)
 - [Storefront Details tab](./cpp-storefront-tab.md)
 - [Contacts tab](./cpp-contacts-tab.md)

@@ -31,7 +31,7 @@ The following table describes each publishing step, with a time estimate (maximu
 
 |     **Step**       |     **Time**      |  **Description**  |
 |  ---------------   |  ---------------  |  ---------------  |
-|         Certification           |       2 weeks            |          Offer is analyzed by the Azure Certification Team. This step will perform scans for viruses, malware, safety compliance, and security issues. It will also verify that this offer meets all eligibility criteria (see [prerequisites](./cpp-prerequisites.md) and [preparing your technical assets](./cpp-create-technical-assets.md). Feedback is provided if an issue is found.         |
+|         Certification           |       2 weeks            |          Offer is analyzed by the Azure Certification Team. This step will perform scans for viruses, malware, safety compliance, and security issues. It will also verify that this offer meets all eligibility criteria (see [prerequisites](./cpp-prerequisites.md)). Feedback is provided if an issue is found.         |
 |           Packaging         |       1 hour            |       Offer’s technical assets are packaged for customer use and the lead systems are configured and setup.            |
 |        Publisher sign off            |         -          |        Final publisher review and confirmation before the offer goes live. You can deploy your offer in the selected subscriptions (in the offer information steps) to verify that it meets all your requirements. Select **Go Live** so your offer can move to the next step.           |
 |        Packaging            |        1 hour           |        Finalized offer is replicated in marketplace production systems and regions.           |
