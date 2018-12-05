@@ -948,26 +948,26 @@ Google SDK in the future.
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 [Azure portal]: https://portal.azure.com/
-[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Dynamic Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Dynamic Schema]: https://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
-[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[2]: https://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
-[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]:../active-directory/develop/quickstart-v1-ios.md
