@@ -70,8 +70,6 @@ The script contains the instrumentation key that directs the data to your Applic
 
 ([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
-*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](https://github.com/johnhidey/angular-appinsights).)*
-
 ## Detailed configuration
 There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
 

@@ -19,7 +19,7 @@ Active geo-replication is Azure SQL Database feature that allows you to create r
 
 ![Geo-replication](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
 
-Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disastor or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
+Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disaster or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
 
 > [!NOTE]
 > Active geo-replication is available for all databases in all service tiers in all regions.
@@ -204,7 +204,7 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Enable replication traffic between two instances**
 
-  Because each instance is isolated in its own VNET, two-directional traffic between these VNETs must be allowed. See [Replication with SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+  Because each instance is isolated in its own VNET, two-directional traffic between these VNETs must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 - **Configure a failover group to manage failover of entire instance**
 
@@ -223,8 +223,8 @@ If your application uses managed instance as the data tier, follow these general
 
   > [!NOTE]
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
-  > - To connect to a read-only replica in the primary location, use use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net.
-  > - To connect to a read-only replica in the primary location, use use &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net.
+  > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net.
+  > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net.
 - **Be prepared for perf degradation**
 
   SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the network security guidelines in this article <link>.

@@ -90,9 +90,9 @@
     items: 
     - name: Overview 
       href: sql-database-service-tiers.md
-    - name: vCore-based purchasing model
+    - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU service tiers
+    - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
@@ -280,7 +280,7 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
-    - name: TDE with Azure SQL
+    - name: Transparent Data Encryption (TDE)
       items:
       - name: TDE with Azure SQL  
         href: transparent-data-encryption-azure-sql.md
