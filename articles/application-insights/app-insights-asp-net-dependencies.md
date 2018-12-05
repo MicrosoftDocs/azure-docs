@@ -33,7 +33,7 @@ Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com
 You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 > [!NOTE]
-> Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../cosmos-db/performance-tips#networking) is used. TCP mode won't be captured by Application Insights.
+> Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be captured by Application Insights.
 
 ## Set up dependency monitoring
 Partial dependency information is collected automatically by the [Application Insights SDK](app-insights-asp-net.md). To get complete data, install the appropriate agent for the host server.
