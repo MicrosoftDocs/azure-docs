@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get supported languages, C# - Translator Text API"
+title: "Quickstart: Get list of supported languages, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/26/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Get supported languages with the Translator Text REST API (C#)
+# Quickstart: Use the Translator Text API to get a list of supported languages using C#
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 

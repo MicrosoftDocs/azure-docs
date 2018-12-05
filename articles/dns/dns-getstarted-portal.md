@@ -3,10 +3,9 @@ title: Quickstart - Create a DNS zone and record using the Azure portal
 description: Use this step-by-step quickstart guide to learn how to create an Azure DNS zone and record using the Azure portal.
 services: dns
 author: vhorne
-
 ms.service: dns
 ms.topic: quickstart
-ms.date: 11/30/2018
+ms.date: 12/4/2018
 ms.author: victorh
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS so I can connect to my web server using a friendly name.
 ---
@@ -27,7 +26,7 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 For all portal steps, sign in to the [Azure portal](https://portal.azure.com).
-   
+
 ## Create a DNS zone
 
 A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you create a DNS zone for that domain name. 
@@ -65,7 +64,7 @@ You create DNS entries or records for your domain inside the DNS zone. Create a 
    - **TTL unit**: Select **Hours**. This is the time unit for the **TTL** value. 
    - **IP address**: For this quickstart example, type *10.10.10.10*. This value is the IP address the record name resolves to. In a real-world scenario, you would enter the public IP address for your web server.
 
-Since this quickstart doesn't use a real domain, there's no need to configure the Azure DNS name servers at a domain name registrar. With a real domain, you'll want anyone on the internet to resolve the host name to connect to your web server or app. You'll visit your domain name registrar to replace the name server records with the Azure DNS name servers. For more information, see [Delegate a domain to Azure DNS](dns-delegate-domain-azure-dns.md).
+Since this quickstart doesn't use a real domain, there's no need to configure the Azure DNS name servers at a domain name registrar. With a real domain, you'll want anyone on the internet to resolve the host name to connect to your web server or app. You'll visit your domain name registrar to replace the name server records with the Azure DNS name servers. For more information, see see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## Test the name resolution
 

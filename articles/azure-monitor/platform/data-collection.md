@@ -128,7 +128,7 @@ Logs are especially useful for combining data from a variety of sources, for com
 Logs collected by Azure Monitor are stored in Log Analytics which collects telemetry and other data from a variety of sources. It provides a rich query language and an analytics engine that gives you insights into the operation of your applications and resources. Other Azure services such as [Azure Security Center](../../security-center/security-center-intro.md) store their data in Log Analytics in order to provide a common data platform across Azure management.
 
 > [!IMPORTANT]
-> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../log-analytics/log-analytics-cross-workspace-search.md) to analyze application data together with other log data.
+> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md) to analyze application data together with other log data.
 
 
 ### Sources of log data
@@ -141,7 +141,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 - Security data collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Metrics](#metrics) from Azure resources. This allows you to store metrics for longer than 93 days and to analyze it with other log data.
 - Telemetry written to [Azure Storage](../../azure-monitor/platform/azure-storage-iis-table.md).
-- Custom data from any REST API client using the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) client or from an [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) workflow.
+- Custom data from any REST API client using the [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) client or from an [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) workflow.
 
 ![Log Analytics components](media/data-collection/logs-overview.png)
 
@@ -158,7 +158,7 @@ Tasks that you can perform with logs include the following:
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).
 
 ### Viewing log data
-All data from Log Analytics is retrieved using a [log query](../../azure-monitor/log-query/log-query-overview.md) that specifies a particular set of data. Queries are written using the [Log Analytics query language](../../azure-monitor/log-query/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../../log-analytics/log-analytics-log-search-portals.md) in the Azure portal to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+All data from Log Analytics is retrieved using a [log query](../../azure-monitor/log-query/log-query-overview.md) that specifies a particular set of data. Queries are written using the [Log Analytics query language](../../azure-monitor/log-query/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../../azure-monitor/log-query/portals.md) in the Azure portal to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Logs](media/data-collection/logs.png)
 
