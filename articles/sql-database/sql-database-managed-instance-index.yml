@@ -60,19 +60,10 @@ sections:
       - title: Advanced security
         href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
-- title: Try new and preview features in Managed Instance
+- title: New and preview features
   items:
   - type: paragraph
-    text: We are continously improving Managed Instance with new features: 
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="sql-database-managed-instance#business-critical-service-tier">Business Critical service tier</a> is now in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">General Availability (GA)</a>.
-    - html: (Preview) <a href="https://aka.ms/managed-instance-aadlogins">Create Azure AD logins</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
-    - html: (Preview) Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>.
-    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enables so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
-    - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failver groups</a> to keep a copy of instance in another region and ensure that your data will be available even in regional disaster scenario.
-    - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
+    text: 'We are continously improving Managed Instance with new features:'
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
