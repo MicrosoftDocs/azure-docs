@@ -80,7 +80,7 @@ You need to add two additional resources to the template.
         "type": "firewallrules",
         "name": "AllowAllAzureIps",
         "location": "[parameters('location')]",
-        "apiVersion": "2014-04-01",
+        "apiVersion": "2015-05-01-preview",
         "dependsOn": [
             "[variables('databaseServerName')]"
         ],

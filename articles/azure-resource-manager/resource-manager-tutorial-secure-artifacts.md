@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). The template used in the tutorial is the same as the one developed in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). The templates calls a SQL BACPAC file stored in an Azure storage account with public access. In this tutorial, you use SAS to grant limited access to the BACPAC file in your storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact. The artifact is stored in an Azure storage account with public access. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 This tutorial covers the following tasks:
 
@@ -37,7 +37,7 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Review [](). The template used in this tutorial is the one developed in [](). It is helpful to review that tutorial, especially if you are new to the template development.
+* Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. 
 * To increase security, use a generated password for the SQL Server administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
@@ -47,140 +47,137 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-There are three procedures in this section:
+In this section, you prepare the BACPAC file so it is accessible securely when you deploy the resource manager template. There are five procedures in this section:
 
-* Create a storage account
-* Upload the BACPAC file
-* Retrieve the SAS 
+* Download the BACPAC file.
+* Create a storage account.
+* Create a Blob container.
+* Upload the BACPAC file.
+* Retrieve the SAS token.
 
-Download the BACPAC file, https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac, and save the file to your local computer with the same name, **SQLDatabaseExtension.bacpac**.
+### Download the BACPAC file
 
-### Create a storage account###
+Download the [BACPAC file](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac), and save the file to your local computer with the same name, **SQLDatabaseExtension.bacpac**.
+
+### Create a storage account
 
 1. Select the following image to open a Resource Manager template in the Azure portal.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json" target="_blank"><img src="./media/resource-manager-tutorial-secure-artifacts/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Enter the following properties:
 
-    * **Subscription**: Enter your Azure subscription.
-    * **Resource Group**: Create a new Azure Resource Group, or select an existing Resource Group.  A Resource Group is for management purpose.  It is a container for objects.
-    * **Location**: Select a region.
+    * **Subscription**: Select your Azure subscription.
+    * **Resource Group**: Select **Create new** and give it a name. A resource group is a container for Azure resources for the management purpose. In this tutorial, you can use the same resource group for the storage account and the Azure SQL Database. Make a note of this resource group name, you need it when you create the Azure SQL Database later in the tutorials.
+    * **Location**: Select a region. For example, **Central US**. 
     * **Storage Account Type**: use the default value which is **Standard_LRS**.
-    * **Location**: Use the default value.
+    * **Location**: Use the default value which is **[resourceGroup().location]**. That means you use the resource group location for the storage account.
     * **I agree to the terms and conditions started above**: (selected)
 3. Select **Purchase**.
 4. Select the notification icon (the bell icon) on the upper right corner of the portal to see the deployment status.
-5. After the storage account is deployed sucessfully, select **Go to resource group** from the notification pane.
-6. Select the storage account to open it.  You shall see only one storage account in the resource group.
-7. Select the **Blobs** tile.
-8. Select **+ Container**.
-9. Enter the following values:
 
-    * **Name**: enter **sqlbacpac**
-    * **Public access level**: use the default value, **Private no anonymous access**.
+    ![resource manager tutorial portal notifications pane](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
+5. After the storage account is deployed successfully, select **Go to resource group** from the notification pane to open the resource group.
+
+### Create a Blob container
+
+A Blob container is needed before you can upload any files. 
+
+1. Select the storage account to open it. You shall see only one storage account listed in the resource group.
+
+    ![resource manager tutorial storage account](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
+
+    Your storage account name shall be different from the one shown in the screenshot.
+2. Select the **Blobs** tile.
+
+    ![resource manager tutorial blobs](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
+3. Select **+ Container** from the top
+4. Enter the following values:
+
+    * **Name**: enter **sqlbacpac**. 
+    * **Public access level**: use the default value, **Private (no anonymous access)**.
 10. Select **OK**.
 11. Select **sqlbacpac** to open the newly created container.
 12. Select **Upload**.
 13. Enter the following values:
 
-    * **Files**: Following the instructions to select the bacpac file you downloaded earlier. The default name is **SQLDatabaseExtension.bacpac**.
+    * **Files**: Following the instructions to select the BACPAC file you downloaded earlier. The default name is **SQLDatabaseExtension.bacpac**.
     * **Authentication type**: Select **SAS**.  *SAS* is the default value.
 14. Select **Upload**.  Once the file is uploaded successfully, the file name shall be listed in the container.
 15. Right-click **SQLDatabaseExtension.bacpac** from the container, and then select **Generate SAS**.
 16. Enter the following values:
 
     * **Permission**: Use the default, **Read**.
-    * **Start and expiry date/time**: use the default values.  The default value gives you eight hours to use the SAS token.
-    * **Allowed IP addresses**: 
+    * **Start and expiry date/time**: The default value gives you eight hours to use the SAS token. If you need more time to complete this tutorial, update **Expiry**.
+    * **Allowed IP addresses**: Leave this field blank.
     * **Allowed protocols**: use the default value: **HTTPS**.
     * **Signing key**: use the default value: **Key 1**.
 17. Select **Generate blob SAS token and URL**.
-18. Make a copy of both **Blob SAS token** and **Blob SAS URL**
+18. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name devids the URL into three parts:
 
-- sp=r&st=2018-11-27T16:49:00Z&se=2018-11-28T00:49:00Z&spr=https&sv=2017-11-09&sig=qDl04Uar9Zi9ICH2SvXNcCNthUygIQIRdFmqQvvBmto%3D&sr=b
-- https://avtigyz23vqm4standardsa.blob.core.windows.net/sqlbacpac/SQLDatabaseExtension.bacpac?sp=r&st=2018-11-27T16:49:00Z&se=2018-11-28T00:49:00Z&spr=https&sv=2017-11-09&sig=qDl04Uar9Zi9ICH2SvXNcCNthUygIQIRdFmqQvvBmto%3D&sr=b
+    - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
+    - **BACPAC file name**: SQLDatabaseExtension.bacpac.
+    - **Artifact location SAS token**: Make sure it starts with a "?".
 
-  https://avtigyz23vqm4standardsa.blob.core.windows.net/sqlbacpac/SQLDatabaseExtension.bacpac sp=r&amp;amp;st=2018-11-27T16:49:00Z&amp;amp;se=2018-11-28T00:49:00Z&amp;amp;spr=https&amp;amp;sv=2017-11-09&amp;amp;sig=qDl04Uar9Zi9ICH2SvXNcCNthUygIQIRdFmqQvvBmto%3D&amp;amp;sr=b
+You need these three values in [Deploy the template](#deploy-the-template).
+
 ## Open a Quickstart template
 
-Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy an Azure SQL Server with Threat Detection](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/).
+In this session, you modify the template you created in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) to call the BACPAC file with a SAS token.  The template developed in the SQL extension tutorial is shared at [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json).
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
     ```
 3. Select **Open** to open the file.
 
-    There are three resources defined in the template:
+    There are five resources defined in the template:
 
-    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
-    * `Microsoft.SQL.servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+    * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+    * `Microsoft.SQL/servers/filewallRules`. See the [template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+    * `Microsoft.SQL/servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+    * `Microsoft.SQL/server/databases/extensions`.  See the [template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+
     It is helpful to get some basic understanding of the template before customizing it.
 4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Edit the template
 
-You need to add two additional resources to the template.
+Add the following additional parameters:
 
-* To allow the SQL database extension to import BACPAC files, you need to allow access to Azure services. Add the following JSON to the SQL server definition:
-
-    ```json
-    {
-        "type": "firewallrules",
-        "name": "AllowAllAzureIps",
-        "location": "[parameters('location')]",
-        "apiVersion": "2014-04-01",
-        "dependsOn": [
-            "[variables('databaseServerName')]"
-        ],
-        "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
-        }
+```json
+"_artifactsLocation": {
+    "type": "string",
+    "metadata": {
+        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
     }
-    ```
+},
+"_artifactsLocationSasToken": {
+    "type": "securestring",
+    "metadata": {
+        "description": "The sasToken required to access _artifactsLocation. "
+    },
+    "defaultValue": ""
+},
+"bacpacFileName": {
+    "type": "string",
+    "defaultValue": "SQLDatabaseExtension.bacpac",
+    "metadata": {
+        "description": "The bacpac for configure the database and tables."
+    }
+}
+```
 
-    The template shall look like:
+![resource manager tutorial secure artifacts parameters](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
-    ![Azure Resource Manager deploy sql extensions BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-firewall.png)
+Update the value of the following two elements:
 
-* Add a SQL Database extension resource to the database definition with the following JSON:
-
-    ```json
-    "resources": [
-        {
-            "name": "Import",
-            "type": "extensions",
-            "apiVersion": "2014-04-01",
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-            ],
-            "properties": {
-                "storageKeyType": "SharedAccessKey",
-                "storageKey": "?",
-                "storageUri": "https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import",
-            }
-        }
-    ]
-    ```
-
-    The template shall look like:
-
-    ![Azure Resource Manager deploy sql extensions BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
-
-    To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
-
-    * **dependsOn**: The extension resource must be created after the SQL database has been created.
-    * **storageKeyType**: The type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Because the provided BACPAC file is shared on an Azure Storage account with public access, `SharedAccessKey' is used here.
-    * **storageKey**: The storage key to use. If storage key type is SharedAccessKey, it must be preceded with a "?."
-    * **storageUri**: The storage uri to use. If you choose not to use the BACPAC file provided, you need to update the values.
-    * **administratorLoginPassword**: The password of the SQL administrator. It is recommended to use a generated password. See [Prerequisites](#prerequisites).
+```json
+"storageKey": "[parameters('_artifactsLocationSasToken')]",
+"storageUri": "[uri(parameters('_artifactsLocation'), parameters('bacpacFileName'))]",
+```
 
 ## Deploy the template
 
@@ -192,13 +189,19 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+$artifactsLocation = Read-Host -Prompt "Enter the artifacts location"
+$artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS token" -AsSecureString
+$bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
-    -TemplateFile azuredeploy.json
+    -_artifactsLocation $artifactsLocation `
+    -_artifactsLocationSasToken $artifactsLocationSasToken `
+    -bacpacFileName $bacpacFileName `
+    -TemplateFile originalbacpac.json
 ```
 
 It is recommended to use a generated password. See [Prerequisites](#prerequisites).
