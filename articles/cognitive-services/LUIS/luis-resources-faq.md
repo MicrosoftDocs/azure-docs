@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
@@ -190,9 +190,9 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ## LUIS service
 
-### Is LUIS available on-premises or in private cloud?
-No.
+### Is Language Understanding (LUIS) available on-premises or in private cloud?
 
+Yes, you can use the LUIS [container](luis-container-howto.md) for these scenarios if you have the necessary connectivity to meter usage. 
 
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called?
 
