@@ -24,7 +24,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample script
 
-[!code-powershell-interactive[main](../../../includes/powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## Clean up deployment
 
