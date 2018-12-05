@@ -33,11 +33,11 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ### Operating System
 
-The Custom Script Extension for Linux will run on the extension supported extension OS's, for more information, see this [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+The Custom Script Extension for Linux will run on the extension supported extension OSs, for more information, see this [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### Script Location
 
-You can use the extension to use your Azure Blob storage credentials, to access Azure Blob storage. Alternatively, the script location can be any where, as long as the VM can route to that end point, such as GitHub, internal file server etc.
+You can use the extension to use your Azure Blob storage credentials, to access Azure Blob storage. Alternatively, the script location can be anywhere, as long as the VM can route to that end point, such as GitHub, internal file server etc.
 
 
 ### Internet Connectivity
@@ -48,15 +48,15 @@ If your script is on a local server, then you may still need additional firewall
 ### Tips and Tricks
 * The highest failure rate for this extension is due to syntax errors in the script, test the script runs without error, and also put in additional logging into the script to make it easier to find where it failed.
 * Write scripts that are idempotent, so if they get run again more than once accidentally, it will not cause system changes.
-* Ensure the scripts do not require user input when they run.
-* There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
-* Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
-* If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Windows Scheduled Task, or using tools such as DSC, or Chef, Puppet extensions.
+* Ensure the scripts don't require user input when they run.
+* There's 90 minutes allowed for the script to run, anything longer will result in a failed provision of the extension.
+* Don't put reboots inside the script, this action will cause issues with other extensions that are being installed. Post reboot, the extension won't continue after the restart. 
+* If you have a script that will cause a reboot, then install applications and run scripts etc. You can schedule the reboot using a Windows Scheduled Task, or using tools such as DSC, or Chef, Puppet extensions.
 * The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Scheduled Task.
 * If you want to schedule when a script will run, you should use the extension to create a Windows Scheduled Task. 
-* When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
+* When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you'll need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl* 
-* Be aware of non default directory locations that your scripts or commands may rely on, have logic to handle this.
+* Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
 
 
 ## Extension schema
@@ -121,7 +121,7 @@ These items should be treated as sensitive data and specified in the extensions 
 #### Property value details
  * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
-* `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
+* `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
@@ -129,13 +129,13 @@ These items should be treated as sensitive data and specified in the extensions 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 * `commandToExecute`
 
-Using public settings maybe useful for debugging, but it is strongly recommended that you use protected settings.
+Using public settings maybe useful for debugging, but it is recommended that you use protected settings.
 
-Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, i.e. if the settings were encrypted they are saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
+Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, that is, if the settings were encrypted they are saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. The following samples show how to use the Custom Script extension:
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema, which is detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. The following samples show how to use the Custom Script extension:
 
 * [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
@@ -182,7 +182,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```
 
 ### Running scripts from a local share
-In this example you may want to use a local SMB server for your script location, note, you do not need pass in another other settings, except *commandToExecute*.
+In this example you may want to use a local SMB server for your script location, note, you don't need pass in another other settings, except *commandToExecute*.
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -199,9 +199,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### How to run custom script more than once with CLI
-If you want to run the custom script extension more than once, you can only do this under these conditions:
+If you want to run the custom script extension more than once, you can only do this action under these conditions:
 1. The extension 'Name' parameter is the same as the previous deployment of the extension.
-2. You must update the configuration otherwise the command will not be re-executed, for example, you could add in a dynamic property in to the command, such as a timestamp. 
+2. You must update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp.
 
 ## Troubleshoot and support
 
@@ -222,11 +222,11 @@ The specified files are downloaded into the following directory on the target vi
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-where `<n>` is a decimal integer which may change between executions of the extension.  The `1.*` value matches the actual, current `typeHandlerVersion` value of the extension.  For example, the actual directory could be `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+where `<n>` is a decimal integer, which may change between executions of the extension.  The `1.*` value matches the actual, current `typeHandlerVersion` value of the extension.  For example, the actual directory could be `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-When executing the `commandToExecute` command, the extension sets this directory (e.g., `...\Downloads\2`) as the current working directory. This enables the use of relative paths to locate the files downloaded via the `fileURIs` property. See the table below for examples.
+When executing the `commandToExecute` command, the extension sets this directory (for example, `...\Downloads\2`) as the current working directory. This process enables the use of relative paths to locate the files downloaded via the `fileURIs` property. See the table below for examples.
 
-Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
+Since the absolute download path may vary over time, it's better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 ```json
 	"commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
@@ -244,4 +244,4 @@ Path information after the first URI segment is retained for files downloaded vi
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). You can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
