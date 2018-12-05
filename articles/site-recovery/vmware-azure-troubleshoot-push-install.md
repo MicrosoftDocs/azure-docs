@@ -34,7 +34,27 @@ When you enable replication, Azure Site Recovery tries to push install mobility 
 
 If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## **Connectivity check (ErrorID: 95117 & 97118)**
+## Insufficient privileges failure (ErrorID: 95518)
+
+When domain trust relationship establishment between the primary domain and workstation fails while trying to login to the source machine,mobility agent installation fails with error id 95518. So, ensure that the user account used to install mobility agent has administrative privileges to login through primary domain of the source machine.
+
+If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## Login Failure (ErrorID: 95519)
+
+The user account chosen during Enable Replication has been disabled. To enable the user account refer to the article [here](https://aka.ms/enable_login_user) or run the following command by replacing text *username* with the actual user name.
+`net user 'username' /active:yes`
+
+## Login Failure (ErrorID: 95520)
+
+Multiple failed retry efforts to access a machine will lock the user account. This can be due to
+
+* Credentials provided during Configuration setup are incorrect OR
+* The user account chosen during Enable Replication is wrong
+
+So, modify the credentials chosen by following the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) and retry the operation after sometime.
+
+## **Connectivity failure (ErrorID: 95117 & 97118)**
 
 * Ensure you are able to ping your Source machine from the Configuration server. If you have chosen scale-out process server during enable replication, ensure you are able to ping your Source machine from process server.
   * From Source Server machine command line, use Telnet to ping the configuration server/ scale-out process server with https port (135) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
@@ -55,7 +75,7 @@ If you wish to modify the credentials of chosen user account, follow the instruc
 
 ## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
-After connectivity check, verify if File and printer sharing service is enabled on your virtual machine.
+After connectivity check, verify if File and printer sharing service is enabled on your virtual machine. This is required to copy Mobility agent on to the source machine.
 
 For **windows 2008 R2 and prior versions**,
 
@@ -69,11 +89,11 @@ For **windows 2008 R2 and prior versions**,
 
 For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to enable file and printer sharing
 
-## Windows Management Instrumentation (WMI) configuration check
+## Windows Management Instrumentation (WMI) configuration check (Error code: 95103)
 
-After file and printer services check, enable WMI service through firewall.
+After file and printer services check, enable WMI service for private, public and domain profiles through firewall. WMI is required to complete remote execution on the source machine. To enable,
 
-* In the Control Panel, click Security and then click Windows Firewall.
+* Go to Control Panel, click Security and then click Windows Firewall.
 * Click Change Settings and then click the Exceptions tab.
 * In the Exceptions window, select the check box for Windows Management Instrumentation (WMI) to enable WMI traffic through the firewall. 
 
@@ -90,6 +110,10 @@ Other WMI troubleshooting articles could be found at the following articles.
 Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service.
 
 To learn about which operating systems are supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## Insufficient space - Error code 95524
+
+When Mobility agent is copied on to the source machine, at least 100 MB free space is required. So, ensure that your source machine has required free space and retry the operation.
 
 ## VSS Installation failures
 
