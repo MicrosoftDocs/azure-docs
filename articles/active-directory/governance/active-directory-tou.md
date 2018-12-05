@@ -308,19 +308,25 @@ Conditional access policies take effect immediately. When this happens, the admi
 
 ## B2B guests (Preview)
 
-Most organizations have a process in place for their employees to consent to their organization's Terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using conditional access and Terms of use you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the Terms of use. This support is currently in preview.
+Most organizations have a process in place for their employees to consent to their organization's Terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using conditional access and Terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the Terms of use. This support is currently in preview.
+
+![All guest users](./media/active-directory-tou/b2b-guests.png)
 
 ## Support for cloud apps (Preview)
 
-Terms of use can be used for different cloud apps, such as Azure Information Protection, and Microsoft Intune. This support is currently in preview.
+Terms of use can be used for different cloud apps, such as Azure Information Protection and Microsoft Intune. This support is currently in preview.
 
 ### Azure Information Protection
 
-You can configure a conditional access policy to the Azure Information Protection app and require a Terms of use when a user accesses a protected document. This will trigger a Terms of use prior to a user accessing a protected document for the first time.
+You can configure a conditional access policy for the Azure Information Protection app and require a Terms of use when a user accesses a protected document. This will trigger a Terms of use prior to a user accessing a protected document for the first time.
 
-### Microsoft Intune
+![Azure Information Protection cloud app](./media/active-directory-tou/cloud-app-info-protection.png)
 
-You have the ability to target the Terms of use to the Intune enrollment app. This will display the Terms of use prior to the enrollment of a device in Intune. For more information, see the Read [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+### Microsoft Intune Enrollment
+
+You can configure a conditional access policy for the Microsoft Intune Enrollment app and require a Terms of use prior to the enrollment of a device in Intune. For more information, see the Read [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+
+![Microsoft Intune cloud app](./media/active-directory-tou/cloud-app-intune.png)
 
 ## Frequently asked questions
 
