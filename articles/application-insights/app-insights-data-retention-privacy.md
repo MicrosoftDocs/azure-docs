@@ -98,9 +98,8 @@ Microsoft uses the data only in order to provide the service to you.
 ## Where is the data held?
 * In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
 
-
 #### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
-* No. Your application can run anywhere, either in your own on-premises hosts or in any public cloud.
+* No. Your application can run anywhere, either in your own on-premises hosts or in any cloud.
 
 ## How secure is my data?
 Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](https://go.microsoft.com/fwlink/?linkid=392408).
