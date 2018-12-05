@@ -61,31 +61,31 @@ Yes. If you are already using this application instance for single sign-on, and 
 and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 ```
-   GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
+GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
 ```
 6. In the results, copy the full "ID" string that begins with either "customappsso" or "scim".
 7. Run the command below to retrieve the attribute-mapping configuration, so you can make a backup. Use the same [object-id] as before, and replace [job-id] with the provisioning job ID copied from the last step.
 ```
-   GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema
+GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema
 ```
 8. Copy the JSON output from the last step, and save it to a text file. This contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
 9. Run the command below to delete the provisioning job:
 ```
-   DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
+DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
 ```
 10. Run the command below to create a new provisioning job that has the latest service fixes.
 ```
-   POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
-   {
-   templateId: "scim"
-   } 
+POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
+{
+  templateId: "scim"
+} 
 ```   
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, re-apply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you just copied, and entering the JSON output from step #7 as the request body.
 ```
-   POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema
-   {
-   <your-schema-json-here>
-   } 
+POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema
+{
+  <your-schema-json-here>
+} 
 ```
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.
 13. Verify your configuration, and then start the provisioning job. 
@@ -102,10 +102,10 @@ and sign in as the administrator for the Azure AD tenant where your app is added
 5. In the Graph Explorer, run the command below to initialize the provisioning configuration for your app.
 Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 ```
-   POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
-   {
-   templateId: "customappsso"
-   } 
+POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
+{
+  templateId: "customappsso"
+} 
 ``` 
 6. Return to the first web browser window, and select the **Provisioning** tab for your application.
 7. Complete the user provisioning configuration as you normally would.

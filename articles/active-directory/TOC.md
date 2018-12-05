@@ -303,6 +303,7 @@
 ##### [Problem saving administrator credentials while configuring user provisioning gallery app](application-provisioning-config-problem-storage-limit.md)
 ##### [Users are not provisioned - gallery app](application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Wrong users provisioned - galler app](application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM compatibility issues - non-gallery app](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Single sign-on
 ##### [Choose a method](application-config-sso-how-to-choose-sign-on-method.md)
