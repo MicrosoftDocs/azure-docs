@@ -25,7 +25,7 @@ Before you get started, here's a list of prerequisites:
 
 * A [subscription key](get-started.md) for the Speech Service
 * A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later
-* The target set to iOS version 11.4
+* The target set to iOS version 11.4 or later
 
 ## Get the Speech SDK for iOS
 
