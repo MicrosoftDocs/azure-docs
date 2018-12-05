@@ -210,6 +210,5 @@ The recommended default for most organizations is to configure a rule for a **Me
 
 ## Next steps
 
-- [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-- [Enabling Azure Active Directory Identity Protection](enable.md)

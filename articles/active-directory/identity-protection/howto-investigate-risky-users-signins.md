@@ -37,7 +37,7 @@ Are there recommendations for performing regular checkpoints?
 ## How does an investigation work?
 
 
-## Risky Users Report
+## Risky users report
 
 With the information provided by the risky users report, you can find answers to questions such as:
 
@@ -173,7 +173,7 @@ To learn more about a risky user, click on the Details drawer to expand it
 
 
 
-## Risky Sign-Ins Report
+## Risky sign-ins report
 
 With the information provided by the risky sign-ins report, you can find answers to questions such as:
 
