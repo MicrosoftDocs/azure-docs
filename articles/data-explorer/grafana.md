@@ -113,7 +113,7 @@ Now that you have a service principal, you add it to the *viewers* role in the A
 
     ![Manage permissions in the Azure portal](media/grafana/save-permission.png)
 
-#### Management command
+#### Management command - Query
 
 1. In the Azure portal, go to your Azure Data Explorer cluster, and select **Query**.
 
@@ -131,7 +131,7 @@ Now that you have a service principal, you add it to the *viewers* role in the A
 
 ### Specify properties and test the connection
 
-With the service principal assigned to the *viewers* role, you now specify properties in your instance of Grafana and test the connection to Azure Data Explorer.
+With the service principal assigned to the *viewers* role, you now specify properties in your instance of Grafana, and test the connection to Azure Data Explorer.
 
 1. In Grafana, on the left menu, select the gear icon then **Data Sources**.
 
@@ -188,7 +188,7 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
     ![Run query](media/grafana/run-query.png)
 
-1. The graph doesn't show any results because it's scoped by default to data from the last six hours. On the top bar, select **Last 6 hours**.
+1. The graph doesn't show any results because it's scoped by default to data from the last six hours. On the top menu, select **Last 6 hours**.
 
     ![Last six hours](media/grafana/last-six-hours.png)
 
@@ -200,7 +200,7 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
     ![Finished graph](media/grafana/finished-graph.png)
 
-1. On the top bar, select the save icon: ![Save icon](media/grafana/save-icon.png).
+1. On the top menu, select the save icon: ![Save icon](media/grafana/save-icon.png).
 
 ## Next steps
 
