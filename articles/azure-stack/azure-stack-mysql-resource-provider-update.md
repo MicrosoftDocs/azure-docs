@@ -23,7 +23,7 @@ ms.reviewer: quying
 A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. 
 
 > [!IMPORTANT]
-> You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## Update the MySQL resource provider adapter (integrated systems only)
 
