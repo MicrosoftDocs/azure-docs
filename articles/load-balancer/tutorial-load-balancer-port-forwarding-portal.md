@@ -36,7 +36,7 @@ In this tutorial, you set up port forwarding on an Azure Load Balancer. You lear
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-For all steps in this tutorial, sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+For all steps in this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Standard load balancer
 
@@ -54,10 +54,12 @@ First, create a public Standard load balancer that can balance traffic load over
    - **Availability zone**: Drop down and select **Zone-redundant**.
    - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
    - **Location**: Select **West Europe**. 
+     >[!NOTE]
+     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview#regions-that-support-availability-zones). 
    
 1. Select **Create**.
    
-![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+![Create a load balancer](./media/tutorial-load-balancer-port-forwarding-portal/load-balancer.png)
 
 ## Create and configure back-end servers
 
@@ -75,7 +77,7 @@ Create a virtual network with two virtual machines, and add the VMs to the back-
    
 1. Select **Create**.
 
-   ![Create a virtual network](./media/load-balancer-standard-public-portal/2-load-balancer-virtual-network.png)
+   ![Create a virtual network](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
 
 ### Create VMs and add them to the load balancer back-end pool
 
@@ -111,15 +113,17 @@ Create a virtual network with two virtual machines, and add the VMs to the back-
    1. For **Select a load balancer**, drop down and select **MyLoadBalancer**. 
    1. Under **Select a backend pool**, select **Create new**, then type *MyBackendPool*, and select **Create**. 
    
+   ![Create a virtual network](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
+   
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
    
 1. Select **Review + create**.
    
-1. Review the settings, and then select **Create**. 
+1. Review the settings, and when validation succeeds, select **Create**. 
 
 1. Follow the steps to create a second VM named *MyVM2*, with all the other settings the same as MyVM1. 
    
-   For the Network Security Group, after selecting **Advanced**, you can drop down and select the **MyNetworkSecurityGroup** that you already created. 
+   For **Network Security Group**, after selecting **Advanced**, drop down and select the **MyNetworkSecurityGroup** that you already created. 
    
    Under **Select a backend pool**, make sure **MyBackendPool** is selected. 
 
@@ -147,7 +151,7 @@ Create a network security group (NSG) rule for the VMs to allow inbound internet
    
 1. Select **Add**. 
    
-   ![Create an NSG rule](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
+   ![Create an NSG rule](./media/tutorial-load-balancer-port-forwarding-portal/8-load-balancer-nsg-rules.png)
    
 ## Create load balancer resources
 
@@ -157,7 +161,7 @@ In this section, you inspect the load balancer back-end pool, and configure a lo
 
 To distribute traffic to the VMs, the load balancer uses a back-end address pool, which contains the IP addresses of the virtual network interfaces (NICs) that are connected to the load balancer. 
 
-You created your load balancer back-end pool and added VMs to it when you created the VMs. You can also create back-end pools and add VMs from the load balancer page. 
+You created your load balancer back-end pool and added VMs to it when you created the VMs. You can also create back-end pools and add or remove VMs from the load balancer **Backend pools** page. 
 
 1. Select **All resources** on the left menu, and then select **MyLoadBalancer** from the resource list.
    
@@ -169,8 +173,8 @@ You created your load balancer back-end pool and added VMs to it when you create
 
 1. On the **MyBackendPool** page, under **VIRTUAL MACHINE** and **IP ADDRESS**, you can remove or add available VMs to the pool.
    
-   ![Add the back-end address pool](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
-   
+1. To create a new back-end pool, select **Add** on the **Backend pools** page.
+
 ### Create a health probe
 
 To allow the load balancer to monitor VM status, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. 
@@ -190,7 +194,7 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
    
 1. Select **OK**.
    
-   ![Add a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
+   ![Add a probe](./media/tutorial-load-balancer-port-forwarding-portal/4-load-balancer-probes.png)
 
 ### Create a load balancer rule
 
@@ -202,7 +206,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Under **Settings**, select **Load balancing rules**, and then select **Add**.
    
-1. On the **Add load balancing rule** page, type or select the following values, if not already present:
+1. On the **Add load balancing rule** page, type or select the following values:
    
    - **Name**: Type *MyLoadBalancerRule*.
    - **Frontend IP address:** Type *LoadBalancerFrontEnd* if not present.
@@ -214,7 +218,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/load-balancer-standard-public-portal/5-load-balancing-rules.png)
+  ![Add a load balancer rule](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## Create an inbound NAT port-forwarding rule
 
@@ -244,7 +248,7 @@ Each back-end VM serves a different version of the default IIS web page, so you 
 
 ### Connect to the VMs with RDP
 
-Connect to both VMs with Remote Desktop (RDP). 
+Connect to each VM with Remote Desktop (RDP). 
 
 1. In the portal, select **All resources** on the left menu. From the resource list, select each VM in the **MyResourceGroupLB** resource group.
    
@@ -278,20 +282,22 @@ Use PowerShell to install IIS and replace the default IIS web page with a page t
     #Add custom htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     
+    
    ```
    
-1. Close the RDP connections with MyVM1 and MyVM2 by selecting **Disconnect**. Do not shut down the VMs.
+1. Close the RDP connections with MyVM1 and MyVM2 by selecting **Disconnect**. Don't shut down the VMs.
 
 ### Test load balancing
 
 In the portal, on the **Overview** page for **MyLoadBalancer**, copy the public IP address under **Public IP address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.218.235**. 
+
 Paste or type the load balancer's public IP address (*40.67.218.235*) into the address bar of your internet browser. 
 
 The customized IIS web server default page appears in the browser. The message reads either **Hello World from MyVM1**, or **Hello World from MyVM2**.
 
-Refresh the browser to see the load balancer distribute traffic across VMs. Sometimes the **MyVM1** page appears, and other times the **MyVM2** page appears, as the load balancer distributes the requests to each back-end VM. You may need to clear your browser cache between attempts.
+Refresh the browser to see the load balancer distribute traffic across VMs. Sometimes the **MyVM1** page appears, and other times the **MyVM2** page appears, as the load balancer distributes the requests to each back-end VM. You may need to clear your browser cache or open a new browser window between attempts.
 
-![New IIS default page](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
+![New IIS default page](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
 
 ## Test port forwarding
 
