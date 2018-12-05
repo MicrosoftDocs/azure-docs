@@ -52,11 +52,6 @@ The process of deploying a model is similar for all compute targets:
 
     * When **deploying as an IoT Edge module**, you must register the model and create the image.
 
-> [!IMPORTANT]
-> When deploying to __Azure Container Instances__, the SDK can automatically create the ACI compute resource as part of the deployment operation.
->
-> When deploying to __Azure Kubernetes Service__, you must first create the AKS cluster and attach it to your workspace.
-
 ## Register a model
 
 Only trained models can be deployed. The model can be trained using Azure Machine Learning, or another service. To register a model from file, use the following code:
