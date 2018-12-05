@@ -44,7 +44,7 @@ You can continue to use your experimentation and model management accounts as we
 |December 4, 2018|The ability to create **Azure Machine Learning Experimentation accounts** and **Model Management accounts** in the Azure portal and from the CLI has ended. The ability to create Machine Learning compute environments from the CLI has also ended. If you have an existing account, the CLI and the desktop Machine Learning Workbench continue to work in this phase.|
 |January 9, 2019|Support for everything else, including the remaining APIs and the desktop Machine Learning Workbench ends on this date.|
 
-[Start migrating](how-to-migrate.md) today. All the latest capabilities are available by using the new <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [the CLI](reference-azure-machine-learning-cli.md), and the [Azure portal](quickstart-get-started.md).
+[Start migrating](how-to-migrate.md) today. All the latest capabilities are available by using the new <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [the CLI](reference-azure-machine-learning-cli.md), and the [portal](quickstart-get-started.md).
 
 ## What about run histories?
 
@@ -62,21 +62,21 @@ The portal's workspace dashboard is supported on Edge, Chrome, and Firefox brows
 
 Your preexisting data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. However, you can still prepare your data for modeling.  
 
-With smaller datasets, you can use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a> to quickly prepare your data prior to modeling. 
+With smaller datasets, you can use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning data prep SDK</a> to quickly prepare your data prior to modeling. 
 
 You can use this same <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for larger datasets. Or use Azure Databricks to prepare big datasets. 
 
 ## Will projects persist?
 
-You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning service Workspace using a local config file. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
+You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning Workspace service by using a local config file. See a [diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
-Since much of the project content was already on your local machine, you just need to create a config file in that directory and reference it in your code to connect to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
+Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. Learn how to [migrate your existing projects](how-to-migrate.md#projects).
 
-Learn how to get started [in Python with the main SDK](quickstart-get-started.md).
+Learn how to [get started in Python with the main SDK](quickstart-get-started.md).
 
-## What about my registers models and images?
+## What about my registered models and images?
  
-The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
+The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To do this, [download the models and re-register them](how-to-migrate.md) in your new workspace. 
 
 The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
 
