@@ -12,14 +12,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 12/04/2018
 ms.author: gokuma
 
 ---
 # Provision the Windows Data Science Virtual Machine on Azure
 The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual machine (VM) image. It's preinstalled and configured with several tools that are used for data analytics and machine learning. The following tools are included:
 
-* [Azure Machine Learning](../service/index.yml) Workbench.
+* [Azure Machine Learning service](../service/index.yml) Python SDK.
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
 * Anaconda Python distribution.
 * Jupyter Notebook with R, Python, and PySpark kernels.
@@ -189,13 +189,13 @@ The **Power BI Desktop** is installed to help you build dashboards and visualiza
 > 
 > 
 
-### Azure Machine Learning Workbench
+### Azure Machine Learning service Python SDK
 
-Azure Machine Learning Workbench is a desktop application and command-line interface. The workbench has built-in data preparation that learns your data preparation steps as you take them. It also provides project management, run history, and notebook integration to boost your productivity. 
+The Azure Machine Learning SDK for Python is used by data scientists and AI developers to build and run machine learning workflows with the [Azure Machine Learning service](../service/overview-what-is-azure-ml.md). You can interact with the service in any Python environment, including Jupyter Notebooks or your favorite Python IDE, using open-source frameworks, such as TensorFlow and scikit-learn.
 
-You can use open-source frameworks, including TensorFlow, Cognitive Toolkit, Spark ML, and scikit-learn, to develop your models. On the DSVM, we provide a desktop icon to install the Azure Machine Learning Workbench into the individual user's **%LOCALAPPDATA%** directory. 
+To get started using the Python SDK, see [Use Python to get started with Azure Machine Learning](../service/quickstart-create-workspace-with-python).
 
-Each user of the workbench must take a one-time action. Double-click the ```AzureML Workbench Setup``` desktop icon to install the workbench instance. Azure Machine Learning also creates and uses a per user Python environment that's extracted in the **%LOCALAPPDATA%\amlworkbench\python** directory.
+The Python SDK is preinstalled on the Microsoft Data Science Virtual Machine.
 
 ## More Microsoft development tools
 The [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) is used to find and download other Microsoft development tools. There's also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
@@ -211,7 +211,6 @@ The [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/p
 | Microsoft Machine Learning Server (Standalone) Python | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Default R instance, Machine Learning Server (Standalone) | C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL Machine Learning Services in-database instance directory | C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
-| Azure Machine Learning Workbench, per user | %localappdata%\amlworkbench | 
 | Miscellaneous tools | c:\dsvm\tools |
 
 > [!NOTE]
@@ -222,7 +221,7 @@ The [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/p
 ## Next steps
 
 * Explore the tools on the data science VM by selecting the **Start** menu.
-* Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../service/index.yml). 
+* Learn about Azure Machine Learning service by reading [What is Azure Machine Learning service?](../service/overview-what-is-azure-ml.md) and trying out the [quickstarts and tutorials](../service/index.yml) that are available.
 * Navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples that use the RevoScaleR library in R that supports data analytics at the enterprise scale.  
 * Read the article [Ten things you can do on the Data science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](../team-data-science-process/index.yml).
