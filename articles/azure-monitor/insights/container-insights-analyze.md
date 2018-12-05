@@ -18,13 +18,13 @@ ms.author: magoedte
 ---
 
 # Understand AKS cluster performance with Azure Monitor for containers 
-Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from an AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also included when you drill down to a specific AKS cluster.
+Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from an AKS cluster or view all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is also possible when you view a specific AKS cluster.
 
 This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions, and AKS clusters not monitored by the solution.  Immediately, you can understand cluster health and from here you can drill down to the node and controller performance page, or you can navigate to the  see the performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can chose to enable monitoring for that cluster at any time.  ​
+Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions, and AKS clusters not monitored by the solution.  Immediately, you can understand cluster health and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can  enable monitoring for that cluster at any time.  ​
 ​
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
@@ -47,7 +47,7 @@ The health statuses included are:
 * **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
 * **Unknown** – if the service was not able to make a connection with the node or pod, the status changes to an unknown state.
 * **Not found** - Either the workspace, the resource group or subscription containing the workspace for this solution has been deleted.
-* **Unauthorized** - User doesn’t have required to  permission to read the data in the workspace.
+* **Unauthorized** - User doesn’t have required permissions to read the data in the workspace.
 * **Error** - Error occurred while attempting to read data from the workspace.
 * **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
 * **No data** - Data has not reported to the workspace in the last 30 minutes.
