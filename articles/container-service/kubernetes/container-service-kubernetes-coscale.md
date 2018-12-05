@@ -79,5 +79,5 @@ The CoScale agent is automatically deployed on new machines in the cluster. The 
 
 ## Next steps
 
-See the [CoScale documentation](http://docs.coscale.com/) and [blog](https://www.coscale.com/blog) for more information about CoScale monitoring solutions. 
+See the [CoScale documentation](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) and [blog](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog) for more information about CoScale monitoring solutions. 
 
