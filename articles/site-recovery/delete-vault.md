@@ -4,13 +4,12 @@ description: Learn how to delete a Recovery Services vault configured for Azure 
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
 
 ---
-# Delete a Site Recovery Recovery Services vault
+# Delete a Site Recovery Services vault
 
 Dependencies can prevent you from deleting an Azure Site Recovery vault. The actions you need to take vary based on the Site Recovery scenario. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
 

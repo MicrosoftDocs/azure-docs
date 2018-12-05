@@ -174,7 +174,7 @@ The SQL query language supported by SQL API accounts is an enhanced subset of th
 
 ### Does the SQL API support SQL aggregation functions?
 
-The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-api-sql-query.md#Aggregates).
+The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](how-to-sql-query.md#Aggregates).
 
 ### How does the SQL API provide concurrency?
 
@@ -460,7 +460,7 @@ From the .NET SDK it can be submitted in the app.config file:
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API?
 
-The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We'll provide additional functionality in the Table API in a future service update. For more information, see [SQL queries](sql-api-sql-query.md).
+The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](how-to-sql-query.md).
 
 ### When should I change TableThroughput for the Table API?
 

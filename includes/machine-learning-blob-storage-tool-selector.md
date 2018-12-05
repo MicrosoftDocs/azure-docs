@@ -1,3 +1,10 @@
+---
+author: cjgronlund
+ms.service: machine-learning
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: cgronlun
+---
 <!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
 -->
 This menu links to technologies you can use to move data to and from Azure Blob storage:

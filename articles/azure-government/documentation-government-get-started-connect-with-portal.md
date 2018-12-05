@@ -43,7 +43,7 @@ Sign in using your Azure Government credentials. Once you sign it, you should se
 
 ## Check out Service health
 
-You can take a look at Azure Government regions and their health status by clicking on **Sevice Health**.
+You can take a look at Azure Government regions and their health status by clicking on **Service Health**.
 
 Currently, you can choose from 6 available government-only datacenter regions.
 

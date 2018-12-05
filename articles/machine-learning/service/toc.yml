@@ -12,6 +12,9 @@
   - name: What's happening to Workbench?
     displayName: desktop
     href: overview-what-happened-to-workbench.md 
+  - name: Release notes
+    displayName: what's new
+    href: azure-machine-learning-release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -118,12 +121,14 @@
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
       href: how-to-secure-web-service.md  
-    - name: Consume a deployed model
+  - name: Consume web services
+    items:  
+    - name: Consume in real-time
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
-  - name: Monitor models
+  - name: Monitor web services
     items:  
-    - name: Collect data in production  
+    - name: Collect and evaluate model data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
@@ -152,9 +157,6 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Release notes
-    displayName: what's new
-    href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
@@ -333,7 +335,7 @@
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    
-      - name: Computer vision package
+      - name: Computer vision package deprecated
         items:
         - name: Package install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
@@ -347,7 +349,7 @@
             href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
           - name: Improve model accuracy
             href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Forecasting package
+      - name: Forecasting package deprecated
         items:
         - name: Overview and install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
@@ -357,7 +359,7 @@
         href: reference-fpga-package-overview.md
       - name: Text analytics package
         items:
-        - name: Overview and install
+        - name: Overview and install deprecated
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     
