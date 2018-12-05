@@ -37,13 +37,13 @@ If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-cre
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure 
+## Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a route table
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. on the Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Route table**.
 3. Enter, or select, the following information, accept the default for the remaining setting, and then select **Create**:
 
@@ -53,16 +53,16 @@ Log in to the Azure portal at http://portal.azure.com.
     |Subscription| Select your subscription.|
     |Resource group | Select **Create new** and enter *myResourceGroup*.|
     |Location|East US|
- 
-    ![Create route table](./media/tutorial-create-route-table-portal/create-route-table.png) 
+
+    ![Create route table](./media/tutorial-create-route-table-portal/create-route-table.png)
 
 ## Create a route
 
 1. In the *Search resources, services, and docs* box at the top of the portal, begin typing *myRouteTablePublic*. When **myRouteTablePublic** appears in the search results, select it.
 2. Under **SETTINGS**, select **Routes** and then select **+ Add**, as shown in the following picture:
 
-    ![Add route](./media/tutorial-create-route-table-portal/add-route.png) 
- 
+    ![Add route](./media/tutorial-create-route-table-portal/add-route.png)
+
 3. Under **Add route**, enter, or select, the following information, accept the default for the remaining settings, and then select **Create**:
 
     |Setting|Value|
@@ -89,11 +89,11 @@ Before you can associate a route table to a subnet, you have to create a virtual
     |Location|Select *East US*|
     |Subnet name|Public|
     |Address range|10.0.0.0/24|
-    
+
 4. In the **Search resources, services, and docs** box at the top of the portal, begin typing *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
 5. Under **SETTINGS**, select **Subnets** and then select **+ Subnet**, as shown in the following picture:
 
-    ![Add subnet](./media/tutorial-create-route-table-portal/add-subnet.png) 
+    ![Add subnet](./media/tutorial-create-route-table-portal/add-subnet.png)
 
 6. Select or enter the following information, then select **OK**:
 
@@ -112,7 +112,7 @@ Before you can associate a route table to a subnet, you have to create a virtual
 8. The **myVirtualNetwork - Subnets** box is displayed after completing the previous step. Under **SETTINGS**, select **Subnets** and then select **Public**.
 9. As shown in the following picture, select **Route table**, select **MyRouteTablePublic**, and then select **Save**:
 
-    ![Associate route table](./media/tutorial-create-route-table-portal/associate-route-table.png) 
+    ![Associate route table](./media/tutorial-create-route-table-portal/associate-route-table.png)
 
 ## Create an NVA
 
