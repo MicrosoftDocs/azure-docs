@@ -19867,6 +19867,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/storage/common/storage-lifecycle-management-concepts.md",
+            "redirect_url": "/azure/storage/blobs/storage-lifecycle-management-concepts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/storage/blobs/storage-dotnet-how-to-use-blobs.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
