@@ -60,17 +60,16 @@ sections:
   - title: Step-by-Step Tutorials
     items:
     - type: paragraph
-      text: 'Learn how to develop apps using Azure Cosmos DB&#58;'
+      text: 'Learn how to use Azure Key Vault using tutorials'
     - type: list
       style: ordered
       items:
-      - html: Develop an app with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
-      - html: Migrate data to Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
-      - html: Query data with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Gremlin</a>
-      - html: Global database replication with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> 
-      - html: <a href="local-emulator">Develop your application locally using the emulator</a>
-      - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
-      
+      - html: Get Started with Key Vault from a Web ; <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Application</a> 
+      - html: How to use Azure Key Vault with Azure Linux Virtual Machine in ; <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">.NET</a> 
+      - html: How to use Azure Key Vault with Azure Windows Virtual Machine in ; <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">.NET</a>
+      - html: How to use Azure Key Vault with Azure Linux Virtual Machine in ; <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">Python</a>
+      - html: How to use Azure Key Vault with Azure Windows Virtual Machine in ; <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">Python</a> 
+
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
