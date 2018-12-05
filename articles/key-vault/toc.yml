@@ -36,6 +36,8 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Python
           href: tutorial-python-windows-virtual-machine.md
+  - name: Azure Containers
+    href: ./container-instances/container-instances-managed-identity.md
   - name: Read a secret from Key Vault
     href: tutorial-web-application-keyvault.md
   - name: Set up key rotation and auditing
