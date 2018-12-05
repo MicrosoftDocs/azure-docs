@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases
 
@@ -63,7 +63,7 @@ Create a new directory and from this directory execute the following command usi
     makecert ^
     -n "CN=*.cloudapp.net" ^
     -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
-    -a sha1 -len 2048 ^
+    -a sha256 -len 2048 ^
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
    ```
