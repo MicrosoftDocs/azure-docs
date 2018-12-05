@@ -1,14 +1,14 @@
 ---
 title: IoT DevKit to cloud -- Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs
 description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
-author: rangv
-manager: jeffya
+author: wesmc7777
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
-ms.author: rangv
+ms.author: wesmc
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub
@@ -129,29 +129,35 @@ Follow these steps to prepare the development environment for DevKit:
     ![Install Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png)
     Together with the IoT Workbench, other dependent extensions will be installed.
 
-4. Configure Arduino
+4. Configure Visual Studio Code with Arduino settings. 
+
+    In Visual Studio Code, click **File > Preference > Settings**. Then click the **...** and **Open settings.json**. 
+    
+    Add following lines to configure Arduino depending on your platform: 
+
+
     * **Windows**:
-      On **Windows** Open **File > Preference > Settings** click the **...** and open settings.json then add following lines to configure Arduino. 
       
-    ```json
-    "arduino.path": "C:\\Program Files (x86)\\Arduino",
-    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-    ```
+        ```json
+        "arduino.path": "C:\\Program Files (x86)\\Arduino",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
 
     * **macOS**:
-      On **macOS** Open **Code > Preferences > Settings** click the **...** and open settings.json then add the following lines to configure Arduino
 
-    ```json
-    "arduino.path": "/Applications",
-    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-    ```
+        ```json
+        "arduino.path": "/Applications",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
 
     * **Ubuntu**:
+    
+        Replace the **{username}** placeholder below with your username.
 
-    ```json
-    "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
-    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-    ```
+        ```json
+        "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
 
 5. Click `F1` to open the command palette, type and select **Arduino: Board Manager**. Search for **AZ3166** and install the latest version.
     ![Install DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
