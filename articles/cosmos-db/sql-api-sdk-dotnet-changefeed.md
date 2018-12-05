@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 services: cosmos-db
 author: ealsur
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -38,6 +37,9 @@ ms.author: maquaran
 ## Release notes
 
 ### v2 builds
+
+### <a name="2.2.4"/>2.2.4
+* Added new property ChangeFeedProcessorOptions.StartContinuation to support starting change feed from request continuation token. This is only used when lease collection is empty or a lease does not have ContinuationToken set. For leases in lease collection that have ContinuationToken set, the ContinuationToken is used and ChangeFeedProcessorOptions.StartContinuation is ignored.
 
 ### <a name="2.2.3"/>2.2.3
 * Added support for using custom store to persist continuation tokens per partition.

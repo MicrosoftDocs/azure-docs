@@ -1,5 +1,5 @@
 ---
-title: 'Step 5: Deploy the Machine Learning web service | Microsoft Docs'
+title: 'Step 5: Deploy the Machine Learning Studio web service | Microsoft Docs'
 description: 'Step 5 of the Develop a predictive solution walkthrough: Deploy a predictive experiment in Machine Learning Studio as a web service.'
 services: machine-learning
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ---
-# Walkthrough Step 5: Deploy the Azure Machine Learning web service
+# Walkthrough Step 5: Deploy the Azure Machine Learning Studio web service
 This is the fifth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)

@@ -19,21 +19,21 @@ As a CSP, you can create and manage Microsoft Azure IoT Central applications on 
 
 To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service management for the customer from the left nav.
 
-![Microsoft Partner Center, customer view](media\howto-create-application-asCSP\image1.png)
+![Microsoft Partner Center, customer view](media/howto-create-application-asCSP/image1.png)
 
 Azure IoT Central is listed as a service available to administer. Click the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
 
-![Azure IoT Central available to manage](media\howto-create-application-asCSP\image2.png)
+![Azure IoT Central available to manage](media/howto-create-application-asCSP/image2.png)
 
 You land on the Azure IoT Central Application Manager page. Azure IoT Central keeps context that you came from the Microsoft Partner Center and that you came to manage that particular customer. You see this acknowledged in the header of the Application Manager page. From here, you can either navigate to an existing application you had created earlier for this customer to manage or create a new application for the customer.
 
-![Create Manager for CSPs](media\howto-create-application-asCSP\image3.png)
+![Create Manager for CSPs](media/howto-create-application-asCSP/image3.png)
 
 To create an Azure IoT Central application, click the **New Application** tile. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
-![Create Application Page for CSPs](media\howto-create-application-asCSP\image4.png)
+![Create Application Page for CSPs](media/howto-create-application-asCSP/image4.png)
 
-![Create Application Page for CSPs](media\howto-create-application-asCSP\image4-1.png)
+![Create Application Page for CSPs](media/howto-create-application-asCSP/image4-1.png)
 
 ## Payment plan
 

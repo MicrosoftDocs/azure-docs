@@ -41,20 +41,22 @@
   items: 
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
-  - name: IoT Edge certificates
-    href: iot-edge-certs.md
   - name: IoT Edge modules
     items: 
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
     - name: Development
       href: module-development.md
-    - name: Composition
-      href: module-composition.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: Deployments
-    href: module-deployment-monitoring.md
+  - name: Module deployment 
+    items:
+    - name: Deployment manifest
+      href: module-composition.md
+    - name: Automatic deployments
+      href: module-deployment-monitoring.md
+  - name: IoT Edge certificates
+    href: iot-edge-certs.md
   - name: Offline capabilities
     href: offline-capabilities.md
   - name: IoT Edge device as a gateway
@@ -67,6 +69,8 @@
       href: iot-edge-security-manager.md
   - name: Platform support
     href: support.md
+  - name: Production deployment checklist
+    href: production-checklist.md
   - name: IoT Edge glossary
     href: iot-edge-glossary.md
 - name: How-to guides
@@ -147,8 +151,12 @@
     items:
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
-  - name: CI/CD in Azure DevOps
-    href: how-to-ci-cd.md
+  - name: Manage with DevOps tools
+    items:
+    - name: Azure DevOps Projects for IoT Edge
+      href: how-to-devops-project.md
+    - name: CI/CD in Azure DevOps
+      href: how-to-ci-cd.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Related

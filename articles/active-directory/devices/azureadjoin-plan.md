@@ -59,7 +59,7 @@ To plan your hybrid Azure AD implementation, you should familiarize yourself wit
 While Hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you are planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those objectives.  
 
  
-You should consider Azure AD join if your goals align with the the following criteria:
+You should consider Azure AD join if your goals align with the following criteria:
 
 - You are adopting Microsoft 365 as the productivity suite for your users.
 
@@ -92,12 +92,14 @@ A federated environment should have an identity provider that supports both WS-T
 
 - **WS-Trust:** This protocol is required to sign in to an Azure AD joined device. 
 
-If your identity provider does not support these protocols, Azure AD join does not work natively. Beginning with  Windows 10 1809, your users can sign in to an Azure AD joined device with a SAML-based identity provider through a [web sign-in on Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). 
+If your identity provider does not support these protocols, Azure AD join does not work natively. Beginning with  Windows 10 1809, your users can sign in to an Azure AD joined device with a SAML-based identity provider through [web sign-in on Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Currently, web sign-in is a preview-only feature.
 
 
 ### Smartcards and certificate-based authentication
 
 You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
+
+**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 devices.
 
 
 ### User configuration
@@ -207,7 +209,9 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 **Recommendation:** Consider retiring these applications and moving to their modern alternatives.
 
+### Remote Desktop Services
 
+Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## Understand your provisioning options

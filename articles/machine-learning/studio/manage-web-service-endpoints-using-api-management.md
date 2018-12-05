@@ -1,5 +1,5 @@
 ---
-title: Learn how to manage AzureML web services using API Management | Microsoft Docs
+title: Manage Machine Learning Studio web services using API Management - Azure | Microsoft Docs
 description: A guide showing how to manage AzureML web services using API Management.
 keywords: machine learning,api management
 services: machine-learning
@@ -18,9 +18,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ---
-# Learn how to manage AzureML web services using API Management
+# Manage Azure Machine Learning Studio web services using API Management
 ## Overview
-This guide shows you how to quickly get started using API Management to manage your AzureML web services.
+This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio web services.
 
 ## What is Azure API Management?
 Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](../../api-management/api-management-get-started.md) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.

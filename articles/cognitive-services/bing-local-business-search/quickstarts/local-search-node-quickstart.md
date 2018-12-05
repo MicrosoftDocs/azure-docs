@@ -16,7 +16,7 @@ ms.author: rosh, v-gedod
 # Quickstart: Send a query to the Bing Local Business Search API using Node.js
 
 Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in Node.js, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
- 
+
 This example application gets local response data from the API for the search query `hotel in Bellevue`.
 
 ## Prerequisites
@@ -25,16 +25,17 @@ This example application gets local response data from the API for the search qu
 
 * The [JavaScript Request Library](https://github.com/request/request)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-##Code scenario
+## Code scenario
+
 The following code gets defines and sends the request. It is implemented in the following steps:
 
 1. Declare variables to specify the endpoint by host and path.
-2. Specify the query, and add the query parameter. 
+2. Specify the query, and add the query parameter.
 3. Create a handler function for the response.
 4. Define the Search function that creates the request and adds the Ocp-Apim-Subscription-Key header.
-5. Run the Search function. 
+5. Run the Search function.
 
 The complete code for this demo follows:
 
@@ -88,6 +89,7 @@ Search();
 ````
 
 ## Next steps
-- [Local Business Search quickstart](local-quickstart.md)
-- [Local Business Search Java quickstart](local-search-java-quickstart.md)
-- [Local Business Search Python quickstart](local-search-python-quickstart.md)
+
+* [Local Business Search quickstart](local-quickstart.md)
+* [Local Business Search Java quickstart](local-search-java-quickstart.md)
+* [Local Business Search Python quickstart](local-search-python-quickstart.md)
