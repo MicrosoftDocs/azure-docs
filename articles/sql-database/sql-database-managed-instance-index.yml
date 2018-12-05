@@ -63,7 +63,7 @@ sections:
 - title: Try new and preview features in Managed Instance
   items:
   - type: paragraph
-    text: We are continously improving Managed Instance with new features. You can try some of the new features that are recently added: 
+    text: We are continously improving Managed Instance with new features: 
   - type: list
     style: ordered
     items:
