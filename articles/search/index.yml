@@ -14,15 +14,15 @@ metadata:
   ms.date: 05/01/2018
   ms.author: heidist
 abstract:
-  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><b>New cognitive search preview.</b> Use a pre-release REST API to bind AI-powered algorithms to the indexing pipeline. Extract data, and invoke natural language and image processing to transform raw unstructured content into searchable content in an Azure Search index. <p/>Get started with <a href="/azure/search/cognitive-search-quickstart-blob">resources and sample data</a> or learn more in <a href="/azure/search/cognitive-search-concept-intro">Concepts</a>.
+  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><b>New cognitive search preview.</b> Use a pre-release REST API to bind AI-powered algorithms to the indexing pipeline. Extract data, and invoke natural language and image processing to transform raw unstructured content into searchable content in an Azure Search index. <p/>Explore cognitive search using <a href="/azure/search/cognitive-search-quickstart-blob">resources and sample data</a> or learn more in <a href="/azure/search/cognitive-search-concept-intro">Concepts</a>.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
       width: 250  
-    title: Learn about Azure Search (9:32)
-    href: https://channel9.msdn.com/Events/Connect/2016/138/player
+    title: What is Azure Search (1:27)
+    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -65,6 +65,6 @@ sections:
     className: cardsD
     items:
     - title: Languages
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.search">Python (Management)</a></p>
+      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Management)</a></p>
     - title: REST
       html: <p><a href="/rest/api/searchservice">Service API Reference</a></p><p><a href="/rest/api/searchmanagement">Management API Reference</a></p>

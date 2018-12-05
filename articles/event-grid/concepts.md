@@ -44,7 +44,7 @@ When designing your application, you have flexibility when deciding how many top
 
 ## Event subscriptions
 
-A subscription tells Event Grid which events on a topic you are interested in receiving. When creating the subscription, you provide an endpoint for handling the event. You can filter the events that are sent to the endpoint. You can filter by event type, or subject pattern. For more information, see [Event Grid subscription schema](subscription-creation-schema.md).
+A subscription tells Event Grid which events on a topic you're interested in receiving. When creating the subscription, you provide an endpoint for handling the event. You can filter the events that are sent to the endpoint. You can filter by event type, or subject pattern. For more information, see [Event Grid subscription schema](subscription-creation-schema.md).
 
 For examples of creating subscriptions, see:
 
@@ -54,9 +54,17 @@ For examples of creating subscriptions, see:
 
 For information about getting your current event grid subscriptions, see [Query Event Grid subscriptions](query-event-subscriptions.md).
 
+## Event subscription expiration
+
+The [Event Grid extension](/cli/azure/azure-cli-extensions-list) for Azure CLI allows you to set an expiration date when creating an event subscription. If you are using the REST API, use `api-version=2018-09-15-preview`
+
+The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time and you don't want to worry about cleaning up those subscriptions. For example, when creating an event subscription to test a scenario, you might want to set an expiration. 
+
+For an example of setting an expiration, see [Subscribe with advanced filters](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports multiple handler types. You can use a supported Azure service or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service is able to successfully process the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports several handler types. You can use a supported Azure service or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about implementing any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
 
@@ -70,7 +78,7 @@ If Event Grid can't confirm that an event has been received by the subscriber's 
 
 ## Batching
 
-When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume usecases, it is recommended that you batch multiple events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not excede 64 KB.
+When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 64 KB.
 
 ## Next steps
 

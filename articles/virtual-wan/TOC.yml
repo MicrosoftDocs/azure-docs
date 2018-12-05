@@ -8,14 +8,30 @@
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
+  - name: Create an ExpressRoute connection
+    href: virtual-wan-expressroute-portal.md
+  - name: Create a point-to-site connection
+    href: virtual-wan-point-to-site-portal.md
+- name: Concepts
+  items:
+  - name: Locations and partners
+    href: virtual-wan-locations-partners.md
+  - name: Office 365 control plane in Virtual WAN
+    href: virtual-wan-office365-overview.md
 - name: How-to guides
   items:
-  - name: Configure automation - WAN Partners
+  - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
+  - name: Route traffic from a virtual hub to an NVA
+    href: virtual-wan-route-table.md
 - name: Reference
   items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.network#networking
   - name: REST
     href: /rest/api/azure
+  - name: Azure CLI
+    href: /cli/azure/ext/virtual-wan
 - name: Resources
   items:
   - name: FAQ
@@ -27,7 +43,7 @@
   - name: Subscription and service limits
     href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/vpn-gateway
+    href: https://azure.microsoft.com/pricing/details/virtual-wan
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA

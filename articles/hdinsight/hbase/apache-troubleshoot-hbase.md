@@ -1,20 +1,16 @@
 ---
-title: Troubleshoot HBase by using Azure HDInsight | Microsoft Docs
+title: Troubleshoot HBase by using Azure HDInsight 
 description: Get answers to common questions about working with HBase and Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinver
-manager: ashitg
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 7/7/2017
+author: nitinver
 ms.author: nitinver
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 7/7/2017
 ---
 
-# Troubleshoot HBase by using Azure HDInsight
+# Troubleshoot Apache HBase by using Azure HDInsight
 
 Learn about the top issues and their resolutions when working with Apache HBase payloads in Apache Ambari.
 
@@ -29,7 +25,7 @@ Holes might be caused by the offline regions, so fix the assignments first.
 To bring the unassigned regions back to a normal state, complete the following steps:
 
 1. Sign in to the HDInsight HBase cluster by using SSH.
-2. To connect with the ZooKeeper shell, run the `hbase zkcli` command.
+2. To connect with the Apache ZooKeeper shell, run the `hbase zkcli` command.
 3. Run the `rmr /hbase/regions-in-transition` command or the `rmr /hbase-unsecure/regions-in-transition` command.
 4. To exit from the `hbase zkcli` shell, use the `exit` command.
 5. Open the Apache Ambari UI, and then restart the Active HBase Master service.
@@ -45,7 +41,7 @@ A potential cause for timeout issues when you use the `hbck` command might be th
 ### Resolution steps
 
 1. Sign in to the HDInsight HBase cluster by using SSH.
-2. To connect with the ZooKeeper shell, run the `hbase zkcli` command.
+2. To connect with the Apache ZooKeeper shell, run the `hbase zkcli` command.
 3. Run the `rmr /hbase/regions-in-transition` or the `rmr /hbase-unsecure/regions-in-transition` command.
 4. To exit the `hbase zkcli` shell, use the `exit` command.
 5. In the Ambari UI, restart the Active HBase Master service.
@@ -55,7 +51,7 @@ A potential cause for timeout issues when you use the `hbck` command might be th
 
 ### Issue
 
-The local Hadoop Distributed File System (HDFS) is stuck in safe mode on the HDInsight cluster.
+The local Apache Hadoop Distributed File System (HDFS) is stuck in safe mode on the HDInsight cluster.
 
 ### Detailed description
 
@@ -210,8 +206,7 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
 
 ### Resolution steps
 
-To connect with Phoenix, you must provide the IP address of an active ZooKeeper 
-node. Ensure that the ZooKeeper service to which sqlline.py is trying to connect is up and running.
+To connect with Apache Phoenix, you must provide the IP address of an active Apache ZooKeeper node. Ensure that the ZooKeeper service to which sqlline.py is trying to connect is up and running.
 1. Sign in to the HDInsight cluster by using SSH.
 2. Enter the following command:
                 
@@ -247,7 +242,7 @@ node. Ensure that the ZooKeeper service to which sqlline.py is trying to connect
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. In the Ambari UI, complete the following steps to restart the HMaster service on all ZooKeeper nodes:
+6. In the Apache Ambari UI, complete the following steps to restart the HMaster service on all ZooKeeper nodes:
 
     1. In the **Summary** section of HBase, go to **HBase** > **Active HBase Master**. 
     2. In the **Components** section, restart the HBase Master service.
@@ -331,7 +326,7 @@ This is a known issue with the HMaster service. General cluster startup tasks ca
   
 ### Resolution steps
 
-1. In the Ambari UI, go to **HBase** > **Configs**. In the custom hbase-site.xml file, add the following setting: 
+1. In the Apache Ambari UI, go to **HBase** > **Configs**. In the custom hbase-site.xml file, add the following setting: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +339,9 @@ This is a known issue with the HMaster service. General cluster startup tasks ca
 
 ### Issue
 
-A restart failure on a region server might be prevented by following best practices. We recommend that you pause heavy workload activity when you are planning to restart HBase region servers. If an application continues to connect with region servers when shutdown is in progress, the region server restart operation will be slower by several minutes. Also, it's a good idea to first flush all the tables. For a reference on how to flush tables, see [HDInsight HBase: How to improve the HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+A restart failure on a region server might be prevented by following best practices. We recommend that you pause heavy workload activity when you are planning to restart HBase region servers. If an application continues to connect with region servers when shutdown is in progress, the region server restart operation will be slower by several minutes. Also, it's a good idea to first flush all the tables. For a reference on how to flush tables, see [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-If you initiate the restart operation on HBase region servers from the Ambari UI, you immediately see that the region servers went down, but they don't restart right away. 
+If you initiate the restart operation on HBase region servers from the Apache Ambari UI, you immediately see that the region servers went down, but they don't restart right away. 
 
 Here's what's happening behind the scenes: 
 

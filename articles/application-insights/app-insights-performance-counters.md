@@ -1,20 +1,17 @@
-﻿---
+---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-
 ---
 # System performance counters in Application Insights
 Windows provides a wide variety of [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own. [Application Insights](app-insights-overview.md) can show these performance counters if your application is running under IIS on an on-premises host or virtual machine to which you have administrative access. The charts indicate the resources available to your live application, and can help to identify unbalanced load between server instances.
@@ -23,7 +20,7 @@ Performance counters appear in the Servers blade, which includes a table that se
 
 ![Performance counters reported in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
+(Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
 
 ## View counters
 The Servers blade shows a default set of performance counters. 
@@ -92,7 +89,7 @@ Or you can do the same thing with custom metrics you created:
 ## Performance counters in Analytics
 You can search and display performance counter reports in [Analytics](app-insights-analytics.md).
 
-The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
 ![Performance counters in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

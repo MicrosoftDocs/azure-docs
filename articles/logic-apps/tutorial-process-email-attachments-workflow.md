@@ -72,7 +72,7 @@ You can save incoming emails and attachments as blobs in
 an [Azure storage container](../storage/common/storage-introduction.md). 
 
 1. Before you can create a storage container, 
-[create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) 
+[Create a storage account](../storage/common/storage-quickstart-create-account.md) 
 with these settings:
 
    | Setting | Value | Description | 
@@ -851,7 +851,7 @@ group name as confirmation, and choose **Delete**.
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

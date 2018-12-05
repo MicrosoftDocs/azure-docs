@@ -3,19 +3,15 @@ title: Triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 05/24/2018
-ms.author: glenga
+ms.date: 09/24/2018
+ms.author: cshoe
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -75,11 +71,12 @@ Here's C# script code that works with this trigger and binding. Notice that the 
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -124,7 +121,7 @@ In a class library, the same trigger and binding information &mdash; queue and t
      [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
      public static Person Run(
          [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
+         ILogger log)
      {
          return new Person() {
                  PartitionKey = "Orders",
@@ -160,7 +157,7 @@ In some development environments, you have to explicitly *register* a binding th
 |C# class library using Visual Studio 2017|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP, timer, and Azure Storage (blobs, queues, and tables). 
+The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP and timer.
 
 ### Azure portal development
 
@@ -168,7 +165,7 @@ This section applies only to Functions 2.x. Binding extensions don't have to be 
 
 When you create a function or add a binding, you are prompted when the extension for the trigger or binding requires registration. Respond to the prompt by clicking **Install** to register the extension. Installation can take up to 10 minutes on a consumption plan.
 
-You need only install each extension one time for a given function app. 
+You need only install each extension one time for a given function app. For supported bindings that are not available in the portal or to update the an installed extension, you can also [manually install or update Azure Functions binding extensions from the portal](install-update-binding-extensions-manual.md).  
 
 ### Local development Azure Functions Core Tools
 
@@ -182,7 +179,7 @@ This section applies only to Functions 2.x. Binding extensions don't have to be 
 In **Visual Studio 2017**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
 ```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <target_version>
 ```
 
 The name of the package to use for a given binding is provided in the reference article for that binding. For an example, see the [Packages section of the Service Bus binding reference article](functions-bindings-service-bus.md#packages---functions-1x).
@@ -194,7 +191,7 @@ Replace `<target_version>` in the example with a specific version of the package
 In **Visual Studio Code**, you can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI, as shown in the following example:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <target_version>
 ```
 
 The .NET Core CLI can only be used for Azure Functions 2.x development.
@@ -230,6 +227,7 @@ See the language-specific example showing use of the return value:
 * [C# script (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### C# example
 
@@ -238,10 +236,10 @@ Here's C# code that uses the return value for an output binding, followed by an 
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -249,10 +247,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -273,19 +271,19 @@ Here's the output binding in the *function.json* file:
 Here's the C# script code, followed by an async example:
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -306,9 +304,9 @@ Here's the output binding in the *function.json* file:
 Here's the F# code:
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -333,6 +331,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### Python example
+
+Here's the output binding in the *function.json* file:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Here's the Python code:
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## Binding dataType property
@@ -401,9 +422,9 @@ You can use the same approach in class libraries:
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -445,9 +466,9 @@ Function code has access to this same value by using `filename` as a parameter n
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -463,9 +484,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -544,19 +565,20 @@ For this to work in C# and F#, you need a class that defines the fields to be de
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
 
-    log.Info($"Processing: {info.BlobName}");
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

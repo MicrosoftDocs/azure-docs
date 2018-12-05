@@ -47,7 +47,7 @@ You will need the following to use the Blob service with your Hudson CI solution
      
       While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-create-storage-account.md#create-a-storage-account).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
 * Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
 ## How to use the Blob service with Hudson CI
@@ -140,7 +140,7 @@ The following provides an overview of the Blob service components.
 
 * **Storage account**: All access to Azure Storage is done through a storage account. This is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100 TB.
 * **Container**: A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs.
-* **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200 GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1 TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200 GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1 TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL format**: Blobs are addressable using the following URL format:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -156,6 +156,6 @@ The following provides an overview of the Blob service components.
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 
 For more information, visit [Azure for Java developers](/java/azure).

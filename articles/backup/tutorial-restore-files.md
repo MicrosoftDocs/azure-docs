@@ -2,13 +2,13 @@
 title: Restore files to a VM with Azure Backup
 description: Learn how to perform file-level restores on an Azure VM with Backup and Recovery Services.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -22,7 +22,7 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## Prerequisites

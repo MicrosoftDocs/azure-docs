@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ---
 
@@ -18,9 +18,9 @@ Azure Container Instances (ACI) provide a hosted environment for running contain
 When using the Virtual Kubelet provider for Azure Container Instances, both Linux and Windows containers can be scheduled on a container instance as if it is a standard Kubernetes node. This configuration allows you to take advantage of both the capabilities of Kubernetes and the management value and cost benefit of container instances.
 
 > [!NOTE]
+> AKS now has built-in support for scheduling containers on ACI, called *virtual nodes*. These virtual nodes currently support Linux container instances. If you need to schedule Windows container instances, you can continue using Virtual Kubelet. Otherwise, you should use virtual nodes instead of the manual Virtual Kubelet instructions noted in this article. You can get started with virtual nodes using the [Azure CLI][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
+>
 > Virtual Kubelet is an experimental open source project and should be used as such. To contribute, file issues, and read more about virtual kubelet, see the [Virtual Kubelet GitHub project][vk-github].
-
-This document details configuring the Virtual Kubelet for container instances on an AKS.
 
 ## Prerequisite
 
@@ -32,31 +32,41 @@ To install the Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### For RBAC-enabled clusters
 
-If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac].
-
-A *ClusterRoleBinding* must also be created for the Virtual Kubelet. To create a binding, create a file named *rbac-virtualkubelet.yaml* and paste the following definition:
+If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac]. To create a service account and role binding, create a file named *rbac-virtual-kubelet.yaml* and paste the following definition:
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: virtual-kubelet
+  name: tiller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
 ```
 
-Apply the binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtualkubelet.yaml* file, as shown in the following example:
+Apply the service account and binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtual-kubelet.yaml* file, as shown in the following example:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+```
+
+Configure Helm to use the tiller service account:
+
+```console
+helm init --service-account tiller
 ```
 
 You can now continue to installing the Virtual Kubelet into your AKS cluster.
@@ -101,15 +111,18 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 
 ## Run Linux container
 
-Create a file named `virtual-kubelet-linux.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name of the Linux Virtual Kubelet node. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
+Create a file named `virtual-kubelet-linux.yaml` and copy in the following YAML. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -121,9 +134,13 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+        beta.kubernetes.io/os: linux
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 
@@ -144,15 +161,18 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 
 ## Run Windows container
 
-Create a file named `virtual-kubelet-windows.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name of the Windows Virtual Kubelet node. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
+Create a file named `virtual-kubelet-windows.yaml` and copy in the following YAML. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nanoserver-iis
   template:
     metadata:
       labels:
@@ -160,13 +180,17 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
+        beta.kubernetes.io/os: windows
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 
@@ -193,15 +217,22 @@ Use the [az aks remove-connector][aks-remove-connector] command to remove Virtua
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
 
+> [!NOTE]
+> If you encounter errors removing both OS connectors, or want to remove just the Windows or Linux OS connector, you can manually specify the OS type. Add the `--os-type` parameter to the previous `az aks remove-connector` command, and specify `Windows` or `Linux`.
+
 ## Next steps
 
-Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github].
+For possible issues with the Virtual Kubelet, see the [Known quirks and workarounds][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
+
+Read more about Virtual Kubelet at the [Virtual Kubelet Github project][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
@@ -211,3 +242,5 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[vk-troubleshooting]: https://github.com/virtual-kubelet/virtual-kubelet#known-quirks-and-workarounds
+[vk-issues]: https://github.com/virtual-kubelet/virtual-kubelet/issues

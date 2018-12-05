@@ -1,16 +1,15 @@
 ---
-title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
-ms.author: sngun
+ms.date: 11/29/2018
+ms.author: moderakh
 
 ---
 # Azure Cosmos DB Async Java SDK for SQL API: Release notes and resources
@@ -34,7 +33,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 <tr><td>**SDK Download**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -44,10 +43,38 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 <tr><td>**Performance tips**</td><td>[Github readme](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**Minimum supported runtime**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**Minimum supported runtime**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## Release notes
+
+### <a name="2.3.0"/>2.3.0
+* Fixed a resource leak bug.
+* Added support for MultiPolygon
+* Added support for custom headers in RequestOptions.
+
+### <a name="2.2.2"/>2.2.2
+* Fixed a packaging bug.
+
+### <a name="2.2.1"/>2.2.1
+* Fixed a NPE bug in write retry path.
+* Fixed a NPE bug in endpoint management.
+* Upgraded vulnerable dependencies ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Added support for Netty network logging for troubleshooting.
+
+### <a name="2.2.0"/>2.2.0
+* Added support for Multi-region write.
+
+### <a name="2.1.0"/>2.1.0
+* Added support for Proxy.
+* Added support for resource token authorization.
+* Fixed a bug in handling large partition keys ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Documentation improved.
+* SDK restructured into more granular modules.
+
+### <a name="2.0.1"/>2.0.1
+* Fixed a bug for non-english locales ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Added helper methods in Conflict Resource.
 
 ### <a name="2.0.0"/>2.0.0
 * Replaced org.json dependency by jackson due to performance reasons and licensing ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
@@ -95,6 +122,12 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |Nov 29, 2018|--- |
+| [2.2.2](#2.2.2) |Nov 8, 2018|--- |
+| [2.2.1](#2.2.1) |Nov 2, 2018|--- |
+| [2.2.0](#2.2.0) |September 22, 2018|--- |
+| [2.1.0](#2.1.0) |September 5, 2018|--- |
+| [2.0.1](#2.0.1) |August 16, 2018|--- |
 | [2.0.0](#2.0.0) |June 20, 2018|--- |
 | [1.0.2](#1.0.2) |May 18, 2018|--- |
 | [1.0.1](#1.0.1) |April 20, 2018|--- |

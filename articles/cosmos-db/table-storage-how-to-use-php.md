@@ -1,9 +1,8 @@
 ---
-title: How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP | Microsoft Docs
+title: How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
@@ -502,7 +501,7 @@ Now that you've learned the basics of the Azure Table service and Azure Cosmos D
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-* [PHP Developer Center](/develop/php/).
+* [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: http://php.net/require_once

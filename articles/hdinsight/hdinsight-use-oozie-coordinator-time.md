@@ -1,20 +1,14 @@
 ---
-title: Use time-based Hadoop Oozie coordinator in HDInsight | Microsoft Docs
+title: Use time-based Hadoop Oozie coordinator in HDInsight 
 description: Use time-based Hadoop Oozie coordinator in HDInsight, a big data service. Learn how to define Oozie workflows and coordinators, and submit jobs.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: jasonh
 ROBOTS: NOINDEX
 ---
 # Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
@@ -549,12 +543,12 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
         $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $creds -OutVariable $OozieServerStatus
 
         $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-        $oozieServerSatus = $jsonResponse[0].("systemMode")
-        Write-Host "Oozie server status is $oozieServerSatus..."
+        $oozieServerStatus = $jsonResponse[0].("systemMode")
+        Write-Host "Oozie server status is $oozieServerStatus..."
 
-        if($oozieServerSatus -notmatch "NORMAL")
+        if($oozieServerStatus -notmatch "NORMAL")
         {
-            Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
+            Write-Host "Oozie server status is $oozieServerStatus...cannot submit Oozie jobs. Check the server status and re-run the job."
         }
     }
     ```
@@ -747,7 +741,7 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
+[powershell-start]: https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

@@ -1,25 +1,19 @@
 ---
 title: Platforms and tools for data science team projects - Azure  | Microsoft Docs
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 
-# Platforms and tools for data science team projects
+# Platforms and tools for data science projects
 
 Microsoft provides a full spectrum of data and analytics services and resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
@@ -124,7 +118,7 @@ Run the following bash command to install Git on Linux (CentOS) machines:
 
 ### Generate public SSH key on Linux (CentOS) machines
 
-If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your VSTS server, so that this machine is recognized by the VSTS server. First, you need to generate a public SSH key and add the key to SSH public keys in your VSTS security setting page. 
+If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps Services, so that this machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page. 
 
 - To generate the SSH key, run the following two commands: 
 
@@ -134,7 +128,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
-- Log in to your VSTS server. 
+- Log in to your Azure DevOps Services. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
 	![](./media/platforms-and-tools/resources-2-user-setting.png)
@@ -150,4 +144,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.
+For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.

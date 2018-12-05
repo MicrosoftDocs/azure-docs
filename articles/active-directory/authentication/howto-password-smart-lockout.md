@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,13 +18,21 @@ ms.reviewer: rogoya
 
 Smart lockout uses cloud intelligence to lock out bad actors who are trying to guess your users’ passwords or use brute-force methods to get in. That intelligence can recognize sign-ins coming from valid users and treat them differently than ones of attackers and other unknown sources. Smart lockout locks out the attackers, while letting your users continue to access their accounts and be productive.
 
-By default, smart lockout locks the account from sign-in attempts for one minute after ten failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
+By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
+
+* Smart lockout tracks the last three bad password hashes to avoid reincrementing the lockout counter. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout.
+   * This functionality is not available for customers with pass-through authentication enabled.
 
 Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Basic or higher licenses for your users.
 
+Using smart lockout does not guarantee that a genuine user will never be locked out. When smart lockout locks a user account, we try our best to not lockout the genuine user. The lockout service attempts to ensure that bad actors can’t gain access to a genuine users account.  
+
+* Each Azure Active Directory data center tracks lockout independently. A user will have (threshold_limit * datacenter_count) number of attempts, if the user hits each data center.
+* Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Unfamiliar and familiar locations will both have separate lockout counters.
+
 Smart lockout can be integrated with hybrid deployments, using password hash sync or pass-through authentication to protect on-premises Active Directory accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises Active Directory.
 
-When using [pass-through authentication](../connect/active-directory-aadconnect-pass-through-authentication.md), you need to make sure that:
+When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you need to make sure that:
 
    * The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
    * The Azure AD lockout duration **in seconds** is **longer** than the Active Directory reset account lockout counter after duration **minutes**.

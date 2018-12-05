@@ -1,26 +1,21 @@
 ---
-title: Use Hadoop Hive on the Query Console in HDInsight - Azure | Microsoft Docs
-description: Learn how to use the web-based Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
+title: Use Apache Hive on the Query Console in HDInsight - Azure 
+description: Learn how to use the web-based Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Run Hive queries using the Query Console
+# Run Apache Hive queries using the Query Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
+In this article, you will learn how to use the HDInsight Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 
 > [!IMPORTANT]
 > The HDInsight Query Console is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -87,8 +82,6 @@ If you are using Tez with Hive, see the following documents for debugging inform
 * [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

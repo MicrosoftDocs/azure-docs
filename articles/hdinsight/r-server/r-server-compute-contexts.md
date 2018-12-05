@@ -1,29 +1,23 @@
 ---
-title: Compute context options for ML Services on HDInsight - Azure | Microsoft Docs
+title: Compute context options for ML Services on HDInsight - Azure 
 description: Learn about the different compute context options available to users with ML Services on HDInsight 
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: jasonh
-
 ---
 # Compute context options for ML Services on HDInsight
 
 ML Services on Azure HDInsight controls how calls are executed by setting the compute context. This article outlines the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster.
 
-The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Spark compute contexts.
+The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
 
 ## ML Services on Azure HDInsight
-[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since ML Services is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
+[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an Apache Hadoop HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since ML Services is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
 
 ## Compute contexts for an edge node
 In general, an R script that's run in ML Services cluster on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a RevoScaleR function. The RevoScaleR calls run in a compute environment that is determined by how you set the RevoScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are:
@@ -52,7 +46,7 @@ Which of the three options you choose that provide parallelized execution depend
 - Repeated analyses are faster if the data is local, and if it's in XDF.
 - It's preferable to stream small amounts of data from a text data source. If the amount of data is larger, convert it to XDF before analysis.
 - The overhead of copying or streaming the data to the edge node for analysis becomes unmanageable for very large amounts of data.
-- Spark is faster than Map Reduce for analysis in Hadoop.
+- ApacheSpark is faster than Map Reduce for analysis in Hadoop.
 
 Given these principles, the following sections offer some general rules of thumb for selecting a compute context.
 
@@ -60,10 +54,10 @@ Given these principles, the following sections offer some general rules of thumb
 * If the amount of data to analyze is small and does not require repeated analysis, then stream it directly into the analysis routine using *local* or *localpar*.
 * If the amount of data to analyze is small or medium-sized and requires repeated analysis, then copy it to the local file system, import it to XDF, and analyze it via *local* or *localpar*.
 
-### Hadoop Spark
+### Apache Spark
 * If the amount of data to analyze is large, then import it to a Spark DataFrame using **RxHiveData** or **RxParquetData**, or to XDF in HDFS (unless storage is an issue), and analyze it using the Spark compute context.
 
-### Hadoop Map Reduce
+### Apache Hadoop Map Reduce
 * Use the Map Reduce compute context only if you encounter an insurmountable problem with the Spark compute context since it is generally slower.  
 
 ## Inline help on rxSetComputeContext
@@ -76,7 +70,7 @@ You can also refer to the [Distributed computing overview](https://docs.microsof
 ## Next steps
 In this article, you learned about the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster. To learn more about how to use ML Services with HDInsight clusters, see the following topics:
 
-* [Overview of ML Services for Hadoop](r-server-overview.md)
-* [Get started with ML Services for Hadoop](r-server-get-started.md)
+* [Overview of ML Services for Apache Hadoop](r-server-overview.md)
+* [Get started with ML Services for Apache Hadoop](r-server-get-started.md)
 * [Azure Storage options for ML Services on HDInsight](r-server-storage.md)
 

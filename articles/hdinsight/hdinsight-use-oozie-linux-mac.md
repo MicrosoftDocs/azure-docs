@@ -1,19 +1,14 @@
 ---
-title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight | Microsoft Docs
+title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight
 
@@ -29,12 +24,12 @@ Learn how to use Apache Oozie with Hadoop on Azure HDInsight. Oozie is a workflo
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
 > [!NOTE]
-> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
+> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive]. To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## Prerequisites
 
-* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **A regular HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -752,7 +747,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

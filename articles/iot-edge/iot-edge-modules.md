@@ -2,9 +2,9 @@
 title: Understand Azure IoT Edge modules | Microsoft Docs 
 description: Learn about Azure IoT Edge modules and how they are configured
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -26,9 +26,13 @@ The images exist in the cloud and they can be updated, changed, and deployed in 
 
 Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. Two devices in different parts of the world could use the same module image; however each would have their own module instance when the module is started on the device. 
 
-![Module images in cloud - module instances on devices][1]
+![Module images in cloud - module instances on devices](./media/iot-edge-modules/image_instance.png)
 
-In implementation, modules images exist as container images in a repository, and module instances are containers on devices. As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+In implementation, modules images exist as container images in a repository, and module instances are containers on devices. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## Module identities
 
@@ -37,13 +41,13 @@ The identity associated with a module instance depends on the identity of the de
 
 Clearly, in scenarios when you need to deploy one module image multiple times on the same device, you can deploy the same image multiple times with different names.
 
-![Module identities are unique][2]
+![Module identities are unique](./media/iot-edge-modules/identity.png)
 
 ## Module twins
 
 Each module instance also has a corresponding module twin that you can use to configure the module instance. The instance and the twin are associated with each other through the module identity. 
 
-A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin][lnk-device-twin] concept from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
+A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) concept from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -58,7 +62,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## Offline capabilities
 
-Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now, and additional scenarios are being developed. 
+Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now. 
 
 IoT Edge modules can be offline for extended periods as long as the following requirements are met: 
 
@@ -67,14 +71,11 @@ IoT Edge modules can be offline for extended periods as long as the following re
 * **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the Edge hub cannot act on the module's stored messages. 
 * **The Edge hub has disk space to store the messages**. By default, messages are stored in the Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
 
+Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
+
 ## Next steps
- - [Understand the Azure IoT Edge runtime and its architecture][lnk-runtime]
+ - [Understand the requirements and tools for developing IoT Edge modules](module-development.md)
+ - [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md

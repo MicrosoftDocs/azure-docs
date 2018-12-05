@@ -1,23 +1,23 @@
 ---
-title: File Integrity Monitoring in Azure Security Center (Preview) | Microsoft Docs
+title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
 description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
+ms.date: 09/21/2018
+ms.author: rkarlin
 
 ---
-# File Integrity Monitoring in Azure Security Center (Preview)
+# File Integrity Monitoring in Azure Security Center
 Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 
 ## What is FIM in Security Center?
@@ -179,6 +179,14 @@ Under **Edit for Change Tracking** you can:
 
 6. Select **Save**.
 
+## Folder and path monitoring using wildcards
+
+Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
+-	Wildcards are required for tracking multiple files.
+-	Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
+-	If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
+-	When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
+
 ## Disable FIM
 You can disable FIM. FIM uses the Azure Change Tracking solution to track and identify changes in your environment. By disabling FIM, you remove the Change Tracking solution from selected workspace.
 
@@ -193,13 +201,13 @@ You can disable FIM. FIM uses the Azure Change Tracking solution to track and id
 ## Next steps
 In this article you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following:
 
-* [Setting security policies](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 * [Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

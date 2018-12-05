@@ -1,19 +1,14 @@
-﻿---
-title: Build a Java HBase application for Windows-based Azure HDInsight | Microsoft Docs
+---
+title: Build a Java HBase application for Windows-based Azure HDInsight 
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to a Windows-based Azure HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 7f4a4e02-45ab-40dd-842b-3ec034f256c9
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
@@ -26,7 +21,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 > The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Requirements
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
+* [Java platform JDK](https://aka.ms/azure-jdks) 7 or later
 * [Maven](http://maven.apache.org/)
 * A Windows-based HDInsight cluster with HBase
 

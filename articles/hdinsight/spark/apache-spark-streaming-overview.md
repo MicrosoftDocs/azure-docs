@@ -1,24 +1,18 @@
 ---
-title: Spark Streaming in Azure HDInsight | Microsoft Docs
-description: 'How to use Spark Streaming applications on HDInsight Spark clusters.'
+title: Spark Streaming in Azure HDInsight 
+description: How to use Spark Streaming applications on HDInsight Spark clusters.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 02/05/2018
+author: maxluk
 ms.author: maxluk
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 02/05/2018
 ---
-# Overview of Spark Streaming
+# Overview of Apache Spark Streaming
 
-Spark Streaming provides data stream processing on HDInsight Spark clusters, with a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs, an Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, raw TCP sockets, or from monitoring HDFS filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows, such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
+[Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters, with a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs, an Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), raw TCP sockets, or from monitoring [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows, such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
 
 ![Stream Processing with HDInsight and Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -86,7 +80,7 @@ Start the streaming application and run until a termination signal is received.
     ssc.start()            
     ssc.awaitTermination()
 
-For details on the Spark Stream API, along with the event sources, transformations, and output operations it supports, see [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+For details on the Spark Stream API, along with the event sources, transformations, and output operations it supports, see [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 The following sample application is self-contained, so you can run it inside a [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md). This example creates a mock data source in the class DummySource that outputs the value of a counter and the current time in milliseconds every five seconds. A  new StreamingContext object  has a batch interval of 30 seconds. Every time a batch is created, the streaming application examines the RDD produced, converts the RDD to a Spark DataFrame, and creates a temporary table over the DataFrame.
 
@@ -211,10 +205,10 @@ You typically build a Spark Streaming application locally into a JAR file and th
 
 ![Deploying a Spark Streaming application](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can terminate a running application by issuing a DELETE request against the LIVY endpoint. For details on the LIVY API, see [Remote jobs with LIVY](apache-spark-livy-rest-interface.md)
+The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can terminate a running application by issuing a DELETE request against the LIVY endpoint. For details on the LIVY API, see [Remote jobs with Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## Next steps
 
 * [Create an Apache Spark cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Launch Spark jobs remotely with LIVY](apache-spark-livy-rest-interface.md)
+* [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Launch Apache Spark jobs remotely with Apache LIVY](apache-spark-livy-rest-interface.md)

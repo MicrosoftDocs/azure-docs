@@ -3,7 +3,7 @@ title: Azure Event Hubs Capture walkthrough | Microsoft Docs
 description: Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Capture feature.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
-ms.author: sethm
+ms.date: 11/16/2018
+ms.author: shvija
 
 ---
 
@@ -35,10 +35,9 @@ This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/pyth
 ## Prerequisites
 
 - Python 2.7.x
-- An Azure subscription
-- An active [Event Hubs namespace and event hub](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An active [Event Hubs namespace and event hub](event-hubs-create.md). 
+- Enable **Capture** feature for the event hub by following instructions from: [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 
 ## Create an Azure Blob storage account
 1. Sign in to the [Azure portal][Azure portal].

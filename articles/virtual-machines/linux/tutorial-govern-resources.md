@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Govern Azure virtual machines with Azure CLI 2.0 | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to manage Azure virtual machines by applying RBAC, polices, locks and tags
+title: Tutorial - Govern Azure virtual machines with Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,20 +12,20 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn how to control and manage VM resources so that I can secure and audit resource access, and group resources for billing or management.
 ---
 
-# Tutorial: Learn about Linux virtual machine governance with Azure CLI 2.0
+# Tutorial: Learn about Linux virtual machine governance with Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use Azure CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Understand scope
 
@@ -53,19 +53,17 @@ For managing virtual machine solutions, there are three resource-specific roles 
 * [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+Instead of assigning roles to individual users, it's often easier to use an Azure Active Directory group that has users who need to take similar actions. Then, assign that group to the appropriate role. For this article, either use an existing group for managing the virtual machine, or use the portal to [create an Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-The following example creates an Azure Active Directory group named *VMDemoContributors* with a mail nickname of *vmDemoGroup*. The mail nickname serves as an alias for the group.
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-It takes a moment after the command prompt returns for the group to propagate throughout Azure Active Directory. After waiting for 20 or 30 seconds, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to assign the new Azure Active Directory group to the Virtual Machine Contributor role for the resource group.  If you run the following command before it has propagated, you receive an error stating **Principal <guid> does not exist in the directory**. Try running the command again.
+After creating a new group or finding an existing one, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to assign the new Azure Active Directory group to the Virtual Machine Contributor role for the resource group.
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
+
+If you receive an error stating **Principal <guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
@@ -81,7 +79,7 @@ You see the existing policy definitions. The policy type is either **BuiltIn** o
 
 * Limit the locations for all resources.
 * Limit the SKUs for virtual machines.
-* Audit virtual machines that do not use managed disks.
+* Audit virtual machines that don't use managed disks.
 
 In the following example, you retrieve three policy definitions based on the display name. You use the [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
 
@@ -131,7 +129,7 @@ az policy definition show --name $locationDefinition --query parameters
 
 ## Deploy the virtual machine
 
-You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs. The command creates SSH keys if they do not exist in a default location.
+You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs. The command creates SSH keys if they don't exist in a default location.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -169,7 +167,7 @@ To test the locks, try running the following command:
 az group delete --name myResourceGroup
 ```
 
-You see an error stating that the delete operation cannot be performed because of a lock. The resource group can only be deleted if you specifically remove the locks. That step is shown in [Clean up resources](#clean-up-resources).
+You see an error stating that the delete operation can't be completed because of a lock. The resource group can only be deleted if you specifically remove the locks. That step is shown in [Clean up resources](#clean-up-resources).
 
 ## Tag resources
 
@@ -177,7 +175,7 @@ You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to y
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-To apply tags to a virtual machine, use the [az resource tag](/cli/azure/resource#az_resource_tag) command. Any existing tags on the resource are not retained.
+To apply tags to a virtual machine, use the [az resource tag](/cli/azure/resource#az_resource_tag) command. Any existing tags on the resource aren't retained.
 
 ```azurecli-interactive
 az resource tag -n myVM \

@@ -1,20 +1,19 @@
 ---
-title: Azure AD v2 iOS Getting Started | Microsoft Docs
-description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+title: Azure AD v2.0 iOS Getting Started | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 09/19/2018
 ms.author: andret
 ms.custom: aaddev 
 ---

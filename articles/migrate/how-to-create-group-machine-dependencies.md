@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ---
 
@@ -14,10 +14,26 @@ ms.author: raynew
 This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment by visualizing dependencies of machines. You typically use this method when you want to assess groups of VMs with higher levels of confidence by cross-checking machine dependencies, before you run an assessment. Dependency visualization can help you effectively plan your migration to Azure. It helps you ensure that nothing is left behind and surprise outages do not occur when you are migrating to Azure. You can discover all interdependent systems that need to migrate together and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.
 
 
-## Prepare machines for dependency mapping
-To view dependencies of machines, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
+## Prepare for dependency visualization
+Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
+
+### Associate a Log Analytics workspace
+To leverage dependency visualization, you need to associate a Log Analytics workspace, either new or existing, with an Azure Migrate project. You can only create or attach a workspace in the same subscription where the migration project is created.
+
+- To attach a Log Analytics workspace to a project, in **Overview**, go to **Essentials** section of the project click **Requires configuration**
+
+    ![Associate Log Analytics workspace](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- While associating a workspace, you will get the option to create a new workspace or attach an existing one:
+  - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
+
+> [!NOTE]
+> You cannot change the workspace associated to a migration project.
 
 ### Download and install the VM agents
+Once you configure a workspace, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../azure-monitor/platform/gateway.md) on them.
+
 1. In **Overview**, click **Manage** > **Machines**, and select the required machine.
 2. In the **Dependencies** column, click **Install agents**.
 3. On the **Dependencies** page, download and install the Microsoft Monitoring Agent (MMA), and the Dependency agent on each VM you want to evaluate.
@@ -36,6 +52,7 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
+[Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) about the list of Windows operating systems support by MMA.
 
 To install the agent on a Linux machine:
 
@@ -44,6 +61,7 @@ To install the agent on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) about the list of Linux operating systems support by MMA.
 
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
@@ -51,7 +69,7 @@ To install the agent on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Learn more](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent.
+Learn more about the Dependency agent support for the [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operating systems.
 
 [Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the Dependency agent.
 
@@ -83,5 +101,6 @@ Once the group is created, it is recommended to install agents on all the machin
 
 ## Next steps
 
-- [Learn how](how-to-create-group-dependencies.md) to refine the group by visualizing group dependencies
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
+- [Learn how](how-to-create-group-dependencies.md) to refine the group by visualizing group dependencies.
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.

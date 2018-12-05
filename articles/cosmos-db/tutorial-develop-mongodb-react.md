@@ -1,17 +1,15 @@
 ---
-title: "MongoDB, React, and Node.js tutorial for Azure | Microsoft Docs"
+title: "MongoDB, React, and Node.js tutorial for Azure"
 description: Learn how to create a MongoDB app with React and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series. 
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+author: johnpapa
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: jopapa
 ms.custom: mvc
 
 ---

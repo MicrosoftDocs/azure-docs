@@ -4,14 +4,11 @@ description: Learn how to find inbound and outbound IP addresses for function ap
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2018
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: glenga
 ---
 
@@ -35,7 +32,7 @@ Each function app has a single inbound IP address. To find that IP address:
 3. Select **Platform features**.
 4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
 
-## Function app outbound IP addresses
+## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
 Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
 
@@ -54,34 +51,46 @@ An alternative way to find the available outbound IP addresses is by using the [
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+> [!NOTE]
+> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on the Consumption plan, you may need to whitelist the entire data center.
 
 ## Data center outbound IP addresses
 
-If you need to whitelist the outbound IP addresses used by your function apps, another option is to whitelist the function apps' data center (Azure region). You can [download an XML file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Then find the XML element that applies to the region that your function app runs in.
+If you need to whitelist the outbound IP addresses used by your function apps, another option is to whitelist the function apps' data center (Azure region). You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
 
-For example, this is what the Western Europe XML element might look like:
+For example, this is what the Western Europe JSON fragment might look like:
 
 ```
-  <Region Name="europewest">
-    <IpRange Subnet="13.69.0.0/17" />
-    <IpRange Subnet="13.73.128.0/18" />
-    <!-- Some IP addresses not shown here -->
-    <IpRange Subnet="213.199.180.192/27" />
-    <IpRange Subnet="213.199.183.0/24" />
-  </Region>
+{
+  "name": "AzureCloud.westeurope",
+  "id": "AzureCloud.westeurope",
+  "properties": {
+    "changeNumber": 9,
+    "region": "westeurope",
+    "platform": "Azure",
+    "systemService": "",
+    "addressPrefixes": [
+      "13.69.0.0/17",
+      "13.73.128.0/18",
+      ... Some IP addresses not shown here
+     "213.199.180.192/27",
+     "213.199.183.0/24"
+    ]
+  }
+}
 ```
 
- For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+ For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 ## Inbound IP address changes
 
- The inbound IP address **might** change when you:
+The inbound IP address **might** change when you:
 
 - Delete a function app and recreate it in a different resource group.
 - Delete the last function app in a resource group and region combination, and re-create it.
 - Delete an SSL binding, such as during [certificate renewal](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-The inbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
 
 ## Outbound IP address changes
 
@@ -90,7 +99,7 @@ The set of available outbound IP addresses for a function app might change when 
 * Take any action that can change the inbound IP address.
 * Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-The inbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
 
 To deliberately force an outbound IP address change:
 

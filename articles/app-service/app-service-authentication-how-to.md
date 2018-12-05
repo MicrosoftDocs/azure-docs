@@ -1,5 +1,5 @@
 ---
-title: Customize authentication and authorization in Azure App Service | Microsoft Docs
+title: Advanced usage of authentication and authorization in Azure App Service | Microsoft Docs
 description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
 services: app-service
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
 ---
 
-# Customize authentication and authorization in Azure App Service
+# Advanced usage of authentication and authorization in Azure App Service
 
-This article shows you how to customize [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
+This article shows you how to customize the built-in [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
 
 To get started quickly, see one of the following tutorials:
 
@@ -30,9 +30,9 @@ To get started quickly, see one of the following tutorials:
 * [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [How to configure your app to use Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## Configure multiple sign-in options
+## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in options to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
@@ -56,6 +56,92 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
+## Validate tokens from providers
+
+In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](app-service-authentication-overview.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
+
+To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+The token format varies slightly according to the provider. See the following table for details:
+
+| Provider value | Required in request body | Comments |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | The `expires_in` property is optional. <br/>When requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. When specified, it can also optionally be accompanied by the `redirect_uri` property. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Once you have this session token, you can access protected app resources by adding the `X-ZUMO-AUTH` header to your HTTP requests. For example: 
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
+```
+
+## Sign out of a session
+
+Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request does the following:
+
+- Clears authentication cookies from the current session.
+- Deletes the current user's tokens from the token store.
+- For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+
+Here's a simple sign-out link in a webpage:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+It's recommended that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
+
+When using fully qualified URLs, the URL must be either hosted in the same domain or configured as an allowed external redirect URL for your app. In the following example, to redirect to `https://myexternalurl.com` that's not hosted in the same domain:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+You must run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## Preserve URL fragments
+
+After users sign in to your app, they usually want to be redirected to the same section of the same page, such as `/wiki/Main_Page#SectionZ`. However, because [URL fragments](https://wikipedia.org/wiki/Fragment_identifier) (for example, `#SectionZ`) are never sent to the server, they are not preserved by default after the OAuth sign-in completes and redirects back to your app. Users then get a suboptimal experience when they need to navigate to the desired anchor again. This limitation applies to all server-side authentication solutions.
+
+In App Service authentication, you can preserve URL fragments across the OAuth sign-in. To do this, set an app setting called `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` to `true`. You can do it in the [Azure portal](https://portal.azure.com), or simply run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
+```
+
 ## Access user claims
 
 App Service passes user claims to your application by using special headers. External requests aren't allowed to set these headers, so they are present only if set by App Service. Some example headers include:
@@ -71,7 +157,7 @@ Your application can also obtain additional details on the authenticated user by
 
 From your server code, the provider-specific tokens are injected into the request header, so you can easily access them. The following table shows possible token header names:
 
-| | |
+| Provider | Header names |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

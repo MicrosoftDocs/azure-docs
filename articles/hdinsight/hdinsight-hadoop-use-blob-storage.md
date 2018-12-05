@@ -2,38 +2,33 @@
 title: Query data from HDFS-compatible Azure storage - Azure HDInsight
 description: Learn how to query data from Azure storage and Azure Data Lake Store to store results of your analysis.
 services: hdinsight,storage
-tags: azure-portal
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 11/06/2018
 ---
 
 # Use Azure storage with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in Azure Storage, Azure Data Lake Store, or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in Azure Storage, [Azure Data Lake Storage Gen 1/ Azure Data Lake Store Gen2] or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Store as the default files system with a few exceptions. For the supportability of using Data Lake Store as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.6, you can select either Azure Storage or Azure Data Lake Storage Gen 1/ Azure Data Lake Store Gen 2  as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen 1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Store works with HDInsight clusters, see [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Storage Gen 1 works with HDInsight clusters, see [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
 > [!WARNING]
 > There are several options available when creating an Azure Storage account. The following table provides information on what options are supported with HDInsight:
-> 
-> | Storage account type | Storage tier | Supported with HDInsight |
-> | ------- | ------- | ------- |
-> | General-purpose Storage Account | Standard | __Yes__ |
-> | &nbsp; | Premium | No |
-> | Blob Storage Account | Hot | No |
-> | &nbsp; | Cool | No |
+
+| Storage account type | Supported services | Supported performance tiers | Supported access tiers |
+|----------------------|--------------------|-----------------------------|------------------------|
+| General-purpose V2   | Blob               | Standard                    | Hot, Cool, Archive3    |
+| General-purpose V1   | Blob               | Standard                    | N/A                    |
+| Blob storage         | Blob               | Standard                    | Hot, Cool, Archive3    |
 
 We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 
@@ -59,14 +54,14 @@ Here are some considerations when using Azure Storage account with HDInsight clu
 * **Public containers or public blobs in storage accounts that are NOT connected to a cluster:** You have read-only permission to the blobs in the containers.
   
   > [!NOTE]
-  > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
+  > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">Manage access to containers and blobs</a>.
   > 
   > 
 * **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
 
 The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. You can modify this setting using [Ambari](./hdinsight-hadoop-manage-ambari.md)
 
-Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 Blobs can be used for structured and unstructured data. Blob containers store data as key/value pairs, and there is no directory hierarchy. However the slash character ( / ) can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the slash character in the key name, it has the appearance of a file path.
 
@@ -132,11 +127,11 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### Use Azure CLI
+### Use Azure Classic CLI
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-If you have [installed and configured the Azure CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
+If you have [installed and configured the Azure Classic CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -263,24 +258,24 @@ This example shows how to list a folder from storage account that is not defined
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### Use Azure CLI
+### Use Azure Classic CLI
 Use the following command to list the blob-related commands:
 
     azure storage blob
 
-**Example of using Azure CLI to upload a file**
+**Example of using Azure Classic CLI to upload a file**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to download a file**
+**Example of using Azure Classic CLI to download a file**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to delete a file**
+**Example of using Azure Classic CLI to delete a file**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to list files**
+**Example of using Azure Classic CLI to list files**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

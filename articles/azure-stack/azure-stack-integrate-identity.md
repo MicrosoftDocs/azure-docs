@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/08/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -48,7 +48,6 @@ For the last step, a new owner is configured for the default provider subscripti
 
 Requirements:
 
-
 |Component|Requirement|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012/2012 R2/2016|
@@ -60,11 +59,21 @@ Graph only supports integration with a single Active Directory forest. If multip
 
 The following information is required as inputs for the automation parameters:
 
-
 |Parameter|Description|Example|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN of the target Active Directory forest<br>that you want to integrate with|Contoso.com|
 |CustomADAdminCredentials|A user with LDAP Read permission|YOURDOMAIN\graphservice|
+
+### Configure Active Directory Sites
+
+For Active Directory deployments having multiple sites, configure the closest Active Directory Site to your Azure Stack deployment. The configuration avoids having the Azure Stack Graph service resolve queries using a Global Catalog Server from a remote site.
+
+Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Azure AD Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack Public VIP network subnet to the Azure AD site for Seattle.
+
+For more information on  Active Directory Sites see [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> If your Active Directory consist of a single Site you can skip this step. In case you have a catch-all subnet configured validate that the Azure Stack Public VIP network subnet is not part of it.
 
 ### Create user account in the existing Active Directory (optional)
 
@@ -80,14 +89,14 @@ Optionally, you can create an account for the Graph service in the existing Acti
 
 For this procedure, use a computer in your datacenter network that can communicate with the privileged endpoint in Azure Stack.
 
-2. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for **CloudAdmin** to authenticate.
+1. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for **CloudAdmin** to authenticate.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Now that you're connected to the privileged endpoint, run the following command: 
+2. Now that you're connected to the privileged endpoint, run the following command: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -146,7 +155,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 ## Setting up AD FS integration by providing federation metadata file
 
-Use this method if the either of the following conditions are true:
+Beginning with version 1807, use this method if the either of the following conditions are true:
 
 - The certificate chain is different for AD FS compared to all other endpoints in Azure Stack.
 - There’s no network connectivity to the existing AD FS server from Azure Stack’s AD FS instance.
@@ -166,9 +175,11 @@ For the following procedure, you must use a computer that has network connectivi
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
-
-   $Metadata.outerxml|out-file c:\metadata.xml
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. Copy the metadata file to a computer that can communicate with the privileged endpoint.
@@ -180,7 +191,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 1. Open an elevated Windows PowerShell session.
 
    ```PowerShell  
-   $federationMetadataFileContent = get-content c:\metadata.cml
+   $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
@@ -191,6 +202,9 @@ For this procedure, use a computer that can communicate with the privileged endp
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
+
+   > [!Note]  
+   > When you rotate the certificate on the existing AD FS (account STS) you must set up the AD FS integration again. You must set up the integration even if the metadata endpoint is reachable or it was configured by providing the metadata file.
 
 ## Configure relying party on existing AD FS deployment (account STS)
 
@@ -229,31 +243,34 @@ If you decide to manually run the commands, follow these steps:
 
    @RuleTemplate = "PassThroughClaims"
    @RuleName = "Pass through all windows account name claims"
-   c:[Type == http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname]
+   c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
    => issue(claim = c);
    ```
 
-2. To enable Windows Forms-based authentication, open a Windows PowerShell session as an elevated user, and run the following command:
+2. Validate that Windows Forms-based authentication for extranet and intranet is enabled. First validate if its already enabled by running the following cmdlet:
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > The Windows Integrated Authentication (WIA) supported user agent strings may outdated for you AD FS deployment may require to be updated to support latest clients. You can read more about updating the WIA supported user agent strings in the article [Configuring intranet forms-based authentication for devices that do not support WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>The steps to enable Form-based authentication policy are documented in the article, [Configure Authentication Policies](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. To add the relying party trust, run the following Windows PowerShell command on your AD FS instance or a farm member. Make sure to update the AD FS endpoint, and point to the file created in Step 1.
 
    **For AD FS 2016**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **For AD FS 2012/2012 R2**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > You must use the AD FS MMC snap-in to configure the Issuance Authorization Rules when using Windows Server 2012 or 2012 R2 AD FS.
 
 4. When you use Internet Explorer or the Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
@@ -265,12 +282,6 @@ If you decide to manually run the commands, follow these steps:
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. The Azure Stack portals and tooling (Visual Studio) require refresh tokens. These must be configured by relying on party trust. Open an elevated Windows PowerShell session, and run the following command:
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
-   ```
-
 ## SPN creation
 
 There are many scenarios that require the use of a service principal name (SPN) for authentication. The following are some examples:
@@ -279,7 +290,7 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - System Center Management Pack for Azure Stack when deployed with AD FS
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
-- You require a non-interactive logon
+- You require a non-interactive sign in
 
 > [!Important]  
 > AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.

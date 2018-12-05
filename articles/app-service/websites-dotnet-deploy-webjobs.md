@@ -12,7 +12,8 @@ ms.service: app-service
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
@@ -22,7 +23,7 @@ ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
 ## Overview
 
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](app-service-web-overview.md) as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](app-service-web-overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 

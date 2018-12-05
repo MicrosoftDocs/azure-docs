@@ -1,20 +1,13 @@
 ---
-title: How to Data profile data sources
+title: How to use data profiling data sources in Azure Data Catalog
 description: How-to article highlighting how to include table- and column-level data profiles when registering data sources in Azure Data Catalog, and how to use data profiles to understand data sources.
 services: data-catalog
-documentationcenter: ''
-author: spelluru
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-
 ---
 # Data profile data sources
 ## Introduction

@@ -5,7 +5,7 @@ description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
 
 ms.author: mimart

@@ -1,104 +1,99 @@
 ---
-title: Publish Knowledge Base - Go Quickstart - Azure Cognitive Services | Microsoft Docs
-description: How to publish a knowledge base in Go for QnA Maker.
+title: "Quickstart: Publish knowledge base - REST, Go - QnA Maker"
+titleSuffix: Azure Cognitive Services 
+description: This REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 11/19/2018
+ms.author: diberry
 ---
 
-# Publish a knowledge base in Go
+# Quickstart: Publish a knowledge base in QnA Maker using Go
 
-The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 
-1. Create a new Go project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+This quickstart calls QnA Maker APIs:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - this API doesn't require any information in the body of the request.
 
-```go
+## Prerequisites
+
+* [Go 1.10.1](https://golang.org/dl/)
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+
+* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+
+    ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+
+    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
+
+> [!NOTE] 
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-go** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+
+## Create a Go file
+
+Open VSCode and create a new file named `publish-kb.go`.
+
+## Add the required dependencies
+
+At the top of `publish-kb.go`, add the following lines to add necessary dependencies to the project:
+
+[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
+
+## Create the main function
+
+After the required dependencies, add the following class:
+
+```Go
 package main
 
-import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strconv"
-)
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace this with a valid subscription key.
-var subscriptionKey string = "ENTER KEY HERE"
-
-// NOTE: Replace this with a valid knowledge base ID.
-var kb string = "ENTER ID HERE";
-
-var host string = "https://westus.api.cognitive.microsoft.com"
-var service string = "/qnamaker/v4.0"
-var method string = "/knowledgebases/"
-
-func pretty_print(content string) string {
-	var obj map[string]interface{}
-    json.Unmarshal([]byte(content), &obj)
-	result, _ := json.MarshalIndent(obj, "", "  ")
-	return string(result)
-}
-
-func post(uri string, content string) string {
-	req, _ := http.NewRequest("POST", uri, bytes.NewBuffer([]byte(content)))
-	req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Content-Length", strconv.Itoa(len(content)))
-	client := &http.Client{}
-	response, err := client.Do(req)
-	if err != nil {
-		panic(err)
-	}
-
-	defer response.Body.Close()
-    body, _ := ioutil.ReadAll(response.Body)
-
-	if(response.StatusCode == 204) {
-		return "{'result' : 'Success.'}"
-	} else {
-		return string(body)
-	}
-}
-
-func publish(uri string, req string) string {
-	fmt.Println("Calling " + uri + ".")
-	return post(uri, req)
-}
-
 func main() {
-	var uri = host + service + method + kb
-	body := publish(uri, "")
-	fmt.Printf(body + "\n")
 
 }
 ```
 
-## The publish a knowledge base response
+## Add required constants
 
-A successful response is returned in JSON, as shown in the following example: 
+Inside the **main**
 
-```json
-{
-  "result": "Success."
-}
+
+ function, add the required constants to access QnA Maker. Replace the values with your own.
+
+[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
+
+## Add POST request to publish KB
+
+After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
+
+[!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
+
+The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
+
+For any other response, that response is returned unaltered.
+
+## Build and run the program
+
+Enter the following command to compile the file. The command prompt does not return any information for a successful build.
+
+```bash
+go build publish-kb.go
 ```
+
+Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to publish the KB, then print out 204 for success or errors.
+
+```bash
+./publish-kb
+```
+
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## Next steps
+
+After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

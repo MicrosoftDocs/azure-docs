@@ -3,18 +3,17 @@ title: Azure Advisor High Availability recommendations | Microsoft Docs
 description: Use Azure Advisor to improve high availability of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: KumudD
+author: kasparks
 manager: carmonm
 editor: ''
 
 ms.assetid: 
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
+ms.author: kasparks
 ---
 
 # Advisor High Availability recommendations
@@ -63,6 +62,10 @@ If all endpoints in a Traffic Manager profile that is configured for proximity r
 
 If a Traffic Manager profile is configured for geographic routing, then traffic is routed to endpoints based on defined regions. If a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" will avoid traffic being dropped and improve service availability. Advisor identifies Traffic Manager profiles configured for geographic routing where there is no endpoint configured to have the Regional Grouping as "All (World)" and recommends making that configuration change.
 
+## Use soft delete on your Azure Storage Account to save and recover data in the event of accidental overwrite or deletion
+
+Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. This allows you to recover in the event of accidental deletion or overwrites. Advisor identifies Azure Storage Accounts that don't have soft delete enabled and suggests you enable it.
+
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -74,7 +77,7 @@ If a Traffic Manager profile is configured for geographic routing, then traffic 
 For more information about Advisor recommendations, see:
 * [Introduction to Azure Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 

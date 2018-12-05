@@ -3,7 +3,8 @@ title: Biomedical entity recognition - Team Data Science Process - Azure Machine
 description: A Team Data Science Process project quickstart that uses deep learning for biomedical entity recognition in Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -16,11 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
 
+ROBOTS: NOINDEX
 ---
 
+
 # Biomedical entity recognition using Team Data Science Process (TDSP) Template
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Entity extraction is a subtask of information extraction (also known as [Named-entity recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entity chunking, and entity identification). The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated Natural Language Processing (NLP) task such as entity extraction from unstructured text:
 
@@ -56,7 +62,7 @@ The following figure shows the architecture that was used to process data and tr
 ## Data description
 
 ### 1. Word2Vec model training data
-We first downloaded the raw MEDLINE abstract data from [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). The data is publically available in the form of XML files on their [FTP server](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). There are 892 XML files available on the server and each of the XML files has the information of 30,000 articles. More details about the data collection step are provided in the Project Structure section. The fields present in each file are 
+We first downloaded the raw MEDLINE abstract data from [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). The data is publicly available in the form of XML files on their [FTP server](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). There are 892 XML files available on the server and each of the XML files has the information of 30,000 articles. More details about the data collection step are provided in the Project Structure section. The fields present in each file are 
         
         abstract
         affiliation
@@ -92,7 +98,7 @@ Following is the link to the public GitHub repository of the real-world scenario
 ## Prerequisites 
 
 * An Azure [subscription](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. See [installation guide](../service/quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
+* Azure Machine Learning Workbench. See [installation guide](quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
     * Windows 10 or Windows Server 2016
     * macOS Sierra (or newer)
 
@@ -115,7 +121,7 @@ All the required dependencies are defined in the aml_config/conda_dependencies.y
 
 ### Basic instructions for Azure Machine Learning (AML) workbench
 * [Overview](../service/overview-what-is-azure-ml.md)
-* [Installation](../service/quickstart-installation.md)
+* [Installation](quickstart-installation.md)
 * [Using TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [How to read and write files](how-to-read-write-files.md)
 * [How to use Jupyter Notebooks](how-to-use-jupyter-notebooks.md)
@@ -166,7 +172,7 @@ Word2Vec is the word embedding unsupervised learning algorithm that trains a neu
 
 ![Skip Gram Model](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-The model uses Hierarchical Softmax and Negative sampling to optimize the performance. Hierarchical SoftMax (H-SoftMax) is an approximation inspired by binary trees. H-SoftMax essentially replaces the flat SoftMax layer with a hierarchical layer that has the words as leaves. This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Since a balanced binary tree has a depth of log2(|V|) (V is the Vocabulary), we only need to evaluate at most log2(|V|) nodes to obtain the final probability of a word. The probability of a word w given its context c is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. We can build a Huffman Tree based on the frequency of the words in the dataset to ensure that more frequent words get shorter representations. For more information, see [this link](http://sebastianruder.com/word-embeddings-softmax/).
+The model uses Hierarchical Softmax and Negative sampling to optimize the performance. Hierarchical SoftMax (H-SoftMax) is an approximation inspired by binary trees. H-SoftMax essentially replaces the flat SoftMax layer with a hierarchical layer that has the words as leaves. This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Since a balanced binary tree has a depth of log2(|V|) (V is the Vocabulary), we only need to evaluate at most log2(|V|) nodes to obtain the final probability of a word. The probability of a word w given its context c is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. We can build a Huffman Tree based on the frequency of the words in the dataset to ensure that more frequent words get shorter representations. For more information, see [this link](http://ruder.io/word-embeddings-softmax/).
 Image taken from [here](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### Visualization

@@ -1,22 +1,16 @@
-﻿---
+---
 title: Identify advanced analytics scenarios for Azure Machine Learning | Microsoft Docs
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Scenarios for advanced analytics in Azure Machine Learning
 This article outlines the variety of sample data sources and target scenarios that can be handled by the [Team Data Science Process (TDSP)](overview.md). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
@@ -33,7 +27,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > **For all of the following scenarios, you need to:**
 > <br/>
 > 
-> * [Create a storage account](../../storage/common/storage-create-storage-account.md)
+> * [Create a storage account](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
 > 

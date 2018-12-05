@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -49,6 +47,51 @@ ms.custom: H1Hack27Feb2017
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
 
+### <a name="3.0.0.1-preview"/>3.0.0.1-preview
+* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview.
+* Target .NET Standard, which supports .NET framework 4.6.1+ and .NET Core 2.0+
+* New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes. 
+* Support for streams. 
+* Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
+
+### <a name="2.1.3"/>2.1.3
+
+* Updated System.Net.Security to 4.3.2.
+
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements.
+
+### <a name="2.1.1"/>2.1.1
+
+* Added more resilience to Multi-region request transient failures.
+
+### <a name="2.1.0"/>2.1.0
+
+* Added Multi-region write support.
+* Cross partition query performance improvements with TOP and MaxBufferedItemCount.
+
+### <a name="2.0.0"/>2.0.0
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
+### <a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
 ### <a name="1.10.0"/>1.10.0
 
 * Added ConsistencyLevel Property to FeedOptions.
@@ -62,7 +105,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.8.2"/>1.8.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.8.1"/>1.8.1
 
@@ -147,7 +190,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.1.0"/>1.1.0
 
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-api-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.0.0"/>1.0.0
@@ -170,6 +213,11 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |October 15, 2018 |--- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
+| [2.1.1](#2.1.1) |September 27, 2018 |--- |
+| [2.1.0](#2.1.0) |September 21, 2018 |--- |
+| [2.0.0](#2.0.0) |September 07, 2018 |--- |
 | [1.9.1](#1.9.1) |March 09, 2018 |--- |
 | [1.8.2](#1.8.2) |February 21, 2018 |--- |
 | [1.8.1](#1.8.1) |February 05, 2018 |--- |

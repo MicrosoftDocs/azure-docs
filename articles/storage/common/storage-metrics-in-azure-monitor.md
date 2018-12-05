@@ -18,13 +18,13 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as the Operation Management Suite and Event Hubs. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Event Hubs. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Metrics are enabled by default, and you can access the past 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
+Metrics are enabled by default, and you can access the past 93 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) in Azure Monitor.
 
 ### Access metrics in the Azure portal
 
-You can monitor metrics over time in the Azure portal. The following example shows how to view **UsedCapacity** at account level.
+You can monitor metrics over time in the Azure portal. The following example shows how to view **Transactions** at account level.
 
 ![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
@@ -46,7 +46,7 @@ The following example shows how to list metric definition at account level:
 # Login to Azure and enter your credentials when prompted.
 > armclient login
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -90,7 +90,7 @@ The response contains the metric definition in JSON format:
 The following example shows how to read metric data at account level:
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
@@ -311,7 +311,7 @@ The following shows the format for specifying the Resource ID for each of the st
 `
 * File service resource ID
 `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
 ### Resource ID in Azure Monitor REST API
@@ -331,14 +331,14 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Value example: 1024 |
 
 ### Blob storage
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
-| BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
 | ContainerCount    | The number of containers in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 ### Table storage
@@ -402,7 +402,11 @@ Legacy metrics are available in parallel with Azure Monitor managed metrics. The
 
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
 
-No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) for more details.
+No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) for more details.
+
+**How to map and migrate classic metrics with new metrics?**
+
+You can find detailed mapping between classic metrics and new metrics in [Azure Storage metrics migration](./storage-metrics-migration.md).
 
 ## Next steps
 

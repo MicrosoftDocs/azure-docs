@@ -1,23 +1,18 @@
 ---
-title: Encode or decode flat files in Azure logic apps | Microsoft Docs
-description: How to use the file file encoder or decoder in the Enterprise Integration Pack in your logic apps
+title: Encode or decode flat files - Azure Logic Apps | Microsoft Docs
+description: Encode or decode flat files for enterprise integration with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: 
-
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-
 ---
-# Overview of enterprise integration with flat files
+
+# Encode or decode flat files with Azure Logic Apps and Enterprise Integration Pack
 
 You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](logic-apps-overview.md "Learn more about Logic apps").  
 

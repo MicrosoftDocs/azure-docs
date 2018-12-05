@@ -1,20 +1,16 @@
 ---
-title: Demand Forecast in Energy Technical Guide | Microsoft Docs
+title: Demand Forecast in Energy Technical Guide
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy.
-services: cortana-analytics
-documentationcenter: ''
-author: yijichen
-manager: ilanr9
-editor: yijichen
+services: machine-learning
+author: garyericson
+manager: cgronlun
 
-ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: inqiu;yijichen;ilanr9
+ms.author: garye
 
 ---
 # Technical guide to the Cortana Intelligence Solution Template for demand forecast in energy
@@ -67,7 +63,7 @@ service.
 
 ### HDInsight Custom Aggregation
 The Azure HDInsight service is used to run
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts (orchestrated by Azure Data Factory) to provide aggregations on
 the raw events that were archived using the Azure Stream Analytics
 service.
@@ -157,7 +153,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/). Foll
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
 Five of the pipelines of this factory contain
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts that are used to partition and aggregate the data. When noted, the scripts are located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
 created during setup. Their location is:
@@ -165,7 +161,7 @@ demandforecasting\\\\script\\\\hive\\\\ (or https://[Your solution name].blob.co
 
 Similar to the [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
 queries would need to be altered based on your data format and [feature
 engineering](machine-learning/team-data-science-process/create-features.md)
@@ -178,11 +174,11 @@ This
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 script to aggregate streamed in demand data every 10 seconds in substation level to hourly region level and put in [Azure Storage](https://azure.microsoft.com/services/storage/) through the Azure Stream Analytics job.
 
 The
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 script for this partitioning task is ***AggregateDemandRegion1Hr.hql***
 
 #### *LoadHistoryDemandDataPipeline*
@@ -191,7 +187,7 @@ This [pipeline](data-factory/concepts-pipelines-activities.md) contains two acti
 * [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated data from Azure Storage blob to the Azure SQL Database that was provisioned as part of the solution template installation.
 
-The [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this task is ***AggregateDemandHistoryRegion.hql***.
+The [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this task is ***AggregateDemandHistoryRegion.hql***.
 
 #### *MLScoringRegionXPipeline*
 These [pipelines](data-factory/concepts-pipelines-activities.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region, which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
@@ -238,7 +234,7 @@ forecast results from Azure machine learning (cold path).
 ### Setup Hot Path Dashboard
 The following steps guide you how to visualize real-time data
 output from Stream Analytics jobs that were generated at the time of
-solution deployment. A [Power BI online](http://www.powerbi.com/)
+solution deployment. A [Power BI online](https://www.powerbi.com/)
 account is required to perform the following steps. If you don't have an
 account, you can [create one](https://powerbi.microsoft.com/pricing).
 
@@ -252,7 +248,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      you have added the output, click **"Start"** at the bottom of the page to start the Stream
      Analytics job. You should get a confirmation message (for example,
      "Starting stream analytics job myteststreamingjob12345asablob succeeded").
-2. Log in to [Power BI online](http://www.powerbi.com)
+2. Log in to [Power BI online](https://www.powerbi.com)
 
    * On the left panel, Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of Power BI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
    * Make sure the ***Visualizations*** pane is open and is shown on the
@@ -310,7 +306,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
    * Once you're guided back to the previous page, close the window. A message pops out - click **Apply**. Lastly, click the **Save** button to save
      the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
-    online](http://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
+    online](https://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
 
    * Click **"Publish"** and few seconds later a window appears
      displaying "Publishing to Power BI Success!" with a green
@@ -346,7 +342,7 @@ Solution Template in your subscription:
 * [Microsoft Azure Cost Estimator
   Tool (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator
-  Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+  Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## **Acknowledgements**
 This article is authored by data scientist Yijing Chen and software engineer Qiu Min at Microsoft.

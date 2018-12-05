@@ -20,8 +20,11 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Linux virtual machine with Azure Resource Manager templates
-This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI. 
 
+This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI. You can also perform these steps with the [Azure classic CLI](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI. 
 
 ## Templates overview
 Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](../../azure-resource-manager/resource-manager-create-first-template.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/azure/templates/).

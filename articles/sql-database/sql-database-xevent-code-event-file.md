@@ -2,14 +2,16 @@
 title: XEvent Event File code for SQL Database | Microsoft Docs
 description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: monitor
+ms.custom: 
+ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Event File target code for extended events in SQL Database
 
@@ -17,7 +19,7 @@ ms.author: genemi
 
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
-In Microsoft SQL Server, the [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server, the [Event File target](https://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
 
 This topic presents a two-phase code sample:
 
@@ -36,9 +38,9 @@ This topic presents a two-phase code sample:
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
   You can download the latest ssms.exe from:
   
-  * Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
-* You must have the [Azure PowerShell modules](http://go.microsoft.com/?linkid=9811175) installed.
+  * Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
+* You must have the [Azure PowerShell modules](https://go.microsoft.com/?linkid=9811175) installed.
   
   * The modules provide commands such as - **New-AzureStorageAccount**.
 
@@ -498,11 +500,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 The preceding Transact-SQL script used the following system function to read the event_file:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 An explanation of advanced options for the viewing of data from extended events is available at:
 
-* [Advanced Viewing of Target Data from Extended Events](http://msdn.microsoft.com/library/mt752502.aspx)
+* [Advanced Viewing of Target Data from Extended Events](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## Converting the code sample to run on SQL Server
@@ -520,10 +522,10 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 For more info about accounts and containers in the Azure Storage service, see:
 
 * [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lesson 2: Create a SQL Server credential using a shared access signature](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Working with the Root Container](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lesson 2: Create a SQL Server credential using a shared access signature](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Extended Events for Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

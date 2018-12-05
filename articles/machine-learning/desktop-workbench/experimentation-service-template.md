@@ -2,17 +2,19 @@
 title: Create Azure Machine Learning Experimentation with an Azure Resource Manager template | Microsoft Docs
 description: This article provides an example to create an Azure Machine Learning Experimentation account using an Azure Resource Manager template.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
+
+ROBOTS: NOINDEX
 ---
 # Configure the Azure Machine Learning Experimentation Service
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## Overview
 Azure Machine Learning Experimentation Service account, workspace, and project are Azure Resources. As such, they can be deployed using Resources Manager templates. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
@@ -154,4 +156,4 @@ There are three values that you can change.
 ```
 
 ## Next steps
-* [Create and Install Azure Machine Learning](../service/quickstart-installation.md)
+* [Create and Install Azure Machine Learning](quickstart-installation.md)

@@ -39,6 +39,8 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Access Git configuration in your service
 
 To view and configure your Git configuration settings, you can click the **Security** menu and navigate to the **Configuration repository** tab.
@@ -79,7 +81,7 @@ The following examples use the Git Bash tool from [Git for Windows](http://www.g
 Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the Azure portal.
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 Provide the user name and password when prompted.
@@ -87,7 +89,7 @@ Provide the user name and password when prompted.
 If you receive any errors, try modifying your `git clone` command to include the user name and password, as shown in the following example.
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
@@ -99,10 +101,10 @@ If this provides an error, try URL encoding the password portion of the command.
 Use the encoded password along with your user name and repository location to construct the git command.
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
-Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
+Once the repository is cloned, you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
 
@@ -115,7 +117,7 @@ git pull
 Before running `git pull` ensure that you are in the folder for your local repository. If you have just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## To push changes from your local repo to the server repo
@@ -161,7 +163,7 @@ Each folder can contain one or more files, and in some cases one or more folders
 | xml |Policy statements |
 | css |Style sheets for developer portal customization |
 
-These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to the your API Management service instance.
+These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to your API Management service instance.
 
 > [!NOTE]
 > The following entities are not contained in the Git repository and cannot be configured using Git.
@@ -185,7 +187,8 @@ The root `api-management` folder contains a `configuration.json` file that conta
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -195,10 +198,11 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 
 | Identity setting | Maps to |
 | --- | --- |
-| RegistrationEnabled |**Redirect anonymous users to sign-in page** checkbox |
+| RegistrationEnabled |Presence of **Username and password** identity provider |
 | UserRegistrationTerms |**Terms of use on user signup** textbox |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** checkbox |
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
+| RequireUserSigninEnabled |**Redirect anonymous users to sign-in page** checkbox |
 
 The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
 
@@ -212,16 +216,16 @@ The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscrip
 The final setting, `$ref-policy`, maps to the global policy statements file for the service instance.
 
 ### apis folder
-The `apis` folder contains a folder for each API in the service instance which contains the following items.
+The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
-* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
-* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API which maps to the `description` property of the [operation entity](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
+* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
+* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
 
-* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) operation.
+* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/rest/api/apimanagement/group/get) operation.
 * `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### policies folder
@@ -241,7 +245,7 @@ The `portalStyles` folder contains configuration and style sheets for developer 
 ### products folder
 The `products` folder contains a folder for each product defined in the service instance.
 
-* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) operation.
+* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/rest/api/apimanagement/product/get) operation.
 * `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
 
 ### templates
@@ -254,8 +258,8 @@ The `templates` folder contains configuration for the [email templates](api-mana
 For information on other ways to manage your service instance, see:
 
 * Manage your service instance using the following PowerShell cmdlets
-  * [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Service deployment PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/wds)
+  * [Service management PowerShell cmdlet reference](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Manage your service instance using the REST API
   * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

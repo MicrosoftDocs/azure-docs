@@ -1,25 +1,20 @@
 ---
-title: Install published application - Datameer - Azure HDInsight | Microsoft Docs
+title: Install published application - Datameer - Azure HDInsight 
 description: Install and use the Datameer third-party Hadoop application.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
 
 ---
 # Install published application - Cask Data Application Platform (CDAP)
 
-This article describes how to install and run the [CDAP](http://cask.co/products/cdap/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [CDAP](http://cask.co/products/cdap/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About CDAP
 

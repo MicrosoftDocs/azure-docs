@@ -19,7 +19,7 @@ ms.author: shlo
 robots: noindex
 ---
 # Use Case - Customer Profiling
-Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  For more information about Cortana Intelligence, visit [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
+Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  For more information about Cortana Intelligence, visit [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
 
 ## Scenario
 Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). As players play these games, large volume of log data is produced that tracks the usage patterns, gaming style, and preferences of the user.  When combined with demographic, regional, and product data, Contoso can perform analytics to guide them about how to enhance players’ experience and target them for upgrades and in-game purchases. 
@@ -29,7 +29,7 @@ Contoso’s goal is to identify up-sell/cross-sell opportunities based on the ga
 In this solution, Contoso wants to evaluate the effectiveness of a marketing campaign it has recently launched. We start with the raw gaming logs, process and enrich them with geolocation data, join it with advertising reference data, and lastly copy them into an Azure SQL Database to analyze the campaign’s impact.
 
 ## Deploy Solution
-All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/), an [Azure Blob storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account), and an [Azure SQL Database](../../sql-database/sql-database-get-started.md). You deploy the customer profiling pipeline from the **Sample pipelines** tile on the home page of your data factory.
+All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/), an [Azure Blob storage account](../../storage/common/storage-quickstart-create-account.md), and an [Azure SQL Database](../../sql-database/sql-database-get-started.md). You deploy the customer profiling pipeline from the **Sample pipelines** tile on the home page of your data factory.
 
 1. Create a data factory or open an existing data factory. See [Copy data from Blob Storage to SQL Database using Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.

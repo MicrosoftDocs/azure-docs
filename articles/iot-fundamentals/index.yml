@@ -5,13 +5,12 @@ title: Azure IoT Fundamentals
 metadata:
   title: Azure IoT Fundamentals
   description: Azure IoT is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of Internet of Things assets. 
-  author: BryanLa
-  manager: timlt
+  author: robinsh
   ms.service: iot-fundamentals
   services: iot-fundamentals
   ms.topic: landing-page
   ms.date: 05/18/2018
-  ms.author: bryanla
+  ms.author: robinsh
 
 abstract:
   description: Welcome to Microsoft Azure and the Internet of Things (IoT). Azure IoT is a comprehensive collection of services and solutions designed to help you create end-to-end IoT applications on Azure. From fully hosted and managed Software as a Service (SaaS) solutions to distinct and specialized Platform as a Service (PaaS) offerings, as well as technologies to build the intelligent edge, Azure IoT delivers a rich set of options and tools that are adapted to your industry needs and your company skills and resources.

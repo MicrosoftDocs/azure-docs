@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -47,12 +47,12 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
+This baseline policy provides you with the option to exclude users. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
 
 ## Enable a baseline policy 
 
-While baseline policies are in preview, they are by default not activated. You need to manually enable a policy if you want to activate it. As soon as this feature has reached general availability, the policies are by default activated. The planned behavior change is the reason why you have in addition to activate and deactivate a third option to set the state of a policy: **Automatically enable policy in the future**. By selecting this option, you let Microsoft decide when to activate a policy.      
+While baseline policies are in preview, they are by default not activated. You need to manually enable a policy if you want to activate it. If you explicitly enable the baseline policies at the preview stage, they will remain active when this feature reaches general availability. The planned behavior change is the reason why, in addition to activate and deactivate, you have a third option to set the state of a policy: **Automatically enable policy in the future**. By selecting this option, you can leave the policies disabled during preview, but have Microsoft enable them automatically when this feature reaches general availability. If you do not explicitly enable baseline policies now, and do not select the **Automatically enable policy in the future** option, the policies will remain disabled when this feature reaches general availability.
 
 
 **To enable a baseline policy:**  
@@ -82,7 +82,7 @@ While managing custom conditional access policies requires an Azure AD Premium l
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
-If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-service-identity/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have privileged accounts that are used in your scripts, you should replace them with [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [service principals with certificates](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 
@@ -91,6 +91,9 @@ Baseline policies apply to legacy authentication flows like POP, IMAP, older Off
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
+For more information, see:
 
-If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
+- [Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [What is conditional access in Azure Active Directory?](overview.md) 
+

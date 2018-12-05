@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator SDK for .NET helper method | Microsoft Docs
+title: "Quickstart: Content Moderator SDK for .NET helper method"
+titlesuffix: Azure Cognitive Services
 description: How to return a Content Moderator client using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: sajagtap
 ---
 
-# Helper code to return a Content Moderator client
+# Quickstart: Helper code to return a Content Moderator client
 
-This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to create a Content Moderator client for your subscription.
+This article provides information and code samples to help you get started using the Content Moderator SDK for .NET to create a Content Moderator client for your subscription.
 
 The library is used by other quickstarts in this section.
 
@@ -22,8 +23,8 @@ This article assumes that you are already familiar with Visual Studio and C#.
 
 > [!IMPORTANT]
 > This class library contains code intended for demonstration purposes only.
-> If you adapt this code for use in production, use a secure method of storing and using
-> your Content Moderator subscription key.
+> If you adapt this code for use in production, use a secure method of storing 
+> and using your Content Moderator subscription key.
 
 ## Sign up for Content Moderator services
 

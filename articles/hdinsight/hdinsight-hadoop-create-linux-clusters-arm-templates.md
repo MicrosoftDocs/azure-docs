@@ -1,23 +1,18 @@
 ---
-title: Create Hadoop clusters by using templates - Azure HDInsight | Microsoft Docs
+title: Create Apache Hadoop clusters by using templates - Azure HDInsight 
 description: Learn how to create clusters for HDInsight by using Resource Manager templates
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 
 ---
-# Create Hadoop clusters in HDInsight by using Resource Manager templates
+# Create Apache Hadoop clusters in HDInsight by using Resource Manager templates
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 In this article, you learn several ways to create Azure HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
@@ -28,12 +23,12 @@ In this article, you learn several ways to create Azure HDInsight clusters using
 To follow the instructions in this article, you need:
 
 * An [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell and/or Azure CLI.
+* Azure PowerShell and/or Azure Classic CLI.
 
 ### Resource Manager templates
 A Resource Manager template makes it easy to create the following resoruces for your application in a single, coordinated operation:
 * HDInsight clusters and their dependent resources (such as the default storage account)
-* Other resources (such as Azure SQL Database to use Apache Sqoop)
+* Other resources (such as Azure SQL Database to use [Apache Sqoop](http://sqoop.apache.org/))
 
 In the template, you define the resources that are needed for the application. You also specify deployment parameters to input values for different environments. The template consists of JSON and expressions that you use to construct values for your deployment.
 
@@ -50,7 +45,7 @@ Resource Manager enables you to export a Resource Manager template from existing
 
 - Azure portal: See [Export an Azure Resource Manager template from existing resources](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: See [Export Azure Resource Manager templates with PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI: See [Export Azure Resource Manager templates with Azure CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Azure Classic CLI: See [Export Azure Resource Manager templates with Azure Classic CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## Deploy using the portal
@@ -61,9 +56,9 @@ You can deploy a Resource Manager template using the Azure portal. For more info
 
 You can deploy a Resource Manager template using Azure PowerShell. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## Deploy using CLI
+## Deploy using Azure CLI
 
-You can deploy a Resource Manager template using Azure CLI. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+You can deploy a Resource Manager template using classic CLI. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## Deploy using the REST API
 You can deploy a Resource Manager template using REST API. For more information, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).

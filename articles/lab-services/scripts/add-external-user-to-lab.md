@@ -35,7 +35,7 @@ This script uses the following commands:
 | Command | Notes |
 |---|---|
 | [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Retries the user object from Azure active directory. |
-| [New-AzureRmRoleAssignment](/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
 
 ## Next steps
 

@@ -161,7 +161,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## Parameters and variables
 
@@ -277,7 +277,7 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
 - [size](sizes.md)
-- [name](/architecture/best-practices/naming-conventions) and credentials
+- [name](/azure/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - boot diagnostics
@@ -439,7 +439,7 @@ You can see the status of the installed extensions from the Extensions settings 
 
 ![Get extension status](./media/template-description/virtual-machines-show-extensions.png)
 
-You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI 2.0 command, or the **Get extension information** REST API.
+You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI command, or the **Get extension information** REST API.
 
 ## Deployments
 

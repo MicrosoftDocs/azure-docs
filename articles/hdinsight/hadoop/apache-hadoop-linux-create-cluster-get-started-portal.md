@@ -1,26 +1,22 @@
 ---
-title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Azure portal | Microsoft Docs'
+title: 'Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using Azure portal '
 description: Learn how to create HDInsight clusters using the Azure portal, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
 
-# Quickstart: Get started with Hadoop and Hive in Azure HDInsight using the Azure portal
+# Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal
 
-In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using Azure portal, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
+In this article, you learn how to create [Apache Hadoop](http://hadoop.apache.org/) clusters in HDInsight using Azure portal, and then run Apache Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
 In this quickstart, you use the Azure portal to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Resource Manager template](apache-hadoop-linux-tutorial-get-started.md).
 

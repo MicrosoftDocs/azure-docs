@@ -1,25 +1,20 @@
 ---
-title: Use MapReduce and Curl with Hadoop in HDInsight - Azure | Microsoft Docs
-description: Learn how to remotely run MapReduce jobs with Hadoop on HDInsight using Curl.
+title: Use MapReduce and Curl with Apache Hadoop in HDInsight - Azure 
+description: Learn how to remotely run MapReduce jobs with Apache Hadoop on HDInsight using Curl.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run MapReduce jobs with Hadoop on HDInsight using REST
+# Run MapReduce jobs with Apache Hadoop on HDInsight using REST
 
-Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
+Learn how to use the WebHCat REST API to run MapReduce jobs on a Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see the [What you need to know about Linux-based Hadoop on HDInsight](../hdinsight-hadoop-linux-information.md) document.
@@ -142,7 +137,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
 6. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
-You can list and download these files by using the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI with Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Next steps
 

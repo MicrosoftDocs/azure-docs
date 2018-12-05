@@ -122,7 +122,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
 
 Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -138,7 +138,7 @@ For more information, see the following documents:
 
 ### How do I enable WAD logging for Cloud Services?
 You can enable Windows Azure Diagnostics (WAD) logging through following options:
-1. [Enable from Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [Enable from Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Enable through .Net code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -244,7 +244,7 @@ For more information on how to integrate Azure Diagnostics with Application Insi
 
 For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## Generic
 
@@ -291,7 +291,7 @@ The journal settings are non-configurable, so you can't turn it off.
 You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
  
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 

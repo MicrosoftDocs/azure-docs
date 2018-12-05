@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/07/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 
 ---
@@ -34,7 +33,7 @@ You can store values such as a password as a secret in an Azure Stack key vault.
 
 * You must subscribe to an offer that includes the Key Vault service.
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
-* [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
+* [Configure your PowerShell environment.](azure-stack-powershell-configure-user.md)
 
 The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
 
@@ -42,14 +41,14 @@ The following steps describe the process required to create a virtual machine by
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template.
 
->[NOTE]
->You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+> ![NOTE]  
+> You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Create a Key Vault secret
 
 The following script creates a key vault, and stores a password in the key vault as a secret. Use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
 
-```powershell
+```PowerShell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -114,7 +113,7 @@ Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, a
 
 Now deploy the template by using the following PowerShell script:
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use a custom VM image in a scale set with Azure CLI 2.0 | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to create a custom VM image that you can use to deploy a virtual machine scale set
+title: Tutorial - Use a custom VM image in a scale set with Azure CLI | Microsoft Docs
+description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI 2.0
+# Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## Create and configure a source VM
@@ -103,7 +103,7 @@ az image create \
 
 
 ## Create a scale set from the custom VM image
-Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
+Create a scale set with [az vmss create](/cli/azure/vmss#az-vmss-create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
 
 ```azurecli-interactive
 az vmss create \
@@ -156,7 +156,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
-In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI 2.0:
+In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI:
 
 > [!div class="checklist"]
 > * Create and customize a VM

@@ -1,20 +1,18 @@
 ---
-title: Working with geospatial data in Azure Cosmos DB | Microsoft Docs
+title: Working with geospatial data in Azure Cosmos DB SQL API account
 description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the SQL API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
 
 ---
-# Working with geospatial and GeoJSON location data in Azure Cosmos DB
-This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). After reading this, you will be able to answer the following questions:
+# Use Geospatial and GeoJSON location data with Azure Cosmos DB SQL API account
+
+This article is an introduction to the geospatial functionality in Azure Cosmos DB. Currently storing and accessing geospatial data is supported by Cosmos DB SQL API accounts only. After reading this article, you will be able to answer the following questions:
 
 * How do I store spatial data in Azure Cosmos DB?
 * How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?
@@ -147,7 +145,7 @@ If you don't have the latitude and longitude information, but have the physical 
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using Azure Cosmos DB using SQL and LINQ.
 
 ### Spatial SQL built-in functions
-Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on the complete set of built-in functions in the SQL language, see [Query Azure Cosmos DB](sql-api-sql-query.md).
+Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query Azure Cosmos DB](how-to-sql-query.md).
 
 <table>
 <tr>
@@ -190,7 +188,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
       "id": "WakefieldFamily"
     }]
 
-If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more details on spatial indexing, see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
+If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
 
 ST_WITHIN can be used to check if a point lies within a Polygon. Commonly Polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
 
@@ -388,6 +386,6 @@ Now that you have learned how to get started with geospatial support in Azure Co
 
 * Start coding with the [Geospatial .NET code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* Learn more about [Azure Cosmos DB Query](sql-api-sql-query.md)
-* Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)
+* Learn more about [Azure Cosmos DB Query](how-to-sql-query.md)
+* Learn more about [Azure Cosmos DB Indexing Policies](index-policy.md)
 

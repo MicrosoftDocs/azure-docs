@@ -28,7 +28,7 @@ We recommend installing the [My Apps Secure Sign-in Extension](../user-help/acti
 To download and install the My Apps Secure Sign-in Extension, use one of the following links.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
@@ -71,7 +71,7 @@ To resolve the error without installing MyApps Secure Sign-in Extension:
 	- A statement identifying the root cause of the problem.
 2.	Go back to Azure AD and find the **Test single sign-on** blade.
 3.	In the text box above **Get resolution guidance**, paste the error message.
-3.	Click **Get resolution guidance** to display steps for resolving the issue. The guidance might require information from the SAML request or SAML response. If you’re not using the  MyApps Secure Sign-in Extension, you might need a tool such as [Fiddler](http://www.telerik.com/fiddler) to retrieve the SAML request and response.
+3.	Click **Get resolution guidance** to display steps for resolving the issue. The guidance might require information from the SAML request or SAML response. If you’re not using the  MyApps Secure Sign-in Extension, you might need a tool such as [Fiddler](https://www.telerik.com/fiddler) to retrieve the SAML request and response.
 4.	Verify the destination in the SAML request corresponds to the SAML Single Sign-On Service URL obtained from Azure Active Directory
 5.	Verify the issuer in the SAML request is the same identifier you have configured for the application in Azure Active Directory. Azure AD uses the issuer to find an application in your directory.
 6.	Verify AssertionConsumerServiceURL is where the application expects to receive the SAML token from Azure Active Directory. You can configure this value in Azure Active Directory, but it’s not mandatory if it’s part of the SAML request.
@@ -86,17 +86,17 @@ To resolve the error:
 1. If the application is in the Azure AD Gallery, verify you have followed all the steps for integrating the application with Azure AD. To find the integration instructions for your application, see the [list of SaaS application integration tutorials](../saas-apps/tutorial-list.md).
 2. Retrieve the SAML response.
     - If the My Apps Secure Sign-in extension is installed, from the **Test single sign-on** blade, click **download the SAML response**.
-    - If the extension is not installed, use a tool such as [Fiddler](http://www.telerik.com/fiddler) to retrieve the SAML response. 
+    - If the extension is not installed, use a tool such as [Fiddler](https://www.telerik.com/fiddler) to retrieve the SAML response. 
 3. Notice these elements in the SAML response token:
     - User unique identifier of NameID value and format
     - Claims issued in the token
     - Certificate used to sign the token. For information on how to review the SAML response, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 4. For more information on the SAML response, see [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md).
-5. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../application-sign-in-problem-application-error.md) for guidance on resolving the problem. 
+5. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../manage-apps/application-sign-in-problem-application-error.md) for guidance on resolving the problem. 
 6. If you are still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.
 
 
 ## Next steps
-Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md), or [get started with conditional access](../active-directory-conditional-access-azure-portal-get-started.md).
+Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../manage-apps/user-provisioning.md), or [get started with conditional access](../conditional-access/app-based-conditional-access.md).
 
 

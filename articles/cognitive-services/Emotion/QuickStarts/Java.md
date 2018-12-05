@@ -1,23 +1,24 @@
 ---
-title: Emotion API Java for Android quick start | Microsoft Docs
-description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, Java"
+description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
+ROBOTS: NOINDEX
 ---
 
-# Emotion API Java for Android Quick Start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
-> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
-videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-This article provides information and a code sample to help you quickly get started with the [Emotion Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in the Emotion API Android client library. The sample demonstrates how you can use Java to recognize the emotions expressed by people. 
+This article provides information and a code sample to help you quickly get started with the [Emotion Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in the Emotion API Android client library. The sample demonstrates how you can use Java to recognize the emotions expressed by people.
 
 ## Prerequisites
 * Get the Emotion API Java for Android SDK [here](https://github.com/Microsoft/Cognitive-emotion-android)
@@ -46,7 +47,7 @@ public class Main
         try
         {
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
@@ -80,10 +81,10 @@ public class Main
 ## Recognize Emotions Sample Response
 A successful call returns an array of face entries and their associated emotion scores, ranked by face rectangle size in descending order. An empty response indicates that no faces were detected. An emotion entry contains the following fields:
 * faceRectangle - Rectangle location of face in the image.
-* scores - Emotion scores for each face in the image. 
+* scores - Emotion scores for each face in the image.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

@@ -1,10 +1,11 @@
 ---
-title: What is Bing Autosuggest? | Microsoft Docs
+title: What is Bing Autosuggest?
+titlesuffix: Azure Cognitive Services
 description: Learn how to use the Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 6F4AFEDA-71A7-48C1-B3E2-D0D430428CDC
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
 ms.topic: overview

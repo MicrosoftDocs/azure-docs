@@ -1,26 +1,19 @@
 ---
-title: Upload data for Hadoop jobs in HDInsight | Microsoft Docs
-description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
+title: Upload data for Apache Hadoop jobs in HDInsight
+description: Learn how to upload and access data for Apache Hadoop jobs in HDInsight using the Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 keywords: etl hadoop, getting data into hadoop, hadoop load data
-services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
+services: hdinsight
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-
+ms.date: 11/06/2018
 ---
 # Upload data for Hadoop jobs in HDInsight
 
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Storage (Gen1 and Gen2). Azure Storage and Data lake Storage Gen1 and Gen2 are designed as HDFS extensions to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage, Data Lake Storage Gen1 and Gen2 are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage], [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md) and [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
 ## Prerequisites
 
@@ -30,7 +23,8 @@ Note the following requirements before you begin:
 * Knowledge of the following two articles:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]
-    - [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## Upload data to Azure Storage
 
@@ -39,22 +33,22 @@ Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Command-Line Interface][azurecli] |✔ |✔ |✔ |
+| [Azure Classic CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
+> While the Azure Classic CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
+#### <a id="xplatcli"></a>Azure Classic CLI
+The Azure Classic CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Install and configure the Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
+1. [Install and configure the Azure Classic CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
     ```cli
@@ -214,7 +208,7 @@ Before using the tool, you must know your Azure storage account name and account
     Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
 ### Mount Azure Storage as Local Drive
-See [Mount Azure Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+See [Mount Azure Storage as Local Drive](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### Upload using services
 #### Azure Data Factory
@@ -305,6 +299,8 @@ Now that you understand how to get data into HDInsight, read the following artic
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

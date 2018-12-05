@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -50,9 +50,6 @@ As a next step, you can initiate a simulation run that evaluates your settings. 
 
 When the evaluation has finished, the tool generates a report of the affected policies.
 
-
-> [!NOTE]
-> Currently, the What If tool does not support nested groups. If a user is in a group and that group is member of another group that is used in a conditional access policy, then the what if tool does not correctly display the effect of that policy to the user. 
 
 
 ## Running the tool

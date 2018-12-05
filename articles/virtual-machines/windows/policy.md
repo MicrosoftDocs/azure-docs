@@ -102,7 +102,7 @@ Use anyOf to modify the preceding policy to allow any Windows Server 2012 R2 Dat
 }
 ```
 
-For information about policy fields, see [Policy aliases](../../azure-policy/policy-definition.md#aliases).
+For information about policy fields, see [Policy aliases](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## Managed disks
 

@@ -108,6 +108,10 @@ To remove your virtual machine from inventory management:
 1. In the left pane of the Azure portal, select **Log Analytics**, and then select the workspace that you used when you onboarded your virtual machine.
 2. In the **Log Analytics** window, on the **Resource** menu, under the **Workspace Data Sources** category, select **Virtual machines**.
 3. In the list, select the virtual machine that you want to disconnect. The virtual machine has a green check mark next to **This workspace** in the **OMS Connection** column.
+
+   >[!NOTE]
+   >OMS is now referred to as Log Analytics.
+   
 4. At the top of the next page, select **Disconnect**.
 5. In the confirmation window, select **Yes**.
     This action disconnects the machine from management.

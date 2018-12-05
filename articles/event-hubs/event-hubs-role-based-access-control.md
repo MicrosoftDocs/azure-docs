@@ -3,14 +3,14 @@ title: Azure Event Hubs Role-Based Access Control (RBAC) preview | Microsoft Doc
 description: Azure Event Hubs Role-Based Access Control
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 
@@ -42,11 +42,7 @@ If you still want to create a specific account for this scenario, [follow these 
 
 Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that have Event Hubs preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
 
-Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-The user account now has access to the Event Hubs namespace, and to the event hub you previously created.
+Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**. The user account now has access to the Event Hubs namespace, and to the event hub you previously created.
  
 ### Register the application
 

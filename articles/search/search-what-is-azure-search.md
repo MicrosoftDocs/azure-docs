@@ -6,11 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 11/09/2018
 ms.author: heidist
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Query execution is over a user-defined index.
+
++ Build a search corpus containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI-powered indexing to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, auto-complete, and text analysis for "did you mean" auto-corrected search terms.
++ Add geo-search for "find near me", language analyzers for non-English full text search, and scoring logic for search rank.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -45,7 +50,7 @@ Before you can upload searchable content, you must first define an Azure Search 
 
 A schema can be created in the Azure portal, or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
 
-### Step 3: Index data
+### Step 3: Load data
 After you define an index, you're ready to upload content. You can use either a push or pull model.
 
 The pull model retrieves data from external data sources. It's supported through *indexers* that streamline and automate aspects of data ingestion, such as connecting to, reading, and serializing data. [Indexers](/rest/api/searchservice/Indexer-operations) are available for Azure Cosmos DB, Azure SQL Database, Azure Blob Storage, and SQL Server hosted in an Azure VM. You can configure an indexer for on demand or scheduled data refresh.
@@ -55,14 +60,14 @@ The push model is provided through the SDK or REST APIs, used for sending update
 ### Step 4: Search
 After populating an index, you can [issue search queries](/rest/api/searchservice/Search-Documents) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
-## How Azure Search compares
+## How it compares
 
 Customers often ask how Azure Search compares with other search-related solutions. The following table summarizes key differences.
 
 | Compared to | Key differences |
 |-------------|-----------------|
 |Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) searches the indexes on Bing.com for matching terms you submit. Indexes are built from HTML, XML, and other web content on public sites. Built on the same foundation, [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) offers the same crawler technology for web content types, scoped to individual web sites.<br/><br/>Azure Search searches an index you define, populated with data and documents you own, often from diverse sources. Azure Search has crawler capabilities for some data sources through [indexers](search-indexer-overview.md), but you can push any JSON document that conforms to your index schema into a single, consolidated searchable resource. |
-|Database search | Many database platforms include a built-in search experience. SQL Server has [full text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search). Cosmos DB and similar technologies have queryable indexes. When evaluating products that combine search and storage, it can be challenging to determine which way to go. Many solutions use both: DBMS for storage, and Azure Search for specialized search features.<br/><br/>Compared to DBMS search, Azure Search stores content from heterogeneous sources and offers specialized text processing features such as linguistic-aware text processing (stemming, lemmatization, word forms) in over [55 languages](https://docs.microsoft.com/rest/api/searchservice/language-support). It also supports autocorrection of misspelled words, [synonyms](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [scoring controls](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facets](https://docs.microsoft.com/azure/search/search-filters-facets),  and [custom tokenization](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search). The [full text search engine](search-lucene-query-architecture.md) in Azure Search is built on Apache Lucene, an industry standard in information retrieval. While Azure Search persists data in the form of an inverted index, it is rarely a replacement for true data storage. For more information, see this [forum post](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Resource utilization is another inflection point in this category. Indexing and some query operations are often computationally intensive. Offloading search from the DBMS to a dedicated solution in the cloud preserves system resources for transaction processing. Furthermore, by externalizing search, you can easily adjust scale to match query volume.|
+|Database search | Many database platforms include a built-in search experience. SQL Server has [full text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search). Cosmos DB and similar technologies have queryable indexes. When evaluating products that combine search and storage, it can be challenging to determine which way to go. Many solutions use both: DBMS for storage, and Azure Search for specialized search features.<br/><br/>Compared to DBMS search, Azure Search stores content from heterogeneous sources and offers specialized text processing features such as linguistic-aware text processing (stemming, lemmatization, word forms) in [56 languages](https://docs.microsoft.com/rest/api/searchservice/language-support). It also supports autocorrection of misspelled words, [synonyms](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [scoring controls](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facets](https://docs.microsoft.com/azure/search/search-filters-facets),  and [custom tokenization](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search). The [full text search engine](search-lucene-query-architecture.md) in Azure Search is built on Apache Lucene, an industry standard in information retrieval. While Azure Search persists data in the form of an inverted index, it is rarely a replacement for true data storage. For more information, see this [forum post](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Resource utilization is another inflection point in this category. Indexing and some query operations are often computationally intensive. Offloading search from the DBMS to a dedicated solution in the cloud preserves system resources for transaction processing. Furthermore, by externalizing search, you can easily adjust scale to match query volume.|
 |Dedicated search solution | Assuming you have decided on dedicated search with full spectrum functionality, a final categorical comparison is between on premises solutions or a cloud service. Many search technologies offer controls over indexing and query pipelines, access to richer query and filtering syntax, control over rank and relevance, and features for self-directed and intelligent search. <br/><br/>A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and adjustable scale](#cloud-service-advantage). <br/><br/>Within the cloud paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit. |
 
 Among cloud providers, Azure Search is strongest for full text search workloads over content stores and databases on Azure, for apps that rely primarily on search for both information retrieval and content navigation. 
@@ -80,7 +85,7 @@ Key strengths include:
 
 Among our customers, those able to leverage the widest range of features in Azure Search include online catalogs, line-of-business programs, and document discovery applications.
 
-## REST API | .Net SDK
+## REST API | .NET SDK
 
 While many tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
 
@@ -98,13 +103,16 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 ## How to get started
 
-1. Create a service in the [Free tier](search-create-service-portal.md).
+1. Create a [free service](search-create-service-portal.md). All quickstarts and tutorials can be completed on the free service.
 
-2. Step through one or more of the following tutorials. 
+2. Step through the [tutorial on using built-in tools for indexing and queries](search-get-started-portal.md). Learn important concepts and gain familiarity with information the portal provides.
 
-  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main steps in managed code.  
-  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API.  
-  + [Create your first index in the portal](search-get-started-portal.md) using built-in indexing and prototype features.   
+3. Move forward with code using either the .NET or REST API:
+
+  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main workflow in managed code.  
+  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-fiddler.md).
+
+## Watch this video
 
 Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search gives you tools for creating a search experience similar to those on large commercial web sites.
 
@@ -116,5 +124,3 @@ In this 9-minute video from program manager Liam Cavanagh, learn how integrating
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
 + 6-9 minutes covers Search explorer and various queries.
-
-

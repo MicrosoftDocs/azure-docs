@@ -1,13 +1,13 @@
-﻿---
-title: Retrain a New Azure Machine Learning web service with PowerShell | Microsoft Docs
+---
+title: Retrain a new Machine Learning Studio web service with PowerShell - Azure | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning using the Machine Learning Management PowerShell cmdlets.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.component: studio
@@ -16,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-
 ---
-# Retrain a New Resource Manager based web service using the Machine Learning Management PowerShell cmdlets
+# Retrain a new Resource Manager-based web service using the Machine Learning Studio Management PowerShell cmdlets
 When you retrain a New web service, you update the predictive web service definition to reference the new trained model.
 
 ## Prerequisites
@@ -30,7 +29,7 @@ You must set up a training experiment and a predictive experiment as shown in [R
 
 For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
-This process requires that you have installed the Azure Machine Learning Cmdlets. For information installing the Machine Learning cmdlets, see the [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN.
+This process requires that you have installed the Azure Machine Learning Cmdlets. For information installing the Machine Learning cmdlets, see the [Azure Machine Learning Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/) reference on MSDN.
 
 Copied the following information from the retraining output:
 
@@ -50,7 +49,7 @@ The steps you take are:
 You must first sign in to your Azure account from within the PowerShell environment using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## Get the Web Service Definition
-Next, get the Web Service by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. The Web Service Definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the Web Service Definition for your Predictive experiment and not your training experiment.
+Next, get the Web Service by calling the [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet. The Web Service Definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the Web Service Definition for your Predictive experiment and not your training experiment.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -65,11 +64,11 @@ To determine the resource group name of an existing web service, run the Get-Azu
 
 Alternatively, to determine the resource group name of an existing web service, log on to the Microsoft Azure Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
 
-    https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
 ## Export the Web Service Definition as JSON
-To modify the definition to the trained model to use the newly Trained Model, you must first use the [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet to export it to a JSON format file.
+To modify the definition to the trained model to use the newly Trained Model, you must first use the [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) cmdlet to export it to a JSON format file.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
@@ -90,13 +89,13 @@ In the assets, locate the [trained model], update the *uri* value in the *locati
       },
 
 ## Import the JSON into a Web Service Definition
-You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet to convert the modified JSON file back into a Web Service Definition that you can use to update the Web Service Definition.
+You must use the [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) cmdlet to convert the modified JSON file back into a Web Service Definition that you can use to update the Web Service Definition.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## Update the web service with new Web Service Definition
-Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the Web Service Definition.
+Finally, you use [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) cmdlet to update the Web Service Definition.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 

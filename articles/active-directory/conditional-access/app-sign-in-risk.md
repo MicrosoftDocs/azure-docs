@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
@@ -39,11 +39,11 @@ To complete the scenario in this tutorial, you need:
 
 - **Access to an Azure AD Premium P2 edition** - While conditional access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection. 
 
-- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../active-directory-identityprotection-enable.md).
+- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/enable.md).
 
-- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../active-directory-reporting-risk-events.md).  
+- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../reports-monitoring/concept-risk-events.md).  
 
-- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## Test your sign-in 
@@ -203,13 +203,13 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user, the Tor Browser and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
     ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
 
 ## Next steps
 

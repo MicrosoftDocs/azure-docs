@@ -1,18 +1,14 @@
 ---
-title: Add additional Azure storage accounts to HDInsight | Microsoft Docs
+title: Add additional Azure storage accounts to HDInsight 
 description: Learn how to add additional Azure storage accounts to an existing HDInsight cluster.
 services: hdinsight
-documentationCenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -22,7 +18,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 Learn how to use script actions to add additional Azure storage accounts to HDInsight. The steps in this document add a storage account to an existing Linux-based HDInsight cluster.
 
 > [!IMPORTANT]
-> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
+> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## How it works
 
@@ -44,7 +40,7 @@ During processing, the script performs the following actions:
 
 * Adds the storage account to the core-site.xml file.
 
-* Stops and restarts the Oozie, YARN, MapReduce2, and HDFS services. Stopping and starting these services allows them to use the new storage account.
+* Stops and restarts the [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), and [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) services. Stopping and starting these services allows them to use the new storage account.
 
 > [!WARNING]
 > Using a storage account in a different location than the HDInsight cluster is not supported.
@@ -59,7 +55,7 @@ __Requirements__:
 
 ## To use the script
 
-This script can be used from the Azure portal, Azure PowerShell, or the Azure CLI 1.0. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
+This script can be used from the Azure portal, Azure PowerShell, or the Azure Classic CLI. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
 
 > [!IMPORTANT]
 > When using the steps provided in the customization document, use the following information to apply this script:
@@ -72,7 +68,7 @@ This script can be used from the Azure portal, Azure PowerShell, or the Azure CL
 
 ### Storage accounts not displayed in Azure portal or tools
 
-When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
+When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure Classic CLI do not display the additional storage account either.
 
 The storage information isn't displayed because the script only modifies the core-site.xml configuration for the cluster. This information is not used when retrieving the cluster information using Azure management APIs.
 

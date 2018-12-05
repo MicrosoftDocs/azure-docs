@@ -396,6 +396,6 @@ An alert on a Resource Manager template is most often useful when creating an al
 ```
 
 ## Next Steps
-* [Read more about Alerts](insights-receive-alert-notifications.md)
+* [Read more about Alerts](monitoring-overview-alerts.md)
 * [Add Diagnostic Settings](monitoring-enable-diagnostic-logs-using-template.md) to your Resource Manager template
 

@@ -1,20 +1,17 @@
-﻿---
+---
 title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-
 ---
 # IP addresses used by Application Insights and Log Analytics
 The [Azure Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
@@ -34,7 +31,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74 | 443 |
+| Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22 | 443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## Status Monitor
@@ -62,16 +59,27 @@ Australia East
 13.75.150.96
 13.75.153.9
 13.75.158.185
+104.210.65.220
+52.187.246.13
+52.147.30.74
+52.187.250.193
+
 Brazil South
 191.232.32.122
 191.232.172.45
 191.232.176.218
 191.232.191.225
+191.232.192.35
+191.232.199.76
+191.232.236.210
+191.237.249.118
+
 France South
 52.136.140.221
 52.136.140.222
 52.136.140.223
 52.136.140.226
+
 France Central
 52.143.140.242
 52.143.140.246
@@ -81,6 +89,9 @@ France Central
 40.89.142.126
 40.89.131.237
 40.89.136.180
+40.89.139.142
+40.89.129.184
+
 East Asia
 13.75.121.122
 23.99.115.153
@@ -88,6 +99,9 @@ East Asia
 23.102.232.186
 52.175.38.49
 52.175.39.103
+13.75.66.249
+13.70.1.3
+
 North Europe
 13.74.184.101
 13.74.185.160
@@ -101,11 +115,17 @@ North Europe
 40.112.94.212
 104.46.15.57
 40.115.125.114
+40.127.205.106
+40.113.2.95
+
 Japan East
 52.243.33.33
 52.243.33.141
 52.243.35.253
 52.243.41.117
+13.78.35.173
+13.78.34.107
+
 West Europe
 52.174.166.113
 52.174.178.96
@@ -119,11 +139,22 @@ West Europe
 23.100.6.155
 52.232.113.84
 51.144.113.219
+137.117.164.63
+104.40.145.255
+23.97.139.23
+23.97.181.233
+
+
 UK South
 51.140.79.229
 51.140.84.172
 51.140.87.211
 51.140.105.74
+51.140.164.254
+51.140.4.10
+51.140.29.140
+51.140.138.114
+
 UK West
 51.141.25.219
 51.141.32.101
@@ -133,6 +164,11 @@ UK West
 51.140.205.236
 51.140.245.132
 51.140.203.56
+51.140.242.38
+51.140.205.207
+51.140.223.169
+51.140.221.13
+
 Southeast Asia
 52.187.29.7
 52.187.179.17
@@ -140,6 +176,11 @@ Southeast Asia
 52.187.43.24
 52.163.57.91
 52.187.30.120
+13.67.74.82
+52.163.184.26
+104.215.188.85
+13.67.34.253
+
 West US
 104.45.228.236
 104.45.237.251
@@ -159,6 +200,13 @@ West US
 104.42.195.57
 40.78.19.163
 40.78.23.43
+104.210.55.156
+40.118.239.57
+40.118.225.199
+104.42.199.138
+40.83.213.165
+40.118.230.208
+
 Central US
 52.165.130.58
 52.173.142.229
@@ -174,6 +222,14 @@ Central US
 40.113.195.109
 104.43.215.218
 104.43.240.112
+168.61.186.7
+23.101.121.118
+168.61.217.112
+168.61.222.30
+40.113.223.10
+40.113.217.146
+
+
 North Central US
 23.96.247.139
 23.96.249.113
@@ -191,6 +247,13 @@ North Central US
 23.100.75.146
 65.52.63.179
 157.55.143.58
+23.101.175.168
+23.101.166.53
+65.52.204.52
+157.55.163.96
+65.52.207.6
+157.55.208.50
+
 South Central US
 104.210.145.106
 13.84.176.24
@@ -206,6 +269,13 @@ South Central US
 104.210.216.32
 104.215.75.92
 104.215.77.186
+104.210.211.148
+104.215.116.120
+13.66.16.58
+104.214.72.169
+104.215.101.235
+40.124.43.29
+
 East US
 13.82.218.95
 13.90.96.71
@@ -223,6 +293,12 @@ East US
 40.121.8.31
 168.62.41.234
 168.62.168.66
+23.101.134.53
+137.117.66.148
+137.116.112.153
+168.62.161.181
+168.61.48.246
+40.121.5.6
 
 ```  
 
@@ -234,6 +310,7 @@ East US
 | Internal API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamic|443 |
 
 ## Log Analytics API
+
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | API |api.loganalytics.io<br/>*.api.loganalytics.io |dynamic |80,443 |
@@ -272,11 +349,17 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
+## Alert webhooks
+
+| Purpose | IP | Ports
+| --- | --- | --- |
+| Alerting | 23.96.11.4 | 443 |
+
 ## Profiler
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 40.68.32.221<br/>40.85.246.0<br/>40.85.246.57<br/>40.117.252.0<br/>40.117.253.100<br/>51.140.140.162<br/>51.140.140.184<br/>51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.147.66<br/>52.178.149.106<br/>52.230.122.9<br/>52.230.124.46<br/>104.40.217.71<br/>104.211.89.26<br/>104.211.90.232 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
 
@@ -287,6 +370,6 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 40.68.32.221<br/>40.85.246.0<br/>40.85.246.57<br/>40.117.252.0<br/>40.117.253.100<br/>51.140.140.162<br/>51.140.140.184<br/>51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.147.66<br/>52.178.149.106<br/>52.230.122.9<br/>52.230.124.46<br/>104.40.217.71<br/>104.211.89.26<br/>104.211.90.232 | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443

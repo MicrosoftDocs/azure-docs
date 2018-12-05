@@ -1,18 +1,21 @@
 ---
-title: Anomaly Detection C# app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a C# app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
+title: "Tutorial: Anomaly Detection, C#"
+titlesuffix: Azure Cognitive Services
+description: Explore a C# app that uses the Anomaly Detection API. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Anomaly Detection C# application
+# Tutorial: Anomaly Detection with C# application
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore a basic Windows application that uses Anomaly Detection API to detect anomalies from the input. 
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.
@@ -74,8 +77,8 @@ Reviewing how the Restful API gets used in the example application, let's look a
             // ----------------------------------------------------------------------
 
 ```
-**Request(…)**
-Below code snippet shows how to use the HttlClient submit your subscription key and data points to the endpoint of the Anomaly Detection API.
+### **Request**
+The code snippet below shows how to use the HttpClient to submit your subscription key and data points to the endpoint of the Anomaly Detection API.
 
 ```csharp
 	public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

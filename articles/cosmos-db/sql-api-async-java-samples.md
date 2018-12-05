@@ -1,13 +1,11 @@
 ---
-title: 'Azure Cosmos DB: Async Java examples for the SQL API | Microsoft Docs'
+title: 'Azure Cosmos DB: Async Java examples for the SQL API'
 description: Find Async Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 documentationcenter: java
 
 ms.service: cosmos-db
-ms.workload: data-services
 ms.devlang: java
 ms.topic: sample
 ms.date: 06/18/2018
@@ -26,7 +24,7 @@ ms.author: sngun
 > 
 > 
 
-The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-comsosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub repository. This article provides:
+The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub repository. This article provides:
 
 * Links to the tasks in each of the example Async Java project files. 
 * Links to the related API reference content.
@@ -130,7 +128,7 @@ The [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/bl
 | --- | --- |
 | [Create an index and set indexing policy](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L394-L410) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._indexing_policy) |
 
-For more information about indexing, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+For more information about indexing, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Query examples
 The [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) file shows how to perform the following tasks:
@@ -143,7 +141,7 @@ The [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/mas
 | [Perform a simple document query and filter the results](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L318-L368) | |
 | [Perform a order-by cross-partition document query](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L410-L457) | [FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._feed_options.setenablecrosspartitionquery) |
 
-For more information about writing queries, see [SQL query within Azure Cosmos DB](sql-api-sql-query.md).
+For more information about writing queries, see [SQL query within Azure Cosmos DB](how-to-sql-query.md).
 
 ## Offer examples
 The [OfferCRUDAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/OfferCRUDAsyncAPITest.java) file shows how to perform the following tasks:
@@ -151,7 +149,7 @@ The [OfferCRUDAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/ma
 | Task | API reference |
 | --- | --- |
 | [Create a collection and set throughput](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/OfferCRUDAsyncAPITest.java#L106-L113) | [AsyncDocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.createcollection)<br>[RequestOptions.setOfferThroughput](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._request_options.setofferthroughput) |
-| [Read a collection to find the associated offer](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/OfferCRUDAsyncAPITest.java#L118-L130) | [Offer.getContent](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._offer.getcontent)<br>[DocumentClient.queryOffers](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.queryoffers) |
+| [Read a collection to find the associated offer](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/OfferCRUDAsyncAPITest.java#L118-L130) | [Offer.getContent](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._offer.getContent)<br>[DocumentClient.queryOffers](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.queryoffers) |
 | [Update a collection's throughput by replacing its offer](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/OfferCRUDAsyncAPITest.java#L101-L153) | [AsyncDocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.replaceoffer) |
 
 ## Stored procedure examples

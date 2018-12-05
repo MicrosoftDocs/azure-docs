@@ -18,7 +18,7 @@
   items:
   - name: Connectivity models
     href: expressroute-connectivity-models.md
-  - name: Circuits and routing domains
+  - name: Circuits and peering
     href: expressroute-circuit-peerings.md
   - name: Locations and partners
     href: expressroute-locations.md
@@ -27,7 +27,7 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: Virtual network gateways for ExpressRoute
+  - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
@@ -35,10 +35,26 @@
     href: expressroute-workflows.md
   - name: Routing requirements
     href: expressroute-routing.md
+  - name: BFD over ExpressRoute
+    href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
   - name: About moving circuits from classic to Resource Manager
     href: expressroute-move.md
+  - name: About ExpressRoute Direct
+    href: expressroute-erdirect-about.md
+  - name: About ExpressRoute Global Reach
+    href: expressroute-global-reach.md
+  - name: Backend Connectivity Interoperability
+    items:
+    - name: Preface and Test Setup
+      href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Test Setup Configuration
+      href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json 
+    - name: Control Plane Analysis
+      href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json 
+    - name: Data Plane Analysis
+      href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json    
 - name: How-to guides
   items:
   - name: Create and modify a circuit
@@ -65,8 +81,18 @@
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
       href: howto-linkvnet-cli.md
-  - name: Configure a site-to-site VPN over Microsoft peering
-    href: site-to-site-vpn-over-microsoft-peering.md
+  - name: Encrypt traffic over circuits
+    items:
+    - name: Configure a site-to-site VPN over Microsoft peering
+      href: site-to-site-vpn-over-microsoft-peering.md
+    - name: Configure IPsec transport mode for Windows hosts
+      href: expressroute-howto-ipsec-transport-private-windows.md
+  - name: Configure ExpressRoute Global Reach
+    items:
+    - name: Azure PowerShell
+      href: expressroute-howto-set-global-reach.md
+    - name: Azure CLI
+      href: expressroute-howto-set-global-reach-cli.md
   - name: Configure a virtual network gateway for ExpressRoute
     items:
     - name: Azure portal
@@ -75,6 +101,12 @@
       href: expressroute-howto-add-gateway-resource-manager.md
   - name: Configure ExpressRoute and site-to-site coexisting connections
     href: expressroute-howto-coexist-resource-manager.md
+  - name: Configure ExpressRoute Direct
+    items:
+    - name: Configure ExpressRoute Direct - PowerShell
+      href: expressroute-howto-erdirect.md
+    - name: Configure ExpressRoute Direct - CLI
+      href: expressroute-howto-expressroute-direct-cli.md 
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
@@ -83,6 +115,8 @@
       href: how-to-routefilter-powershell.md
     - name: Azure CLI
       href: how-to-routefilter-cli.md
+  - name: Enable and disable peerings
+    href: expressroute-howto-reset-peering.md
   - name: Move from public peering to Microsoft peering
     href: how-to-move-peering.md
   - name: Move a circuit from classic to Resource Manager
@@ -97,8 +131,12 @@
       href: expressroute-config-samples-routing.md
     - name: Router configuration samples for NAT
       href: expressroute-config-samples-nat.md
-  - name: Configure Network Performance Monitor for ExpressRoute
-    href: how-to-npm.md
+  - name: Monitoring
+    items:
+    - name: ExpressRoute monitoring, metrics, and alerts
+      href: expressroute-monitoring-metrics-alerts.md
+    - name: Configure Network Performance Monitor for ExpressRoute
+      href: how-to-npm.md
   - name: Classic deployment model articles
     items:
     - name: Modify a circuit

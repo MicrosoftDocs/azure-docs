@@ -18,29 +18,10 @@ ms.author: markvi
 ms.reviewer: jairoc
 
 ---
+
 # Azure Active Directory device management FAQ
 
-**Q: Can I register Android or iOS BYOD devices?**
-
-**A:** Yes, but only with Azure device registration service and for hybrid customers. It is not supported with on-premises device registration service in AD FS.
-
-**Q: How can I register a macOS device?**
-
-**A:** To register macOS device:
-
-1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.	[Define a conditional access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
-
-**Remarks:**
-
-- The users that are included in your conditional access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
-
-- During the first access attempt, your users are prompted to enroll the device using the company portal.
-
----
-
-**Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal?**
-
+**Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or Why is device owner marked as N/A for hybrid Azure AD joined devices?**
 **A:** Windows 10 devices that are hybrid Azure AD joined do not show up under the USER devices.
 You need to use All devices view in Azure portal. You can also use PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
@@ -54,12 +35,17 @@ Only the following devices are listed under the USER devices:
 
 **Q: How do I know what the device registration state of the client is?**
 
-**A:** You can use the Azure portal, go to All devices and search for the device using device ID. Check the value under the join type column.
-
-If you want to check the local device registration state from a registered device:
+**A:** You can use the Azure portal, go to All devices and search for the device using device ID. Check the value under the join type column. Sometimes, the device could have been reset or re-imaged. So, it is essential to also check device registration state on the device too:
 
 - For Windows 10 and Windows Server 2016 or later devices, run dsregcmd.exe /status.
 - For down-level OS versions, run "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+
+---
+
+**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
+
+**A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
+For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -84,25 +70,6 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 3.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**Q: How do I unjoin an Azure AD Joined device locally on the device?**
-
-**A:** 
-- For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
-
-- For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and click on **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
-
----
-
-**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
-
-**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
-
----
-
-**Q: How do I connect to a remote Azure AD joined device?**
-**A:** Refer to the article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc for details.
-
----
 
 **Q: Why do I see duplicate device entries in Azure portal?**
 
@@ -125,6 +92,41 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 >[!Note] 
 >For enrolled devices, we recommend wiping the device to ensure that users cannot access the resources. For more information, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
+---
+
+# Azure AD Join FAQ
+
+**Q: How do I unjoin an Azure AD Joined device locally on the device?**
+
+**A:** 
+- For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
+
+- For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and click on **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
+
+---
+
+**Q: Can my users sign in to Azure AD joined devices that have been deleted or disabled in Azure AD?**
+**A:** Yes. Windows has cached logon capability to allow previously logged in users to access desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it is not known to the Windows device. So, previously logged in users can continue to access the desktop with cached logon. However, as the device is deleted or disabled, users cannot access any resources protected by device-based Conditional Access. 
+
+Users who havent already logged in cannot access the device as there is no cached logon enabled for them. 
+
+---
+
+**Q: Can disabled or deleted users sign in to Azure AD joined devices?**
+**A:** Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it is not immediately known to the Windows device. So, previously logged in users can access the desktop with cached logon. Once the device is aware of the user state (typically in less than 4 hours), Windows blocks those users from accessing the desktop. As the user is deleted or disabled in Azure AD, all their tokens will be revoked, so they cannot access any resources. 
+
+Deleted or disabled users who havent logged in previously cannot access a device as there is no cached logon enabled for them. 
+
+---
+
+**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
+
+**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
+
+---
+
+**Q: How do I connect to a remote Azure AD joined device?**
+**A:** Refer to the article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc for details.
 
 ---
 
@@ -141,13 +143,6 @@ Please evaluate the conditional access policy rules and ensure that the device i
 
 ---
 
-**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
-
-**A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
-For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
-
----
-
 **Q: Why do I get a "username or password is incorrect" message for a device I have just joined to Azure AD?**
 
 **A:** Common reasons for this scenario are:
@@ -156,7 +151,7 @@ For more information, see [Require managed devices for cloud app access with con
 
 - Your computer is unable to communicate with Azure Active Directory. Check for any network connectivity issues.
 
-- Federated logins requires your federation server to support a WS-Trust active endpoint. 
+- Federated logins requires your federation server to support WS-Trust endpoints enabled and accessible. 
 
 - You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon.
 
@@ -168,15 +163,16 @@ For more information, see [Require managed devices for cloud app access with con
 
 ---
 
-**Q: Why did my attempt to join a PC fail although I didn't get any error information?**
+**Q: Why did my attempt to Azure AD join a PC fail although I didn't get any error information?**
 
 **A:** A likely cause is that the user is logged in to the device using the local built-in administrator account. 
 Please create a different local account before using Azure Active Directory Join to complete the setup. 
 
-
 ---
 
-**Q: Where can I find troubleshooting information about the automatic device registration?**
+# Hybrid Azure AD Join FAQ
+
+**Q: Where can I find troubleshooting information for diagnosing hybrid Azure AD join failures?**
 
 **A:** For troubleshooting information, see:
 
@@ -187,3 +183,23 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
+# Azure AD Register FAQ
+
+**Q: Can I register Android or iOS BYOD devices?**
+
+**A:** Yes, but only with Azure device registration service and for hybrid customers. It is not supported with on-premises device registration service in AD FS.
+
+**Q: How can I register a macOS device?**
+
+**A:** To register macOS device:
+
+1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.	[Define a conditional access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+
+**Remarks:**
+
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
+
+- During the first access attempt, your users are prompted to enroll the device using the company portal.
+
+---

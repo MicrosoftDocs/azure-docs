@@ -1,25 +1,20 @@
 ---
-title: Create Java MapReduce for Hadoop - Azure HDInsight | Microsoft Docs
+title: Create Java MapReduce for Apache Hadoop - Azure HDInsight 
 description: Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: jasonwhowell
-documentationcenter: ''
-tags: azure-portal
+ms.reviewer: jasonh
+author: hrasheed-msft
 
-ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: Java
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Develop Java MapReduce programs for Hadoop on HDInsight
+# Develop Java MapReduce programs for Apache Hadoop on HDInsight
 
-Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
+Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Apache Hadoop on Azure HDInsight.
 
 > [!NOTE]
 > This example was most recently tested on HDInsight 3.6.
@@ -254,7 +249,7 @@ Use the following command to upload the jar file to the HDInsight headnode:
    scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
    ```
 
-    Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
+Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
 This command copies the files from the local system to the head node. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

@@ -40,3 +40,16 @@ sections:
     - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Grant access for a group - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Create a custom role - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Create a custom role - CLI</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Secure your Azure resources with role-based access control (RBAC)
+      href: /learn/modules/secure-azure-resources-with-rbac/
+      image: 
+        src: /learn/achievements/secure-azure-resources-with-rbac.svg
+        href: /learn/modules/secure-azure-resources-with-rbac/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-active-directory">More interactive learning...</a>

@@ -1,25 +1,20 @@
 ---
-title: Analyze Twitter data with Apache Hive - Azure HDInsight | Microsoft Docs
-description: Learn how to use Hive and Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
+title: Analyze Twitter data with Apache Hive - Azure HDInsight 
+description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
-# Analyze Twitter data using Hive and Hadoop on HDInsight
+# Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight
 
-Learn how to use Apache Hive to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
+Learn how to use [Apache Hive](https://hive.apache.org/) to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
 
 > [!IMPORTANT]
 > The steps in this document were tested on HDInsight 3.6.
@@ -183,7 +178,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Run the HiveQL job
 
-1. Use the following command to create a file containing HiveQL statements:
+1. Use the following command to create a file containing [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements:
 
    ```bash
    nano twitter.hql
@@ -323,7 +318,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Next steps
 
-You have learned how to transform an unstructured JSON dataset into a structured Hive table. To learn more about Hive on HDInsight, see the following documents:
+You have learned how to transform an unstructured JSON dataset into a structured [Apache Hive](https://hive.apache.org/) table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)

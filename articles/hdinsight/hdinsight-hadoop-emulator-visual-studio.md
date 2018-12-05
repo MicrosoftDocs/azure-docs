@@ -1,24 +1,20 @@
 ---
-title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight | Microsoft Docs
+title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight 
 description: Learn how to use the Azure Data Lake tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox, and view job output and history.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
 
-Azure Data Lake includes tools for working with generic Hadoop clusters. This document provides the steps needed to use the Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+Azure Data Lake includes tools for working with generic Apache Hadoop clusters. This document provides the steps needed to use the Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
 
 Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. After you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
 
@@ -34,7 +30,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running. Then follow the steps in the [Get started in the Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) document. These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running. Then follow the steps in the [Get started in the Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) document. These steps configure the password for the SSH `root` account, and the Apache Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 
@@ -71,7 +67,7 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in the 
 
 After following these steps, you now have an **HDInsight local cluster** entry in Server Explorer, under the **HDInsight** section.
 
-## Write a Hive query
+## Write an Apache Hive query
 
 Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run on-demand queries against the local cluster.
 
@@ -100,7 +96,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
     After the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez when processing the Hive query. Tez is the default execution engine for Hive on the local cluster.
 
     > [!NOTE]
-    > Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
+    > Apache Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
 
     Use the **Job Output** link to view the output. In this case, it is 823, the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
 
@@ -127,7 +123,7 @@ You can also create a project that contains multiple Hive scripts. Use a project
 
 The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **SensorDataAnalysis.hql**. You can submit these scripts by using the same **Submit** button at the top of the window.
 
-## Create a Pig project
+## Create an Apache Pig project
 
 While Hive provides a SQL-like language for working with structured data, Pig works by performing transformations on data. Pig provides a language (Pig Latin) that allows you to develop a pipeline of transformations. To use Pig with the local cluster, follow these steps:
 
@@ -201,4 +197,4 @@ You can then create the table using a form. At the bottom of the following scree
 ## Next steps
 
 * [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Apache Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

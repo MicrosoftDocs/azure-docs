@@ -6,7 +6,7 @@ author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
@@ -17,11 +17,11 @@ ms.reviewer: librown
 
 # Get started with the Microsoft Authenticator app
 
-The Microsoft Authenticator app help prevent unauthorized access to accounts and to stop fraudulent transactions by giving you an additional level of security for your work or school account (for example, alain@contoso.com) or your personal Microsoft account (for example, alain@outlook.com). You can either use it as a second verification method or as a replacement for your password when using phone sign-in. For more information about how to set up and use passwordless phone sign-in, see [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md).
+The Microsoft Authenticator app help prevent unauthorized access to accounts and to stop fraudulent transactions by giving you an additional level of security for your work or school account (for example, alain@contoso.com) or your personal Microsoft account (for example, alain@outlook.com).
 
 When using the app for two-step verification, it can work in one of two ways:
 
-- **Notification.** The app sends a notification to your device. Make sure the notification is right, and then select **Verify**. If you don’t recognize the notification, select **Deny**.
+- **Notification.** The app sends a notification to your device. Make sure the notification is right, and then select **Verify**. If you don’t recognize the notification, select **Deny**. After you click **Deny**, you can also mark the request as fraudulent.
 
 - **Verification code.** After you type your username and password, you can open the app and copy the verification code provided on the **Accounts** screen on to the sign-in screen. The verification code acts as a second form of authentication.
 
@@ -35,7 +35,7 @@ You can also use the Microsoft Authenticator app with non-Microsoft accounts. Th
 
 ## Install the app
 
-The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). To get the best experience, you should let the app get notifications when you're asked. 
+The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). To get the best experience, you should let the app get notifications when you're asked. 
 
 ## Add accounts to the app
 
@@ -47,7 +47,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
 ### Add a work or school account
 
-1. If possible, go to the [Additional security verification](http://aka.ms/mfasetup) screen on another PC or device. For information about how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) or contact your administrator.
+1. If possible, go to the [Additional security verification](https://aka.ms/mfasetup) screen on another PC or device. For information about how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) or contact your administrator.
 
     >[!Note]
     >If your administrator has turned on the security info preview experience, you can follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section.
@@ -106,8 +106,6 @@ If you chose to use verification codes in the app, you'll start to see them on t
 ## Next steps
 
 - If you have more general questions about the app, see [Microsoft Authenticator FAQs](microsoft-authenticator-app-faq.md)
-
-- If you have questions about how to use phone sign-in, see [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md)
 
 - If you want more information about two-step verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
 

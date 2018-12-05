@@ -52,7 +52,7 @@ Defines a mechanism for adding or removing named partitions.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -79,7 +79,7 @@ The maximum number of partitions.
 |use|required|
 
 #### ScaleIncrement
-The number of partitions by wich to perform the upshift/downshift.
+The number of partitions by which to perform the upshift/downshift.
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -3464,7 +3464,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -3491,7 +3491,7 @@ The maximum number of instances..
 |use|required|
 
 #### ScaleIncrement
-The number of instances by wich to perform the upshift/downshift.
+The number of instances by which to perform the upshift/downshift.
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -6260,7 +6260,7 @@ Declares a service to be created automatically when the application is instantia
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -6295,7 +6295,7 @@ The DNS name of the service.
 |use|optional|
 
 #### ServicePackageActivationMode
-ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
@@ -6490,7 +6490,7 @@ A collection of services that are automatically located together, so they are al
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -6509,7 +6509,7 @@ Name of this service relative to this application Name URI. Fully qualified Name
 |use|required|
 
 #### ServicePackageActivationMode
-ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|

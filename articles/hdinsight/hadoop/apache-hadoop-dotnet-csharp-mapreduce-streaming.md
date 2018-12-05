@@ -1,30 +1,25 @@
 ---
-title: Use C# with MapReduce on Hadoop in HDInsight - Azure | Microsoft Docs
-description: Learn how to use C# to create MapReduce solutions with Hadoop in Azure HDInsight.
+title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
+description: Learn how to use C# to create MapReduce solutions with Apache Hadoop in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Use C# with MapReduce streaming on Hadoop in HDInsight
+# Use C# with MapReduce streaming on Apache Hadoop in HDInsight
 
 Learn how to use C# to create a MapReduce solution on HDInsight.
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](../hdinsight-component-versioning.md).
 
-Hadoop streaming is a utility that allows you to run MapReduce jobs using a script or executable. In this example, .NET is used to implement the mapper and reducer for a word count solution.
+Apache Hadoop streaming is a utility that allows you to run MapReduce jobs using a script or executable. In this example, .NET is used to implement the mapper and reducer for a word count solution.
 
 ## .NET on HDInsight
 
@@ -42,7 +37,7 @@ The basic process used for streaming in this document is as follows:
 4. The reducer reads the tab-delimited key/value pairs, processes the data, and then emits the result as tab-delimited key/value pairs on STDOUT.
 5. The output is read by Hadoop and written to the output directory.
 
-For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
+For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## Prerequisites
 

@@ -43,7 +43,7 @@ Blob storage is ideal for:
 * Storing data for backup and restore, disaster recovery, and archiving.
 * Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/), and [Ruby](http://azure.github.io/azure-storage-ruby).
+Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/), and [Ruby](http://azure.github.io/azure-storage-ruby).
 
 For more information about Blob storage, see [Introduction to object storage on Azure](../blobs/storage-blobs-introduction.md).
 
@@ -80,7 +80,7 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## Types of storage accounts
 
@@ -88,7 +88,7 @@ This table shows the various kinds of storage accounts and which objects can be 
 
 |**Type of storage account**|**General-purpose Standard**|**General-purpose Premium**|**Blob storage, hot and cool access tiers**|
 |-----|-----|-----|-----|
-|**Services supported**| Blob, File, Queue Services | Blob Service | Blob Service|
+|**Services supported**| Blob, File, Queue, and Table Services | Blob Service | Blob Service|
 |**Types of blobs supported**|Block blobs, page blobs, and append blobs | Page blobs | Block blobs and append blobs|
 
 ### General-purpose storage accounts
@@ -196,7 +196,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 ### Tools and utilities
 * [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Azure CLI Cmdlets for Storage](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
+* [AzCopy Command-Line Utility](https://aka.ms/downloadazcopy)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](../storage-explorers.md)
 * [Azure Developer Tools](https://azure.microsoft.com/tools/)

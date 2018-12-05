@@ -2,16 +2,13 @@
 title: Use Data Lake Store with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Store and to store results of your analysis.
 services: hdinsight,storage
-tags: azure-portal
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 11/06/2018
 ---
 # Use Data Lake Store with Azure HDInsight clusters
 
@@ -37,16 +34,17 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 
 | HDInsight cluster type | Data Lake Store as default storage | Data Lake Store as additional storage| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 3.6 | Yes | Yes | |
+| HDInsight version 3.6 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.5 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.4 | No | Yes | |
 | HDInsight version 3.3 | No | No | |
 | HDInsight version 3.2 | No | Yes | |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
+> [!WARNING]
+> HDInsight HBase is not supported with Azure Data Lake Storage Gen 1
+
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
-
-
 ## Use Data Lake Store as default storage
 
 When HDInsight is deployed with Data Lake Store as default storage, the cluster-related files are stored in Data Lake Store in the following location:
@@ -90,7 +88,7 @@ Adding a Data Lake Store account as additional and adding more than one Data Lak
 
 ## Configure Data Lake store access
 
-To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), and [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), and [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 > [!NOTE]
 > If you are going to use Azure Data Lake Store as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Store as additional storage to an existing HDInsight cluster is not a supported scenario.
@@ -157,6 +155,7 @@ else
 }
 
 Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
@@ -167,7 +166,6 @@ if($addNewCertKeyCredential)
     Start-Sleep -s 30
 }
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
 Write-Host "Updating the certificate on HDInsight cluster..."
 
 Invoke-AzureRmResourceAction `

@@ -1,27 +1,21 @@
 ---
-title: 'Tutorial: create a Scala Maven application for Spark in HDInsight using IntelliJ | Microsoft Docs'
+title: 'Tutorial: Create a Scala Maven application for Spark in Azure HDInsight using IntelliJ'
 description: Create a Spark application written in Scala with Apache Maven as the build system and an existing Maven archetype for Scala provided by IntelliJ IDEA.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jasonh
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a Scala Maven application for Spark in HDInsight using IntelliJ.
 ---
 
-# Tutorial: create a Scala Maven application for Spark in HDInsight using IntelliJ
+# Tutorial: Create a Scala Maven application for Apache Spark in HDInsight using IntelliJ
 
-In this tutorial, you learn how to create a Spark application written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  Creating a Scala application in IntelliJ IDEA involves the following steps:
+In this tutorial, you learn how to create an [Apache Spark](https://spark.apache.org/) application written in [Scala](https://www.scala-lang.org/) using [Apache Maven](https://maven.apache.org/) with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  Creating a Scala application in IntelliJ IDEA involves the following steps:
 
 * Use Maven as the build system.
 * Update Project Object Model (POM) file to resolve Spark module dependencies.
@@ -30,7 +24,7 @@ In this tutorial, you learn how to create a Spark application written in Scala u
 * Run the application on Spark cluster using Livy.
 
 > [!NOTE]
-> HDInsight also provides an IntelliJ IDEA plugin tool to ease the process of creating and submitting applications to an HDInsight Spark cluster on Linux. For more information, see [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark applications](apache-spark-intellij-tool-plugin.md).
+> HDInsight also provides an IntelliJ IDEA plugin tool to ease the process of creating and submitting applications to an HDInsight Spark cluster on Linux. For more information, see [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Apache Spark applications](apache-spark-intellij-tool-plugin.md).
 > 
 
 In this tutorial, you learn how to:
@@ -43,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 ## Prerequisites
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Oracle Java Development kit. You can install it from [here](https://aka.ms/azure-jdks).
 * A Java IDE. This article uses IntelliJ IDEA 18.1.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
 ## Use IntelliJ to create application
@@ -186,16 +180,16 @@ To install the Scala plugin, use the following steps:
        
         ![Create JAR](./media/apache-spark-create-standalone-application/output.png)
 
-## Run the application on the Spark cluster
+## Run the application on the Apache Spark cluster
 To run the application on the cluster, you can use the following approaches:
 
-* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are many other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
-* **Use Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](apache-spark-livy-rest-interface.md).
+* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are many other clients as well that you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
+* **Use Apache Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Apache Spark jobs remotely using Apache Livy with Spark clusters on HDInsight](apache-spark-livy-rest-interface.md).
 
 ## Next step
 
-In this article, you learned how to create a Spark scala application. Advance to the next article to learn how to run this application on an HDInsight Spark cluster using Livy.
+In this article, you learned how to create an Apache Spark scala application. Advance to the next article to learn how to run this application on an HDInsight Spark cluster using Livy.
 
 > [!div class="nextstepaction"]
->[Run jobs remotely on a Spark cluster using Livy](./apache-spark-livy-rest-interface.md)
+>[Run jobs remotely on an Apache Spark cluster using Apache Livy](./apache-spark-livy-rest-interface.md)
 

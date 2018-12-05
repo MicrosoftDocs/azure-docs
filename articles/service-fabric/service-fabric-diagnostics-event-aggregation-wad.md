@@ -62,7 +62,7 @@ Now that you're aggregating events in Azure Storage, [set up Log Analytics](serv
 ## Deploy the Diagnostics extension through Azure Resource Manager
 
 ### Create a cluster with the diagnostics extension
-To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
@@ -220,7 +220,7 @@ Logs from additional channels are also available for collection, here are some o
 >This channel has a very high volume of events, enabling event collection from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on if absolutely necessary.
 
 
-To enable the **Base Data and Messaging Channel** our recommendation for comprehensive logging, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
+To enable the **Base Operational Channel** our recommendation for comprehensive logging with the least amount of noise, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
 
 ```json
   "WadCfg": {
@@ -248,7 +248,7 @@ To enable the **Base Data and Messaging Channel** our recommendation for compreh
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"
@@ -289,7 +289,7 @@ If you are using an Application Insights sink, as described in the section below
 
 ## Send logs to Application Insights
 
-Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [how to set up an AI sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) as part of your "WadCfg".
+Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [how to set up an AI sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) as part of your "WadCfg".
 
 ## Next steps
 

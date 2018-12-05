@@ -6,13 +6,11 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
 ms.devlang: java
-ms.workload: na
-ms.date: 05/15/2018
+ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
@@ -22,7 +20,7 @@ ms.custom: mvc, devcenter
 > [!NOTE] 
 > Java for Azure Functions is currently in preview.
 
-This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
+This quickstart guides through creating a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with Maven, testing it locally, and deploying it to Azure. When you're done, your Java function code is running in the cloud and can be triggered from an HTTP request.
 
 ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -40,9 +38,23 @@ To develop functions app with Java, you must have the following installed:
 
 ## Install the Azure Functions Core Tools
 
-The Azure Functions Core Tools provide a local development environment for writing, running, and debugging Azure Functions from the terminal or command prompt. 
+The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. 
 
-Install [version 2 of the Core Tools](functions-run-local.md#v2) on your local computer before continuing.
+To install, visit the [Installing](https://github.com/azure/azure-functions-core-tools#installing) section of the Azure Functions Core Tools  project to find the specific instructions for your operating system.
+
+You can also install it manually with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/), after installing the following requirements:
+
+-  [.NET Core](https://www.microsoft.com/net/core), latest version.
+-  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
+
+To proceed with an npm-based installation, run:
+
+```
+npm install -g azure-functions-core-tools@core
+```
+
+> [!NOTE]
+> If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
 ## Generate a new Functions project
 
@@ -110,7 +122,7 @@ public class Function {
 Change directory to the newly created project folder and build and run the function with Maven:
 
 ```
-cd fabrikam-functions
+cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -168,19 +180,44 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
 
 ```
-curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
 Hello AzureFunctions!
 ```
 
+## Make changes and redeploy
+
+Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your Function app. Change this line:
+
+```java
+return request.createResponse(200, "Hello, " + name);
+```
+
+To the following:
+
+```java
+return request.createResponse(200, "Hi, " + name);
+```
+
+Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
+
+```bash
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+```
+
+Will have updated output:
+
+```Output
+Hi, AzureFunctionsTest
+```
+
 ## Next steps
 
-You've created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
+You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
-- Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio Code, [attach the debugger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) to port 5005. Then set a breakpoint in the editor and trigger your function while it's running locally:
-    ![Debug functions in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-- Debug functions remotely with Visual Studio Code. Check the [Writing serverless Java Applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.
+- Write and debug functions locally with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
+- Debug functions deployed in Azure with Visual Studio Code. See the Visual Studio Code [serverless Java applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.

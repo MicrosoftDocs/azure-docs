@@ -1,14 +1,16 @@
 ---
 title: Indexing JSON blobs with Azure Search blob indexer
 description: Indexing JSON blobs with Azure Search blob indexer
-author: chaosrealm
-manager: jlembicz
+
+ms.date: 10/17/2018
+author: mgottein 
+manager: cgronlun
+ms.author: magottei
+
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
 ---
 
 # Indexing JSON blobs with Azure Search blob indexer
@@ -19,11 +21,8 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 | JSON document | parsingMode | Description | Availability |
 |--------------|-------------|--------------|--------------|
 | One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
-| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | In preview, in [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) and [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
 
-> [!Note]
-> Preview APIs are intended for testing and evaluation, and should not be used in production environments.
->
 
 ## Setting up JSON indexing
 Indexing JSON blobs is similar to the regular document extraction in a three-part workflow common to all indexers in Azure Search.
@@ -31,7 +30,7 @@ Indexing JSON blobs is similar to the regular document extraction in a three-par
 ### Step 1: Create a data source
 
 The first step is to provide data source connection information used by the indexer. 
-The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source is definition is the same for both JSON documents and arrays. 
+The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source definition is the same for both JSON documents and arrays. 
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
@@ -72,7 +71,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13"
+            "datePublished" : "2016-04-13",
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
@@ -99,9 +98,9 @@ A fully specified request might look as follows:
 
 As noted, field mappings are not required. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
 
-## How to parse JSON arrays (preview)
+## How to parse JSON arrays
 
-Alternatively, you can opt for the JSON array preview feature. This capability is useful when blobs contain an *array of JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
+Alternatively, you can opt for the JSON array feature. This capability is useful when blobs contain an *array of JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -111,9 +110,9 @@ Alternatively, you can opt for the JSON array preview feature. This capability i
 
 ### Indexer definition for a JSON array
 
-For a JSON array, the indexer request uses the preview API and the `jsonArray` parser. These are the only two array-specific requirements for indexing JSON blobs.
+For a JSON array, the indexer request uses the `jsonArray` parser. These are the only two array-specific requirements for indexing JSON blobs.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

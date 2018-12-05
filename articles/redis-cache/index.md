@@ -147,6 +147,50 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
 
 ---
 
+## Build your skills with Microsoft Learn
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/learn/modules/optimize-your-web-apps-with-redis/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/optimize-web-apps-with-redis.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Optimize your web applications by caching read-only data with Redis</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/work-with-mutable-and-partial-data-in-a-redis-cache/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/work-with-mutable-and-partial-data-in-a-redis-cache.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Work with mutable and partial data in a Redis cache</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
+
+**[More interactive learning...](/learn/browse?products=azure-redis-cache)**
+
+---
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
@@ -155,7 +199,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.rediscache">PowerShell</a></p>
                         <p><a href="/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
                     </div>
                 </div>

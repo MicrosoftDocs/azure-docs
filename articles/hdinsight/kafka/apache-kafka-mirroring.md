@@ -1,21 +1,14 @@
 ---
-title: Mirror Apache Kafka topics - Azure HDInsight | Microsoft Docs
+title: Mirror Apache Kafka topics - Azure HDInsight 
 description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: jasonh
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
@@ -26,11 +19,11 @@ In this example, mirroring is used to replicate topics between two HDInsight clu
 > [!WARNING]
 > Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the source and destination clusters, so clients cannot use the two interchangeably.
 >
-> If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Kafka on HDInsight](apache-kafka-get-started.md).
+> If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md).
 
-## How Kafka mirroring works
+## How Apache Kafka mirroring works
 
-Mirroring works by using the MirrorMaker tool (part of Apache Kafka) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
+Mirroring works by using the [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) tool (part of Apache Kafka) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
 
 The following diagram illustrates the Mirroring process:
 
@@ -57,7 +50,7 @@ If you need to mirror between Kafka clusters in different networks, there are th
 
 For more information on connecting two Azure Virtual Networks, see [Configure a VNet-to-VNet connection](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## Create Kafka clusters
+## Create Apache Kafka clusters
 
 While you can create an Azure virtual network and Kafka clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network and two Kafka clusters to your Azure subscription.
 
@@ -107,7 +100,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following commands to find the Zookeeper hosts for the source cluster:
+2. Use the following commands to find the Apache Zookeeper hosts for the source cluster:
 
     ```bash
     # Install jq if it is not installed
@@ -296,10 +289,10 @@ Since the steps in this document create both clusters in the same Azure resource
 
 ## Next Steps
 
-In this document, you learned how to use MirrorMaker to create a replica of a Kafka cluster. Use the following links to discover other ways to work with Kafka:
+In this document, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
 * [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

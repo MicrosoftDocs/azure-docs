@@ -1,15 +1,17 @@
 ---
 title: Multi-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
 description: "Provision and catalog new tenants using the standalone application pattern"
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: SaaS
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: billgib
+manager: craigg
 ms.date: 01/31/2018
-ms.author: billgib
 ---
 # Provision and catalog new tenants using the  application per tenant SaaS pattern
 

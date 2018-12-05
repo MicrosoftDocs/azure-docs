@@ -21,7 +21,7 @@ Registering a server with Azure File Sync establishes a trust relationship betwe
 ### Prerequisites
 To register a server with a Storage Sync Service, you must first prepare your server with the necessary prerequisites:
 
-* Your server must be running a supported version of Windows Server. For more information, see [Supported versions of Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
+* Your server must be running a supported version of Windows Server. For more information, see [Azure File Sync system requirements and interoperability](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Ensure that a Storage Sync Service has been deployed. For more information on how to deploy a Storage Sync Service, see [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.

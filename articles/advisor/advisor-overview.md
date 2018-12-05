@@ -3,18 +3,17 @@ title: Introduction to Azure Advisor | Microsoft Docs
 description: Use Azure Advisor to optimize your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: kasparks
+manager: 
+
 
 ms.assetid: 
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
+ms.author: kasparks
 ---
 
 # Introduction to Azure Advisor

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search?
+  - name: About Azure Search
     href: search-what-is-azure-search.md
 - name: Quickstarts
   expanded: true
@@ -27,13 +27,13 @@
       href: search-import-data-rest-api.md
     - name: Search
       href: search-query-rest-api.md
-    - name: Test with REST clients
+    - name: Explore using Postman or Fiddler
       href: search-fiddler.md
 - name: Tutorials
   items:
   - name: Use built-in tools
     href: search-get-started-portal.md
-  - name: Cognitive search development
+  - name: Learn cognitive search APIs
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure blobs
     href: search-semi-structured-data.md
@@ -141,14 +141,14 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
-  - name: Indexing data
+  - name: Index data
     items:
-    - name: Push vs. Pull indexing
+    - name: Load data
       href: search-what-is-data-import.md
-    - name: Import wizard (portal)
-      href: search-import-data-portal.md
     - name: Rebuild an index
       href: search-howto-reindex.md
+    - name: Import wizard (portal)
+      href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
@@ -173,15 +173,17 @@
         href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
       - name: Field mappings
         href: search-indexer-field-mappings.md
-  - name: Searching data
+      - name: Troubleshooting common issues
+        href: search-indexer-troubleshooting.md
+  - name: Query data
     items:
-    - name: Fundamentals
+    - name: Query types & composition
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md
-    - name: Examples for simple syntax
+    - name: Simple syntax examples 
       href: search-query-simple-examples.md
-    - name: Examples for full syntax
+    - name: Lucene syntax examples
       href: search-query-lucene-examples.md
     - name: Query reference
       items:
@@ -224,7 +226,7 @@
   - name: .NET (Management)
     href: /dotnet/api/?term=microsoft.azure.management.search
   - name: Python (Management)
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html
+    href: /python/api/?view=azure-python&term=search
   - name: REST
     href: /rest/api/searchservice
   - name: REST (Management)
@@ -240,6 +242,8 @@
       href: cognitive-search-skill-language-detection.md
     - name: Named Entity Recognition
       href: cognitive-search-skill-named-entity-recognition.md
+    - name: Enity Recognition
+      href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
       href: cognitive-search-skill-textmerger.md
     - name: Text Split
@@ -252,12 +256,14 @@
       href: cognitive-search-skill-ocr.md
     - name: Shaper
       href: cognitive-search-skill-shaper.md
+    - name: Deprecated Skills
+      href: cognitive-search-skill-deprecated.md
 - name: Resources
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?tag=azure-search
+  - name: Azure Updates
+    href: https://azure.microsoft.com/updates/?product=search
   - name: Demo sites
     items:
     - name: Financial files demo
@@ -274,7 +280,5 @@
     href: search-faq-frequently-asked-questions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=search
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=search

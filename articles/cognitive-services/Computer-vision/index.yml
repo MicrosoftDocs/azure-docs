@@ -1,23 +1,53 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Computer Vision Documentation 
+title: Computer Vision API Documentation 
 metadata:
-  title: Computer Vision Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  title: Computer Vision API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
 
   ms.service: cognitive-services
   ms.component: computer-vision
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/22/2018
-  ms.author: nolachar
+  ms.date: 09/24/2018
+  ms.author: nitinme
 abstract:
   description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/computer-vision-landing-page-video.png
+      width: 250  
+    title: Infuse intelligence in your apps with Vision APIs (05:41)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+    width: 250
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/computer-vision/home
+          html: <p>Learn about the Computer Vision API.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Computer Vision?
+        - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+          html: <p>Learn how to get subscription keys for Computer Vision API.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Subscription keys for Computer Vision API
+        - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
+          html: <p>Learn the basics of calling a Computer Vision API.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Call the Computer Vision API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -45,14 +75,14 @@ sections:
         src: media/index/logo_go.svg
       text: Go
       href: QuickStarts/go-analyze
-#- title: Step-by-Step Tutorials
-#  items:
-#  - type: paragraph
-#    text: 'Learn how to develop applications using Computer Vision:'
-#  - type: list
-#    style: unordered
-#    items: 
-#    - html: <a href="Tutorials/CSharpTutorial.md">C&#35; Tutorial</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using Computer Vision:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="Tutorials/CSharpTutorial.md">Create a Computer Vision app using C#</a>
 #    - html: <a href="Tutorials/java-tutorial.md">Java Tutorial</a>
 #    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript Tutorial</a>
 #    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
@@ -72,3 +102,7 @@ sections:
             <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p>
             <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p>
             <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

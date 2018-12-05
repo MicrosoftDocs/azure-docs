@@ -5,6 +5,8 @@
   items:
   - name: Understand your bill
     href: billing-understand-your-bill.md
+  - name: Understand your bill - EA only
+    href: billing-understand-your-bill-ea.md
   - name: Get invoice and usage data
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: Third-party service charges
@@ -17,41 +19,65 @@
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
-  - name: Set up billing alerts
-    href: billing-set-up-alerts.md
-  - name: Calculate pricing
-    href: https://azure.microsoft.com/pricing/calculator/
+  - name: View EA pricing
+    href: billing-ea-pricing.md
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: Start analyzing costs - EA only
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: Create and manage budgets - EA only
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: Optimize recommendations - EA only
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Calculate pricing
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Save with Reserved VM Instances
+  - name: Save with Azure Reservations
     items:
-    - name: What are reserved instances?
+    - name: What are Azure Reservations?
       href: billing-save-compute-costs-reservations.md
-    - name: Buy a reserved instance 
-      href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+    - name: Buy a reservation
+      items:
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: SQL Database
+        href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: SUSE Linux software
+        href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: Virtual machine
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
-      href: billing-understand-vm-reservation-charges.md
+      items:
+      - name: Reserved VM Instances
+        href: billing-understand-vm-reservation-charges.md
+      - name: SQL Database reserved capacity
+        href: billing-understand-reservation-charges.md
+      - name: Cosmos DB reserved capacity
+        href: billing-understand-cosmosdb-reservation-charges.md
+      - name: SUSE Linux software plans
+        href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
     - name: Usage for Pay-As-You-Go
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Manage reserved instances
+    - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
+    - name: View Reservations
+      href: billing-view-reservations.md  
 - name: Manage account
   items:
-  - name: Free account 
+  - name: Free account
     items:
     - name: Create free services
       href: billing-create-free-services-included-free-account.md
-    - name: Avoid charges 
+    - name: Avoid charges
       href: billing-avoid-charges-free-account.md
-    - name: Check usage 
+    - name: Check usage
       href: billing-check-free-service-usage.md
-    - name: Upgrade subscription 
+    - name: Upgrade subscription
       href: billing-upgrade-azure-subscription.md
     - name: Understand meter mapping
       href: billing-understand-free-service-meter-mapping.md
@@ -59,6 +85,8 @@
     href: billing-how-to-change-azure-account-profile.md
   - name: Grant access to billing
     href: billing-manage-access.md
+  - name: EA roles in Azure
+    href: billing-understand-ea-roles.md 
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
@@ -69,8 +97,8 @@
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
     href: billing-use-existing-azure-account-for-office-365-subscription.md
-- name: Manage subscription 
-  items: 
+- name: Manage subscription
+  items:
   - name: Reactivate subscription
     href: billing-subscription-become-disable.md
   - name: Transfer ownership
@@ -84,12 +112,14 @@
   - name: Switch subscription offer
     href: billing-how-to-switch-azure-offer.md
   - name: Pay by invoice
-    href: billing-how-to-pay-by-invoice.md 
+    href: billing-how-to-pay-by-invoice.md
   - name: Create management groups
-    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json  
+    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Move Azure resources
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Create Enterprise subscriptions
+  - name: Create additional subscription
+    href: billing-create-subscription.md
+  - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information
     href: billing-export-subscriptions.md
@@ -119,6 +149,8 @@
       href: billing-review-enterprise-billing.md
     - name: Review subscription use
       href: billing-review-subscription-billing.md
+    - name: Review resource usage
+      href: billing-review-service-usage-api.md
   - name: .NET samples
     items:
     - name: Invoice API code sample
@@ -130,10 +162,10 @@
 - name: Reference
   items:
   - name: Billing Automation Scenarios
-    href: billing-cost-management-automation-scenarios.md  
+    href: billing-cost-management-automation-scenarios.md
     items:
       - name: Manage costs with Azure Budgets
-        href: billing-cost-management-budget-scenario.md  
+        href: billing-cost-management-budget-scenario.md
   - name: Azure Billing API overview
     href: billing-usage-rate-card-overview.md
     items:
@@ -155,5 +187,3 @@
     items:
       - name: Enterprise reporting REST API
         href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-
-

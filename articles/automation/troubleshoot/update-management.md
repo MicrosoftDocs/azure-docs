@@ -4,14 +4,40 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
 # Troubleshooting issues with Update Management
 
-This article discusses solutions to resolve issues that you may encounter when using Update Management
+This article discusses solutions to resolve issues that you may run across when using Update Management.
+
+There is an agent troubleshooter for Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, see the detailed information below about possible issues.
+
+## General
+
+### <a name="components-enabled-not-working"></a>Scenario: The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured
+
+#### Issue
+
+You continue to see the following message on a virtual machine 15 minutes after onboarding:
+
+```
+The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
+```
+
+#### Cause
+
+This error can be caused by the following reasons:
+
+1. Communication back to the Automation Account is being blocked.
+2. The VM being onboarded may have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent installed.
+
+#### Resolution
+
+1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
+2. If using a cloned image, sysprep the image first and install the MMA agent after the fact.
 
 ## Windows
 
@@ -25,7 +51,7 @@ The following section highlights specific error messages and a possible resoluti
 
 You receive the following error message:
 
-```error
+```
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -57,7 +83,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 #### Cause
 
-There may be a proxy, gateway or firewall blocking network communication.
+There may be a proxy, gateway, or firewall blocking network communication.
 
 #### Resolution
 
@@ -75,11 +101,47 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### Cause
 
-The Hybrid Runbook Worker was not able to generate a self-signed certificate
+The Hybrid Runbook Worker wasn't able to generate a self-signed certificate
 
 #### Resolution
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
+
+### <a name="nologs"></a>Scenario: Update Management data not showing in Log Analytics for a machine
+
+#### Issue
+
+You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Log Analytics for the Hybrid Runbook Worker but not Update Management.
+
+#### Cause
+
+The Hybrid Runbook Worker may need to be re-registered and reinstalled.
+
+#### Resolution
+
+Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker.
+
+### <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
+
+#### Issue
+
+You have machines that show as **Not Assessed** under **Compliance**, and you see an exception message below it.
+
+#### Cause
+
+Windows update is not configured correctly in the machine.
+
+#### Resolution
+
+Double-click on the exception displayed in red to see the entire exception message. Review the following table for potential solutions or actions to take:
+
+|Exception  |Resolution or Action  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details on the cause of the exception.        |
+|`0x8024402C` or `0x8024401C`     | These errors are network connectivity issues. Make sure that your machine has the proper network connectivity to Update Management. See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required.        |
+|`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
+|Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
 
 ## Linux
 
@@ -129,7 +191,7 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 ## Next steps
 
-If you did not see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.

@@ -1,13 +1,14 @@
 ---
-title: Get video insights | Microsoft Docs
+title: Get video insights - Bing Video Search
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Video Search API to get more information about a video.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 30ECF4E2-E4F0-491B-9FA8-971BC96AB7B6
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---

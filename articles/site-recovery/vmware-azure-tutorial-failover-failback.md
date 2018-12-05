@@ -1,12 +1,11 @@
 ---
-title: Fail over and fail back VMware VMs and physical servers replicated to Azure with Site Recovery | Microsoft Docs
-description: Learn how to fail over VMware VMs and physical servers to Azure, and fail back to the on-premises site, with Azure Site Recovery
-services: site-recovery
+title: Fail over and fail back VMware VMs and physical servers during disaster recovery to Azure with Site Recovery | Microsoft Docs
+description: Learn how to fail over VMware VMs and physical servers to Azure, and fail back to the on-premises site, during disaster recovery to Azure with Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -70,7 +69,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 1. In **Settings** > **Replicated items**, click the VM > **Failover**.
 
 2. In **Failover**, select a **Recovery Point** to fail over to. You can use one of the following options:
-   - **Latest** (default): This option first processes all the data sent to Site Recovery. It
+   - **Latest**: This option first processes all the data sent to Site Recovery. It
      provides the lowest RPO (Recovery Point Objective) because the Azure VM created after failover
      has all the data that was replicated to Site Recovery when the failover was triggered.
    - **Latest processed**: This option fails over the VM to the latest recovery point processed by
@@ -92,21 +91,23 @@ In some scenarios, failover requires additional processing that takes around eig
 
 ## Connect to failed over virtual machine in Azure
 
-1. After failover, go to the virtual machine and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
-2. Post validation, click on **Commit** to finalize the recovery point of the virtual machine after failover. Post commit, all the other available recovery points are deleted. This completes the failover activity.
+1. If you want to connect to Azure VMs using RDP/SSH after failover, follow the requirements summarized in the table [here](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. After failover, go to the virtual machine and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+3. Post validation, click on **Commit** to finalize the recovery point of the virtual machine after failover. Post commit, all the other available recovery points are deleted. This completes the failover activity.
 
 >[!TIP]
 > **Change recovery point** helps you in choosing a different recovery point after failover if you are not satisfied with the failed over virtual machine. After **commit**, this option will no longer be available.
 
+Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.md) to troubleshoot any connectivity issues post failover.
+
 ## Preparing for reprotection of Azure VM
 
-### Create a process server in Azure
+- You can use the on-premises process server (in-built process server) which is automatically installed on the configuration server as part of the set up **if you have an Azure ExpressRoute connection**.
 
-The process server receives data from the Azure VM, and sends it to the on-premises site. A low-latency network is required between the process server and the protected VM.
+> [!IMPORTANT]
+> If you have a VPN connection between your on-premises environment and Azure, you must set up an Azure VM as a process server for reprotection and failback. To set up a process server in Azure, follow the instructions in [this article](vmware-azure-set-up-process-server-azure.md).
 
-- For test purposes, if you have an Azure ExpressRoute connection, you can use the on-premises process server (in-built process server) that's automatically installed on the configuration server.
-- If you have a VPN connection, or you're running failback in a production environment, you must set up an Azure VM as an Azure-based process server for failback.
-- To set up a process server in Azure, follow the instructions in [this article](vmware-azure-set-up-process-server-azure.md).
+For more information on the prerequisites for reprotect and failback refer to this [section] ](vmware-azure-reprotect.md##before-you-begin). 
 
 ### Configure the master target server
 

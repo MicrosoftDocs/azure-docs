@@ -1,18 +1,13 @@
 ---
-title: Manage logs for an HDInsight cluster - Azure HDInsight | Microsoft Docs
+title: Manage logs for an HDInsight cluster - Azure HDInsight 
 description: Determine the types, sizes, and retention policies for HDInsight activity log files.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
 ---
@@ -43,12 +38,13 @@ The following cluster details are useful in helping to gather information in you
 * Cluster state, including details of the last state change
 * Type and number of HDInsight instances specified for the master, core, and task nodes
 
-You can get most of this top-level information using the Azure portal.  Alternatively, you can use the Azure CLI to get information about your HDInsight cluster(s):
+You can get most of this top-level information using the Azure portal.  Alternatively, you can use the Azure Classic CLI to get information about your HDInsight cluster(s):
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 You can also use PowerShell to view this information.  For more information, see [Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-powershell.md).
 

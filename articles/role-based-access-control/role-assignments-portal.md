@@ -1,6 +1,6 @@
 ---
 title: Manage access using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+description: Learn how to manage access for users, groups, service principals, and managed identities, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,156 +12,156 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # Manage access using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the Azure portal.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, service principals, and managed identities using RBAC and the Azure portal.
 
-## List roles
+## Open Access control (IAM)
 
-A role definition is a collection of permissions that you use for role assignments. Azure has over 60 [built-in roles](built-in-roles.md).
+The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want to view or make a change.
 
-1. In the Azure portal, choose **All services** and then **Subscriptions**.
+1. In the Azure portal, click **All services** and then select the scope or resource you want to view or manage. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Choose your subscription.
+1. Click the specific resource you want to view or manage.
 
-1. Choose **Access control (IAM)**.
+1. Click **Access control (IAM)**.
 
-   ![Roles option](./media/role-assignments-portal/list-subscription-access-control.png)
+    The following shows an example of the Access control (IAM) blade for a subscription.
 
-1. Choose **Roles** to see a list of all the built-in and custom roles.
+    ![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
-   ![Roles option](./media/role-assignments-portal/roles-option.png)
+## View roles and permissions
 
-   You can see the number of users and groups that are assigned to each role.
+A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles](built-in-roles.md). Follow these steps to view the roles and permissions that can be performed on the management and data plane.
+
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view roles and permissions.
+
+1. Click the **Roles** tab to see a list of all the built-in and custom roles.
+
+   You can see the number of users and groups that are assigned to each role at this scope.
 
    ![Roles list](./media/role-assignments-portal/roles-list.png)
 
-## List access
+1. Click an individual role to see who has been assigned this role and also view the permissions for the role.
 
-When managing access, you want to know who has access, what are their permissions, and at what level. To list access, you list the role assignments.
+   ![Roles assignments](./media/role-assignments-portal/role-assignments.png)
 
-### List role assignments for a subscription
+## View role assignments
 
-1. In the Azure portal, choose **All services** and then **Subscriptions**.
+When managing access, you want to know who has access, what are their permissions, and at what level. To list access for a user, group, service principal, or managed identity, you view the role assignments.
 
-1. Choose your subscription.
+### View role assignments for a single user
 
-1. Choose **Access control (IAM)**.
+Follow these steps to view the access for a single user, group, service principal, or managed identity at a particular scope.
 
-    On the Access control (IAM) blade, also known as identity and access management, you can see who has access to this subscription and their role.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
-    ![Access control (IAM) blade](./media/role-assignments-portal/subscription-access-control.png)
+1. Click the **Check access** tab.
 
-    Classic subscription administrators and co-administrators are considered owners of the subscription in the RBAC model.
+    ![Access control - Check access tab](./media/role-assignments-portal/access-control-check-access.png)
 
+1. In the **Find** list, select the type of security principal you want to check access for.
 
-### List role assignments for a resource group
+1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 
-1. In the navigation list, choose **Resource groups**.
+    ![Check access select list](./media/role-assignments-portal/check-access-select.png)
 
-1. Choose a resource group and then choose **Access control (IAM)**.
+1. Click the security principal to open the **assignments** pane.
 
-   On the Access control (IAM) blade, you can see who has access to this resource group. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to the resource group or inherited from an assignment to the parent subscription.
+    ![assignments pane](./media/role-assignments-portal/check-access-assignments.png)
 
-   ![Resource groups](./media/role-assignments-portal/resource-group-access-control.png)
+    On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
-### List role assignments for a user
+### View all role assignments at a scope
 
-1. In the navigation list, choose **Azure Active Directory**.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
-1. Choose **Users** to open **All users**.
+1. Click the **Role assignments** tab (or click the **View** button on the View role assignments tile) to view all the role assignments at this scope.
 
-   ![Azure Active Directory All users blade](./media/role-assignments-portal/aad-all-users.png)
+   ![Access control - Role assignments tab](./media/role-assignments-portal/access-control-role-assignments.png)
 
-1. Choose an individual user in the list.
+   On the Role assignments tab, you can see who has access at this scope. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 
-1. In the **Manage** section, choose **Azure resources**.
+## Add a role assignment
 
-   ![Azure Active Directory user Azure resources](./media/role-assignments-portal/aad-user-azure-resources.png)
+In RBAC, to grant access, you assign a role to a user, group, service principal, or managed identity. Follow these steps to grant access at different scopes.
 
-   On the Azure resources blade, you can see the role assignments for the selected user and selected subscription. This list includes only role assignments for resources that you have permission to read. For example, if the user also has role assignments that you cannot read, those role assignments will not appear in the list.
+### Assign a role at a scope
 
-1. If you have multiple subscriptions, you can choose the **Subscription** drop-down list to see the role assignments in a different subscription.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to grant access.
 
-## Grant access
+1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
-In RBAC, to grant access, you create a role assignment.
+1. Click **Add role assignment** to open the Add role assignment pane.
 
-### Create a role assignment at a subscription scope
+   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-1. In the Azure portal, choose **All services** and then **Subscriptions**.
-
-1. Choose your subscription.
-
-1. Choose **Access control (IAM)** to see the current list of role assignments at the subscription scope.
-
-   ![Access control (IAM) blade for resource group](./media/role-assignments-portal/grant-subscription-access-control.png)
-
-1. Choose **Add** to open the **Add permissions** pane.
-
-   If you don't have permissions to assign roles, you won't see the **Add** option.
-
-   ![Add permissions pane](./media/role-assignments-portal/add-permissions.png)
+   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+1. In the **Select** list, select a user, group, service principal, or managed identity. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
-1. Choose **Save** to create the role assignment.
+1. Click **Save** to assign the role.
 
-   After a few moments, the security principal is assigned the role at the subscription scope.
+   After a few moments, the security principal is assigned the role at the selected scope.
 
-### Create a role assignment at a resource group scope
+### Assign a user as an administrator of a subscription
 
-1. In the navigation list, choose **Resource groups**.
+To make a user an administrator of an Azure subscription, assign them the [Owner](built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
 
-1. Choose a resource group.
+1. In the Azure portal, click **All services** and then **Subscriptions**.
 
-1. Choose **Access control (IAM)** to see the current list of role assignments at the resource group scope.
+1. Click the subscription where you want to grant access.
 
-   ![Access control (IAM) blade for resource group](./media/role-assignments-portal/grant-resource-group-access-control.png)
+1. Click **Access control (IAM)**.
 
-1. Choose **Add** to open the **Add permissions** pane.
+1. Click the **Role assignments** tab to view all the role assignments for this subscription.
 
-   If you don't have permissions to assign roles, you won't see the **Add** option.
+1. Click **Add role assignment** to open the Add role assignment pane.
 
-   ![Add permissions pane](./media/role-assignments-portal/add-permissions.png)
+   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
+   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
-1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+1. In the **Role** drop-down list, select the **Owner** role.
 
-1. Choose **Save** to create the role assignment.
+1. In the **Select** list, select a user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display names and email addresses.
 
-   After a few moments, the security principal is assigned the role at the resource group scope.
+1. Click **Save** to assign the role.
 
-## Remove access
+   After a few moments, the user is assigned the Owner role at the subscription scope.
 
-In RBAC, to remove access, you remove a role assignment.
+## Remove role assignments
 
-### Remove a role assignment
+In RBAC, to remove access, you remove a role assignment. Follow these steps to remove access.
 
-1. Open the **Access control (IAM)** blade for the subscription, resource group, or resource that has the role assignment you want to remove.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
+
+1. Click the **Role assignments** tab to view all the role assignments for this subscription.
 
 1. In the list of role assignments, add a checkmark next to the security principal with the role assignment you want to remove.
 
    ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment-select.png)
 
-1. Choose **Remove**.
+1. Click **Remove**.
 
    ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment.png)
 
-1. In the remove role assignment message that appears, choose **Yes**.
+1. In the remove role assignment message that appears, click **Yes**.
 
-Inherited role assignments cannot be removed. If you need to remove an inherited role assignment, you must do it at the scope where the role assignment was created. In the **Scope** column, next to **Inherited** there is a link that takes you to the resources where this role was assigned. Go to the scope listed there to remove the role assignment.
+    Inherited role assignments cannot be removed. If you need to remove an inherited role assignment, you must do it at the scope where the role assignment was created. In the **Scope** column, next to **(Inherited)** there is a link that takes you to the scope where this role was assigned. Go to the scope listed there to remove the role assignment.
+
+   ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
 ## Next steps
 
-* [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+* [Tutorial: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
 * [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Built-in roles](built-in-roles.md)
+* [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

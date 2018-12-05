@@ -2,13 +2,13 @@
 title: Introduction to Azure Stack virtual machines
 description: Learn about Azure Stack virtual machines
 services: azure-stack
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 05/21/2018
-ms.author: mabrigg
+ms.date: 09/05/2018
+ms.author: sethm
 ms.reviewer: kivenkat
 
 ---
@@ -95,7 +95,7 @@ The resources in the following table are used by the VM and need to exist or be 
 |Resource|Required|Description|
 |---------|---------|---------|
 |Resource group|Yes|The VM must be contained in a resource group.|
-|Storage account|Yes|The VM needs the storage account to store its virtual hard disks.|
+|Storage account|No|The VM does not need the storage account to store its virtual hard disks if using Managed Disks. <br>The VM does need the storage account to store its virtual hard disks if using unmanaged disks.|
 |Virtual network|Yes|The VM must be a member of a virtual network.|
 |Public IP address|No|The VM can have a public IP address assigned to it to remotely access it.|
 |Network interface|Yes|The VM needs the network interface to communicate in the network.|

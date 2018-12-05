@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
-ms.author: amberb
+ms.author: cwatson
 ---
 # View all your billing accounts in Azure portal  
 
@@ -22,7 +22,7 @@ Billing accounts define your Azure billing relationships. You can have multiple 
 
 Currently you can only view your personal and Enterprise Agreement billing accounts. By default, the [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) page shows your personal billing account. However, you can navigate to **Billing accounts** and change the account.
 
-For personal billing accounts, you can manage and view all your charges in the [Azure portal](https://portal.azure.com). However, for Enterprise Agreement accounts, you can only view reserved instance purchases, balance, and month-to-date charges. These Enterprise agreement features are in preview and are available only if you are in an Enterprise administrator role.
+For personal billing accounts, you can manage and view all your charges in the [Azure portal](https://portal.azure.com). However, for Enterprise Agreement accounts, you can only view Azure reservation purchases, balance, and month-to-date charges. These Enterprise agreement features are in preview and are available only if you are in an Enterprise administrator role.
 
 ## Change billing account view 
 
@@ -36,7 +36,6 @@ For personal billing accounts, you can manage and view all your charges in the [
 
     ![Screenshot that shows list of billing accounts](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
- 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

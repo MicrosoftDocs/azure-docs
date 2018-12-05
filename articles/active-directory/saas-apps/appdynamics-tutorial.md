@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.saas.appdynamics.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -185,6 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating an AppDynamics test user
 
 The objective of this section is to create a user called Britta Simon in AppDynamics. AppDynamics supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access AppDynamics if it doesn't exist yet.
+
 >[!Note]
 >If you need to create a user manually, contact [AppDynamics Client support team](https://www.appdynamics.com/support/).
 

@@ -29,7 +29,7 @@ You can use Visual Studio to produce the application package that contains multi
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## Manually package the multiple guest executable application
-Alternatively you can manually package the guest executable. For the manual packaging, this article uses the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+Alternatively you can manually package the guest executable. For the manual packaging, this article uses the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
 
 ### Packaging the Node.js application
 This article assumes that Node.js is not installed on the nodes in the Service Fabric cluster. As a consequence, you need to add Node.exe to the root directory of your node application before packaging. The directory structure of the Node.js application (using Express web framework and Jade template engine) should look similar to the one below:

@@ -22,11 +22,22 @@ This article describes how to deploy the cluster autoscaler on the agent nodes. 
 > Azure Kubernetes Service (AKS) cluster autoscaler integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 >
 
-## Prerequisites
+## Prerequisites and considerations
 
 This document assumes that you have an RBAC-enabled AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
  To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. To upgrade your cluster, see the article on [upgrading an AKS cluster][aks-upgrade].
+
+Define resource requests for your pods. The cluster autoscaler looks at what resource requests are made by pods, not the resources actually in use like the horizontal pod autoscaler does. Within the `spec: containers` section of your deployment definition, define the CPU and memory requirements. The following example snippet requests 0.5 vCPU and 64Mb of memory on the node:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+When cluster autoscaler is used, avoid manually scaling the number of nodes. The cluster autoscaler may not be able to determine the correct amount of compute resources required and conflict with the number of nodes that you manually define.
 
 ## Gather information
 
@@ -52,8 +63,7 @@ CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".
 
 SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
 
-CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
-NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+NODE_RESOURCE_GROUP=`az aks show --name $cluster_name  --resource-group $resource_group -o tsv --query 'nodeResourceGroup' | base64`
 
 echo "---
 apiVersion: v1
@@ -124,7 +134,7 @@ metadata:
   name: cluster-autoscaler
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-autoscaler
@@ -165,7 +175,7 @@ rules:
   verbs: ["get", "list", "watch"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: cluster-autoscaler
@@ -183,7 +193,7 @@ rules:
   verbs: ["delete","get","update"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: cluster-autoscaler
@@ -200,7 +210,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cluster-autoscaler
@@ -218,7 +228,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -237,7 +247,7 @@ spec:
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-      - image: k8s.gcr.io/cluster-autoscaler:{{ ca_version }}
+      - image: gcr.io/google-containers/cluster-autoscaler:v1.2.2
         imagePullPolicy: Always
         name: cluster-autoscaler
         resources:
@@ -309,7 +319,7 @@ Then, fill in the image field under **containers** with the version of the clust
 Deploy cluster-autoscaler by running
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
 To check if the cluster autoscaler is running, use the following command and check the list of pods. There should be a pod prefixed with "cluster-autoscaler" running. If you see this, your cluster autoscaler has been deployed.

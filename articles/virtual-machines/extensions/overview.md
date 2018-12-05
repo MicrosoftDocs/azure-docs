@@ -3,7 +3,7 @@ title: Azure virtual machine extensions and features | Microsoft Docs
 description: Learn what Azure VM extensions anre how to use them with Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -37,7 +37,7 @@ Extensions can be bundled with a new VM deployment. For example, they can be par
 You can view available extensions in the VM blade in the Portal, under extensions, this represents just a small amount, for the full list, you can use the CLI tools, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
 
 ## How can I install an extension?
-Azure VM extensions can be managed using either the Azure CLI 2.0, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, you can go to the Azure portal, select the Custom Script Extension, then pass in a command / script and run the extensions.
+Azure VM extensions can be managed using either the Azure CLI, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, you can go to the Azure portal, select the Custom Script Extension, then pass in a command / script and run the extensions.
 
 If you want to same extension you added in the portal by CLI or Resource Manager template, see different extension documentation, such as [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
 

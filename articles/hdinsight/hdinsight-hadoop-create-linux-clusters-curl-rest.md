@@ -1,23 +1,18 @@
 ---
-title: Create Hadoop clusters using Azure REST API - Azure | Microsoft Docs
+title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Create Hadoop clusters using the Azure REST API
+# Create Apache Hadoop clusters using the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -219,7 +214,7 @@ This example is used in the steps in this document. Replace the example *values*
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
@@ -354,19 +349,19 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
 
-### Hadoop clusters
+### Apache Hadoop clusters
 
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### HBase clusters
+### Apache HBase clusters
 
-* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### Storm clusters
+### Apache Storm clusters
 
-* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

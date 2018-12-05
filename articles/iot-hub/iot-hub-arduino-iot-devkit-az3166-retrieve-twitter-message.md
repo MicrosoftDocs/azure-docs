@@ -159,7 +159,7 @@ For testing purposes, this sample project uses a pre-configured Twitter bearer t
 
 1. Go to [Twitter Developer portal](https://dev.twitter.com/) to register a new Twitter app.
 
-2. [Get Consumer Key and Consumer Secrets](https://support.yapsody.com/hc/en-us/articles/203068116-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) of your app.
+2. [Get Consumer Key and Consumer Secrets](https://support.yapsody.com/hc/en-us/articles/360003291573-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) of your app.
 
 3. Use [some utility](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) to generate a Twitter bearer token from these two keys.
 

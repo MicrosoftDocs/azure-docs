@@ -39,7 +39,7 @@ Gateway is required even if the Sybase database is hosted in an Azure IaaS VM. Y
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the same system as the Data Management Gateway. 
+For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the same system as the Data Management Gateway. 
 
 SAP Sybase SQL Anywhere (ASA) version 16 and above is supported; IQ and ASE are not supported.
 

@@ -94,7 +94,7 @@ Free Azure Active Directory training is available at
 * [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 In addition, Azure Active Directory provides a site to check for Service Updates   
-* [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## Using Azure Active Directory to enable trials  
 

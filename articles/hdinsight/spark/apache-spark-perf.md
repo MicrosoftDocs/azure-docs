@@ -1,24 +1,18 @@
 ---
-title: Optimize Spark jobs for performance - Azure HDInsight | Microsoft Docs
+title: Optimize Spark jobs for performance - Azure HDInsight 
 description: Shows common strategies for the best performance of Spark clusters.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: maxluk
 ms.author: maxluk
-
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
 ---
-# Optimize Spark jobs
+# Optimize Apache Spark jobs
 
-Learn how to optimize Spark cluster configuration for your particular workload.  The most common challenge is memory pressure, due to improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
+Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, due to improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
 
 The following sections describe common Spark job optimizations and recommendations.
 
@@ -94,7 +88,7 @@ For your reference, the Spark memory structure and some key executor memory para
 
 ### Spark memory considerations
 
-If you are using YARN, then YARN controls the maximum sum of memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
+If you are using [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), then YARN controls the maximum sum of memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
 
 ![YARN Spark Memory Management](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +206,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## Next steps
 
-* [Debug Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md)
-* [Manage resources for a Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Use the Spark REST API to submit remote jobs to a Spark cluster](apache-spark-livy-rest-interface.md)
-* [Tuning Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [How to Actually Tune Your Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Debug Apache Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md)
+* [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
+* [Use the Apache Spark REST API to submit remote jobs to an Apache Spark cluster](apache-spark-livy-rest-interface.md)
+* [Tuning Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [How to Actually Tune Your Apache Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo Serialization](https://github.com/EsotericSoftware/kryo)

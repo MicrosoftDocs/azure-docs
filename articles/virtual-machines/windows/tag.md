@@ -47,22 +47,20 @@ This first cmdlet sets all of the tags placed on *MyTestVM* to the *$tags* varia
 
 The second command displays the tags for the given variable.
 
-        PS C:\> $tags
-
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
+```
+    PS C:\> $tags
+    
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+```
 
 The third command adds an additional tag to the *$tags* variable. Note the use of the **+=** to append the new key/value pair to the *$tags* list.
 
-        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Location="MyLocation"}
 
 The fourth command sets all of the tags defined in the *$tags* variable to the given resource. In this case, it is MyTestVM.
 
@@ -70,20 +68,17 @@ The fourth command sets all of the tags defined in the *$tags* variable to the g
 
 The fifth command displays all of the tags on the resource. As you can see, *Location* is now defined as a tag with *MyLocation* as the value.
 
-        PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
+    PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
-        Value        MyLocation
-        Name        Location
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+    Location      MyLocation
+```
 
 To learn more about tagging through PowerShell, check out the [Azure Resource Cmdlets][Azure Resource Cmdlets].
 
@@ -94,7 +89,7 @@ To learn more about tagging through PowerShell, check out the [Azure Resource Cm
 * To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md

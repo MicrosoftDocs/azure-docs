@@ -4,8 +4,8 @@ description: Learn the basics of the U-SQL language in Azure Data Lake Analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
@@ -16,8 +16,8 @@ U-SQL is a language that combines declarative SQL with imperative C# to let you 
 
 ## Learning resources
 
-* The [U-SQL Tutorial](http://aka.ms/usqltutorial) provides a guided walkthrough of most of the U-SQL language. This document is recommended reading for all developers wanting to learn U-SQL.
-* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* The [U-SQL Tutorial](https://aka.ms/usqltutorial) provides a guided walkthrough of most of the U-SQL language. This document is recommended reading for all developers wanting to learn U-SQL.
+* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](https://go.microsoft.com/fwlink/p/?LinkId=691348).
 * To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## Prerequisites
@@ -221,4 +221,4 @@ For advanced aggregation scenarios, see the U-SQL reference documentation for [a
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

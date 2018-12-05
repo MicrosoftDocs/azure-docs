@@ -5,7 +5,7 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/13/2018
 ms.author: seguler
 ms.component: common
 ---
@@ -16,16 +16,16 @@ There are two versions of AzCopy that you can download. AzCopy on Windows offers
 
 ## Download and install AzCopy on Windows
 
-### Latest Preview version (v8.0.0)
-Download the [latest preview version of AzCopy on Windows](https://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
+### Latest version (v8.1)
+Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy).
 
-#### AzCopy on Windows 8.0 Preview Release Notes
-- Table service is no longer supported in the latest version. If you use Table export feature, download the stable version.
+#### AzCopy on Windows 8.1 Release Notes
+- Table service is no longer supported in the latest version. If you use Table export feature, download AzCopy 7.3 version.
 - Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the installation.
-- Significant performance improvements for both upload and download scenarios
+- Added OAuth authentication support. Use ```azcopy login``` to log on using Azure Active Directory.
 
-### Latest Stable version (v7.1.0)
-Download the [latest stable version of AzCopy on Windows](https://aka.ms/downloadazcopy).
+### Azcopy with Table support (v7.3)
+Download the [AzCopy 7.3 with Table support](https://aka.ms/downloadazcopynet).
 
 ### Post-installation Step
 
@@ -227,7 +227,7 @@ Let's look at several ways to copy blobs from one location to another using AzCo
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
 ```
 
-When you copy a blob within a Storage account, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
+When you copy a blob within a Storage account, a [server-side copy](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Copy a single blob from one storage account to another
 
@@ -235,7 +235,7 @@ When you copy a blob within a Storage account, a [server-side copy](http://blogs
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 ```
 
-When you copy a blob across Storage accounts, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
+When you copy a blob across Storage accounts, a [server-side copy](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Copy a single blob from the secondary region to the primary region
 
@@ -331,21 +331,21 @@ Let's look at several ways to copy files in an Azure file share using AzCopy.
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
-When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
+When you copy a file across file shares, a [server-side copy](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Copy from an Azure file share to Blob storage
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
-When you copy a file from file share to blob, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
+When you copy a file from file share to blob, a [server-side copy](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Copy a blob from Blob storage to an Azure file share
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
-When you copy a file from a blob to a file share, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
+When you copy a file from a blob to a file share, a [server-side copy](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Synchronously copy files
 
@@ -426,7 +426,7 @@ AzCopy generates a JSON data file into the blob container with following naming 
 
     <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
 
-The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 Note that when exporting tables to blobs, AzCopy downloads the Table entities to local temporary data files and then uploads those entities to the blob. These temporary data files are put into the journal file folder with the default path "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files' size is decided by your table entities' size and the size you specified with the option /SplitSize, although the temporary data file in local disk is deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
 
@@ -991,10 +991,10 @@ For more information about Azure Storage and AzCopy, see the following resources
 
 ### Azure Storage blog posts:
 * [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transfer data with restartable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Introducing synchronous copy and customized content type](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Optimized for Large-Scale Copy Scenarios](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Support for read-access geo-redundant storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Transfer data with restartable mode and SAS token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Using cross-account Copy Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Uploading/downloading files for Azure Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Create a Linux environment with the Azure CLI 2.0 | Microsoft Docs
-description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 2.0.
+title: Create a Linux environment with the Azure CLI | Microsoft Docs
+description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.author: cynthn
 # Create a complete Linux virtual machine with the Azure CLI
 To quickly create a virtual machine (VM) in Azure, you can use a single Azure CLI command that uses default values to create any required supporting resources. Resources such as a virtual network, public IP address, and network security group rules are automatically created. For more control of your environment in production use, you may create these resources ahead of time and then add your VMs to them. This article guides you through how to create a VM and each of the supporting resources one by one.
 
-Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index#az_login).
+Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 

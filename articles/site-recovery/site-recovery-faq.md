@@ -5,8 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: raynew
 
 ---
@@ -65,7 +65,7 @@ To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines run
 Yes. When you use Site Recovery to orchestrate replication and failover in your branch offices, you'll get a unified orchestration and view of all your branch office workloads in a central location. You can easily run failovers and administer disaster recovery of all branches from your head office, without visiting the branches.
 
 ## Pricing
-For pricing related questions, please refer to the FAQ at [Azure Site Recovery pricing](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+For pricing related questions, please refer to the FAQ at [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ## Security
 ### Is replication data sent to the Site Recovery service?
@@ -86,7 +86,7 @@ For virtual machines and physical servers, replicating between on-premises sites
 Azure Site Recovery replicates data to an Azure storage account, over a public endpoint. Replication isn't over a site-to-site VPN. You can create a site-to-site VPN, with an Azure virtual network. This doesn't interfere with Site Recovery replication.
 
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
-Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) to use ExpressRoute for Site Recovery replication. Microsoft peering is the recommended routing domain for replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) setup with the Azure virtual network. Replication is not supported over private peering.
+Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) to use ExpressRoute for Site Recovery replication. Microsoft peering is the recommended routing domain for replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) setup with the Azure virtual network. Replication is not supported over private peering.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 [VMware VMs](vmware-physical-azure-support-matrix.md#replicated-machines) and [Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms) you want to replicate to Azure should comply with Azure requirements.
@@ -94,7 +94,7 @@ Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to 
 Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
-Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### If I replicate to Azure how do I pay for Azure VMs?
 During regular replication, data is replicated to geo-redundant Azure storage and you don’t need to pay any Azure IaaS virtual machine charges, providing a significant advantage. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines, and after that you'll be billed for the compute resources that you consume in Azure.

@@ -32,7 +32,7 @@ Event Hubs is used in some of the following common scenarios:
 
 ## Why use Event Hubs?
 
-Data is valuable only when there is an easy way to process and get timely insights from data sources. Event Hubs provides a distributed stream processing platform with low latency and seamless integration, with data and analytics services inside and outside Azure to build a complete Big Data pipeline.
+Data is valuable only when there is an easy way to process and get timely insights from data sources. Event Hubs provides a distributed stream processing platform with low latency and seamless integration, with data and analytics services inside and outside Azure to build your complete Big Data pipeline.
 
 Event Hubs represents the "front door" for an event pipeline, often called an *event ingestor* in solution architectures. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. Event Hubs provides a unified streaming platform with time retention buffer, decoupling the event producers from event consumers. 
 
@@ -56,9 +56,9 @@ With Event Hubs, you can start with data streams in megabytes, and grow to gigab
 
 ## Rich ecosystem
 
-[Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) enables [Apache Kafka (1.0 and above)](https://kafka.apache.org/) clients and applications to talk to Event Hubs without having to manage any clusters.
+[Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs without having to manage any clusters.
  
-With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration.
+With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration. The ecosystem also provides you with seamless integration with Azure services like Stream Analytics and Azure Functions enabling you to build serverless architectures.
 
 ## Key architecture components
 
@@ -68,7 +68,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 - **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
 - **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 - **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
-- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available.
+- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 and later.
 
 The following figure shows the Event Hubs stream processing architecture:
 
@@ -79,7 +79,13 @@ The following figure shows the Event Hubs stream processing architecture:
 
 To get started using Event Hubs, see the following articles:
 
-* [Ingest into Event Hubs](event-hubs-quickstart-powershell.md)
-* [Event Hubs features overview](event-hubs-features.md)
+1. **Create an event hub**: [Azure portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
+2. **Send events to an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+3. **Receive events from an event hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+
+To learn more about Event Hubs, see the following articles:
+
+- [Event Hubs features overview](event-hubs-features.md)
+- [Frequently asked questions](event-hubs-faq.md).
 
 

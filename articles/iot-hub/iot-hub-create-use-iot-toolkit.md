@@ -13,12 +13,14 @@ ms.author: junhan
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-You can use [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create Azure IoT hubs. This article shows you how to create an IoT hub with Azure IoT Toolkit.
+This article shows you how to use the [Azure IoT Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create an Azure IoT hub. 
 
 To complete this article, you need the following:
 
-* An active Azure account.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 - [Visual Studio Code](https://code.visualstudio.com/)
+
 - [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
 ## Create an IoT hub
@@ -49,7 +51,10 @@ To complete this article, you need the following:
 
 ## Next steps
 
-Now you have deployed an IoT hub using Azure IoT Toolkit for Visual Studio Code, you may want to explore further:
+Now you have deployed an IoT hub using the Azure IoT Toolkit for Visual Studio Code. To explore further, check out the following articles:
 
-* [Use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
-* [Wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki) for Azure IoT Toolkit.
+* [Use the Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and an IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+* [Use the Azure IoT Toolkit extension for Visual Studio Code for Azure IoT Hub device management](iot-hub-device-management-iot-toolkit.md)
+
+* [See the Azure IoT Toolkit wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

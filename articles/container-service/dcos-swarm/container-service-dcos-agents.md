@@ -20,7 +20,7 @@ DC/OS clusters in Azure Container Service contain agent nodes in two pools, a pu
 
 * **Public agents**: Public agent nodes run DC/OS apps and services through a publicly accessible network. 
 
-For more information about DC/OS network security, see the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+For more information about DC/OS network security, see the [DC/OS documentation](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 
 ## Deploy agent pools
 
@@ -33,7 +33,7 @@ The DC/OS agent pools In Azure Container Service are created as follows:
 The private pool and the public pool are Azure virtual machine scale sets. You can resize these pools after deployment.
 
 ## Use agent pools
-By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* nodes during the creation of the application. Select the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles** value. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC/OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
+By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* nodes during the creation of the application. Select the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles** value. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC/OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/) documentation.
 
 ## Next steps
 * Read more about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).

@@ -2,12 +2,11 @@
 title: Use Caffe on Azure HDInsight Spark for distributed deep learning
 description: Use Caffe on Azure HDInsight Spark for distributed deep learning
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-ms.assetid: 71dcd1ad-4cad-47ad-8a9d-dcb7fa3c2ff9
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/17/2017
 ---
 # Use Caffe on Azure HDInsight Spark for distributed deep learning
@@ -15,11 +14,11 @@ ms.date: 02/17/2017
 
 ## Introduction
 
-Deep learning is impacting everything from healthcare to transportation to manufacturing, and more. Companies are turning to deep learning to solve hard problems, like [image classification](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [speech recognition](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), object recognition, and machine translation. 
+Deep learning is impacting everything from healthcare to transportation to manufacturing, and more. Companies are turning to deep learning to solve hard problems, like [image classification](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [speech recognition](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), object recognition, and machine translation. 
 
-There are [many popular frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, etc. Caffe is one of the most famous non-symbolic (imperative) neural network frameworks, and widely used in many areas including computer vision. Furthermore, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combines Caffe with Apache Spark, in which case deep learning can be easily used on an existing Hadoop cluster. You can use deep learning together with Spark ETL pipelines, reducing system complexity, and latency for complete solution learning.
+There are [many popular frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe](http://caffe.berkeleyvision.org/) is one of the most famous non-symbolic (imperative) neural network frameworks, and widely used in many areas including computer vision. Furthermore, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combines Caffe with Apache Spark, in which case deep learning can be easily used on an existing Hadoop cluster. You can use deep learning together with Spark ETL pipelines, reducing system complexity, and latency for complete solution learning.
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/) is a cloud Hadoop offering that provides optimized open-source analytic clusters for Spark, Hive, Hadoop, HBase, Storm, Kafka, and ML Services. HDInsight is backed by a 99.9% SLA. Each of these big data technologies and ISV applications is easily deployable as managed clusters with security and monitoring for enterprises.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) is a cloud Apache Hadoop offering that provides optimized open-source analytic clusters for Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka, and ML Services. HDInsight is backed by a 99.9% SLA. Each of these big data technologies and ISV applications is easily deployable as managed clusters with security and monitoring for enterprises.
 
 This article demonstrates how to install [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark) for an HDInsight cluster. This article also uses the built-in MNIST demo to show how to use Distributed Deep Learning using HDInsight Spark on CPUs.
 
@@ -64,7 +63,7 @@ To get started, you can just run this script action against your cluster to all 
 ![Script Actions to Install Dependencies](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## Step 2: Build Caffe on Spark for HDInsight on the head node
+## Step 2: Build Caffe on Apache Spark for HDInsight on the head node
 
 The second step is to build Caffe on the headnode, and then distribute the compiled libraries to all the worker nodes. In this step, you must [ssh into your headnode](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). After that, you must follow the [CaffeOnSpark build process](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Below is the script you can use to build CaffeOnSpark with a few additional steps. 
 
@@ -289,8 +288,8 @@ In this documentation, you have tried to install CaffeOnSpark with running a sim
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)

@@ -18,7 +18,7 @@ ms.author: juluk
 ---
 
 # Pricing
-Bash in Cloud Shell and PowerShell in Cloud Shell (Preview) are subject to information below.
+Bash in Cloud Shell and PowerShell in Cloud Shell are subject to information below.
 
 ## Compute Cost
 Azure Cloud Shell runs on a machine provided for free by Azure, but requires an Azure file share to use. 

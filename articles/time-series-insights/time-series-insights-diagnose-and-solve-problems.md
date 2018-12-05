@@ -4,8 +4,8 @@ description: This article describes how to diagnose, troubleshoot, and solve com
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
@@ -14,11 +14,19 @@ ms.date: 04/09/2018
 
 # Diagnose and solve problems in your Time Series Insights environment
 
+This article describes some problems you might see in your Time Series Insights environment. It offers potential causes and solutions for resolution.
+
+## Video: 
+
+### In this video, we cover common Time Series Insights customer challenges and mitigations.</br>
+
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
+
 ## Problem 1: No data is shown
 There are several common reasons why you might not see your data in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com):
 
 ### Possible cause A: Event source data is not in JSON format
-Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
 ### Possible cause B: Event source key is missing a required permission
 * For an IoT Hub, you need to provide the key that has **service connect** permission.
@@ -26,7 +34,7 @@ Azure Time Series Insights supports only JSON data. For JSON samples, see [Suppo
    ![IoT Hub service connect permission](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    As shown in the preceding image, either of the policies **iothubowner** and **service** would work, because both have **service connect** permission.
-   
+
 * For an event hub, you need to provide the key that has **Listen** permission.
 
    ![Event hub listen permission](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
@@ -57,7 +65,7 @@ For example, assume that this environment is ingesting messages from an event hu
 
 As shown in the diagram, the daily ingress rate is ~67,000 messages. This rate translates roughly to 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, this environment sees no throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at 3 units = 2,100 events per minute). Therefore you see a lag due to throttling. 
 
-For a high-level understanding of how flattening logic works, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+For a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
 ### Recommended resolution steps for excessive throttling
 To fix the lag, increase the SKU capacity of your environment. For more information, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).

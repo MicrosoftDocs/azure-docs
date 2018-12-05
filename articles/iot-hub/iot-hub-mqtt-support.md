@@ -1,13 +1,13 @@
----
+﻿---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Developer guide - support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
-author: fsautomata
+author: rezasherafat
 manager: 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
+ms.date: 10/12/2018
+ms.author: rezas
 ---
 
 # Communicate with your IoT hub using the MQTT protocol
@@ -16,6 +16,8 @@ IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
 
 * [MQTT v3.1.1][lnk-mqtt-org] on port 8883
 * MQTT v3.1.1 over WebSocket on port 443.
+
+IoT Hub is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -59,11 +61,11 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use the **deviceId**.
 
-* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where `{iothubhostname}` is the full CName of the IoT hub.
+* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2018-06-30`, where `{iothubhostname}` is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
@@ -100,7 +102,7 @@ For Device Explorer:
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel. This event has additional information that can help you to troubleshoot connectivity issues.
 
-The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/{property_bag}` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
+The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
 
 ### TLS/SSL configuration
 
@@ -221,6 +223,8 @@ For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
 ### Update device twin's reported properties
 
+To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implment this type of request/response interaction in MQTT, we leverage the notion of request id (`$rid`) provided initially by the device in its update request. This request id is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
+
 The following sequence describes how a device updates the reported properties in the device twin in IoT Hub:
 
 1. A device must first subscribe to the `$iothub/twin/res/#` topic to receive the operation's responses from IoT Hub.
@@ -246,6 +250,20 @@ The possible status codes are:
 | 400 | Bad Request. Malformed JSON |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling][lnk-quotas] |
 | 5** | Server errors |
+
+The python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+Upon success of twin reported properties update operation above, the publication message from IoT Hub will have the following topic: `$iothub/twin/res/204/?$rid=1&$version=6`, where `204` is the status code indicating success, `$rid=1` corresponds to the request ID provided by the device in the code, and `$version` corresponds to the version of reported properties section of device twins after the update.
 
 For more information, see [Device twins developer's guide][lnk-devguide-twin].
 

@@ -1,19 +1,14 @@
-﻿---
-title: Operationalize ML Services on HDInsight - Azure | Microsoft Docs
+---
+title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize ML Services in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: jasonh
-
 ---
 # Operationalize ML Services cluster on Azure HDInsight
 
@@ -78,9 +73,9 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 
-### Long delays when consuming web service on Spark
+### Long delays when consuming web service on Apache Spark
 
-If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
+If you encounter long delays when trying to consume a web service created with mrsdeploy functions in an Apache Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
 
 	# Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -120,7 +115,7 @@ If your cluster is not set up on vnet or if you are having troubles with connect
 
 	ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Once your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs into the edge node’s operationalization through port forwarding.
+Once your SSH session is active, the traffic from your local machine's port 12800 is forwarded to the edge node's port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs into the edge node's operationalization through port forwarding.
 
 
 	library(mrsdeploy)
@@ -138,7 +133,7 @@ To scale the compute nodes, you first decommission the worker nodes and then con
 
 ### Step 1: Decommission the worker nodes
 
-ML Services cluster is not managed through YARN. If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
+ML Services cluster is not managed through [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
 
 Follow these steps to decommission worker nodes:
 

@@ -1,0 +1,133 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure SQL Database Managed Instance
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database Managed Instance Documentation - Tutorials, API Reference
+  meta.description: Learn how to use Azure SQL Database Managed Instance.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang:
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+abstract:
+  description: Azure SQL Database Managed Instance is a fully managed SQL Server Database Engine Instance hosted in Azure cloud. This is the best PaaS option for migrating your SQL Server database to the cloud. Learn how to create and use Managed Instance with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/sql-database-managed-instance-index/intro.png
+      width: 250  
+    title: Introducing Azure SQL Database Managed Instance (5:38)
+    href: https://www.youtube.com/watch?v=W8feSZXm2Ec
+    width: 250
+sections:
+
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - title: Overview
+        href: /azure/sql-database/sql-database-managed-instance
+        html: <p>Find out more information about the Azure SQL Database Managed Instance service.</p>
+      - title: Rich surface area
+        href: /azure/sql-database/sql-database-managed-instance#sql-features-supported
+        html: <p>Near 100% SQL feature compatibility with the latest version of SQL Server Database Engine.</p>
+      - title: VNet Integration
+        href: /azure/sql-database/sql-database-managed-instance-vnet-configuration
+        html: <p>Secure service placed in your private Azure VNet with private IP addresses.</p>
+      - title: Easy Migration
+        href: /azure/sql-database/sql-database-managed-instance-get-started-restore
+        html: <p>Easily migrate your on-prem databases to Azure cloud using native restore.</p>
+      - title: Migration without downtime
+        href: /azure/dms/tutorial-sql-server-to-managed-instance
+        html: <p>Migrate a fleet of databases with minimal downtime using Database Migration Service.</p>
+      - title: Pricing
+        href: https://azure.microsoft.com/pricing/hybrid-benefit/
+        html: <p>Save up to 40% with Azure Hybrid Benefit (AHB) with your existing on-premises licences.</p>
+      - title: PaaS capabilities
+        href: /azure/sql-database/sql-database-paas
+        html: <p>Azure PaaS enables you to use 99.99% available instance with minimal management.</p>
+      - title: Service tiers
+        href: /azure/sql-database/sql-database-high-availability
+        html: <p>Choose between General Purpose and Business Critical service tiers depending on your business needs.</p>
+      - title: Advanced security
+        href: /azure/sql-database/sql-database-security-index
+        html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Managed Instance enables you to easily perform basic management tasks using the Azure portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quickstart samples:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/portal.svg
+        title: The Azure portal
+      - image:
+          src: media/index/cli.svg
+        title: Azure CLI
+      - image:
+          src: media/index/logo_powershell.svg
+        title: PowerShell
+      - image:
+          src: media/index/logo_arm.svg
+        title: Azure Resource Manager template
+    rows:
+      - title: Create a new Instance
+        values:
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+      - title: Modify the Instance
+        values:
+          - href: 
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+          - href:
+      - title: Configure Azure network environment
+        values:
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
+          - href: 
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
+      - title: Point in time restore
+        values:
+          - href: 
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+          - href: 
+- title: Step-by-Step tutorials and learning materials
+  items:
+  - type: paragraph
+    text: Learn how to create, manage, and use Managed Instance.
+  - type: list
+    style: ordered
+    items:
+    - html: Learn about <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware characteristics and limitations</a> and <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">SQL language limitations</a>.
+    - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configure</a> Azure VNet where the Managed Instance will be deployed.
+    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">Validate</a> that your existing Azure VNet can be used to deploy Managed Instances.
+    - html: Connect to your instance using <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> or <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Point-to-site connection</a>, or <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">Applications</a>.
+    - html: Verify that your database can be migrated using <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Asisstant</a> or <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
+    - html: Bring your databases to Managed Instance using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Native restore</a> or <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
+    - html: Move your SSIS packages to <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tabular models to <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, and SSRS reports to <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
+    - html: Find the best practices and recommendations for <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">securing your instance</a>.
+    - html: Distribute your data using <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transactional replication</a>.
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Blogs
+      html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance
+">Medium</a></p>'
+    - title: Frequently asked questions
+      html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>

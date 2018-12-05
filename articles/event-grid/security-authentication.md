@@ -7,16 +7,16 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 11/01/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
 
 Azure Event Grid has three types of authentication:
 
-* Event subscriptions
-* Event publishing
 * WebHook event delivery
+* Event subscriptions
+* Custom topic publishing
 
 ## WebHook Event delivery
 
@@ -28,22 +28,22 @@ Like many other services that support webhooks, EventGrid requires you to prove 
 * Azure Automation,
 * Azure Functions for EventGrid Trigger.
 
-If you are using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with EventGrid. EventGrid supports two different validation handshake models:
+If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with EventGrid. EventGrid supports two different validation handshake models:
 
-1. ValidationCode based handshake: At the time of event subscription creation, EventGrid POSTs a "subscription validation event" to your endpoint. The schema of this event is similar to any other EventGridEvent, and the data portion of this event includes a "validationCode" property. Once your application has verified that the validation request is for an expected event subscription, your application code needs to respond by echoing back the validation code to EventGrid. This handshake mechanism is supported in all EventGrid versions.
+1. **ValidationCode handshake**: At the time of event subscription creation, EventGrid POSTs a "subscription validation event" to your endpoint. The schema of this event is similar to any other EventGridEvent, and the data portion of this event includes a `validationCode` property. Once your application has verified that the validation request is for an expected event subscription, your application code needs to respond by echoing back the validation code to EventGrid. This handshake mechanism is supported in all EventGrid versions.
 
-2. ValidationURL based handshake (Manual handshake): In certain cases, you may not have control of the source code of the endpoint to be able to implement the ValidationCode based handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically respond back with the validation code. Hence, starting with version 2018-05-01-preview, EventGrid now supports a manual validation handshake. If you are creating an event subscription using SDK/tools that use this new API version (2018-05-01-preview), EventGrid will send a "validationUrl" property (in addition to the "validationCode" property) as part of the data portion of the subscription validation event. To complete the handshake, just do a GET request on that URL, either through a REST client or using your web browser. The provided validationUrl is valid only for about 10 minutes, so if you don't complete the manual validation within this time, the provisioningState of the event subscription will transition to "Failed", and you will have to reattempt the creation of the event subscription before you attempt to do the manual validation again.
+2. **ValidationURL handshake (Manual handshake)**: In certain cases, you may not have control of the source code of the endpoint to implement the ValidationCode based handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond back with the validation code. Starting with version 2018-05-01-preview, EventGrid now supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, EventGrid sends a `validationUrl` property as part of the data portion of the subscription validation event. To complete the handshake, just do a GET request on that URL, either through a REST client or using your web browser. The provided validation URL is valid only for about 10 minutes. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 10 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
 
-This mechanism of manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [AZ CLI 2.0](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you are using the REST API, ensure you are using `api-version=2018-05-01-preview`.
+This mechanism of manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you're using the REST API, make sure you're using `api-version=2018-05-01-preview`.
 
 ### Validation details
 
 * At the time of event subscription creation/update, Event Grid posts a Subscription Validation Event to the target endpoint. 
-* The event contains a header value "Aeg-Event-Type: SubscriptionValidation".
+* The event contains a header value "aeg-event-type: SubscriptionValidation".
 * The event body has the same schema as other Event Grid events.
-* The eventType property of the event is "Microsoft.EventGrid.SubscriptionValidationEvent".
-* The data property of the event includes a "validationCode" property with a randomly generated string. For example, "validationCode: acb13…".
-* If you are using API version 2018-05-01-preview, the event data also includes a "validationUrl" property with a URL for manually validating the subscription.
+* The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
+* The data property of the event includes a `validationCode` property with a randomly generated string. For example, "validationCode: acb13…".
+* If you're using API version 2018-05-01-preview, the event data also includes a `validationUrl` property with a URL for manually validating the subscription.
 * The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
 * The EventGrid DataPlane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
 
@@ -73,30 +73,32 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
-Alternatively, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
+Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
 
 You can find C# Sample that shows how to handle the subscription validation handshake at https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
 
 ### Checklist
 
-During event subscription creation, if you are seeing an error message such as "The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
+During event subscription creation, if you're seeing an error message such as "The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
 
-* Do you have control of the application code in the target endpoint? For example, if you are writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
-* If you have access to the application code, please implement the ValidationCode based handshake mechanism as shown in the sample above.
+* Do you have control of the application code in the target endpoint? For example, if you're writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
+* If you have access to the application code, implement the ValidationCode based handshake mechanism as shown in the sample above.
 
-* If you don't have access to the application code (e.g. if you are using a third party service that supports webhooks), you can use the manual handshake mechanism. In order to do this, ensure you are using the 2018-05-01-preview API version (e.g. using the EventGrid CLI extension described above) in order to receive the validationUrl in the validation event. To complete the manual validation handshake, get the value of the "validationUrl" property and visit that URL in your web browser. If validation is successful, you should see a message in your web browser that validation is successful, and you will see that event subscription's provisioningState is "Succeeded". 
+* If you don't have access to the application code (for example, if you're using a third-party service that supports webhooks), you can use the manual handshake mechanism. Make sure you're using the 2018-05-01-preview API version or later (install Event Grid Azure CLI extension) to receive the validationUrl in the validation event. To complete the manual validation handshake, get the value of the `validationUrl` property and visit that URL in your web browser. If validation is successful, you should see a message in your web browser that validation is successful. You'll see that event subscription's provisioningState is "Succeeded". 
 
 ### Event delivery security
 
-You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) which the webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
+You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
-When editing the Event Subscription, the query parameters will not be displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Finally, it's important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 
 ## Event subscription
 
-To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
+To subscribe to an event, you must prove that you have access to the event source and handler. Proving that you own a WebHook was covered in the preceding section. If you're using an event handler that isn't a WebHook (such as an event hub or queue storage), you need write access to that resource. This permissions check prevents an unauthorized user from sending events to your resource.
+
+You must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
 
@@ -114,9 +116,9 @@ For custom topics, you need permission to write a new event subscription at the 
 For example, to subscribe to a custom topic named **mytopic**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-## Topic publishing
+## Custom topic publishing
 
-Topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers. 
+Custom topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers. 
 
 You include the authentication value in the HTTP header. For SAS, use **aeg-sas-token** for the header value. For key authentication, use **aeg-sas-key** for the header value.
 
@@ -171,11 +173,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## Management Access Control
 
-Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's Role Based Access Check (RBAC).
+Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC).
 
 ### Operation types
 
-Azure event grid supports the following actions:
+Event Grid supports the following actions:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -184,15 +186,87 @@ Azure event grid supports the following actions:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-The last three operations return potentially secret information, which gets filtered out of normal read operations. It is best practice for you to restrict access to these operations. Custom roles can be created using [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure Command-Line Interface (CLI)](../role-based-access-control/role-assignments-cli.md), and the [REST API](../role-based-access-control/role-assignments-rest.md).
+The last three operations return potentially secret information, which gets filtered out of normal read operations. It's recommended that you restrict access to these operations. 
 
-### Enforcing Role Based Access Check (RBAC)
+### Built-in roles
 
-Use the following steps to enforce RBAC for different users:
+Event Grid provides two built-in roles for managing event subscriptions. They are important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
 
-#### Create a custom role definition file (.json)
+You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-The following are sample Event Grid role definitions that allow users to perform different sets of actions.
+**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+### Custom roles
+
+If you need to specify permissions that are different than the built-in roles, you can create custom roles.
+
+The following are sample Event Grid role definitions that allow users to take different actions. These custom roles are different from the built-in roles because they grant broader access than just event subscriptions.
 
 **EventGridReadOnlyRole.json**: Only allow read-only operations.
 
@@ -258,19 +332,7 @@ The following are sample Event Grid role definitions that allow users to perform
 }
 ```
 
-#### Create and assign custom role with Azure CLI
-
-To create a custom role, use:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-To assign the role to a user, use:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+You can create custom roles with [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), and [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## Next steps
 

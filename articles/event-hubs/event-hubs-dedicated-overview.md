@@ -3,7 +3,7 @@ title: Overview of Azure Event Hubs Dedicated capacity | Microsoft Docs
 description: Overview of Microsoft Azure Event Hubs Dedicated capacity.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 

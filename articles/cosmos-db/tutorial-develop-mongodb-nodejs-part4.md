@@ -1,17 +1,15 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 4 | Microsoft Docs"
+title: "MongoDB, Angular, and Node tutorial for Azure - Part 4"
 description: Part 4 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB 
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
 
 ---
@@ -33,7 +31,7 @@ Part 4 of the tutorial builds on [Part 3](tutorial-develop-mongodb-nodejs-part3.
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 3](tutorial-develop-mongodb-nodejs-part3.md) of the tutorial. 
 
-In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) installed locally. If you use the Azure CLI locally, ensure you running Azure CLI version 2.0 or later. Run `az --version` at the command prompt to check your version. 
+In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installed locally.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

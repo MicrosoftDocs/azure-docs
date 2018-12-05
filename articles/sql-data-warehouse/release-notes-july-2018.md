@@ -1,13 +1,13 @@
 ---
-title: Azure SQL Data Warehouse Release Notes June 2018 | Microsoft Docs
+title: Azure SQL Data Warehouse Release Notes July 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/27/2018
+ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
@@ -25,7 +25,7 @@ Beyond runtime performance, the [Gigaom Research](https://gigaom.com/report/data
 ![Azure SQL Data Warehouse is faster and cheaper than Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>Source: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###Query concurrency
+### Query concurrency
 SQL Data Warehouse also ensures that data is accessible across your organizations. Microsoft has enhanced the service to support 128 concurrent queries so that more users can query the same database and not get blocked by other requests. In comparison, Amazon Redshift restricts maximum concurrent queries to 50, limiting data access within the organization.
 
 SQL Data Warehouse delivers these query performance and query concurrency gains without any price increase and building upon its unique architecture with decoupled storage and compute.

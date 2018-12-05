@@ -1,35 +1,25 @@
 ---
-title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight | Microsoft Docs
+title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight 
 description: Step-by-step instructions on how to use Zeppelin notebooks with Apache Spark clusters on Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: df489d70-7788-4efa-a089-e5e5006421e2
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: jasonh
-
 ---
-# Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
+# Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
 
-HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
-
-> [!NOTE]
-> Zeppelin notebooks are available only for Spark 1.6.3 on HDInsight 3.5 and Spark 2.1.0 on HDInsight 3.6.
->
+HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/) notebooks that you can use to run [Apache Spark](https://spark.apache.org/) jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
 
 **Prerequisites:**
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## Launch a Zeppelin notebook
+## Launch an Apache Zeppelin notebook
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
    
    > [!NOTE]
@@ -50,7 +40,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
    
     In the empty paragraph that is created by default in the new notebook, paste the following snippet.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +67,11 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
     ![Create a temporary table from raw data](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Create a temporary table from raw data")
    
     You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
+
+> [!NOTE]
+> %spark2 interpreter is not supported in Zeppelin notebooks across all HDInsight versions, and %sh interpreter will not be supported from HDInsight 4.0 onwards.
+>
+
 1. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
    
         %sql
@@ -158,19 +153,19 @@ In such a case, you must perform the following steps before you can start runnin
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
+* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Apache Spark Scala applicatons](apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 

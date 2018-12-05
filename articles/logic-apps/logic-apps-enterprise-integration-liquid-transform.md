@@ -1,60 +1,57 @@
 ---
 title: Convert JSON data with Liquid transforms - Azure Logic Apps | Microsoft Docs
-description: Create transforms or maps for advanced JSON transformations using Logic Apps and Liquid template.
+description: Create transforms or maps for advanced JSON transformations using Logic Apps and Liquid template
 services: logic-apps
-documentationcenter: 
-author: divyaswarnkar
-manager: jeconnoc
-editor: 
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
+ms.reviewer: estfan, LADocs
+ms.suite: integration
 ms.topic: article
-ms.date: 12/05/2017
-ms.author: LADocs; divswa
+ms.date: 08/16/2018
 ---
 
-# Perform advanced JSON transformations with a Liquid template
+# Perform advanced JSON transformations with Liquid templates in Azure Logic Apps
 
-Azure Logic Apps supports basic JSON transformations through 
+You can perform basic JSON transformations in your logic apps with 
 native data operation actions such as **Compose** or **Parse JSON**. 
-For advanced JSON transformations, you can use Liquid templates with your logic apps. 
-[Liquid](https://shopify.github.io/liquid/) is an open-source template language for flexible web apps.
- 
-In this article, learn how to use a Liquid map or template, 
-which supports more complex JSON transformations, 
-such as iterations, control flows, variables, and so on. 
-Before you can perform a Liquid transformation in your logic app, 
-you must define the mapping from JSON to JSON with a Liquid map 
-and store that map in your integration account.
+To perform advanced JSON transformations, you can create templates 
+or maps with [Liquid](https://shopify.github.io/liquid/), which is 
+an open-source template language for flexible web apps. Liquid templates 
+let you define how to transform JSON output and supports more complex JSON 
+transformations, such as iterations, control flows, variables, and so on. 
+
+So, before you can perform a Liquid transformation in your logic app, 
+you first define the JSON to JSON mapping with a Liquid template 
+and store that map in your integration account. This article shows 
+you how to create and use this Liquid template or map. 
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, you can 
 [start with a free Azure account](https://azure.microsoft.com/free/). 
-Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A basic [Integration Account](logic-apps-enterprise-integration-create-integration-account.md)
+* A basic [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
+## Create Liquid template or map for your integration account
 
-## Create a Liquid template or map for your integration account
+1. For this example, create the sample Liquid template described in this step.
+If you want to use any filters in your Liquid template, make sure those filters start with uppercase. 
+Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters). 
 
-1. Create the sample Liquid template for this example. 
-The Liquid template defines how to transform JSON input as described here:
-
-   ``` json
+   ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-      {
-        "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
-        "firstNameUpperCase": "{{content.firstName | Upcase}}",
-        "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
-        "devices" : [
-        {%- for device in deviceList -%}
+   
+   {
+      "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
+      "firstNameUpperCase": "{{content.firstName | Upcase}}",
+      "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
+      "devices" : [
+         {%- for device in deviceList -%}
             {%- if forloop.Last == true -%}
             "{{device}}"
             {%- else -%}
@@ -62,62 +59,65 @@ The Liquid template defines how to transform JSON input as described here:
             {%- endif -%}
         {%- endfor -%}
         ]
-      }
+   }
    ```
-   > [!NOTE]
-   > If your Liquid template uses any 
-   > [filters](https://shopify.github.io/liquid/basics/introduction/#filters), 
-   > those filters must start with uppercase. 
 
-2. Sign in to the [Azure portal](https://portal.azure.com).
-
-3. On the main Azure menu, choose **All resources**. 
-
-4. In the search box, find and select your integration account.
+2. Sign in to the [Azure portal](https://portal.azure.com). 
+On the main Azure menu, select **All resources**. 
+In the search box, find and select your integration account.
 
    ![Select integration account](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  On the integration account tile, select **Maps**.
+3.  Under **Components**, select **Maps**.
 
-   ![Select maps](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+    ![Select maps](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-6. Choose **Add** and provide these details for your map:
+4. Choose **Add** and provide these details for your map:
 
-   * **Name**: The name for your map, which is "JsontoJsonTemplate" in this example
-   * **Map type**: The type for your map. For JSON to JSON transformation, you must select **liquid**.
-   * **Map**: An existing Liquid template or map file to use for transformation, 
-   which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker.
+   | Property | Value | Description | 
+   |----------|-------|-------------|
+   | **Name** | JsonToJsonTemplate | The name for your map, which is "JsonToJsonTemplate" in this example | 
+   | **Map type** | **liquid** | The type for your map. For JSON to JSON transformation, you must select **liquid**. | 
+   | **Map** | "SimpleJsonToJsonTemplate.liquid" | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. |
+   ||| 
 
    ![Add liquid template](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
 ## Add the Liquid action for JSON transformation
 
-1. [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. In the Azure portal, follow these steps to 
+[create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Add the [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) to your logic app.
+2. In the Logic App Designer, add the 
+[Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
+to your logic app.
 
-3. Choose **+ New step > Add an action**. In the search box, enter *liquid*, 
-and select **Liquid - Transform JSON to JSON**.
+3. Under the trigger, choose **New step**. 
+In the search box, enter "liquid" as your filter, 
+and select this action: **Transform JSON to JSON - Liquid**
 
    ![Find and select Liquid action](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. In the **Content** box, select **Body** from dynamic content list or parameters list, whichever appears.
+4. Click inside the **Content** box so that the dynamic content list appears, 
+and select the **Body** token.
   
    ![Select body](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-5. From the **Map** list, select your Liquid template, which is "JsonToJsonTemplate" in this example.
+5. From the **Map** list, select your Liquid template, 
+which is "JsonToJsonTemplate" in this example.
 
    ![Select map](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   If the list is empty, your logic app is likely not linked to your integration account. 
+   If the maps list is empty, most likely your logic app is not linked to your integration account. 
    To link your logic app to the integration account that has the Liquid template or map, 
    follow these steps:
 
    1. On your logic app menu, select **Workflow settings**.
+
    2. From the **Select an Integration account** list, 
    select your integration account, and choose **Save**.
 
-   ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+     ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## Test your logic app
 

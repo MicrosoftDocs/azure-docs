@@ -1,24 +1,18 @@
 ---
-title: Troubleshoot Storm by using Azure HDInsight | Microsoft Docs
+title: Troubleshoot Storm by using Azure HDInsight
 description: Get answers to common questions about using Apache Storm with Azure HDInsight.
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
-services: Azure HDInsight
-documentationcenter: na
-author: raviperi
-manager: ''
-editor: ''
-
-ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: raviperi
 ---
+# Troubleshoot Apache Storm by using Azure HDInsight
 
-# Troubleshoot Storm by using Azure HDInsight
-
-Learn about the top issues and their resolutions for working with Apache Storm payloads in Apache Ambari.
+Learn about the top issues and their resolutions for working with [Apache Storm](https://storm.apache.org/) payloads in [Apache Ambari](https://ambari.apache.org/).
 
 ## How do I access the Storm UI on a cluster?
 You have two options for accessing the Storm UI from a browser:
@@ -40,7 +34,7 @@ Example:
 ## How do I transfer Storm event hub spout checkpoint information from one topology to another?
 
 When you develop topologies that read from Azure Event Hubs by using the HDInsight Storm event hub spout .jar file, you must deploy a topology that has the same name on a new cluster. However,
-you must retain the checkpoint data that was committed to Apache ZooKeeper on the old cluster.
+you must retain the checkpoint data that was committed to [Apache ZooKeeper](https://zookeeper.apache.org/) on the old cluster.
 
 ### Where checkpoint data is stored
 Checkpoint data for offsets is stored by the event hub spout in ZooKeeper in two root paths:
@@ -124,20 +118,20 @@ Storm worker nodes run the following services:
 For more information about using Storm event hub spout .jar files with your topology, see the following resources.
  
 ### Java-based topology
-[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### C#-based topology (Mono on HDInsight 3.4+ Linux Storm clusters)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
-### Latest Storm event hub spout binaries for HDInsight 3.5+ Linux Storm clusters
+### Latest Apache Storm event hub spout binaries for HDInsight 3.5+ Linux Storm clusters
 To learn how to use the latest Storm event hub spout that works with HDInsight 3.5+ Linux Storm clusters, see the mvn-repo [readme file](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
  
 ### Source code examples
 See [examples](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) of how to read and write from Azure Event Hub using an Apache Storm topology (written in Java) on an Azure HDInsight cluster.
  
-## How do I locate Storm Log4J configuration files on clusters?
+## How do I locate Storm Log4J 2 configuration files on clusters?
  
-To identify Apache Log4J configuration files for Storm services.
+To identify [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) configuration files for Storm services.
  
 ### On head nodes
 The Nimbus Log4J configuration is read from /usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml.

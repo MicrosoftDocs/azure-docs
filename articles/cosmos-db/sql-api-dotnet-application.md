@@ -1,10 +1,9 @@
 ---
-title: 'ASP.NET MVC tutorial for Azure Cosmos DB: Web Application Development | Microsoft Docs'
+title: 'ASP.NET MVC tutorial for Azure Cosmos DB: Web Application Development'
 description: ASP.NET MVC tutorial to create an MVC web application using Azure Cosmos DB. You'll store JSON and access data from a todo app hosted on Azure Websites - ASP NET MVC tutorial step by step.
 keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -12,18 +11,18 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter
+ms.custom: devcenter, vs-azure
 
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 To highlight how you can efficiently leverage Azure Cosmos DB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo app using Azure Cosmos DB. The tasks will be stored as JSON documents in Azure Cosmos DB.
@@ -485,7 +484,7 @@ There is one last thing for us to do, and that is to add the ability to edit **I
             return View(item);
         }
    
-    The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from Azure Cosmos DB and passes it to the **Edit** view.
+    The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from Azure Cosmos DB and passes it to the **Edit** view.
    
     The **Edit** view will then do an Http POST to the **IndexController**. 
    

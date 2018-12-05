@@ -59,7 +59,7 @@ There are two ways to enroll the device to the Device Provisioning Service:
     
 1. In Solution Explorer, right-click the **DeviceProvisioning** project, and then click **Manage NuGet Packages...**.
 
-1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device provisioning service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
@@ -67,10 +67,10 @@ There are two ways to enroll the device to the Device Provisioning Service:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the DPS connection string noted in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholder value with the Device Provisioning Service connection string noted in the previous section.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -219,15 +219,15 @@ When the device is successfully enrolled, you should see it displayed in the por
 
 At this point, the following setup is ready for device registration:
 
-1. Your device or group of devices are enrolled to your Device Provisioning Service, and 
+1. Your device or group of devices are enrolled to your Device Provisioning service, and 
 2. Your device is ready with the security configured and accessible through the application using the Device Provisioning Service client SDK.
 
-Start the device to allow your client application to start the registration with your Device Provisioning Service.  
+Start the device to allow your client application to start the registration with your Device Provisioning service.  
 
 
 ## Verify the device is registered
 
-Once your device boots, the following actions should take place. See the TPM simulator sample application [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) for more details. 
+Once your device boots, the following actions should take place. See the [Provisioning Device Client Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) for more details. 
 
 1. The device sends a registration request to your Device Provisioning service.
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 

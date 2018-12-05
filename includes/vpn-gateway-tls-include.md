@@ -11,7 +11,7 @@
 ---
 
 
-1. Open a command prompt with elevated priveleges by right-clicking on **Command Prompt** and selecting **Run as administrator**.
+1. Open a command prompt with elevated privileges by right-clicking on **Command Prompt** and selecting **Run as administrator**.
 2. Run the following commands in the command prompt:
 
   ```

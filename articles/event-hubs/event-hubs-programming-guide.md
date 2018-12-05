@@ -3,12 +3,12 @@ title: Programming guide for Azure Event Hubs | Microsoft Docs
 description: Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 06/12/2018
-ms.author: sethm
+ms.date: 08/12/2018
+ms.author: shvija
 
 ---
 # Event Hubs programming guide
@@ -51,7 +51,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## Send events to an event hub
 
-You send events to an event hub by creating an [EventHubClient][] instance and sending it asynchronously via the [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) method. This method takes a single [EventData][] instance parameter and synchronously sends it to an event hub.
+You send events to an event hub by creating an [EventHubClient][] instance and sending it asynchronously via the [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) method. This method takes a single [EventData][] instance parameter and asynchronously sends it to an event hub.
 
 ## Event serialization
 

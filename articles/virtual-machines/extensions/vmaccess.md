@@ -1,9 +1,9 @@
 ---
 title: Reset access to an Azure Linux VM | Microsoft Docs
-description: How to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI 2.0
+description: How to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -18,11 +18,14 @@ ms.date: 05/10/2018
 ms.author: roiyz
 
 ---
-# Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
+# Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI
 ## Overview
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
 This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or update the SSH configuration on Linux when they are running as Azure Resource Manager virtual machines. If you need to manage Classic virtual machines - you can follow the instructions found in the [classic VM documentation](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> If you use the VMAccess Extension to reset the password of your VM after installing the AAD Login Extension you will need to rerun the AAD Login Extension to re-enable AAD Login for your machine.
 
 ## Prerequisites
 ### Operating system
@@ -43,10 +46,10 @@ The VM Access extension can be run against these Linux distributions:
 ## Ways to use the VMAccess Extension
 There are two ways that you can use the VMAccess Extension on your Linux VMs:
 
-* Use the Azure CLI 2.0 and the required parameters.
+* Use the Azure CLI and the required parameters.
 * [Use raw JSON files that the VMAccess Extension process](#use-json-files-and-the-vmaccess-extension) and then act on.
 
-The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 ## Update SSH key
 The following example updates the SSH key for the user `azureuser` on the VM named `myVM`:

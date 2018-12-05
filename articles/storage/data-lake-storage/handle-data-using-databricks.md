@@ -2,17 +2,17 @@
 title: Learn to perform extract, load, and transfer operations using Azure Databricks
 description: Learn to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse.
 services: azure-databricks
-author: jamesbak
-ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
+author: jamesbak
+ms.author: jamesbak
+ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: jamesbak
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from Azure Data Lake Storage Gen2 Preview to Azure SQL Data Warehouse, using Azure Databricks.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from an Azure Storage account with Azure Data Lake Storage Gen2 enabled, to Azure SQL Data Warehouse, using Azure Databricks.
 
 The following illustration shows the application flow:
 
@@ -46,7 +46,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure portal. 
+In this section, you create an Azure Databricks workspace using the Azure portal.
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
@@ -88,7 +88,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.2** runtime.
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -132,7 +132,7 @@ The next step is to upload a sample data file to the storage account to later tr
 
 2. Next, you upload the sample data into your storage account. The method you use to upload data into your storage account differs depending on whether you have the hierarchical namespace enabled.
 
-    If the hierarchical namespace is enabled on your Azure Storage account created for Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy pase in the following code into a command window:
+    If the hierarchical namespace is enabled on your Azure Storage account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview via preview at this time. To use AzCopy, paste in the following code into a command window:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -327,7 +327,7 @@ After you have finished running the tutorial, you can terminate the cluster. To 
 
 ![Stop a Databricks cluster](./media/handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
+If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
 
 ## Next steps
 

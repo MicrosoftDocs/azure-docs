@@ -101,8 +101,8 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 
 
 <!-- URLs. -->
-[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

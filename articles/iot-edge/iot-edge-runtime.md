@@ -2,9 +2,9 @@
 title: Understand the Azure IoT Edge runtime | Microsoft Docs 
 description: Learn about the Azure IoT Edge runtime and how it empowers your edge devices
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,17 +18,17 @@ The IoT Edge runtime performs the following functions on IoT Edge devices:
 
 * Installs and updates workloads on the device.
 * Maintains Azure IoT Edge security standards on the device.
-* Ensures that [IoT Edge modules][lnk-modules] are always running.
+* Ensures that [IoT Edge modules](iot-edge-modules.md) are always running.
 * Reports module health to the cloud for remote monitoring.
-* Facilitates communication between downstream leaf devices and the IoT Edge device.
+* Facilitates communication between downstream leaf devices and IoT Edge devices.
 * Facilitates communication between modules on the IoT Edge device.
 * Facilitates communication between the IoT Edge device and the cloud.
 
-![IoT Edge runtime communicates insights and module health to IoT Hub][1]
+![IoT Edge runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-The responsibilities of the IoT Edge runtime fall into two categories: module management and communication. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
+The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
 
-Both the Edge agent and the Edge hub are modules, just like any other module running on an IoT Edge device. For more information about how modules work, see [lnk-modules]. 
+Both the Edge hub and the Edge agent are modules, just like any other module running on an IoT Edge device. 
 
 ## IoT Edge hub
 
@@ -44,18 +44,15 @@ The Edge hub is not a full version of IoT Hub running locally. There are some th
 
 To reduce the bandwidth your IoT Edge solution uses, the Edge hub optimizes how many actual connections are made to the cloud. Edge hub takes logical connections from clients like modules or leaf devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. 
 
-![Edge hub acts as a gateway between multiple physical devices and the cloud][2]
+![Edge hub acts as a gateway between multiple physical devices and the cloud](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the Edge hub’s module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. 
-
->[!NOTE]
->Adding control over additional caching parameters will be added to the product before it enters general availability.
 
 ### Module communication
 
 Edge Hub facilitates module to module communication. Using Edge Hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages. A solution developer then stitches these inputs and outputs together so that the modules process data in the order specific to that solution. 
 
-![Edge Hub facilitates module-to-module communication][3]
+![Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 To send data to the Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on output1:
 
@@ -68,25 +65,26 @@ To send data to the Edge hub, a module calls the SendEventAsync method. The firs
 To receive a message, register a callback that processes messages coming in on a specific input. The following pseudocode registers the function messageProcessor to be used for processing all messages received on input1:
 
    ```csharp
-   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
+
+For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C and Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), or [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 The solution developer is responsible for specifying the rules that determine how Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to Edge hub in its device twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Routes between modules][4]
+![Routes between modules](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## IoT Edge agent
 
 The IoT Edge agent is the other module that makes up the Azure IoT Edge runtime. It is responsible for instantiating modules, ensuring that they continue to run, and reporting the status of the modules back to IoT Hub. Just like any other module, the Edge agent uses its module twin to store this configuration data. 
 
-To begin execution of the Edge agent, run the azure-iot-edge-runtime-ctl.py start command. The agent retrieves its module twin from IoT Hub and inspects the modules dictionary. The modules dictionary is the collection of modules that need to be started. 
+The [IoT Edge security daemon](iot-edge-security-manager.md) starts the Edge agent on device startup. The agent retrieves its module twin from IoT Hub and inspects the deployment manifest. The deployment manifest is a JSON file that declares the modules that need to be started. 
 
-Each item in the modules dictionary contains specific information about a module and is used by the Edge agent for controlling the module’s lifecycle. Some of the more interesting properties are: 
+Each item in the deployment manifest contains specific information about a module and is used by the Edge agent for controlling the module’s lifecycle. Some of the more interesting properties are: 
 
-* **settings.image** – The container image that the Edge agent uses to start the module. The Edge agent must be configured with credentials for the container registry if the image is protected by a password. To configure the Edge agent, update the `config.yaml` file. In Linux, use the following command: 
-   `sudo nano /etc/iotedge/config.yaml`
+* **settings.image** – The container image that the Edge agent uses to start the module. The Edge agent must be configured with credentials for the container registry if the image is protected by a password. Credentials for the container registry can be configured remotely using the deployment manifest, or on the Edge device itself by updating the `config.yaml` file in the IoT Edge program folder.
 * **settings.createOptions** – A string that is passed directly to the Docker daemon when starting a module’s container. Adding Docker options in this property allows for advanced options like port forwarding or mounting volumes into a module’s container.  
 * **status** – The state in which the Edge agent places the module. This value is usually set to *running* as most people want the Edge agent to immediately start all modules on the device. However, you could specify the initial state of a module to be stopped and wait for a future time to tell the Edge agent to start a module. The Edge agent reports the status of each module back to the cloud in the reported properties. A difference between the desired property and the reported property is an indicator of a misbehaving device. The supported statuses are:
    * Downloading
@@ -110,19 +108,10 @@ The IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible
 
 ### Security
 
-The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module’s image before starting it. These features will be added at general availability. 
+The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module’s image before starting it. 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+For more information about the Azure IoT Edge security framework, read about the [IoT Edge security manager](iot-edge-security-manager.md)
 
 ## Next steps
 
-- [Understand Azure IoT Edge modules][lnk-modules]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[Understand Azure IoT Edge Certificates](iot-edge-certs.md)

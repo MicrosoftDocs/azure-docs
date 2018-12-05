@@ -59,7 +59,7 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 
     ```
     // Convert Hex value to integer.
-    function main(hexValue) {
+    function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
     }
     ```

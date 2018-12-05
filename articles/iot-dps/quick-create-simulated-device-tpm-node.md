@@ -1,6 +1,6 @@
 ---
 title: Provision a simulated TPM device to Azure IoT Hub using Node.js | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated TPM device using Node.js device SDK for Azure IoT Hub Device Provisioning Service
+description: Azure Quickstart - Create and provision a simulated TPM device using Node.js device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -17,9 +17,15 @@ ms.custom: mvc
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
-If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article will demonstrate individual enrollments.
+
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -120,16 +126,16 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     node ExtractDevice.js
     ```
 
-1. The output window displays the **_Endorsement Key_** and the **_Registration Id_** needed for device enrollment. Note down these values. 
+1. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
 
 
 ## Create a device entry
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-1. Under the **Add enrollment list entry**, enter the following information:
+1. Under the **Add Enrollment**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
     - Enter the *Registration ID* and *Endorsement key* for your TPM device.
     - Optionally, you may provide the following information:
@@ -147,7 +153,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_Global Device Endpoint_** and **_ID Scope_** values.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 1. Using a text editor, create a new **RegisterDevice.js** file in the **registerdevice** folder.
 

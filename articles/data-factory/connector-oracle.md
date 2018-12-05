@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
 
 ---
@@ -60,6 +60,47 @@ The following properties are supported for the Oracle linked service.
 
 >[!TIP]
 >If you hit error saying "ORA-01025: UPI parameter out of range" and your Oracle is of version 8i, add `WireProtocolMode=1` to your connection string and try again.
+
+**To enable encryption on Oracle connection**, you have two options:
+
+1.	To use **Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES)**, on Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings, refer to details [here](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle connector automatically negotiates the encryption method to use the one you configure in OAS when establishing connection to Oracle.
+
+2.	To use **SSL**, follow below steps:
+
+    1.	Get SSL certificate info. Get the DER encoded certificate information of your SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **Example:** extract cert info from DERcert.cer; then, save the output to cert.txt
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.	Build the keystore or truststore. The following command creates the truststore file with or without a password in PKCS-12 format.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **Example:** creates a PKCS12 trustsotre file named MyTrustStoreFile with a password
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.	Place the truststore file on the Self-hosted IR machine, e.g. at C:\MyTrustStoreFile.
+    4.	In ADF, configure the Oracle connection string with `EncryptionMethod=1` and corresponding `TrustStore`/`TrustStorePassword`value, e.g. `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Example:**
 

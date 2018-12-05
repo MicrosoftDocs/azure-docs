@@ -1,6 +1,6 @@
 ---
-title: Extend and review roles in Azure resources by using Privileged Identity Management | Microsoft Docs
-description: This document describes how to extend and renew Azure resource roles for PIM resources.
+title: Extend or renew Azure resource role assignments in PIM | Microsoft Docs
+description: Learn how to extend or renew Azure resource role assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
@@ -19,7 +19,7 @@ ms.custom: pim
 
 
 
-# Extend and review roles in Azure resources by using Privileged Identity Management
+# Extend or renew Azure resource role assignments in PIM
 
 Privileged Identity Management (PIM) for Azure resources introduces new controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign membership using start and end date-time properties. When the assignment end approaches, PIM sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 
@@ -128,8 +128,5 @@ To view a list of all expired role assignments, on the **Members** screen, selec
 
 ## Next steps
 
-[Require approval to activate](pim-resource-roles-approval-workflow.md)
-
-[Activate a role](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)

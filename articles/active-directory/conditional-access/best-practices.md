@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -81,7 +81,7 @@ Both policies are enforced by Azure Active Directory and the user gets access on
 
 ### What happens if I have multiple policies for the same user configured?  
 
-For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
+For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user. Block access trumps all other configuration settings. 
 
 
 ### Does conditional access work with Exchange ActiveSync?

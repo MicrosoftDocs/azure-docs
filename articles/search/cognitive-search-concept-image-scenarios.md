@@ -116,7 +116,6 @@ The following example skillset creates a *merged_text* field containing the text
   "skills":
   [
     {
-        "name": "OCR skill",
         "description": "Extract text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
@@ -153,7 +152,7 @@ The following example skillset creates a *merged_text* field containing the text
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

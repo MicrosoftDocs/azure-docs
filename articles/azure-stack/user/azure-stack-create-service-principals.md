@@ -3,18 +3,17 @@ title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
-
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
+ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
+ms.date: 08/22/2018
+ms.author: sethm
 ms.reviewer: thoroet
 
 ---
@@ -54,7 +53,7 @@ The steps for assigning a service principal to a role the same for Azure AD and 
 If your Azure Stack uses Azure AD as the identity store, you can create a service principal using the same steps as in Azure, using the Azure portal.
 
 >[!NOTE]
-Check to see that you have the [required Azure AD permissions](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before you start creating a service principal.
+Check to see that you have the [required Azure AD permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) before you start creating a service principal.
 
 ### Create service principal
 

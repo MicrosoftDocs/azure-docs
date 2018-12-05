@@ -21,5 +21,5 @@
 |Ubiquiti| EdgeRouter| EdgeOS v1.10x RouteBased BGP|
 
 > [!NOTE]
-> (*) Required: NarrowAzureTrafficSelectors and CustomAzurePolicies (IKE/IPsec)
+> (*) Required: NarrowAzureTrafficSelectors (enable UsePolicyBasedTrafficSelectors option) and CustomAzurePolicies (IKE/IPsec)
 >

@@ -1,20 +1,15 @@
 ---
-title: Publish Azure HDInsight applications | Microsoft Docs
+title: Publish Azure HDInsight applications 
 description: Learn how to create an HDInsight application, and then publish it in the Azure Marketplace.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Publish an HDInsight application in the Azure Marketplace
@@ -103,6 +98,6 @@ To publish an HDInsight application:
 * Learn how to [install HDInsight applications](hdinsight-apps-install-applications.md) in your clusters.
 * Learn how to [install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) and deploy an unpublished HDInsight application to HDInsight.
 * Learn how to [use Script Action to customize Linux-based HDInsight clusters](hdinsight-hadoop-customize-cluster-linux.md) and add more applications. 
-* Learn how to [create Linux-based Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Learn how to [create Linux-based Apache Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Learn how to [use an empty edge node in HDInsight](hdinsight-apps-use-edge-node.md) to access HDInsight clusters, test HDInsight applications, and host HDInsight applications.
 

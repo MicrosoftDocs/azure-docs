@@ -1,17 +1,15 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 6 | Microsoft Docs"
+title: "MongoDB, Angular, and Node tutorial for Azure - Part 6"
 description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/17/2018
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
 
 ---
@@ -84,13 +82,13 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then click the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then select the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Now go back to your internet browser and open the Developer tools Network tab by pressing F12 on most machines. Navigate to [http://localhost:3000](http://localhost:3000) to watch the calls made over the network.
 
     ![Networking tab in Chrome that shows network activity](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Add a new hero by clicking the **Add New Hero** button. Enter an ID of "999", name of "Fred", and saying of "Hello", then click **Save**. You should see in the Networking tab you've sent a POST request for a new hero. 
+7. Add a new hero by selecting the **Add New Hero** button. Enter an ID of "999", name of "Fred", and saying of "Hello", then select **Save**. You should see in the Networking tab you've sent a POST request for a new hero. 
 
     ![Networking tab in Chrome that shows network activity for Get and Post functions](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -169,17 +167,17 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. Now that we've updated the code, click the **Restart** button ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
+4. Now that we've updated the code, select the **Restart** button ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
 
-5. Refresh the page in your internet browser and click the **Add New Hero** button. Add a new hero with an ID of "9", name of "Starlord", and saying "Hi". Click the **Save** button to save the new hero.
+5. Refresh the page in your internet browser and select the **Add New Hero** button. Add a new hero with an ID of "9", name of "Starlord", and saying "Hi". Select the **Save** button to save the new hero.
 
-6. Now select the **Starlord** hero, and change the saying from "Hi" to "Bye", then click the **Save** button. 
+6. Now select the **Starlord** hero, and change the saying from "Hi" to "Bye", then select the **Save** button. 
 
     You can now select the ID in the Network tab to show the payload. You can see in the payload that the saying is now set to "Bye".
 
     ![Heroes app and Networking tab showing the payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    You can also delete one of the heroes in the UI, and see the times it takes to complete the delete operation. Try this out by clicking the "Delete" button for the hero named "Fred".
+    You can also delete one of the heroes in the UI, and see the times it takes to complete the delete operation. Try this out by selecting the "Delete" button for the hero named "Fred".
 
     ![Heroes app and the Networking tab showing the time to complete the functions](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

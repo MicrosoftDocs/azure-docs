@@ -2,17 +2,21 @@
 title: Conceptual overview of Azure Machine Learning Model Management | Microsoft Docs
 description: This document explains Model Management concepts for Azure Machine Learning.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: hjerezmsft 
+ms.author: hjerez
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+
+ROBOTS: NOINDEX
 ---
+
 # Azure Machine Learning Model Management
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Model Management enables you to manage and deploy machine-learning workflows and models. 
 

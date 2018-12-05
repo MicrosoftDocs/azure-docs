@@ -1,27 +1,22 @@
 ---
-title: Use Hadoop Pig with SSH on an HDInsight cluster - Azure | Microsoft Docs
-description: Learn how connect to a Linux-based Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job.
+title: Use Apache Pig with SSH on an HDInsight cluster - Azure 
+description: Learn how connect to a Linux-based Apache Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Pig jobs on a Linux-based cluster with the Pig command (SSH)
+# Run Apache Pig jobs on a Linux-based cluster with the Pig command (SSH)
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Learn how to interactively run Pig jobs from an SSH connection to your HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
+Learn how to interactively run Apache Pig jobs from an SSH connection to your HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
 > [!IMPORTANT]
 > The steps in this document require a Linux-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ---
@@ -54,7 +54,7 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
+    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -600,7 +600,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     							"referenceName": "SinkDataset",
     							"type": "DatasetReference",
     							"parameters": {
-    								"SinkTableName": "@{item().TABLE_NAME}"
+    								"SinkTableName": "@{item().TableType}"
     							}
     						}]
     					},
@@ -700,22 +700,22 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Select **All services**, search with the keyword *Data factories*, and select **Data factories**. 
 
-    ![Data factories menu](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
+    ![Data factories menu](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-data-factories-menu-1.png)
 
 1. Search for your data factory in the list of data factories, and select it to open the **Data factory** page. 
 
-    ![Search for your data factory](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
+    ![Search for your data factory](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-search-data-factory-2.png)
 
 1. On the **Data factory** page, select **Monitor & Manage**. 
 
-    ![Monitor & Manage tile](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
+    ![Monitor & Manage tile](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
 1. The **Data Integration Application** opens in a separate tab. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column. Select the link in the **Actions** column. 
 
-    ![Pipeline Runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
+    ![Pipeline Runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. When you select the link in the **Actions** column, you see the following page that shows all the activity runs for the pipeline: 
 
-    ![Activity Runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
+    ![Activity Runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-activity-runs-5.png)
 
 1. To go back to the **Pipeline Runs** view, select **Pipelines** as shown in the image. 
 
@@ -797,11 +797,11 @@ VALUES
     ```
 1. Monitor the pipeline runs by following the instructions in the [Monitor the pipeline](#monitor-the-pipeline) section. Because the pipeline status is **In Progress**, you see another action link under **Actions** to cancel the pipeline run. 
 
-    ![In Progress pipeline runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
+    ![In Progress pipeline runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-6.png)
 
 1. Select **Refresh** to refresh the list until the pipeline run succeeds. 
 
-    ![Refresh pipeline runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
+    ![Refresh pipeline runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-succeded-7.png)
 
 1. Optionally, select the **View Activity Runs** link under **Actions** to see all the activity runs associated with this pipeline run. 
 

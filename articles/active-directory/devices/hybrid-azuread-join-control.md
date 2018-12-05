@@ -107,9 +107,12 @@ You can control the device registration behavior of your current devices by conf
 
 You need to link this client setting to a location of your choice. For example, to configure this client setting for all Windows current devices in your organization, link the client setting to the domain. To do a controlled deployment, you can configure the client setting to domain-joined Windows current devices that belong to an organizational unit or a security group.
 
+> [!Important]
+> While the above configuration takes care of existing domain joined Windows 10 devices, there is a potential for newly domain joining devices to still attempt to complete hybrid Azure AD join due to the potential delay in the actual application of group policy or Configuration Manager settings on the newly domain joined Windows 10 device. To avoid this, it is recommended that you create a new sysprep image (used as an example for a provisioning method) from a device that was never previously hybrid Azure AD joined and that already has the above group policy setting applied or Configuration Manager client setting applied. You must also use the new image for provisioning new computers that join your organization's domain. 
+
 ## Control Windows down-level devices
 
-To register Windows down-level devices, you need to download and install Windows Installer package (.msi) from Download Center on the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) page.
+To register Windows down-level devices, you need to download and install Windows Installer package (.msi) from Download Center on the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) page.
 
 You can deploy the package by using a software distribution system like System Center Configuration Manager. The package supports the standard silent install options with the quiet parameter. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch offers additional benefits from earlier versions, like the ability to track completed registrations.
 

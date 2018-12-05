@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 <!--author=SharS last changed: 9/17/15-->
 
 ### Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint

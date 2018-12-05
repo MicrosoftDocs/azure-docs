@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -29,24 +29,30 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 ![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is performed every 12 hours by default.
+Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
+
+Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux machines for assessment.  For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
+
+After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is run every 12 hours by default.
 
 In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the MMA is restarted, before update installation, and after update installation.
 
 For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
-The solution reports how up-to-date the computer is based on what source you're configured to sync with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Updates shows. This is the same for Linux computers that are configured to report to a local repo instead of to a public repo.
+The solution reports how up-to-date the computer is based on what source you're configured to sync with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Updates shows. This behavior is the same for Linux computers that are configured to report to a local repo instead of to a public repo.
 
 > [!NOTE]
 > To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope. 
 
-The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and designate a period of time during which updates can be installed. 
+The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and set a period of time during which updates can be installed.
 
-Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to perform installation of required updates.
+Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to install the required updates.
 
-At the date and time specified in the update deployment, the target computers execute the deployment in parallel. Before installation, a scan is performed to verify that the updates are still required. For WSUS client computers, if the updates aren't approved in WSUS, the update deployment fails.
+At the date and time specified in the update deployment, the target computers execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client computers, if the updates aren't approved in WSUS, the update deployment fails.
+
+Having a machine registered for Update Management in more than one Log Analytics Workspaces (multi-homing) isn't supported.
 
 ## Clients
 
@@ -57,11 +63,11 @@ The following table shows a list of supported operating systems:
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |.NET Framework 4.5 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS does not have out of the box.         |
+|Windows Server 2008 R2 SP1 and later (Including Windows Server 2012 and 2016)    |.NET Framework 4.5.1 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box.         |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -76,13 +82,13 @@ The following table lists operating systems that aren't supported:
 
 #### Windows
 
-Windows agents must be configured to communicate with a WSUS server or they must have access to Microsoft Update. You can use Update Management with System Center Configuration Manager. To learn more about integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../log-analytics/log-analytics-agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure virtual machine.
+Windows agents must be configured to communicate with a WSUS server or they must have access to Microsoft Update. You can use Update Management with System Center Configuration Manager. To learn more about integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure virtual machine.
 
 #### Linux
 
-For Linux, the machine must have access to an update repository. The update repository can be private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. An Operations Management Suite (OMS) Agent for Linux that's configured to report to multiple Log Analytics workspaces isn't supported with this solution.
+For Linux, the machine must have access to an update repository. The update repository can be private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. A Log Analytics Agent for Linux that's configured to report to more than one Log Analytics workspaces isn't supported with this solution.
 
-For information about how to install the OMS Agent for Linux and to download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the OMS Agent for Windows, see [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).
+For information about how to install the Log Analytics Agent for Linux and to download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the Log Analytics Agent for Windows, see [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## Permissions
 
@@ -108,10 +114,10 @@ If your System Center Operations Manager management group is connected to a Log 
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Update Deployment MP
 
-For more information about how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+For more information about how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents.md).
+> For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
 ### Confirm that non-Azure machines are onboarded
 
@@ -136,17 +142,17 @@ On a Windows computer, you can review the following information to verify agent 
 1. In Control Panel, open **Microsoft Monitoring Agent**. On the **Azure Log Analytics** tab, the agent displays the following message: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.
 2. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
 
-If the agent can't communicate with Log Analytics and the agent is configured to communicate with the internet through a firewall or proxy server, confirm that the firewall or proxy server is properly configured. To learn how to verify that the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
+If the agent can't communicate with Log Analytics and the agent is configured to communicate with the internet through a firewall or proxy server, confirm that the firewall or proxy server is properly configured. To learn how to verify that the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../azure-monitor/platform/agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> If your Linux systems are configured to communicate with a proxy or OMS Gateway and you're onboarding this solution, update the *proxy.conf* permissions to grant the omiuser group read permission on the file by using the following commands:
+> If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're onboarding this solution, update the *proxy.conf* permissions to grant the omiuser group read permission on the file by using the following commands:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 Newly added Linux agents show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm that an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
+To confirm that an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager integration with Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## Data collection
 
@@ -162,7 +168,7 @@ The following table describes the connected sources that are supported by this s
 
 ### Collection frequency
 
-A scan is performed twice per day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated. 
+A scan is performed twice per day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
 
 A scan is performed every 3 hours for each managed Linux computer.
 
@@ -180,9 +186,9 @@ To run a log search that returns information about the machine, update, or deplo
 
 ## Install updates
 
-After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md).
+After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md).
 
- When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To work around this, delete the scheduled update deployment and re-create it.
+ When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To get around this use [Dynamic groups](#using-dynamic-groups), these groups are resolved at deployment time and are defined by a query.
 
 > [!NOTE]
 > Windows virtual machines that are deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows virtual machines to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
@@ -190,6 +196,23 @@ After updates are assessed for all the Linux and Windows computers in your works
 To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Virtual machines that were created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by following the distribution's supported methods.
+
+To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
+
+| Property | Description |
+| --- | --- |
+| Name |Unique name to identify the update deployment. |
+|Operating System| Linux or Windows|
+| Groups to update (preview)|Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Dynamic Groups](automation-update-management.md#using-dynamic-groups)|
+| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md) |
+|Update classifications|Select all the update classifications that you need|
+|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior) |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
+| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |
+| Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
+
+Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## View missing updates
 
@@ -201,18 +224,7 @@ Select the **Update Deployments** tab to view the list of existing update deploy
 
 ![Overview of update deployment results](./media/automation-update-management/update-deployment-run.png)
 
-## Create or edit an update deployment
-
-To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
-
-| Property | Description |
-| --- | --- |
-|Name |Unique name to identify the update deployment. |
-|Operating System| Select **Linux** or **Windows**.|
-|Machines to update |Select a saved search, or select **Machine** from the drop-down list, and then select individual machines. |
-|Update classifications|Select all the update classifications that you need. CentOS does not support this out of the box.|
-|Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard character.  |
-|Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence.|| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |
+To view an update deployment from the REST API, see [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## Update classifications
 
@@ -246,7 +258,34 @@ sudo yum -q --security check-update
 
 There is currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
 
-## Ports
+## <a name="firstparty-predownload"></a>First party patching and pre-download
+
+Update Management relies on Windows Update to download and install Windows Updates. As a result, we respect many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will manage those updates as well. If you want to enable downloading updates before an update deployment occurs, update deployments can go faster and be less likely to exceed the maintenance window.
+
+### Pre download updates
+
+To configure automatically downloading updates in Group Policy, you can set the [Configure Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) to **3**. This downloads the updates needed in the background, but does not install them. This keeps Update Management in control of schedules but allow updates to download outside of the Update Management maintenance window. This can prevent **Maintenance window exceeded** errors in Update Management.
+
+You can also set this with PowerShell, run the following PowerShell on a system that you want to auto-download updates.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### Enable updates for other Microsoft products
+
+By default, Windows Update only provides updates for Windows. If you enable **Give me updates for other Microsoft products when I update Windows**, you are provided with updates for other products, including such things security patches for SQL Server or other first party software. This option can't be configured by Group Policy. Run the following PowerShell on the systems that you wish to enable other first party patches on, and Update Management will honor this setting.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Network Planning
 
 The following addresses are required specifically for Update Management. Communication to these addresses occurs over port 443.
 
@@ -255,6 +294,7 @@ The following addresses are required specifically for Update Management. Communi
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -277,7 +317,7 @@ Replace the VMUUID value with the VM GUID of the virtual machine you are queryin
 
 ##### Missing updates summary
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"b08d5afa-1471-4b52-bd95-a44fea6e4ca8"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
@@ -288,7 +328,7 @@ Update
 
 ##### Missing updates list
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"8bf1ccc6-b6d3-4a0b-a643-23f346dfdf82"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
@@ -302,12 +342,12 @@ Update
 
 #### Single Azure VM assessment queries (Linux)
 
-For some Linux distros there is a [endianness](https://en.wikipedia.org/wiki/Endianness) mismatch with the VMUUID value that comes from Azure Resource Manager and what is stored in Log Analytics. The following query checks for a match on either endianness. Replace the VMUUID values with the big-endian and little-endian format of the GUID to properly return the results. You can find the VMUUID that should be used by running the following query in Log Analytics: `Update | where Computer == "<machine name>"
+For some Linux distros, there is a [endianness](https://en.wikipedia.org/wiki/Endianness) mismatch with the VMUUID value that comes from Azure Resource Manager and what is stored in Log Analytics. The following query checks for a match on either endianness. Replace the VMUUID values with the big-endian and little-endian format of the GUID to properly return the results. You can find the VMUUID that should be used by running the following query in Log Analytics: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### Missing updates summary
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
@@ -318,7 +358,7 @@ Update
 
 ##### Missing updates list
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by Computer, SourceComputerId, Product, ProductArch
@@ -335,7 +375,7 @@ Update
 
 ##### Computers summary
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
@@ -377,7 +417,7 @@ on SourceComputerId
 
 ##### Missing updates summary
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -401,7 +441,7 @@ Update
 
 ##### Computers list
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
@@ -448,7 +488,7 @@ on SourceComputerId
 
 ##### Missing updates list
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -474,11 +514,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Using dynamic groups (preview)
+
+Update Management provides the ability to target a dynamic group of Azure VMs for update deployments. These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. When defining your query, the following items can be used together to populate the dynamic group
+
+* Subscription
+* Resource groups
+* Locations
+* Tags
+
+![Select groups](./media/automation-update-management/select-groups.png)
+
+To preview the results of a dynamic group, click the **Preview** button. This preview shows the group membership at that time, in this example, we are searching for machines with the tag **Role** is equal to **BackendServer**. If more machines have this tag added, they will be added to any future deployments against that group.
+
+![preview groups](./media/automation-update-management/preview-groups.png)
+
 ## Integrate with System Center Configuration Manager
 
 Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
 
 To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+
+## Inclusion behavior
+
+Update inclusion allows you to specify specific updates to apply. Patches or packages that are included are installed. When Patches or packages are included and a classification is selected as well, both the included items and items that meet the classification are installed.
+
+It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. For Linux machines if a package is included but has a dependant package that was excluded, the package is not installed.
 
 ## Patch Linux machines
 
@@ -496,13 +557,13 @@ In Red Hat Enterprise Linux, the package name to exclude is redhat-release-serve
 
 ### Critical / security patches aren't applied
 
-When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
+When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to the machine that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
 
 Because Update Management performs update enrichment in the cloud, some updates might be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied.
 
 However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
 
-Deploying updates by update classification does not work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to re-run the update deployment, to verify check the update log.
+Deploying updates by update classification doesn't work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to rerun the update deployment, to verify check the update log.
 
 ## Troubleshoot
 
@@ -516,4 +577,6 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 > [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
 
 * Use log searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or if a computer has automatic updates disabled.
+* [Create alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) when critical updates are detected as missing from computers or if a computer has automatic updates disabled.
+
+* To learn how to interact with Update Management through the REST API, see [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)

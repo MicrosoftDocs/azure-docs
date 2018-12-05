@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
 
 ---
@@ -21,7 +21,7 @@ ms.author: cephalin;dariac
 # Deploy your app to Azure App Service using FTP/S
 
 This article shows you how to use FTP or FTPS to deploy your web app, mobile app backend, 
-or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+or API app to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
@@ -29,7 +29,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-To open the FTP dashboard, click **Continuous Delivery (Preview)** > **FTP** > **Dashboard**.
+To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
 
 ![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -43,8 +43,7 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 
 ## Deploy files to Azure
 
-1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/) or [FileZilla](https://filezilla-project.org/download.php?type=client)), 
-use the connection information you gathered to connect to your app.
+1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use the connection information you gathered to connect to your app.
 3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
 4. Browse to your app's URL to verify the app is running properly. 
 
@@ -65,7 +64,7 @@ For enhanced security, you should allow FTP over SSL only. You can also disable 
 
 In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
 
-To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.1 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 is not supported with **FTPS Only**.
+To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.2 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 and 1.1 are not supported with **FTPS Only**.
 
 ![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -107,6 +106,6 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
-## More Resources
+## More resources
 
-* [Azure App Service Deployment Credentials](app-service-deploy-ftp.md)
+* [Azure App Service Deployment Credentials](app-service-deployment-credentials.md)

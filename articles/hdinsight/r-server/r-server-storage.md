@@ -1,20 +1,14 @@
 ---
-title: Azure Storage solutions for ML Services on HDInsight - Azure | Microsoft Docs
+title: Azure Storage solutions for ML Services on HDInsight - Azure 
 description: Learn about the different storage options available with ML Services on HDInsight
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: jasonh
-
 ---
 # Azure Storage solutions for ML Services on Azure HDInsight
 
@@ -26,7 +20,7 @@ ML Services on HDInsight can use a variety of storage solutions to persist data,
 
 You also have the option of accessing multiple Azure storage accounts or containers with your HDInsight cluster. Azure File storage is a convenient data storage option for use on the edge node that enables you to mount an Azure Storage file share to, for example, the Linux file system. But Azure File shares can be mounted and used by any system that has a supported operating system such as Windows or Linux. 
 
-When you create a Hadoop cluster in HDInsight, you specify either an **Azure storage** account or a **Data Lake store**. A specific storage container from that account holds the file system for the cluster that you create (for example, the Hadoop Distributed File System). For more information and guidance, see:
+When you create an Apache Hadoop cluster in HDInsight, you specify either an **Azure storage** account or a **Data Lake store**. A specific storage container from that account holds the file system for the cluster that you create (for example, the Hadoop Distributed File System). For more information and guidance, see:
 
 - [Use Azure storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Use Data Lake Store with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
@@ -159,7 +153,7 @@ The following commands are used to configure the Data Lake Store account with th
 
 ## Use Azure File storage with ML Services on HDInsight
 
-There is also a convenient data storage option for use on the edge node called [Azure Files]((https://azure.microsoft.com/services/storage/files/). It enables you to mount an Azure Storage file share to the Linux file system. This option can be handy for storing data files, R scripts, and result objects that might be needed later, especially when it makes sense to use the native file system on the edge node rather than HDFS. 
+There is also a convenient data storage option for use on the edge node called [Azure Files](https://azure.microsoft.com/services/storage/files/). It enables you to mount an Azure Storage file share to the Linux file system. This option can be handy for storing data files, R scripts, and result objects that might be needed later, especially when it makes sense to use the native file system on the edge node rather than HDFS. 
 
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system. For more information, see:
 
@@ -170,6 +164,6 @@ A major benefit of Azure Files is that the file shares can be mounted and used b
 ## Next steps
 
 * [Overview of ML Services cluster on HDInsight](r-server-overview.md)
-* [Get started with ML Services cluster on Hadoop](r-server-get-started.md)
+* [Get started with ML Services cluster on Apache Hadoop](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 

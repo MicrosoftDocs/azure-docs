@@ -21,7 +21,7 @@ Stream Analytics has first-class integration from three kinds of resources as in
 
 These input resources can live in same Azure subscription as your Stream Analytics job, or from a different subscription.
 
-You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-input-to-the-job),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job inputs.
+You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) to create, edit, and test Stream Analytics job inputs.
 
 ## Stream and reference inputs
 As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.
@@ -32,11 +32,11 @@ A data stream is an unbounded sequence of events over time. Stream Analytics job
 For more information about streaming data inputs, see [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md)
 
 ### Reference data input
-Stream Analytics also supports input known as *reference data*. Reference data is either completely static or changes slowly. It is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
+Stream Analytics also supports input known as *reference data*. Reference data is either completely static or changes slowly. It is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs have a limit of up to 300 MB in size, depending on the query complexity and allocated Streaming Units.
 
 For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
 
-This article is a step in the [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/).
+This article is a step in the [Stream Analytics learning path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
 
 ## Next steps
 > [!div class="nextstepaction"]

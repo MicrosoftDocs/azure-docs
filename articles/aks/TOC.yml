@@ -11,6 +11,21 @@
     href: kubernetes-walkthrough.md
   - name: Create an AKS cluster - Portal
     href: kubernetes-walkthrough-portal.md
+  - name: Develop applications
+    expanded: true
+    items:
+    - name: Use Java (VS Code & CLI)
+      href: ../dev-spaces/quickstart-java.md
+      maintainContext: true
+    - name: Use .NET Core (VS Code & CLI)
+      href: ../dev-spaces/quickstart-netcore.md
+      maintainContext: true
+    - name: Use .NET Core (Visual Studio 2017)
+      href: ../dev-spaces/quickstart-netcore-visualstudio.md
+      maintainContext: true
+    - name: Use Node.js (VS Code & CLI)
+      href: ../dev-spaces/quickstart-nodejs.md
+      maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -29,24 +44,66 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
+  - name: Clusters and workloads
+    href: concepts-clusters-workloads.md
+  - name: Access and identity
+    href: concepts-identity.md
+  - name: Security
+    href: concepts-security.md
+  - name: Networking
+    href: concepts-network.md
+  - name: Storage
+    href: concepts-storage.md
+  - name: Scale
+    href: concepts-scale.md
+  - name: Best practices
+    items:
+    - name: For cluster operators
+      items:
+      - name: Multi-tenancy and cluster isolation
+        href: operator-best-practices-cluster-isolation.md
+      - name: Basic scheduler features
+        href: operator-best-practices-scheduler.md
+      - name: Advanced scheduler features
+        href: operator-best-practices-advanced-scheduler.md
+      - name: Authentication and authorization
+        href: operator-best-practices-identity.md
+      - name: Business continuity (BC) and disaster recovery (DR)
+        href: operator-best-practices-multi-region.md
+    - name: For application developers
+      items:
+      - name: Resource management
+        href: developer-best-practices-resource-management.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS
     href: acs-aks-migration.md
+  - name: Supported Kubernetes version
+    href: supported-kubernetes-versions.md
 - name: How-to guides
   items:
   - name: Cluster operations
     items:
     - name: Create an AKS cluster
-      href: create-cluster.md
+      href: /cli/azure/aks#az-aks-create
+      maintainContext: true
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Process node OS updates
+      href: node-updates-kured.md
     - name: Delete an AKS cluster
-      href: delete-cluster.md
+      href: /cli/azure/aks#az-aks-delete
+      maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
+    - name: Create virtual nodes (preview)
+      items:
+      - name: Azure CLI
+        href: virtual-nodes-cli.md
+      - name: Azure portal
+        href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
@@ -66,18 +123,29 @@
       href: azure-files-volume.md
   - name: Configure networking
     items:
-    - name: Networking overview
-      href: networking-overview.md
-    - name: Static IP address
-      href: static-ip.md
-    - name: Internal load balancer
+    - name: Create or use existing virtual network
+      href: configure-advanced-networking.md
+    - name: Create an internal load balancer
       href: internal-lb.md
-    - name: Ingress and TLS
-      href: ingress.md
+    - name: Use a static IP addresses
+      href: static-ip.md
+    - name: Ingress
+      items:
+        - name: Create a basic controller
+          href: ingress-basic.md
+        - name: Use HTTP application routing
+          href: http-application-routing.md
+        - name: Use internal network
+          href: ingress-internal-ip.md
+        - name: Use TLS with your own certificates
+          href: ingress-own-tls.md
+        - name: Use TLS with Let's Encrypt
+          href: ingress-tls.md
+          items:
+          - name: Use a static public IP
+            href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
-    - name: HTTP application routing
-      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal
@@ -86,7 +154,7 @@
       href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
   - name: Monitoring and logging
     items:
-    - name: Azure container health solution
+    - name: Azure Monitor for containers
       href: ../monitoring/monitoring-container-health.md
       maintainContext: true
     - name: View the master component logs
@@ -95,26 +163,71 @@
       href: kubelet-logs.md
   - name: Develop and run applications
     items:
-    - name: Run applications with Helm
-      href: kubernetes-helm.md
     - name: Develop with Dev Spaces
       href: ../dev-spaces/azure-dev-spaces.md
       maintainContext: true
+      items:
+      - name: Java (VS Code & CLI)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-java.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-java.md
+          maintainContext: true
+      - name: .NET Core (VS Code & CLI)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-netcore.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-netcore.md
+          maintainContext: true
+      - name: .NET Core (Visual Studio 2017)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-netcore-visualstudio.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-netcore-visualstudio.md
+          maintainContext: true
+      - name: Node.js (VS Code & CLI)
+        items:
+        - name: 1 - Get started
+          href: ../dev-spaces/get-started-nodejs.md
+          maintainContext: true
+        - name: 2 - Team development
+          href: ../dev-spaces/team-development-nodejs.md
+          maintainContext: true
+    - name: Run applications with Helm
+      href: kubernetes-helm.md
     - name: Develop applications with Draft
       href: kubernetes-draft.md
-    - name: Open Service Broker for Azure
+    - name: Use Open Service Broker for Azure
       href: integrate-azure.md
-    - name: Using OpenFaaS with AKS
+    - name: Use OpenFaaS
       href: openfaas.md
-    - name: Run Spark jobs on AKS
+    - name: Run Spark jobs
       href: spark-job.md
-    - name: Using GPUs on AKS
+    - name: Use GPUs
       href: gpu-cluster.md
-  - name: DevOps on AKS
+    - name: Use Istio
+      items:
+      - name: Install and configure
+        href: istio-install.md
+      - name: Intelligent routing and canary releases
+        href: istio-scenario-routing.md
+    - name: Use Azure Database for PostgreSQL
+      href: ../postgresql/concepts-aks.md
+      maintainContext: true
+  - name: DevOps
     items:
+    - name: Use Ansible to create AKS clusters
+      href: /azure/ansible/ansible-create-configure-aks
+      maintainContext: true
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
-    - name: Azure DevOps Project for AKS
+    - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
   - name: Kubernetes basics
@@ -123,8 +236,12 @@
       href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
+    - name: Common issues
+      href: troubleshooting.md
+    - name: Checking for best practices
+      href: kube-advisor-tool.md
     - name: SSH node access
-      href: aks-ssh.md
+      href: ssh.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -145,6 +262,8 @@
     href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Resources
   items:
+  - name: Build your skill with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances&azure-container-registry
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
@@ -152,9 +271,9 @@
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback
-    href: https://github.com/Azure/AKS/issues
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ

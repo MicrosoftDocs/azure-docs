@@ -1,28 +1,23 @@
 ---
-title: Debug and analyze Hadoop services with heap dumps - Azure | Microsoft Docs
-description: Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis.
+title: Debug and analyze Apache Hadoop services with heap dumps - Azure 
+description: Automatically collect heap dumps for Apache Hadoop services and place inside the Azure Blob storage account for debugging and analysis.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: e4ec4ebb-fd32-4668-8382-f956581485c4
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Collect heap dumps in Blob storage to debug and analyze Hadoop services
+# Collect heap dumps in Blob storage to debug and analyze Apache Hadoop services
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables
 at the time the dump was created. So they are useful for diagnosing problems that occur
-at run-time. Heap dumps can be automatically collected for Hadoop services and placed inside
+at run-time. Heap dumps can be automatically collected for [Apache Hadoop](https://hadoop.apache.org/) services and placed inside
 the Azure Blob storage account of a user under HDInsightHeapDumps/.
 
 The collection of heap dumps for various services must be enabled for services on individual
@@ -32,18 +27,18 @@ once the collection has been enabled.
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). The information in this article only applies to Windows-based HDInsight. 
-> For information on Linux-based HDInsight, see [Enable heap dumps for Hadoop services on
+> For information on Linux-based HDInsight, see [Enable heap dumps for Apache Hadoop services on
 > Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 
 ## Eligible services for heap dumps
 You can enable heap dumps for the following services:
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** - resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** - datanode, secondarynamenode, namenode
 
 ## Configuration elements that enable heap dumps
 To turn on heap dumps for a service, you need to set the appropriate configuration elements

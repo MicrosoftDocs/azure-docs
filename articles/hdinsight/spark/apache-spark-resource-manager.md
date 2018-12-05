@@ -1,25 +1,20 @@
 ---
-title: Manage resources for Apache Spark cluster on Azure HDInsight | Microsoft Docs
+title: Manage resources for Apache Spark cluster on Azure HDInsight 
 description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Manage resources for Apache Spark cluster on Azure HDInsight 
 
-Learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster, and how to tune the cluster configuration for optimal performance.
+Learn how to access the interfaces like [Apache Ambari](https://ambari.apache.org/) UI, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, and the Spark History Server associated with your [Apache Spark](https://spark.apache.org/) cluster, and how to tune the cluster configuration for optimal performance.
 
 **Prerequisites:**
 
@@ -27,7 +22,7 @@ Learn how to access the interfaces like Ambari UI, YARN UI, and the Spark Histor
 
 ## Open the Ambari Web UI
 
-Apache Ambari is used to monitor the cluster and make configuration changes. For more information, see [Manage Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
+Apache Ambari is used to monitor the cluster and make configuration changes. For more information, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui)
 
 ## Open the Spark History Server
 
@@ -159,19 +154,19 @@ Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics 
 
 ### For data analysts
 
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Application Insight telemetry data analysis using Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
+* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Application Insight telemetry data analysis using Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Use Caffe on Azure HDInsight Spark for distributed deep learning](apache-spark-deep-learning-caffe.md)
 
-### For Spark developers
+### For Apache Spark developers
 
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Livy](apache-spark-livy-rest-interface.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)

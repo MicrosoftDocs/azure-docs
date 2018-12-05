@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
@@ -38,11 +38,11 @@ This section demonstrates how to configure a Stream Analytics job to run a funct
 ![Diagram showing relationships among the Azure services](./media/stream-analytics-with-azure-functions/image1.png)
 
 The following steps are required to achieve this task:
-* [Create a Stream Analytics job with Event Hubs as input](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Create an Azure Redis Cache instance](#create-an-azure-redis-cache)  
-* [Create a function in Azure Functions that can write data to the Azure Redis Cache](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Update the Stream Analytics job with the function as output](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Check Azure Redis Cache for results](#check-redis-cache-for-results)  
+* [Create a Stream Analytics job with Event Hubs as input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [Create an Azure Redis Cache instance](#create-an-azure-redis-cache-instance)  
+* [Create a function in Azure Functions that can write data to the Azure Redis Cache](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Update the Stream Analytics job with the function as output](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [Check Azure Redis Cache for results](#check-azure-redis-cache-for-results)  
 
 ## Create a Stream Analytics job with Event Hubs as input
 
@@ -60,7 +60,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. See the [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) section of the Functions documentation. This walks you through how to create a function app and an [HTTP-triggered function in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), by using the CSharp language.  
 
-2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace “\<your redis cache connection string goes here\>” with the Azure Redis Cache primary connection string that you retrieved in the previous section.)  
+2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace "\<your redis cache connection string goes here\>" with the Azure Redis Cache primary connection string that you retrieved in the previous section.)  
 
    ```csharp
    using System;
@@ -164,7 +164,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 3. Provide a name for the output alias. In this tutorial, we name it **saop1** (you can use any name of your choice). Fill in other details.  
 
-4. Open your Stream Analytics job, and update the query to the following. (Make sure to replace the “saop1” text if you have named the output sink differently.)  
+4. Open your Stream Analytics job, and update the query to the following. (Make sure to replace the "saop1" text if you have named the output sink differently.)  
 
    ```sql
     SELECT 
@@ -194,6 +194,13 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    This command should print the value for the specified key:
 
    ![Screenshot of Azure Redis Cache output](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## Error handling and retries
+In the event of a failure while sending events to Azure Functions, Stream Analytics retries to successfully complete the operation. However, there are some failures for which retries are not attempted and they are as follows:
+
+ 1. HttpRequestExceptions
+ 2. Request Entity Too Large (Http error code 413)
+ 3. ApplicationExceptions
 
 ## Known issues
 

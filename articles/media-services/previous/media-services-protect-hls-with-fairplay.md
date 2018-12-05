@@ -4,7 +4,7 @@ description: This topic gives an overview and shows how to use Azure Media Servi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 09/18/2018
 ms.author: juliako
 
 ---
@@ -144,8 +144,8 @@ The following considerations apply:
 2. Add the following elements to **appSettings** defined in your app.config file:
 
     ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
 
 ## Example

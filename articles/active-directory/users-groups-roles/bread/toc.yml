@@ -1,0 +1,95 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
+    tocHref: /azure/active-directory/fundamentals/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/fundamentals/
+      topicHref: /azure/active-directory/users-groups-roles/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/role-based-access-control/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/active-directory/users-groups-roles/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory       
+    tocHref: /azure/active-directory/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/
+      topicHref: /azure/active-directory/users-groups-roles/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/connect/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/connect/
+      topicHref: /azure/active-directory/users-groups-roles/index
+      
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/connect-health/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/connect-health/
+      topicHref: /azure/active-directory/users-groups-roles/index
+            
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/b2b/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/b2b/
+      topicHref: /azure/active-directory/users-groups-roles/index
+                  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/privileged-identity-management/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/privileged-identity-management/
+      topicHref: /azure/active-directory/users-groups-roles/index
+                        
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/authentication/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Users, groups, and roles
+      tocHref: /azure/active-directory/authentication/
+      topicHref: /azure/active-directory/users-groups-roles/index

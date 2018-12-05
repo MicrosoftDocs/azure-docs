@@ -5,35 +5,40 @@
  author: kgremban
  ms.service: iot-edge
  ms.topic: include
- ms.date: 06/27/2018
+ ms.date: 10/14/2018
  ms.author: kgremban
  ms.custom: include file
 ---
 
-One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section, you deploy a module that generates telemetry for your simulated device. 
+One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section, we'll be deploying a pre-built module from the [IoT Edge Modules section of the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). This module generates telemetry for your simulated device.
 
-1. In the Azure portal, navigate to your IoT hub.
-1. Go to **IoT Edge** and select your IoT Edge device.
-1. Select **Set Modules**.
-1. In the **Deployment Modules** section of the page, click **Add** then select **IoT Edge Module**.
-1. In the **Name** field, enter `tempSensor`. 
-1. In the **Image URI** field, enter `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. 
-1. Leave the other settings unchanged, and select **Save**.
+1. In the Azure portal, enter `Simulated Temperature Sensor` into the search and open the Marketplace result.
 
-   ![Save IoT Edge module after entering name and image URI](./media/iot-edge-deploy-module/name-image.png)
+   ![Simulated Temperature Sensor in Azure portal search](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-1. Back in the **Add modules** step, select **Next**.
-1. In the **Specify routes** step, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select **Next**.
+2. In the **Subscription** field, select the subscription with the IoT Hub you're using, if it's not already.
+
+3. In the **IoT Hub** field, select the name of the IoT Hub you're using, if it's not already.
+
+4. Click on **Find Device**, select your IoT Edge device (named `myEdgeDevice`), then select **Create**.
+
+5. In the **Add Modules** step of the wizard, click on the **SimulatedTemperatureSensor** module to verify its configuration settings, click **Save** and select **Next**.
+
+6. In the **Specify Routes** step of the wizard, verify the routes are properly set up with the default route that sends all messages from all modules to IoT Hub (`$upstream`). If not, add the following code then select **Next**.
 
    ```json
-   {
-       "routes": {
-           "route": "FROM /* INTO $upstream"
-       }
-   }
+    {
+    "routes": {
+        "route": "FROM /messages/* INTO $upstream",
+        "upstream": "FROM /messages/* INTO $upstream"
+        }
+    }
    ```
 
-1. In the **Review Deployment** step, select **Submit**.
-1. Return to the device details page and select **Refresh**. In addition to the edgeAgent module that was created when you first started the service, you should see another runtime module called **edgeHub** and the **tempSensor** module listed. 
+7. In the **Review Deployment** step of the wizard, select **Submit**.
 
-   ![View tempSensor in list of deployed modules](./media/iot-edge-deploy-module/deployed-modules.png)
+8. Return to the device details page and select **Refresh**. In addition to the edgeAgent module that was created when you first started the service, you should see another runtime module called **edgeHub** and the **SimulatedTemperatureSensor** module listed.
+
+   It may take a few minutes for the new modules to show up. The IoT Edge device has to retrieve its new deployment information from the cloud, start the containers, and then report its new status back to IoT Hub. 
+
+   ![View SimulatedTemperatureSensor in list of deployed modules](./media/iot-edge-deploy-module/deployed-modules-marketplace-temp.png)

@@ -4,10 +4,10 @@ description: Create an index in code using the Azure Search HTTP REST API.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/04/2017
-author: chaosrealm
-manager: jlembicz
-ms.author: eugenesh
+ms.date: 10/17/2018
+author: mgottein 
+manager: cgronlun
+ms.author: magottei
 ---
 
 # Searching Blob storage with Azure Search

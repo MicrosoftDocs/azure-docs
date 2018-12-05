@@ -35,7 +35,7 @@ To complete this tutorial, you need:
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 
@@ -64,7 +64,7 @@ Select **+ Add Azure VM**, this opens up the **Virtual machines** page and allow
 
 ## Onboard a non-Azure machine
 
-To add non-Azure machines, install the agent for [Windows](../log-analytics/log-analytics-agent-windows.md) or [Linux](automation-linux-hrw-install.md) depending on your operating system. Once the agent is installed, navigate to your Automation Account and go to **Inventory** under **CONFIGURATION MANAGEMENT**. When you click **Manage Machines**, you see a list of the machines reporting to your Log Analytics workspace that do not have the solution enabled. Select the appropriate option for your environment.
+To add non-Azure machines, install the agent for [Windows](../azure-monitor/platform/agent-windows.md) or [Linux](automation-linux-hrw-install.md) depending on your operating system. Once the agent is installed, navigate to your Automation Account and go to **Inventory** under **CONFIGURATION MANAGEMENT**. When you click **Manage Machines**, you see a list of the machines reporting to your Log Analytics workspace that do not have the solution enabled. Select the appropriate option for your environment.
 
 * **Enable on all available machines** - This option enables the solution on all the machines reporting to your Log Analytics workspace at this time.
 * **Enable on all available machines and future machines** - This option enables the solution on all machines reporting to your Log Analytics workspace and subsequently on all future machines added to the workspace.
@@ -107,7 +107,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
+To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ### Single machine inventory
 

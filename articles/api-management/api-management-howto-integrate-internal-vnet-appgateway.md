@@ -19,7 +19,7 @@ ms.author: sasolank
 ---
 # Integrate API Management in an internal VNET with Application Gateway
 
-##<a name="overview"> </a> Overview
+## <a name="overview"> </a> Overview
 
 The API Management service can be configured in a Virtual Network in internal mode, which makes it accessible only from within the Virtual Network. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
 
@@ -28,6 +28,8 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 * Use the same API Management resource for consumption by both internal consumers and external consumers.
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turn-key way to switch access to API Management from the public Internet on and off.
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -39,9 +41,9 @@ To follow the steps described in this article, you must have:
 
 * Certificates - pfx and cer for the API hostname and pfx for the developer portal's hostname.
 
-##<a name="scenario"> </a> Scenario
+## <a name="scenario"> </a> Scenario
 
-This article covers how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
+This article covers how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using routing functionality available in Application Gateway.
 
 In the first setup example all your APIs are managed only from within your Virtual Network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to Internet a high performance is delivered via Express Route circuits.
 
@@ -76,7 +78,7 @@ In the first setup example all your APIs are managed only from within your Virtu
 In this guide we will also expose the **developer portal** to external audiences through the Application Gateway. It requires additional steps to create developer portal's listener, probe, settings and rules. All details are provided in respective steps.
 
 > [!WARNING]
-> In the described setup of the developer portal being accessed through Application Gateway, you may experience problems with the AAD and Facebook authentication.
+> In the described setup of the developer portal being accessed through Application Gateway, you may experience problems with the AAD and third party authentication.
 
 ## Create a resource group for Resource Manager
 
@@ -345,7 +347,7 @@ The Application Gateway's DNS name should be used to create a CNAME record which
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Summary
+## <a name="summary"> </a> Summary
 Azure API Management configured in a VNET provides a single gateway interface for all configured APIs, whether they are hosted on-prem or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the Internet, as well as providing a Web Application Firewall as a frontend to your API Management instance.
 
 ##<a name="next-steps"> </a> Next steps

@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create). These resources are used to provide network connectivity to the application gateway and its associated resources.
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create). These resources are used to provide network connectivity to the application gateway and its associated resources.
 
 ```azurecli-interactive
 az network vnet create \
@@ -61,7 +61,7 @@ az network public-ip create \
 
 ## Create an application gateway
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway#create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -102,7 +102,7 @@ az network application-gateway redirect-config create \
 
 ### Add a listener and routing rule
 
-A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) with the frontend port created with [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create). A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create) with the redirection configuration.
+A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) with the frontend port created with [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) with the redirection configuration.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

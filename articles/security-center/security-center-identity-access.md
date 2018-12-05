@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
 
 ---
@@ -22,7 +22,6 @@ This article helps you use Azure Security Center to monitor users' identity and 
 
 > [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
 >
 
 Identity should be the control plane for your enterprise, and protecting your identity should be your top priority. The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
@@ -82,7 +81,7 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
   - **Recommendations**:  based on assessments performed by Security Center that failed.
   - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 250 accounts.
+  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
 
   Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
 
@@ -103,18 +102,26 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 ## Recommendations
 Use the table below as a reference to help you understand the available Identity & Access recommendations and what each one does if you apply it.
 
-| Recommendation | Description |
-| --- | --- |
-| Designate more than one owner on your subscription | Recommends that you designate more than one subscription owner in order to have administrator access redundancy. |
-| Designate up to 3 owners on your subscription | Recommends that you designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner. |
-| Enable MFA for accounts with owner permissions on your subscription | Recommends that you enable Multi-Factor Authentication (MFA) for all subscription accounts with administrator privileges to prevent a breach of accounts or resources. |
-| Enable MFA for accounts with write permissions on your subscription | Recommends that you enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources. |
-| Enable MFA for accounts with read permissions on your subscription | Recommends that you enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources. |
-| Remove external accounts with read permissions from your subscription | Recommends that you remove external accounts with read privileges from your subscription in order to prevent unmonitored access. |
-| Remove external accounts with write permissions from your subscription | Recommends that you remove external accounts with write privileges from your subscription in order to prevent unmonitored access. |
-| Remove external accounts with owner permissions from your subscription | Recommends that you remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
-| Remove deprecated accounts from subscription | Recommends that you remove deprecated accounts from your subscriptions. |
-| Remove deprecated accounts with owner permissions from subscription | Recommends that you remove deprecated accounts with owner permissions from your subscriptions. |
+|Resource type|Secure score|Recommendation|Description|
+|----|----|----|----|
+|Subscription|50|Enable MFA for Azure Management App accounts with owner permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with administrator privileges to prevent a breach of accounts or resources.|
+|Subscription|50|Enable security center on your subscriptions |Enable Security center on all your subscriptions for advanced threat detection, JIT , application whitelisting and advanced recommendations |
+|Subscription|50|Enable security center standard tier on your subscriptions |Enable Security center Standard Tier on all your subscriptions for advanced threat detection, JIT , application whitelisting and advanced recommendations.|
+|Subscription|40|Enable MFA for Azure Management App accounts with write permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources.|
+|Subscription|30|Remove external accounts with owner permissions from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
+|Subscription|30|Enable MFA for Azure Management App accounts with read permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
+|Subscription|25|Remove external accounts with write permissions from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
+|Subscription|20|Remove  deprecated accounts with owner permissions from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
+|Subscription|5|Remove deprecated accounts from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
+|Subscription|5|Designate more than one owner on your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
+|Subscription|5|Designate up to 3 owners on your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
+|Key vault|5|Enable diagnostic logs in Key Vault|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|Subscription|15|Remove external accounts with read permissions from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.|
+|Subscription|1|Provide security contact details|Provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information is used to contact you if our security team finds that your resources are compromised|
+
+> ![NOTE]
+> If you created a conditional access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
+>
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:

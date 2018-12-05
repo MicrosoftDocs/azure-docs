@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: juliako
 
 ---
@@ -71,7 +71,6 @@ Following table provides a guide to comparing the two Channel types supported in
 | Support for inserting slates |No |Yes |
 | Support for ad signaling |No |Yes |
 | Pass-through CEA 608/708 captions |Yes |Yes |
-| Ability to recover from brief stalls in contribution feed |Yes |No (Channel will begin slating after 6+ seconds w/o input data) |
 | Support for non-uniform input GOPs |Yes |No – input must be fixed 2sec GOPs |
 | Support for variable frame rate input |Yes |No – input must be fixed frame rate.<br/>Minor variations are tolerated, for example, during high motion scenes. But encoder cannot drop to 10 frames/sec. |
 | Auto-shutoff of Channels when input feed is lost |No |After 12 hours, if there is no Program running |
