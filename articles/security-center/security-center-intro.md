@@ -29,7 +29,7 @@ Azure Security Center addresses the three most urgent security challenges:
 -   **Rapidly changing workloads** – It’s both a strength and a challenge of the cloud. On the one hand, end users are empowered to do more. On the other, how do you make sure that the ever-changing services people are using and creating are up to your security standards and follow security best
     practices?
 
--   **Increasingly sophisticated attacks** - Wherever you run your workloads, the attacks keep getting more sophisticated. You have to secure your public cloud workloads, which is, in effect, an Internet facing workload that can leave you even more vulnerable if you don't follow security best practices.
+-   **Increasingly sophisticated attacks** - Wherever you run your workloads, the attacks keep getting more sophisticated. You have to secure your public cloud workloads, which are, in effect, an Internet facing workload that can leave you even more vulnerable if you don't follow security best practices.
 
 -   **Security skills are in short supply** - The number of security alerts and alerting systems far outnumbers the number of administrators with the necessary background and experience far to make sure your environments are protected. Staying up-to-date with the latest attacks is a constant challenge, making it impossible to stay in place while the world of security is an ever-changing front.
 
@@ -40,7 +40,7 @@ you with the tools to:
 
 -   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and threat detection alerts.
 
--   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto-provisioning and protection with Azure services.
+-   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with autoprovisioning and protection with Azure services.
 
 ## Architecture
 
@@ -52,7 +52,7 @@ The events collected from the agents and from Azure are correlated in the securi
 
 ## Strengthen security posture
 
-Azure Security Center enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data centers and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your
+Azure Security Center enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data centers, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your
 network security estate.
 
 ### Manage organization security policy and compliance
@@ -116,7 +116,7 @@ In addition, Security Center lets you automate application control policies on s
 
 ### Protect PaaS
 
-Security Center helps you detect threats across Azure PaaS services. You can detect threats targeting Azure services including Azure App Service, Azure SQL, Azure Storage Account and more data services. You can also take advantage of the native integration with Microsoft Cloud App Security's User and Entity
+Security Center helps you detect threats across Azure PaaS services. You can detect threats targeting Azure services including Azure App Service, Azure SQL, Azure Storage Account, and more data services. You can also take advantage of the native integration with Microsoft Cloud App Security's User and Entity
 Behavioral Analytics (UEBA) to perform anomaly detection on your Azure activity logs.
 
 ### Block brute force attacks
