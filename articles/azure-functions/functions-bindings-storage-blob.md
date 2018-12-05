@@ -25,7 +25,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Use the Event Grid trigger instead of the Blob storage trigger for Blob storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section. 
+> Use the Event Grid trigger instead of the Blob storage trigger for Blob storage accounts, for high scale, or to reduce latency. For more information, see the [Trigger](#trigger) section. 
 
 ## Packages - Functions 1.x
 
