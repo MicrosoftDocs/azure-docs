@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 11/30/2018
+ms.date: 12/05/2018
 ms.author: jdial
 ms.custom: mvc
 ---
@@ -32,13 +32,13 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Create a resource group and a virtual network
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [`az group create`](/cli/azure/group#az_group_create). This example creates a resource group named *myResourceGroup* in the *eastus* location:
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). This example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [`az network vnet create`](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -53,7 +53,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [`az vm create`](/cli/azure/vm#az_vm_create).
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create).
 
 > [!TIP]
 > If SSH keys don't already exist in a default key location, the command creates them.
@@ -122,7 +122,7 @@ Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [`az group delete`](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
+When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
