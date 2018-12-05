@@ -16,7 +16,7 @@ ms.custom: mvc
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In this article, we show you how to deploy the [CoScale](https://www.coscale.com/) agent to monitor all nodes and containers in your Kubernetes cluster in Azure Container Service. You need an account with CoScale for this configuration. 
+In this article, we show you how to deploy the [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) agent to monitor all nodes and containers in your Kubernetes cluster in Azure Container Service. You need an account with CoScale for this configuration. 
 
 
 ## About CoScale 
