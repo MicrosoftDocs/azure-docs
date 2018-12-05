@@ -615,6 +615,7 @@ This section describes the global configuration settings available for this bind
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            }
         }
     }
 }

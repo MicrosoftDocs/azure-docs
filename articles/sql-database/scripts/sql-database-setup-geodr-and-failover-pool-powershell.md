@@ -3,7 +3,7 @@ title: PowerShell example-active geo-replication-pooled Azure SQL database | Mic
 description: Azure PowerShell example script to set up active geo-replication for a pooled Azure SQL database and fail it over.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample

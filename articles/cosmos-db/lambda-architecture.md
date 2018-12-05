@@ -6,7 +6,6 @@ services: cosmos-db
 ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
-ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2018
 ---
