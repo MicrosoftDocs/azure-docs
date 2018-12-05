@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 01/26/2018
+ms.date: 12/05/2018
 ---
 
 # What is Azure Time Series Insights?
@@ -31,7 +31,7 @@ If you are unsure if your data is time series, here is what you should know.  Ti
 
 ## Video
 
-### In this video, we provide an overview of Time Series Insights, a cloud-based IoT analytics platform.</br>
+In this video, we provide an overview of Time Series Insights, a cloud-based IoT analytics platform.
 
 > [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
