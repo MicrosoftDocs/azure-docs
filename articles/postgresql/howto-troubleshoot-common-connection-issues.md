@@ -3,7 +3,7 @@ title: Troubleshoot connection issues to Azure Database for PostgreSQL | Microso
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell

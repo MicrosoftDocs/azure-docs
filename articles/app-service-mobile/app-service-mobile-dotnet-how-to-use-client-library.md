@@ -1170,7 +1170,7 @@ public class MyHandler : DelegatingHandler
 [7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [8]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
-[10]: http://www.symbolsource.org/
+[10]: https://github.com/SymbolSource/SymbolSource
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
