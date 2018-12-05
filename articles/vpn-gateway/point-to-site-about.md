@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/05/2018
 ms.author: cherylmc
 
 ---
@@ -72,10 +72,11 @@ The zip file also provides the values of some of the important settings on the A
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
+## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
+* For more information about gateway SKUs, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 >[!NOTE]
 >The Basic SKU does not support IKEv2 or RADIUS authentication.
