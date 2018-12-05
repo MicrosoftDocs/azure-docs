@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Best practices for storage and backups in Azure Kubernetes Service (AKS)
 
-As you create and manage clusters in Azure Kubernetes Service (AKS), your applications often need storage.
+As you create and manage clusters in Azure Kubernetes Service (AKS), your applications often need storage. It's important to understand the performance needs and access methods for pods so that you can provide the appropriate storage to applications. The AKS node size may impact these storage choices. You should also plan for ways to back up and test the restore process for attached storage.
 
 This best practices article focuses on storage considerations for cluster operators. In this article, you learn:
 
@@ -26,18 +26,18 @@ This best practices article focuses on storage considerations for cluster operat
 
 **Best practice guidance** - Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for network-based storage when there is a need for multiple concurrent connections.
 
-Applications often require different types and speeds of storage. Do your applications need storage that connects to individual pods, or that is shared across multiple pods? Is the storage for read-only access to data, or to write large amounts of structured data? These storage needs determine the most appropriate type of storage to use.
+Applications often require different types and speeds of storage. Do your applications need storage that connects to individual pods, or shared across multiple pods? Is the storage for read-only access to data, or to write large amounts of structured data? These storage needs determine the most appropriate type of storage to use.
 
-The following table outlines storage types and their capabilities.
+The following table outlines the available storage types and their capabilities:
 
 | Use case | Volume plugin | Read/write once | Read-only many | Read/write many |
 |----------|---------------|-----------------|----------------|-----------------|
 | Shared configuration       | Azure Files   | Yes | Yes | Yes |
 | Structured app data        | Azure Disks   | Yes | No  | No  |
-| App data, read-only shares | Dysk (preview) | Yes | Yes | No  |
-| Unstructured data, file system operations | BlobFuse (preview) | Yes | Yes | Yes |
+| App data, read-only shares | [Dysk (preview)][dysk] | Yes | Yes | No  |
+| Unstructured data, file system operations | [BlobFuse (preview)][blobfuse] | Yes | Yes | Yes |
 
-The two primary types of storage provided by volumes in AKS are backed by Azure Disks or Azure Files. To improve security, both types of storage use Azure Storage Service Encryption (SSE) by default to encrypt the data at rest. Disks cannot currently be encrypted using Azure Disk Encryption at the AKS node level.
+The two primary types of storage provided for volumes in AKS are backed by Azure Disks or Azure Files. To improve security, both types of storage use Azure Storage Service Encryption (SSE) by default that encrypts data at rest. Disks cannot currently be encrypted using Azure Disk Encryption at the AKS node level.
 
 Azure Files are currently available in the Standard performance tier. Azure Disks are available in Standard and Premium performance tiers:
 
@@ -46,9 +46,11 @@ Azure Files are currently available in the Standard performance tier. Azure Disk
 
 Understand the application performance needs and access patterns to choose the appropriate storage tier. For more information about Managed Disks sizes and performance tiers, see [Azure Managed Disks overview][managed-disks]
 
+### Create and use storage classes to define application needs
+
 The type of storage you use is defined using Kubernetes *storage classes*. The storage class is then referenced in the pod or deployment specification. These definitions work together to create the appropriate storage and connect it to pods. For more information, see [Storage classes in AKS][aks-concepts-storage-classes].
 
-## Size the nodes for performance and attached disks
+## Size the nodes for storage needs
 
 **Best practice guidance** - Each node size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth. Plan for your application demands to deploy the appropriate size of nodes.
 
@@ -83,7 +85,7 @@ As part of your storage class definitions, set the appropriate *reclaimPolicy*. 
 
 For more information about storage class options, see [storage reclaim policies][reclaim-policy].
 
-## Secure and backup your data
+## Secure and back up your data
 
 **Best practice guidance** - Back up your data using an appropriate tool for your storage type, such as Heptio Ark or Azure Site Recovery. Verify the integrity, and security, of those backups.
 
@@ -97,6 +99,8 @@ This article focused on storage best practices in AKS. For more information abou
 
 <!-- LINKS - External -->
 [heptio-ark]: https://github.com/heptio/ark
+[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
+[blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
