@@ -135,7 +135,6 @@ Follow these steps to prepare the development environment for DevKit:
     
     Add following lines to configure Arduino depending on your platform: 
 
-
     * **Windows**:
       
         ```json
