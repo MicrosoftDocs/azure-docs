@@ -13,7 +13,7 @@ metadata:
   ms.devlang:
   ms.topic: overview
   ms.date: 12/05/2018
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 abstract:
   description: Azure SQL Database Managed Instance is a fully managed SQL Server Database Engine Instance hosted in Azure cloud. This is the best PaaS option for migrating your SQL Server database to the cloud. Learn how to create and use Managed Instance with our quickstarts, tutorials, and samples.
   aside:
@@ -65,7 +65,7 @@ sections:
   - type: paragraph
     text: 'We are continously improving Managed Instance with new features:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Business Critical service tier</a> is now in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">General Availability (GA)</a>.
     - html: (Preview) <a href="https://aka.ms/managed-instance-aadlogins">Create Azure AD logins</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
