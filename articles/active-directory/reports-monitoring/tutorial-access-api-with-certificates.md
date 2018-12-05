@@ -37,7 +37,7 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
     - Access tokens from user, application keys, and certificates using ADAL
     - Graph API handling paged results
 
-4. If it's your first time using the module run **Install-MSCloudIdUtilsModule**, otherwise import it using the **Import-Module** Powershell command. Your session should look similar to this screen:
+4. If it's your first time using the module run **Install-Module -Name MSCloudIdUtils**, otherwise import it using the **Import-Module** Powershell command. Your session should look similar to this screen:
 
         ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
