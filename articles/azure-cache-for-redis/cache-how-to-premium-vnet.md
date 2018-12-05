@@ -1,7 +1,7 @@
 ---
 title: Configure a Virtual Network for a Premium Azure Cache for Redis | Microsoft Docs
 description: Learn how to create and manage Virtual Network support for your Premium tier Azure Cache for Redis instances
-services: redis-cache
+services: azure-cache-for-redis
 documentationcenter: ''
 author: wesmc7777
 manager: cfowler
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: cache-redis
+ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017

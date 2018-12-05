@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script Sample - Create a Premium Azure Cache for Redis with clustering | Microsoft Docs
 description: Azure CLI Script Sample - Create a Premium tier Azure Cache for Redis with clustering
-services: redis-cache
+services: azure-cache-for-redis
 documentationcenter: ''
 author: wesmc7777
 manager: cfowler

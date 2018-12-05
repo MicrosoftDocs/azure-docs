@@ -1,14 +1,14 @@
 ---
 title: What is Azure Cache for Redis? | Microsoft Docs
 description: Learn what Azure Cache for Redis is and how it is commonly used.
-services: redis-cache
+services: azure-cache-for-redis
 documentationcenter: ''
 author: wesmc7777
 manager: cfowler
 editor: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: cache-redis
+ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/26/2018
