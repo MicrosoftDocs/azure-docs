@@ -139,7 +139,9 @@ The `Eula` configuration setting indicates that you've accepted the license for 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](face-how-to-install-containers.md#billing).
 
-Cognitive Services containers are licensed under your agreement governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the Microsoft Online Subscription Agreement (which incorporates the Online Services Terms). For previews, you also agree to the Supplemental Terms of Use for Microsoft Azure Previews. By using the container you agree to these terms.
+Cognitive Services containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755) (which incorporates the [Online Services Terms](https://go.
+microsoft.com/fwlink/?linkid=2018760)). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](http
+s://go.microsoft.com/fwlink/?linkid=2018815). By using the container you agree to these terms.
 
 ## Fluentd configuration settings
 
