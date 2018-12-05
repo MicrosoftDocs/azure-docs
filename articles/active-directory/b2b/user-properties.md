@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/25/2017
+ms.date: 12/5/2018
 
 ms.author: mimart
 author: msmimart
@@ -23,31 +23,43 @@ Depending on the inviting organization's needs, an Azure AD B2B collaboration us
 
 - State 1: Homed in an external instance of Azure AD and represented as a guest user in the inviting organization. In this case, the B2B user signs in by using an Azure AD account that belongs to the invited tenant. If the partner organization doesn't use Azure AD, the guest user in Azure AD is still created. The requirements are that they redeem their invitation and Azure AD verifies their email address. This arrangement is also called a just-in-time (JIT) tenancy or a "viral" tenancy.
 
-- State 2: Homed in a Microsoft account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account. The invited user's social identity (google.com or similar), which is not a Microsoft account, is created as a Microsoft account during offer redemption.
+- State 2: Homed in a Microsoft account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account, a social account (google.com or similar), or another external identity provider. The invited user's identity is created as a Microsoft account in inviting organization’s  directory during offer redemption.
 
-- State 3: Homed in the host organization's on-premises Active Directory and synced with the host organization's Azure AD. During this release, you must use PowerShell to manually change the UserType of such users in the cloud.
+- State 3: Homed in the host organization's on-premises Active Directory and synced with the host organization's Azure AD. You can use Azure AD Connect to sync the partner accounts to the cloud as Azure AD B2B users with UserType = Guest. See [Grant locally-managed partner accounts access to cloud resources](hybrid-on-premises-to-cloud.md).
 
-- State 4: Homed in host organization's Azure AD with UserType = Guest and credentials that the host organization manages.
+- State 4: Homed in the host organization's Azure AD with UserType = Guest and credentials that the host organization manages.
 
   ![Displaying the inviter's initials](media/user-properties/redemption-diagram.png)
 
 
-Now, let's see what an Azure AD B2B collaboration user in State 1 looks like in Azure AD.
+Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 ### Before invitation redemption
+
+State 1 and State 2 accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your directory. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Source** property for the guest user account in your directory is set to **Invited user**. 
 
 ![Before offer redemption](media/user-properties/before-redemption.png)
 
 ### After invitation redemption
 
-![After offer redemption](media/user-properties/after-redemption.png)
+After the guest user accepts the invitation, the **Source** property is updated based on the guest user’s identity provider.
+
+For guest users in State 1, the **Source** is **External Azure Active Directory**.
+
+![State 1 guest user after offer redemption](media/user-properties/after-redemption-state1.png)
+
+For guest users in State 2,  the **Source** is **Microsoft Account**.
+
+![State 2 guest user after offer redemption](media/user-properties/after-redemption-state2.png)
+
+For guest users in State 3 and State 4, the **Source** property is set to **Azure Active Directory** or **Windows Server Active Directory**, as described in the next section.
 
 ## Key properties of the Azure AD B2B collaboration user
 ### UserType
 This property indicates the relationship of the user to the host tenancy. This property can have two values:
-- Member: This value indicates an employee of the host organization and a user in the organization's payroll. For example, this user expects to have access to internal-only sites. This user would not be considered an external collaborator.
+- Member: This value indicates an employee of the host organization and a user in the organization's payroll. For example, this user expects to have access to internal-only sites. This user is not considered an external collaborator.
 
-- Guest: This value indicates a user who isn't considered internal to the company, such as an external collaborator, partner, customer, or similar user. Such a user wouldn't be expected to receive a CEO's internal memo, or receive company benefits, for example.
+- Guest: This value indicates a user who isn't considered internal to the company, such as an external collaborator, partner, or customer. Such a user isn't expected to receive a CEO's internal memo or receive company benefits, for example.
 
   > [!NOTE]
   > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
@@ -75,17 +87,17 @@ Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azu
 ![Filter guest users](media/user-properties/filter-guest-users.png)
 
 ## Convert UserType
-Currently, it is possible for users to convert UserType from Member to Guest and vice-versa by using PowerShell. However, the UserType property is supposed to represent the user's relationship to the organization. Therefore, the value of this property should change only if the relationship of the user to the organization changes. If the relationship of the user changes, should issues, like whether the user principal name (UPN) should change, be addressed? Should the user continue to have access to the same resources? Should a mailbox be assigned? Therefore, we do not recommend changing the UserType by using PowerShell as an atomic activity. In addition, in case this property becomes immutable by using PowerShell, we do not recommend taking a dependency on this value.
+It's possible to convert UserType from Member to Guest and vice-versa by using PowerShell. However, the UserType property represents the user's relationship to the organization. Therefore, you should change this property only if the relationship of the user to the organization changes. If the relationship of the user changes, should the user principal name (UPN) change? Should the user continue to have access to the same resources? Should a mailbox be assigned? We don't recommend changing the UserType by using PowerShell as an atomic activity. Also, in case this property becomes immutable by using PowerShell, we don't recommend taking a dependency on this value.
 
 ## Remove guest user limitations
 There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members.
 
-It is possible to turn off the default guest user limitations so that a guest user in the company directory is given the same permissions as a member user.
+It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user.
 
 ![Remove guest user limitations](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
-Yes. By default, guest objects are not visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
+Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
 
 ## Next steps
 
