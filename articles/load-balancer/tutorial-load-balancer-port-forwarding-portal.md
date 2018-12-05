@@ -170,10 +170,10 @@ You created your load balancer back-end pool and added VMs to it when you create
 1. On the **Backend pools** page, expand **MyBackendPool** and make sure both **VM1** and **VM2** are listed.
 
 1. Select **MyBackendPool**. 
-
-1. On the **MyBackendPool** page, under **VIRTUAL MACHINE** and **IP ADDRESS**, you can remove or add available VMs to the pool.
    
-1. To create a new back-end pool, select **Add** on the **Backend pools** page.
+   On the **MyBackendPool** page, under **VIRTUAL MACHINE** and **IP ADDRESS**, you can remove or add available VMs to the pool.
+
+You can create new back-end pools by selecting **Add** on the **Backend pools** page.
 
 ### Create a health probe
 
