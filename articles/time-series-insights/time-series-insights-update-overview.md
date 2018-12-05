@@ -51,34 +51,16 @@ Below is a high-level data flow diagram that depicts the updated capabilities:
 
   ![Key capabilities][2]
 
-With the introduction of these key industrial IoT capabilities, Azure TSI provides the following key benefits.
+With the introduction of these key industrial IoT capabilities, Azure TSI provides the following key benefits:
 
-* Multi-layered storage for IoT-scale time series data
-
-  * With a common data processing pipeline for ingesting data, customers have the ability store data in warm storage for interactive queries and/or cold storage for storing large volumes of data and take advantage of highly performant, asset-based queries.
-
-  * Dynamic routing across storage layers is coming soon.
-
-* Time series model for contextualizing raw telemetry and deriving asset-based insights
-
-  * Customers can contextualize raw telemetry data with descriptive time series model and derive rich operational intelligence with highly performance- and cost-optimized device-based queries.
-
-* Seamless integration with other data solutions
-  
-  * Since data in Azure TSI is stored in open-sourced Apache Parquet files, customers can easily integrate with other data solutions (first or third party) for end-to-end scenarios including business intelligence, advanced machine learning, predictive analytics, etc.
-
-* Near real-time data exploration
-
-  * Azure TSI explorer user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness.
-
-* Root-cause analysis and anomaly detection
-
-  * Azure TSI explorer supports patterns and perspective views to conduct and save multi-step root-cause analysis. In combination with Azure Stream Analytics, customers can use Time Series Insights to detect alerts and anomalies in near real-time.
-
-* Build custom applications on TSI platform
-
-  * Azure TSI supports JavaScript SDK with rich controls and simplified access to queries to enable customers to build custom IoT applications on top of TSI platform to suit the needs of individual businesses.
-  * Customers can also use TSI query APIs directly to drive data into custom IoT applications.
+| | |
+| ---| ---|
+| **Multi-layered storage for IoT-scale time series data** | With a common data processing pipeline for ingesting data, customers have the ability store data in warm storage for interactive queries and/or cold storage for storing large volumes of data. Customers can take advantage of highly performant, asset-based, [queries](./time-series-insights-update-tsq.md). |
+| **Time Series Model for contextualizing raw telemetry and deriving asset-based insights** | Customers can contextualize raw telemetry data with the descriptive [Time Series Model](./time-series-insights-update-tsm.md) and derive rich operational intelligence with highly performance- and cost-optimized device-based queries. |
+| **Seamless integration with other data solutions** | Since data in Azure TSI is [stored](./time-series-insights-update-storage-ingress.md) in open-sourced Apache Parquet files, customers can easily integrate with other data solutions (first or third party) for end-to-end scenarios including business intelligence, advanced machine learning, predictive analytics, etc. |
+| **Near real-time data exploration** | [Azure TSI explorer](./time-series-insights-update-explorer.md) user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after connecting an event source, customers can view, explore, and query event data for validating whether a device is emitting data as expected and monitoring an IoT asset for health, productivity, and overall effectiveness. |
+| **Root-cause analysis and anomaly detection** | [Azure TSI explorer](./time-series-insights-update-explorer.md) supports both pattern and perspective views to conduct and save multi-step, root-cause, analysis. In combination with Azure Stream Analytics, customers can use Azure TSI to detect alerts and anomalies in near real-time. |
+| **Build custom applications on TSI platform** | Azure TSI supports the [JavaScript SDK](./tutorial-explore-js-client-lib.md). The SDK provides rich controls and simplified access to queries. The SDK enables customers to build custom IoT applications on top of Azure TSI to suit their specific business needs. Customers can also use the Azure TSI [Query APIs](./time-series-insights-update-tsq.md) directly to drive data into custom IoT applications. |
 
 ## Next steps
 
