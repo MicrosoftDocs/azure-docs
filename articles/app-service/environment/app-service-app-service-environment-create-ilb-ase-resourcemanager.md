@@ -90,7 +90,7 @@ The parameters in the *azuredeploy.parameters.json* file are listed below:
 An abbreviated example of *azuredeploy.parameters.json* is shown below:
 
     {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
          "contentVersion": "1.0.0.0",
          "parameters": {
               "appServiceEnvironmentName": {
@@ -134,6 +134,6 @@ To get started with App Service Environments, see [Introduction to App Service E
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
 

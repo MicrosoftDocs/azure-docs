@@ -69,7 +69,7 @@ To use the Maven plugin in your Maven Java app, add the following snippet to you
       ...
       <plugin>
         <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-sf-maven-plugin</artifactId>
+          <artifactId>azure-sfmesh-maven-plugin</artifactId>
           <version>0.1.0</version>
           <configuration>
             ...
