@@ -3,14 +3,14 @@ title: What is Azure Custom Vision?
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the Custom Vision service to build custom image classifiers in the Azure cloud.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
 ms.date: 10/26/2018
-ms.author: anroth
+ms.author: pafarley
 #Customer intent: As a data scientist/developer, I want to understand what the Custom Vision service does so that I can determine if it's suitable for my project.
 ---
 # What is Azure Custom Vision?
