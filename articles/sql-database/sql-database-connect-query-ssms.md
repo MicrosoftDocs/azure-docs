@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database on Azure by using SQL Server M
 keywords: connect to sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
