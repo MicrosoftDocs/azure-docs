@@ -39,7 +39,7 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 * After you meet the previous requirements, you also need a Log Analytics workspace, 
 which you use for monitoring and tracking B2B communication through Log Analytics. 
 If you don't have a Log Analytics workspace, learn 
-[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 * An integration account that's linked to your logic app. Learn 
 [how to create an integration account with a link to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).

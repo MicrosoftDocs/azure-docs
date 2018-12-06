@@ -37,19 +37,19 @@ To find out what versions are currently available for your subscription and regi
 az aks get-versions --location eastus --output table
 ```
 
-The output is similar to the following example, which shows that Kubernetes version *1.11.3* is the most recent version available:
+The output is similar to the following example, which shows that Kubernetes version *1.11.5* is the most recent version available:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ----------------------
-1.11.3               None available
-1.11.2               1.11.3
-1.10.8               1.11.2, 1.11.3
-1.10.7               1.10.8, 1.11.2, 1.11.3
-1.9.10               1.10.7, 1.10.8
-1.9.9                1.9.10, 1.10.7, 1.10.8
-1.8.15               1.9.9, 1.9.10
-1.8.14               1.8.15, 1.9.9, 1.9.10
+1.11.5               None available
+1.11.4               1.11.5
+1.10.9               1.11.4, 1.11.5
+1.10.8               1.10.9, 1.11.4, 1.11.5
+1.9.11               1.10.8, 1.10.9
+1.9.10               1.9.11, 1.10.8, 1.10.9
+1.8.15               1.9.10, 1.9.11
+1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## FAQ

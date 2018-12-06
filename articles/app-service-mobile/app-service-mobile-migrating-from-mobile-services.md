@@ -419,9 +419,9 @@ Now that your application is migrated to App Service, there are even more featur
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
 [continuously deploy]: ../app-service/app-service-continuous-deployment.md
 [Convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[curl]: https://curl.haxx.se/
 [custom domain names]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
+[Fiddler]: https://www.telerik.com/fiddler
 [general availability of Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [Logging]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -429,7 +429,7 @@ Now that your application is migrated to App Service, there are even more featur
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [performance monitoring]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
+[Postman]: https://www.getpostman.com/
 [staging slots]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
