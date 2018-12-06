@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article describes the steps you need to take to set up a page contract in Azure Active Directory B2C using custom policies. 
+You can create a page contract in Azure Active Directory (Azure AD) B2C using [custom policies](active-directory-b2c-overview-custom.md). A page contract is an assocation of elements that Azure AD B2C provides and the content that you provide. If you intend to use [Javascript](javascript-samples.md), you need to define a page contract version for all of your content definitions in your custom policy.
 
 ## Replace DataUri values
 
@@ -55,7 +55,7 @@ To set up a page contract, use the following table to find **DataUri** values.
 
 ## Next steps
 
-- Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-- Learn about how you can use JavaScript in your client-side code, see [JavaScript samples](javascript-samples.md).
+Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+
 
 
