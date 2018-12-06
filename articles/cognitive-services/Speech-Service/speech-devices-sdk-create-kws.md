@@ -1,5 +1,5 @@
 ---
-title: Create a custom wake word
+title: Create a custom wake word - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a custom wake word for the Speech Devices SDK.
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 # Create a custom wake word by using the Speech service
 
@@ -45,18 +46,18 @@ Before you can use a custom wake word with your device, you must create the wake
 
 1. Go to the [Custom Speech service portal](https://cris.ai/).
 
-1. Create a new account with the email address at which you received the invitation for Azure Active Directory. 
+1. Create a new account with the email address at which you received the invitation for Azure Active Directory.
 
     ![Create a new account](media/speech-devices-sdk/wake-word-1.png)
- 
+
 1. The **Custom Wake Word** page is not available to the public, so there is no direct link that takes you there. The Custom Speech feature requires an Azure subscriptions, but the Custom Wake Word feature doesn't. If you got the **No Subscriptions found.** error page, just replace the **"Subscriptions?errorMessage=No%20Subscriptions%20found"** with "**customkws**" in the URL, and hit ENTER. The URL should be one of these: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws or https://northeurope.cris.ai/customkws, depending on where your region is.
 
     ![The Custom Wake Word page is hidden](media/speech-devices-sdk/wake-word-4.png)
- 
+
 1. Type in the wake word of your choice, and then select **Submit the word**.
 
     ![Enter your wake word](media/speech-devices-sdk/wake-word-5.png)
- 
+
 1. It might take a few minutes for the files to be generated. You should see a spinning circle in your browser window. After a moment, an information bar appears, asking you to download a .zip file.
 
     ![Receiving the .zip file](media/speech-devices-sdk/wake-word-6.png)
@@ -71,4 +72,3 @@ To get started, get a [free Azure account](https://azure.microsoft.com/free/) an
 
 > [!div class="nextstepaction"]
 > [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
-

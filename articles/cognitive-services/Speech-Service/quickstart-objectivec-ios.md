@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, Objective-C - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Objective-C on iOS using the Speech Service SDK
 services: cognitive-services

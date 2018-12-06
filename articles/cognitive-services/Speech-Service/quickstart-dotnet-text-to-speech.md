@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech, .NET Core - Speech Service"
+title: "Quickstart: Convert text-to-speech, .NET Core - Speech Services"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech with the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services

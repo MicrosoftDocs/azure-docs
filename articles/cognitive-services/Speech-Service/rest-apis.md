@@ -1,5 +1,5 @@
 ---
-title: Speech Service REST APIs - Speech Service
+title: Speech Services REST APIs - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text and text-to-speech REST APIs. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
@@ -8,8 +8,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Speech Service REST APIs

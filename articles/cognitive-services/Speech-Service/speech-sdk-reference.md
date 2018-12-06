@@ -1,5 +1,5 @@
 ---
-title: Speech SDK API reference
+title: Speech SDK API reference - Speech Services
 titleSuffix: Azure Cognitive Services
 description: References for the Speech SDK.
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Speech SDK API reference

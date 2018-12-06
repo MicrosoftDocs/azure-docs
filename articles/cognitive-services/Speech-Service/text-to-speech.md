@@ -1,5 +1,5 @@
 ---
-title: About Text to Speech - Speech Service
+title: About Text to Speech - Speech Services
 titleSuffix: Azure Cognitive Services
 description: The Text-to-Speech API offers more than 75 voices in more than 45 languages and locales. To use standard voice fonts, you only need to specify the voice name with a few other parameters when you call the Speech Service.
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # About the Text to Speech API

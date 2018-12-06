@@ -1,11 +1,10 @@
 ---
-title: 'Quickstart: Recognize speech in Java (Windows or Linux)'
+title: 'Quickstart: Recognize speech, Java - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java (Windows or Linux)
 services: cognitive-services
 author: fmegen
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech in C# in a UWP app by using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, C# (UWP) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in a UWP app by using the Speech Service SDK
 services: cognitive-services
@@ -30,7 +30,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 1. Start Visual Studio 2017.
 
-1. Make sure the **Universal Windows Platform development** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog box. 
+1. Make sure the **Universal Windows Platform development** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog box.
 
     ![Screenshot of Visual Studio installer, with Workloads tab highlighted](media/sdk/vs-enable-uwp-workload.png)
 

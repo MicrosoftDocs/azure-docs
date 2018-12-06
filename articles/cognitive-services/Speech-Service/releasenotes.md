@@ -1,5 +1,5 @@
 ---
-title: Speech Service SDK Documentation
+title: Release Notes - Speech Services
 titlesuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Release notes

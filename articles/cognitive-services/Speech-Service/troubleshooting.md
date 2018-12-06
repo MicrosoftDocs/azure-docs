@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot the Speech Service SDK
+title: Troubleshoot the Speech SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Troubleshoot the Speech Service SDK.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 # Troubleshoot the Speech Service SDK
 
@@ -18,7 +18,7 @@ This article provides information to help you solve issues you might encounter w
 
 ## Error: WebSocket Upgrade failed with an authentication error (403)
 
-You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct. 
+You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct.
 
 Also, there might be a problem with your subscription key or authorization token. For more information, see the next section.
 
@@ -73,19 +73,19 @@ If you use an authorization token for authentication, run one of the following c
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -117,4 +117,3 @@ This issue usually is caused by audio data. You might see this error because:
 ## Next steps
 
 * [Review the release notes](releasenotes.md)
-

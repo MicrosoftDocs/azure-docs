@@ -1,5 +1,5 @@
 ---
-title: About the Speech Service SDK
+title: About the Speech Service SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: An overview of the SDKs available for the Speech Service.
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # About the Speech Service SDK
@@ -31,7 +32,7 @@ For Windows, we support the following languages:
   You can reference and use the latest version of our Speech SDK NuGet package. The package includes 32-bit and 64-bit client libraries and managed (.NET) libraries. The SDK can be installed in Visual Studio by using NuGet. Search for **Microsoft.CognitiveServices.Speech**.
 
 * Java:
-  You can reference and use the latest version of our Speech SDK Maven package, which supports only Windows x64. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` as a dependency. 
+  You can reference and use the latest version of our Speech SDK Maven package, which supports only Windows x64. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` as a dependency.
 
 ### Linux
 
@@ -53,7 +54,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   ```
 
 * Java:
-  You can reference and use the latest version of our Speech SDK Maven package. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` as a dependency. 
+  You can reference and use the latest version of our Speech SDK Maven package. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` as a dependency.
 
 * C++: Download the SDK as a [.tar package](https://aka.ms/csspeech/linuxbinary) and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
 

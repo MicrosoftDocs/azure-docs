@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK license agreement
+title: Speech Devices SDK license agreement - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK license agreement.
 services: cognitive-services
@@ -9,12 +9,13 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 # Speech Devices SDK license agreement
 
-## MICROSOFT SOFTWARE LICENSE TERMS<br>SPEECH DEVICES SOFTWARE DEVELOPMENT KIT (SDK) 
+## MICROSOFT SOFTWARE LICENSE TERMS<br>SPEECH DEVICES SOFTWARE DEVELOPMENT KIT (SDK)
 
 > IF YOU LIVE IN (OR ARE A BUSINESS WITH YOUR PRINCIPAL PLACE OF BUSINESS IN) THE UNITED STATES, PLEASE READ THE "BINDING ARBITRATION AND CLASS ACTION WAIVER" SECTION BELOW. IT AFFECTS HOW DISPUTES ARE RESOLVED.
 
@@ -52,7 +53,7 @@ f)	You must use the software only in combination with Microsoft Azure Cognitive 
 
 **5\. FEEDBACK.** If you give feedback about the software to Microsoft, you give to Microsoft, without charge, the right to use, share and commercialize your feedback in any way and for any purpose. You will not give feedback that is subject to a license that requires Microsoft to license its software or documentation to third parties because Microsoft includes your feedback in them. These rights survive this agreement.
 
-**6\. PERIOD.** This agreement is effective on your acceptance and may be terminated by you or Microsoft at any time. 
+**6\. PERIOD.** This agreement is effective on your acceptance and may be terminated by you or Microsoft at any time.
 
 **7\. TERMINATION.** Without prejudice to any other rights, Microsoft may terminate this agreement if you fail to comply with any of its terms or conditions. In such event, you must destroy all copies of the software and all of its component parts.
 

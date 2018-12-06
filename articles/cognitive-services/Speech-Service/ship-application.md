@@ -1,5 +1,5 @@
 ---
-title: Speech Service SDK API documentation - Tutorials, API reference
+title: Develop apps with the Speech SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Learn how to create and develop apps with the Speech Service SDK
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Ship an application

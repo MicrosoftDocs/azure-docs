@@ -1,5 +1,5 @@
 ---
-title: About Speech Translation
+title: About Speech Translation - Speech Services
 titlesuffix: Azure Cognitive Services
 description: An overview of the capabilities of Speech Translation
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # About the Speech Translation API

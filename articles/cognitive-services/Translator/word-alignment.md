@@ -8,8 +8,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 12/06/2018
 ms.author: v-jansko
+ms.custom: seodec18
 ---
 
 # How to receive word alignment information
