@@ -201,7 +201,7 @@ For agentless monitoring of Azure resources, the resources need to have Azure di
 | Load Balancers          | Yes | |
 | Logic Apps              | Yes | Yes |
 | Network Security Groups | Yes | |
-| Redis Cache             |     | Yes |
+| Azure Cache for Redis             |     | Yes |
 | Search services         | Yes | Yes |
 | Service Bus namespace   |     | Yes |
 | SQL (v12)               |     | Yes |

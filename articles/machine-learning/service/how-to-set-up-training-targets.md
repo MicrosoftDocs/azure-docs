@@ -133,7 +133,8 @@ You can create Azure Machine Learning Compute on-demand when you schedule a run,
 
 You can create Azure Machine Learning Compute as a compute target at run-time. In this case, the compute is automatically created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes.
 
-This functionality is currently in Preview state, and will not work with Hyperparameter Tuning or Automated Machine Learning jobs.
+> [!IMPORTANT]
+> Run-based creation of Azure Machine Learning compute is currently in Preview state. Do not use run-based creation if you are using Hyperparameter Tuning or Automated Machine Learning. If you need to use Hyperparameter Tuning or Automated Machine Learning, create the Azure Machine Learning compute before submitting a run.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

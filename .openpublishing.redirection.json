@@ -3967,7 +3967,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-session-state-caching.md",
-            "redirect_url": "/azure/redis-cache/cache-aspnet-session-state-provider",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-aspnet-session-state-provider",
             "redirect_document_id": false
         },
         {
@@ -7982,17 +7982,17 @@
         },
         {
             "source_path": "articles/cache/cache-dotnet-how-to-use-in-role.md",
-            "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#in-role-cache",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#in-role-cache",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/cache/cache-dotnet-how-to-use-service.md",
-            "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#managed-cache-service",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#managed-cache-service",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/cache/index.md",
-            "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#managed-cache-service",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#managed-cache-service",
             "redirect_document_id": false
         },
         {
@@ -19872,6 +19872,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/storage/common/storage-lifecycle-management-concepts.md",
+            "redirect_url": "/azure/storage/blobs/storage-lifecycle-management-concepts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/storage/blobs/storage-dotnet-how-to-use-blobs.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -24162,7 +24167,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/redis-cache/cache-java-spring-boot-initializer-with-redis-cache.md",
+            "source_path": "articles/azure-cache-for-redis/cache-java-spring-boot-initializer-with-redis-cache.md",
             "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
             "redirect_document_id": false
         },

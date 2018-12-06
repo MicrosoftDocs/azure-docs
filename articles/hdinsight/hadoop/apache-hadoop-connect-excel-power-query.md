@@ -74,4 +74,4 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 [image-hdi-powerquery-importdata]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importdata.png
 [image-hdi-powerquery-imported-table]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importedtable.PNG
 
-[powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
+[powerquery-download]: https://go.microsoft.com/fwlink/?LinkID=286689

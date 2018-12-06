@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/06/2018
 ---
 
 # How to diagnose and troubleshoot

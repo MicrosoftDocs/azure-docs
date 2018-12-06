@@ -1,5 +1,5 @@
 ---
-title: Train machine learning models using an Estimator class with Azure Machine Learning
+title: Train ML models using an Estimator class with Azure Machine Learning service
 description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning services Estimator class
 ms.author: minxia
 author: mx-iao
@@ -9,9 +9,11 @@ ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
+ms.custom: seodec12
+
 ---
 
-# How to train models with Azure Machine Learning
+# Train models with Azure Machine Learning
 
 Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
 
