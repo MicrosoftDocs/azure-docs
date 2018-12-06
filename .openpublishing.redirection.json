@@ -11606,6 +11606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
             "redirect_document_id": false
@@ -27474,7 +27479,127 @@
         },
         {
             "source_path": "articles/storage/data-lake-storage/index.md",
-            "redirect_url": "/azure/storage/data-lake-storage/introduction",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/abfs-driver.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-abfs-driver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-data-lake-storage-access-control.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-data-lake-storage-best-practices.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/compatible-oss-other-applications.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-compatible-oss-other-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/data-scenarios.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-evaluation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/handle-data-using-databricks.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-handle-data-using-databricks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/introduction-abfs-uri.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction-abfs-uri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/introduction.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/namespace.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-namespace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-guidance.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-mapreduce.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-mapreduce",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-spark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-storm.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-storm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-databricks-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/tutorial-extract-transform-load-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/using-databricks-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/use-distcp.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-tutorial-use-distcp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/use-hdfs-data-lake-storage.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/use-hdi-cluster.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/known-issues.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-known-issues",
             "redirect_document_id": false
         },
         {
@@ -31519,6 +31644,56 @@
         {
             "source_path":  "articles/log-analytics/log-analytics-om-agents.md",
             "redirect_url":  "/azure/azure-monitor/platform/om-agents",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-windows-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-windows-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-cli.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-posh.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-posh",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-service-providers.md",
+            "redirect_url":  "/azure/azure-monitor/platform/service-providers",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-standard-properties.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-standard-properties",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-template-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/template-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-response.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-response",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-viewdata.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-viewdata",
             "redirect_document_id":  true
         },
         {

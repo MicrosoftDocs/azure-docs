@@ -104,7 +104,7 @@ that monitors your cloud and on-premises environments
 to help you maintain their availability and performance. 
 
 Before you start, you need to have a Log Analytics workspace. Learn 
-[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your logic app. 

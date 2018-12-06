@@ -1,16 +1,12 @@
 ---
-title: Working with dates in Azure Cosmos DB | Microsoft Docs
+title: Working with dates in Azure Cosmos DB
 description: Learn about how to work with dates in Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: sngun
-
 ---
 # Working with Dates in Azure Cosmos DB
 Azure Cosmos DB delivers schema flexibility and rich indexing via a native [JSON](http://www.json.org) data model. All Azure Cosmos DB resources including databases, containers, documents, and stored procedures are modeled and stored as JSON documents. As a requirement for being portable, JSON (and Azure Cosmos DB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 

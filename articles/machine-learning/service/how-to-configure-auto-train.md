@@ -28,7 +28,11 @@ Configuration options available in automated machine learning:
 * Register and deploy model
 
 ## Select your experiment type
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting. Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting. 
+
+While automated machine learning capabilities are generally available, **forecasting is still in public preview.**
+
+Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
 Classification | Regression | Forecasting
 |-- |-- |--
@@ -301,6 +305,8 @@ root_mean_squared_log_error|Root mean squared log error is the square root of th
 normalized_root_mean_squared_log_error|Noramlized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
 
 ## Explain the model
+
+While automated machine learning capabilities are generally available, **the model explainability feature is still in public preview.**
 
 Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (X_valid) to get feature importance.
 
