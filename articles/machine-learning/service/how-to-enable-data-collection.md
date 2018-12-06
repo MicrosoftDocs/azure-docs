@@ -9,6 +9,8 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
+ms.custom: seodec18
+
 ---
 # Collect data for models in production
 
@@ -129,7 +131,7 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-    [![Edit Service](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![Edit option](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 

@@ -23,7 +23,7 @@ You can configure [Application Insights](app-insights-overview.md) to monitor a 
 
 You need:
 
-* A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
+* A subscription to [Microsoft Azure](https://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](https://live.com).
 * Visual Studio 2013 or later.
 
 ## <a name="add"></a>1. Choose an Application Insights resource
