@@ -1,6 +1,6 @@
 ---
-title: Management solutions in Azure | Microsoft Docs
-description: Management solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using management solutions.
+title: Monitoring solutions in Azure | Microsoft Docs
+description: Monitoring solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using monitoring solutions.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,22 +17,28 @@ ms.author: bwren
 
 
 ---
-# Management solutions in Azure
-Management solutions leverage services in Azure to provide additional insight into the operation of a particular application or service. This article provides a brief overview of management solutions in Azure and details on using and installing them.
+# Monitoring solutions in Azure Monitor
+Monitoring solutions leverage services in Azure to provide additional insight into the operation of a particular application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them.
 
-Management solutions typically collect information into Log Analytics and provide log searches and views to analyze collected data. They may also leverage other services such as Azure Automation to perform actions related to the application or service.
+Monitoring solutions typically collect log data and provide queries and views to analyze collected data. They may also leverage other services such as Azure Automation to perform actions related to the application or service.
 
-You can add management solutions to your Azure subscription for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
+You can add monitoring solutions to Azure Monitor for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create monitoring solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
 
-## Using management solutions
+## Using monitoring solutions
+Open the 
+
 The **Overview** page for each Log Analytics workspace displays a tile for each solution installed in the workspace. Click on the tile for the solution to open its view which includes more detailed analysis its collected data.
+
+1. Log in to the Azure portal.
+1. Open **All services** and locate **Monitor**.
+1. Under **Insights**, select **More**.
 
 ![Overview](media/solutions/overview.png)
 
-Management solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log searches included in the solution are included with **Saved Searches** in the workspace. You can use those searches when performing ad hoc analysis in Log Analytics.
+Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log searches included in the solution are included with **Saved Searches** in the workspace. You can use those searches when performing ad hoc analysis in Log Analytics.
 
-## List installed management solutions 
-Use the following procedure to list the management solutions installed in your subscription.
+## List installed monitoring solutions 
+Use the following procedure to list the monitoring solutions installed in your subscription.
 
 1. Log in to the Azure portal.
 2. In the left pane, select **All services**.
@@ -49,19 +55,19 @@ Click on the name of a solution to open its summary page. This page displays any
 
 
 
-## Install a management solution
-Management solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure.
+## Install a monitoring solution
+Monitoring solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure.
 
-1. From the [list of solutions for your subscription](#list-installed-management-solutions), click **Add**. 
+1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), click **Add**. 
 1. To the right of **Management Solutions**, click **More**. 
-1. Locate the management solution you want and read through its description.
+1. Locate the monitoring solution you want and read through its description.
 1. Click **Create** to start the installation process.
 1. When the installation process starts, you're prompted to provide required configuration which varies for each solution. All of them require you to select a Log Analytics workspace where the solution will be installed and where its data will be collected. 
 
 ![Install a solution](media/solutions/install-solution.png)
 
 ### Install a solution from the community
-Members of the community can submit management solutions to Azure Quickstart Templates. You can install these solutions directly or download them templates for later installation.
+Members of the community can submit monitoring solutions to Azure Quickstart Templates. You can install these solutions directly or download them templates for later installation.
 
 1. Follow the process described in [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) to link a workspace and account.
 2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/). 
@@ -73,7 +79,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 
 ## Log Analytics workspace and Automation account
-All management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
+All monitoring solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
@@ -92,13 +98,13 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 1. Scroll to the **Related Resources** section of the menu.
 1. If the **Workspace** setting is enabled, then this account is linked to a Log Analytics workspace. You can click on **Workspace** to view the details of the workspace.
 
-## Remove a management solution
-To remove an installed solution, locate it in the [list of installed solutions](#list-installed-management-solutions). Click on the name of the solution to open its summary page and then click on **Delete**.
+## Remove a monitoring solution
+To remove an installed solution, locate it in the [list of installed solutions](#list-installed-monitoring-solutions). Click on the name of the solution to open its summary page and then click on **Delete**.
 
 
 
 
 ## Next steps
-* Get a [list of management solutions from Microsoft](solutions-inventory.md).
-* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by management solutions.
+* Get a [list of monitoring solutions from Microsoft](solutions-inventory.md).
+* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by monitoring solutions.
 
