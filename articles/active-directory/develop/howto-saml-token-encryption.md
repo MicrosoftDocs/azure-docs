@@ -132,12 +132,17 @@ You'll need the application's object ID to configure token encryption using Micr
 
 ### To configure token encryption using the application manifest
 
-1. From the Azure portal, select the application and then edit the [application manifest](reference-app-manifest.md).
+1. From the Azure portal, go to **Azure Active Directory > App registrations**.
+
+1. Select **All apps** from the dropdown to show all apps, and then select the enterprise application that you want to configure.
+
+1. In the application's page, select **Manifest** to edit the [application manifest](reference-app-manifest.md).
 
 1. Set the value for the `tokenEncryptionKeyId` attribute.
 
     The following example shows an application manifest with encryption configured.
 
+    ```
     { 
       "id": "3cca40e2-367e-45a5-8440-ed94edd6cc35",
       "accessTokenAcceptedVersion": null,
@@ -147,14 +152,15 @@ You'll need the application's object ID to configure token encryption using Micr
       "oauth2AllowUrlPathMatching": false,
       "createdDateTime": "2017-12-15T02:10:56Z",
       "groupMembershipClaims": "SecurityGroup",
+      "informationalUrls": { 
+         "termsOfService": null, 
+         "support": null, 
+         "privacy": null, 
+         "marketing": null 
+      },
       "identifierUris": [ 
-        "https://testapp" 
-        "informationalUrls": { 
-        "termsOfService": null, 
-        "support": null, 
-        "privacy": null, 
-        "marketing": null 
-        }, 
+        "https://testapp"
+      ],
       "keyCredentials": [ 
         { 
           "customKeyIdentifier": "Tog/O1Hv1LtdsbPU5nPphbMduD=", 
@@ -187,20 +193,21 @@ You'll need the application's object ID to configure token encryption using Micr
       "oauth2RequirePostResponse": false, 
       "orgRestrictions": [], 
       "parentalControlSettings": { 
-      "countriesBlockedForMinors": [], 
-      "legalAgeGroupRule": "Allow" 
-       }, 
+         "countriesBlockedForMinors": [], 
+         "legalAgeGroupRule": "Allow" 
+        }, 
       "passwordCredentials": [], 
       "preAuthorizedApplications": [], 
       "publisherDomain": null, 
       "replyUrlsWithType": [], 
       "requiredResourceAccess": [], 
       "samlMetadataUrl": null, 
-      "signInUrl": "https://127.0.0.1:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z", 
+      "signInUrl": "https://127.0.0.1:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z" 
       "signInAudience": "AzureADMyOrg",
       "tags": [], 
-      "tokenEncryptionKeyId":   "6b9c6e80-d251-43f3-9910-9f1f0be2e851" 
+      "tokenEncryptionKeyId": "6b9c6e80-d251-43f3-9910-9f1f0be2e851" 
     }  
+    ```
 
 ## Next steps
 
