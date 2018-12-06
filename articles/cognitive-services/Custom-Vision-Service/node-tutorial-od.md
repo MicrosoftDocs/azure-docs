@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Node.js SDK.
 services: cognitive-services
 author: areddish
-manager: davidaul
+manager: daauld
 
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 12/3/2018
+ms.date: 12/05/2018
 ms.author: areddish
 ---
 
@@ -33,7 +33,7 @@ You can download the images with the [Node.js Samples](https://github.com/Azure-
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-[!INCLUDE [python-get-images](includes/python-get-images.md)]
+[!INCLUDE [node-get-images](includes/node-get-images.md)]
 
 ## Add the code
 
@@ -43,34 +43,35 @@ Create a new file called *sample.js* in your preferred project directory.
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
 
-```Node
-from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
+```javascript
+const util = require('util');
+const TrainingApi = require("azure-cognitiveservices-customvision-training");
+const PredictionApi = require("azure-cognitiveservices-customvision-prediction");
 
-ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
+const setTimeoutPromise = util.promisify(setTimeout);
 
-# Replace with a valid key
-training_key = "<your training key>"
-prediction_key = "<your prediction key>"
+const trainingKey = "<your training key>";
+const predictionKey = "<your prediction key>";
+const sampleDataRoot = "<path to image files>";
 
-trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
+const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
 
-# Find the object detection domain
-obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
+const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
-# Create a new project
-print ("Creating project...")
-project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
+(async () => {
+    console.log("Creating project...");
+    const domains = await trainer.getDomains()
+    const objDetectDomain = domains.find(domain => domain.type === "ObjectDetection");
+    const sampleProject = await trainer.createProject("Sample Obj Detection Project", { domainId: objDetectDomain.id });
 ```
 
 ### Create tags in the project
 
-To create classification tags to your project, add the following code to the end of *sample.py*:
+To create classification tags to your project, add the following code to the end of *sample.js*:
 
-```Python
-# Make two tags in the new project
-fork_tag = trainer.create_tag(project.id, "fork")
-scissors_tag = trainer.create_tag(project.id, "scissors")
+```javascript
+    const forkTag = await trainer.createTag(sampleProject.id, "Fork");
+    const scissorsTag = await trainer.createTag(sampleProject.id, "Scissors");
 ```
 
 ### Upload and tag images
@@ -79,121 +80,143 @@ When you tag images in object detection projects, you need to specify the region
 
 To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
-```Python
-fork_image_regions = {
-    "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
-    "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
-    "fork_3": [ 0.09191177, 0.0682516545, 0.757352948, 0.6143791 ],
-    "fork_4": [ 0.254901975, 0.185898721, 0.5232843, 0.594771266 ],
-    "fork_5": [ 0.2365196, 0.128709182, 0.5845588, 0.71405226 ],
-    "fork_6": [ 0.115196079, 0.133611143, 0.676470637, 0.6993464 ],
-    "fork_7": [ 0.164215669, 0.31008172, 0.767156839, 0.410130739 ],
-    "fork_8": [ 0.118872553, 0.318251669, 0.817401946, 0.225490168 ],
-    "fork_9": [ 0.18259804, 0.2136765, 0.6335784, 0.643790841 ],
-    "fork_10": [ 0.05269608, 0.282303959, 0.8088235, 0.452614367 ],
-    "fork_11": [ 0.05759804, 0.0894935, 0.9007353, 0.3251634 ],
-    "fork_12": [ 0.3345588, 0.07315363, 0.375, 0.9150327 ],
-    "fork_13": [ 0.269607842, 0.194068655, 0.4093137, 0.6732026 ],
-    "fork_14": [ 0.143382356, 0.218578458, 0.7977941, 0.295751631 ],
-    "fork_15": [ 0.19240196, 0.0633497, 0.5710784, 0.8398692 ],
-    "fork_16": [ 0.140931368, 0.480016381, 0.6838235, 0.240196079 ],
-    "fork_17": [ 0.305147052, 0.2512582, 0.4791667, 0.5408496 ],
-    "fork_18": [ 0.234068632, 0.445702642, 0.6127451, 0.344771236 ],
-    "fork_19": [ 0.219362751, 0.141781077, 0.5919118, 0.6683006 ],
-    "fork_20": [ 0.180147052, 0.239820287, 0.6887255, 0.235294119 ]
-}
+```javascript
+    const forkImageRegions = {
+        "fork_1.jpg": [0.145833328, 0.3509314, 0.5894608, 0.238562092],
+        "fork_2.jpg": [0.294117659, 0.216944471, 0.534313738, 0.5980392],
+        "fork_3.jpg": [0.09191177, 0.0682516545, 0.757352948, 0.6143791],
+        "fork_4.jpg": [0.254901975, 0.185898721, 0.5232843, 0.594771266],
+        "fork_5.jpg": [0.2365196, 0.128709182, 0.5845588, 0.71405226],
+        "fork_6.jpg": [0.115196079, 0.133611143, 0.676470637, 0.6993464],
+        "fork_7.jpg": [0.164215669, 0.31008172, 0.767156839, 0.410130739],
+        "fork_8.jpg": [0.118872553, 0.318251669, 0.817401946, 0.225490168],
+        "fork_9.jpg": [0.18259804, 0.2136765, 0.6335784, 0.643790841],
+        "fork_10.jpg": [0.05269608, 0.282303959, 0.8088235, 0.452614367],
+        "fork_11.jpg": [0.05759804, 0.0894935, 0.9007353, 0.3251634],
+        "fork_12.jpg": [0.3345588, 0.07315363, 0.375, 0.9150327],
+        "fork_13.jpg": [0.269607842, 0.194068655, 0.4093137, 0.6732026],
+        "fork_14.jpg": [0.143382356, 0.218578458, 0.7977941, 0.295751631],
+        "fork_15.jpg": [0.19240196, 0.0633497, 0.5710784, 0.8398692],
+        "fork_16.jpg": [0.140931368, 0.480016381, 0.6838235, 0.240196079],
+        "fork_17.jpg": [0.305147052, 0.2512582, 0.4791667, 0.5408496],
+        "fork_18.jpg": [0.234068632, 0.445702642, 0.6127451, 0.344771236],
+        "fork_19.jpg": [0.219362751, 0.141781077, 0.5919118, 0.6683006],
+        "fork_20.jpg": [0.180147052, 0.239820287, 0.6887255, 0.235294119]
+    };
 
-scissors_image_regions = {
-    "scissors_1": [ 0.4007353, 0.194068655, 0.259803921, 0.6617647 ],
-    "scissors_2": [ 0.426470578, 0.185898721, 0.172794119, 0.5539216 ],
-    "scissors_3": [ 0.289215684, 0.259428144, 0.403186262, 0.421568632 ],
-    "scissors_4": [ 0.343137264, 0.105833367, 0.332107842, 0.8055556 ],
-    "scissors_5": [ 0.3125, 0.09766343, 0.435049027, 0.71405226 ],
-    "scissors_6": [ 0.379901975, 0.24308826, 0.32107842, 0.5718954 ],
-    "scissors_7": [ 0.341911763, 0.20714055, 0.3137255, 0.6356209 ],
-    "scissors_8": [ 0.231617644, 0.08459154, 0.504901946, 0.8480392 ],
-    "scissors_9": [ 0.170343131, 0.332957536, 0.767156839, 0.403594762 ],
-    "scissors_10": [ 0.204656869, 0.120539248, 0.5245098, 0.743464053 ],
-    "scissors_11": [ 0.05514706, 0.159754932, 0.799019635, 0.730392158 ],
-    "scissors_12": [ 0.265931368, 0.169558853, 0.5061275, 0.606209159 ],
-    "scissors_13": [ 0.241421565, 0.184264734, 0.448529422, 0.6830065 ],
-    "scissors_14": [ 0.05759804, 0.05027781, 0.75, 0.882352948 ],
-    "scissors_15": [ 0.191176474, 0.169558853, 0.6936275, 0.6748366 ],
-    "scissors_16": [ 0.1004902, 0.279036, 0.6911765, 0.477124184 ],
-    "scissors_17": [ 0.2720588, 0.131977156, 0.4987745, 0.6911765 ],
-    "scissors_18": [ 0.180147052, 0.112369314, 0.6262255, 0.6666667 ],
-    "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
-    "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
-}
-```
-Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
+    const scissorsImageRegions = {
+        "scissors_1.jpg": [0.4007353, 0.194068655, 0.259803921, 0.6617647],
+        "scissors_2.jpg": [0.426470578, 0.185898721, 0.172794119, 0.5539216],
+        "scissors_3.jpg": [0.289215684, 0.259428144, 0.403186262, 0.421568632],
+        "scissors_4.jpg": [0.343137264, 0.105833367, 0.332107842, 0.8055556],
+        "scissors_5.jpg": [0.3125, 0.09766343, 0.435049027, 0.71405226],
+        "scissors_6.jpg": [0.379901975, 0.24308826, 0.32107842, 0.5718954],
+        "scissors_7.jpg": [0.341911763, 0.20714055, 0.3137255, 0.6356209],
+        "scissors_8.jpg": [0.231617644, 0.08459154, 0.504901946, 0.8480392],
+        "scissors_9.jpg": [0.170343131, 0.332957536, 0.767156839, 0.403594762],
+        "scissors_10.jpg": [0.204656869, 0.120539248, 0.5245098, 0.743464053],
+        "scissors_11.jpg": [0.05514706, 0.159754932, 0.799019635, 0.730392158],
+        "scissors_12.jpg": [0.265931368, 0.169558853, 0.5061275, 0.606209159],
+        "scissors_13.jpg": [0.241421565, 0.184264734, 0.448529422, 0.6830065],
+        "scissors_14.jpg": [0.05759804, 0.05027781, 0.75, 0.882352948],
+        "scissors_15.jpg": [0.191176474, 0.169558853, 0.6936275, 0.6748366],
+        "scissors_16.jpg": [0.1004902, 0.279036, 0.6911765, 0.477124184],
+        "scissors_17.jpg": [0.2720588, 0.131977156, 0.4987745, 0.6911765],
+        "scissors_18.jpg": [0.180147052, 0.112369314, 0.6262255, 0.6666667],
+        "scissors_19.jpg": [0.333333343, 0.0274019931, 0.443627447, 0.852941155],
+        "scissors_20.jpg": [0.158088237, 0.04047389, 0.6691176, 0.843137264]
+    };
 
-```Python
-# Go through the data table above and create the images
-print ("Adding images...")
-tagged_images_with_regions = []
+    console.log("Adding images...");
+    let fileUploadPromises = [];
 
-for file_name in fork_image_regions.keys():
-    x,y,w,h = fork_image_regions[file_name]
-    regions = [ Region(tag_id=fork_tag.id, left=x,top=y,width=w,height=h) ]
+    const forkDir = `${sampleDataRoot}/Fork`;
+    const forkFiles = fs.readdirSync(forkDir);
+    forkFiles.forEach(file => {
+        const region = new TrainingApi.TrainingAPIModels.Region();
+        region.tagId = forkTag.id;
+        region.left = forkImageRegions[file][0];
+        region.top = forkImageRegions[file][1];
+        region.width = forkImageRegions[file][2];
+        region.height = forkImageRegions[file][3];
 
-    with open("images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
-        tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
+        const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
+        entry.name = file;
+        entry.contents = fs.readFileSync(`${forkDir}/${file}`);
+        entry.regions = [region];
 
-for file_name in scissors_image_regions.keys():
-    x,y,w,h = scissors_image_regions[file_name]
-    regions = [ Region(tag_id=scissors_tag.id, left=x,top=y,width=w,height=h) ]
+        const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
+        batch.images = [entry];
 
-    with open("images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
-        tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
+        fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
+    });
 
+    const scissorsDir = `${sampleDataRoot}/Scissors`;
+    const scissorsFiles = fs.readdirSync(scissorsDir);
+    scissorsFiles.forEach(file => {
+        const region = new TrainingApi.TrainingAPIModels.Region();
+        region.tagId = scissorsTag.id;
+        region.left = scissorsImageRegions[file][0];
+        region.top = scissorsImageRegions[file][1];
+        region.width = scissorsImageRegions[file][2];
+        region.height = scissorsImageRegions[file][3];
 
-trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+        const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
+        entry.name = file;
+        entry.contents = fs.readFileSync(`${scissorsDir}/${file}`);
+        entry.regions = [region];
+
+        const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
+        batch.images = [entry];
+
+        fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
+    });
+
+    await Promise.all(fileUploadPromises);
 ```
 
 ### Train the project
 
 This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
 
-```Python
-import time
+```javascript
+    console.log("Training...");
+    let trainingIteration = await trainer.trainProject(sampleProject.id);
 
-print ("Training...")
-iteration = trainer.train_project(project.id)
-while (iteration.status != "Completed"):
-    iteration = trainer.get_iteration(project.id, iteration.id)
-    print ("Training status: " + iteration.status)
-    time.sleep(1)
+    // Wait for training to complete
+    console.log("Training started...");
+    while (trainingIteration.status == "Training") {
+        console.log("Training status: " + trainingIteration.status);
+        await setTimeoutPromise(1000, null);
+        trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
+    }
+    console.log("Training status: " + trainingIteration.status);
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
-print ("Done!")
+    trainingIteration.isDefault = true;
+    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
 ```
 
 ### Get and use the default prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
-```Python
-from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
+```javascript
+    const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
+    const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
-# Now there is a trained endpoint that can be used to make a prediction
+    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id })
 
-predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
-
-# Open the sample image and get back the prediction results.
-with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.predict_image(project.id, test_data, iteration.id)
-
-# Display the results.
-for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
+    // Show results
+    console.log("Results:");
+    results.predictions.forEach(predictedResult => {
+        console.log(`\t ${predictedResult.tagName}: ${(predictedResult.probability * 100.0).toFixed(2)}% ${predictedResult.boundingBox.left},${predictedResult.boundingBox.top},${predictedResult.boundingBox.width},${predictedResult.boundingBox.height}`);
+    });
+})()
 ```
 
 ## Run the application
 
-Run *sample.py*.
+Run *sample.js*.
 
 ```PowerShell
 node sample.js
