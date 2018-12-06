@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: 
 
@@ -49,11 +49,17 @@ To view all Batch account metrics:
 
 To retrieve metrics programmatically, use the Azure Monitor APIs. For example, see [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+### Batch metric reliability
+
+Metrics are intended to be used for trending and data analysis. Metric delivery is not guaranteed and is subject to out-of-order delivery, data loss, and/or duplication. Using single events to alert or trigger functions is not recommended. See the Batch metric alerts section for more details on how to set thresholds for alerting.
+
+Metrics emitted in the last 3 minutes may still be aggregating. During this time frame, the metric values may be underreported.
+
 ## Batch metric alerts
 
-Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). 
+Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). Alerting based on single data points is not recommended as metrics are subject to out-of-order delivery, data loss, and/or duplication. Alerting should make use of thresholds to account for these inconsistencies.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools.
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools. It is recommended to set a period of 10 or more minutes where alerts trigger if the average low priority core count falls below the threshold value for the entire period. It is not recommended to alert on a 1-5 minute period as metrics may still be aggregating.
 
 To configure a metric alert in the portal:
 
