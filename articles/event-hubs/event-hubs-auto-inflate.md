@@ -11,9 +11,10 @@ ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -46,13 +47,13 @@ You can enable or disable Auto-inflate on an Event Hubs namespace by using eithe
 
 You can enable the Auto-inflate feature when creating an Event Hubs namespace:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Enable auto inflate at the time event hub creation](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 With this option enabled, you can start small with your throughput units and scale up as your usage needs increase. The upper limit for inflation does not immediately affect pricing, which depends on the number of throughput units used per hour.
 
 You can also enable Auto-inflate using the **Scale** option on the settings pane in the portal:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+![Enable auto inflate using Scale option](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 
 > [!NOTE]
