@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, Ruby - Computer Vision"
+title: "Quickstart: Analyze a remote image - REST, Ruby"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Ruby.
 services: cognitive-services

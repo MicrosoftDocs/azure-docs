@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Computer Vision API Java"
+title: "Tutorial: Perform image operations - Java"
 titlesuffix: "Azure Cognitive Services"
 description: Explore a basic Java Swing app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services

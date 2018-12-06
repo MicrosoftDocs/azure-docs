@@ -1,5 +1,5 @@
 ---
-title: Get subscription keys for the Computer Vision API
+title: Get subscription keys - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: Learn how to get subscription keys for calls to the Computer Vision API in Azure Cognitive Services.
 services: cognitive-services

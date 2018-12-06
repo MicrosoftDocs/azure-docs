@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract printed text (OCR) - REST, Go - Computer Vision"
+title: "Quickstart: Extract printed text - REST, Go"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Go.
 services: cognitive-services

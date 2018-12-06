@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Generate a thumbnail - SDK, C# - Computer Vision"
+title: "Quickstart: Generate a thumbnail - SDK, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library.
 services: cognitive-services

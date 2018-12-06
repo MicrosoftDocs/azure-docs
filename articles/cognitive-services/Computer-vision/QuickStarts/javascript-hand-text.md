@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract handwritten text - REST, JavaScript - Computer Vision"
+title: "Quickstart: Extract handwritten text - JavaScript"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with JavaScript.
 services: cognitive-services

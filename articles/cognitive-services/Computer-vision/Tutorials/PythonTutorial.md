@@ -1,5 +1,5 @@
 ﻿---
-title: "Tutorial: Computer Vision API Python"
+title: "Tutorial: Perform image operations - Python"
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the Computer Vision API with Python by using Jupyter notebooks. Visualize your results using popular libraries.
 services: cognitive-services

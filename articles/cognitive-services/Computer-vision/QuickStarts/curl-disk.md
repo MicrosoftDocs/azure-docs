@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a local image - REST, cURL - Computer Vision"
+title: "Quickstart: Analyze a local image - REST, cURL"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a local image using the Computer Vision API with cURL.
 services: cognitive-services

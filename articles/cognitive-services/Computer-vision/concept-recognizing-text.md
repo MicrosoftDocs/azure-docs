@@ -1,5 +1,5 @@
 ---
-title: Recognizing printed and handwritten text - Computer Vision
+title: Recognize printed, handwritten text - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to recognizing printed and handwritten text in images using the Computer Vision API.
 services: cognitive-services

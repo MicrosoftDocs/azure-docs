@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract text - SDK, C# - Computer Vision"
+title: "Quickstart: Extract handwritten text - SDK, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract text from an image using the Computer Vision Windows C# client library.
 services: cognitive-services

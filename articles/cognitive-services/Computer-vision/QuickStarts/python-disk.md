@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a local image - REST, Python - Computer Vision"
+title: "Quickstart: Analyze a local image - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a local image using the Computer Vision APi with Python.
 services: cognitive-services

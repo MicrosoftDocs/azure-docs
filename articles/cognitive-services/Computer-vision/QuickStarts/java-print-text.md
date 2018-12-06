@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract printed text (OCR) - REST, Java - Computer Vision"
+title: "Quickstart: Extract printed text - REST, Java"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Java.
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: What is the Computer Vision API?
+title: What is the Computer Vision API? - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 

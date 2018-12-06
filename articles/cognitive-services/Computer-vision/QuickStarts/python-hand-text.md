@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract handwritten text - REST, Python - Computer Vision"
+title: "Quickstart: Extract handwritten text - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with Python.
 services: cognitive-services

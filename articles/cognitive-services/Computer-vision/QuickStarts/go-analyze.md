@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, Go - Computer Vision"
+title: "Quickstart: Analyze a remote image - REST, Go"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Go.
 services: cognitive-services

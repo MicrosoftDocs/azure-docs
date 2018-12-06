@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract printed text (OCR) - REST, Node.js - Computer Vision"
+title: "Quickstart: Extract printed text- REST, Node.js"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Node.js.
 services: cognitive-services

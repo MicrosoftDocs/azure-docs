@@ -1,6 +1,6 @@
 ---
-title: Configure containers
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: Configure containers - Computer Vision
+titlesuffix: Azure Cognitive Services
 description: Configuration settings for containers in Computer Vision.
 services: cognitive-services
 author: diberry
@@ -127,7 +127,7 @@ The `Logging` configuration settings manage ASP.NET Core logging support for you
   | `Format` | String | The output format for log files.<br/> **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
   | `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
 
-For more information about configuring ASP.NET Core logging support, see [Settings file configuration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+For more information about configuring ASP.NET Core logging support, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## Mounts configuration settings
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze an image - SDK, C# - Computer Vision"
+title: "Quickstart: Analyze an image - SDK, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library.
 services: cognitive-services
