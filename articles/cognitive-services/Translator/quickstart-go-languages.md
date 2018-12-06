@@ -8,90 +8,141 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/5/2018
 ms.author: erhopf
 ---
-# Quickstart: Get supported languages with the Translator Text REST API (Go)
 
-In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API.
+# Quickstart: Use the Translator Text API to get a list of supported languages using Go
+
+In this quickstart, you'll learn how to make a GET request that returns a list of supported languages using Go and the Translator Text REST API.
+
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ## Prerequisites
 
-You'll need to install the [Go distribution](https://golang.org/doc/install) in order to run this code. The sample code uses only **core** libraries, so there are no external dependencies.
+This quickstart requires:
 
-To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
+* [Go](https://golang.org/doc/install)
+* An Azure subscription key for Translator Text
 
-## Languages request
+## Create a project and import required modules
 
-The following code gets a list of supported languages for translation, transliteration, and dictionary lookup and examples, using the [Languages](./reference/v3-0-languages.md) method.
+Create a new Go project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `get-languages.go`.
 
-1. Create a new Go project in your favorite code editor.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Save the file with a '.go' extension.
-5. Open a command prompt on a computer with Go installed.
-6. Build the file, for example: 'go build quickstart-languages.go'.
-7. Run the file, for example: 'quickstart-languages'.
-
-```golang
+```go
 package main
 
 import (
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## Create the main function
+
+This sample will try to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
+
+Copy this code into your project:
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/languages?api-version=3.0"
-
-    const uri = uriBase + uriPath
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("GET", uri, nil)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our getLanguages function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    getLanguages(subscriptionKey)
 }
 ```
 
-## Languages response
+## Create a function to get a list of supported languages
+
+Let's create a function to get a list of supported languages. This function will take a single argument, your Translator Text subscription key.
+
+```go
+func getLanguages(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+Next, let's construct the URL. The URL is built using the `Parse()` and `Query()` methods.
+
+Copy this code into the `getLanguages` function.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0")
+q := u.Query()
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+
+## Build the request
+
+Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator Text API.
+
+```go
+// Build the HTTP GET request
+req, err := http.NewRequest("GET", u.String(), nil)
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## Handle and print the response
+
+Add this code to the `getLanguages` function to decode the JSON response, and then format and print the result.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## Put it all together
+
+That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+
+```console
+go run get-languages.go
+```
+
+If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+
+## Sample response
 
 A successful response is returned in JSON as shown in the following example:
 
@@ -185,3 +236,13 @@ Explore Go packages for Cognitive Services APIs from the [Azure SDK for Go](http
 
 > [!div class="nextstepaction"]
 > [Explore Go packages on GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## See also
+
+Learn how to use the Translator Text API to:
+
+* [Translate text](quickstart-go-translate.md)
+* [Transliterate text](quickstart-go-transliterate.md)
+* [Identify the language by input](quickstart-go-detect.md)
+* [Get alternate translations](quickstart-go-dictionary.md)
+* [Determine sentence lengths from an input](quickstart-go-sentences.md)
