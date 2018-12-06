@@ -16,8 +16,56 @@
     href: tutorial-federation.md
 - name: Concepts
   items:
+   - name: Azure AD Connect and Connect Health
+     items:
+     - name: What is Azure AD Connect and Connect Health?
+       href: whatis-azure-ad-connect.md
+     - name: Choose the right authentication
+       href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
+     - name: Identity synchronization and duplicate attribute resiliency
+     href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+   - name: Password hash synchronization
+     items:
+     - name: What is password hash synchronization?
+       href: whatis-phs.md
+     - name: How password hash synchronization works
+       href: how-to-connect-password-hash-synchronization.md
+   - name: Pass-through authentication
+     items:
+     - name: What is pass-through authentication?
+       href: how-to-connect-pta.md
+     - name: How pass-through authentication works
+       href: how-to-connect-pta-how-it-works.md
+     - name: Pass-through authentication current limitations
+       href: how-to-connect-pta-current-limitations.md
+     - name: Security deep dive on pass-through authentication
+       href: how-to-connect-pta-security-deep-dive.md
+     - name: Pass-through authentication and user privacy
+       href: how-to-connect-pta-user-privacy.md
+   - name: Federation
+     items:
+     - name: What is federation?
+       href: whatis-fed.md
+     - name: How federation works
+       href: how-to-connect-fed-whatis.md
+     - name: Azure AD federation compatibility list
+       href: how-to-connect-fed-compatibility.md
+   - name: Single sign-on
+     items:
+     - name: What is Single Sign-On?
+       href: how-to-connect-sso.md
+     - name: How Single Sign-On works
+       href: how-to-connect-sso-how-it-works.md
+     - name: Single Sign-On and user privacy
+       href: how-to-connect-sso-user-privacy.md
    - name: Azure AD Connect Sync
      items:
+     - name: What is Azure AD Connect Sync?
+       href: how-to-connect-sync-whatis.md
+     - name: Azure AD Connect Sync features
+       href: how-to-connect-syncservice-features.md
+     - name: What is the Azure AD Connect Sync service manager?
+       href: how-to-connect-sync-service-manager-ui.md
      - name: Azure AD Connect Sync technical concepts
        href: how-to-connect-sync-technical-concepts.md
      - name: Understanding Azure AD Connect Sync architecture
@@ -32,8 +80,7 @@
        href: concept-azure-ad-connect-sync-user-and-contacts.md
      - name: Understanding shadow attributes
        href: how-to-connect-syncservice-shadow-attributes.md
-   - name: Identity synchronization and duplicate attribute resiliency
-     href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+
 - name: How-to guides
   items:
   - name: Installation and upgrade
@@ -118,8 +165,6 @@
             href: plan-hybrid-identity-design-considerations-tools-comparison.md
   - name: Manage Azure AD Connect
     items:
-    - name: What is password hash synchronization?
-      href: how-to-connect-password-hash-synchronization.md
     - name: Enable device writeback
       href: how-to-connect-device-writeback.md
     - name: Device options
@@ -142,8 +187,6 @@
       href: how-to-connect-adconnectivitytools.md
   - name: Manage Federation Services
     items:
-    - name: What is federation with Azure AD Connect?
-      href: how-to-connect-fed-whatis.md
     - name: Managing federation with Azure AD Connect
       href: how-to-connect-fed-management.md
     - name: Multiple domain support for federating
@@ -158,40 +201,22 @@
       href: how-to-connect-azure-ad-trust.md
     - name: Change hash algorithm for O365 RP
       href: how-to-connect-fed-sha256-guidance.md
-    - name: Azure AD federation compatibility list
-      href: how-to-connect-fed-compatibility.md
     - name: Use a SAML 2.0 server as your Idp
       href: how-to-connect-fed-saml-idp.md
     - name: Post configuration tasks for Hybrid Azure AD join
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
   - name: Manage Pass-through authentication  
     items:
-    - name: What is pass-through authentication?
-      href: how-to-connect-pta.md
     - name: Get started with pass-through authentication
       href: how-to-connect-pta-quick-start.md
-    - name: How pass-through authentication works
-      href: how-to-connect-pta-how-it-works.md
-    - name: Pass-through authentication current limitations
-      href: how-to-connect-pta-current-limitations.md
-    - name: Security deep dive on pass-through authentication
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Pass-through authentication and user privacy
-      href: how-to-connect-pta-user-privacy.md
-    - name: Pass-through authentication current limitations
-      href: how-to-connect-pta-security-deep-dive.md
     - name: Pass-through authentication FAQ
       href: how-to-connect-pta-faq.md
   - name: Manage single sign-on 
     items:
-    - name: What is Single Sign-On?
-      href: how-to-connect-sso.md
+
     - name: Get started with Single Sign-On
       href: how-to-connect-sso-quick-start.md
-    - name: How Single Sign-On works
-      href: how-to-connect-sso-how-it-works.md
-    - name: Single Sign-On and user privacy
-      href: how-to-connect-sso-user-privacy.md
+
     - name: Single Sign-On FAQ
       href: how-to-connect-sso-faq.md
   - name: Manage Azure AD Connect Health
@@ -212,10 +237,6 @@
       href: how-to-connect-health-alert-catalog.md
   - name: Manage Azure AD Connect Sync  
     items:
-    - name: What is Azure AD Connect Sync?
-      href: how-to-connect-sync-whatis.md
-    - name: Azure AD Connect Sync features
-      href: how-to-connect-syncservice-features.md
     - name: Manage operational task
       href: how-to-connect-sync-operations.md
     - name: Best practices for changing the default configuration
@@ -232,8 +253,6 @@
       href: how-to-connect-sync-feature-scheduler.md
     - name: Azure AD Connect Sync service manager
       items: 
-       - name: What is the Azure AD Connect Sync service manager?
-         href: how-to-connect-sync-service-manager-ui.md
        - name: Manage the service manager operations tab
          href: how-to-connect-sync-service-manager-ui-operations.md
        - name: Use connectors with the service manager
