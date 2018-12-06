@@ -97,7 +97,6 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
    * For the **Database id** field, select **Create new**, then enter **changefeedlabdatabase**. Leave the **Provision database throughput** box unchecked.  
    * For the **Collection** id field, enter **changefeedlabcollection**.  
-   * For **Storage capacity**, select **Unlimited**.  
    * For the **Partition key** field, enter **/Item**. This is case-sensitive, so make sure you enter it correctly.  
    * For the **Throughput** field, enter **10000**.  
    * Select the **OK** button.  

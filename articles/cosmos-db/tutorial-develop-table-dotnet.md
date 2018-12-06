@@ -175,7 +175,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values if specified in the app settings.
 
 ## Create a table
-Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](partition-data.md) for details. 
+
+Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
