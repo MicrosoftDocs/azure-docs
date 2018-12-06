@@ -11,13 +11,13 @@ ms.author: genemi
 ## Get SQL server connection information
 -->
 
-Get the connection information you need to connect to the Azure SQL Database. You will need the fully-qualified server name, database name, and login information for the following procedures.
+Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name, database name, and login information for the following procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **SQL databases** from the left menu, then select your database on the **SQL databases** page.
 
-1. On the **Overview** page for your database, review the fully-qualified server name, as shown in the following image. You can hover over the **Server name** and select **Click to copy** to copy it.  
+1. On the **Overview** page for your database, review the fully qualified server name, as shown in the following image. To copy the server name, hover over it and select the **Copy** icon.  
 
    ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
