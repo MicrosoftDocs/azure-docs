@@ -1,5 +1,5 @@
 ---
-title: Understand outputs from Azure Stream Analytics
+title: Understand outputs from Azure Stream Analytics | Microsoft Docs
 description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
 services: stream-analytics
 author: mamccrea
@@ -7,7 +7,8 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Understand outputs from Azure Stream Analytics
@@ -29,13 +30,13 @@ Azure Data Lake Store output from Stream Analytics is currently not available in
 
 1. When Data Lake Storage is selected as an output in the Azure portal, you are prompted to authorize a connection to an existing Data Lake Store.  
 
-   ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Authorize connection to Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. If you already have access to Data Lake Store, select **Authorize Now** and a page pops up indicating **Redirecting to authorization**. After authorization succeeds, you are presented with the page that allows you to configure the Data Lake Store output.
 
 3. Once you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output. The table below is the list of property names and their description to configure your Data Lake Store output.
 
-   ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Define Data Lake Store as Stream Analytics output](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Property name | Description | 
 | --- | --- |
@@ -54,7 +55,7 @@ You need to reauthenticate your Data Lake Store account if its password has chan
 
 To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating **Redirecting to authorization...**. The page automatically closes and if successful, indicates **Authorization has been successfully renewed**. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
 
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Renew Data Lake Store authorization in output](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database.  The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well. To learn about ways to improve write throughput, refer to the [Stream Analytics with Azure SQL DB as output](stream-analytics-sql-output-perf.md) article. The table below lists the property names and their description for creating a SQL Database output.
@@ -128,11 +129,11 @@ Power BI output from Stream Analytics is currently not available in the Azure Ch
 ### Authorize a Power BI account
 1. When Power BI is selected as an output in the Azure portal, you are prompted to authorize an existing Power BI User or to create a new Power BI account.  
    
-   ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Authorize Power BI user to configure output](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Create a new account if you don’t yet have one, then click Authorize Now.  The following page is shown:
    
-   ![Azure Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Authenticate to Power BI from Azure Account](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose Sign up now. The work or school account you use for Power BI could be different from the Azure subscription account, which you are currently logged in with.
 
@@ -185,11 +186,11 @@ Datetime | String | String |  Datetime | String
 ### Renew Power BI Authorization
 If your Power BI account password changes after your Stream Analytics job was created or last authenticated, you need to reauthenticate the Stream Analytics. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant, you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
-  ![Power BI refresh token error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Power BI authenticate user error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 To resolve this issue, stop your running job and go to your Power BI output.  Select the **Renew authorization** link, and restart your job from the **Last Stopped Time** to avoid data loss.
 
-  ![Power BI renews authorization](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Renew Power BI authorization for output](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## Table Storage
 [Azure Table storage](../storage/common/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store, which one can leverage for structured data with fewer constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.

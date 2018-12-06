@@ -1,13 +1,14 @@
 ---
-title: Custom DateTime path patterns for Azure Stream Analytics blob storage output (Preview)
-description: 
+title: DateTime path patterns for Azure Stream Analytics blob output (Preview)
+description: This article describes the custom DateTime path patterns feature for blob storage output from Azure Stream Analytics jobs.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Custom DateTime path patterns for Azure Stream Analytics blob storage output (Preview)
@@ -56,7 +57,7 @@ For example, `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={d
 
 Custom output eliminates the hassle of altering tables and manually adding partitions to port data between Azure Stream Analytics and Hive. Instead, many folders can be added automatically using:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -70,9 +71,9 @@ Create a blob output sink with the following configuration:
 
 The full path pattern is as follows:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 When you start the job, a folder structure based on the path pattern is created in your blob container. You can drill down to the day level.
 

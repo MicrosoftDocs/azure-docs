@@ -1,14 +1,14 @@
 ---
-title: Common issues to troubleshoot in Azure Stream Analytics
+title: Common issues to troubleshoot in Azure Stream Analytics | Microsoft Docs
 description: This article describes several common issues in Azure Stream Analytics and steps to troubleshoot those issues.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Common issues in Stream Analytics and steps to troubleshoot
@@ -19,7 +19,7 @@ ms.date: 04/12/2018
  
  When a Stream Analytics job receives a malformed message from an input, it drops the message and notifies user with a warning. A warning symbol is shown on the **Inputs** tile of your Stream Analytics job (This warning sign exists as long as the job is in running state):
 
-![Inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
+![Inputs tile on Azure Stream Analytics dashboard](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 To see more information, enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: "Message: Could not deserialize the input event(s) from resource <blob URI> as json". 
 
@@ -29,7 +29,7 @@ To see more information, enable the diagnostics logs to view the details of the 
 
 2. The input details tile displays a set of warnings with details about the issue. Following is an example warning message, the warning message shows the Partition, Offset, and sequence numbers where there is malformed JSON data. 
 
-   ![Warning message with offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Input warning message with offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. To get the JSON data that has incorrect format, run the CheckMalformedEvents.cs code. This example is available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID, offset, and prints the data that's located in that offset. 
 

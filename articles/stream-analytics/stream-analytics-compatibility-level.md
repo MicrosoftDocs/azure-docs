@@ -1,13 +1,13 @@
 ---
-title: Understand compatibility level for Azure Stream Analytics jobs
+title: Understand compatibility level for Azure Stream Analytics jobs | Microsoft Docs
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -22,7 +22,7 @@ Compatibility level controls the runtime behavior of a stream analytics job. You
 
 Make sure that you stop the job before updating the compatibility level. You can’t update the compatibility level if your job is in a running state. 
 
-![Compatibility level in portal](media/stream-analytics-compatibility-level/image1.png)
+![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 When you update the compatibility level, the T-SQL compiler validates the job with the syntax that corresponds to the selected compatibility level. 
