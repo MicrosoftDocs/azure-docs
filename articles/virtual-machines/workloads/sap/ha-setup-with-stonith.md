@@ -298,8 +298,7 @@ Add resource STONITH. Create the file and add the text as following.
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Add the configuration to the cluster.
 ```

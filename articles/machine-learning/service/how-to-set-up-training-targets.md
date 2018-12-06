@@ -1,5 +1,6 @@
 ---
-title: Set up compute targets for model training with Azure Machine Learning service | Microsoft Docs
+title: Create and use compute targets for model training
+titleSuffix: Azure Machine Learning service
 description: Learn how to select and configure the training environments (compute targets) used to train your machine learning models. The Azure Machine Learning service lets you easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
 author: heatherbshapiro
@@ -10,8 +11,9 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
-# Select and use a compute target to train your model
+# Set up compute targets for model training
 
 With the Azure Machine Learning service, you can train your model on different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 

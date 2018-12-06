@@ -1,5 +1,5 @@
 ---
-title: "Tutorial #1: Prepare data for modeling with Azure Machine Learning service"
+title: "Regression model tutorial - Prepare data with Azure Machine Learning service"
 description: In the first part of this tutorial, you'll learn how to prep data in Python for regression modeling using the Azure ML SDK. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,11 @@ author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
+ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
 
-# Tutorial #1: Prepare data for regression modeling
+# Tutorial (part 1): Prepare data for regression modeling
 
 In this tutorial, you learn how to prep data for regression modeling using the Azure Machine Learning Data Prep SDK. Perform various transformations to filter and combine two different NYC Taxi data sets. The end goal of this tutorial set is to predict the cost of a taxi trip by training a model on data features including pickup hour, day of week, number of passengers, and coordinates. This tutorial is part one of a two-part tutorial series.
 
@@ -70,7 +71,7 @@ Now you populate some variables with shortcut transforms that will apply to all 
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
 drop_if_all_null = [all_columns, dprep.ColumnRelationship(dprep.ColumnRelationship.ALL)]
 useful_columns = [
-    "cost", "distance""distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
+    "cost", "distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
     "passengers", "pickup_datetime", "pickup_latitude", "pickup_longitude", "store_forward", "vendor"
 ]
 ```
@@ -101,9 +102,6 @@ tmp_df = (green_df
 tmp_df.head(5)
 ```
 
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -131,6 +129,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>passengers</th>
+      <th>distance</th>
       <th>cost</th>
     </tr>
   </thead>
@@ -146,6 +145,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>21.25</td>
     </tr>
     <tr>
@@ -159,6 +159,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>2</td>
+      <td>.00</td>
       <td>74.5</td>
     </tr>
     <tr>
@@ -172,6 +173,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>1</td>
     </tr>
     <tr>
@@ -185,6 +187,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>3.25</td>
     </tr>
     <tr>
@@ -198,16 +201,14 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>8.5</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-
-
 Overwrite the `green_df` variable with the transforms performed on `tmp_df` in the previous step.
-
 
 ```python
 green_df = tmp_df
@@ -632,6 +633,14 @@ From the data profile output of `store_forward`, you see that the data is incons
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
+Execute another `replace` function, this time on the `distance` field. This reformats distance values that are incorrectly labeled as `.00`, and fills any nulls with zeros. Convert the `distance` field to numerical format.
+
+
+```python
+combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+combined_df = combined_df.to_number(["distance"])
+```
+
 Split the pick up and drop off datetimes into respective date and time columns. Use `split_column_by_example()` to perform the split. In this case, the optional `example` parameter of `split_column_by_example()` is omitted. Therefore the function will automatically determine where to split based on the data.
 
 
@@ -641,9 +650,6 @@ tmp_df = (combined_df
     .split_column_by_example(source_column="dropoff_datetime"))
 tmp_df.head(5)
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -676,6 +682,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>passengers</th>
+      <th>distance</th>
       <th>cost</th>
     </tr>
   </thead>
@@ -695,6 +702,7 @@ tmp_df.head(5)
       <td>-73.937767</td>
       <td>40.758480</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -712,6 +720,7 @@ tmp_df.head(5)
       <td>-73.937927</td>
       <td>40.757843</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -729,6 +738,7 @@ tmp_df.head(5)
       <td>-73.937721</td>
       <td>40.758369</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -746,6 +756,7 @@ tmp_df.head(5)
       <td>-73.937790</td>
       <td>40.758358</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -763,12 +774,12 @@ tmp_df.head(5)
       <td>-73.937775</td>
       <td>40.758450</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
 </table>
 </div>
-
 
 
 Rename the columns generated by `split_column_by_example()` into meaningful names.
@@ -839,9 +850,6 @@ tmp_df = (combined_df
 tmp_df.head(5)
 ```
 
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -877,6 +885,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>passengers</th>
+      <th>distance</th>
       <th>cost</th>
     </tr>
   </thead>
@@ -900,6 +909,7 @@ tmp_df.head(5)
       <td>-73.937767</td>
       <td>40.758480</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -921,6 +931,7 @@ tmp_df.head(5)
       <td>-73.937927</td>
       <td>40.757843</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -942,6 +953,7 @@ tmp_df.head(5)
       <td>-73.937721</td>
       <td>40.758369</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -963,6 +975,7 @@ tmp_df.head(5)
       <td>-73.937790</td>
       <td>40.758358</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -984,13 +997,12 @@ tmp_df.head(5)
       <td>-73.937775</td>
       <td>40.758450</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
 </table>
 </div>
-
-
 
 From the data above, you see that the pickup and drop-off date and time components produced from the derived transformations are correct. Drop the `pickup_datetime` and `dropoff_datetime` columns as they are no longer needed.
 
@@ -1008,27 +1020,24 @@ type_infer.learn()
 type_infer
 ```
 
-
-
-
-    {'pickup_weekday': [FieldType.STRING],
-     'pickup_hour': [FieldType.DECIMAL],
-     'pickup_second': [FieldType.DECIMAL],
-     'dropoff_hour': [FieldType.DECIMAL],
-     'dropoff_minute': [FieldType.DECIMAL],
-     'dropoff_second': [FieldType.DECIMAL],
-     'store_forward': [FieldType.STRING],
-     'pickup_minute': [FieldType.DECIMAL],
-     'dropoff_weekday': [FieldType.STRING],
-     'vendor': [FieldType.STRING],
-     'pickup_longitude': [FieldType.DECIMAL],
-     'pickup_latitude': [FieldType.DECIMAL],
-     'dropoff_longitude': [FieldType.DECIMAL],
-     'dropoff_latitude': [FieldType.DECIMAL],
-     'passengers': [FieldType.DECIMAL],
-     'cost': [FieldType.DECIMAL]}
-
-
+    Column types conversion candidates:
+    'pickup_weekday': [FieldType.STRING],
+    'pickup_hour': [FieldType.DECIMAL],
+    'pickup_minute': [FieldType.DECIMAL],
+    'pickup_second': [FieldType.DECIMAL],
+    'dropoff_hour': [FieldType.DECIMAL],
+    'dropoff_minute': [FieldType.DECIMAL],
+    'dropoff_second': [FieldType.DECIMAL],
+    'store_forward': [FieldType.STRING],
+    'pickup_longitude': [FieldType.DECIMAL],
+    'dropoff_longitude': [FieldType.DECIMAL],
+    'passengers': [FieldType.DECIMAL],
+    'distance': [FieldType.DECIMAL],
+    'vendor': [FieldType.STRING],
+    'dropoff_weekday': [FieldType.STRING],
+    'pickup_latitude': [FieldType.DECIMAL],
+    'dropoff_latitude': [FieldType.DECIMAL],
+    'cost': [FieldType.DECIMAL]
 
 The inference results look correct based on the data, now apply the type conversions to the dataflow.
 
@@ -1038,18 +1047,27 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-At this point, you have a fully transformed and prepared dataflow object to use in a machine learning model. The SDK includes object serialization functionality, which is used as follows.
-
+Before packaging the dataflow, perform two final filters on the data set. To eliminate incorrect data points, filter the dataflow on records where both the `cost` and `distance` are greater than zero.
 
 ```python
+tmp_df = tmp_df.filter(dprep.col("distance") > 0)
+tmp_df = tmp_df.filter(dprep.col("cost") > 0)
+```
+
+At this point, you have a fully transformed and prepared dataflow object to use in a machine learning model. The SDK includes object serialization functionality, which is used as follows.
+
+```python
+import os
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
+
 dflow_prepared = tmp_df
 package = dprep.Package([dflow_prepared])
-package.save(".\dflow")
+package.save(file_path)
 ```
 
 ## Clean up resources
 
-Delete the file `dflow` (whether you are running locally or in Azure Notebooks) in your current directory if you do not wish to continue with part two of the tutorial. If you continue on to part two, you will need the `dflow` file in the current directory.
+Delete the file `dflows.dprep` (whether you are running locally or in Azure Notebooks) in your current directory if you do not wish to continue with part two of the tutorial. If you continue on to part two, you will need the `dflows.dprep` file in the current directory.
 
 ## Next steps
 
