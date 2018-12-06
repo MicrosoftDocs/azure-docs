@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 3: Regular-expression matched data - extract well-formated data"
+title: Regular-expression entity
 titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -126,7 +126,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published in the last year?`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

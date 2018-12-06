@@ -1,8 +1,9 @@
 ---
-title: LUIS Prebuilt entities dimension reference - Azure | Microsoft Docs
+title: Dimension Prebuilt entities
 titleSuffix: Azure
 description: This article contains dimension prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -23,7 +24,7 @@ Dimension is managed from the [Recognizers-text](https://github.com/Microsoft/Re
 ## Resolution for dimension entity
 The following example shows the resolution of the **builtin.dimension** entity.
 
-```JSON
+```json
 {
   "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
   "topScoringIntent": {

@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 7: Simple entity with phrase list in LUIS"
+title: Simple entity, phrase list
 titleSuffix: Azure Cognitive Services
 description: Extract machine-learned data from an utterance 
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -89,7 +89,7 @@ Once the entities are marked in the example utterances, it is important to add a
 
 3. In the utterance, `I want to apply for the new accounting job`, select `accounting`, enter `Job` in the top field of the pop-up menu, then select **Create new entity** in the pop-up menu. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. In the pop-up window, verify the entity name and type and select **Done**.
 
@@ -97,7 +97,7 @@ Once the entities are marked in the example utterances, it is important to add a
 
 5. In the utterance, `Submit resume for engineering position`, label the word `engineering` as a Job entity. Select the word `engineering`, then select **Job** from the pop-up menu. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Screenshot of LUIS labeling job entity highlighted](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     All the utterances are labeled but five utterances aren't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
 
@@ -154,7 +154,7 @@ Labeling, or _marking_, the entity shows LUIS where the entity is found in the e
 
 2. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -223,7 +223,7 @@ The LUIS app found the correct intent with high confidence and it extracted the 
 
 In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but didn't extract the `lead welder` job name. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -288,13 +288,13 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
 
 3. Name the new phrase list `Job` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     If you want more words added to the phrase list, review the **Related Values** and add any that are relevant. 
 
 4. Select **Save** to activate the phrase list.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Screenshot of create new phrase list dialog pop-up with words in phrase list values box](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Train](#train) and [publish](#publish) the app again to use phrase list.
 
@@ -302,7 +302,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
 
     The JSON response includes the extracted entity:
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {
