@@ -8,7 +8,8 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -41,11 +42,11 @@ To use EventProcessorHost, you must have an [Azure Storage account][Azure Storag
 1. Log on to the [Azure portal][Azure portal], and click **+ Create a resource** on the left-hand side of the screen.
 2. Click **Storage**, then click **Storage account**. In the **Create storage account** window, type a name for the storage account. Complete the rest of the fields, select your desired region, and then click **Create**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Create storage account](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Click the newly created storage account, and then click **Access Keys**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Get access keys](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Copy the key1 value to a temporary location. You use it later in this tutorial.
 

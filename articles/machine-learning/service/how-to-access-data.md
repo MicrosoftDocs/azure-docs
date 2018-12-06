@@ -1,5 +1,6 @@
 ---
-title: Access data in datastores from Azure Machine Learning service
+title: Access data in datastores
+titleSuffix: Azure Machine Learning service
 description: How to use datastores to access data storage during training with Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning

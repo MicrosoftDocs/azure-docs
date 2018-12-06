@@ -10,7 +10,7 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
+ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
