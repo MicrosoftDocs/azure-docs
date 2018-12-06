@@ -7,7 +7,7 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
@@ -173,12 +173,11 @@ Viewing changes in the Azure portal can be helpful, but being able to be alerted
 
 To add an alert for a stopped service, in the Azure portal, go to **Monitor**. And then under **Shared Services**, select **Alerts** and click **+ New alert rule**
 
-Under **1. Define alert condition**, click **+ Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
+Click **Select** to choose a resource. On the **Select a resource** page, select **Log Analytics** from the **Filter by resource type** drop-down. Select your Log Analytics workspace, and then select **Done**.
 
 ![Select a resource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Select **+ Add criteria**.
-Under **Configure signal logic**, in the table, select **Custom log search**. Enter the following query in the Search query text box:
+Click **Add condition**, on the **Configure signal logic** page, in the table, select **Custom log search**. Enter the following query in the Search query text box:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -190,11 +189,9 @@ Under **Alert logic**, for **Threshold**, enter **0**. When you're finished, sel
 
 ![Configure signal logic](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)**, **Warning(Sev 1)**, or **Critical(Sev 0)**.
+Under **Action Groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
-![Define alert details](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)**, **Warning(Sev 1)**, or **Critical(Sev 0)**.
 
 In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
 

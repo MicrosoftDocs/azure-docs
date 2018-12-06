@@ -61,9 +61,9 @@ sections:
         - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
       - title: Data Lake Storage Gen2
         values:
-        - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal      
-        - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell      
-        - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli      
+        - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-the-azure-portal      
+        - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-powershell      
+        - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-azure-cli      
         - href: 
         - href: 
         - href: 
@@ -77,7 +77,7 @@ sections:
     - title: Blobs
       html: <p>Upload and process image data in the cloud</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Trigger Azure Functions to process blobs</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Secure application data</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitor and troubleshoot storage</a></li></ul><p>Design your application for high availability</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Make your application data highly available</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulate a failure in accessing read-access redundant storage</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Search unstructured data in Azure Storage</a></p>
     - title: Data Lake Storage Gen2
-      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Extract, transform, and load data using Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Access Azure Data Lake Storage Gen2 data with DataBricks using Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Extract, transform, and load data using Apache Hive on Azure HDInsight</a></p>
+      html: <p><a href="/azure/storage/blobs/handle-data-using-databricks">Extract, transform, and load data using Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Access Azure Data Lake Storage Gen2 data with DataBricks using Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Extract, transform, and load data using Apache Hive on Azure HDInsight</a></p>
 - title: Samples
   items:
   - type: paragraph

@@ -145,28 +145,10 @@ When you run the repair action, you need to specify the BMC IP address.
 
 To run the repair action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-```PowerShell  
-  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
-```
-
-For more information, see [Repair-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/repair-azsscaleunitnode).
-
-## Shutdown
-
-The **shutdown** action first evacuates all active workloads by distributing them among the remaining nodes in that particular scale unit and then does a graceful shutdown.
-
-After starting node that was shut down, you need to resume it. Earlier workloads that were running on the node do not fail back.
-
-If the shutdown operations fail, attempt a disable operation followed by a shutdown operation. This can happen if live migration attempts failed that are automatically initiated when executing the shutdown operation.
-
-To run the resume action, open an elevated PowerShell prompt, and run the following cmdlet:
-
-```PowerShell  
-  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
-```
-
-For more information, see [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/Stop-AzsScaleUnitNode).
+  ````PowerShell
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
+  ````
 
 ## Next steps
 
-To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin).
+To learn more about the Azure Stack Fabric administrator module, see [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0).

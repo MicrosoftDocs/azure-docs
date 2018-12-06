@@ -217,4 +217,4 @@ Moving a registration resource between resource groups under the same subscripti
 
 
 ## Next steps
-[Add an Azure Stack marketplace item](.\.\azure-stack-marketplace.md)
+[Add an Azure Stack marketplace item](../azure-stack-marketplace.md)
