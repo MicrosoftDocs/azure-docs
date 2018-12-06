@@ -17,14 +17,16 @@ ms.date: 12/04/2018
 
 Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in managed instance. It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy using a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
-> [!NOTE]
-> If multiple secondaries are required, use [active geo-replication](sql-database-active-geo-replication.md).
 > [!IMPORTANT]
-> Support for auto-failover for Managed Instances is in public preview. With Managed Instances, all user databases are part of the failover group. You cannot add a subset of the user databases in a Managed Instance when creating a failover group.
+> Auto-failover groups support replication of all databases in the group to only one secondary server in a different region. In case of Managed Instance, all databases are replicated to only one secondary instance in a different region.
+> [!IMPORTANT]
+> Support for auto-failover for Managed Instances is in public preview.
+> [!NOTE]
+> When working with single or pooled databases on a logical server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
 
 When you are using auto-failover groups with automatic failover policy, any outage that impacts one or several of the databases in the group results in automatic failover. In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For the specific RPO and RTO data, see [Overview of Business Continuity](sql-database-business-continuity.md).
 
-You can manage replication and failover of an individual database or a set of databases on a server or in an elastic pool using active geo-replication. You can do that using:
+When you are using auto-failover groups with automatic failover policy, any outage that impacts databases in the logical server or managed instance results in automatic failover. You can manage auto-failover group using:
 
 - The [Azure portal](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: Failover Group](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -34,13 +36,14 @@ After failover, ensure the authentication requirements for your server and datab
 
 To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-## Auto-failover group capabilities
+## Auto-failover group terminology and capabilities
 
-Auto-failover groups feature provides a powerful abstraction of active geo-replication by supporting group level replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points.
+Auto-failover groups provide group level geo-replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points.
 
 - **Failover group**
 
-  One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region.  
+  - Single or pooled databases on a logical server: One or many failover groups can be created between two logical servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region.
+  - Managed Instance: A single group can be created with all user databases in the Managed Instance in the group.
 
 - **Primary server**
 
@@ -143,7 +146,9 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Create the secondary instance in the same DNS zone as the primary instance**
 
-  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of &lt;zone_id&gt;.database.windows.net. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
+  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id`.database.windows.net. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
+
+  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#managing-failover-groups-with-managed-instances-preview).
 
 - **Enable replication traffic between two instances**
 
