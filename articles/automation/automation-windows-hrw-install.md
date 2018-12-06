@@ -79,7 +79,7 @@ Perform the first two steps once for your Automation environment, and then repea
 
 #### 1. Create a Log Analytics workspace
 
-If you don't already have a Log Analytics workspace, create one by using the instructions at [Manage your workspace](../log-analytics/log-analytics-manage-access.md). You can use an existing workspace if you already have one.
+If you don't already have a Log Analytics workspace, create one by using the instructions at [Manage your workspace](../azure-monitor/platform/manage-access.md). You can use an existing workspace if you already have one.
 
 #### 2. Add the Automation solution to the Log Analytics workspace
 

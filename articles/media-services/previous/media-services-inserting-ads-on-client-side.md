@@ -71,10 +71,10 @@ A VAST file specifies what ad or ads to display. The following XML is an example
                   <ClickTracking id="Spare"></ClickTracking>
                 </VideoClicks>
                 <MediaFiles>
-                  <MediaFile apiFramework="Windows Media" id="windows_progressive_200" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="200" width="400" height="300" type="video/x-ms-wmv">
+                  <MediaFile apiFramework="Windows Media" id="windows_progressive_200" maintainAspectRatio="true" scalable="true"  delivery="progressive" bitrate="200" width="400" height="300" type="video/x-ms-wmv">
                     <![CDATA[http://www.myserver.com/media/myad_200_4x3.wmv]]>
                   </MediaFile>
-                  <MediaFile apiFramework="Windows Media" id="windows_progressive_300" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="300" width="400" height="300" type="video/x-ms-wmv">
+                  <MediaFile apiFramework="Windows Media" id="windows_progressive_300" maintainAspectRatio="true" scalable="true"  delivery="progressive" bitrate="300" width="400" height="300" type="video/x-ms-wmv">
                     <![CDATA[http://www.myserver.com/media/myad_300_4x3.wmv]]>
                   </MediaFile>
                 </MediaFiles>
@@ -103,7 +103,7 @@ Linear ads can be displayed in a specified order. To do this, add additional <Ad
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -123,7 +123,7 @@ Linear ads can be displayed in a specified order. To do this, add additional <Ad
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -156,7 +156,7 @@ Nonlinear ads are specified in a <Creative> element as well. The following examp
     </Creative>
 ```
 
-The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResouce**>, an <**IFrameResource**>, or an <**HTMLResouce**>. <**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
+The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResource**>, an <**IFrameResource**>, or an <**HTMLResource**>. <**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
 
 Image/gif, image/jpeg, image/png – the resource is displayed in an HTML <**img**> tag.
 
@@ -190,16 +190,16 @@ A VMAP file allows you to specify when ad breaks occur, how long each break is, 
                       <Linear>
                         <Duration>00:00:32</Duration>
                         <MediaFiles>
-                          <MediaFile apiFramework="Windows Media" id="windows_progressive_200" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="200" width="400" height="300" type="video/x-ms-wmv">
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_200" maintainAspectRatio="true" scalable="true"  delivery="progressive" bitrate="200" width="400" height="300" type="video/x-ms-wmv">
                             <![CDATA[http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_1_000_200_4x3.wmv]]>
                           </MediaFile>
-                          <MediaFile apiFramework="Windows Media" id="windows_progressive_300" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="300" width="400" height="300" type="video/x-ms-wmv">
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_300" maintainAspectRatio="true" scalable="true"  delivery="progressive" bitrate="300" width="400" height="300" type="video/x-ms-wmv">
                             <![CDATA[http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_2_000_300_4x3.wmv]]>
                           </MediaFile>
-                          <MediaFile apiFramework="Windows Media" id="windows_progressive_500" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="500" width="400" height="300" type="video/x-ms-wmv">
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_500" maintainAspectRatio="true" scalable="true"  delivery="progressive" bitrate="500" width="400" height="300" type="video/x-ms-wmv">
                             <![CDATA[http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_1_000_500_4x3.wmv]]>
                           </MediaFile>
-                          <MediaFile apiFramework="Windows Media" id="windows_progressive_700" maintainAspectRatio="true" scaleable="true" delivery="progressive" bitrate="700" width="400" height="300" type="video/x-ms-wmv">
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_700" maintainAspectRatio="true" scalable="true" delivery="progressive" bitrate="700" width="400" height="300" type="video/x-ms-wmv">
                             <![CDATA[http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv]]>
                           </MediaFile>
                         </MediaFiles>

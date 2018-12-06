@@ -14,7 +14,7 @@ ms.author: pafarley
 ---
 # Quickstart: Generate a thumbnail using the REST API and Python in Computer Vision
 
-In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
+In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -60,7 +60,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the westcentralus region.
+# Free trial subscription keys are generated in the "westus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"

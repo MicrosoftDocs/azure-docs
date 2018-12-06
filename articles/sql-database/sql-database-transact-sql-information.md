@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 12/03/2018
 ---
 # Resolving Transact-SQL differences during migration to SQL Database
 
@@ -39,37 +39,37 @@ The core DDL (data definition language) statements are available, but some DDL s
 
 In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database feature comparison](sql-database-features.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
 
-- Collation of system objects
-- Connection related: Endpoint statements. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
-- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
-- Cross database ownership chaining, `TRUSTWORTHY` setting
-- `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.
-- Encryption is supported except for extensible key management
-- Eventing: Events, event notifications, query notifications
-- File placement: Syntax related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
+- Collation of system objects
+- Connection related: Endpoint statements. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
+- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
+- Cross database ownership chaining, `TRUSTWORTHY` setting
+- `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.
+- Encryption is supported except for extensible key management
+- Eventing: Events, event notifications, query notifications
+- File placement: Syntax related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
 - High availability: Syntax related to high availability, which is managed through your Microsoft Azure account. This includes syntax for backup, restore, Always On, database mirroring, log shipping, recovery modes.
-- Log reader: Syntax that relies upon the log reader, which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
-- Functions: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Hardware: Syntax related to hardware-related server settings: such as memory, worker threads, CPU affinity, trace flags. Use service tiers and compute sizes instead.
-- `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, and four-part names
-- .NET Framework: CLR integration with SQL Server
-- Semantic search
-- Server credentials: Use [database scoped credentials](https://msdn.microsoft.com/library/mt270260.aspx) instead.
-- Server-level items: Server roles, `sys.login_token`. `GRANT`, `REVOKE`, and `DENY` of server level permissions are not available though some are replaced by database-level permissions. Some useful server-level DMVs have equivalent database-level DMVs.
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure` options and `RECONFIGURE`. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
+- Log reader: Syntax that relies upon the log reader, which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
+- Functions: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
+- Hardware: Syntax related to hardware-related server settings: such as memory, worker threads, CPU affinity, trace flags. Use service tiers and compute sizes instead.
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, and four-part names
+- .NET Framework: CLR integration with SQL Server
+- Semantic search
+- Server credentials: Use [database scoped credentials](https://msdn.microsoft.com/library/mt270260.aspx) instead.
+- Server-level items: Server roles, `sys.login_token`. `GRANT`, `REVOKE`, and `DENY` of server level permissions are not available though some are replaced by database-level permissions. Some useful server-level DMVs have equivalent database-level DMVs.
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- `sp_configure` options and `RECONFIGURE`. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
 - SQL Server Agent: Syntax that relies upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers. Use scripting, such as Azure PowerShell instead.
-- SQL Server audit: Use SQL Database auditing instead.
-- SQL Server trace
-- Trace flags: Some trace flag items have been moved to compatibility modes.
-- Transact-SQL debugging
-- Triggers: Server-scoped or logon triggers
-- `USE` statement: To change the database context to a different database, you must make a new connection to the new database.
+- SQL Server audit: Use SQL Database auditing instead.
+- SQL Server trace
+- Trace flags: Some trace flag items have been moved to compatibility modes.
+- Transact-SQL debugging
+- Triggers: Server-scoped or logon triggers
+- `USE` statement: To change the database context to a different database, you must make a new connection to the new database.
 
 ## Full Transact-SQL reference
 

@@ -20,7 +20,7 @@ ms.reviewer: misainat
 ---
 
 # What is the Azure Stack Development Kit?
-[Microsoft Azure Stack integrated systems](.\.\azure-stack-poc.md) range in size from 4-16 nodes, and are jointly supported by a hardware partner and Microsoft. Use Azure Stack integrated systems to enable new scenarios for your production workloads. If you're an Azure Stack operator who manages the integrated systems infrastructure and offers services, see our [operator documentation](https://docs.microsoft.com/azure/azure-stack).
+[Microsoft Azure Stack integrated systems](../azure-stack-poc.md) range in size from 4-16 nodes, and are jointly supported by a hardware partner and Microsoft. Use Azure Stack integrated systems to enable new scenarios for your production workloads. If you're an Azure Stack operator who manages the integrated systems infrastructure and offers services, see our [operator documentation](https://docs.microsoft.com/azure/azure-stack).
 
 The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack that you can download and use **for free**. All ASDK components are installed in virtual machines running on a single host server computer that must meet or exceed the [minimum hardware requirements](asdk-deploy-considerations.md#hardware). The ASDK is meant to provide an environment in which you can evaluate Azure Stack and develop modern applications using APIs and tooling consistent with Azure in a *non-production* environment. 
 
@@ -44,9 +44,9 @@ Single-node ASDK deployments differ from multi-node Azure Stack deployments in a
 |Description|ASDK|Multi-node Azure Stack|
 |-----|-----|-----|
 |**Scale**|All components are installed on a single-node server computer.|Can range in size from 4-16 nodes.|
-|**Resilience**|Single-node configuration does not provide high availability|[High availablity](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) capabilities are supported.|
-|**Networking**|The ASDK uses a VM named AzS-BGPNAT01 to route all ASDK network traffic. There are no additional switch requirements.|The AzS-BGPNAT01 VM does not exist in multi-node deployments. More complex [network routing infrastructure](.\.\azure-stack-network.md#network-infrastructure) is necessary including Top-Of-Rack (TOR), Baseboard Management Controller (BMC), and border (datacenter network) switches.|
-|**Patch and update process**|To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer.|[Patch and update](.\.\azure-stack-updates.md) process used to update the installed Azure Stack version.|
+|**Resilience**|Single-node configuration does not provide high availability|[High availablity](../azure-stack-key-features.md#high-availability-for-azure-stack) capabilities are supported.|
+|**Networking**|The ASDK uses a VM named AzS-BGPNAT01 to route all ASDK network traffic. There are no additional switch requirements.|The AzS-BGPNAT01 VM does not exist in multi-node deployments. More complex [network routing infrastructure](../azure-stack-network.md#network-infrastructure) is necessary including Top-Of-Rack (TOR), Baseboard Management Controller (BMC), and border (datacenter network) switches.|
+|**Patch and update process**|To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer.|[Patch and update](../azure-stack-updates.md) process used to update the installed Azure Stack version.|
 |**Support**|MSDN Azure Stack forum. Microsoft Customer Service and Support (CSS) support is *not* available for non-production environments.|[MSDN Azure Stack forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) and full CSS support.|
 | | |
 

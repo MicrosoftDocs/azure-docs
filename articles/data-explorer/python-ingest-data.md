@@ -33,8 +33,8 @@ In addition to an Azure subscription, you need the following to complete this qu
 Install *azure-kusto-data* and *azure-kusto-ingest*.
 
 ```
-pip install azure-kusto-data==0.0.13
-pip install azure-kusto-ingest==0.0.13
+pip install azure-kusto-data
+pip install azure-kusto-ingest
 ```
 
 ## Add import statements and constants
@@ -158,8 +158,8 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com) and connect to your cluster. Run the following command in your database to see if there were any ingestion failures in the last four hours. Replace the database name before running.
 
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Run the following command to view the status of all ingestion operations in the last four hours. Replace the database name before running.

@@ -75,10 +75,14 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |NTP|(IP of NTP server provided for deployment)|UDP|123|
 |DNS|(IP of DNS server provided for deployment)|TCP<br>UDP|53|
 |CRL|(URL under CRL Distribution Points on your certificate)|HTTP|80|
+|Infrastructure Backup|(IP or FQDN of external target file server)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Outbound URLs are load balanced using Azure traffic manager to provide the best possible connectivity based on geographical location. With load balanced URLs, Microsoft can update and change backend endpoints without impacting customers. Microsoft does not share the list of IP addresses for the load balanced URLs. You should use a device that supports filtering by URL rather than by IP.
+
+> [!Note]  
+> In 1809, the infrastructure backup service communicates to the external file server from the public VIP network. Before 1809, the service communicates over the public infrastructure network. If your environments does not allow access to infrastructure resources from the public VIP network, apply the latest 1809 hotfix for Azure Stack. This hotfix will move the infrastructure backup service back to the public infrastructure network. In 1811, if you applied the 1809 hotfix, the infrastructure backup service will remain on the public infrastructure network. If you did not apply the hotfix, the update will move the service back to the public infrastructure network.
 
 ## Next steps
 

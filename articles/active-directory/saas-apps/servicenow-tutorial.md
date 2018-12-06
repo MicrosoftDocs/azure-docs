@@ -37,7 +37,7 @@ To configure Azure AD integration with ServiceNow, you need the following items:
 - An Azure AD subscription
 - For ServiceNow, an instance or tenant of ServiceNow, Calgary version or higher
 - For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or higher
-- The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by [submitting a service request](https://hi.service-now.com).
+- The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by [submitting a service request](https://hi.service-now.com).
 - For automatic configuration, enable the multi-provider plugin for ServiceNow.
 
 > [!NOTE]

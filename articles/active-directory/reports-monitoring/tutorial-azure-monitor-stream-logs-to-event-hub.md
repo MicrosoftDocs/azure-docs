@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
 ---
 
-# Tutorial: Stream Azure AD logs to an Azure event hub (preview)
+# Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)
 
-In this tutorial, learn how to set up Azure Monitor diagnostics settings to stream Azure Active Directory (Azure AD) logs to an Azure event hub. Use this mechanism to integrate your logs with third-party Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
+In this tutorial, you learn how to set up Azure Monitor diagnostics settings to stream Azure Active Directory (Azure AD) logs to an Azure event hub. Use this mechanism to integrate your logs with third-party Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
 
 ## Prerequisites 
 
@@ -34,7 +34,7 @@ To use this feature, you need:
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
 * An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## Archive logs to an event hub
+## Stream logs to an event hub
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -75,7 +75,7 @@ After data is displayed in the event hub, you can access and read the data in tw
 * **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but are not limited to:
     * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](http://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
+    * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
     * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Install the Azure AD app and view the dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 

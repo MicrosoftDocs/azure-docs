@@ -426,7 +426,7 @@ Set clientCredentialType to Certificate or Windows.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Security Mode - Transport, Security Mode - Message |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security cannot guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
 
 ### Example

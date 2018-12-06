@@ -112,7 +112,7 @@ To help analyze the log data, the following table details the schema used for ea
 | *resourceId*             | Azure resource that produced the log |
 | *time*                   | Timestamp of when the log was uploaded |
 | *category*               | Name of container/component generating the log |
-| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *properties.log*         | Full text of the log from the component |
 | *properties.stream*      | *stderr* or *stdout* |
 | *properties.pod*         | Pod name that the log came from |
@@ -129,6 +129,6 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
-[analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
+[analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md

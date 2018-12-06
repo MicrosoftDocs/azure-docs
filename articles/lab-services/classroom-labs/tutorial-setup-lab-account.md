@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
 
 ---
@@ -57,12 +57,8 @@ To set up a classroom lab in a lab account, the user must be a member of the **L
 
 To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
 
-1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add** on the toolbar. 
-
-    ![Lab account page](../media/tutorial-setup-lab-account/access-control.png)
+1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add role assignment** on the toolbar. 
 2. On the **Add permissions** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 
-
-    ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## Specify Marketplace images available to lab owners
 As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 

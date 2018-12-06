@@ -1,14 +1,11 @@
 ---
-title: Unique keys in Azure Cosmos DB
+title: Use unique keys in Azure Cosmos DB
 description: Learn how to use unique keys in your Azure Cosmos DB database
 author: aliuy
-
+ms.author: andrl
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-
 ---
 
 # Unique keys in Azure Cosmos DB
@@ -45,17 +42,6 @@ You can define unique keys only when creating a Cosmos container. A unique key i
 * Sparse unique keys are not supported. If some unique path values are missing, they are treated as null values, which take part in the uniqueness constraint. Hence, there can only be a single item with null value to satisfy this constraint.
 
 * Unique key names are case-sensitive. For example, consider a container with the unique key constraint set to /address/zipcode. If your data has a field named ZipCode, Cosmos DB inserts "null" as the unique key because "zipcode" is not same as "ZipCode". Due to this case sensitivity, all other records with ZipCode can't be inserted because the duplicate "null" will violate the unique key constraint.
-
-## Supported APIs and SDKs
-
-The unique keys feature is currently supported by the following Cosmos DB APIs and client SDKs: 
-
-|Client drivers|SQL API|Cassandra API|MongoDB API|Gremlin API|Table API|
-|---|---|---|---|---|---|
-|.NET|Yes|No|Yes|No|No|
-|Java|Yes|No|Yes|No|No|
-|Python|Yes|No|Yes|No|No|
-|Node/JS|Yes|No|Yes|No|No|
 
 ## Next steps
 

@@ -46,7 +46,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
-- Multi-region accounts with a single-write region: During a write region outage, these accounts will remain highly available for reads. However, for writes you must “enable automatic failover” on your Cosmos account to failover the impacted region to another region associated. The failover will occur in the order of region priority you’ve specified. Eventually, when the impacted region is back online, the un-replicated data present in the impacted write region during the outage is made available through the conflicts feed. Applications can read the conflicts feed, resolve the conflicts based on application-specific logic, and write the updated data back to the Cosmos container as appropriate. Once the previously impacted write region recovers, it becomes automatically available as a read region. You can invoke a manual failover and configure the impacted region as the write region. You can do a manual failover by using [Azure CLI or Azure portal](how-to-manage-database-account.md#enable-manual-failover-for-your-cosmos-account).  
+- Multi-region accounts with a single-write region: During a write region outage, these accounts will remain highly available for reads. However, for writes you must “enable automatic failover” on your Cosmos account to failover the impacted region to another region associated. The failover will occur in the order of region priority you’ve specified. Eventually, when the impacted region is back online, the un-replicated data present in the impacted write region during the outage is made available through the conflicts feed. Applications can read the conflicts feed, resolve the conflicts based on application-specific logic, and write the updated data back to the Cosmos container as appropriate. Once the previously impacted write region recovers, it becomes automatically available as a read region. You can invoke a manual failover and configure the impacted region as the write region. You can do a manual failover by using [Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover).  
 
 - Multi-region accounts with a single-write region: During a read region outage, these accounts will remain highly available for reads and writes. The impacted region is automatically disconnected from the write region and will be marked offline. The Cosmos DB SDKs will redirect read calls to the next available region in the preferred region list. If none of the regions in the preferred region list is available, calls automatically fall back to the current write region. No changes are required in your application code to handle read region outage. Eventually, when the impacted region is back online, the previously impacted read region will automatically sync with the current write region and will be available again to serve read requests. Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read-consistency guarantees continue to be honored by Cosmos DB.
 
@@ -58,20 +58,15 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - To ensure high write and read availability, configure your Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the availability, lowest latency, and scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
 
-- For multi-region Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
+- For multi-region Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
 
-- Even if your Cosmos account is highly available, your application may not be correctly designed to remain highly available. To test the end-to-end high availability for your application, periodically invoke the [manual failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#enable-manual-failover-for-your-cosmos-account), as a part of your application testing or disaster-recovery (DR) drills.
+- Even if your Cosmos account is highly available, your application may not be correctly designed to remain highly available. To test the end-to-end high availability for your application, periodically invoke the [manual failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover), as a part of your application testing or disaster-recovery (DR) drills.
 
 ## Next steps
 
 Next you can learn about scaling throughput in the following article:
 
-- [Scaling throughput](scaling-throughput.md)
-
-- [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
-
-- [Scaling provisioned throughput globally](scaling-throughput.md)
-
-- [Global distribution - under the hood](global-dist-under-the-hood.md)
-
-- [Consistency levels in Azure Cosmos DB](consistency-levels.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [Globally scaling provisioned throughput](scaling-throughput.md)
+* [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [Consistency levels in Azure Cosmos DB](consistency-levels.md)

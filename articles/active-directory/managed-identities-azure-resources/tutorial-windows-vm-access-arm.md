@@ -29,15 +29,7 @@ This quickstart shows you how to access the Azure Resource Manager API using a W
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a resource group in Resource Manager
 Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
@@ -45,7 +37,7 @@ Using managed identities for Azure resources, your code can get access tokens to
 1.	Navigate to the tab for **Resource Groups**. 
 2.	Select the specific **Resource Group** you created for your **Windows VM**. 
 3.	Go to **Access control (IAM)** in the left panel. 
-4.	Then **Add** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
+4.	Then **Add role assignment** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
 5.	In the next drop-down, **Assign access to** the resource **Virtual Machine**. 
 6.	Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
 7.	Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.

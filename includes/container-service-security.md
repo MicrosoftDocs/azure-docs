@@ -5,7 +5,9 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ---
-# Securing Docker containers in Azure Container Service
+# (DEPRECATED) Securing Docker containers in Azure Container Service
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 This article introduces considerations and recommendations for securing Docker containers deployed in Azure Container Service. Many of these considerations apply generally to Docker containers deployed in Azure or other environments. 
 
@@ -50,7 +52,7 @@ Each orchestrator available in Azure Container Service has its own security cons
 
 For additional orchestrator-specific security information, see the following resources:
 
-* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html)
+* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
 * **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
 

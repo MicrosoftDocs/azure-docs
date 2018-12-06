@@ -34,7 +34,7 @@ To use partitioned queues and topics with Azure Service Bus, use the Azure SDK v
 
 ### Standard
 
-In the Standard messaging tier, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
+In the Standard messaging tier, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 4 copies (4 partitions) of the entity for each GB you specify. As such, if you create a queue that's 5 GB in size, with 4 partitions the maximum queue size becomes (5 \* 4) = 20 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Premium
 

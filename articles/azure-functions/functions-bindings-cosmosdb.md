@@ -20,7 +20,7 @@ ms.author: cshoe
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
-This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 > [!NOTE]
 > This article is for Azure Functions 1.x.  For information about how to use these bindings in Functions 2.x, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -34,7 +34,7 @@ This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless
 
 ## Packages - Functions 1.x
 
-The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
+The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -1193,7 +1193,7 @@ See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
 [Skip output examples](#output---attributes)
 
-### Ouput - C# examples
+### Output - C# examples
 
 This section contains the following examples:
 
@@ -1604,7 +1604,7 @@ By default, when you write to the output parameter in your function, a document 
 
 ## Next steps
 
-* [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Learn more about serverless database computing with Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 <!---

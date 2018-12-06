@@ -26,7 +26,7 @@ This how-to guide shows you how to deploy your code to [Azure App Service](app-s
 
 To follow the steps in this how-to guide:
 
-* [Install Git](http://www.git-scm.com/downloads).
+* [Install Git](https://www.git-scm.com/downloads).
 * Maintain a local Git repository with code you want to deploy.
 
 To use a sample repository to follow along, run the following command in your local terminal window:

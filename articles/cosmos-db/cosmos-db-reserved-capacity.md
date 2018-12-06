@@ -1,9 +1,8 @@
 ---
-title: Prepay for Azure Cosmos DB resources to save money | Microsoft Docs
+title: Prepay for Azure Cosmos DB resources to save money
 description: Learn how to buy Azure Cosmos DB reserved capacity to save on your compute costs.
 services: cosmos-db
 author: rimman
-manager: kfile
 
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -81,7 +80,7 @@ The reservation discount is applied automatically to the Azure Cosmos DB resourc
    * [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)
    * [Azure reservations in the Partner Center CSP program](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -109,7 +109,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
 
 ### Create a snapshot
 
-To create a snapshot, follow the steps in [Snapshot a disk](..\windows\snapshot-copy-managed-disk.md).
+To create a snapshot, follow the steps in [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
 ## Collect an OS memory dump
 
@@ -180,7 +180,7 @@ $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
 #This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
-$osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
+$osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
@@ -198,10 +198,10 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
 #$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
 
 #Windows VM
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Windows;
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
 
 #Linux VM
-#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
+#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
 
 #Uncomment to add additional Data Disk
 #Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;

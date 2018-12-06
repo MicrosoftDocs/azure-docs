@@ -4,7 +4,7 @@ description: This article summarizes common questions when you set up disaster r
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
 
@@ -42,14 +42,20 @@ If you're a subscription administrator, you have the replication permissions you
 ## On-premises
 
 ### What do I need on-premises?
-On on-premises you need Site Recovery components, installed on a single VMware VM. You also need a VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server. In addition, you need one or more VMware VMs to replicate. [Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
 
-The on-premises configuration server can be deployed in one of the two following ways
+On on-premises you need:
+- Site Recovery components, installed on a single VMware VM.
+- A VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server.
+- One or more VMware VMs to replicate.
 
-1. Deploy it using a VM template that has the configuration server pre-installed. [Read more here](vmware-azure-tutorial.md#download-the-vm-template).
-2. Deploy it using the setup on a Windows Server 2016 machine of your choice. [Read more here](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
 
-To discover the getting started steps of deploying the configuration server on your own Windows Server machines, in the Protection goal of enable protection, choose **To Azure > Not virtualized/Other**.
+The on-premises configuration server can be deployed as follows:
+
+- We recommend you deploy the configuration server as a VMware VM using an OVA template with the configuration server pre-installed.
+- If for any reason you can't use a template, you can set up the configuration server manually. [Learn more](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### Where do on-premises VMs replicate to?
 Data replicates to Azure storage. When you run a failover, Site Recovery automatically creates Azure VMs from the storage account.
@@ -63,7 +69,7 @@ You can replicate any app or workload running on a VMware VM that complies with 
 Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute public peering. Replication over a site-to-site VPN network isn't supported.
 
 ### Can I replicate to Azure with ExpressRoute?
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### Why can't I replicate over VPN?
@@ -130,10 +136,10 @@ While possible, the Azure VM running the configuration server would need to comm
 We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ### When I'm setting up the configuration server, can I download and install MySQL manually?
-Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the the terms, MySQL will be listed as **Already installed** in **Download and install**.
+Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
 
 ### Can I avoid downloading MySQL but let Site Recovery install it?
-Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
+Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
  
 ### CanL I use the configuration server VM for anything else?
 No, you should only use the VM for the configuration server. 

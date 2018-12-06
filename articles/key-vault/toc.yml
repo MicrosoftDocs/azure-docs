@@ -18,8 +18,26 @@
     href: quick-create-node.md
 - name: Tutorials
   items:
-  - name: How to use Azure Key Vault with Azure Web App in .NET
-    href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Web Apps
+    items:
+    - name: Azure Key Vault with Azure Web App in .NET
+      href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Virtual Machine
+    items:
+    - name: Linux Virtual Machine 
+      items: 
+        - name: .NET
+          href: tutorial-net-linux-virtual-machine.md
+        - name: Python
+          href: tutorial-python-linux-virtual-machine.md
+    - name: Windows Virtual Machine 
+      items: 
+        - name: .NET
+          href: tutorial-net-windows-virtual-machine.md
+        - name: Python
+          href: tutorial-python-windows-virtual-machine.md
+  - name: Azure Containers
+    href: ../container-instances/container-instances-managed-identity.md
   - name: Read a secret from Key Vault
     href: tutorial-web-application-keyvault.md
   - name: Set up key rotation and auditing
@@ -38,8 +56,10 @@
     href: key-vault-ovw-security-worlds.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
-  - name: Storage account keys
+  - name: Managed storage account keys - Azure CLI
     href: key-vault-ovw-storage-keys.md
+  - name: Managed storage account keys - PowerShell
+    href: key-vault-overview-storage-keys-powershell.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints

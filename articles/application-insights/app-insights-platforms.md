@@ -5,17 +5,14 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-
 ---
 # Developer analytics: languages, platforms, and integrations
 These items are implementations of [Application Insights](app-insights-overview.md) that we've heard about, including some by third parties.
@@ -53,7 +50,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
-* [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows desktop applications, services, and worker roles](app-insights-windows-desktop.md)

@@ -78,6 +78,16 @@ To see the help page and examples for a specific command run the command below:
 .\azcopy cp -h
 ```
 
+## Create a file system (Azure Data Lake Storage Gen2 only)
+
+If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new file system so that you can upload an download files to it.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+The ``account`` portion of this string is the name of your storage account. The ``top-level-resource-name`` portion of this string is the name of the file system that you want to create.
+
 ## Copy data to Azure Storage
 
 Use the copy command to transfer data from the source to the destination. The source/destination can be a:
@@ -101,10 +111,22 @@ The following command uploads all files under the folder C:\local\path recursive
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to upload files to your file system:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 The following command uploads all files under the folder C:\local\path (without recursing into the subdirectories) to the container "mycontainer1":
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+If you've enabled hierarchical namespaces on your blob storage account, you can use the following command:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 To get more examples, use the following command:
@@ -121,6 +143,8 @@ To copy the data between two storage accounts, use the following command:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+To work with blob storage accounts that have hierarchical namespaces enabled, replace the string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
 
 > [!NOTE]
 > The command will enumerate all blob containers and copy them to the destination account. At this time AzCopy v10 supports copying only block blobs between two storage accounts. All other storage account objects (append blobs, page blobs, files, tables and queues) will be skipped.
@@ -148,6 +172,8 @@ In the same way you can sync a Blob container down to a local file system:
 ```
 
 The command allows you to incrementally sync the source to the destination based on last modified timestamps. If you add or delete a file in the source, AzCopy v10 will do the same in the destination.
+
+[!NOTE] To work with blob storage accounts that have hierarchical namespaces enabled, replace the string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
 
 ## Advanced configuration
 
