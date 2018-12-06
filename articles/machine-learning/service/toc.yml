@@ -82,13 +82,12 @@
       href: how-to-set-up-training-targets.md
     - name: Access data in training
       href: how-to-access-data.md
-    - name: Create estimators
+    - name: Create estimators in training
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md  
+    - name: Use PyTorch
+      href: how-to-train-pytorch.md
+    - name: Use TensorFlow
+      href: how-to-train-tensorflow.md  
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md    

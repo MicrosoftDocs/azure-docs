@@ -9,7 +9,7 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
+ms.custom: seodec18
 ---
 
 # Tutorial (part 2): Use automated machine learning to build and train a regression model
@@ -58,7 +58,7 @@ from azureml.core.workspace import Workspace
 from azureml.train.automl.run import AutoMLRun
 import time
 import logging
-
+import os
 ```
 
 ## Configure workspace
@@ -74,8 +74,6 @@ ws = Workspace.from_config()
 experiment_name = 'automated-ml-regression'
 # project folder
 project_folder = './automated-ml-regression'
-
-import os
 
 output = {}
 output['SDK version'] = azureml.core.VERSION
@@ -95,13 +93,13 @@ Utilize the data flow object created in the previous tutorial. Open and execute 
 
 ```python
 import azureml.dataprep as dprep
-package_saved = dprep.Package.open(".\dflow")
+
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
+
+package_saved = dprep.Package.open(file_path)
 dflow_prepared = package_saved.dataflows[0]
 dflow_prepared.get_profile()
 ```
-
-
-
 
 <table border="1" class="dataframe">
   <thead>
@@ -138,9 +136,9 @@ dflow_prepared.get_profile()
       <td>FieldType.STRING</td>
       <td>1</td>
       <td>VTS</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -164,9 +162,9 @@ dflow_prepared.get_profile()
       <td>FieldType.STRING</td>
       <td>Friday</td>
       <td>Wednesday</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -190,87 +188,87 @@ dflow_prepared.get_profile()
       <td>FieldType.DECIMAL</td>
       <td>0</td>
       <td>23</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0</td>
-      <td>3.57523</td>
-      <td>3</td>
-      <td>9.91106</td>
-      <td>15.9327</td>
-      <td>19</td>
-      <td>22.0225</td>
+      <td>2.90047</td>
+      <td>2.69355</td>
+      <td>9.72889</td>
+      <td>16</td>
+      <td>19.3713</td>
+      <td>22.6974</td>
       <td>23</td>
       <td>23</td>
-      <td>14.2326</td>
-      <td>6.34926</td>
-      <td>40.3131</td>
-      <td>-0.693335</td>
-      <td>-0.459336</td>
+      <td>14.2731</td>
+      <td>6.59242</td>
+      <td>43.46</td>
+      <td>-0.693723</td>
+      <td>-0.570403</td>
     </tr>
     <tr>
       <th>pickup_minute</th>
       <td>FieldType.DECIMAL</td>
       <td>0</td>
       <td>59</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0</td>
-      <td>5.32313</td>
-      <td>4.92308</td>
-      <td>14.2214</td>
-      <td>29.5244</td>
-      <td>44.6436</td>
-      <td>56.3767</td>
-      <td>58.9798</td>
+      <td>4.99701</td>
+      <td>4.95833</td>
+      <td>14.1528</td>
+      <td>29.3832</td>
+      <td>44.6825</td>
+      <td>56.4444</td>
+      <td>58.9909</td>
       <td>59</td>
-      <td>29.4635</td>
-      <td>17.4396</td>
-      <td>304.14</td>
-      <td>0.00440324</td>
-      <td>-1.20458</td>
+      <td>29.427</td>
+      <td>17.4333</td>
+      <td>303.921</td>
+      <td>0.0120999</td>
+      <td>-1.20981</td>
     </tr>
     <tr>
       <th>pickup_second</th>
       <td>FieldType.DECIMAL</td>
       <td>0</td>
       <td>59</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0</td>
-      <td>4.99286</td>
-      <td>4.91954</td>
-      <td>14.6121</td>
-      <td>29.9239</td>
-      <td>44.5221</td>
-      <td>56.6792</td>
+      <td>5.28131</td>
+      <td>5</td>
+      <td>14.7832</td>
+      <td>29.9293</td>
+      <td>44.725</td>
+      <td>56.7573</td>
       <td>59</td>
       <td>59</td>
-      <td>29.6225</td>
-      <td>17.3868</td>
-      <td>302.302</td>
-      <td>-0.0227466</td>
-      <td>-1.19409</td>
+      <td>29.7443</td>
+      <td>17.3595</td>
+      <td>301.351</td>
+      <td>-0.0252399</td>
+      <td>-1.19616</td>
     </tr>
     <tr>
       <th>dropoff_weekday</th>
       <td>FieldType.STRING</td>
       <td>Friday</td>
       <td>Wednesday</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -294,87 +292,87 @@ dflow_prepared.get_profile()
       <td>FieldType.DECIMAL</td>
       <td>0</td>
       <td>23</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0</td>
-      <td>3.23217</td>
-      <td>2.93333</td>
-      <td>9.92334</td>
-      <td>15.9135</td>
-      <td>19</td>
-      <td>22.2739</td>
+      <td>2.57153</td>
+      <td>2</td>
+      <td>9.58795</td>
+      <td>15.9994</td>
+      <td>19.6184</td>
+      <td>22.8317</td>
       <td>23</td>
       <td>23</td>
-      <td>14.1815</td>
-      <td>6.45578</td>
-      <td>41.677</td>
-      <td>-0.691001</td>
-      <td>-0.500215</td>
+      <td>14.2105</td>
+      <td>6.71093</td>
+      <td>45.0365</td>
+      <td>-0.687292</td>
+      <td>-0.61951</td>
     </tr>
     <tr>
       <th>dropoff_minute</th>
       <td>FieldType.DECIMAL</td>
       <td>0</td>
       <td>59</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0</td>
-      <td>5.1064</td>
-      <td>5</td>
-      <td>14.2051</td>
-      <td>29.079</td>
-      <td>44.2937</td>
-      <td>56.6338</td>
-      <td>58.9984</td>
+      <td>5.44383</td>
+      <td>4.84694</td>
+      <td>14.1036</td>
+      <td>28.8365</td>
+      <td>44.3102</td>
+      <td>56.6892</td>
       <td>59</td>
-      <td>29.353</td>
-      <td>17.4241</td>
-      <td>303.598</td>
-      <td>0.0142562</td>
-      <td>-1.21531</td>
+      <td>59</td>
+      <td>29.2907</td>
+      <td>17.4108</td>
+      <td>303.136</td>
+      <td>0.0222514</td>
+      <td>-1.2181</td>
     </tr>
     <tr>
       <th>dropoff_second</th>
       <td>FieldType.DECIMAL</td>
       <td>0</td>
       <td>59</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0</td>
-      <td>5.03373</td>
+      <td>5.07801</td>
       <td>5</td>
-      <td>14.7471</td>
-      <td>29.598</td>
-      <td>45.3216</td>
-      <td>56.1044</td>
-      <td>58.9728</td>
+      <td>14.5751</td>
+      <td>29.5972</td>
+      <td>45.4649</td>
+      <td>56.2729</td>
       <td>59</td>
-      <td>29.7923</td>
-      <td>17.481</td>
-      <td>305.585</td>
-      <td>-0.0281313</td>
-      <td>-1.21965</td>
+      <td>59</td>
+      <td>29.772</td>
+      <td>17.5337</td>
+      <td>307.429</td>
+      <td>-0.0212575</td>
+      <td>-1.226</td>
     </tr>
     <tr>
       <th>store_forward</th>
       <td>FieldType.STRING</td>
       <td>N</td>
       <td>Y</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -396,115 +394,115 @@ dflow_prepared.get_profile()
     <tr>
       <th>pickup_longitude</th>
       <td>FieldType.DECIMAL</td>
-      <td>-74.0782</td>
-      <td>-73.7365</td>
-      <td>7059.0</td>
+      <td>-74.0781</td>
+      <td>-73.7459</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>-74.0763</td>
-      <td>-73.9625</td>
-      <td>-73.9629</td>
-      <td>-73.949</td>
-      <td>-73.9279</td>
-      <td>-73.8667</td>
-      <td>-73.8304</td>
-      <td>-73.8232</td>
-      <td>-73.7698</td>
-      <td>-73.9139</td>
-      <td>0.0487111</td>
-      <td>0.00237277</td>
-      <td>0.402697</td>
-      <td>-0.613516</td>
+      <td>-74.0578</td>
+      <td>-73.9639</td>
+      <td>-73.9656</td>
+      <td>-73.9508</td>
+      <td>-73.9255</td>
+      <td>-73.8529</td>
+      <td>-73.8302</td>
+      <td>-73.8238</td>
+      <td>-73.7697</td>
+      <td>-73.9123</td>
+      <td>0.0503757</td>
+      <td>0.00253771</td>
+      <td>0.352172</td>
+      <td>-0.923743</td>
     </tr>
     <tr>
       <th>pickup_latitude</th>
       <td>FieldType.DECIMAL</td>
       <td>40.5755</td>
       <td>40.8799</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>40.6329</td>
-      <td>40.7131</td>
-      <td>40.7116</td>
-      <td>40.7214</td>
-      <td>40.7581</td>
-      <td>40.8051</td>
-      <td>40.8489</td>
+      <td>40.632</td>
+      <td>40.7117</td>
+      <td>40.7115</td>
+      <td>40.7213</td>
+      <td>40.7565</td>
+      <td>40.8058</td>
+      <td>40.8478</td>
       <td>40.8676</td>
-      <td>40.8777</td>
-      <td>40.7652</td>
-      <td>0.0483485</td>
-      <td>0.00233758</td>
-      <td>0.228088</td>
-      <td>-0.598862</td>
+      <td>40.8778</td>
+      <td>40.7649</td>
+      <td>0.0494674</td>
+      <td>0.00244702</td>
+      <td>0.205972</td>
+      <td>-0.777945</td>
     </tr>
     <tr>
       <th>dropoff_longitude</th>
       <td>FieldType.DECIMAL</td>
       <td>-74.0857</td>
       <td>-73.7209</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>-74.0788</td>
-      <td>-73.9856</td>
-      <td>-73.9858</td>
-      <td>-73.959</td>
-      <td>-73.9367</td>
-      <td>-73.8848</td>
-      <td>-73.8155</td>
-      <td>-73.7767</td>
-      <td>-73.7335</td>
-      <td>-73.9207</td>
-      <td>0.055961</td>
-      <td>0.00313163</td>
-      <td>0.648649</td>
-      <td>0.0229141</td>
+      <td>-74.0775</td>
+      <td>-73.9875</td>
+      <td>-73.9882</td>
+      <td>-73.9638</td>
+      <td>-73.935</td>
+      <td>-73.8755</td>
+      <td>-73.8125</td>
+      <td>-73.7759</td>
+      <td>-73.7327</td>
+      <td>-73.9202</td>
+      <td>0.0584627</td>
+      <td>0.00341789</td>
+      <td>0.623622</td>
+      <td>-0.262603</td>
     </tr>
     <tr>
       <th>dropoff_latitude</th>
       <td>FieldType.DECIMAL</td>
       <td>40.5835</td>
       <td>40.8797</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>40.5977</td>
-      <td>40.6954</td>
-      <td>40.6951</td>
-      <td>40.7275</td>
-      <td>40.7582</td>
-      <td>40.7884</td>
-      <td>40.8504</td>
+      <td>40.5973</td>
+      <td>40.6928</td>
+      <td>40.6911</td>
+      <td>40.7226</td>
+      <td>40.7567</td>
+      <td>40.7918</td>
+      <td>40.8495</td>
       <td>40.868</td>
-      <td>40.8786</td>
-      <td>40.7595</td>
-      <td>0.0504621</td>
-      <td>0.00254642</td>
-      <td>0.0484179</td>
-      <td>-0.0368799</td>
+      <td>40.8787</td>
+      <td>40.7583</td>
+      <td>0.0517399</td>
+      <td>0.00267701</td>
+      <td>0.0390404</td>
+      <td>-0.203525</td>
     </tr>
     <tr>
       <th>passengers</th>
       <td>FieldType.DECIMAL</td>
       <td>1</td>
       <td>6</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -517,37 +515,63 @@ dflow_prepared.get_profile()
       <td>5</td>
       <td>6</td>
       <td>6</td>
-      <td>2.32979</td>
-      <td>1.79978</td>
-      <td>3.2392</td>
-      <td>0.834099</td>
-      <td>-1.11111</td>
+      <td>2.39249</td>
+      <td>1.83197</td>
+      <td>3.3561</td>
+      <td>0.763144</td>
+      <td>-1.23467</td>
+    </tr>
+    <tr>
+      <th>distance</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0.01</td>
+      <td>32.34</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0108744</td>
+      <td>0.743898</td>
+      <td>0.738194</td>
+      <td>1.243</td>
+      <td>2.40168</td>
+      <td>4.74478</td>
+      <td>10.5136</td>
+      <td>14.9011</td>
+      <td>21.8035</td>
+      <td>3.5447</td>
+      <td>3.2943</td>
+      <td>10.8524</td>
+      <td>1.91556</td>
+      <td>4.99898</td>
     </tr>
     <tr>
       <th>cost</th>
       <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>444</td>
-      <td>7059.0</td>
+      <td>0.1</td>
+      <td>88</td>
+      <td>6148.0</td>
       <td>0.0</td>
-      <td>7059.0</td>
+      <td>6148.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0</td>
-      <td>3.01808</td>
-      <td>3.0125</td>
-      <td>5.91545</td>
-      <td>9.49055</td>
-      <td>16.5816</td>
-      <td>33.5638</td>
-      <td>51.9924</td>
-      <td>81.1368</td>
-      <td>12.9112</td>
-      <td>11.6447</td>
-      <td>135.599</td>
-      <td>8.6842</td>
-      <td>269.818</td>
+      <td>2.33837</td>
+      <td>5.00491</td>
+      <td>5</td>
+      <td>6.93129</td>
+      <td>10.524</td>
+      <td>17.4811</td>
+      <td>33.2343</td>
+      <td>50.0093</td>
+      <td>63.1753</td>
+      <td>13.6843</td>
+      <td>9.66571</td>
+      <td>93.426</td>
+      <td>1.78518</td>
+      <td>4.13972</td>
     </tr>
   </tbody>
 </table>
@@ -555,7 +579,7 @@ dflow_prepared.get_profile()
 You prepare the data for the experiment by adding columns to `dflow_x` to be features for our model creation. You define `dflow_y` to be our prediction value; cost.
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['pickup_weekday', 'dropoff_latitude', 'dropoff_longitude','pickup_hour','pickup_longitude','pickup_latitude','passengers'])
+dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
@@ -633,7 +657,7 @@ experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
-    Parent Run ID: AutoML_83117da4-07e3-473a-b83e-99471bfa9e09
+    Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
     ITERATION: The iteration being evaluated.
     PIPELINE: A summary description of the pipeline being evaluated.
@@ -643,12 +667,36 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     *******************************************************************************************
     
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
-             0   MaxAbsScaler ExtremeRandomTrees                0:00:21       0.6498    0.6498
-             1   MinMaxScaler GradientBoosting                  0:00:22       0.6624    0.6624
-             2   StandardScalerWrapper KNN                      0:00:18       0.7267    0.7267
-             3   StandardScalerWrapper GradientBoosting         0:00:18       0.5003    0.7267
-             4    Ensemble                                      0:00:38       0.6659    0.7267
-    
+             0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
+             1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
+             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.8580    0.9536
+             3   StandardScalerWrapper RandomForest             0:00:08       0.9147    0.9536
+             4   StandardScalerWrapper ExtremeRandomTrees       0:00:45       0.9398    0.9536
+             5   MaxAbsScaler LightGBM                          0:00:08       0.9562    0.9562
+             6   StandardScalerWrapper ExtremeRandomTrees       0:00:27       0.8282    0.9562
+             7   StandardScalerWrapper LightGBM                 0:00:07       0.9421    0.9562
+             8   MaxAbsScaler DecisionTree                      0:00:08       0.9526    0.9562
+             9   MaxAbsScaler RandomForest                      0:00:09       0.9355    0.9562
+            10   MaxAbsScaler SGD                               0:00:09       0.9602    0.9602
+            11   MaxAbsScaler LightGBM                          0:00:09       0.9553    0.9602
+            12   MaxAbsScaler DecisionTree                      0:00:07       0.9484    0.9602
+            13   MaxAbsScaler LightGBM                          0:00:08       0.9540    0.9602
+            14   MaxAbsScaler RandomForest                      0:00:10       0.9365    0.9602
+            15   MaxAbsScaler SGD                               0:00:09       0.9602    0.9602
+            16   StandardScalerWrapper ExtremeRandomTrees       0:00:49       0.9171    0.9602
+            17   SparseNormalizer LightGBM                      0:00:08       0.9191    0.9602
+            18   MaxAbsScaler DecisionTree                      0:00:08       0.9402    0.9602
+            19   StandardScalerWrapper ElasticNet               0:00:08       0.9603    0.9603
+            20   MaxAbsScaler DecisionTree                      0:00:08       0.9513    0.9603
+            21   MaxAbsScaler SGD                               0:00:08       0.9603    0.9603
+            22   MaxAbsScaler SGD                               0:00:10       0.9602    0.9603
+            23   StandardScalerWrapper ElasticNet               0:00:09       0.9603    0.9603
+            24   StandardScalerWrapper ElasticNet               0:00:09       0.9603    0.9603
+            25   MaxAbsScaler SGD                               0:00:09       0.9603    0.9603
+            26   TruncatedSVDWrapper ElasticNet                 0:00:09       0.9602    0.9603
+            27   MaxAbsScaler SGD                               0:00:12       0.9413    0.9603
+            28   StandardScalerWrapper ElasticNet               0:00:07       0.9603    0.9603
+            29    Ensemble                                      0:00:38       0.9622    0.9622
 
 ## Explore the results
 
@@ -683,9 +731,6 @@ rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
 
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -709,107 +754,316 @@ rundata
       <th>2</th>
       <th>3</th>
       <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+      <th>25</th>
+      <th>26</th>
+      <th>27</th>
+      <th>28</th>
+      <th>29</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>explained_variance</th>
-      <td>0.113810</td>
-      <td>0.093514</td>
-      <td>-0.010248</td>
-      <td>0.005867</td>
-      <td>0.108187</td>
+      <td>0.811037</td>
+      <td>0.880553</td>
+      <td>0.398582</td>
+      <td>0.776040</td>
+      <td>0.663869</td>
+      <td>0.875911</td>
+      <td>0.115632</td>
+      <td>0.586905</td>
+      <td>0.851911</td>
+      <td>0.793964</td>
+      <td>...</td>
+      <td>0.850023</td>
+      <td>0.883603</td>
+      <td>0.883704</td>
+      <td>0.880797</td>
+      <td>0.881564</td>
+      <td>0.883708</td>
+      <td>0.881826</td>
+      <td>0.585377</td>
+      <td>0.883123</td>
+      <td>0.886817</td>
     </tr>
     <tr>
       <th>mean_absolute_error</th>
-      <td>7.004893</td>
-      <td>6.348354</td>
-      <td>6.493000</td>
-      <td>7.045597</td>
-      <td>6.646850</td>
+      <td>2.189444</td>
+      <td>1.500412</td>
+      <td>5.480531</td>
+      <td>2.626316</td>
+      <td>2.973026</td>
+      <td>1.550199</td>
+      <td>6.383868</td>
+      <td>4.414241</td>
+      <td>1.743328</td>
+      <td>2.294601</td>
+      <td>...</td>
+      <td>1.797402</td>
+      <td>1.415815</td>
+      <td>1.418167</td>
+      <td>1.578617</td>
+      <td>1.559427</td>
+      <td>1.413042</td>
+      <td>1.551698</td>
+      <td>4.069196</td>
+      <td>1.505795</td>
+      <td>1.430957</td>
     </tr>
     <tr>
       <th>median_absolute_error</th>
-      <td>4.834063</td>
-      <td>3.503244</td>
-      <td>3.321553</td>
-      <td>4.349547</td>
-      <td>4.389995</td>
+      <td>1.438417</td>
+      <td>0.850899</td>
+      <td>4.579662</td>
+      <td>1.765210</td>
+      <td>1.594600</td>
+      <td>0.869883</td>
+      <td>4.266450</td>
+      <td>3.627355</td>
+      <td>0.954992</td>
+      <td>1.361014</td>
+      <td>...</td>
+      <td>0.973634</td>
+      <td>0.774814</td>
+      <td>0.797269</td>
+      <td>1.147234</td>
+      <td>1.116424</td>
+      <td>0.783958</td>
+      <td>1.098464</td>
+      <td>2.709027</td>
+      <td>1.003728</td>
+      <td>0.851724</td>
     </tr>
     <tr>
       <th>normalized_mean_absolute_error</th>
-      <td>0.077832</td>
-      <td>0.070537</td>
-      <td>0.072144</td>
-      <td>0.078284</td>
-      <td>0.073854</td>
+      <td>0.024908</td>
+      <td>0.017070</td>
+      <td>0.062350</td>
+      <td>0.029878</td>
+      <td>0.033823</td>
+      <td>0.017636</td>
+      <td>0.072626</td>
+      <td>0.050219</td>
+      <td>0.019833</td>
+      <td>0.026105</td>
+      <td>...</td>
+      <td>0.020448</td>
+      <td>0.016107</td>
+      <td>0.016134</td>
+      <td>0.017959</td>
+      <td>0.017741</td>
+      <td>0.016076</td>
+      <td>0.017653</td>
+      <td>0.046293</td>
+      <td>0.017131</td>
+      <td>0.016279</td>
     </tr>
     <tr>
       <th>normalized_median_absolute_error</th>
-      <td>0.053712</td>
-      <td>0.038925</td>
-      <td>0.036906</td>
-      <td>0.048328</td>
-      <td>0.048778</td>
+      <td>0.016364</td>
+      <td>0.009680</td>
+      <td>0.052101</td>
+      <td>0.020082</td>
+      <td>0.018141</td>
+      <td>0.009896</td>
+      <td>0.048538</td>
+      <td>0.041267</td>
+      <td>0.010865</td>
+      <td>0.015484</td>
+      <td>...</td>
+      <td>0.011077</td>
+      <td>0.008815</td>
+      <td>0.009070</td>
+      <td>0.013052</td>
+      <td>0.012701</td>
+      <td>0.008919</td>
+      <td>0.012497</td>
+      <td>0.030819</td>
+      <td>0.011419</td>
+      <td>0.009690</td>
     </tr>
     <tr>
       <th>normalized_root_mean_squared_error</th>
-      <td>0.117819</td>
-      <td>0.120518</td>
-      <td>0.126141</td>
-      <td>0.124289</td>
-      <td>0.118340</td>
+      <td>0.047968</td>
+      <td>0.037882</td>
+      <td>0.085572</td>
+      <td>0.052282</td>
+      <td>0.065809</td>
+      <td>0.038664</td>
+      <td>0.109401</td>
+      <td>0.071104</td>
+      <td>0.042294</td>
+      <td>0.049967</td>
+      <td>...</td>
+      <td>0.042565</td>
+      <td>0.037685</td>
+      <td>0.037557</td>
+      <td>0.037643</td>
+      <td>0.037513</td>
+      <td>0.037560</td>
+      <td>0.037465</td>
+      <td>0.072077</td>
+      <td>0.037249</td>
+      <td>0.036716</td>
     </tr>
     <tr>
       <th>normalized_root_mean_squared_log_error</th>
-      <td>0.177689</td>
-      <td>0.163360</td>
-      <td>0.168101</td>
-      <td>0.178250</td>
-      <td>0.168685</td>
+      <td>0.055353</td>
+      <td>0.045000</td>
+      <td>0.110219</td>
+      <td>0.065633</td>
+      <td>0.063589</td>
+      <td>0.044412</td>
+      <td>0.123433</td>
+      <td>0.092312</td>
+      <td>0.046130</td>
+      <td>0.055243</td>
+      <td>...</td>
+      <td>0.046540</td>
+      <td>0.041804</td>
+      <td>0.041771</td>
+      <td>0.045175</td>
+      <td>0.044628</td>
+      <td>0.041617</td>
+      <td>0.044405</td>
+      <td>0.079651</td>
+      <td>0.042799</td>
+      <td>0.041530</td>
     </tr>
     <tr>
       <th>r2_score</th>
-      <td>0.104661</td>
-      <td>0.064075</td>
-      <td>-0.036158</td>
-      <td>-0.004403</td>
-      <td>0.096976</td>
+      <td>0.810900</td>
+      <td>0.880328</td>
+      <td>0.398076</td>
+      <td>0.775957</td>
+      <td>0.642812</td>
+      <td>0.875719</td>
+      <td>0.021603</td>
+      <td>0.586514</td>
+      <td>0.851767</td>
+      <td>0.793671</td>
+      <td>...</td>
+      <td>0.849809</td>
+      <td>0.880142</td>
+      <td>0.880952</td>
+      <td>0.880586</td>
+      <td>0.881347</td>
+      <td>0.880887</td>
+      <td>0.881613</td>
+      <td>0.548121</td>
+      <td>0.882883</td>
+      <td>0.886321</td>
     </tr>
     <tr>
       <th>root_mean_squared_error</th>
-      <td>10.603744</td>
-      <td>10.846632</td>
-      <td>11.352731</td>
-      <td>11.185972</td>
-      <td>10.650593</td>
+      <td>4.216362</td>
+      <td>3.329810</td>
+      <td>7.521765</td>
+      <td>4.595604</td>
+      <td>5.784601</td>
+      <td>3.398540</td>
+      <td>9.616354</td>
+      <td>6.250011</td>
+      <td>3.717661</td>
+      <td>4.392072</td>
+      <td>...</td>
+      <td>3.741447</td>
+      <td>3.312533</td>
+      <td>3.301242</td>
+      <td>3.308795</td>
+      <td>3.297389</td>
+      <td>3.301485</td>
+      <td>3.293182</td>
+      <td>6.335581</td>
+      <td>3.274209</td>
+      <td>3.227365</td>
     </tr>
     <tr>
       <th>root_mean_squared_log_error</th>
-      <td>0.801531</td>
-      <td>0.736896</td>
-      <td>0.758279</td>
-      <td>0.804062</td>
-      <td>0.760913</td>
+      <td>0.243184</td>
+      <td>0.197702</td>
+      <td>0.484227</td>
+      <td>0.288349</td>
+      <td>0.279367</td>
+      <td>0.195116</td>
+      <td>0.542281</td>
+      <td>0.405559</td>
+      <td>0.202666</td>
+      <td>0.242702</td>
+      <td>...</td>
+      <td>0.204464</td>
+      <td>0.183658</td>
+      <td>0.183514</td>
+      <td>0.198468</td>
+      <td>0.196067</td>
+      <td>0.182836</td>
+      <td>0.195087</td>
+      <td>0.349935</td>
+      <td>0.188031</td>
+      <td>0.182455</td>
     </tr>
     <tr>
       <th>spearman_correlation</th>
-      <td>0.549825</td>
-      <td>0.562435</td>
-      <td>0.526702</td>
-      <td>0.500302</td>
-      <td>0.565857</td>
+      <td>0.944743</td>
+      <td>0.953618</td>
+      <td>0.857965</td>
+      <td>0.914703</td>
+      <td>0.939846</td>
+      <td>0.956159</td>
+      <td>0.828187</td>
+      <td>0.942069</td>
+      <td>0.952581</td>
+      <td>0.935477</td>
+      <td>...</td>
+      <td>0.951287</td>
+      <td>0.960335</td>
+      <td>0.960195</td>
+      <td>0.960279</td>
+      <td>0.960288</td>
+      <td>0.960323</td>
+      <td>0.960161</td>
+      <td>0.941254</td>
+      <td>0.960293</td>
+      <td>0.962158</td>
     </tr>
     <tr>
       <th>spearman_correlation_max</th>
-      <td>0.549825</td>
-      <td>0.562435</td>
-      <td>0.562435</td>
-      <td>0.562435</td>
-      <td>0.565857</td>
+      <td>0.944743</td>
+      <td>0.953618</td>
+      <td>0.953618</td>
+      <td>0.953618</td>
+      <td>0.953618</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>...</td>
+      <td>0.960303</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.962158</td>
     </tr>
   </tbody>
 </table>
+<p>12 rows × 30 columns</p>
 </div>
 
 ## Retrieve the best model
@@ -843,16 +1097,18 @@ y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Compare the predicted cost values with the actual cost values. Use the `y_test` dataframe, and convert it to a list to compare to the predicted values. The function `mean_absolute_error` takes two arrays of values, and calculates the average absolute value error between them. In this example, a mean absolute error of 3.5 would mean that on average, the model predicts the cost within plus or minus 3.5 of the actual value.
+Compare the predicted cost values with the actual cost values. Use the `y_test` dataframe, and convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values, and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable (cost), and indicates roughly how far your predictions are from the actual value.
 
 ```python
-from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
+from math import sqrt
 
 y_actual = y_test.values.flatten().tolist()
-mean_absolute_error(y_actual, y_predict)
+rmse = sqrt(mean_squared_error(y_actual, y_predict))
+rmse
 ```
 
-    [ 3.16213051 ]
+    4.0317375193408544
 
 Run the following code to calculate MAPE (mean absolute percent error) using the full `y_actual` and `y_predict` data sets. This metric calculates an absolute difference between each predicted and actual value, sums all the differences, and then expresses that sum as a percent of the total of the actual values.
 
@@ -876,10 +1132,10 @@ print(1 - mean_abs_percent_error)
 ```
 
     Model MAPE:
-    0.22424976634422172
-
+    0.11334441225861108
+    
     Model Accuracy:
-    0.7757502336557782
+    0.8866555877413889
 
 ## Clean up resources
 

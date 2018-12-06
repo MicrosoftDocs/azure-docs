@@ -1,5 +1,6 @@
 ---
-title: Enable data collection for models in production - Azure Machine Learning
+title: Enable data collection for models in production
+titleSuffix: Azure Machine Learning service
 description: Learn how to collect Azure Machine Learning input model data in an Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning

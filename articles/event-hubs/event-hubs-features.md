@@ -9,14 +9,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
 
-# Event Hubs features overview
+# Features and terminology in Azure Event Hubs
 
 Azure Event Hubs is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs?](event-hubs-what-is-event-hubs.md) for a high-level overview.
 
