@@ -129,6 +129,6 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
-[analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
+[analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
