@@ -1,5 +1,5 @@
 ---
-title: Implement CI/CD for Azure Stream Analytics using REST APIs
+title: Implement CI/CD for Azure Stream Analytics using REST APIs | Microsoft Docs
 description: Learn how to implement a continuous integration and deployment pipeline for Azure Stream Analytics using REST APIs.
 services: stream-analytics
 author: mamccrea
