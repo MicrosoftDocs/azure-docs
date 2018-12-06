@@ -1,7 +1,7 @@
 ---
 title: Categorizing images - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to categorizing images using the Computer Vision API.
+description: Learn concepts related to the image categorization feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun

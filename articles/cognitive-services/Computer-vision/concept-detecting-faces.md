@@ -1,7 +1,7 @@
 ---
 title: Detecting faces - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to detecting faces using the Computer Vision API.
+description: Concepts related to the face detection feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun

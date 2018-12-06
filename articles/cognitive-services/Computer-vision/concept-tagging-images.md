@@ -1,7 +1,7 @@
 ---
 title: Tagging images - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to tagging images using the Computer Vision API.
+description: Learn concepts related to the images tagging feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun

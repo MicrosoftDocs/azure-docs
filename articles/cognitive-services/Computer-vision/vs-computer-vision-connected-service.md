@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Computer Vision C#"
+title: "Visual Studio Connected Service - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
-description: Connect to the Computer Vision API from an ASP.NET Core web application.
+description: Connect to the Computer Vision API from an ASP.NET Core web application using the Visual Studio Connected Service feature.
 services: cognitive-services
 author: ghogen
 manager: cgronlun

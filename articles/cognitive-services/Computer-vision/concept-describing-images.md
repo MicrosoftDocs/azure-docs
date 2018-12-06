@@ -1,7 +1,7 @@
 ---
 title: Describing images - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to describing images using the Computer Vision API.
+description: Concepts related to the image description feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
