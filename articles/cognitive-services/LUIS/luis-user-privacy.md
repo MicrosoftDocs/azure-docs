@@ -1,10 +1,11 @@
 ---
-title: Export and deletion of customer data - Language Understanding - LUIS
+title: Export and deletion of data
 titleSuffix: Azure Cognitive Services 
 description: Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web portal or the LUIS Programmatic APIs.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

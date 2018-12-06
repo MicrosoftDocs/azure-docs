@@ -1,10 +1,11 @@
 ---
-title: Build a LUIS app programmatically using Node.js | Microsoft Docs
+title: Import utterances using Node.js
 titleSuffix: Azure
 description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -29,7 +30,7 @@ Even if you have a system that wasn't created with LUIS in mind, if it contains 
 
 Open the `IoT.csv` file. It contains a log of user queries to a hypothetical home automation service, including how they were categorized, what the user said, and some columns with useful information pulled out of them. 
 
-![CSV file](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![CSV file of pre-existing data](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 You see that the **RequestType** column could be intents, and the **Request** column shows an example utterance. The other fields could be entities if they occur in the utterance. Because there are intents, entities, and example utterances, you have the requirements for a simple, sample app.
 
@@ -111,28 +112,31 @@ In order to use this application, you need to change the values in the index.js 
 Open the index.js file, and change these values at the top of the file.
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
+```
+
 ### Run the script
 Run the script from a terminal/command line with Node.js.
 
-````
+```console
 > node index.js
-````
+```
+
 or
-````
+
+```console
 > npm start
-````
+```
 
 ### Application progress
 While the application is running, the command line shows progress. The command line output includes the format of the responses from LUIS.
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -152,7 +156,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

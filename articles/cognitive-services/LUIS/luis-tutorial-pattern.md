@@ -1,9 +1,10 @@
 ---
-title: "Tutorial 3: Patterns to improve LUIS predictions" 
+title: Patterns
 titleSuffix: Azure Cognitive Services
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
@@ -102,7 +103,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -225,7 +226,7 @@ In this tutorial, add two new intents: `OrgChart-Manager` and `OrgChart-Reports`
 
 Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -273,7 +274,7 @@ Remember that employees were created in the [list entity tutorial](luis-quicksta
 
 3. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?` as the utterance. The last querystring parameter is `q`, the utterance **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
