@@ -9,6 +9,7 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
+ms.custom: seodec18
 ---
 # Monitor your Azure Machine Learning models with Application Insights
 
@@ -91,7 +92,7 @@ You can enable and disable Application Insights in the Azure portal.
 1. In the [Azure portal](https://portal.azure.com), open your workspace.
 1. Select **Deployments**, select the service, and select **Edit**.
 
-   [![Edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Use the edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. In **Advanced Settings**, clear the **Enable AppInsights diagnostics** check box. 
 

@@ -640,8 +640,8 @@ Get-AzureRmHDInsightJobOutput `
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
 [sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
