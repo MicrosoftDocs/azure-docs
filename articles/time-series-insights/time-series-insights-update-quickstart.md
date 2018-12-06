@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Quickstart: Explore the Azure Time Series Insights (preview) demo environment' | Microsoft Docs
 description: Understand the Azure Time Series Insights (preview) demo environment
 ms.service: time-series-insights 
