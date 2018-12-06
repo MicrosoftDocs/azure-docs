@@ -30,17 +30,17 @@
     - name: Collect - Linux computer
       href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
     - name: Collect - Windows computer
-      href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
   - name: Analyze data in Log Analytics
-    href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-viewdata.md
   - name: Visualize data in Log Analytics
-    href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-logs-dashboards.md
   - name: Archive platform metric and log data 
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
   - name: Alert on log data
-    href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
   - name: Find application run-time exceptions
@@ -84,7 +84,7 @@
       - name: Log data
         href: platform/data-security.md
       - name: Personal log data handling
-        href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
+        href: platform/personal-data-mgmt.md
       - name: Application data collection, retention, and storage
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: Insights
@@ -114,9 +114,9 @@
     - name: OMS portal transition
       items:
         - name: Overview
-          href: ../log-analytics/log-analytics-oms-portal-transition.md?toc=/azure/azure-monitor/toc.json
+          href: platform/oms-portal-transition.md
         - name: Common questions
-          href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
+          href: platform/oms-portal-faq.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -152,7 +152,7 @@
       - name: Roles permissions and security
         href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
       - name: Workspaces
-        href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
+        href: platform/manage-access.md
       - name: Applications
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP addresses
@@ -174,15 +174,15 @@
       - name: Create a workspace
         items:
         - name: Use Azure portal
-          href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json 
+          href: learn/quick-create-workspace.md 
         - name: Use Azure CLI
-          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-cli.md
         - name: Use Azure PowerShell
-          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
-        href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
+        href: platform/delete-workspace.md
       - name: Design for service providers
-        href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-providers.md
   - name: Collect data
     items:
     - name: Install and configure agents
@@ -561,7 +561,7 @@
         - name: Pricing
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
-          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-faq.md
     - name: Monitor virtual machines
       items:
       - name: Azure Monitor for VMs
@@ -646,7 +646,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powerbi.md
       - name: Export application data
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Send data to Grafana
@@ -716,7 +716,6 @@
         - name: Application data
           href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Standard properties
-          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
         - name: Parse text data
           href: log-query/parse-text.md
       - name: Take action from search results
@@ -838,7 +837,7 @@
     - name: Application enterprise plan details
       href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
     - name: Log data volume and retention
-      href: ../log-analytics/log-analytics-manage-cost-storage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/manage-cost-storage.md
     - name: Log data monitor usage
       href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
   - name: Automate 
@@ -862,7 +861,7 @@
     - name: Azure CLI samples
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Resource Manager templates
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+      href: platform/template-workspace-configuration.md
     - name: API
       items:  
       - name: Walkthrough using REST API

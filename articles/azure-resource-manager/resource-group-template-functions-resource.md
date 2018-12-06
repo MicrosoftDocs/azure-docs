@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 12/06/2018
 ms.author: tomfitz
 
 ---
@@ -286,6 +286,8 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
+The reference function can retrieve the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
+
 The reference function derives its value from a runtime state, and therefore can't be used in the variables section. It can be used in outputs section of a template or [linked template](resource-group-linked-templates.md#link-or-nest-a-template). It can't be used in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template. 
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
@@ -441,13 +443,16 @@ To deploy this example template with PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same resource group.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "storageResourceGroup": {
+            "type": "string"
+        },
         "storageAccountName": {
             "type": "string"
         }
@@ -455,8 +460,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     "resources": [],
     "outputs": {
         "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
+            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
+            "type": "object"
         }
     }
 }
@@ -465,13 +470,13 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
 ```
 
 To deploy this example template with PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
 ```
 
 <a id="resourcegroup" />
