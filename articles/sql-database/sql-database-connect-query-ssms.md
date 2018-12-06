@@ -14,7 +14,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 12/04/2018
 ---
-# Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data
+# Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
 You can use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to manage any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows. This quickstart shows you how to use SSMS to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data. 
 
@@ -39,7 +39,7 @@ Before you start, make sure you've installed the latest [SSMS][ssms-install-late
 In SMSS, connect to your Azure SQL Database server. 
 
 > [!IMPORTANT]
-> An Azure SQL Database logical server listens on port 1433. To connect to a logical server behind a corporate firewall, the firewall must have this port open.
+> An Azure SQL Database logical server listens on port 1433. To connect to a logical server from behind a corporate firewall, the firewall must have this port open.
 >
 
 1. Open SSMS. The **Connect to Server** dialog box appears.
@@ -57,11 +57,11 @@ In SMSS, connect to your Azure SQL Database server.
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Click **Options >>** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, choose **mySampleDatabase**.
+3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, choose **mySampleDatabase**.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Click **Connect**. The Object Explorer window opens. 
+4. Select **Connect**. The Object Explorer window opens. 
 
 5. To view the database's objects, expand **Databases** and then expand **mySampleDatabase**.
 
@@ -111,7 +111,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
            ,GETDATE() );
    ```
 
-2. Select **Execute**  to insert a new row in the Product table. The **Messages** pane displays "(1 row affected)"
+2. Select **Execute**  to insert a new row in the Product table. The **Messages** pane displays **(1 row affected)**.
 
 ## View the result
 
@@ -138,7 +138,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Execute** to update the specified row in the Product table. The **Messages** pane displays "(1 row affected)".
+2. Select **Execute** to update the specified row in the Product table. The **Messages** pane displays **(1 row affected)**.
 
 ## Delete data
 
@@ -151,7 +151,7 @@ Use the following [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Execute** to delete the specified row in the Product table. The **Messages** pane displays "(1 row affected)".
+2. Select **Execute** to delete the specified row in the Product table. The **Messages** pane displays **(1 row affected)**.
 
 ## Next steps
 

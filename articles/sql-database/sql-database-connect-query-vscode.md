@@ -12,9 +12,9 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ---
-# Quickstart: Azure SQL Database: Use Visual Studio Code to connect and query data
+# Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database
 
 [Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates using Visual Studio Code to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data.
 
@@ -24,9 +24,10 @@ This tutorial uses the resources created in one of these quickstarts:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### Install VS Code
+#### Install Visual Studio Code
 
-Before you start, make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and [mssql for Visual Studio Code
+](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
 ## Configure Visual Studio Code 
 
@@ -62,27 +63,27 @@ In Visual Studio Code, set the language mode to **SQL**  to enable mssql command
 
 1. Open a new Visual Studio Code window. 
 
-1. Press **CTRL+n**. A new plain text file opens. 
+2. Press **CTRL**+**N**. A new plain text file opens. 
 
 3. Select **Plain Text** in the status bar's lower right-hand corner.
 
-1. In the **Select language mode** drop-down menu that opens, select **SQL**. 
+4. In the **Select language mode** drop-down menu that opens, select **SQL**. 
 
 ## Connect to your database
 
 Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
 > [!IMPORTANT]
-> Before continuing, make sure that you have your server, database, and login information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
+> Before continuing, make sure that you have your server and login information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
 >
 
-1. In VS Code, press **CTRL+SHIFT+P** (or **F1**) to open the Command Palette.
+1. In Visual Studio Code, press **Ctrl+Shift+P** (or **F1**) to open the Command Palette.
 
-2. Select **MS SQL:Connect** and press **ENTER**.
+2. Select **MS SQL:Connect** and press **Enter**.
 
 3. Select **Create Connection Profile**.
 
-4. Follow the prompts to specify the new profile's connection properties. After specifying each value, press **ENTER** to continue. 
+4. Follow the prompts to specify the new profile's connection properties. After specifying each value, press **Enter** to continue. 
 
    | Property       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -109,7 +110,7 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Press **CTRL+SHIFT+E** to execute the query and display results from the Product and ProductCategory tables.
+2. Press **Ctrl**+**Shift**+**E** to execute the query and display results from the Product and ProductCategory tables.
 
     ![Query](./media/sql-database-connect-query-vscode/query.png)
 
@@ -139,7 +140,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 		   ,GETDATE() );
    ```
 
-2. Press **CTRL+SHIFT+E** to insert a new row in the Product table.
+2. Press **Ctrl**+**Shift**+**E** to insert a new row in the Product table.
 
 ## Update data
 
@@ -153,7 +154,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Press **CTRL+SHIFT+E** to update the specified row in the Product table.
+2. Press **Ctrl**+**Shift**+**E** to update the specified row in the Product table.
 
 ## Delete data
 
@@ -166,7 +167,7 @@ Use the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delet
    WHERE Name = 'myNewProduct';
    ```
 
-2. Press **CTRL+SHIFT+E** to delete the specified row in the Product table.
+2. Press **Ctrl**+**Shift**+**E** to delete the specified row in the Product table.
 
 ## Next steps
 

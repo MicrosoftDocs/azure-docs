@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 ---
 # Quickstart: Import a BACPAC file to a new Azure SQL Database
 
@@ -35,7 +35,7 @@ Select the storage account, container, and BACPAC file you want to import. Speci
 
 ### Monitor import's progress
 
-To monitor an import's progress, open the imported database's logical server page, scroll down to **Settings**, and select **Import/Export history**. When successful, the import has a **Completed** status.
+To monitor an import's progress, open the imported database's logical server page, scroll down to. Settings**, and select **Import/Export history**. When successful, the import has a **Completed** status.
 
 To verify the database is live on the server, select **SQL databases** and verify the new database is **Online**.
 
@@ -52,10 +52,10 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 ```
 
 > [!IMPORTANT]
-> An Azure SQL Database logical server listens on port 1433. To connect to a logical server behind a corporate firewall, the firewall must have this port open.
+> An Azure SQL Database logical server listens on port 1433. To connect to a logical server from behind a corporate firewall, the firewall must have this port open.
 >
 
-This example shows how to import a database using SqlPackage with Active Directory Universal Authentication:
+This example shows how to import a database using SqlPackage with Active Directory Universal Authentication.
 
 ```cmd
 SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
@@ -101,7 +101,7 @@ For another script example, see [Import a database from a BACPAC file](scripts/s
 
 ## Limitations
 
-Importing to a database in elastic pool is not supported. You can import data into a single database and then move the database to a pool.
+Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to a pool.
 
 ## Import using wizards
 

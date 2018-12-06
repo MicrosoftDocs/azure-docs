@@ -14,9 +14,9 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
 ---
-# Quickstart: Azure portal: Use the SQL Query editor to connect and query data
+# Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
-The SQL Query editor is an Azure portal browser tool providing an easy way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse. This quickstart demonstrates using the Query editor to connect to a SQL database and run Transact-SQL statements to query, insert, update, and delete data.
+The SQL query editor is an Azure portal browser tool providing an easy way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse. This quickstart demonstrates using the query editor to connect to a SQL database and run Transact-SQL statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
@@ -25,48 +25,53 @@ This tutorial uses the resources created in one of these quickstarts:
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 > [!NOTE]
-> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query editor access to your databases and data warehouses.
+> Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL Server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.
 
-## Connect using SQL Authentication
+## Sign in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select **SQL databases** from the left-hand menu and choose the one you would like to query.
+Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. In the left-hand menu, find and select **Query editor (preview)**.
+## Connect using SQL authentication
+
+1. Select **SQL databases** from the left-hand menu and then select **mySampleDatabase**.
+
+2. In the left-hand menu, find and select **Query editor (preview)**. The **Login** page appears.
 
     ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. If the Login page doesn't automatically appear, select **Login** from the toolbar. Select  **SQL Server authentication** and enter the user ID and password of the server admin account used to create the database.
+3. From the **Authorization type** drop-down menu, select  **SQL Server authentication** and enter the user ID and password of the server admin account used to create the database.
 
-    ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
+    ![sign in](./media/sql-database-connect-query-portal/login-menu.png) 
 
 4. Select **OK**.
 
 
-## Connect using Azure AD
+## Connect using Azure Active Directory
 
-Configuring an Active Directory administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an active directory admin for your SQL Server.
+Configuring an Active Directory (AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an AD admin for your SQL Server.
 
-> [!NOTES]
-* Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) are not yet supported as Active Directory administrators. Make sure to choose a user created either natively in the Azure Active Directory, or federated into the Azure Active directory.
-* Azure Active Directory Administrator sign in doesn't work with accounts that have 2-factor authentication enabled.
+> [!NOTE]
+* Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
+* Azure AD admin sign-in doesn't work with accounts that have 2-factor authentication enabled.
 
-1. Select **All Resources** from the left-hand menu. In the page that appears, find and select your SQL Server.
+1. Select **All Resources** from the left-hand menu and then select your SQL Server.
 
-2. From your SQL Server's settings menu, select **Active Directory Admin**.
+2. From your SQL Server's **Settings** menu, select **Active Directory Admin**.
 
-3. In the Active Directory admin page, select  **Set admin** and choose the user or group as your Active Directory administrator.
+3. From the AD admin page toolbar, select  **Set admin** and choose the user or group as your AD admin.
 
     ![select active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. At the top of the Active Directory admin page, select **Save**.
+4. From the AD admin page toolbar, select **Save**.
 
-Navigate to the SQL database you would like to query and click **Data explorer (preview)** from the left-hand menu. The Data explorer page opens and automatically connects you to the database.
+5. Navigate to the **mySampleDatabase** database and, from the left-hand menu, select **Query editor (preview)**. The **Login** page appears.
+
+6. If you are an AD admin, then, on the right-hand side, under **Active Directory single sign-on**, a message appears saying you have been logged in. Select **OK**.
 
 
 ## View data
 
-1. After you're authenticated, paste the following SQL in the Query editor to retrieve the top 20 products by category.
+1. After you're authenticated, paste the following SQL in the query editor to retrieve the top 20 products by category.
 
 ```sql
     SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -106,7 +111,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
    ```
 
 
-2. Select **Run**  to insert a new row in the Product table. The **Messages** pane displays "Query succeeded: Affected rows: 1".
+2. Select **Run**  to insert a new row in the Product table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
 ## Update data
@@ -121,7 +126,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Run** to update the specified row in the Product table. The **Messages** pane displays "Query succeeded: Affected rows: 1".
+2. Select **Run** to update the specified row in the Product table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 ## Delete data
 
@@ -134,29 +139,28 @@ Use the following [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Run** to delete the specified row in the Product table. The **Messages** pane displays "Query succeeded: Affected rows: 1".
+2. Select **Run** to delete the specified row in the Product table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
 ## Query editor considerations
 
-There are a few things to know when working with the Query editor.
+There are a few things to know when working with the query editor.
 
-1. You can't use the Query editor to query SQL server databases in a Virtual Network.
+* You can't use the query editor to query SQL server databases in a Virtual Network.
 
-1. Pressing F5 refreshes the Query editor page and any query being worked on is lost.
+* Pressing F5 refreshes the query editor page and any query being worked on is lost.
 
-4. Query editor doesn't support connecting to the master database.
+* Query editor doesn't support connecting to the master database.
 
-5. There's a 5-minute timeout for query execution.
+* There's a 5-minute timeout for query execution.
 
+* Email accounts (for example, outlook.com, hotmail.com, gmail.com, and so on) aren't yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active Directory
 
-7. Email accounts (for example, outlook.com, hotmail.com, gmail.com, and so on) aren't yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active directory
+* The query editor only supports cylindrical projection for geography data types.
 
-8. The Query editor only supports cylindrical projection for geography data types.
-
-9. There's no support for IntelliSense for database tables and views. However, the editor does support autocomplete on names that have already been typed.
+* There's no support for IntelliSense for database tables and views. However, the editor does support autocomplete on names that have already been typed.
 
 
 ## Next steps
 
-- To learn more about the Transact-SQL supported in Azure SQL databases, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+To learn more about the Transact-SQL supported in Azure SQL databases, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
