@@ -88,9 +88,9 @@ The following steps describe how to configure permissions for a user.
 1. Sign in with an account that has owner permissions to the resource you want to manage.
 2. In the left navigation pane, choose **Resource groups**.
 3. Choose the name of the resource group that you want to set permissions on.
-4. In the resource group navigation pane, choose **Access control (IAM)**. The **Access control** view lists the Items that have access to the resource group. You can filter these results, and use a menu bar to Add or Remove permissions.
-5. On the **Access control** menu bar, choose **+ Add**.
-6. On **Add permissions**:
+4. In the resource group navigation pane, choose **Access control (IAM)**. The **Role Assignments** view lists the items that have access to the resource group. You can filter and group the results.
+5. On the **Access control** menu bar, choose **Add role assignment**.
+6. On **Add role assignment** pane:
 
    * Choose the role you want to assign from the **Role** drop-down list.
    * Choose the resource you want to assign from the **Assign access to** drop-down list.
