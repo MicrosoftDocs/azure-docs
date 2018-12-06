@@ -1,10 +1,10 @@
 ---
-title: Deploy a Machine Learning workspace with Azure Resource Manager - Azure Machine Learning Studio | Microsoft Docs
+title: Deploy workspace with Azure Resource Manager - Azure Machine Learning Studio | Microsoft Docs
 description: How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

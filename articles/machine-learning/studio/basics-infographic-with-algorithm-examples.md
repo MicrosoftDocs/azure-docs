@@ -1,11 +1,11 @@
 ---
-title: 'Infographic: Machine learning basics - algorithm examples - Azure Machine Learning Studio | Microsoft Docs'
+title: Algorithm examples - Azure Machine Learning Studio | Microsoft Docs'
 description: An easy-to-understand overview of machine learning basics includes algorithm examples. The downloadable infographic covers most machine learning questions.
 keywords: machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms,algorithm infographic
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

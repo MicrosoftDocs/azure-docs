@@ -1,10 +1,10 @@
 ---
-title: Creating Web service endpoints in Machine Learning - Azure Machine Learning Studio | Microsoft Docs
+title: Creating Web service endpoints - Azure Machine Learning Studio | Microsoft Docs
 description: Creating Web service endpoints in Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
