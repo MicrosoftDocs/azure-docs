@@ -207,6 +207,8 @@
         href: Azure-stack-create-service-principals.md
       - name: Enable multi-tenancy
         href: azure-stack-enable-multitenancy.md
+    - name: Data at rest encryption
+      href: azure-stack-security-bitlocker.md
     - name: Rotate secrets
       href: azure-stack-rotate-secrets.md
     - name: Update antivirus
