@@ -6,7 +6,7 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ---
@@ -44,7 +44,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## Authenticate with an all-in-one subscription key
 
-This option also uses a subscription key to authenticate requests for a specific resource. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple services. See [Cognitive Services pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
+This option also uses a subscription key to authenticate requests for a specific resource. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
 The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header. Additionally, when using all-in-one authentication, you must specify the region for your subscription using the `Ocp-Apim-Subscription-Region` header.
 
@@ -92,4 +92,5 @@ curl -v -X POST \
 ## See also
 
 * [What is Cognitive Services?](welcome.md)
+* [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Create an account](cognitive-services-apis-create-account.md)
