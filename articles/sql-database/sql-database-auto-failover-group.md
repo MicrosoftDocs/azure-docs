@@ -134,7 +134,7 @@ When designing a service with business continuity in mind, follow these general 
 
 The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
-![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
+![auto failover](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
 > [!IMPORTANT]
 > Auto-failover groups for Managed Instance is in public preview.
