@@ -1,10 +1,11 @@
 ---
-title: C# Quickstart - change model and train LUIS app
-titleSuffix: Azure Cognitive Services
-description: In this C# quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
+title: "Quickstart - change, train app, C#"
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
