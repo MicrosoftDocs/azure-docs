@@ -31,11 +31,11 @@ This section describes how to create an Azure TSI (Preview) environment using th
 
    ![tutorial-one][1]
 
-1. On the Time Series Insights environment page, fill in the required parameters and click on **Next: Event Source**
+1. On the Time Series Insights environment page, fill in the required parameters and click on **Next: Event Source**. For this tutorial, set the **Time Series Id** as `Id`. To learn more about **Time Series IDs**, read [Time Series IDs](./time-series-insights-update-how-to-id.md).
 
    ![tutorial-two][2]
 
-1. On the **Event source** page, fill in the required parameters and click on **Review + Create**.
+1. On the **Event source** page, fill in the required parameters and click on **Review + Create**. For this tutorial, set the **Timestamp** property field as `Timestamp`.
 
    ![tutorial-three][3]
 
@@ -64,7 +64,7 @@ In this section, you will use a windmill device simulator to send events to your
 
   1. Click on **Click to Start** pushing events to your Event Hub. At this stage, a file named `instances.json` will be downloaded to your machine. Save this file as we will need this later.
 
-  1. Go back to your event hub. You should now see the new events being received by the hub.d
+  1. Go back to your Event Hub. You should now see the new events being received by the hub.d
 
       ![tutorial-eight][8]
 
