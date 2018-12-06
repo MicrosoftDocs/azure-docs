@@ -47,6 +47,8 @@ For security signals, the collection process starts when you opt-in to use the *
 
 ### How long does Azure AD store the data?
 
+- **The retention policies for a basic subscription is the same as the free edition.** -
+
 **Activity reports**	
 
 | Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
