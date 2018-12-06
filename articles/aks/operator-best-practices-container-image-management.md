@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Best practices for container image management and security in Azure Kubernetes Service (AKS)
 
-As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers is a key consideration. Containers that include out-of-date base images or application runtime introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers, and limit access that containers have to the underlying AKS nodes.
+As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers is a key consideration. Containers that include out-of-date base images or application runtime introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers.
 
 This article focuses on how to secure your containers in AKS. You learn how to:
 
@@ -64,15 +64,9 @@ This article focused on how to secure your containers. To implement some of thes
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
 [twistlock]: https://www.twistlock.com/
 [aqua]: https://www.aquasec.com/
-[k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
-[seccomp]: https://docs.docker.com/engine/security/seccomp/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
-[aks-ssh]: ssh.md

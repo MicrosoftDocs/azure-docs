@@ -71,8 +71,8 @@
         href: operator-best-practices-identity.md
       - name: Cluster security
         href: operator-best-practices-cluster-security.md
-      - name: Container security
-        href: operator-best-practices-container-security.md
+      - name: Container image management
+        href: operator-best-practices-container-image-management.md
       - name: Business continuity (BC) and disaster recovery (DR)
         href: operator-best-practices-multi-region.md
     - name: For application developers

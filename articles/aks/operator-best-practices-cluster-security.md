@@ -18,6 +18,7 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 
 > [!div class="checklist"]
 > * Use Azure Active Directory and role-based access controls to secure API server access
+> * Secure container access to node resources
 > * Upgrade an AKS cluster to the latest Kubernetes version
 > * Keep nodes update to date and automatically apply security patches
 
@@ -207,6 +208,11 @@ This article focused on how to secure your AKS cluster. To implement some of the
 
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured
+[k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
+[seccomp]: https://docs.docker.com/engine/security/seccomp/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
@@ -219,3 +225,4 @@ This article focused on how to secure your AKS cluster. To implement some of the
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
+[aks-ssh]: ssh.md
