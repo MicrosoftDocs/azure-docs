@@ -2,12 +2,12 @@
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
-  - name: Choose Blobs, Files, or Data Disks
+  - name: Choose Blobs, Files, or Disks
     href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create file shares - Portal #consider quickstart that includes mount as the wow component. you can right click and select from previous version easily.
+  - name: Create file shares - Portal
     href: storage-how-to-use-files-portal.md
   - name: Create file shares - PowerShell
     href: storage-how-to-use-files-powershell.md
@@ -21,13 +21,13 @@
     href: storage-sync-files-extend-servers.md
 - name: Concepts
   items:
-  - name: Azure Files
+  - name: About Azure Files
     href: storage-files-planning.md
-  - name: Azure File Sync 
+  - name: About Azure File Sync 
     href: storage-sync-files-planning.md
-  - name: Understanding cloud tiering
+  - name: Understand cloud tiering
     href: storage-sync-cloud-tiering.md
-  - name: Storage accounts
+  - name: About storage accounts
     href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Azure storage replication
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -44,7 +44,7 @@
     href: storage-files-scale-targets.md
   - name: Security
     items: 
-    - name: Azure Storage security #should we have a Files specific security artilce in this TOC instead?
+    - name: Azure Storage security
       href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Encryption for data at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -54,11 +54,11 @@
       href: ../common/storage-compliance-offerings.md
   - name: Development
     items:
-    - name: Manage concurrency #revise this to be Files specific. Link to an overall concurrency article if necessary
+    - name: Manage concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Shared key authentication #determine if this belongs in Security or Development
+    - name: Shared key authentication
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-    - name: Shared access signatures (SAS) #determine if this belongs in Security or Development
+    - name: Shared access signatures (SAS)
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Metrics
     items:
@@ -74,7 +74,7 @@
     items: 
   - name: FAQ
     href: storage-files-faq.md
-- name: How To
+- name: How-to guides
   items:
   - name: Create
     items:
@@ -82,19 +82,19 @@
       href: storage-how-to-create-file-share.md
   - name: Deploy
     items:
-    - name: Deploy Azure Files #Can we use Zone Pivots for the various tools/approaches? Also, this seems mostly about "migrate"
+    - name: Deploy Azure Files
       href: storage-files-deployment-guide.md
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
-    - name: Configure File Sync proxy and firewall settings #Article should be split between concepts and configure procedures. Requires a new entry in concepts.
+    - name: Configure File Sync proxy and firewall settings
       href: storage-sync-files-firewall-and-proxy.md
   - name: Mount
     items:
-    - name: Use Azure Files with Windows #Split out mount and other tasks?
+    - name: Use Azure Files with Windows
       href: storage-how-to-use-files-windows.md
-    - name: Use Azure Files with Linux #Split out mount and other tasks?
+    - name: Use Azure Files with Linux
       href: storage-how-to-use-files-linux.md
-    - name: Use Azure Files with macOS #Split out mount and other tasks?
+    - name: Use Azure Files with macOS
       href: storage-how-to-use-files-mac.md
   - name: Manage
     items:
@@ -102,7 +102,7 @@
       href: storage-sync-files-server-registration.md
     - name: Add an Azure File Sync Server endpoint
       href: storage-sync-files-server-endpoint.md
-    - name: Manage Storage in Azure independent clouds
+    - name: Manage storage in Azure independent clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Monitor
     items:
@@ -114,7 +114,7 @@
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Migrate
     items:
-    - name: Move data to and from Storage
+    - name: Move data to and from Azure Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: AzCopy on Windows
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
