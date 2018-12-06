@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
-
+ms.custom: seodec18
 ---
 # Oracle solutions and their deployment on Microsoft Azure
 This article covers information required to successfully deploy various Oracle solutions on Microsoft Azure. These solutions are based on Virtual Machine images published by Oracle in the Azure Marketplace. To get a list of currently available images, run the following command:
@@ -53,7 +53,7 @@ Oracle supports running Oracle DB 12.1 Standard and Enterprise editions in Azure
 Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high-performance database workloads and can achieve up to 5000 IOps per disk. While you can use a single disk if that meets your performance needs - you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](http://www.oracle.com/technetwork/database/index-100339.html) for more Oracle ASM specific information. For an example of how to install and configure Oracle ASM on a Linux Azure VM - you can try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.
 
 ## Oracle Real Application Cluster (Oracle RAC)
-Oracle RAC is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need 3rd party software to enable these technologies.  A **Microsoft Azure Certified** offering called [FlashGrid Node for Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) is available in the Azure Marketplace, published by FlashGrid Inc. For more information on this solution and how it works in Azure, please see the [FlashGrid solution page](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need 3rd party software to enable these technologies. For more information on Oracle RAC, please see the [FlashGrid solution page](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## High availability and disaster recovery considerations
 When using Oracle Databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
