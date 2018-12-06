@@ -31697,6 +31697,46 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/log-analytics/log-analytics-manage-access.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-access",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-cost-storage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-del-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/platform/delete-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-portal-faq.md",
+            "redirect_url":  "/azure/azure-monitor/platform/oms-portal-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-portal-transition.md",
+            "redirect_url":  "/azure/azure-monitor/platform/oms-portal-transition",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-personal-data-mgmt.md",
+            "redirect_url":  "/azure/azure-monitor/platform/personal-data-mgmt",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-powerbi.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powerbi",
+            "redirect_document_id":  true
+        }
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
