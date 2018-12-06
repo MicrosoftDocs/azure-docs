@@ -21,34 +21,6 @@ ms.author: billmath
 # Implement password hash synchronization with Azure AD Connect sync
 This article provides information that you need to synchronize your user passwords from an on-premises Active Directory instance to a cloud-based Azure Active Directory (Azure AD) instance.
 
-## What is password hash synchronization
-The likelihood that you're blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Questions and calls about password resets and other password-related issues demand the most help desk resources.
-
-Password hash synchronization is a feature used to synchronize a hash of the hash of a users password from an on-premises Active Directory instance to a cloud-based Azure AD instance.
-Use this feature to sign in to Azure AD services like Office 365, Microsoft Intune, CRM Online, and Azure Active Directory Domain Services (Azure AD DS). You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
-
-![What is Azure AD Connect](./media/how-to-connect-password-hash-synchronization/arch1.png)
-
-By reducing the number of passwords, your users need to maintain to just one. Password hash synchronization helps you to:
-
-* Improve the productivity of your users.
-* Reduce your helpdesk costs.  
-
-Also, if you decide to use [Federation with Active Directory Federation Services (AD FS)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), you can optionally set up password hash synchronization as a backup in case your AD FS infrastructure fails.
-
-Password hash synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. To use password hash synchronization in your environment, you need to:
-
-* Install Azure AD Connect.  
-* Configure directory synchronization between your on-premises Active Directory instance and your Azure Active Directory instance.
-* Enable password hash synchronization.
-
-For more details, see [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
-
-> [!NOTE]
-> For more details about Azure Active Directory Domain Services configured for FIPS and password hash synchronization, see "Password hash synchronization and FIPS" later in this article.
->
->
-
 ## How password hash synchronization works
 The Active Directory domain service stores passwords in the form of a hash value representation of the actual user password. A hash value is a result of a one-way mathematical function (the *hashing algorithm*). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
 
