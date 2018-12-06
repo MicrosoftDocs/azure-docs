@@ -14,7 +14,7 @@ ms.component: metrics
 
 Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services. 
 
-## What are metrics in Azure?
+## Metrics in Azure
 
 Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
@@ -53,7 +53,7 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 
 You can apply filters to the charts that show metrics with dimensions. For example, if the metric “Transaction count” has a dimension, “Response type”, which indicates whether the response from transactions succeeded or failed then filtering on this dimension would plot a chart line for only successful (or only failed) transactions. 
 
-### To add a filter:
+### To add a filter
 
 1. Click on the Add Filter icon ![filter icon](./media/monitoring-metric-charts/icon002.png) above the chart
 
@@ -75,7 +75,7 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension. 
 
-### To segment a chart:
+### To segment a chart
 
 1. Click on the Add Grouping icon  ![metric image](./media/monitoring-metric-charts/icon003.png) above the chart.
  
@@ -95,7 +95,7 @@ You can split a metric by dimension to visualize how different segments of the m
    > [!NOTE]
    > Use both Filtering and Grouping on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
 
-## Lock boundaries on chart y-axis
+## Lock boundaries of chart y-axis
 
 Locking the range of the y-axis becomes important when the chart shows smaller fluctuations of larger values. 
 
@@ -105,7 +105,7 @@ Another example is a fluctuation in the available memory, where the value will t
 
 To control the y-axis range, use the “…” chart menu, and select **Edit chart** to access advanced chart settings. Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
 
-![metric image](./media/monitoring-metric-charts/0013.png)
+![metric image](./media/monitoring-metric-charts/0014-manually-set-granularity.png)
 
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
