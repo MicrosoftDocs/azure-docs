@@ -339,4 +339,4 @@ The final step is to check the Log Analytics workspace to make sure that data is
 In this article, you’ve created a logic app to read Azure Activity Logs from an Event Hub and send them to Log Analytics for analysis. To learn more about visualizing data in Log Analytics, including creating dashboards, review the tutorial for Visualize data.
 
 > [!div class="nextstepaction"]
-> [Visualize Log Search data tutorial](./../../log-analytics/log-analytics-tutorial-dashboards.md)
+> [Visualize Log Search data tutorial](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

@@ -23,7 +23,7 @@ To set `pg_stat_statements.track = NONE`:
 
 - In the Azure portal, navigate to the [PostgreSQL resource management page and select the server parameters blade](howto-configure-server-parameters-using-portal.md).
 
-![PostgreSQL server parameter blade](.\media\howto-optimize-query-stats-collection\pg_stats_statements_portal.png)
+![PostgreSQL server parameter blade](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
 - Using [Azure CLI](howto-configure-server-parameters-using-cli.md), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 

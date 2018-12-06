@@ -2,13 +2,12 @@
 title: "include file"
 description: "include file"
 services: machine-learning
-author: j-martens
 ms.service: machine-learning
-ms.author: jmartens
-manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 07/27/2018
+author: j-martens
+ms.author: jmartens
+ms.date: 12/04/2018
 ---
 
 >[!IMPORTANT]
@@ -26,5 +25,3 @@ If you don't plan to use the resources you created here, delete them so you don'
 1. Select **Delete resource group**.
 
 1. Enter the resource group name, and then select **Delete**.
-
-   If you see the error message "Cannot delete resource before nested resources are deleted," you must delete any nested resources first. For information on how to delete nested resources, see [this troubleshooting section](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

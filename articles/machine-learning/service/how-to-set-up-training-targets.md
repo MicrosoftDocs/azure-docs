@@ -47,6 +47,13 @@ Azure Machine Learning service has varying support across the various compute ta
 >
 > Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
 
+> [!NOTE]
+> Some compute targets rely on Docker container images when training a model. The GPU base image must be used on Microsoft Azure Services only. For model training, these services are:
+>
+> * Azure Machine Learning Compute
+> * Azure Kubernetes Service
+> * The Data Science Virtual Machine.
+
 ## Workflow
 
 The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
@@ -126,7 +133,8 @@ You can create Azure Machine Learning Compute on-demand when you schedule a run,
 
 You can create Azure Machine Learning Compute as a compute target at run-time. In this case, the compute is automatically created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes.
 
-This functionality is currently in Preview state, and will not work with Hyperparameter Tuning or Automated Machine Learning jobs.
+> [!IMPORTANT]
+> Run-based creation of Azure Machine Learning compute is currently in Preview state. Do not use run-based creation if you are using Hyperparameter Tuning or Automated Machine Learning. If you need to use Hyperparameter Tuning or Automated Machine Learning, create the Azure Machine Learning compute before submitting a run.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -276,7 +284,6 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 
     ```
-
 
 ## <a id="databricks"></a>Azure Databricks
 

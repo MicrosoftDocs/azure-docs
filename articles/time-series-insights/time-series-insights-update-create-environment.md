@@ -26,7 +26,9 @@ This tutorial guides you through the process of creating an Azure Time Series In
 This section describes how to create a Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
 
 1. Sign in to the Azure portal by using your subscription account.
+
 1. Select **Create a resource**.
+
 1. Select the **Internet of Things** category, and then select **Time Series Insights**.
 
   ![Select Create a resource, then select Internet of Things, and then select Time Series Insights][1]

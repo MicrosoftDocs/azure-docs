@@ -18,6 +18,8 @@ In this article, you learn about the application and advantages of the [Azure Ma
 
 Data preparation is the most important part of a machine learning workflow -- representing roughly 80% of the effort. Real-world data is often broken, inconsistent, or unusable as training data without significant cleansing and transformation. Correcting errors and anomalies in raw data, and building new features that are relevant to the problem you're trying to solve can increase model accuracy. 
 
+![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
+
 This Python SDK is designed to be familiar to users of other common data prep libraries, while offering advantages for key scenarios and maintaining interoperability with those libraries.
 
 ## Use Azure Machine Learning Data Prep SDK
@@ -121,16 +123,12 @@ package = dprep.Package.open("<your-local-path>")
 dataflow_list = package.dataflows
 ```
 
-## Data preparation pipeline
+## Next steps
 
 To see detailed examples and code for each preparation step, follow these how-to guides:
 
 1. [Load data](how-to-load-data.md), which can be in various formats
 2. [Transform](how-to-transform-data.md) it into a more usable structure
 3. [Write](how-to-write-data.md)  that data to a location accessible to your models
-
-![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
-
-## Next steps
 
 Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
