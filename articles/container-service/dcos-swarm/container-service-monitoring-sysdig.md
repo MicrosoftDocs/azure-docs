@@ -1,5 +1,5 @@
 ---
-title: Monitor an Azure Container Service cluster with Sysdig
+title: (DEPRECATED) Monitor an Azure Container Service cluster with Sysdig
 description: Monitor an Azure Container Service cluster with Sysdig.
 services: container-service
 author: sauryadas
@@ -12,7 +12,9 @@ ms.author: saudas
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with Sysdig
+# (DEPRECATED) Monitor an Azure Container Service cluster with Sysdig
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this article, we will deploy Sysdig agents to all the agent nodes in your Azure Container Service cluster. You need an account with Sysdig for this configuration. 
 

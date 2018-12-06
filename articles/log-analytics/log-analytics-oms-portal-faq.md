@@ -32,7 +32,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../role-based-access-control/role-assignments-portal.md). For details on managing workspace permissions, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## How do I create a new workspace? 
-From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
+From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/../azure-monitor/learn/quick-create-workspace.md).
 
 ![Overview page](media/log-analytics-oms-portal-faq/new-workspace.png)
 
@@ -107,7 +107,7 @@ In the OMS portal, you install management solutions from the Solutions Gallery a
 Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/alert-metric.md). See [How to extend alerts from Log Analytics into Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) for details on configuring and using alerts in the Azure portal.
 
 ## How do I access my dashboards?
-The [My Dashboard](../log-analytics/../azure-monitor/platform/dashboards.md) feature in Log Analytics has been deprecated. This feature allowed you to have a private collection of View Designer parts, and is superseded by the built-in Azure Dashboard functionality. You can continue to visualize data in Log Analytics using [View Designer](../log-analytics/../azure-monitor/platform/view-designer.md) for shared views. You can also pin visualizations from these views or for [individual queries](../log-analytics/log-analytics-tutorial-dashboards.md) to Azure Dashboards.
+The [My Dashboard](../log-analytics/../azure-monitor/platform/dashboards.md) feature in Log Analytics has been deprecated. This feature allowed you to have a private collection of View Designer parts, and is superseded by the built-in Azure Dashboard functionality. You can continue to visualize data in Log Analytics using [View Designer](../log-analytics/../azure-monitor/platform/view-designer.md) for shared views. You can also pin visualizations from these views or for [individual queries](../log-analytics/../azure-monitor/learn/tutorial-logs-dashboards.md) to Azure Dashboards.
 
 ## How do I check my usage?
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.
@@ -122,4 +122,4 @@ https://\<your workspace name\>.portal.mms.microsoft.com. We recommend using Azu
 ## Next steps
 
 - [Find and install management solutions](../azure-monitor/insights/solutions.md) using the Azure portal.
-- Learn about [Log Search in the Azure portal](log-analytics-log-search-portals.md).
+- Learn about [Log Search in the Azure portal](../azure-monitor/log-query/portals.md).

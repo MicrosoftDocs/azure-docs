@@ -59,24 +59,24 @@ To complete this tutorial, you need to:
 
 1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
 
-    ![Show portal subscriptions](media\tutorial-sql-server-to-managed-instance-online\portal-select-subscriptions.png)        
+    ![Show portal subscriptions](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
 2. Select the subscription in which you want to create the instance of the Azure Database Migration Service, and then select **Resource providers**.
 
-    ![Show resource providers](media\tutorial-sql-server-to-managed-instance-online\portal-select-resource-provider.png)
+    ![Show resource providers](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
 3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
 
-    ![Register resource provider](media\tutorial-sql-server-to-managed-instance-online\portal-register-resource-provider.png)   
+    ![Register resource provider](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
 
 ## Create an Azure Database Migration Service instance
 
 1. In the Azure portal, select + **Create a resource**, search for **Azure Database Migration Service**, and then select **Azure Database Migration Service** from the drop-down list.
 
-     ![Azure Marketplace](media\tutorial-sql-server-to-managed-instance-online\portal-marketplace.png)
+     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
 2. On the **Azure Database Migration Service** screen, select **Create**.
 
-    ![Create Azure Database Migration Service instance](media\tutorial-sql-server-to-managed-instance-online\dms-create1.png)
+    ![Create Azure Database Migration Service instance](media/tutorial-sql-server-to-managed-instance-online/dms-create1.png)
 
 3. On the **Create Migration Service** screen, specify a name for the service, the subscription, and a new or existing resource group.
 
@@ -97,7 +97,7 @@ To complete this tutorial, you need to:
    
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
    
-    ![Create DMS Service](media\tutorial-sql-server-to-managed-instance-online\dms-create-service3.png)
+    ![Create DMS Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
 7.  Select **Create** to create the service.
 
@@ -107,7 +107,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
 
-    ![Locate all instances of the Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance-online\dms-search.png)
+    ![Locate all instances of the Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. On the **Azure Database Migration Service** screen, search for the name of the instance that you created, and then select the instance.
  
@@ -115,7 +115,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database Managed Instance**, and then for **Choose type of activity**, select **Online data migration (preview)**.
 
-   ![Create DMS Project](media\tutorial-sql-server-to-managed-instance-online\dms-create-project3.png)
+   ![Create DMS Project](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
 5. Select **Create and run activity** to create the project.
 
@@ -130,7 +130,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     > [!CAUTION]
     > SSL connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
 
-   ![Source Details](media\tutorial-sql-server-to-managed-instance-online\dms-source-details2.png)
+   ![Source Details](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Select **Save**.
 
@@ -146,7 +146,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 3. Provide **SQL User** and **Password** to connect to target instance of Azure SQL Database Managed Instance.
 
-    ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Select Target](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
 2.  Select **Save**.
 
@@ -154,7 +154,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Select source databases** screen, select the source database that you want to migrate.
 
-    ![Select source databases](media\tutorial-sql-server-to-managed-instance-online\dms-select-source-databases2.png)
+    ![Select source databases](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. Select **Save**.
 
@@ -170,7 +170,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     |**Subscription of the Azure Storage Account** | Select the subscription that contains the Azure Storage Account. |
     |**Azure Storage Account** | Select the Azure Storage Account that DMS can upload the backup files from the SMB network share to and use for database migration.  We recommend selecting the Storage Account in the same region as the DMS service for optimal file upload performance. |
     
-    ![Configure Migration Settings](media\tutorial-sql-server-to-managed-instance-online\dms-configure-migration-settings4.png)
+    ![Configure Migration Settings](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. Select **Save**.
  
@@ -180,7 +180,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 2. Review and verify the details associated with the migration project.
  
-    ![Migration project summary](media\tutorial-sql-server-to-managed-instance-online\dms-project-summary3.png)
+    ![Migration project summary](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## Run and monitor the migration
 
@@ -188,11 +188,11 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 2. On the migration activity screen, select **Refresh** to update the display.
  
-   ![Migration activity in progress](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration2.png)
+   ![Migration activity in progress](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     You can further expand the databases and logins categories to monitor the migration status of the respective server objects.
 
-   ![Migration activity in progress](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration-extend2.png)
+   ![Migration activity in progress](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## Performing migration cutover
 
@@ -208,11 +208,11 @@ After the full database backup is restored on the target instance of Azure SQL D
 
 4.	Select **Confirm**, and then select **Apply**.
 
-    ![Preparing to complete cutover](media\tutorial-sql-server-to-managed-instance-online\dms-complete-cutover.png)
+    ![Preparing to complete cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
 5.	When the database migration status shows **Completed**, connect your applications to the new target instance of  Azure SQL Database Managed Instance.
 
-    ![Cutover complete](media\tutorial-sql-server-to-managed-instance-online\dms-cutover-complete.png)
+    ![Cutover complete](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## Next steps
 

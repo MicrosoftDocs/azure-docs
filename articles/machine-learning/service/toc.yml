@@ -338,8 +338,6 @@
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: Model data collection API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Old concepts
-      href: ../desktop-workbench/overview-general-concepts.md    
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    
