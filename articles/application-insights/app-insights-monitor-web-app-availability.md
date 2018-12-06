@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 12/05/2018
 ms.reviewer: sdash
 ms.author: lagayhar
 
@@ -85,7 +85,7 @@ Use Visual Studio Enterprise to record a web session.
 
 1. Create a Web performance test project.
 
-    ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/3addtest_web.png)
+    ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
  * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
 
@@ -143,7 +143,9 @@ Now, upload your test to the portal. It uses the dynamic values on every run of 
 
 ## <a name="monitor"></a>See your availability test results
 
-After a few minutes, click **Refresh** to see test results. 
+The overview tab shows the success rate of test while the details tab shows scatter plot and grid of specific  details.
+
+After a few minutes, click **Refresh** to see test results.
 
 ![Scatterplot on detail blade](./media/app-insights-monitor-web-app-availability/4refresh.png)
 
@@ -160,9 +162,9 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the details tab, on a specific test select the ellipsis (3 dots) on the far left to edit, temporarily disable, delete or download web test. 
+From the details tab, on a specific test select the ellipsis on the far left to edit, temporarily disable, delete or download web test.
 
-Select View test details from a specific test to see its scatterplot and specific test location details.
+Select **View test details** from a specific test to see its scatter plot and specific test location details.
 
 ![View test details,Edit and Disable a web test](./media/app-insights-monitor-web-app-availability/5viewdetails.png)
 ![Disable a web test](./media/app-insights-monitor-web-app-availability/6disable.png)
@@ -201,11 +203,11 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 
 **Important**: With the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), the alert rule severity and notification preferences with [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications. 
 
-1. After saving the availability test, click on the new test name to go to its details. Click on "edit alert"
-![Edit after save](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+1. After saving the availability test, on the details tab go to click on the ellipsis by the test you just made. Click on "edit alert".
+![Edit after save](./media/app-insights-monitor-web-app-availability/9editalert.png)
 
 2. Set the desired severity level, rule description and most importantly - the action group that has the notification preferences you would like to use for this alert rule.
-![Edit after save](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+![Edit after save](./media/app-insights-monitor-web-app-availability/10editalert.png)
 
 
 > [!NOTE]
