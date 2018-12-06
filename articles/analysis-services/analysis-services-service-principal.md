@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -80,5 +80,5 @@ db.Model.SaveChanges();
 ```
 
 ## Next steps
-[Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md)   
