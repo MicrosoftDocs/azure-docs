@@ -186,6 +186,6 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
+    href: https://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: FAQ
     href: application-gateway-faq.md
