@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
 ---
 
@@ -49,6 +49,12 @@ Test the new intent at the endpoint by added a value for the **q** parameter. Us
 |cancel the appointment on March 3|LUIS returned the most recent March 3 in the past (2018-03-03) and March 3 in the future (2019-03-03) because the utterance didn't specify a year.|
 |Schedule a meeting at 10am|10:00:00|
 
+## Marking entities containing a prebuilt entity token
+ If you have text, such as `HH-1234`, that you want to mark as a custom entity _and_ you have [Prebuilt Number](luis-reference-prebuilt-number.md) added to the model, you won't be able to mark the custom entity in the LUIS portal. You can mark it with the API. 
+
+ In order to mark this type of token, where part of it is already marked with a prebuilt entity, remove the prebuilt entity from the LUIS app. You don't need to train the app. Then mark the token with your own custom entity. Then add the prebuilt entity back to the LUIS app.
+
+ For another example, consider the utterance as a list of class preferences: `I want first year spanish, second year calculus, and fourth year english lit.` If the LUIS app has the Prebuild Ordinal added, `first`, `second`, and `fourth` will already be marked with ordinals. If you want to capture the ordinal and the class, you can create a composite entity and wrap it around the Prebuilt Ordinal and the custom entity for class name.
 
 ## Next steps
 > [!div class="nextstepaction"]
