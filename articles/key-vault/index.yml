@@ -80,7 +80,7 @@ sections:
       href: /learn/modules/manage-secrets-with-azure-key-vault/
       image: 
         src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
-      href: /learn/modules/manage-secrets-with-azure-key-vault/
+        href: /learn/modules/manage-secrets-with-azure-key-vault/
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-key-vault">More interactive learning...</a>
 - title: Reference
