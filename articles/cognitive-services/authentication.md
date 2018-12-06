@@ -63,11 +63,15 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## Authenticate with a Bearer token
 
-Both subscription keys for a single service and all-in-one subscription keys can be exchanged for authentication tokens. Authentication tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
+Both subscription keys for a single service and all-in-one subscription keys can be exchanged for authentication tokens. Authentication tokens are valid for 10 minutes.
+
+Authentication tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
 
 When using an all-in-one subscription key, you must use a region specific endpoint for the token exchange. This is illustrated in the sample below using the "West US" region.
 
 ### Using a subscription key
+
+Use this URL to exchange a subscription key for an authentication token: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
@@ -78,6 +82,9 @@ curl -v -X POST \
 ```
 
 ### Using an all-in-one subscription key
+
+Use this URL to exchange an all-in-one subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`. Make sure to include the region for your subscription in the URL. 
+
 
 Supported regions for all-in-one authentication: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
 
