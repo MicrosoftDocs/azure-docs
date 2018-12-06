@@ -18,7 +18,7 @@ ms.author: cshoe
 
 This article demonstrates how to create automated tests for Azure Functions. 
 
-Testing all code is recommended, however you may get the best results by wrapping up a Function's logic and creating tests outside the Function. Abstracting logic away limits a Function's lines of code and allows the Function to be solely responsible for calling other classes or modules. However, this article demonstrates how to create automated tests against an HTTP and timer-triggered function.
+Testing all code is recommended, however you may get the best results by wrapping up a Function's logic and creating tests outside the Function. Abstracting logic away limits a Function's lines of code and allows the Function to be solely responsible for calling other classes or modules. This article, however, demonstrates how to create automated tests against an HTTP and timer-triggered function.
 
 The content that follows is split into two different sections meant to target different languages and environments. You can learn to build tests in:
 
@@ -37,10 +37,10 @@ The following example describes how to create a C# Function app in Visual Studio
 To set up your environment, create a Function and test app. The following steps help you create the apps and functions required to support the tests:
 
 1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it *Functions*
-2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpFunction*.
-3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it *TimerFunction*.
+2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpTrigger*.
+3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it *TimerTrigger*.
 4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) and name it *Functions.Test*.
-5. Reference the *Functions* app from *Functions.Test* app.
+5. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Test* app.
 
 ### Create test classes
 
@@ -225,7 +225,7 @@ namespace Functions.Tests
 ```
 The members implemented in this class are:
 
-- **Http_trigger_should_return_known_string**: This test creates a request with the query string values of `name=Bill` to an Http function and checks that the expected response is returned.
+- **Http_trigger_should_return_known_string**: This test creates a request with the query string values of `name=Bill` to an HTTP function and checks that the expected response is returned.
 
 - **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
@@ -239,7 +239,7 @@ To run the tests, navigate to the **Test Explorer** and click **Run all**.
 
 ### Debug tests
 
-To debug the tests, set a break point on a test, navigate to the **Test Explorer** and click **Run > Debug Last Run**.
+To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and click **Run > Debug Last Run**.
 
 ## JavaScript in VS Code
 
@@ -259,7 +259,7 @@ Next, install Jest by running the following command:
 ```bash
 npm i jest
 ```
-Now update _package.json_ to include a working test command.
+Now update _package.json_ to replace the existing test command with the following command:
 
 ```bash
 "scripts": {
@@ -348,7 +348,7 @@ To debug your tests, add the following configuration to your *launch.json* file:
 }
 ```
 
-Next, set a break point in your test and press **F5**.
+Next, set a breakpoint in your test and press **F5**.
 
 ## Next steps
 
