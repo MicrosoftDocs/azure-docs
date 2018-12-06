@@ -33,7 +33,7 @@ Each request to an Azure Cognitive Service must include an authentication header
 
 The first option is to authenticate with a subscription key for a specific service, such as the Bing Web Search or Translator Text. Use one of the subscription keys provided in the Azure portal as the value for the `Ocp-Apim-Subscription-Key` header.
 
-This is a sample request to the Translator Text API using cURL that demonstrates how to use the `Ocp-Apim-Subscription-Key` header. Keep in mind, when testing with this code, you'll need to add a valid subscription key.
+This is a sample request to the Translator Text API using cURL that demonstrates how to use the `Ocp-Apim-Subscription-Key` header. Keep in mind, when using this sample you'll need to include a valid subscription key.
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -44,9 +44,12 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## Authenticate with an all-in-one subscription key
 
-This option also uses a subscription key to authenticate requests for a specific resource. They most important difference is that when using an all-in-one subscription, a key **is not** restricted to a specific service, one key can be used for requests to multiple services.
+This option also uses a subscription key to authenticate requests for a specific resource. The core difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple services. See [Cognitive Services pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
-At this time, these services are **not** supported: QnA Maker, Speech Services, and Custom Vision.
+The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header. Additionally, when using all-in-one authentication, you must specify the region for your subscription using the `Ocp-Apim-Subscription-Region` header.
+
+>[!WARNING]
+> At this time, these services are **not** supported: QnA Maker, Speech Services, and Custom Vision.
 
 ## Authenticate with a Bearer token
 
