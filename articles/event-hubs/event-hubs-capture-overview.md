@@ -65,7 +65,7 @@ Event Hubs Capture creates files in Avro format, as specified on the configured 
 
 The files produced by Event Hubs Capture have the following Avro schema:
 
-![][3]
+![Acro schema][3]
 
 An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
 
