@@ -26,7 +26,6 @@ This article explains the different ways to create a container (collection, tabl
 
    * Create a new database or use an existing one.
    * Enter a Collection Id.
-   * Select **Unlimited** storage capacity.
    * Enter a Partition key.
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.

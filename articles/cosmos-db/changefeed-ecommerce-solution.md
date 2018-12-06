@@ -322,7 +322,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
    Add two collections under **changefeedlabdatabase** - **products** and **categories** with Fixed storage capacity.
 
-   Add another collection under **changefeedlabdatabase** named **topItems** with **Unlimited** storage capacity. Write **/Item** as the partition key.
+   Add another collection under **changefeedlabdatabase** named **topItems** and **/Item** as the partition key.
 
 2. Select the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
 

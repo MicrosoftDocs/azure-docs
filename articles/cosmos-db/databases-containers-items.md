@@ -50,7 +50,7 @@ When creating an Azure Cosmos container, you configure throughput in one of the 
 
 * **Shared provisioned throughput** mode: These containers share the provisioned throughput with other containers in the same database (excluding those containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared” containers. To learn more, see [how to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
-An Azure Cosmos container can scale elastically, whether you create containers with either “shared” or “dedicated” provisioned throughput modes, that is, they can have unlimited storage and provisioned throughput.  
+An Azure Cosmos container can scale elastically, whether you create containers with either “shared” or “dedicated” provisioned throughput modes.
 
 An Azure Cosmos container is a schema-agnostic container of items. Items within a container can have arbitrary schemas. For example, an item representing a person, an item representing an automobile can be placed in the same container. By default, all items that you add to a container get automatically indexed without requiring any explicit index or schema management. You can customize the indexing behavior by configuring the indexing policy on a container. 
 
