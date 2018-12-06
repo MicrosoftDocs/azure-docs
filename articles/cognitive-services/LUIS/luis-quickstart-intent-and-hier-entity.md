@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 --- 
@@ -52,7 +52,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `hier`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
 
 ## Remove prebuilt number entity from app
-In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
+In order to see the entire utterance and mark the hierarchical children, [temporarily remove the prebuilt number entity](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 

@@ -115,5 +115,5 @@ To fully leverage geographical distribution of your system, you should have back
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region
 
-[unit]: http://azure.microsoft.com/pricing/details/api-management/
-[Premium]: http://azure.microsoft.com/pricing/details/api-management/
+[unit]: https://azure.microsoft.com/pricing/details/api-management/
+[Premium]: https://azure.microsoft.com/pricing/details/api-management/

@@ -84,7 +84,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 
 ## Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a Log Analytics query](../log-analytics/log-analytics-powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a Log Analytics query](../azure-monitor/platform/powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -136,5 +136,5 @@ You can access data in Azure metrics and Log Analytics through their API using a
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).
-- Learn about [import log data into Power BI](../log-analytics/log-analytics-powerbi.md).
+- Learn about [import log data into Power BI](../azure-monitor/platform/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](../monitoring-and-diagnostics/monitor-send-to-grafana.md).
