@@ -9,7 +9,7 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
+ms.custom: seodec18
 ---
 
 # Tutorial (part 2): Use automated machine learning to build and train a regression model

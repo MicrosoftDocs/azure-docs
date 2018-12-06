@@ -1,5 +1,5 @@
 ---
-title: What is happening to Azure Machine Learning Workbench? | Microsoft Docs
+title: What is happening to Azure Machine Learning Workbench?
 description: Learn about what is happening to the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning

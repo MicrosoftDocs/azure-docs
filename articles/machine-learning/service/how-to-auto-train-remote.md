@@ -10,7 +10,7 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.custom: seodec12
+ms.custom: seodec18
 
 #Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on a DSVM remote compute target.
 ---
