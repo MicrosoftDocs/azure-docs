@@ -1,10 +1,11 @@
 ---
-title: Manage your account settings in LUIS | Microsoft Docs
+title: Manage settings
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use LUIS website to manage your account settings.
-titleSuffix: Azure
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

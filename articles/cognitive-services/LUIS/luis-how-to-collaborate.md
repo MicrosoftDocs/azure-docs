@@ -1,10 +1,11 @@
 ---
-title: Collaborate with other contributors on LUIS apps
-titleSuffix: Azure Cognitive Services
+title: Collaborate with others
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: An app owner can add collaborators to the app. These collaborators can modify the model, train, and publish the app. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
