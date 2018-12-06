@@ -1,5 +1,6 @@
 ---
-title: Build machine learning pipelines - Azure Machine Learning service
+title: Build machine learning pipelines
+titleSuffix: Azure Machine Learning service
 description: In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines. Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
 services: machine-learning
 ms.service: machine-learning

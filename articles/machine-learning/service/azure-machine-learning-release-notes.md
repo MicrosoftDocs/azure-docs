@@ -1,5 +1,6 @@
 ---
-title: What's new in Azure Machine Learning service
+title: What's new
+titleSuffix: Azure Machine Learning service
 description: Learn about the latest updates to Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning

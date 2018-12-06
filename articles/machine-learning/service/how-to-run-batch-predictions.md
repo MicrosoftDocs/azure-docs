@@ -1,5 +1,6 @@
 ---
-title: Run batch predictions on large data - Azure Machine Learning service
+title: Run batch predictions on large data 
+titleSuffix: Azure Machine Learning service
 description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
