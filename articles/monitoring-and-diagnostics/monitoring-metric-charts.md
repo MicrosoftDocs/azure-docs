@@ -5,7 +5,7 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/17/2017
+ms.date: 12/05/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
 ---
@@ -18,7 +18,7 @@ Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that
 
 Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
-## How do I create a new chart?
+## Create a new chart
 
 1. Open the Azure portal
 2. Navigate to the new **Monitor** tab, and then select **Metrics**.
@@ -49,7 +49,7 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
    > [!NOTE]
    > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
 
-## How do I apply filters to the charts?
+## Apply filters to charts
 
 You can apply filters to the charts that show metrics with dimensions. For example, if the metric “Transaction count” has a dimension, “Response type”, which indicates whether the response from transactions succeeded or failed then filtering on this dimension would plot a chart line for only successful (or only failed) transactions. 
 
@@ -71,7 +71,7 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
-## How do I segment a chart?
+## Segment a chart
 
 You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension. 
 
@@ -95,7 +95,7 @@ You can split a metric by dimension to visualize how different segments of the m
    > [!NOTE]
    > Use both Filtering and Grouping on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
 
-## How do I lock lower and upper boundaries of the chart y-axis?
+## Lock boundaries on chart y-axis
 
 Locking the range of the y-axis becomes important when the chart shows smaller fluctuations of larger values. 
 
@@ -110,7 +110,7 @@ To control the y-axis range, use the “…” chart menu, and select **Edit cha
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
 
-## How do I pin charts to dashboards?
+## Pin charts to dashboards
 
 After configuring the charts, you may want to add it to the dashboards so that you can view it again, possibly in context of other monitoring telemetry, or share with your team. 
 
