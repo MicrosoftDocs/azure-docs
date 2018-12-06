@@ -30,4 +30,4 @@
 
 * VpnGw1, VpnGw2, and VpnGw3 are supported for VPN gateways using the Resource Manager deployment model only.
 
-* The Basic SKU does not support IKEv2 or RADIUS authentication.
+* The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to one of the new gateway SKUs, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway. Verify that the feature that you need is supported before you use the Basic SKU.
