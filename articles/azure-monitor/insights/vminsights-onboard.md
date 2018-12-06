@@ -167,7 +167,7 @@ The following access needs to be granted to your users in order to enable and ac
 
 - To view the performance, health, and map data, you need to added as a member of the Monitoring Reader role for the Azure VM and the Log Analytics workspace configured with Azure Monitor for VMs.   
 
-For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md).
+For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
@@ -195,7 +195,7 @@ In this section instructions on how to perform the at scale deployment of Azure 
 
 Summarized are the steps you need to perform to pre-configure your Log Analytics workspace before you can proceed with onboarding your virtual machines.
 
-1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
 2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
 3. Install and enable the **ServiceMap** and **InfrastructureInsights** solution in your workspace.  
 

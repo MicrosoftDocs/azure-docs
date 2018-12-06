@@ -132,4 +132,4 @@ Use the following steps to run a Hive query that uses Tez.
 ## Next Steps
 Now that you have learned how to use the [Apache TEZ](https://tez.apache.org/) view, learn more about [Using Apache Hive on HDInsight](hadoop/hdinsight-use-hive.md).
 
-For more detailed technical information on Tez, see the [Apache Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
+For more detailed technical information on Tez, see the [Apache Tez page at Hortonworks](https://hortonworks.com/hadoop/tez/).

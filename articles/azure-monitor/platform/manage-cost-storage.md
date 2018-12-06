@@ -20,8 +20,8 @@ ms.component:
 
 > [!NOTE]
 > This article describes how to control your costs in Log Analytics by setting the data retention period.  Refer to the following articles for related information.
-> - [Analyze data usage in Log Analytics](log-analytics-manage-cost-storage.md) describes how to analyze and alert on your data usage.
-> - [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
+> - [Analyze data usage in Log Analytics](manage-cost-storage.md) describes how to analyze and alert on your data usage.
+> - [Monitoring usage and estimated costs](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
 Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
@@ -49,8 +49,8 @@ There are two ways in which the volume of data can be limited and help control y
 Log Analytics makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, perform the following steps.  
 
 1. Sign into the [Azure portal](http://portal.azure.com). 
-2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-manage-cost-storage/azure-portal-01.png)<br><br>  
-3. In the Log Analytics subscriptions pane, select your workspace and then click **Usage and estimated costs**  from the left-hand pane.<br><br> ![Usage and estimated costs page](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/manage-cost-storage/azure-portal-01.png)<br><br>  
+3. In the Log Analytics subscriptions pane, select your workspace and then click **Usage and estimated costs**  from the left-hand pane.<br><br> ![Usage and estimated costs page](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 From here you can review your data volume for the month. This includes all the data received and retained in your Log Analytics workspace.  Click **Usage details** from the top of the page to view the usage dashboard with information on data volume trends by source, computers and offering. To view and set a daily cap or to modify the retention period, click **Data volume management**.
  
@@ -62,17 +62,17 @@ When creating a Log Analytics workspace from the Azure portal and you choose the
 When the daily limit is reached, the collection of billable data types stops for the rest of the day. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
 ### Identify what daily data limit to define 
-Review [Log Analytics Usage and estimated costs](log-analytics-usage.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
+Review [Log Analytics Usage and estimated costs](../../log-analytics/log-analytics-usage.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
 
 ### Manage the maximum daily data volume 
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics will ingest per day.  
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-5. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
+5. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### Alert when limit reached
-While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](../monitoring-and-diagnostics/alert-metric.md).      
+While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](../../monitoring-and-diagnostics/alert-metric.md).      
 
 To get you started, here are the recommended settings for the alert:
 
@@ -88,14 +88,14 @@ To get you started, here are the recommended settings for the alert:
 * Alert rule name: Daily data limit reached
 * Severity: Warning (Sev 1)
 
-Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## Change the data retention period 
 The following steps describe how to configure how long log data is kept by in your workspace.
  
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page, click **Data volume management** from the top of the page.
-5. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.<br><br> ![Change workspace data retention setting](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
+5. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.<br><br> ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## Troubleshooting
 **Question**: How do I troubleshoot if Log Analytics is no longer collecting data? 
@@ -113,11 +113,11 @@ The following table describes reasons that data collection stops and a suggested
 
 <sup>1</sup> If your workspace is on the free pricing tier, you're limited to sending 500 MB of data per day to the service. When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new sent data. 
 
-Log Analytics uses UTC time. The reset time varies between workspaces to prevent all capped workspaces start ingesting data at the same time. If the workspace reaches the daily limit, processing resumes after the reset time defined in **Daily limit will be set at**.<br><br> ![Log Analytics limit UTC timezone](media/log-analytics-manage-cost-storage/data-volume-mgmt-limit-utc.png)
+Log Analytics uses UTC time. The reset time varies between workspaces to prevent all capped workspaces start ingesting data at the same time. If the workspace reaches the daily limit, processing resumes after the reset time defined in **Daily limit will be set at**.<br><br> ![Log Analytics limit UTC timezone](media/manage-cost-storage/data-volume-mgmt-limit-utc.png)
 
 **Question**: How can I be notified when data collection stops? 
 **Answer**: Use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 
 
 ## Next steps  
 
-To determine how much data is collected, which sources are sending it, and the different types of data sent to help manage consumption and cost, see [Analyze data usage in Log Analytics](log-analytics-usage.md).
+To determine how much data is collected, which sources are sending it, and the different types of data sent to help manage consumption and cost, see [Analyze data usage in Log Analytics](../../log-analytics/log-analytics-usage.md).

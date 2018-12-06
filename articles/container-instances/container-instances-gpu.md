@@ -101,7 +101,7 @@ properties:
           gpu:
             count: 1
             sku: K80
-    osType: Linux
+  osType: Linux
   restartPolicy: OnFailure
 ```
 

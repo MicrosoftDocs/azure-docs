@@ -99,7 +99,7 @@ You can now use Excel to filter and sort as necessary. You may want to include o
 
 To view the logs, see [Access YARN application logs on Linux-based HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-For more information about application logs, see [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+For more information about application logs, see [Simplifying user-logs management and access in YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
 
 ## View cluster health and job logs
 ### Access the Ambari UI
