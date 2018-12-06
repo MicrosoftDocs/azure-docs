@@ -64,8 +64,8 @@ In Solution Explorer, right-click your project and choose **Application Insights
 ## <a name="NuGetBuild"></a> "NuGet package(s) are missing" on my build server
 *Everything builds OK when I'm debugging on my development machine, but I get a NuGet error on the build server.*
 
-Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
-and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Please see [NuGet Package Restore](https://docs.nuget.org/Consume/Package-Restore)
+and [Automatic Package Restore](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## Missing menu command to open Application Insights from Visual Studio
 *When I right-click my project Solution Explorer, I don't see any Application Insights commands, or I don't see an Open Application Insights command.*
