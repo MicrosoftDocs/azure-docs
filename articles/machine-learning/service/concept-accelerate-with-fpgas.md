@@ -1,5 +1,6 @@
 ---
-title: What is an FPGA and Project Brainwave? - Azure Machine Learning service
+title: What is an FPGA and Project Brainwave?
+titleSuffix: Azure Machine Learning service
 description: Learn how to accelerate models and deep neural networks with FPGAs on Azure. This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning Service provides real-time artificial intelligence (AI) when you deploy your model to an Azure FPGA.
 services: machine-learning
 ms.service: machine-learning
@@ -9,6 +10,7 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
+ms.custom: seodec18
 ---
 
 # What is FPGA and Project Brainwave?

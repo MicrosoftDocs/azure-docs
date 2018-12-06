@@ -81,9 +81,9 @@ Place the connector close to the target application in the customer network. Thi
 
 If your connector needs a line of sight to the domain controller, then this pattern is advantageous. Most of our customers use this pattern, because it works well for most scenarios. This pattern can also be combined with pattern 2 to optimize traffic between the service and the connector.
 
-### Pattern 2: Take advantage of ExpressRoute with public peering
+### Pattern 2: Take advantage of ExpressRoute with Microsoft peering
 
-If you have ExpressRoute set up with public peering, you can use the faster ExpressRoute connection for traffic between Application Proxy and the connector. The connector is still on your network, close to the app.
+If you have ExpressRoute set up with Microsoft peering, you can use the faster ExpressRoute connection for traffic between Application Proxy and the connector. The connector is still on your network, close to the app.
 
 ### Pattern 3: Take advantage of ExpressRoute with private peering
 
@@ -133,13 +133,13 @@ Again, the common pattern is to optimize hop 3, where you place the connector ne
 
 ### Use case 3
 
-**Scenario:** The app is in an organization's network in the US. ExpressRoute with public peering exists between Azure and the corporate network.
+**Scenario:** The app is in an organization's network in the US. ExpressRoute with Microsoft peering exists between Azure and the corporate network.
 
 **Recommendation:** Follow patterns 1 and 2, explained in the previous section.
 
 First, place the connector as close as possible to the app. Then, the system automatically uses ExpressRoute for hop 2. 
 
-If the ExpressRoute link is using public peering, the traffic between the proxy and the connector flows over that link. Hop 2 has optimized latency.
+If the ExpressRoute link is using Microsoft peering, the traffic between the proxy and the connector flows over that link. Hop 2 has optimized latency.
 
 ![Diagram showing ExpressRoute between the proxy and connector](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
