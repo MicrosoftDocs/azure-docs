@@ -1,10 +1,12 @@
 ---
 title: Configure containers
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Configuration settings for Text Analytics containers.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: 
+Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual

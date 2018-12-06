@@ -1,11 +1,11 @@
 ---
-title: "Container support in Azure Cognitive Services"
-titleSuffix: "Azure Cognitive Services"
+title: Container support
+titleSuffix: Azure Cognitive Services
 description: Learn how Docker containers can get Cognitive Services closer to your data.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
 ms.date: 12/04/2018
