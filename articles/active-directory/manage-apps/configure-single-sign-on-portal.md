@@ -4,12 +4,11 @@ description: This tutorial uses the Azure portal to configure SAML-based single 
 services: active-directory
 author: barbkess
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
 ---
@@ -52,7 +51,7 @@ To open the single sign-on settings:
 
 3. In the **Application Type** menu, select **All applications**, and click **Apply**.
 
-4. Enter the name of the application for which you want to configure single sign-on. Choose your own application, or use the GitHub-test application that was added in the [add application](add-application-portal.md) quickstart.
+4. Enter the name of the application for which you want to configure single sign-on. Choose your own application, or enter **GitHub-test** to configure the application you added in the [add application](add-application-portal.md) quickstart.
 
 5. Click **Single sign-on**. Under **Single Sign-on Mode**, **SAML-based Sign-on** appears as the default option. 
 
