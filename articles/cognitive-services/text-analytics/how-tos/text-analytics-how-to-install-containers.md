@@ -5,6 +5,7 @@ description: How to download, install, and run containers for Text Analytics in 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
