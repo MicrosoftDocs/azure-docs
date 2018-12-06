@@ -22,7 +22,7 @@ Threat Detection is part of the [SQL Advanced Threat Protection](sql-advanced-th
 > [!NOTE] 
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
-Threat detection service is charged 15$/month for all databases per Logical Server or Managed Instance, wiht first 30 days free of charge.
+Threat detection service is charged 15$/month for all databases per Logical Server or Managed Instance, with first 30 days free of charge.
 
 ## What is Threat Detection?
 
@@ -60,7 +60,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 ## Explore threat detection alerts for your database in the Azure portal
 
-SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tiles within the database and SQL ATP blades in the Azure portal tracks the status of active threats.
+SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tiles within the database and SQL ATP blades in the Azure portal track the status of active threats.
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database or data warehouse.
 
