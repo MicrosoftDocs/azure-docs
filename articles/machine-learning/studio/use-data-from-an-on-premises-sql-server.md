@@ -1,10 +1,10 @@
 ---
-title: On-premises SQL Server with Azure Machine Learning Studio | Microsoft Docs
+title: On-premises SQL Server - Azure Machine Learning Studio | Microsoft Docs
 description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

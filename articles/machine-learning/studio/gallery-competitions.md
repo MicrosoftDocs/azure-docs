@@ -1,10 +1,10 @@
 ---
-title: Azure AI Gallery competitions | Microsoft Docs
+title: Gallery competitions - Azure Machine Learning Studio | Microsoft Docs
 description: Discover competitions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

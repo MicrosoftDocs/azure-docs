@@ -1,10 +1,10 @@
 ---
-title: 'Step 6: Access the Machine Learning Studio web sservice | Microsoft Docs'
+title: 'Step 6: Access web service - Azure Machine Learning Studio | Microsoft Docs'
 description: 'Step 6 of the Develop a predictive solution walkthrough: Access an active Azure Machine Learning Studio web service.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

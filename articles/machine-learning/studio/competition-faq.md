@@ -1,10 +1,10 @@
 ---
-title: Cortana Intelligence Competitions FAQ | Microsoft Docs
+title: Cortana Intelligence Competitions FAQ - Azure Machine Learning Studio | Microsoft Docs
 description: Frequently asked questions about Microsoft Cortana Intelligence Competitions.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.custom: "(previous ms.author=haining, author=hning86, seodec18)"
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun

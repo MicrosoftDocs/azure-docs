@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Machine Learning Studio? | Microsoft Docs
+title: What's new - Azure Machine Learning Studio | Microsoft Docs
 description: New features that are available in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
