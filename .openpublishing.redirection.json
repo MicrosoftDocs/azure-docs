@@ -31760,6 +31760,11 @@
             "source_path":  "articles/azure-stack/user/media/azure-stack-app-service-deploy-offline/temp.md",
             "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
             "redirect_document_id":  false
-        }
+        },
+		{
+			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
+			"redirect_url": "/azure/application-insights/app-insights-app-map",
+			"redirect_document_id": true
+		}
     ]
 }
