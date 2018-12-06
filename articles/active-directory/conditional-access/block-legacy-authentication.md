@@ -1,6 +1,6 @@
 ---
 title: How to block legacy authentication to Azure Active Directory (Azure AD) with conditional access| Microsoft Docs
-description: Learn how to configure a conditional access policy in Azure Active Directory (Azure AD) to for access attempts from untrusted networks.
+description: Learn how to configure a conditional access policy in Azure Active Directory (Azure AD) for access attempts from untrusted networks.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
