@@ -15,7 +15,9 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-These steps show you how to build the Azure IoT Hub C# SDK simulated TPM device sample on a development machine running Windows OS and connect the simulated device with the Device Provisioning Service and your IoT hub. The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device. 
+These steps show you how to use the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to simulate a TPM device on a development machine running the Windows OS. The sample also connects the simulated device to an IoT Hub using the Device Provisioning Service. 
+
+The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device. 
 
 If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
@@ -67,7 +69,6 @@ This article will demonstrate individual enrollments.
    > Do not confuse the window that contains command output with the window that contains output from the TPM simulator. You may have to click the command window to bring it to the foreground.
 
     ![Command window output](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
-
 
 4. In the Azure portal, on the Device Provisioning Service summary blade, select **Manage enrollments**. Select the **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 

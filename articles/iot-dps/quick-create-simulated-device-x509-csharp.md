@@ -15,7 +15,7 @@ ms.custom: mvc
 # Create and provision a simulated X.509 device using C# device SDK for IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-These steps show you how to build the [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) simulated X.509 device sample on a development machine running Windows OS and connect the simulated device with the Device Provisioning Service and your IoT hub.
+These steps show you how to use the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to simulate an X.509 device on a development machine running the Windows OS. The sample also connects the simulated device to an IoT Hub using the Device Provisioning Service.
 
 If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
