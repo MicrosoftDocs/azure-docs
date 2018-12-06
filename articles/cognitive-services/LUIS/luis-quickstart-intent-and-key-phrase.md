@@ -29,7 +29,6 @@ Your client application can use these values, along with other extracted entitie
 
 **In this tutorial, you learn how to:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Use existing tutorial app
 > * Add keyPhrase entity 
@@ -82,7 +81,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

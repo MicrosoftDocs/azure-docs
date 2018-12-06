@@ -45,7 +45,7 @@ Test the new intent at the endpoint by added a value for the **q** parameter: `S
 
 LUIS returns the correct intent and meeting subject:
 
-```JSON
+```json
 {
   "query": "Schedule a meeting with John Smith in Seattle next week",
   "topScoringIntent": {

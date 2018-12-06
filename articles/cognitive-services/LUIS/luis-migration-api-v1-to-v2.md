@@ -39,7 +39,7 @@ The endpoint API has new querystring parameters as well as a different response.
 
 
 v1 endpoint success response:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -50,7 +50,7 @@ v1 endpoint success response:
 ```
 
 v2 endpoint success response:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {
