@@ -1,6 +1,6 @@
 ---
-title: Deploy modules for Azure IoT Edge | Microsoft Docs 
-description: Learn about how modules get deployed to edge devices
+title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs 
+description: Use automatic deployments to manage groups of devices based on shared tags
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,6 +8,7 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Understand IoT Edge automatic deployments for single devices or at scale

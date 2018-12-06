@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure IoT Edge Python tutorial | Microsoft Docs 
+title: Tutorial create custom Python module - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
 author: shizn
@@ -10,8 +10,9 @@ ms.author: xshi
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-
+ms.custom: 
+    - mvc
+    - seodec18
 ---
 
 # Tutorial: Develop and deploy a Python IoT Edge module to your simulated device

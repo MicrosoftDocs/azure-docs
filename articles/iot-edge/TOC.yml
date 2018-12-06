@@ -55,8 +55,6 @@
       href: module-composition.md
     - name: Automatic deployments
       href: module-deployment-monitoring.md
-  - name: IoT Edge certificates
-    href: iot-edge-certs.md
   - name: Offline capabilities
     href: offline-capabilities.md
   - name: IoT Edge device as a gateway
@@ -67,6 +65,8 @@
       href: security.md
     - name: IoT Edge security manager
       href: iot-edge-security-manager.md
+    - name: IoT Edge certificates
+      href: iot-edge-certs.md
   - name: Platform support
     href: support.md
   - name: Production deployment checklist

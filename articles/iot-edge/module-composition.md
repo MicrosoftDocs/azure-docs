@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge module composition | Microsoft Docs 
+title: Declare modules and routes with deployment manifests - Azure IoT Edge | Microsoft Docs 
 description: Learn how a deployment manifest declares which modules to deploy, how to deploy them, and how to create message routes between them. 
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Learn how to deploy modules and establish routes in IoT Edge

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge security manager | Microsoft Docs 
+title: Learn how the security manager protects devices, software - Azure IoT Edge | Microsoft Docs 
 description: Manages the IoT Edge device security stance and the integrity of security services.
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
@@ -10,7 +10,7 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-
+ms.custom: seodec18
 ---
 # Azure IoT Edge security manager
 
@@ -29,7 +29,7 @@ The responsibilities of the IoT Edge security manager include (but not limited t
 * Gatekeeper to device hardware root of trust through notary services.
 * Monitor the integrity of IoT Edge operations at runtime.
 
-IoT Edge security manager comprises three major components:
+IoT Edge security manager includes three components:
 
 * IoT Edge security daemon.
 * Hardware security module platform abstraction Layer (HSM PAL).

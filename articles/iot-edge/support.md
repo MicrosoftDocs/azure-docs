@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge Platform Support | Microsoft Docs 
+title: Supported operating systems, container engines - Azure IoT Edge | Microsoft Docs 
 description: Platforms supported by Azure IoT Edge
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Azure IoT Edge support

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure IoT Edge Java tutorial | Microsoft Docs 
+title: Tutorial create custom Java module - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with Java code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
@@ -10,8 +10,9 @@ ms.author: kgremban
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-
+ms.custom: 
+    - mvc
+    - seodec18
 ---
 
 # Tutorial: Develop a Java IoT Edge module and deploy to your simulated device

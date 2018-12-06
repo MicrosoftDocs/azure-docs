@@ -1,6 +1,6 @@
 ---
-title: Quickstart Azure IoT Edge + Windows | Microsoft Docs 
-description: Try out Azure IoT Edge by running analytics on a simulated edge device
+title: Quickstart create an Azure IoT Edge device on Windows | Microsoft Docs 
+description: In this quickstart, learn how to create an IoT Edge device and then deploy prebuilt code remotely from the Azure portal. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,7 +8,9 @@ ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
+ms.custom: 
+   - mvc
+   - seodec18
 ---
 
 # Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview

@@ -1,6 +1,6 @@
 ---
-title: Understand the Azure IoT Edge runtime | Microsoft Docs 
-description: Learn about the Azure IoT Edge runtime and how it empowers your edge devices
+title: Learn how the runtime manages devices - Azure IoT Edge | Microsoft Docs 
+description: Learn how the modules, security, communication, and reporting on your devices are managed by the Azure IoT Edge runtime
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,6 +8,7 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Understand the Azure IoT Edge runtime and its architecture

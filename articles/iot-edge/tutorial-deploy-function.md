@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure functions with Azure IoT Edge | Microsoft Docs 
-description: In this tutorial, you deploy an Azure function as a module to an edge device.
+title: Tutorial deploy an Azure function to a device - Azure IoT Edge | Microsoft Docs 
+description: In this tutorial, you develop an Azure function as an IoT Edge module, then deploy it to an edge device.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,7 +8,9 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
+ms.custom: 
+    - mvc
+    - seodec18
 #Customer intent: As an IoT developer, I want to use Azure Functions to execute logic on edge devices to filter data and communications that are sent to the cloud.
 ---
 
