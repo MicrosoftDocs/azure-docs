@@ -15,14 +15,17 @@
    
    ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
-3. In the **New account** blade, specify **MongoDB** as the API and fill out your desired configuration for the Azure Cosmos DB account.
+3. In the **Create Azure Cosmos DB Account** page, enter the settings for the new Azure Cosmos DB account. 
  
-    * **ID** must be a unique name you wish to use to identify your Azure Cosmos DB account. It may only contain lower case letters, numbers, the '-' character, and must be between 3 and 50 characters.
-    * **Subscription** is your Azure subscription. It will be filled out for you.
-    * **Resource Group** is the resource group name for your Azure Cosmos DB account. Select **Create New**, then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.
-    * **Location** is the geographic location where your Azure Cosmos DB instance is located. Choose the location closest to your users.
+    Setting|Value|Description
+    ---|---|---
+    Subscription|Your subscription|Select the Azure subscription that you want to use for this Azure Cosmos DB account. 
+    Resource Group|Create new<br><br>Then enter the same unique name as provided in ID|Select **Create new**. Then enter a new resource-group name for your account. For simplicity, use the same name as your ID. 
+    Account Name|Enter a unique name|Enter a unique name to identify your Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique ID.<br><br>The ID can use only lowercase letters, numbers, and the hyphen (-) character. It must be 3 to 50 characters in length.
+    API|MongoDB|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core(SQL) for document databases, Gremlin for graph databases, MongoDB for document databases, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>Select **MongoDB**  because in this quickstart you are creating a table that works with the MongoDB API.|
+    Location|Select the region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
 
-    Then click **Create**.
+    Select **Review+Create**. You can skip the **Network** and **Tags** section. 
 
     ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 
