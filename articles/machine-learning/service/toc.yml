@@ -173,7 +173,7 @@
     href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
-    - name: How to migrate
+    - name: How to migrate from Workbench
       displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md    
     - name: Export or delete account data (deprecated)

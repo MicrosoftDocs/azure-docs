@@ -1,5 +1,6 @@
 ---
-title: "Regression model tutorial - Prepare data with Azure Machine Learning service"
+title: "Regression model tutorial: Prepare data"
+titleSuffix: Azure Machine Learning service
 description: In the first part of this tutorial, you'll learn how to prep data in Python for regression modeling using the Azure ML SDK. 
 services: machine-learning
 ms.service: machine-learning
