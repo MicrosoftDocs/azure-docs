@@ -53,7 +53,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to assign a user to from the list.
 
@@ -91,7 +91,7 @@ To assign one or more groups to an application directly, follow the steps below:
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to assign a user to from the list.
 

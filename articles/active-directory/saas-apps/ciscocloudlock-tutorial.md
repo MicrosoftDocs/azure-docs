@@ -105,12 +105,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![The Cloud Security Fabric Domain and URLs single sign-on information](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL:
+
 	| |
 	|--|
 	| `https://platform.cloudlock.com` |
 	| `https://app.cloudlock.com` |
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
