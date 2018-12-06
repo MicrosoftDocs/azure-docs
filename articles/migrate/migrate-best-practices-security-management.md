@@ -109,10 +109,11 @@ In particular, older Azure migrated VMs may not have the appropriate level of an
 - In Azure Security Center, you can easily identify VMs that don't have endpoint protection running, and install Microsoft Antimalware as needed.
 
 ![Antimalware for VMs](./media/migrate-best-practices-security-management/antimalware.png)
+*Antimalware for VMs*
 
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/security/azure-security-antimalware) Microsoft Antimalware.
+- [Learn about](https://docs.microsoft.com/azure/security/azure-security-antimalware) Microsoft Antimalware.
 
 ## Best practice: Secure web apps
 
@@ -137,8 +138,9 @@ Azure provides a couple of solutions:
     - Web application firewall can be monitored using Azure Monitor, and is integrated into Azure Security Center.
 
 
-**Azure Key Vault**
+
 ![Secure web apps](./media/migrate-best-practices-security-management/web-apps.png)
+*Azure Key Vault*
 
 **Learn more:**
 
@@ -157,9 +159,8 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 - RBAC can also set scopes that set the boundary for a role. Scope can be set at a number of levels, including a management group, subscription, resource group, or resource
 - Ensure that admins with Azure access are only able to access resources  that you want to allow.  If the predefined roles in Azure aren't granular enough, you can create custom roles to separate and limit access permissions.
 
-
-**Access control - IAM**
 ![Access control](./media/migrate-best-practices-security-management/subscription.png)
+*Access control - IAM*
 
 **Learn more:**
 
@@ -176,8 +177,9 @@ Azure Active Directory (AD) provides activity logs that appear in Azure Monitor.
 - You can route activity logs to a number of endpoints for long-term retention and data insights.
 - Make it a common practice to review the logs or integrate your security information and event management (SIEM) tools to automatically review abnormalities.  If you're not using Premium 1 or 2, you'll need to do a lot of analysis yourself or using your SIEM system.  Analysis includes looking for risky sign-ins and events, and other user attack patterns.
 
-**Azure AD Users and Groups**
+
 ![Users and Groups](./media/migrate-best-practices-security-management/azure-ad.png)
+*Azure AD Users and Groups*
 
 **Learn more:**
 
@@ -216,8 +218,8 @@ Ensuring that your resource groups have meaningful names that admins and support
 - We recommend following Azure naming conventions.
 - If you're synchronizing your on-premises AD DS to Azure AD using AD Connect, consider matching the names of security groups on-premises to the names of resource groups in Azure.
 
-**Resource group naming**
 ![Naming](./media/migrate-best-practices-security-management/naming.png)
+*Resource group naming*
 
 
 **Learn more:**
@@ -228,12 +230,13 @@ Ensuring that your resource groups have meaningful names that admins and support
 
 The last thing you need is for a resource group to disappear because it was deleted accidentally. We recommend that you implement delete locks so that this doesn't happen.
 
-**Delete locks**
+
 ![Delete locks](./media/migrate-best-practices-security-management/locks.png)
+*Delete locks*
 
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) locking resources to prevent unexpected changes.
+- [Learn about](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) locking resources to prevent unexpected changes.
 
 
 ## Best practice: Understand resource access permissions 
@@ -246,7 +249,7 @@ A subscription owner has access to all the resource groups and resources in your
 
 **Learn more:**
 
-[Learn about](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/) organizing subscriptions and resource groups.
+- [Learn about](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/) organizing subscriptions and resource groups.
 
 ## Best practice: Tag resources effectively
 
@@ -256,8 +259,9 @@ Often, using only a resource group name related to resources won't provide enoug
 - Tags can be applied on a resource group or on individual resources. Resource group tags aren't inherited by the resources in the group.
 - You can automate tagging using Powershell or Azure Automation, or tag individual groups and resources. -tagging approach or a self-service one.  If you have a request and change management system in place, then you can easily utilize the information in the request to populate your company-specific resource tags.
 
-**Tagging**
+
 ![Tagging](./media/migrate-best-practices-security-management/tagging.png)
+*Tagging*
 
 **Learn more:**
 
@@ -273,9 +277,6 @@ Just as blueprint allows engineers and architects to sketch a project's design p
 - Use blueprints to orchestrate the deployment of resource groups, Azure Resource Manager templates, and policy and role assignments.
 - Azure blueprints are stored in a globally distributed Azure Cosmos DB. Blueprint objects are replicated to multiple Azure regions. Replication provides low latency, high availability, and consistent access to blueprint, regardless of the region to which a blueprint deploys resources.
 
-**Blueprints**
-c
-
 **Learn more:**
 
 - [Read](https://docs.microsoft.com/azure/governance/blueprints/overview) about blueprints.
@@ -287,7 +288,7 @@ Building secure, scalable, and manageable workloads in Azure can be daunting.  W
 
 Reference architectures are arranged by scenario. They contain recommend practices, and advice on management, availability, scalability, and security.
 
-Learn more:
+**Learn more:**
 
 [Learn about](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure reference architectures.
 [Review](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure example scenarios.
@@ -303,12 +304,12 @@ If your organization has multiple subscriptions, you need to manage access, poli
 - You can build a flexible structure of management groups and subscriptions, to organize your resources into a hierarchy for unified policy and access management.
 
 The following diagram shows an example of creating a hierarchy for governance using management groups.
-**Management groups**
-![Management groups](./media/migrate-best-practices-security-management/management-groups.png)
 
+![Management groups](./media/migrate-best-practices-security-management/management-groups.png)
+*Management groups*
 
 **Learn more:**
-[Learn more](https://docs.microsoft.com/azure/governance/management-groups/index) about organizing resources into management groups.
+- [Learn more](https://docs.microsoft.com/azure/governance/management-groups/index) about organizing resources into management groups.
 
 ## Best practice: Deploy Azure Policy
 
@@ -319,8 +320,9 @@ Azure Policy is a service in Azure that you use to create, assign and, manage po
 - For example, you could create a policy that allows only a specific SKU size for VMs in your environment. Azure Policy will evaluate this setting when creating and updating resources, and when scanning existing resources. 
 - Azure provides some built-in policies that you can assign, or you can create your own.
 
-**Azure Policy**
+
 ![Azure Policy](./media/migrate-best-practices-security-management/policy.png)
+*Azure Policy*
 
 **Learn more:**
 - [Get an overview](https://docs.microsoft.com/azure/governance/policy/overview) of Azure Policy.
@@ -362,32 +364,33 @@ For workloads running on Azure IaaS VMs you should consider using the following 
 
 Azure Backup backs up creates data recovery points that are stored in Azure storage. Azure Backup can back up Azure VM disks, and Azure Files (preview). Azure Files provide file shares in the cloud, accessible via SMB.
    
-- You can use Azure Backup to back up VMs in a couple of ways:
+You can use Azure Backup to back up VMs in a couple of ways.
 
-    - **Direct backup from VM settings**:
-        - Azure Backup is integrated into VM options in the Azure portal.
-        - You can back up the VM once a day, and restore the VM disk. 
-        - Azure Backup takes app-aware data snapshots (VSS).
-        - No agent is installed on the VM.
-    - **Direct backup in a Recovery Services vault**:
-        - You deploy an Azure Backup Recovery Services vault, and select VMs for backup.
-        - This method provides a single location to track and manage backups, and additional backup and restore options. 
-        - Azure Backup installs the Microsoft Azure Recovery Services (MARS) agent on the VM.
-        - Backup is up to three times a day.
-        - Backup is at the file or folder level, and isn't app-aware. Linux isn't supported.
-    - **Azure Backup Server: Protect the VM to Azure Backup Server**:
-        - Azure Backup Server is provided free with Azure Backup.
-        - The VM is backed up to local Azure Backup Storage.
-        - You then back up the Azure Backup Server to Azure in a Recovery Services vault.
-        - Backup is app-aware, with full granularity over backup frequently and retention
-        - You can back up at the app level. For example by backing up SQL Server or SharePoint.
+- **Direct backup from VM settings**:
+    - Azure Backup is integrated into VM options in the Azure portal.
+    - You can back up the VM once a day, and restore the VM disk. 
+    - Azure Backup takes app-aware data snapshots (VSS).
+    - No agent is installed on the VM.
+- **Direct backup in a Recovery Services vault**:
+    - You deploy an Azure Backup Recovery Services vault, and select VMs for backup.
+    - This method provides a single location to track and manage backups, and additional backup and restore options. 
+    - Azure Backup installs the Microsoft Azure Recovery Services (MARS) agent on the VM.
+    - Backup is up to three times a day.
+    - Backup is at the file or folder level, and isn't app-aware. Linux isn't supported.
+- **Azure Backup Server: Protect the VM to Azure Backup Server**:
+   - Azure Backup Server is provided free with Azure Backup.
+   - The VM is backed up to local Azure Backup Storage.
+   - You then back up the Azure Backup Server to Azure in a Recovery Services vault.
+   - Backup is app-aware, with full granularity over backup frequently and retention
+   - You can back up at the app level. For example by backing up SQL Server or SharePoint.
 
 Azure Backup automatically allocates and manages storage using a pay-as-you-go model for the storage you consume.
-    - Storage can be assigned as LRS or GRS.
-    - Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
+- Storage can be assigned as LRS or GRS.
+- Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
 
-**Azure Backup**
+
 ![Azure Backup](./media/migrate-best-practices-security-management/iaas-backup.png)
+*Azure Backup*
 
 **Learn more:**
 
@@ -432,8 +435,9 @@ Azure SQL Database is a fully managed PaaS Database Engine. It provides a number
 - Backup retention depends on the purchasing model. DTU-based service tiers go from seven days for Basic tier to 35 days for other tiers.
 - You can restore a database to a point-in-time within the retention period. You can also restore a deleted database, restore to a different geographical region, or restore from a long-term backup if the database has a long-term retention policy (LTR).
 
-**Azure SQL backup**
+
 ![Azure SQL backup](./media/migrate-best-practices-security-management/sql-backup.png)
+*Azure SQL backup*
 
 **Learn more:**
 - [Automated backups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups) for SQL Database.
@@ -446,7 +450,7 @@ Since Azure Functions functions more or less as code, you should back them up us
 
 **Learn more:**
 
-[Data protection](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) for Azure DevOps.
+- [Data protection](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) for Azure DevOps.
 
 ## Best practice: Set up a disaster recovery strategy
 
@@ -463,8 +467,9 @@ For workloads running on Azure IaaS VMs and Azure storage consider these solutio
 
 Azure Site Recovery is the primary Azure service for ensuring that Azure VMs can be brought online and VM apps made available when outages occur. Site Recovery replicates VMs from a primary to secondary Azure region. When disaster strikes, you fail VMs over from the primary region, and continue accessing them as normal in the secondary region. When operations return to normal, you can fail back VMs to the primary region.
 
-**Site Recovery**
+
 ![Azure Site Recovery](./media/migrate-best-practices-security-management/site-recovery.png)
+*Site Recovery*
 
 **Learn more:**
 - [Review](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-disaster-recovery-guidance) disaster recovery scenarios for Azure VMs.
@@ -488,7 +493,7 @@ Azure storage is replicated for built-in resilience and high availability.
 
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Azure storage replication.
+- [Learn about](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Azure storage replication.
 
 
 ### Set up disaster recovery for PaaS workloads
@@ -514,9 +519,10 @@ You can use failover groups and active geo-replication to provide resilience aga
     - Zone-redundant databases enhance high availability for Azure SQL Server in the event of a data center failure.
     - With zone-redundancy, you can place redundant database replicas within different availability zones in a region. 
 
-**Geo-replication**
+
 
 ![Geo-replication](./media/migrate-best-practices-security-management/geo-replication.png)
+*Geo-replication*
 
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability) high availability for Azure SQL Server.
@@ -536,8 +542,9 @@ If the compute infrastructure in Azure fails, an Azure function app might become
 - Azure Traffic Manager can be configured to detect problems in the primary function app, and automatically redirect traffic to the function app in the secondary region
 - Traffic Manager with geo-redundant storage allows you to have the same function in multiple regions, in case of regional failure
 
-**Traffic Manager**
+
 ![Traffic Manager](./media/migrate-best-practices-security-management/traffic-manager.png)
+*Traffic Manager*
 
 **Learn more:**
 
@@ -545,7 +552,7 @@ If the compute infrastructure in Azure fails, an Azure function app might become
 - [Learn about](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) disaster recovery and geo-distribution for durable Azure functions.
 
 
-### Best Practice: Use managed disks and availability sets
+### Best practice: Use managed disks and availability sets
 
 Azure uses availability sets to logically group VMs together, and to isolate VMs in a set from other resources. VMs in an availability set are spread across multiple fault domains with separate subsystems, to protect against local failures, and are also spread across multiple update domains so that not all VMs in a set reboot at the same time.
 
@@ -555,8 +562,9 @@ Azure-Managed Disks simplify disk management for Azure IaaS VMs, by managing the
 - You can convert existing disks to managed.
 - You should create VMs in availability sets for high resilience and availability. When planned or unplanned outages occur, availability sets ensure that at least one of your VMs in the set continues to be available.
 
-**Managed disks**
+
 ![Managed disks](./media/migrate-best-practices-security-management/managed-disks.png)
+*Managed disks*
 
 **Learn more:**
 - [Get an overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) of managed disks.
@@ -576,8 +584,9 @@ These two cases have different resolutions, but for both you need an insight int
 - Azure Monitor can help surface these metrics, and provide response with alerts, autoscaling, event hubs, logic apps and more.
 - In addition to Azure monitoring, you can integrate your third-party SIEM application to monitor the Azure logs for auditing and performance events.
 
-**Azure Monitor**
+
 ![Azure Monitor](./media/migrate-best-practices-security-management/monitor.png)
+*Azure Monitor*
 
 **Learn more:**
 
@@ -594,8 +603,9 @@ Azure resources generate a fair number of logging metrics and telemetry data.
 - By enabling diagnostic logging across your resources, you can query logging data, and build alerts and playbooks based on it.
 - When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Log Analytics. 
 
-**Diagnostic logging**
+
 ![Diagnostic logging](./media/migrate-best-practices-security-management/diagnostics.png)
+*Diagnostic logging*
 
 **Learn more:**
 
@@ -612,8 +622,9 @@ With diagnostic logging enabled for Azure resources, you can start to use loggin
 - As a simple example, you can create an alert that triggers when a port scan happens against a network security group.  You can set up a playbook that runs and locks down the IP address of the scan origin.
 - Another example might be an app with a memory leak.  When the memory usage gets to a certain point, a playbook can recycle the process.
 
-**Alerts**
+
 ![Alerts](./media/migrate-best-practices-security-management/alerts.png)
+*Alerts*
 
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts) alerts.
@@ -624,9 +635,10 @@ With diagnostic logging enabled for Azure resources, you can start to use loggin
 The Azure portal is a web-based unified console that allows you to build, manage, and monitor everything from simple web apps to complex cloud applications. It includes a customizable dashboard and accessibility options.
 - You can create multiple dashboards and share them with others who have access to your Azure subscriptions.
 - With this shared model, your team has visibility into the Azure environment, allowing them to be proactive when managing systems in the cloud.
-- 
-**Azure dashboard**
+
+
 ![Azure dashboard](./media/migrate-best-practices-security-management/dashboard.png)
+*Azure dashboard*
 
 **Learn more:**
 
@@ -634,15 +646,16 @@ The Azure portal is a web-based unified console that allows you to build, manage
 - [Learn about](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-structure) dashboard structure.
 
 
-## Best Practice: Understand support plans
+## Best practice: Understand support plans
 
 At some point you will need to collaborate with your support staff or Microsoft support staff. Having a set of policies and procedures for support during scenarios such as disaster recovery is vital. In addition your admins and support staff should be trained on implementing those policies.
 
 - In the unlikely event that an Azure service issue impacts your workload, admins should know how to submit a support ticket to Microsoft in the most appropriate and efficient way.
 - Familiarize yourself with the various support plans offered for Azure. They range from response times dedicated to Developer instances, to Premier support with a response time of less than 15 minutes.
 
-**Support plans**
+
 ![Support plans](./media/migrate-best-practices-security-management/support.png)
+*Support plans*
 
 **Learn more:**
 - [Get an overview](https://azure.microsoft.com/support/options/) of Azure support plans.
@@ -657,8 +670,9 @@ Keeping Azure VMs updated with the latest operating system and software updates 
 - You can enable Update Management for VMs directly from an Azure Automation account. You can also update a single VM from the VM page in the Azure portal.
 - In addition, Azure VMs can be registered with System Center Configuration Manager. You could then migrate the Configuration Manager workload to Azure, and do reporting and software updates from a single web interface.
 
-**Updates**
+
 ![VM updates](./media/migrate-best-practices-security-management/updates.png)
+*Updates*
 
 **Learn more:**
 
@@ -682,8 +696,9 @@ Azure has a Change Tracking solution in Azure automation:
 - Logic is applied to the received data and the cloud service records the data.
 - On the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
-**Change management**
+
 ![Change management](./media/migrate-best-practices-security-management/change.png)
+*Change management*
 
 **Learn more:**
 
