@@ -19,6 +19,6 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 1. On the **Overview** page for your database, review the fully qualified server name, as shown in the following image. To copy the server name, hover over it and select the **Copy** icon.  
 
-   ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
+![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
 If you forget your server login information, select the server name to open the **SQL server** page and view the **Server admin** name. You can use **Reset password** on the **SQL server** page toolbar to reset your password if necessary.
