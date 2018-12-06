@@ -23,7 +23,7 @@ Log Analytics is a data store where personal data is likely to be found. Applica
 > [!NOTE]
 > For the purposes of this article _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Strategy for personal data handling
 
@@ -77,7 +77,7 @@ Remember to look not only for human-readable user names but also GUIDs that can 
 
 As mentioned in the [strategy for personal data handling](#strategy-for-personal-data-handling) section earlier, it is __strongly__ recommended to if it all possible, to restructure your data collection policy to disable the collection of private data, obfuscating or anonymizing it, or otherwise modifying it to remove it from being considered "private". Handling the data will foremost result in costs to you and your team to define and automate a strategy, build an interface for your customers to interact with their data through, and ongoing maintenance costs. Further, it is computationally costly for Log Analytics and Application Insights, and a large volume of concurrent query or purge API calls have the potential to negatively impact all other interaction with Log Analytics functionality. That said, there are indeed some valid scenarios where private data must be collected. For these cases, data should be handled as described in this section.
 
-[!INCLUDE [gdpr-intro-sentence](../../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 
 ### View and export
 

@@ -43,7 +43,7 @@ While most features will continue to work without performing any migration, you 
 - You need to [migrate your user permissions](#user-access-and-role-migration) to the Azure portal.
 - See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on transitioning the Update Management solution.
 
-Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../../log-analytics/oms-portal-faq.md) for information about how to transition to the Azure portal. Send any feedback, questions, or concerns to **LAUpgradeFeedback@microsoft.com**.
+Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for information about how to transition to the Azure portal. Send any feedback, questions, or concerns to **LAUpgradeFeedback@microsoft.com**.
 
 ## User access and role migration
 Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Manage workspaces](manage-access.md#manage-accounts-and-users) for details of access management in Log Analytics.
