@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Using an insights token to get insights about an image
 
-Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate uploading an image to get insights, see the quickstarts ([C#](quickstarts\csharp.md) | [Java](quickstarts\java.md) | [Node.js](quickstarts\nodejs.md) | [Python](quickstarts\python.md)).
+Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate uploading an image to get insights, see the quickstarts ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
 
 If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest". For details about the `imageInfo` object, see [The request](#the-request).

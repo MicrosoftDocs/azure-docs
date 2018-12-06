@@ -41,7 +41,7 @@ You can also send it to [Application Insights](../application-insights/app-insig
 ### Azure Monitor
 You also have the choice of sending your data to Azure Monitor. At this time, this sink is only applicable to Performance Counters. It enables you to send performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
 * Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/)
-* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](monitoring-overview-unified-alerts.md) in Azure Monitor
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](monitoring-overview-alerts.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric.  For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk on the VM (C:, D:, etc.)
 
 To learn more on how to configure this sink, please refer to the [Azure diagnostics schema documentation.](azure-diagnostics-schema-1dot3-and-later.md)

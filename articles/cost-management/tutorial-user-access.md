@@ -9,7 +9,7 @@ ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
-manager: dougeby
+manager: benshy
 ---
 
 
@@ -43,7 +43,7 @@ Although you already have admin access, coworkers in your organization might als
 Enter required information about the user. The **login ID** must be a valid e-mail address. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management allow the user to edit recipient lists. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. On first sign-in the user sets a password.
 
 Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information. Selecting the root entity allows the user to have admin permission not only to the root entity in the tree, but also to all the entities that reside below it.  
-  ![Add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
+  ![Add new user with admin access](./media/tutorial-user-access/new-admin-access.png)
 
 ## Create a user with user access
 Typical users that need access to Cloudyn data like dashboards and reports should have user access to view them. Create a new user with user access similar to the one you created with admin access, with the following differences:
@@ -52,7 +52,7 @@ Typical users that need access to Cloudyn data like dashboards and reports shoul
 - Select the entities that the user needs access to in the **User has user access** list.
 - You can also allow admin to access to specific entities, as needed.
 
-![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
+![add new user with user access](./media/tutorial-user-access/new-user-access.png)
 
 To watch a tutorial video about adding users, see [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30).
 
@@ -84,11 +84,11 @@ When you registered your Azure agreement or account with Cloudyn, your Azure res
 
 In the Cloudyn portal, click the gear symbol in the upper right and select **Cloud Accounts**. You start with a single entity (root) and build your entity tree under the root. Here's an example of an entity hierarchy that might resemble many IT organizations after the tree is complete:
 
-![Entity tree](.\media\tutorial-user-access\entity-tree.png)
+![Entity tree](./media/tutorial-user-access/entity-tree.png)
 
 Next to **Entities**, click **Add Entity**. Enter information about the person or department that you want to add. The **Full Name** and **Email** fields to do not have to match existing users. If you want to view a list of access levels, search in help for *Adding an entity*.
 
-![Add entity](.\media\tutorial-user-access\add-entity.png)
+![Add entity](./media/tutorial-user-access/add-entity.png)
 
 When you're done, **Save** the entity.
 

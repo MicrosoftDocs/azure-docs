@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
@@ -21,7 +21,7 @@ ms.author: cephalin
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, web app on Linux, mobile back end, and API app to [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan tier. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, web app on Linux, mobile back end, and API app to [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard**, **Premium**, or **Isolated** App Service plan tier. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
@@ -32,7 +32,7 @@ Each App Service plan tier supports a different number of deployment slots. To f
 <a name="Add"></a>
 
 ## Add a deployment slot
-The app must be running in the **Standard** or **Premium** tier in order for you to enable multiple deployment slots.
+The app must be running in the **Standard**, **Premium**, or **Isolated* tier in order for you to enable multiple deployment slots.
 
 1. In the [Azure Portal](https://portal.azure.com/), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Choose the **Deployment slots** option, then click **Add Slot**.
@@ -40,7 +40,7 @@ The app must be running in the **Standard** or **Premium** tier in order for you
     ![Add a new deployment slot][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > If the app is not already in the **Standard** or **Premium** tier, you will receive a message indicating the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your app before continuing.
+   > If the app is not already in the **Standard**, **Premium**, or **Isolated* tier, you will receive a message indicating the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your app before continuing.
    > 
    > 
 3. In the **Add a slot** blade, give the slot a name, and select whether to clone app configuration from another existing deployment slot. Click the check mark to continue.
@@ -54,7 +54,7 @@ The app must be running in the **Standard** or **Premium** tier in order for you
 4. In your app's resource blade, click  **Deployment slots**, then click a deployment slot to open that slot's resource blade, with a set of metrics and configuration just like any other app. The name of the slot is shown at the top of the blade to remind you that you are viewing the deployment slot.
    
     ![Deployment Slot Title][StagingTitle]
-5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](app-service-deploy-local-git.md).
 
@@ -71,6 +71,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Handler mappings
 * Monitoring and diagnostic settings
 * WebJobs content
+* Hybrid connections
 
 **Settings that are not swapped**:
 
@@ -170,12 +171,12 @@ If any errors are identified in production after a slot swap, roll the slots bac
 <a name="Warm-up"></a>
 
 ## Custom warm-up before swap
-Some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
+When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
             <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostname="[app hostname]" />
+            <add initializationPage="/Home/About" hostName="[app hostname]" />
         </applicationInitialization>
     </system.webServer>
 
@@ -260,7 +261,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Next steps
-[Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Azure App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)  
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 

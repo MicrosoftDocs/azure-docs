@@ -59,7 +59,7 @@ SQL Server replication can be configured to single and pooled databases on a [lo
 
 1. Create a transactional replication publication on an on-premises SQL Server database.  
 2. On the on-premises SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
-3. In Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent.   
+3. With single and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With Azure SQL Database Managed Instance, you can also use a database backup to seed the subscriber database.
 
 ### Data Migration Scenario  
 

@@ -8,7 +8,7 @@ ms.author: banders
 ms.date: 09/27/2018
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom:
 ---
 

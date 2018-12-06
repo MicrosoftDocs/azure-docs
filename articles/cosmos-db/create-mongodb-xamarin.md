@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API'
 description: Presents a Xamarin code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: codemillmatt 
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -76,7 +75,7 @@ If you don't wish to use git, you can also [download the project as a ZIP file](
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
 
-The following snippets are all taken from the `MongoService` class, found at the follwing path: src/TaskList.Core/Services/MongoService.cs.
+The following snippets are all taken from the `MongoService` class, found at the following path: src/TaskList.Core/Services/MongoService.cs.
 
 * Initialize the Mongo Client.
     ```cs

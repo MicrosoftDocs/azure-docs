@@ -10,7 +10,6 @@ ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
@@ -69,7 +68,7 @@ The third architecture mix between the two options. It is based on the first dis
 
 There are two options to implement the central location in Log Analytics:
 
-1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](log-analytics-data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](../azure-monitor/platform/data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between Log Analytics and [Power BI](log-analytics-powerbi.md). 
 
@@ -77,6 +76,6 @@ There are two options to implement the central location in Log Analytics:
 ## Next Steps
 * Automate creation and configuration of workspaces using [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 * Automate creation of workspaces using [PowerShell](log-analytics-powershell-workspace-configuration.md) 
-* Use [Alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to integrate with existing systems
+* Use [Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to integrate with existing systems
 * Generate summary reports using [Power BI](log-analytics-powerbi.md)
 * Review the process of [configuring Log Analytics and Power BI to monitor multiple CSP customers](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)
