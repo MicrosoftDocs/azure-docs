@@ -113,6 +113,10 @@
       items:
       - name: Working with databases, containers, and items
         href: databases-containers-items.md
+      - name: SQL language reference 
+        href: sql-api-sql-query-reference.md
+      - name: SQL query examples
+        href: how-to-sql-query.md
       - name: Indexing
         items:
         - name: Overview
@@ -262,8 +266,6 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
-        - name: SQL language syntax
-          href: sql-api-sql-query-reference.md
     - name: MongoDB API Docs
       items: 
       - name: Introduction
@@ -444,8 +446,6 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-      - name: Query data with SQL queries
-        href: how-to-sql-query.md
     - name: Indexing
       items:
       - name: Configure indexing
