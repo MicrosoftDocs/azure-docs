@@ -36,17 +36,17 @@ From NoSQL migration to application development, you can choose from a variety o
 |![VTeamLabs][12]    | NoSQL migration       |  USA      | [Website](http://www.vteamlabs.com/)       |
 | ![10thMagnitude][13] | NoSQL migration; New app development | USA | [Website](https://www.10thmagnitude.com/)|
 | ![Capgemini][14] | NoSQL migration; App innovation (existing apps); New app development | US, France, UK, Netherlands, Finland  | [Website](https://www.capgemini.com/) | 
-| ![Cognizant][21] | NoSQL migration |US, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan | [Website](https://www.cognizant.com/)|
-| ![Lagash][22] | NoSQL migration; New app development | Argentina, Chile, Colombia, Mexico| [Website](https://lagash.com/)|
-| ![Lambda3 Informatics][23] | NoSQL migration; New app development | Brazil| [Website](https://www.lambda3.com.br/)|
-| ![Ricoh Global][24] | NoSQL migration; App innovation (existing apps)| UK  | [Website](https://www.ricoh.com/)|
-| ![SNP Technologies][25] | NoSQL migration| US | [Website](https://www.snp.com/)|
-| ![Solidsoft Reply][15] | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland and Switzerland and Liechtenstein | [Website](https://www.reply.com/solidsoft-reply/)|
-| ![Spanish Point Technologies][16] | NoSQL migration| Ireland| [Website](https://www.spanishpoint.ie/)|
-| ![Syone][17] | NoSQL migration| Portugal| [Website](https://www.syone.com/)|
-| ![TCS][18] | App innovation (existing apps); New app development | US, UK, France, Malaysia, Denmark, Norway, Sweden| [Website](https://www.tcs.com/)|
-| ![White Duck][19] |NoSQL migration; New app development | Germany | [Website]()|
-| ![Xpand IT][20] | New app development | Portugal, UK| [Website](https://www.xpand-it.com/)|
+| ![Cognizant][15] | NoSQL migration |US, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan | [Website](https://www.cognizant.com/)|
+| ![Lagash][16] | NoSQL migration; New app development | Argentina, Chile, Colombia, Mexico| [Website](https://lagash.com/)|
+| ![Lambda3 Informatics][17] | NoSQL migration; New app development | Brazil| [Website](https://www.lambda3.com.br/)|
+| ![Ricoh Global][18] | NoSQL migration; App innovation (existing apps)| UK  | [Website](https://www.ricoh.com/)|
+| ![SNP Technologies][19] | NoSQL migration| US | [Website](https://www.snp.com/)|
+| ![Solidsoft Reply][20] | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland and Switzerland and Liechtenstein| [Website](https://www.reply.com/solidsoft-reply/)|
+| ![Spanish Point Technologies][21] | NoSQL migration| Ireland| [Website](https://www.spanishpoint.ie/)|
+| ![Syone][22] | NoSQL migration| Portugal| [Website](https://www.syone.com/)|
+| ![TCS][23] | App innovation (existing apps); New app development | US, UK, France, Malaysia, Denmark, Norway, Sweden| [Website](https://www.tcs.com/)|
+| ![White Duck][24] |NoSQL migration; New app development | Germany | [Website]()|
+| ![Xpand IT][25] | New app development | Portugal, UK| [Website](https://www.xpand-it.com/)|
 
 
 ## Next steps
