@@ -5,7 +5,6 @@ description: Speech Devices SDK license agreement.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual

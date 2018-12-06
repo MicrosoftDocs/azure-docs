@@ -1,11 +1,10 @@
 ---
 title: About the Speech Devices SDK - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Get an introduction to the Speech Devices SDK.
+description: Get started with the Speech Devices SDK. The Speech Services work with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual

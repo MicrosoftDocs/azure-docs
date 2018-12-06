@@ -81,9 +81,6 @@
       href: how-to-translate-speech-java.md
 - name: How-to guides
   items:
-  - name: Synthesize speech (REST)
-    href: how-to-text-to-speech.md
-    displayName: synthesize speech, speech synthesis, text to speech, tts
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech to text, stt
