@@ -1,6 +1,6 @@
 ---
-title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
-description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
+title: Developer best practices - Pod and container security in Azure Kubernetes Services (AKS)
+description: Learn the developer best practices for how to secure pods and containers in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
@@ -10,7 +10,7 @@ ms.date: 11/26/2018
 ms.author: iainfou
 ---
 
-# Best practices for pod security in Azure Kubernetes Service (AKS)
+# Best practices for pod and container security in Azure Kubernetes Service (AKS)
 
 As you develop and run applications in Azure Kubernetes Service (AKS), the security of your pods is a key consideration. Your applications should be designed for the principal of least number of privileges required. Credentials such as passwords, keys, and certificates shouldn't be included in your application code. Adding them to your code creates a risk for exposure and limits the ability to rotate those credentials.
 
@@ -21,7 +21,7 @@ This best practices article focuses on how secure pods in AKS. You learn how to:
 > * Authenticate with other Azure resources using pod managed identities
 > * Request and retrieve credentials from a digital vault such as Azure Key Vault
 
-You can also read the best practices for [cluster security][best-practices-cluster-security] and for [container security][best-practices-container-security].
+You can also read the best practices for [cluster security][best-practices-cluster-security] and for [container image management][best-practices-container-image-management].
 
 ## Secure pod access to resources
 
@@ -38,7 +38,7 @@ A pod security context can also define additional capabilities or permissions fo
 The following example pod YAML manifest sets security context settings to define:
 
 * Pod runs as user ID *1000* and part of group ID *2000*
-* Cannot escalate privileges to use `root`
+* Can't escalate privileges to use `root`
 * Allows Linux capabilities to access network interfaces and the host's real-time (hardware) clock
 
 ```yaml
@@ -77,19 +77,19 @@ A managed identity for Azure resources lets a pod authenticate itself against a 
 
 ![Simplified workflow for pod managed identity in Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
-With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can also audit and review access to services. If your application connects with other Azure services, use managed identities where possible to limit credential reuse and the risk of exposure.
+With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can also audit and review access to services. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
 
 For more information about pod identities, see [Configure an AKS cluster to use pod managed identities][aad-pod-identity] and [Assign and use pod managed identities in your code][aad-pod-identity].
 
 ### Use Azure Key Vault with FlexVol
 
-Managed pod identities work great to authenticate against supporting Azure services. For your own services or applications without managed identities for Azure resources, you still authenticate using credentials or keys. A central, digital vault can be used to store these credentials.
+Managed pod identities work great to authenticate against supporting Azure services. For your own services or applications without managed identities for Azure resources, you still authenticate using credentials or keys. A digital vault can be used to store these credentials.
 
-When applications need a credential, they reach out to the digital vault, retrieve the latest credentials, and then connect to the required service. Azure Key Vault can be used as this central digital vault. The simplified workflow for retrieving a credential from Azure Key Vault using pod managed identities is shown in the following diagram:
+When applications need a credential, they reach out to the digital vault, retrieve the latest credentials, and then connect to the required service. Azure Key Vault can be this digital vault. The simplified workflow for retrieving a credential from Azure Key Vault using pod managed identities is shown in the following diagram:
 
 ![Simplified workflow for retrieving a credential from Key Vault using a pod managed identity](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
- With Key Vault, you can store and regularly rotate credentials, storage account keys, certificates, etc. You can integrate Azure Key Vault with an AKS cluster using a FlexVolume. The FlexVolume driver lets the AKS cluster natively retrieve credentials from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Key Vault FlexVol driver onto the AKS nodes. You can then use a pod managed identity to request access to Key Vault and retrieve the credentials you need through the FlexVolume driver.
+With Key Vault, you store and regularly rotate secrets such as credentials, storage account keys, or certificates. You can integrate Azure Key Vault with an AKS cluster using a FlexVolume. The FlexVolume driver lets the AKS cluster natively retrieve credentials from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Key Vault FlexVol driver onto the AKS nodes. You can use a pod managed identity to request access to Key Vault and retrieve the credentials you need through the FlexVolume driver.
 
 ## Next steps
 
@@ -106,6 +106,6 @@ This article focused on how to secure your pods. To implement some of these area
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
-[best-practices-container-security]: operator-best-practices-container-security.md
+[best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [aks-pod-identities]: operator-best-practices-identity.md#use-pod-identities
-[apparmor-seccomp]: operator-best-practices-container-security.md#secure-container-access-to-resources
+[apparmor-seccomp]: operator-best-practices-cluster-security.md#secure-container-access-to-resources

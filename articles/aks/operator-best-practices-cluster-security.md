@@ -21,7 +21,7 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 > * Upgrade an AKS cluster to the latest Kubernetes version
 > * Keep nodes update to date and automatically apply security patches
 
-You can also read the best practices for [container security][best-practices-container-security] and for [pod security][best-practices-pod-security].
+You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
 ## Secure access to the API server and cluster nodes
 
@@ -38,6 +38,130 @@ Kubernetes role-based access controls (RBAC) should also be used to secure acces
 Use Azure AD *group* membership to bind users to RBAC roles rather than individual *users*. As a user's group membership changes, their access permissions on the AKS cluster would change accordingly. If you bind the user directly to a role, their job function may change and Azure AD group membership update, but permissions on the AKS cluster would not reflect that. This scenario grants more permissions than a user requires.
 
 For more information about Azure AD integration and RBAC, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
+
+## Secure container access to resources
+
+**Best practice guidance** - Limit access to actions that containers can perform. Provide the least number of permissions, and avoid the use of root / privileged escalation.
+
+In the same way that you should grant users or groups the least number of privileges required, containers should also be limited to only the actions and processes that they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. For example, set `allowPrivilegeEscalation: false` in the pod manifest. These *pod security contexts* are built-in to Kubernetes and let you define additional permissions such as the user or group to run as, or what Linux capabilities to expose. For more best practices, see [Secure pod access to resources][pod-security-contexts].
+
+For more granular control of container actions, you can also use built-in Linux security features such as *AppArmor* and *seccomp*. These features are defined at the node level, and then implemented through a pod manifest.
+
+### App Armor
+
+To limit the actions that containers can perform, you can use the [AppAmour][k8s-apparmor] Linux kernel security module. AppArmor is available as part of the underlying AKS node OS, and is enabled by default. You create AppArmor profiles that restrict actions such as read, write, or execute, or system functions such as mounting filesystems. Default AppArmor profiles restrict access to various `/proc` and `/sys` locations, and provide a means to logically isolate containers from the underlying node. AppArmor works for any application that runs on Linux, not just Kubernetes pods.
+
+![AppArmor profiles in use in an AKS cluster to limit container actions](media/operator-best-practices-container-security/apparmor.png)
+
+To see AppArmor in action, the following example creates a profile that prevents writing to files. [SSH][aks-ssh] to an AKS node, then create a file named *deny-write.profile* and paste the following content:
+
+```
+#include <tunables/global>
+profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
+  #include <abstractions/base>
+  
+  file,
+  # Deny all file writes.
+  deny /** w,
+}
+```
+
+AppArmor profiles are added using the `apparmor_parser` command. Add the profile to AppArmor and specify the name of the profile created in the previous step:
+
+```console
+sudo apparmor_parser deny-write.profile
+```
+
+There is no output returned if the profile is correctly parsed and applied to AppArmor. You are returned to the command prompt.
+
+From your local machine, now create a pod manifest named *aks-apparmor.yaml* and paste the following content. This manifest defines an annotation for `container.apparmor.security.beta.kubernetes` add references the *deny-write* profile created in the previous steps:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-apparmor
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/hello: localhost/k8s-apparmor-example-deny-write
+spec:
+  containers:
+  - name: hello
+    image: busybox
+    command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
+```
+
+Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
+
+```console
+kubectl apply -f aks-apparmor.yaml
+```
+
+With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command cannot be executed, as shown in the following example output:
+
+```
+$ kubectl exec hello-apparmor touch /tmp/test
+
+touch: /tmp/test: Permission denied
+command terminated with exit code 1
+```
+
+For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
+
+### Secure computing
+
+While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)][seccomp] works at the process level. Seccomp is also a Linux kernel security module, and is natively supported by the Docker runtime used by AKS nodes. With seccomp, the process calls that containers can perform are limited. You create filters that define what actions are allowed or denied, and then use annotations within a pod YAML manifest to associate with the seccomp filter.
+
+To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod* and paste the following content:
+
+```
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "name": "chmod",
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}
+```
+
+From your local machine, now create a pod manifest named *aks-seccomp.yaml* and paste the following content. This manifest defines an annotation for `seccomp.security.alpha.kubernetes.io` and references the *prevent-chmod* filter created in the previous step:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chmod-prevented
+  annotations:
+    seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
+spec:
+  containers:
+  - name: chmod
+    image: busybox
+    command:
+      - "chmod"
+    args:
+     - "777"
+     - /etc/hostname
+  restartPolicy: Never
+```
+
+Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
+
+```console
+kubectl apply -f ./aks-seccomp.yaml
+```
+
+View the status of the pods using the [kubectl get pods][kubectl-get] command. The pod reports an error. The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
+
+```
+$ kubectl get pods
+
+NAME                      READY     STATUS    RESTARTS   AGE
+chmod-prevented           0/1       Error     0          7s
+```
+
+For more information about available filters, see [Seccomp security profiles for Docker][seccomp].
 
 ## Regularly update to the latest version of Kubernetes
 
@@ -92,5 +216,6 @@ This article focused on how to secure your AKS cluster. To implement some of the
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
 [aks-aad]: aad-integration.md
-[best-practices-container-security]: operator-best-practices-container-security.md
+[best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
+[pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
