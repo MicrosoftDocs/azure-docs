@@ -82,7 +82,7 @@ func transliterate(subscriptionKey string) {
 }
 ```
 
-Next, let's construct the URL. The URL is built using the `Parse()` and `Query()` methods. You'll notice that parameters are added with the `Add()` method. In this sample, you're translating from English to German and Italian: `de` and `it`.
+Next, let's construct the URL. The URL is built using the `Parse()` and `Query()` methods. You'll notice that parameters are added with the `Add()` method. In this sample, we're transliterating from Japanese to the Latin alphabet.
 
 Copy this code into the `transliterate` function.
 
