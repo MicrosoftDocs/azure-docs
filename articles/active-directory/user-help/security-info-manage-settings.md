@@ -63,7 +63,7 @@ If you lose your device or your device becomes compromised, you'll have to redo 
 
 3. In the **Manage account** area, select **Forget MFA on remembered devices**.
     
-    Choosing this option means that you'll have to go through the Multi-Factor Authentication process again after you sign in.
+    Choosing this option means that you'll have to go through the Multi-Factor Authentication (MFA) process again after you sign in.
 
     ![Profile screen with the forget link highlighted](media/security-info/security-info-forget.png)
 
