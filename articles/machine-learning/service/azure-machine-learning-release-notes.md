@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Machine Learning
-description: This document details the updates to Azure Machine Learning.
+title: What's new in Azure Machine Learning service
+description: Learn about the latest updates to Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,6 +9,7 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 # Azure Machine Learning service release notes
 

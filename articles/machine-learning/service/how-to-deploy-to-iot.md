@@ -10,6 +10,7 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # Prepare to deploy models on IoT Edge

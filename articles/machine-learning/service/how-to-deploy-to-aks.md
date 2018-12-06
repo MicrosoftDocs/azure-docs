@@ -10,6 +10,7 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # How to deploy models from Azure Machine Learning service to Azure Kubernetes Service

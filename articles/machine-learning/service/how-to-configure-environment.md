@@ -10,6 +10,7 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # Configure a development environment for Azure Machine Learning

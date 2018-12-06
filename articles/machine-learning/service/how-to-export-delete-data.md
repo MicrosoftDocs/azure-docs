@@ -10,6 +10,7 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 
 
