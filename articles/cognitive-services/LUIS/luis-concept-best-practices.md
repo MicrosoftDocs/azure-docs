@@ -1,6 +1,6 @@
 ---
-title: Best practices for building apps with LUIS - Language Understanding 
-titleSuffix: Azure Cognitive Services
+title: Best practices
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn the LUIS best practices to get the best results.
 services: cognitive-services
 author: diberry
