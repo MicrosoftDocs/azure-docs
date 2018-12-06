@@ -112,6 +112,9 @@ The data object has the following properties:
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
+> [!NOTE]
+> *Queued* is only going to be present in the **previousState** property but not in the **state** property.
+
 ### JobScheduled, JobProcessing, JobCanceling
 
 For each non-final Job state change (such as JobScheduled, JobProcessing, JobCanceling), the example schema looks similar to the following:
