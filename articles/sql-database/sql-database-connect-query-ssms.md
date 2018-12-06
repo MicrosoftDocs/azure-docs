@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database on Azure by using SQL Server M
 keywords: connect to sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scenario
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -20,11 +20,11 @@ You can use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to ma
 
 ## Prerequisites
 
-This tutorial uses the resources created in one of these quickstarts:
+This tutorial uses the following.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-This quickstart also requires that you configure a server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
+* A configured server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
 #### Install the latest SSMS
 
@@ -57,7 +57,7 @@ In SMSS, connect to your Azure SQL Database server.
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, choose **mySampleDatabase**.
+3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
