@@ -227,7 +227,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](../log-analytics/log-analytics-personal-data-mgmt.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../azure-monitor/platform/personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
@@ -278,7 +278,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).

@@ -26,20 +26,20 @@ No. There are no changes being made to Log Analytics itself, so there is nothing
 ## Where do I find Log Analytics in Azure?
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).  Click **All services**, and in the list of resources, type **Log Analytics**. Select **Log Analytics** and then select your workspace. The summary page for the workspace is displayed.
 
-![Log Analytics workspace](media/log-analytics-oms-portal-faq/log-analytics.png)
+![Log Analytics workspace](media/oms-portal-faq/log-analytics.png)
 
 ## How do I manage permissions?
-If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../role-based-access-control/role-assignments-portal.md). For details on managing workspace permissions, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../../role-based-access-control/role-assignments-portal.md). For details on managing workspace permissions, see [Manage workspaces](../../log-analytics/manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## How do I create a new workspace? 
-From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/../azure-monitor/learn/quick-create-workspace.md).
+From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../../log-analytics/../../azure-monitor/learn/quick-create-workspace.md).
 
-![Overview page](media/log-analytics-oms-portal-faq/new-workspace.png)
+![Overview page](media/oms-portal-faq/new-workspace.png)
 
 ## Where is my overview page?
 The main screen in the OMS portal displays the tiles for all the management solutions installed in your workspace and any custom views that you've created. This same view is available in the Azure portal. From your workspace, select **Workspace Summary**.
 
-![Overview page](media/log-analytics-oms-portal-faq/overview.png)
+![Overview page](media/oms-portal-faq/overview.png)
 
 ## How do I open Log Search and View Designer?
 Both **Log Search** and **View Designer** are available on the main page and in the left menu of your workspace in the Azure portal, right next to **Overview**.
@@ -47,7 +47,7 @@ Both **Log Search** and **View Designer** are available on the main page and in 
 ## Where do I find settings?
 Many of the settings in the **Settings** section of the OMS portal are available in the **Advanced settings** menu in the Azure portal for the workspace.
 
-![Advanced settings](media/log-analytics-oms-portal-faq/advanced-settings.png)
+![Advanced settings](media/oms-portal-faq/advanced-settings.png)
 
 The following sections provide a complete list of how you can access settings that were previously available in the **Settings** section of the OMS portal.
 
@@ -76,9 +76,9 @@ Manage most Connected Source settings the  in the **Advanced settings** menu for
 | Linux   Servers   | **Advanced settings** menu for the workspace. |
 | Azure Storage     | **Advanced settings** menu for the workspace. |
 | System Center     | **Advanced settings** menu for the workspace. |
-| Office 365        | See the [documentation for Office 365 management solution](../azure-monitor/insights/solution-office-365.md) for configuration details. |
+| Office 365        | See the [documentation for Office 365 management solution](../../azure-monitor/insights/solution-office-365.md) for configuration details. |
 | Windows Telemetry | Settings menu for the solution. See [Windows Analytics in the Azure portal](/windows/deployment/update/windows-analytics-azure-portal) for configuration details. |
-| ITSM Connector    | See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/../azure-monitor/platform/itsmc-connections.md) for instructions on connecting your ITSM service with Log Analytics. |
+| ITSM Connector    | See  [Connect ITSM products/services with IT Service Management Connector](../../log-analytics/../../azure-monitor/platform/itsmc-connections.md) for instructions on connecting your ITSM service with Log Analytics. |
 
 ### Data
 Manage most Data settings the  in the **Advanced settings** menu for the workspace. The following table provides details for each section of this menu.
@@ -93,26 +93,26 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Custom Logs                  | **Advanced settings** menu for the workspace. |
 | Syslog                       | **Advanced settings** menu for the workspace. |
 | Application Insights         | This solution has been deprecated now that Log Analytics and Application Insights share the same data engine.  |
-| Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
-| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
-| Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../automation/automation-change-tracking.md) for details. |
+| Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
+| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
+| Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
 
 ### Solutions
 Manage Solutions in the **Solutions** menu for the workspace. 
 
 ## How do I install and remove management solutions?
-In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../azure-monitor/insights/solutions.md#install-a-management-solution) from the Azure Marketplace. [Remove solutions](../azure-monitor/insights/solutions.md#remove-a-management-solution) from the list of installed solutions.
+In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../../azure-monitor/insights/solutions.md#install-a-management-solution) from the Azure Marketplace. [Remove solutions](../../azure-monitor/insights/solutions.md#remove-a-management-solution) from the list of installed solutions.
 
 ## How do I create and manage alerts?
-Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../monitoring-and-diagnostics/alert-metric.md). See [How to extend alerts from Log Analytics into Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) for details on configuring and using alerts in the Azure portal.
+Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../../monitoring-and-diagnostics/alert-metric.md). See [How to extend alerts from Log Analytics into Azure Alerts](../../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) for details on configuring and using alerts in the Azure portal.
 
 ## How do I access my dashboards?
-The [My Dashboard](../log-analytics/../azure-monitor/platform/dashboards.md) feature in Log Analytics has been deprecated. This feature allowed you to have a private collection of View Designer parts, and is superseded by the built-in Azure Dashboard functionality. You can continue to visualize data in Log Analytics using [View Designer](../log-analytics/../azure-monitor/platform/view-designer.md) for shared views. You can also pin visualizations from these views or for [individual queries](../log-analytics/../azure-monitor/learn/tutorial-logs-dashboards.md) to Azure Dashboards.
+The [My Dashboard](../../log-analytics/../../azure-monitor/platform/dashboards.md) feature in Log Analytics has been deprecated. This feature allowed you to have a private collection of View Designer parts, and is superseded by the built-in Azure Dashboard functionality. You can continue to visualize data in Log Analytics using [View Designer](../../log-analytics/../../azure-monitor/platform/view-designer.md) for shared views. You can also pin visualizations from these views or for [individual queries](../../log-analytics/../../azure-monitor/learn/tutorial-logs-dashboards.md) to Azure Dashboards.
 
 ## How do I check my usage?
 You can now easily view and manage your usage and cost of Log Analytics by selecting **Usage and estimated costs** in your workspace.
 
-![Usage and estimated costs](media/log-analytics-oms-portal-faq/usage.png)
+![Usage and estimated costs](media/oms-portal-faq/usage.png)
 
 
 ## Can I still use the classic portal?
@@ -121,5 +121,5 @@ https://\<your workspace name\>.portal.mms.microsoft.com. We recommend using Azu
 
 ## Next steps
 
-- [Find and install management solutions](../azure-monitor/insights/solutions.md) using the Azure portal.
-- Learn about [Log Search in the Azure portal](../azure-monitor/log-query/portals.md).
+- [Find and install management solutions](../../azure-monitor/insights/solutions.md) using the Azure portal.
+- Learn about [Log Search in the Azure portal](../../azure-monitor/log-query/portals.md).
