@@ -15,7 +15,7 @@ ms.date: 12/05/2018
 ---
 # Quickstart: Use Python to query an Azure SQL database
 
- This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database and use Transact-SQL statements to query data. For further SDK details, check out our [reference](https://docs.microsoft.com/python/api/overview/azure/sql) documentation, the [pyodbc GitHub repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+ This quickstart demonstrates how to use [Python](https://python.org) and [pyodbc](https://pypi.org/project/pyodbc/) to connect to an Azure SQL database and use Transact-SQL statements to query data. For further SDK details, check out our [reference](https://docs.microsoft.com/python/api/overview/azure/sql) documentation, the [pyodbc GitHub repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To complete this quickstart, make sure you have the following:
 
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
 
-- Python, the Python Driver for SQL Server, and other required apps for your operating system:
+- Python, the Python driver for SQL Server, and other required apps for your operating system:
 
     - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
     - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
@@ -37,28 +37,29 @@ To complete this quickstart, make sure you have the following:
     
 ## Create code to query your SQL database 
 
->[!IMPORTANT]
->The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use the table names from your own database in the SELECT query. 
-
 1. In a text editor, create a new file named *sqltest.py*.  
-
-2. Add the following code, using the values for your \<server>, \<database>, \<username>, and \<password>.
-
-```Python
-import pyodbc
-server = '<server>.database.windows.net'
-database = '<database>'
-username = '<username>'
-password = '<password>'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print (str(row[0]) + " " + str(row[1]))
-    row = cursor.fetchone()
-```
+   
+1. Add the following code, using the values for your own \<server>, \<database>, \<username>, and \<password>.
+   
+   >[!IMPORTANT]
+   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
+   
+   ```Python
+   import pyodbc
+   server = '<server>.database.windows.net'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   driver= '{ODBC Driver 13 for SQL Server}'
+   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+   cursor = cnxn.cursor()
+   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+   row = cursor.fetchone()
+   while row:
+       print (str(row[0]) + " " + str(row[1]))
+       row = cursor.fetchone()
+   ```
+   
 
 ## Run the code
 
@@ -68,7 +69,7 @@ while row:
    python sqltest.py
    ```
 
-1. Verify that the top 20 Category/Product rows are returned from the query, then close the command window.
+1. Verify that the top 20 Category/Product rows are returned, then close the command window.
 
 ## Next steps
 
