@@ -55,6 +55,7 @@ To set up a page contract, use the following table to find **DataUri** values.
 
 ## Next steps
 
-For information about using JavaScript in your client-side code, see [JavaScript samples](javascript-samples.md).
+- Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Learn about how you can use JavaScript in your client-side code, see [JavaScript samples](javascript-samples.md).
 
 

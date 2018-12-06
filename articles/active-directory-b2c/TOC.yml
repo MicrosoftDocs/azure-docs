@@ -223,6 +223,8 @@
           href: userjourneys.md
         - name: RelyingParty
           href: relyingparty.md
+      - name: JavaScript samples
+        href: javascript-samples.md
       - name: Release notes
         href: active-directory-b2c-developer-notes-custom.md
       - name: Trust Framework definition

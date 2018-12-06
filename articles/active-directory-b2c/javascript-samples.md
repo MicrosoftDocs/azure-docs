@@ -97,10 +97,7 @@ setupPwdTogglers();
 
 ### Add terms of use 
 
-1.	Include the following code into your page where you want to include a **Terms of Use** checkbox. This checkbox is typically needed in your local account sign-up and social account sign-up pages.
-2.	In the code, replace `terms-of-use-url` with the link to your terms of use agreement.
-3.	For your directory, create a new user attribute called **termsOfUse**
-4.	Include **termsOfUse** as a user attribute for your user flow.
+Include the following code into your page where you want to include a **Terms of Use** checkbox. This checkbox is typically needed in your local account sign-up and social account sign-up pages.	
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -125,7 +122,9 @@ function addTermsOfUseLink() {
 }
 ```
 
+In the code, replace `terms-of-use-url` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute for your user flow.
+
 ## Next steps
 
 - Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-- Learn about how you can create a [page contract](page-contract.md) between element that Azure AD B2C provides and the content that you provide.
+- Learn about how you can create a [page contract](page-contract.md) between elements that Azure AD B2C provides and the content that you provide.
