@@ -58,7 +58,7 @@ For the sake of simplicity, you will analyze text directly from the script. Defi
 
 ## Query the Moderator service
 
-Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** reference documentation for more information on how to call it.
+Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** reference documentation for more information on how to call it.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 
