@@ -75,7 +75,7 @@ The main categories of data are:
 * Log traces used for debugging.
 
 ## Case Study: Real Madrid F.C.
-The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
+The web service of [Real Madrid Football Club](https://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
 
 The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
