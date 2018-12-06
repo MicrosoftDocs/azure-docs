@@ -96,7 +96,7 @@
       href: how-to-use-vm-sign-in.md
     - name: Use with Azure SDKs
       href: how-to-use-vm-sdk.md
-  - name: Assign access to another Azure resource
+  - name: Assign a managed identity access to another Azure resource
     items:
     - name: Portal
       href: howto-assign-access-portal.md
