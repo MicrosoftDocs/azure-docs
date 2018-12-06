@@ -13,11 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
 ---
 
 # SaaS application Offer Settings tab
+
+This article describes how to configure the offer settings for the offer.
 
 The **SaaS App > New Offer** page opens with the focus on the **Offer Settings** tab. 
 

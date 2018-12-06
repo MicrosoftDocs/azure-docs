@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
 ---
 
 # SaaS application Contacts tab
 
-Use the Contacts tab to identify contacts for customers who are using your offer.
+This article describes how to use the Contacts tab to identify contacts for customers who are using your offer.
 
 ## Identify contacts
 

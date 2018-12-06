@@ -48,11 +48,13 @@ To create a new plan:
    - Billing Term - Monthly Price is selected by default. You can also provide annual pricing.
    - Monthly Price - Provide the Monthly price, which must match the Legacy pricing.
 
-   >[NOTE] If you add Annual Price to the billing term, you'll get prompted for the **Annual Price** in USD per year.
+   >[!NOTE] 
+   >If you add Annual Price to the billing term, you'll get prompted for the **Annual Price** in USD per year.
 
 3. Select **Save** to finish configuring the plan.
 
-   >[NOTE] After you save your pricing changes you can export/import pricing data.
+   >[!NOTE] 
+   >After you save your pricing changes you can export/import pricing data.
 
 ![Configure plan details](./media/saas-plans-plan-details.png)
 

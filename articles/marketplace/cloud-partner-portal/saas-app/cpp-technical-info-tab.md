@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
 ---
 
@@ -57,7 +57,8 @@ Finally, if you select **Sell through Microsoft**, there is another New Offer ta
 
 The [plans tab](./cpp-plans-tab.md) lists the specific plans and their corresponding prices that your SaaS app supports. As of today, we allow for monthly pricing, with the ability to allow for 1- or 3- months of free access. These plans and prices should match the exact plans and prices that you have on your own SaaS app site.
 
->[NOTE] Plans are only needed if you choose Sell through Microsoft.
+>[!NOTE] 
+>Plans are only needed if you choose Sell through Microsoft.
 
 ### Call to action field
 

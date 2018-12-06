@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
 ---
 
 # SaaS application Storefront Details tab
 
-Use the Storefront Details tab to describe your SaaS app and provide marketing assets. This tab includes the following forms: Overview, Marketing Artifacts, Lead Management, and Legal. 
+This article shows how to use the Storefront Details tab to describe your SaaS app and provide marketing assets. This tab includes the following forms: Overview, Marketing Artifacts, Lead Management, and Legal. 
 
 
 ## Overview
@@ -61,9 +61,11 @@ The following table describes the fields for Marketing Artifacts.
 ### Marketing examples
 
 The next screen capture shows an example of a Marketplace search result.
+
 ![Marketplace search result](./media/saas-marketplace-search-result.png)
 
 The following image shows how the offer is displayed in the Marketplace after a customer clicks on the offer’s tile in the search result.
+
 ![Marketplace search result details](./media/saas-marketplace-search-result-details.png)
 
 ## Lead Management
@@ -72,7 +74,8 @@ To configure lead management, select the **Lead destination** from the dropdown 
 
 ![Storefront details lead management](./media/saas-storefront-lead-destination.png)
 
->[TIP] Select the information icon to see this message: “Select the system where your leads will be stored. Learn how to connect to your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) .”
+>[!TIP] 
+>Select the information icon to see this message: “Select the system where your leads will be stored. Learn how to connect to your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) .”
 
 ## Legal
 
