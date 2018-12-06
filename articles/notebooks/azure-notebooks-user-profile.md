@@ -1,6 +1,6 @@
 ---
-title: User profile and ID for use with Azure Notebooks | Microsoft Docs 
-description: How to create and manage your profile and user ID with Azure Notebooks
+title: User profile and ID for use with Azure Notebooks
+description: How to create and manage your user profile and user ID with Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -22,15 +22,13 @@ Within the powerful, collaborative space of Azure Notebooks, your user profile p
 
 [![](media/accounts/profile-page.png "An Azure Notebooks profile page")](media/accounts/profile-page.png#lightbox)
 
-Your user ID is part of the URLs you use to share projects and notebooks:
+Your user ID is part of the URLs you use to share projects and notebooks. The following list describes the different URL patterns:
 
-| URL | Link target |
-| --- | --- |
-| `https://notebooks.azure.com/<user_id>` | Your profile page. |
-| `https://notebooks.azure.com/<user_id>/projects` | Your projects. You see all projects; other users see only your public projects. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>` | Project files. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones` | Clones of a specific projects. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb` | The HTML preview of a specific notebook or file. |
+- `https://notebooks.azure.com/<user_id>`: Your profile page.
+- `https://notebooks.azure.com/<user_id>/projects`: Your projects. You see all projects; other users see only your public projects.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Project files.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones of a specific projects.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: The HTML preview of a specific notebook or file.
 
 ## Your user ID
 
