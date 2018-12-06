@@ -76,7 +76,7 @@ Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -Exp
 ```
 
 > [!IMPORTANT]
-> *-AddressPrefix* must be a /29 IPv4 subnet, for example, "10.0.0.0/29". We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You shouldn’t use the addresses in this subnet in your Azure VNets, or in your on-premises network.
+> *-AddressPrefix* must be a /29 IPv4 subnet, for example, "10.0.0.0/29". We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You shouldn’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network.
 > 
 
 
