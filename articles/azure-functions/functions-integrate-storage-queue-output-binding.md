@@ -26,7 +26,7 @@ To complete this quickstart:
 
 * Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
 
-* Install [Microsoft Azure Storage Explorer](http://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
+* Install [Microsoft Azure Storage Explorer](https://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
 
 ## <a name="add-binding"></a>Add an output binding
 
@@ -117,7 +117,7 @@ A new queue named **outqueue** is created in your Storage account by the Functio
 
 Skip this section if you have already installed Storage Explorer and connected it to the storage account that you're using with this quickstart.
 
-2. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
+2. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 

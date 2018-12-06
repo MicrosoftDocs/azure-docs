@@ -1,10 +1,11 @@
 ---
-title: Python Quickstart - predict intent - LUIS
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you learn to call a LUIS app using Python.
+title: "Quickstart: get intent - Python" 
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
