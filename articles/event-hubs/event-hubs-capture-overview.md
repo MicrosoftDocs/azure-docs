@@ -1,5 +1,5 @@
 ---
-title: Capture events streaming through Azure Event Hubs | Microsoft Docs
+title: Capture streaming events - Azure Event Hubs | Microsoft Docs
 description: Capture telemetry data with Event Hubs Capture
 services: event-hubs
 documentationcenter: ''
