@@ -25,9 +25,10 @@ After you've configured an Azure resource with a managed identity, you can give 
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
-## Use RBAC to assign the managed identity access to another resource
+## Use RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, such as an [Azure VM](qs-configure-portal-windows-vm.md) or [Azure VMSS](qs-configure-portal-windows-vmss.md):
 

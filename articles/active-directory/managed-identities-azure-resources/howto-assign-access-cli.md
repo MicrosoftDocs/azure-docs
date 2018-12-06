@@ -25,17 +25,16 @@ Once you've configured an Azure resource with a managed identity, you can give t
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
-To run the CLI script examples, you have three options:
-
-- Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- To run the CLI script examples, you have three options:
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Use RBAC to assign the MSI access to another resource
+## Use RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, such as an [Azure virtual machine](qs-configure-cli-windows-vm.md) or [Azure virtual machine scale set](qs-configure-cli-windows-vmss.md): 
 
@@ -66,5 +65,5 @@ After you've enabled managed identity on an Azure resource, such as an [Azure vi
 
 - [Managed identities for Azure resources overview](overview.md).
 - To enable managed identity on an Azure virtual machine, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md).
-- To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](qs-configure-cli-windows-vmss)
+- To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](qs-configure-cli-windows-vmss.md)
 .md)
