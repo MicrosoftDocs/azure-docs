@@ -34,6 +34,20 @@ From NoSQL migration to application development, you can choose from a variety o
 |![Pragmatic Works][10]    |   NoSQL migration      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
 |![Tallan][11]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](http://www.tallan.com/)       |
 |![VTeamLabs][12]    | NoSQL migration       |  USA      | [Website](http://www.vteamlabs.com/)       |
+| ![10thMagnitude][13] | NoSQL migration; New app development | USA | [Website](https://www.10thmagnitude.com/)|
+| ![Capgemini][14] | NoSQL migration; App innovation (existing apps); New app development | US, France, UK, Netherlands, Finland  | [Website](https://www.capgemini.com/) | 
+| ![Cognizant][21] | NoSQL migration |US, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan | [Website](https://www.cognizant.com/)|
+| ![Lagash][22] | NoSQL migration; New app development | Argentina, Chile, Colombia, Mexico| [Website](https://lagash.com/)|
+| ![Lambda3 Informatics][23] | NoSQL migration; New app development | Brazil| [Website](https://www.lambda3.com.br/)|
+| ![Ricoh Global][24] | NoSQL migration; App innovation (existing apps)| UK  | [Website](https://www.ricoh.com/)|
+| ![SNP Technologies][25] | NoSQL migration| US | [Website](https://www.snp.com/)|
+| ![Solidsoft Reply][15] | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland and Switzerland and Liechtenstein | [Website](https://www.reply.com/solidsoft-reply/)|
+| ![Spanish Point Technologies][16] | NoSQL migration| Ireland| [Website](https://www.spanishpoint.ie/)|
+| ![Syone][17] | NoSQL migration| Portugal| [Website](https://www.syone.com/)|
+| ![TCS][18] | App innovation (existing apps); New app development | US, UK, France, Malaysia, Denmark, Norway, Sweden| [Website](https://www.tcs.com/)|
+| ![White Duck][19] |NoSQL migration; New app development | Germany | [Website]()|
+| ![Xpand IT][20] | New app development | Portugal, UK| [Website](https://www.xpand-it.com/)|
+
 
 ## Next steps
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
@@ -51,3 +65,16 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
 [11]: ./media/partners-migration-cosmosdb/tallan_logo.png
 [12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
+[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
+[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
+[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
+[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
+[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
+[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
+[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
+[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
+[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
+[22]: ./media/partners-migration-cosmosdb/syone_logo.png
+[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
+[24]: ./media/partners-migration-cosmosdb/.png
+[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
