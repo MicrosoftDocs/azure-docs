@@ -19,35 +19,24 @@ ms.custom: it-pro
 
 ---
 
-# How to provide secure remote access to on-premises applications
+#  Azure Active Directory's Application Proxy enables remote access to on-premises applications
 
-Employees today want to be productive at any place, at any time, and from any device. They want to work on their own devices, whether they be tablets, phones, or laptops. And they expect to be able to access all their applications, both SaaS apps in the cloud and corporate apps on-premises. Providing access to on-premises applications has traditionally involved virtual private networks (VPNs) or demilitarized zones (DMZs). Not only are these solutions complex and hard to make secure, but they are costly to set up and manage.
+Azure Active Directory uses its Application Proxy service to provide secure remote access to on-premises web applications. Users access on-premises applications through an external URL or internal application portal. After signing on once to Azure AD, users can access both cloud and on-premises applications.
 
-There is a better way!
-
-A modern workforce in the mobile-first, cloud-first world needs a modern remote access solution. Azure AD Application Proxy is a feature of Azure Active Directory that offers remote access as a service. That means it's easy to deploy, use, and manage.
-
-[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
-
-## What is Azure Active Directory Application Proxy?
-Azure AD Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises. Some apps you would want to publish include SharePoint sites, Outlook Web Access, or any other LOB web applications you have. These on-premises web applications are integrated with Azure AD, the same identity and control platform that is used by O365. End users can access your on-premises applications the same way they access O365 and other SaaS apps integrated with Azure AD. You don't need to change the network infrastructure or require VPN to provide this solution for your users.
-
-## Why is Application Proxy a better solution?
-Azure AD Application Proxy provides a simple, secure, and cost-effective remote access solution to all your on-premises applications.
+For example, Application Proxy can provide remote access and single sign-on to Remote Desktop, Sharepoint, Teams, Tableau, Qlik, and line of business (LOB) applications. 
 
 Azure AD Application Proxy is:
 
-* **Simple**
-   * You don't need to change or update your applications to work with Application Proxy. 
-   * Your users get a consistent authentication experience. They can use the MyApps portal to get single sign-on to both SaaS apps in the cloud and your apps on-premises. 
-* **Secure**
-   * When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. You get cloud-scale security and Azure security features like conditional access and two-step verification.
-   * You don't have to open any inbound connections through your firewall to give your users remote access. 
-* **Cost-effective**
-   * Application Proxy works in the cloud, so you can save time and money. On-premises solutions typically require you to set up and maintain DMZs, edge servers, or other complex infrastructures.  
+- **Simple to use**. Users can access your on-premises applications the same way they access O365 and other SaaS apps integrated with Azure AD. You don't need to change or update your applications to work with Application Proxy. 
 
-## What kind of applications work with Application Proxy?
-With Azure AD Application Proxy you can access different types of internal applications:
+- **Secure**. On-premises applications can use Azure's authorization controls and security analytics. For example, on-premises applications can use conditional access and two-step verification. Application Proxy doesn't require you to open inbound connections through your firewall.
+ 
+- **Cost-effective**. Application Proxy works in the cloud, so you can save time and money. Y On-premises solutions typically require you to set up and maintain demilitarized zones (DMVs), edge servers, or other complex infrastructures. With Application Proxy, you don't need to change the network infrastructure or require a virtual private network (VPN) to provide this solution for your users.
+
+[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
+
+## When to use Application Proxy
+Use Application Proxy to access these different types of internal applications:
 
 * Web applications that use [Integrated Windows Authentication](application-proxy-configure-single-sign-on-with-kcd.md) for authentication  
 * Web applications that use form-based or [header-based](application-proxy-configure-single-sign-on-with-ping-access.md) access  
