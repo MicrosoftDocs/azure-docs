@@ -1,5 +1,6 @@
 ---
-title: Use Visual Studio Code to train and deploy models with Azure Machine Learning service
+title: Use Visual Studio Code to train and deploy models
+titleSuffix: Azure Machine Learning service
 description: Learn about Azure Machine Learning for Visual Studio Code and how to start training and deploying machine learning and deep learning models in Azure Machine Learning service using Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
