@@ -123,6 +123,9 @@ The following settings are configured on the **Advanced settings** blade.
 #### Access Ports
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
+> [!NOTE]
+> SSL access to Azure Cache for Redis supports TLS 1.0 by default. The minimum supported TLS version can be raised up to TLS 1.2 if desired by using the **Minimum TLS version** dropdown on the **Advanced settings** blade and then click **Save**.
+
 ![Azure Cache for Redis Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
@@ -226,7 +229,7 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 
 
 > [!IMPORTANT]
-> Redis data persistence is only available for Premium caches. 
+> Redis data persistence is only available for Premium caches.
 > 
 > 
 
@@ -240,7 +243,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 ![Schedule updates](./media/cache-configure/redis-schedule-updates.png)
 
-To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
+To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. The maintenance window time is in UTC.
 
 > [!IMPORTANT]
 > The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates).
@@ -482,7 +485,7 @@ To access the Redis Console, click **Console** from the **Azure Cache for Redis*
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
 
-To issue commands against your cache instance, simply type the desired command into the console.
+To issue commands against your cache instance, type the desired command into the console.
 
 ![Redis console](./media/cache-configure/redis-console.png)
 

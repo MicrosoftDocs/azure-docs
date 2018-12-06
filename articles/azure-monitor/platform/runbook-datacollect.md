@@ -26,7 +26,7 @@ This tutorial walks through the process for creating and scheduling a runbook in
 ## Prerequisites
 This scenario requires the following resources configured in your Azure subscription.  Both can be a free account.
 
-- [Log Analytics workspace](../../log-analytics/log-analytics-quick-create-workspace.md).
+- [Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
 - [Azure automation account](../..//automation/automation-quickstart-create-account.md).
 
 ## Overview of scenario

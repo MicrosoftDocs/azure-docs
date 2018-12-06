@@ -6,7 +6,7 @@ keywords:
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom:
