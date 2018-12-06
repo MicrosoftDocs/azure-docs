@@ -37,7 +37,7 @@ We set up an ADF pipeline that composes two data migration activities. Together 
 * copy data from the Azure Blob Storage account to an Azure SQL Database.
 
 > [!NOTE]
-> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md) References to the relevant sections of that topic are provided when appropriate.
+> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from an on-premises SQL Server database to Azure Blob storage](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) References to the relevant sections of that topic are provided when appropriate.
 >
 >
 
@@ -62,15 +62,10 @@ You can either adapt the procedure provided here to a set of your own data or fo
 ## <a name="create-adf"></a> Create an Azure Data Factory
 The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
-## Install and configure up the Data Management Gateway
-To enable your pipelines in an Azure data factory to work with an on-premises SQL Server, you need to add it as a Linked Service to the data factory. To create a Linked Service for an on-premises SQL Server, you must:
+## Install and configure Azure Data Factory Integration Runtime 
+The Integration Runtime is a customer managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway". 
 
-* download and install Microsoft Data Management Gateway onto the on-premises computer.
-* configure the linked service for the on-premises data source to use the gateway.
-
-The Data Management Gateway serializes and deserializes the source and sink data on the computer where it is hosted.
-
-For set-up instructions and details on Data Management Gateway, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md)
+To set up, [follow the instrutions for creating a pipeline](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
 A linked service defines the information needed for Azure Data Factory to connect to a data resource. We have three resources in this scenario for which linked services are needed:
