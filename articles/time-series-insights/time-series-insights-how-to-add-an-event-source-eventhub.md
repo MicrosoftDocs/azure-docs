@@ -34,11 +34,9 @@ To add a new consumer group in your event hub:
 
 1. In the Azure portal, locate and open your event hub.
 
-1. Under **Entities**, select **Consumer groups**.
+1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
 
    ![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
-
-1. Select **Consumer Group** to add a new consumer group. 
 
 1. On the **Consumer groups** page, enter a new unique value for **Name**.  Use this same name when you create a new event source in the Time Series Insights environment.
 
@@ -50,9 +48,7 @@ To add a new consumer group in your event hub:
 
 1. Locate your existing Time Series Insights environment. In the left menu, select **All resources**, and then select your Time Series Insights environment.
 
-1. Under **Environment Topology**, select **Event Sources**.
-
-1. Select **Add**.
+1. Under **Environment Topology**, select **Event Sources**, and then select **Add**.
 
    ![Under Event Sources, select the Add button](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
