@@ -12,6 +12,7 @@ ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
 ---
+
 # Azure Machine Learning service release notes
 
 In this article, learn about the Azure Machine Learning service releases. 

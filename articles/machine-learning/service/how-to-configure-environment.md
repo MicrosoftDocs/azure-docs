@@ -1,5 +1,6 @@
 ---
-title: Configure a development environment - Azure Machine Learning service
+title: Configure a development environment
+titleSuffix: Azure Machine Learning service
 description: Learn how to configure a development environment when working with the Azure Machine Learning service. In this document, learn how to use Conda environments, create configuration files, and configure Jupyter Notebooks, Azure Notebooks, IDEs, code editors, and the Data Science Virtual Machine.
 services: machine-learning
 author: rastala

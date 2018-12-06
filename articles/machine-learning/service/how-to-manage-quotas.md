@@ -1,5 +1,6 @@
 ---
-title: Manage and request resource quotas for Azure Machine Learning service
+title: Manage and request resource quotas
+titleSuffix: Azure Machine Learning service
 description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # Manage and request quotas for Azure resources

@@ -10,9 +10,10 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
+ms.custom: seodec18
 ---
 
-# Pipelines and Azure Machine Learning
+# Building machine learning pipelines using Azure Machine Learning service
 
 In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines.
 

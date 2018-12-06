@@ -10,6 +10,7 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
+ms.custom: seodec18
 ---
 
 # What is FPGA and Project Brainwave?

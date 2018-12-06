@@ -10,6 +10,7 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # Manage, deploy, and monitor models with Azure Machine Learning Service

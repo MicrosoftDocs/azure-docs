@@ -1,5 +1,6 @@
 ---
-title: Secure web services with SSL - Azure Machine Learning service
+title: Secure web services with SSL
+titleSuffix: Azure Machine Learning service
 description: Learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,9 +11,10 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
+ms.custom: seodec18
 ---
 
-# Secure Azure Machine Learning web services with SSL
+# Use SSL to secure web services with Azure Machine Learning service
 
 In this article, you will learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication.
 

@@ -11,6 +11,7 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
+ms.custom: seodec18
 ---
 
 # How the Azure Machine Learning service works: architecture and concepts
