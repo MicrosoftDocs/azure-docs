@@ -16,7 +16,7 @@ ms.component:
 ---
 
 # Standard properties in Log Analytics records
-Data in [Log Analytics](../log-analytics/../azure-monitor/log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+Data in [Log Analytics](../log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
@@ -50,7 +50,7 @@ search *
 ## \_ResourceId
 The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
 
-For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../azure-resource-manager/resource-group-template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
+For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/resource-group-template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
 
 > [!NOTE]
 > Some data types already have fields that contain Azure resource ID or at least parts of it like subscription ID. While these fields are kept for backward compatibility, it is recommended to use the _ResourceId to perform cross correlation since it will be more consistent.
@@ -83,6 +83,6 @@ AzureActivity
 
 ## Next steps
 
-- Read more about how [Log Analytics data is stored](../log-analytics/../azure-monitor/log-query/log-query-overview.md).
-- Get a lesson on [writing queries in Log Analytics](../azure-monitor/log-query/get-started-queries.md).
-- Get a lesson on [joining tables in Log Analytics queries](../azure-monitor/log-query/joins.md).
+- Read more about how [Log Analytics data is stored](../log-query/log-query-overview.md).
+- Get a lesson on [writing queries in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
+- Get a lesson on [joining tables in Log Analytics queries](../../azure-monitor/log-query/joins.md).

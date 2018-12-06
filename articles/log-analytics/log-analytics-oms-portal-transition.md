@@ -66,7 +66,7 @@ In both of these cases, your administrator needs to manually assign you the appr
  
 
 ## New workspaces
-You are no longer be able to create new workspaces using the OMS portal. Follow the guidance in [Create a Log Analytics workspace in the Azure portal](log-analytics-quick-create-workspace.md) to create a new workspace in the Azure portal.
+You are no longer be able to create new workspaces using the OMS portal. Follow the guidance in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md) to create a new workspace in the Azure portal.
 
 ## Changes to alerts
 
