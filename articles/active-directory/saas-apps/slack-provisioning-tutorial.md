@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A Slack tenant with the [Plus plan](https://aadsyncfabric.slack.com/pricing) or better enabled 
 *   A user account in Slack with Team Admin permissions 
 
-Note: The Azure AD provisioning integration relies on the [Slack SCIM API](https://api.slack.com/scim) which is available to Slack teams on the Plus plan or better.
+Note: The Azure AD provisioning integration relies on the [Slack SCIM API](https://api.slack.com/scim), which is available to Slack teams on the Plus plan or better.
 
 ## Assigning users to Slack
 
@@ -45,14 +45,14 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 ### Important tips for assigning users to Slack
 
-*	It is recommended that a single Azure AD user be assigned to Slack to test the provisioning configuration. Additional users and/or groups may be assigned later.
+*	It is recommended that a single Azure AD user is assigned to Slack to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
 *	When assigning a user to Slack, you must select the **User** or "Group" role in the assignment dialog. The "Default Access" role does not work for provisioning.
 
 
 ## Configuring user provisioning to Slack 
 
-This section guides you through connecting your Azure AD to Slack's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Slack based on user and group assignment in Azure AD.
+This section guides you through connecting your Azure AD to Slack's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Slack based on user and group assignment in Azure AD.
 
 **Tip:** You may also choose to enabled SAML-based Single Sign-On for Slack, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
@@ -94,7 +94,7 @@ This will start the initial synchronization of any users and/or groups assigned 
 
 ## [Optional] Configuring group object provisioning to Slack 
 
-Optionally, you can enable the provisioning of group objects from Azure AD to Slack. This is different from "assigning groups of users", in that the actual group object in addition to its members will be replicated from Azure AD to Slack. For example, if you have a group named "My Group" in Azure AD, an identitical group named "My Group" will be created inside Slack.
+Optionally, you can enable the provisioning of group objects from Azure AD to Slack. This is different from "assigning groups of users", in that the actual group object in addition to its members will be replicated from Azure AD to Slack. For example, if you have a group named "My Group" in Azure AD, an identical group named "My Group" will be created inside Slack.
 
 ### To enable provisioning of group objects:
 
@@ -115,7 +115,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   * When configuring Slack's **displayName** attribute, be aware of the following behaviors: 
   * Values are not entirely unique (e.g. 2 users can have the same display name)
   * Supports non-English characters, spaces, capitalization. 
-  * Punctuations allowed are periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**) and separators (e.g. **, / ;**).
+  * Punctuations allowed are periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**), and separators (e.g. **, / ;**).
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
   * Slack's **userName** attribute has to be under 21 characters and have a unique value. 
 
