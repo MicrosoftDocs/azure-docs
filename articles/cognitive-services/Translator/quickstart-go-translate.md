@@ -70,7 +70,7 @@ func main() {
 }
 ```
 
-## Create the translate function
+## Create a function to translate text
 
 Let's create a function to translate text. This function will take a single argument, your Translator Text subscription key.
 
@@ -98,8 +98,6 @@ u.RawQuery = q.Encode()
 
 >[!NOTE]
 > For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
-
-
 
 ## Create a struct for your request body
 
@@ -195,7 +193,7 @@ Explore Go packages for Cognitive Services APIs from the [Azure SDK for Go](http
 
 ## See also
 
-In addition to text translation, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Transliterate text](quickstart-go-transliterate.md)
 * [Identify the language by input](quickstart-go-detect.md)
