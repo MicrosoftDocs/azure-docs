@@ -1,167 +1,103 @@
 ---
-title: Migration of managemtn tools resources from Azure Germany to global Azure
-description: This article provides help for migrating management tools resources from Azure Germany to global Azure
+title: Migrate Azure management tools from Azure Germany to global Azure
+description: This article provides information about migrating your Azure management tools from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 08/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migration of management tools resources from Azure Germany to global Azure
+# Migrate management tool resources to global Azure
 
-This article will provide you some help for the migration of Azure Management Tool resources from Azure Germany to global Azure.
+This article has information that can help you migrate Azure management tools from Azure Germany to global Azure.
 
 ## Traffic Manager
 
-Traffic Manager profiles created in Azure Germany can't be migrated to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
+Azure Traffic Manager can help you complete a smooth migration. However, you can't migrate Traffic Manager profiles that you create in Azure Germany to global Azure. (During a migration, you migrate Traffic Manager endpoints to the target environment, so you need to update the Traffic Manager profile anyway.)
 
-Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
+You can define additional endpoints in the target environment by using Traffic Manager while it's still running in the source environment. When Traffic Manager is running in the new environment, you can still define endpoints that you haven't yet migrated in the source environment. This scenario is known as the [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The scenario involves the following steps:
 
-- Create a new Traffic Manager in Azure global
-- Define the endpoints (still in Azure Germany)
-- Change your DNS CNAME to the new Traffic Manager
-- Turn off the old Traffic Manager
-- for each endpoint in Azure Germany:
-  - Migrate the endpoint to global Azure
-  - change the Traffic Manager profile to use the new endpoint
+1. Create a new Traffic Manager profile in global Azure.
+1. Define the endpoints in Azure Germany.
+1. Change your DNS CNAME record to the new Traffic Manager profile.
+1. Turn off the old Traffic Manager profile.
+1. Migrate and configure endpoints. For each endpoint in Azure Germany:
+   1. Migrate the endpoint to global Azure.
+   1. Change the Traffic Manager profile to use the new endpoint.
 
-### Next steps
+For more information:
 
-- Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
-
-### References
-
-- [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
-- [Create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md)
-- [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/)
-
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+- Review the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
+- Learn how to [create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- Read about the [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/).
 
 ## Backup
 
-Unfortunately, Azure Backup jobs and snapshots can't be migrated from Azure Germany to global Azure.
+You can't migrate Azure Backup jobs and snapshots from Azure Germany to global Azure.
 
-### Next Steps
+For more information: 
 
-- Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
-
-### References
-
-- [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md)
-
-
-
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
+- Review the [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md).
 
 ## Scheduler
 
-Azure Scheduler is being deprecated. Use Azure Logic apps instead to create scheduling jobs.
+Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling jobs.
 
-### Next Steps
+For more information:
 
-- Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
-
-### Reference
-
-- [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md)
-
-
-
-
-
-
-
-
-
-
+- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
 
-Migration of Network Watcher between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Network Watcher. Afterwards, compare the results between old and new environment:
+Migrating an Azure Network Watcher instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher instance in global Azure. Then, compare the results between the old and new environments. 
 
-- [NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
-- [Connection Monitor](../network-watcher/connection-monitor.md)
+For more information:
 
-### Next steps
-
-- Refresh your knowledge about Network Watcher by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
-
-### References
-
-- [Network Watcher Overview](../network-watcher/network-watcher-monitoring-overview.md)
-
-
-
-
-
-
-
-
-
-
-
-
+- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
+- Review the [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md).
+- Learn about [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
+- Read about [Connection Monitor](../network-watcher/connection-monitor.md).
 
 ## Site Recovery
 
-It's not possible to migrate your current Site Recovery setup to global Azure. Set up your solution again in global Azure.
+You can't migrate your current Azure Site Recovery setup to global Azure. You must set up a new Site Recovery solution in global Azure.
 
-### Next steps
+For more information about Site Recovery and to learn how to migrate VMs from Azure Germany to global Azure, see [How to use Site Recovery](./germany-migration-compute.md#compute-iaas).
 
-Refresh your knowledge by following these Step-by-Step tutorials for setting up a disaster recovery for
-- [Azure to Azure](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
-- [Vmware to Azure](https://docs.microsoft.com/azure/site-recovery/#vmware)
-- [Hyper-V to Azure](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
+Refresh your knowledge by completing these step-by-step tutorials:
 
-### References
+- [Azure-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
+- [VMware-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#vmware)
+- [Hyper-V-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
 
-See also [how to use Site Recovery](./germany-migration-compute.md#compute-iaas) to migrate VMs from Azure Germany to global Azure.
+## Azure policies
 
+You can't directly migrate policies from Azure Germany to global Azure. During a migration, the scope of assigned policies usually changes. It's especially true when the subscription is different in the target environment, as it is in this scenario. However, you can preserve policy definitions and reuse them in global Azure.
 
+In the Azure CLI, run the following command to list all policies in your current environment.
 
-
-
-
-
-
-
-
-
-
-
-## Azure Policy
-
-There's no direct way to migrate policies. The scope of assigned policies will change in the most cases, especially since the subscription ID will change. But here's a way to preserve policy definitions and reuse them in global Azure.
-
-By using Azure CLI, use this command to list all policies in your current environment.
 > [!NOTE]
-> Don't forget to switch to the AzureGermanCloud environment in CLI first.
+> Be sure to switch to the AzureGermanCloud environment in the Azure CLI before you run the following commands.
+
 
 ```azurecli
 az policy definition list --query '[].{Type:policyType,Name:name}' --output table
 ```
 
-Only export policies with the PolicyType *Custom*. Export the *policyRule* into a file. The following example exports a custom policy "Allow Germany Central Only" (short *allowgconly*) to a file in the current folder. 
+Export only policies that have the **PolicyType** value **Custom**. Export **policyRule** to a file. The following example exports the custom policy "Allow Germany Central Only" (short version: `allowgconly`) to a file in the current folder: 
 
 ```azurecli
 az policy definition show --name allowgconly --output json --query policyRule > policy.json
 ```
 
-The export file looks something like the following example:
+Your export file will look similar to the following example:
 
 ```json
 {
@@ -177,7 +113,7 @@ The export file looks something like the following example:
 }
 ```
 
-Now switch to the global Azure environment and modify the policy rule by editing the file, for example change *germanycentral* to *westeurope*:
+Next, switch to the global Azure environment. Modify the policy rule by editing the file. For example, change `germanycentral` to `westeurope`.
 
 ```json
 {
@@ -199,7 +135,7 @@ Create the new policy:
 cat policy.json |az policy definition create --name "allowweonly" --rules @-
 ```
 
-You now have a new policy named "allowweonly" to allow only West Europe as location.
+You now have a new policy named `allowweonly`. The policy allows only West Europe as the region.
 
 Assign the policy to the scopes in your new environment as appropriate. You can document the old assignments in Azure Germany by running the following command:
 
@@ -207,13 +143,24 @@ Assign the policy to the scopes in your new environment as appropriate. You can 
 az policy assignment list
 ```
 
-## Next Steps
+For more information:
 
-- Refresh your knowledge about Azure Policy with [this Step-by-Step tutorial](../governance/policy/tutorials/create-and-manage.md).
+- Refresh your knowledge by completing the [Azure policies tutorial](../governance/policy/tutorials/create-and-manage.md).
+- Learn how to [view policies by using the Azure CLI](../governance/policy/tutorials/create-and-manage.md#view-policy-definitions-with-azure-cli) or [view policies by using PowerShell](../governance/policy/tutorials/create-and-manage.md#view-policy-definitions-with-powershell).
+- Learn how to [create a policy definition by using the Azure CLI](../governance/policy/tutorials/create-and-manage.md#create-a-policy-definition-with-azure-cli) or [create a policy definition by using PowerShell](../governance/policy/tutorials/create-and-manage.md#create-a-policy-definition-with-powershell).
 
-## References
+## Next steps
 
-- [View policies with CLI](../governance/policy/tutorials/create-and-manage.md#view-policy-definitions-with-azure-cli)
-- [Create policy definition with CLI](../governance/policy/tutorials/create-and-manage.md#create-a-policy-definition-with-azure-cli)
-- [View policies with PowerShell](../governance/policy/tutorials/create-and-manage.md#view-policy-definitions-with-powershell)
-- [Create policy definition with PowerShell](../governance/policy/tutorials/create-and-manage.md#create-a-policy-definition-with-powershell)
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Web](./germany-migration-web.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Media](./germany-migration-media.md)

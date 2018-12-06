@@ -77,7 +77,7 @@ This check determines whether `HealthService`, the Microsoft Monitoring Agent, i
 
 To learn more about troubleshooting the service, see [The Microsoft Monitoring Agent is not running](hybrid-runbook-worker.md#mma-not-running).
 
-To reinstall the Microsoft Monitoring Agent, see [Install and configure the Microsoft Monitoring Agent](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
+To reinstall the Microsoft Monitoring Agent, see [Install and configure the Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### Monitoring agent service events
 
