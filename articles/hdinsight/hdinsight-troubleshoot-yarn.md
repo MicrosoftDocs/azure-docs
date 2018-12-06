@@ -15,7 +15,6 @@ Learn about the top issues and their resolutions when working with Apache Hadoop
 
 ## How do I create a new YARN queue on a cluster?
 
-
 ### Resolution steps 
 
 Use the following steps in Ambari to create a new YARN queue, and then balance the capacity allocation among all the queues. 
@@ -133,10 +132,3 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### See Also
 [Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-
