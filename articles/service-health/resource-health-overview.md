@@ -49,7 +49,7 @@ Resource Health provides additional details on the event and the recovery proces
 ![Status of "Unavailable" for a virtual machine due to a platform event](./media/resource-health-overview/Unavailable.png)
 
 #### Non-platform events
-Non-platform events are triggered by users' actions. Examples are stopping a virtual machine or reaching the maximum number of connections to a Redis cache.
+Non-platform events are triggered by users' actions. Examples are stopping a virtual machine or reaching the maximum number of connections to an Azure Cache for Redis.
 
 ![Status of "Unavailable" for a virtual machine due to a non-platform event](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
