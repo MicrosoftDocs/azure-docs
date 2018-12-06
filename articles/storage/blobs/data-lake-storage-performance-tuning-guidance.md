@@ -50,7 +50,7 @@ When data is stored in Data Lake Storage Gen2, the file size, number of files, a
 
 ### File size
 
-Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance.
+Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.
 
 Sometimes, data pipelines have limited control over the raw data which has lots of small files. It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
 
@@ -79,6 +79,11 @@ Jobs fall into one of the following three categories:
 * **I/O intensive.**  These jobs spend most of their time doing I/O.  A common example is a copy job which does only read and write operations.  Other examples include data preparation jobs that read a lot of data, performs some data transformation, and then writes the data back to the store.  
 
 The following guidance is only applicable to I/O intensive jobs.
+
+## General considerations
+
+You can have a job that reads or writes as much as 100MB in a single operation, but a buffer of that size might compromise performance.
+To optimize performance, try to keep the size of an I/O operation between 4MB and 16MB.
 
 ### General considerations for an HDInsight cluster
 

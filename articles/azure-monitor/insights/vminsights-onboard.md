@@ -45,7 +45,7 @@ This region does not currently support the Health feature of Azure Monitor for V
 >Azure virtual machines can be on-boarded from any region and are not limited to the supported regions for the Log Analytics workspace.
 >
 
-If you do not have a workspace, you can create it through [Azure CLI](../../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
+If you do not have a workspace, you can create it through [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), through [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md), in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), or with [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
 
 Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
@@ -183,7 +183,7 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../log-analytics/log-analytics-quick-create-workspace.md) in one of the supported regions listed earlier.   
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) in one of the supported regions listed earlier.   
 
 After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
 

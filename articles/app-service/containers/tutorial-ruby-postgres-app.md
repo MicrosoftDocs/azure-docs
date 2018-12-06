@@ -15,7 +15,7 @@ ms.custom: mvc
 ---
 # Build a Ruby and Postgres web app in Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby web app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](http://rubyonrails.org/) app running on App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby web app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](https://rubyonrails.org/) app running on App Service on Linux.
 
 ![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -37,7 +37,7 @@ To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
 * [Install Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [Install Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
 ## Prepare local Postgres
@@ -86,7 +86,7 @@ bundle install --path vendor/bundle
 
 ### Run the sample locally
 
-Run [the Rails migrations](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _db/migrate_ directory in the Git repository.
+Run [the Rails migrations](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _db/migrate_ directory in the Git repository.
 
 ```bash
 rake db:create
