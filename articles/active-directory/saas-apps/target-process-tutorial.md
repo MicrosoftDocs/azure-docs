@@ -41,6 +41,7 @@ To configure Azure AD integration with TargetProcess, you need the following ite
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * TargetProcess supports **SP** initiated SSO
+* TargetProcess supports **Just In Time** user provisioning
 
 ## Adding TargetProcess from the gallery
 
@@ -120,11 +121,11 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 
 	c. Logout URL
 
-7. To automate the configuration within **ArcGIS Online**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+7. To automate the configuration within **TargetProcess**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
 	![image](./media/target-process-tutorial/install_extension.png)
 
-8. After adding extension to the browser, click on **setup ArcGIS Online** will direct you to the ArcGIS Online application. From there, provide the admin credentials to sign into ArcGIS Online. The browser extension will automatically configure the application for you and automate steps 9-13.
+8. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 9-13.
 
 9. Sign-on to your TargetProcess application as an administrator.
 
