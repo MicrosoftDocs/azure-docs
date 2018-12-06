@@ -22,14 +22,16 @@ ms.date: 12/05/2018
 To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
+  
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
-
+  
 - Python, the Python driver for SQL Server, and other required apps for your operating system:
-
-    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
-    - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
-    - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Windows](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
+  
+  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
+    
+  - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
+    
+  - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Windows](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
 
 ## Get SQL server connection information
 
@@ -44,7 +46,7 @@ To complete this quickstart, make sure you have the following:
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
    
-   ```Python
+   ```python
    import pyodbc
    server = '<server>.database.windows.net'
    database = '<database>'
@@ -65,7 +67,7 @@ To complete this quickstart, make sure you have the following:
 
 1. At a command prompt, run the following command:
 
-   ```Python
+   ```python
    python sqltest.py
    ```
 
