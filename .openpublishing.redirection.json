@@ -30862,6 +30862,11 @@
             "redirect_document_id":  "false"
         },
         {
+            "source_path":  "articles/key-vault/tutorial-web-application-keyvault.md",
+            "redirect_url":  "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
+            "redirect_document_id":  "false"
+        },
+        {
             "source_path":  "articles/monitoring/monitoring-solution-targeting.md",
             "redirect_url":  "/azure/azure-monitor/insights/solution-targeting",
             "redirect_document_id":  "false"
