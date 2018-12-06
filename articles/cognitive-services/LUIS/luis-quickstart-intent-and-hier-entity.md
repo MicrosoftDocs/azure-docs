@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 5: Parent/Child relationships - LUIS Hierarchical entity for contextually learned data"
+title: LUIS Hierarchical entity
 titleSuffix: Azure Cognitive Services
 description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services

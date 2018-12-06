@@ -1,5 +1,5 @@
 ﻿---
-title: LUIS Bot with Node.js - Web app Bot - Bot Framework SDK 3.0
+title: LUIS Bot with Node.js 
 titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services

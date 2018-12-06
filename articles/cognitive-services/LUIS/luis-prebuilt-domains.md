@@ -1,5 +1,5 @@
 ---
-title: Prebuilt domains for Language Understanding (LUIS) 
+title: Prebuilt domains for Language Understa
 titleSuffix: Azure Cognitive Services
 description: LUIS includes a set of prebuilt domains for quickly adding common, conversational user scenarios. 
 services: cognitive-services

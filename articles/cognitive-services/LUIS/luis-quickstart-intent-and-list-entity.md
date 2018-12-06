@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 4: Exact text match - LUIS list entity"
+title: Exact text match
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services

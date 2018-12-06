@@ -1,5 +1,5 @@
 ﻿---
-title: LUIS Bot with Node.js - Tutorial - Web app Bot - Bot Framework SDK 4.0
+title: LUIS Bot with Node.js
 titleSuffix: Azure Cognitive Services
 description: Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
@@ -28,8 +28,6 @@ Using Node.js, you can build a chat bot integrated with language understanding (
 
 ## Prerequisites
 
-<!--* Samples from 
-https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp-with-luis-->
 * [Bot emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 

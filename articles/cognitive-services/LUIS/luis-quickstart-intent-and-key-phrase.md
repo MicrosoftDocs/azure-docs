@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 8: key phrase extraction in LUIS"
+title: Key phrase extraction
 titleSuffix: Azure Cognitive Services
 description: Use keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 services: cognitive-services

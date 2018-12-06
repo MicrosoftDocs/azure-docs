@@ -1,5 +1,5 @@
 ---
-title: Prebuilt intents for Language Understanding (LUIS) 
+title: Prebuilt intents  
 titleSuffix: Azure Cognitive Services
 description: LUIS includes a set of prebuilt intents for quickly adding common, conversational user scenarios. 
 services: cognitive-services
