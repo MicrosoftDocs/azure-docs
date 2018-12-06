@@ -35,7 +35,7 @@ To turn on Azure Log Analytics for existing logic apps, follow these steps to
 ## Prerequisites
 
 Before you start, you need a Log Analytics workspace. 
-Learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). 
+Learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## Turn on diagnostics logging when creating logic apps
 
