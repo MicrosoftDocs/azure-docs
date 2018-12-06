@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train an image classification model with Azure Machine Learning service"
+title: "Image classification tutorial: Train models with Azure Machine Learning service"
 description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,11 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
+ms.custom: seodec12
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
-# Tutorial #1: Train an image classification model with Azure Machine Learning service
+# Tutorial (part 1): Train an image classification model with Azure Machine Learning service
 
 In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
