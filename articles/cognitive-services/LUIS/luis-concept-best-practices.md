@@ -45,10 +45,10 @@ If the vocabulary between two intents is the same, combine the intent, and use e
 
 Consider the following example utterances:
 
-```
-Book a flight
-Book a hotel
-```
+|Example utterances|
+|--|
+|Book a flight|
+|Book a hotel|
 
 "Book a flight" and "Book a hotel" use the same vocabulary of "book a ". This is overlapping so it should be the same intent with the different words of flight and hotel extracted entities. 
 
