@@ -59,35 +59,16 @@ sections:
 
 - title: Step-by-Step Tutorials
   items:
+  - type: paragraph
+    text: Learn how to deploy, manage, and scale Linux VMs on Azure.
   - type: list
-    style: cards
-    className: cardsFTitle
+    style: ordered
     items:
-    - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
+    - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Get Started with Key Vault from a Web Application</a>
+    - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine</a></li>
+    - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine</a>
+    - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine</a>
+    - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">How to use Azure Key Vault with Azure Windows Virtual Machine</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
