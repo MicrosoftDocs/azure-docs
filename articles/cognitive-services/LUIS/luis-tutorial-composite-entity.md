@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 6: Extract composite data with LUIS composite entity"
+title: Composite entity"
 titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -66,7 +66,7 @@ The move request should include the employee (using any synonym), and the final 
 
 The extracted data from the endpoint should contain this information and return it in the `RequestEmployeeMove` composite entity:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -99,22 +99,22 @@ The extracted data from the endpoint should contain this information and return 
 
 3. Select the magnifying glass icon on the tool bar to filter the utterances list. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Enter `tomorrow` in the filter textbox to find the utterance `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
 
 5. Select the first entity, `Employee`, then select **Wrap in composite entity** in the pop-up menu list. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select enter. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. In **What type of entity do you want to create?**, almost all the fields required are in the list. Only the originating location is missing. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
 
@@ -131,15 +131,15 @@ The extracted data from the endpoint should contain this information and return 
 
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Select the last word in the composite entity then select **RequestEmployeeMove** from the pop-up menu. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Verify all utterances in the intent are labeled with the composite entity. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Screenshot of LUIS on 'MoveEmployee' with all utterances labeled](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## Train
 
@@ -157,7 +157,7 @@ The extracted data from the endpoint should contain this information and return 
 
     Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

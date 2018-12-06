@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities url reference - Azure| Microsoft Docs
+title: URL Prebuilt entities
 titleSuffix: Azure
 description: This article contains url prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -21,7 +22,7 @@ Url is managed from the [Recognizers-text](https://github.com/Microsoft/Recogniz
 ## Resolution for prebuilt URL entity
 The following example shows the resolution of the **builtin.url** entity.
 
-```JSON
+```json
 {
   "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {

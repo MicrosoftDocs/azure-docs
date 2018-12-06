@@ -1,10 +1,11 @@
 ---
-title: Add Bing Spell Check API v7 to LUIS queries | Microsoft Docs
+title: Correct misspelled words
 titleSuffix: Azure
 description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -70,7 +71,7 @@ The endpoint URL has several values that need to be passed correctly. The Bing S
 
 4. LUIS responds with a JSON result for `How far is the mountain?`. If Bing Spell Check API v7 detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",
