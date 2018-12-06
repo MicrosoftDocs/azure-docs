@@ -11,9 +11,10 @@ ms.assetid:
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -32,7 +33,7 @@ When you create an event hub, you can enable Capture by clicking the **On** butt
 
 The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
 
-![][1]
+![Time window for capture][1]
 
 ## Capture data to an Azure Data Lake Store account
 
@@ -49,7 +50,7 @@ To capture data to Azure Data Lake Store, you create a Data Lake Store account, 
 2. In the **Create Event Hub** portal page, select **Azure Data Lake Store** from the **Capture Provider** box.
 3. In **Select Data Lake Store**, specify the Data Lake Store account you created previously, and in the **Data Lake Path** field, enter the path to the data folder you created.
 
-    ![][3]
+    ![Select Data Lake Storage account][3]
 
 ## Add or configure Capture on an existing event hub
 
@@ -57,11 +58,11 @@ You can configure Capture on existing event hubs that are in Event Hubs namespac
 
 ### Azure Blob Storage
 
-![][2]
+![Configure Azure Blob Storage][2]
 
 ### Azure Data Lake Store
 
-![][4]
+![Configure Azure Data Lake Storage][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

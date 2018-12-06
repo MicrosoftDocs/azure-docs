@@ -35,7 +35,7 @@ The examples in this document are provided for both the Bourne shell (bash) and 
 
 If using the __Bourne shell__ (Bash), you must have the following installed:
 
-* [cURL](http://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the command line. In this document, it is used to communicate with the Ambari REST API.
+* [cURL](https://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the command line. In this document, it is used to communicate with the Ambari REST API.
 
 Whether using Bash or PowerShell, you must also have [jq](https://stedolan.github.io/jq/) installed. Jq is a utility for working with JSON documents. It is used in **all** the Bash examples, and **one** of the PowerShell examples.
 

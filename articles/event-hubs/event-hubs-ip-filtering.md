@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs IP filters | Microsoft Docs
+title: Restrict access to Azure Event Hubs using IP filters | Microsoft Docs
 description: Use IP filtering to block connections from specific IP addresses to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
 
 ---
 
-# Use IP filters
-
+# Restrict access to Azure Event Hubs using IP filters
 For scenarios in which Azure Event Hubs should be only accessible from certain well-known sites, the *IP filter* feature enables you to configure rules for rejecting or accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
 
 ## When to use
