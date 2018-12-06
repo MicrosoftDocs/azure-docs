@@ -27,11 +27,11 @@ The TSI (Preview) uses Azure Blob Storage with the Parquet file type. Azure TSI 
 Like any other Azure Storage blob, you can read and write to your Azure TSI-created blobs to support different integration scenarios.
 
 > [!TIP]
-> It is important to remember TSI performance can be adversely affected by reading or writing to your blobs too frequently.
+> TSI performance can be adversely affected by reading or writing to your blobs too frequently.
 
 For an overview of Azure Blob Storage, read the [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
-For more about the Parquet file type, review [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
+For more about the Parquet file type, see [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
 
 ## Parquet file format
 
@@ -51,18 +51,18 @@ Two copies of blobs created by Azure TSI will be stored in the following formats
 
 1. The first, an initial copy, will be partitioned by arrival time:
 
-    * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI internal suffix>.parquet`
+    * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
     * Blob creation time for blobs partitioned by arrival time.
 
-1. The second, a repartitioned copy, will be partitioned by dynamic grouping of time series ID:
+1. The second, a repartitioned copy, will be partitioned by dynamic grouping of **Time Series ID**:
 
-    • `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI internal suffix>.parquet`
-    * Min event timestamp in the blob for blobs partitioned by time series ID.
+    * `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+    * Minimum event timestamp in a blob for blobs partitioned by **Time Series ID**.
 
 > [!NOTE]
-> * `<YYYY>` maps to year.
-> * `<MM>` maps to month.
-> * `<YYYYMMDDHHMMSSfff>` maps to full timestamp in milliseconds.
+> * `<YYYY>` maps to a 4-digit year representation.
+> * `<MM>` maps to a 2-digit month representation.
+> * `<YYYYMMDDHHMMSSfff>` maps to a timestamp representation with 4-digit year (`YYYY`), 2-digit month (`MM`), 2-digit day (`DD`), 2-digit hour (`HH`), 2-digit minute (`MM`), 2-digit second (`SS`), and 3-digit millisecond (`fff`).
 
 Azure TSI events are mapped to Parquet file contents as follows:
 
@@ -75,7 +75,7 @@ Azure TSI events are mapped to Parquet file contents as follows:
 
 Each Azure TSI (Preview) environment must have a **Time Series ID** property and a **Timestamp** property, which uniquely identify it. Your **Time Series ID** acts as a logical partition for your data and provides the Azure TSI (Preview) environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure TSI (Preview) in an Azure Storage account.
 
-Azure TSI uses dynamic partitioning to optimize storage utilization and query performance by dropping and recreating partitions. The TSI (Preview) dynamic partitioning algorithm strives to avoid a single physical partition having data for multiple different logical partitions. Or in other words the partitioning algorithm’s goal is to keep all data related to a single **Time Series ID** to be exclusively present in Parquet file(s) without being interleaved with other **Time Series IDs**. The dynamic partitioning algorithm also strives to preserve the original order of events within a single **Time Series ID**.
+Azure TSI uses dynamic partitioning to optimize storage utilization and query performance by dropping and recreating partitions. The Azure TSI (Preview) dynamic partitioning algorithm attempts to prevent a single physical partition having data for multiple, distinct, logical partitions. In other words, the partitioning algorithm keeps all data specific to a single **Time Series ID** exclusively present in Parquet file(s) without being interleaved with other **Time Series IDs**. The dynamic partitioning algorithm also attempts to preserve the original order of events within a single **Time Series ID**.
 
 Initially, at ingress time, data is partitioned by the **Timestamp** so a single, logical partition within a given time range might be spread across multiple physical partitions. A single physical partition could also contain many or all logical partitions.  Due to blob size limitations, even with optimal partitioning a single logical partition could occupy multiple physical partitions.
 
