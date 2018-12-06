@@ -68,7 +68,7 @@ This update includes the following improvements for Azure Stack:
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
-- Added extended data at rest encryption protection to include also all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack.
+- Added extended data at rest encryption protection to include also all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack. For more information, see [data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
 
 ### Fixed issues
 
