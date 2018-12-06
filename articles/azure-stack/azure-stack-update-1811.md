@@ -55,8 +55,10 @@ This update includes the following improvements for Azure Stack:
 
 - This release adds support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update and remove service principals for ADFS. 
-<!-- @Matt add link to updated SPN - ADFS article -->
+- Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the right upper corner of the administrator and user portals, the same way as it is available in the Azue portal.
+
+<!--  2712869   | IS  ASDK -->  
+- **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
 - Added new scale unit node operations that allow an Azure Stack operator to start, stop, and shut down a scale unit node. 
 <!-- @Matt add link to updated node actions doc -->
@@ -74,10 +76,10 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue in which the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name did not appear. The user subscription name now appears.
 
 <!-- 3060156 - IS ASDK --> 
-- Fixed an issue in both the administrator and user portals in which clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected. This now works, and the error notification is no longer displayed. 
+- Fixed an issue in both the administrator and user portals: clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected and an error notification was displayed. 
 
 <!-- 2930799 - IS ASDK --> 
-- Fixed an issue in both the administrator and user portals under **All services**. The asset **DDoS protection plans** was incorrectly listed as it is not available in Azure Stack. It is no longer listed.
+- Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed, while not available in Azure Stack.
  
 <!--2760466 – IS  ASDK --> 
 - Fixed an issue that occurred when you installed a new Azure Stack environment in which the alert that indicates **Activation Required** did not display. It now correctly displays.
@@ -86,11 +88,17 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed an issue with infrastructure backups failing due to an inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications. 
+
+<!-- 2967387 – IS, ASDK --> 
+Fixed: - The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
+
+<!--  2873083 - IS ASDK --> 
+Fixed: -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
 
 ### Changes
 
-None.
+A new way to view and edit the quotas in a plan is introduced. see <link> for details
 
 ### Common Vulnerabilities and Exposures
 
@@ -173,17 +181,13 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
-- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation.
+<!--CONSIDER REMOVING THIS SENTENCE??- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation.-->
 
 
 <!-- 2930820 - IS ASDK --> 
 - In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
 
-<!-- 2967387 – IS, ASDK --> 
-- The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
-
-<!--  2873083 - IS ASDK --> 
--  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
+-
 
 <!-- 2931230 – IS  ASDK --> 
 - Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
