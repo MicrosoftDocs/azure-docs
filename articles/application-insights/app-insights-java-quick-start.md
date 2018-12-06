@@ -24,7 +24,7 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 To complete this quickstart:
 
 - Install JRE 1.7 or 1.8
-- Install [Free Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
+- Install [Free Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
 - You will need an Azure Subscription and an existing Java Dynamic Web Project
  
 If you don't have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
@@ -62,7 +62,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![New App Insights resource form](./media/app-insights-java-quick-start/000-j.png)
 
-2. Copy ```http://dl.microsoft.com/eclipse``` into the "Work With" field > Check **Azure Toolkit for Java** > Select **Application Insights Plugin for Java** > **Uncheck** "Contact all update sites during install to find required software."
+2. Copy ```https://dl.microsoft.com/eclipse``` into the "Work With" field > Check **Azure Toolkit for Java** > Select **Application Insights Plugin for Java** > **Uncheck** "Contact all update sites during install to find required software."
 
 3. Once the installation is complete, you will be prompted to **Restart Eclipse**.
 
