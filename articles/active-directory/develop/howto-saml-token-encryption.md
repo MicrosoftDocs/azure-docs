@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 # How to: Configure Azure AD SAML token encryption (Preview)
 
-SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Azure Active Directory (Azure AD) will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Azure AD. The application will need to use the matching private key to decrypt the token before it can be used as evidence of authentication of the signed in user.
+SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Azure Active Directory (Azure AD) will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Azure AD. The application must use the matching private key to decrypt the token before it can be used as evidence of authentication for the signed in user.
 
 Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
@@ -37,7 +37,7 @@ To configure SAML token encryption, follow these steps.
 
 1. Obtain a public key certificate that matches a private key that's configured in the application.
 
-    You must create an asymmetric key pair to use for encryption. Or, if the application supplies a public key to use for encryption, follow the application's instructions to download the X509 certificate.
+    Create an asymmetric key pair to use for encryption. Or, if the application supplies a public key to use for encryption, follow the application's instructions to download the X509 certificate.
 
     The public key should be stored in an X509 certificate file in .cer format.
 
@@ -62,7 +62,7 @@ You can add the public cert to your application configuration within the Azure p
 
 1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X509 certificate.
 
-    ![Import the .cer file containing the X509 certificate](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Import the .cer file that contains the X509 certificate](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Once the certificate is imported, and the private key is configured for use on the application side, activate encryption by selecting the **...** next to the thumbprint status, and then select **Activate token encryption** from the options in the dropdown menu.
 
@@ -72,9 +72,9 @@ You can add the public cert to your application configuration within the Azure p
 
 ### To deactivate token encryption in the Azure portal
 
-1. In the Azure portal, go to the **Azure Active Directory > Enterprise applications** blade and then select the application that has SAML token encryption enabled.
+1. In the Azure portal, go to **Azure Active Directory > Enterprise applications**, and then select the application that has SAML token encryption enabled.
 
-1. On the application's page, select **Token encryption**, find the certificate and then select the **...** option to show the dropdown menu.
+1. On the application's page, select **Token encryption**, find the certificate, and then select the **...** option to show the dropdown menu.
 
 1. Select **Deactivate token encryption**.
 
