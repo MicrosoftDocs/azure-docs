@@ -1,5 +1,5 @@
 ---
-title: Data acquisition and understanding stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
+title: Data acquisition and understanding of Team Data Science Process - Azure
 description: The goals, tasks, and deliverables for the data acquisition and understanding stage of your data-science projects
 services: machine-learning
 author: marktab
@@ -10,9 +10,9 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
-# Data acquisition and understanding
+# Data acquisition and understanding stage of the Team Data Science Process
 
 This article outlines the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 

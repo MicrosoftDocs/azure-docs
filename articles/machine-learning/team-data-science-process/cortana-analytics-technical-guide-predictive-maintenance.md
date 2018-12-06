@@ -1,5 +1,5 @@
 ---
-title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution technical guide | Microsoft Docs
+title: Predictive maintenance for aerospace with Azure - Technical Guide
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: "(previous author=fboylu, ms.author=fboylu)"
+ms.custom: seodec18, "(previous author=fboylu, ms.author=fboylu)"
 ---
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 

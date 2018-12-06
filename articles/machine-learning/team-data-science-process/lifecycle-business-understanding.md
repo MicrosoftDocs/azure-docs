@@ -1,6 +1,6 @@
 ---
-title: Business understanding stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
-description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects
+title: Business understanding in Team Data Science Process - Azure
+description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
-# Business understanding
+# The business understanding stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
