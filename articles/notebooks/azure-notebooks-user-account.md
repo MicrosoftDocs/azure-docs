@@ -1,5 +1,5 @@
 ---
-title: Sign into Azure Notebooks | Microsoft Docs 
+title: Sign into Azure Notebooks
 description: Configure your user account for Azure Notebooks using a Microsoft account or a work/school account.
 services: app-service
 documentationcenter: ''

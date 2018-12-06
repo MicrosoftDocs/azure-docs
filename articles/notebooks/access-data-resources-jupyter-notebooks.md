@@ -1,5 +1,5 @@
 ---
-title: Access data resources from Jupyter notebooks on Azure | Microsoft Docs 
+title: Access data resources from Jupyter notebooks on Azure
 description: How to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
 services: app-service
 documentationcenter: ''

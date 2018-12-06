@@ -1,5 +1,5 @@
 ---
-title: How to create and clone Jupyter notebooks on Azure | Microsoft Docs 
+title: How to create and clone Jupyter notebooks on Azure
 description: Azure Notebooks projects manage a collection of notebooks and related files, which you can create new or clone from another source.
 services: app-service
 documentationcenter: ''
@@ -45,7 +45,7 @@ What you can do on the dashboard depends on whether you're signed in with the ac
 
 When you use the **Share** command and select the **Embed** tab, you can copy either HTML code or Markdown that creates a "launch notebook" badge:
 
-    ![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Launch notebook badge ](https://notebooks.azure.com/launch.png)
 
 If you don't have an Azure Notebooks project, you can create a link that clones from GitHub directly using the following templates, substituting the appropriate username and repository names:
 

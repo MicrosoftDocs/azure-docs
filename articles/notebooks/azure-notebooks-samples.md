@@ -1,5 +1,5 @@
 ---
-title: Sample Jupyter notebooks for Azure Notebooks | Microsoft Docs 
+title: Sample Jupyter notebooks for Azure Notebooks
 description: Samples are a great way to experience Jupyter notebooks running in the free Azure Notebooks cloud services.
 services: app-service
 documentationcenter: ''
@@ -28,10 +28,10 @@ Once you've identified a notebook you'd like to explore, here are a few details 
 ## Great sample notebooks
 
 - [Azure Notebooks starter set](https://notebooks.azure.com/#sample-redirect) includes introductions to Python, R, and F#, along with notebooks demonstrating data access, Azure Machine Learning Services, and a few data science exercises.
-- [Introduction to Jupyter notebooks](http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
+- [Introduction to Jupyter notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - [Introduction to Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) by Jake Vanderplas.
 - [Gallery of interesting notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter project on GitHub)
-- [nbviewer.jupyter.org](http://nbviewer.jupyter.org)
+- [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Physics instruction from the [Physics Department at the Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)
 - [Azure Machine Learning getting started samples](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
 
