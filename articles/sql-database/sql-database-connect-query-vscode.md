@@ -20,7 +20,7 @@ ms.date: 12/06/2018
 
 ## Prerequisites
 
-This tutorial uses the resources created in one of these quickstarts:
+This tutorial uses the following.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
@@ -101,7 +101,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query for the top 20 products by category.
 
-1. In the **Editor** window, paste the following SQL query.
+1. In the editor window, paste the following SQL query.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -110,7 +110,7 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Press **Ctrl**+**Shift**+**E** to execute the query and display results from the Product and ProductCategory tables.
+2. Press **Ctrl**+**Shift**+**E** to execute the query and display results from the `Product` and `ProductCategory` tables.
 
     ![Query](./media/sql-database-connect-query-vscode/query.png)
 
@@ -140,7 +140,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 		   ,GETDATE() );
    ```
 
-2. Press **Ctrl**+**Shift**+**E** to insert a new row in the Product table.
+2. Press **Ctrl**+**Shift**+**E** to insert a new row in the `Product` table.
 
 ## Update data
 
@@ -154,7 +154,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Press **Ctrl**+**Shift**+**E** to update the specified row in the Product table.
+2. Press **Ctrl**+**Shift**+**E** to update the specified row in the `Product` table.
 
 ## Delete data
 
@@ -167,10 +167,10 @@ Use the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delet
    WHERE Name = 'myNewProduct';
    ```
 
-2. Press **Ctrl**+**Shift**+**E** to delete the specified row in the Product table.
+2. Press **Ctrl**+**Shift**+**E** to delete the specified row in the `Product` table.
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md).
-- To connect and query using the Azure portal, see [Quickstart: Azure portal: Use the SQL Query editor to connect and query data](sql-database-connect-query-portal.md).
+- To connect and query using SQL Server Management Studio, see [Quickstart: Use SQL Server Management Studio to connect to an Azure SQL Database and query data](sql-database-connect-query-ssms.md).
+- To connect and query using the Azure portal, see [Quickstart: Use the SQL Query editor in the Azure portal to connect and query data](sql-database-connect-query-portal.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).
