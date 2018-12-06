@@ -67,6 +67,8 @@ sections:
           src: media/index/logo_rest_sr.svg
       - image:
           src: media/index/logo_rest_tts.svg
+      - image:
+          src: media/index/logo_python.svg
     rows:
       - title: Windows 10 (x64)
         values:
@@ -79,6 +81,7 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-asr-python
       - title: Windows 10 (x86)
         values:
         - href: quickstart-csharp-uwp
@@ -90,6 +93,7 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-asr-python
       - title: Linux (x64)
         values:
         - href:
@@ -101,11 +105,13 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-asr-python
       - title: Linux (x86)
         values:
         - href:
         - href:
         - href: quickstart-cpp-linux
+        - href:
         - href:
         - href:
         - href:
@@ -123,6 +129,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
       - title: Android (x86/x64)
         values:
         - href:
@@ -130,6 +137,7 @@ sections:
         - href:
         - href:
         - href: quickstart-java-android
+        - href:
         - href:
         - href:
         - href:
@@ -145,6 +153,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
       - title: iOS (ARM64)
         values:
         - href:
@@ -156,6 +165,19 @@ sections:
         - href:
         - href:
         - href:
+        - href:
+      - title: macOS (x64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-asr-python
       - title: Web
         values:
         - href:
@@ -167,6 +189,7 @@ sections:
         - href: quickstart-js-browser
         - href: rest-apis
         - href: rest-apis
+        - href:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

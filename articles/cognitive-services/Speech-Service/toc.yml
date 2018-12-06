@@ -39,6 +39,9 @@
     - name: 'Using Objective-C (iOS)'
       href: quickstart-objectivec-ios.md
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
+    - name: 'Using Python'
+      href: quickstart-asr-python.md
+      displayName: recognize speech, speech recognition, speech to text, stt, python
   - name: Text-to-speech
     items:
     - name: 'Using C#, REST'
