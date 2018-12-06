@@ -1,5 +1,5 @@
 ---
-title: Update devices to the latest version of Azure IoT Edge | Microsoft Docs 
+title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs 
 description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
 keywords: 
 author: kgremban
@@ -9,6 +9,7 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Update the IoT Edge runtime

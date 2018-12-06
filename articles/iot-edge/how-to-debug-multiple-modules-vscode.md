@@ -1,13 +1,14 @@
 ---
-title: Debug multiple modules for Azure IoT Edge in VS Code | Microsoft Docs
+title: Debug multiple modules in Visual Studio Code - Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to debug multiple modules with Azure IoT Edge
 author: shizn
-manager: 
+manager: philmea
 ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Use Visual Studio Code to debug multiple modules with Azure IoT Edge

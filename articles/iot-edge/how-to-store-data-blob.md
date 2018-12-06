@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage on Azure IoT Edge devices | Microsoft Docs 
+title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs 
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.  
 author: kgremban
 manager: philmea
@@ -9,6 +9,7 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Store data at the edge with Azure Blob Storage on IoT Edge (preview)

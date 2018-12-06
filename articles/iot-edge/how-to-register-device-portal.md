@@ -1,5 +1,5 @@
 ---
-title: Register a new Azure IoT Edge device (portal) | Microsoft Docs 
+title: Register a new device from Azure portal - Azure IoT Edge | Microsoft Docs 
 description: Use the Azure portal to register a new IoT Edge device
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Register a new Azure IoT Edge device from the Azure portal

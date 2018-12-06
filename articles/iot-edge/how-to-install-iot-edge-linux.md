@@ -1,6 +1,6 @@
 ---
-title: How to install Azure IoT Edge on Linux | Microsoft Docs
-description: Azure IoT Edge installation instructions on Linux
+title: Install Azure IoT Edge on Linux | Microsoft Docs
+description: Azure IoT Edge installation instructions on Linux AMD64 devices
 author: kgremban
 manager: philmea
 # this is the PM responsible
@@ -10,6 +10,7 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
+ms.custom: seodec18
 ---
 # Install the Azure IoT Edge runtime on Linux (x64)
 

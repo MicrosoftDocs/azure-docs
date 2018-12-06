@@ -1,5 +1,5 @@
 ---
-title: Deploy and monitor modules for Azure IoT Edge (CLI) | Microsoft Docs 
+title: Create automatic deployments from command line - Azure IoT Edge | Microsoft Docs 
 description: Manage the modules that run on edge devices
 keywords: 
 author: kgremban
@@ -9,6 +9,7 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI

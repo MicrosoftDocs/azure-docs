@@ -1,13 +1,14 @@
 ---
-title: Azure IoT Edge continuous integration and continuous deployment | Microsoft Docs
-description: Overview of the continuous integration and continuous deployment for Azure IoT Edge
+title: Continuous integration and continuous deployment - Azure IoT Edge | Microsoft Docs
+description: Set up continuous integration and continuous deployment - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: shizn
-manager: 
+manager: philmea
 ms.author: xshi
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Continuous integration and continuous deployment to Azure IoT Edge

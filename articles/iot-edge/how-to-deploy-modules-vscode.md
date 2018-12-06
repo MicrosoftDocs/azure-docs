@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure IoT Edge modules (VS Code) | Microsoft Docs 
+title: Deploy modules from Visual Studio Code - Azure IoT Edge | Microsoft Docs 
 description: Use Visual Studio Code to deploy modules to an IoT Edge device
 author: kgremban
 manager: philmea
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.reviewer: 
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Deploy Azure IoT Edge modules from Visual Studio Code
