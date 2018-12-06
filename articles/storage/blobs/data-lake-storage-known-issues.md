@@ -7,7 +7,7 @@ author: normesta
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: normesta
 
 ---
@@ -31,7 +31,9 @@ Unmanaged Virtual Machine (VM) disks depend upon these APIs, so if you want to e
 
 ## Azure Storage Explorer
 
-Some features in Storage Explorer don't yet work with Azure Data Lake Storage Gen2 file systems. These limitations apply to both the [stand-alone version](https://azure.microsoft.com/features/storage-explorer/) of Azure Storage Explorer as well as the version that appears in the Azure portal.
+To view or manage Data Lake Storage Gen2 accounts by using Azure Storage Explorer, you must have at least version `1.6.0` of the tool which is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).
+
+Note that the version of Storage Explorer that is embedded into the Azure Portal does not currently support viewing or managing Data Lake Storage Gen2 accounts with hierarchical namespaces enabled.
 
 ## Blob viewing tool
 
@@ -53,21 +55,9 @@ Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.mi
 
 Services such as Azure Databricks, HDInsight, and Azure Data Factory don't yet integrate with Azure Active Directory (Azure AD) OAuth bearer token authentication.
 
-## Access control lists (ACL)
-
-Directory and file-level access control lists (ACL) are difficult to manage. There's no UI-based tool that you can use to get and set those access control lists.
-
 ## Azure Event Grid
 
 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) doesn't receive events from Azure Data Lake Gen2 accounts because those accounts don't yet generate them.  
-
-## Role-based access control
-
-You can't apply Role-based access control to file system objects in an Azure Data Lake Storage Gen2 account.
-
-## SQL Data Warehouse PolyBase
-
-When Storage Firewalls are enabled on an Azure Storage account, SQL Data Warehouse [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017) can't access those accounts.
 
 ## Soft delete and snapshots
 

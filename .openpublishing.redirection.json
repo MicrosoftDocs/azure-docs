@@ -11606,6 +11606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
             "redirect_document_id": false
