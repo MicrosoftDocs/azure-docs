@@ -23,7 +23,7 @@ This best practices article focuses on how secure pods in AKS. You learn how to:
 
 You can also read the best practices for [cluster security][best-practices-cluster-security] and for [container security][best-practices-container-security].
 
-## Pod security context
+## Secure pod access to resources
 
 **Best practice guidance** - To run as a different user or group and limit access to the underlying node processes and services, define pod security context settings. Assign the least number of privileges required.
 
@@ -58,7 +58,7 @@ kind: Pod
         add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
-Work with your cluster operator to determine what security context settings you need. Try to design your applications to minimize additional permissions and access the pod requires.
+Work with your cluster operator to determine what security context settings you need. Try to design your applications to minimize additional permissions and access the pod requires. There are additional security features to limit access using AppArmor and seccomp (secure computing) that can be implemented by cluster operators. For more information, see [Secure container access to resources][apparmor-seccomp].
 
 ## Limit credential exposure
 
@@ -107,4 +107,5 @@ This article focused on how to secure your pods. To implement some of these area
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-container-security]: operator-best-practices-container-security.md
-<!-- [aks-pod-identities]: operator-best-practices-identity.md#use-pod-identities -->
+[aks-pod-identities]: operator-best-practices-identity.md#use-pod-identities
+[apparmor-seccomp]: operator-best-practices-container-security.md#secure-container-access-to-resources

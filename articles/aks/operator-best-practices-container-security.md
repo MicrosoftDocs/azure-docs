@@ -48,13 +48,13 @@ Azure Container Registry Tasks can also automatically update container images wh
 
 For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update].
 
-## Secure container access
+## Secure container access to resources
 
 **Best practice guidance** - Limit access to actions that containers can perform. Provide the least number of permissions, and avoid the use of root / privileged escalation.
 
-In the same way that you should grant users or groups the least number of privileges required, containers should also be limited to only the actions and processes that they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. Use [pod security contexts][pod-security-contexts] to set `allowPrivilegeEscalation: false`.
+In the same way that you should grant users or groups the least number of privileges required, containers should also be limited to only the actions and processes that they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. For example, set `allowPrivilegeEscalation: false` in the pod manifest. These *pod security contexts* are built-in to Kubernetes and let you define additional permissions such as the user or group to run as, or what Linux capabilities to expose. For more best practices, see [Secure pod access to resources][pod-security-contexts].
 
-For more granular control of container actions, you can also use built-in Linux security features such as AppArmor and seccomp.
+For more granular control of container actions, you can also use built-in Linux security features such as *AppArmor* and *seccomp*. These features are defined at the node level, and then implemented through a pod manifest.
 
 ### App Armor
 
