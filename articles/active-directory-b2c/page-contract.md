@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 12/06/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -21,7 +21,7 @@ This article describes the steps you need to take to set up a page contract in A
 
 ## Replace DataUri values
 
-In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** refers to the page elements provided by Azure AD B2C. The **LoadUri** is the relative path to the HTML and CSS content that you provide.
+In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** that refers to the page elements provided by Azure AD B2C. The **LoadUri** is the relative path to the HTML and CSS content that you provide.
 
 ```XML
 <ContentDefinition Id="api.idpselections">
