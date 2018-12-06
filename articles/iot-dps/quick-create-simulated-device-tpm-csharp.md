@@ -34,7 +34,7 @@ This article will demonstrate individual enrollments.
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-4. Open a command prompt or Git Bash. Clone the Azure IoT SDK for C# GitHub repo:
+1. Open a command prompt or Git Bash. Clone the Azure IoT Samples for C# GitHub repo:
     
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
