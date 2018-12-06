@@ -100,11 +100,8 @@ To configure Azure AD single sign-on with Expiration Reminder, perform the follo
 
     ![Expiration Reminder Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL:
     `https://app.expirationreminder.net/account/sso`.
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Expiration Reminder Client support team](mailto:support@expirationreminder.net) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
