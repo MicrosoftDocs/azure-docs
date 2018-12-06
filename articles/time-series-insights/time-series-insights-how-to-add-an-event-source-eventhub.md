@@ -58,13 +58,13 @@ To add a new consumer group in your event hub:
 
 1. Enter a value for **Event source name** that is unique to this Time Series Insights environment, such as **event-stream**.
 
-   ![In the New event source pane, enter values for the first three parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
-
 1. For **Source**, select **Event Hub**.
 
 1. Select the appropriate values for **Import option**:
    - If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
    - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
+
+   ![In the New event source pane, enter values for the first three parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
 
 1. The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
@@ -72,8 +72,8 @@ To add a new consumer group in your event hub:
 
    | Property | Description |
    | --- | --- |
-   | Subscription ID | Select the subscription in which this event hub was created.
-   | Service Bus namespace | Select the Azure Service Bus namespace that contains the event hub.
+   | Subscription Id | Select the subscription in which this event hub was created.
+   | Service bus namespace | Select the Azure Service Bus namespace that contains the event hub.
    | Event hub name | Select the name of the event hub.
    | Event hub policy name | Select the shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
    | Event hub policy key | The key value might be prepopulated.
@@ -85,9 +85,9 @@ To add a new consumer group in your event hub:
 
    | Property | Description |
    | --- | --- |
-   | Subscription ID | The subscription in which this event hub was created.
+   | Subscription Id | The subscription in which this event hub was created.
    | Resource group | The resource group in which this event hub was created.
-   | Service Bus namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new event hub, you also created a Service Bus namespace.
+   | Service bus namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new event hub, you also created a Service Bus namespace.
    | Event hub name | The name of your event hub. When you created your event hub, you also gave it a specific name.
    | Event hub policy name | The shared access policy. You can create a shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
    | Event hub policy key | The shared access key that's used to authenticate access to the Service Bus namespace. Enter the primary or secondary key here.

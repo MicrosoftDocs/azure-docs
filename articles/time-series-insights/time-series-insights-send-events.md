@@ -29,7 +29,7 @@ This article explains how to create and configure an event hub in Azure Event Hu
 1. After you create an event hub, select it in the list of event hubs.
 1. In the menu, under **Entities**, select **Event Hubs**.
 1. Select the name of the event hub to configure it.
-1. Under **Entities**, select **Consumer groups**.
+1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
 
     ![Create a consumer group][2]
 
@@ -38,7 +38,7 @@ This article explains how to create and configure an event hub in Azure Event Hu
     > [!IMPORTANT]
     > Make sure this consumer group isn't used by any other service (such as an Azure Stream Analytics job or another Time Series Insights environment). If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
 
-1. In the menu, under **Settings**, select **Shared access policies**.
+1. In the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
 
     ![Select Shared access policies, and then select the Add button][3]
 
@@ -55,12 +55,15 @@ The Time Series Insights update uses instances to add contextual data to incomin
 ### Create a Time Series Insights event source
 
 1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+
 1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
 
 ### <a name="push-events"></a>Push events (windmills sample)
 
 1. In the search bar, search for **Event Hubs**. In the returned list, select **Event Hubs**.
+
 1. Select your event hub.
+
 1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection sting-primary key**.
 
    ![Copy the value for the primary key connection string][5]
@@ -68,9 +71,11 @@ The Time Series Insights update uses instances to add contextual data to incomin
 1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in [Push events](#push-events).
 
+
     ![Paste the primary key connection string in the Event Hub Connection String box][6]
 
 1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
+
 1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub:
 
    ![An event hub Overview page that shows metrics for the event hub][7]
