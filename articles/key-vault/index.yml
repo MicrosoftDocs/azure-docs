@@ -57,7 +57,7 @@ sections:
       text: Node.js
       href: /azure/key-vault/quick-create-node
 
-  - title: Step-by-Step Tutorials
+- title: Step-by-Step Tutorials
   items:
   - type: list
     style: cards
@@ -102,6 +102,7 @@ sections:
         href: /learn/modules/manage-secrets-with-azure-key-vault/
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-key-vault">More interactive learning...</a>
+
 - title: Reference
   items:
   - type: list
