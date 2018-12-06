@@ -202,3 +202,5 @@ print(faces)
 [How to install and run Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#create-a-face-resource-on-azure)
 
 [How to install and run Text Analytics API containers](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) 
+
+[How to install and run Language Understanding (LIUS) containers](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-container-howto)
