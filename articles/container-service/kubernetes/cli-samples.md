@@ -1,18 +1,20 @@
 ---
-title: Azure Container Service Script Samples
+title: (DEPRECATED) Azure Container Service Script Samples
 description: Azure Container Service Script Samples
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: sample
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Azure CLI Samples for Azure Container Service
+# (DEPRECATED) Azure CLI Samples for Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 The following table includes links to bash scripts built using the Azure CLI.
 

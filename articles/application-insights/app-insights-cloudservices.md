@@ -23,7 +23,7 @@ ms.author: mbullwin
 ## Before you start
 You'll need:
 
-* A subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
+* A subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
 * Microsoft Azure tools 2.9 or later
 * Developer Analytics Tools 7.10 or later
 
@@ -238,7 +238,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
