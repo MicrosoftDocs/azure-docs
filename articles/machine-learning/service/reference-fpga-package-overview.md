@@ -1,6 +1,6 @@
 ---
 title: FPGA package for hardware acceleration for Azure Machine Learning
-description: **This article is deprecated.**
+description: This article is deprecated.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
