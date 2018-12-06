@@ -61,18 +61,22 @@ var id = result.Response;
 Register a stored procedure
 
 ```java
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
 StoredProcedure newStoredProcedure = new StoredProcedure(
     "{" +
         "  'id':'spCreateToDoItem'," +
-        "  'body':" + String(Files.readAllBytes(Paths.get("..\js\spCreateToDoItem.js"))) +
+        "  'body':" + new String(Files.readAllBytes(Paths.get("..\\js\\spCreateToDoItem.js"))) +
     "}");
-StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(getCollectionLink(), newStoredProcedure, null)
+//toBlocking() blocks the thread until the operation is complete, and is used only for demo.  
+StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(containerLink, newStoredProcedure, null)
     .toBlocking().single().getResource();
 ```
 
 Call a stored procedure
 
 ```java
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+String sprocLink = String.format("%s/sprocs/%s", containerLink, "spCreateToDoItem");
 final CountDownLatch successfulCompletionLatch = new CountDownLatch(1);
 
 class ToDoItem {
@@ -92,16 +96,15 @@ RequestOptions requestOptions = new RequestOptions();
 requestOptions.setPartitionKey(new PartitionKey("Personal"));
 
 Object[] storedProcedureArgs = new Object[] { newItem };
-asyncClient.executeStoredProcedure(getSprocLink(storedProcedure), requestOptions, storedProcedureArgs)
-        .subscribe(storedProcedureResponse -> {
-            String storedProcResultAsString = storedProcedureResponse.getResponseAsString();
-            assertThat(storedProcResultAsString, equalTo("\"a is my temp value\""));
-            successfulCompletionLatch.countDown();
-            System.out.println(storedProcedureResponse.getActivityId());
-        }, error -> {
-            System.err.println("an error occurred while executing the stored procedure: actual cause: "
-                    + error.getMessage());
-        });
+asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArgs)
+    .subscribe(storedProcedureResponse -> {
+        String storedProcResultAsString = storedProcedureResponse.getResponseAsString();
+        successfulCompletionLatch.countDown();
+        System.out.println(storedProcedureResponse.getActivityId());
+    }, error -> {
+        System.err.println("an error occurred while executing the stored procedure: actual cause: "
+                + error.getMessage());
+    });
 
 successfulCompletionLatch.await();
 ```
@@ -111,33 +114,26 @@ successfulCompletionLatch.await();
 Register a stored procedure
 
 ```javascript
-const newStoredProcedure = {
-    id: "spCreateToDoItem",
-    serverScript: require("../js/spCreateToDoItem.js")
-};
-const { database } = await client.databases.create({ id: 'MyDatabase' });
-const { container } = await database.containers.create({ id: 'MyContainer' });
-const { createdStoredProcedure, body: body } = await container.storedProcedures.upsert(newStoredProcedure);
+const container = client.database("myDatabase").container("myContainer");
+const sprocId = "spCreateToDoItem";
+await container.storedProcedures.create({
+    id: sprocId,
+    body: require(`../js/${sprocId}`)
+});
 ```
 
 Call a stored procedure
 
 ```javascript
-var newItem = [{
+const newItem = [{
     category: "Personal",
     name: "Groceries",
     description: "Pick up strawberries",
     isComplete: false
 }];
-
-const { database } = await client.databases.create({ id: 'MyDatabase' });
-const { container } = await database.containers.create({ id: 'MyContainer' });
-const spCreateToDoItem =  await.container.storedProcedures('spCreateToDoItem');
-var requestOptions =  new RequestOptions { PartitionKey = new PartitionKey("Personal") };
-const {body: results, headers} = await spCreateToDoItem.execute(newItem, requestOptions);
-
-if (results)
-   var id = results.Response;
+const container = client.database("myDatabase").container("myContainer");
+const sprocId = "spCreateToDoItem";
+const {body: result} = await container.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
 ### Stored procedures - Python
@@ -145,15 +141,27 @@ if (results)
 Register a stored procedure
 
 ```python
-
-
+with open('../js/spCreateToDoItem.js') as file:
+    file_contents = file.read()
+container_link = 'dbs/myDatabase/colls/myContainer'
+sproc_definition = {
+            'id': 'spCreateToDoItem',
+            'serverScript': file_contents,
+        }
+sproc = client.CreateStoredProcedure(container_link, sproc_definition)
 ```
 
 Call a stored procedure
 
 ```python
-
-
+sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItem'
+new_item = [{
+    'category':'Personal',
+    'name':'Groceries',
+    'description':'Pick up strawberries',
+    'isComplete': False
+}]
+client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 ```
 
 ## <a id="pre-triggers">How to work with pre-triggers</a>
@@ -203,13 +211,32 @@ await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 Register a pre-trigger
 
 ```java
-
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+String triggerId = "trgPreValidateToDoItemTimestamp";
+Trigger trigger = new Trigger();
+trigger.setId(triggerId);
+trigger.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", triggerId)));
+trigger.setTriggerOperation(TriggerOperation.Create);
+trigger.setTriggerType(TriggerType.Pre);
+//toBlocking() blocks the thread until the operation is complete, and is used only for demo. 
+Trigger createdTrigger = asyncClient.createTrigger(containerLink, trigger, new RequestOptions()).toBlocking().single().getResource();
 ```
 
 Call a pre-trigger
 
 ```java
-
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+    Document item = new Document("{ "
+            + "\"category\": \"Personal\", "
+            + "\"name\": \"Groceries\", "
+            + "\"description\": \"Pick up strawberries\", "
+            + "\"isComplete\": false, "
+            + "}"
+            );
+RequestOptions requestOptions = new RequestOptions();
+requestOptions.setPreTriggerInclude(Arrays.asList("trgPreValidateToDoItemTimestamp"));
+//toBlocking() blocks the thread until the operation is complete, and is used only for demo. 
+asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
 ### Pre-triggers - JavaScript
@@ -217,13 +244,27 @@ Call a pre-trigger
 Register a pre-trigger
 
 ```javascript
-
+const container = client.database("myDatabase").container("myContainer");
+const triggerId = "trgPreValidateToDoItemTimestamp";
+await container.triggers.create({
+    id: triggerId,
+    body: require(`../js/${triggerId}`),
+    triggerOperation: "create",
+    triggerType: "pre"
+});
 ```
 
 Call a pre-trigger
 
 ```javascript
-
+const container = client.database("myDatabase").container("myContainer");
+const triggerId = "trgPreValidateToDoItemTimestamp";
+await container.items.create({
+    category: "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+}, {preTriggerInclude: [triggerId]});
 ```
 
 ### Pre-triggers - Python
@@ -231,13 +272,24 @@ Call a pre-trigger
 Register a pre-trigger
 
 ```python
-
+with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
+    file_contents = file.read()
+container_link = 'dbs/myDatabase/colls/myContainer'
+trigger_definition = {
+            'id': 'trgPreValidateToDoItemTimestamp',
+            'serverScript': file_contents,
+            'triggerType': documents.TriggerType.Pre,
+            'triggerOperation': documents.TriggerOperation.Create
+        }
+trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
 Call a pre-trigger
 
 ```python
-
+container_link = 'dbs/myDatabase/colls/myContainer'
+item = { 'category': 'Personal', 'name': 'Groceries', 'description':'Pick up strawberries', 'isComplete': False}
+client.CreateItem(container_link, item, { 'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a id="post-triggers">How to work with post-triggers</a>
@@ -280,13 +332,30 @@ await client.createDocumentAsync(containerUri, newItem, options);
 Register a post-trigger
 
 ```java
-
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+String triggerId = "trgPostUpdateMetadata";
+Trigger trigger = new Trigger();
+trigger.setId(triggerId);
+trigger.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", triggerId)))));
+trigger.setTriggerOperation(TriggerOperation.Create);
+trigger.setTriggerType(TriggerType.Post);
+Trigger createdTrigger = asyncClient.createTrigger(containerLink, trigger, new RequestOptions()).toBlocking().single().getResource();
 ```
 
 Call a post-trigger
 
 ```java
-
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+Document item = new Document(String.format("{ "
+    + "\"name\": \"artist_profile_1023\", "
+    + "\"artist\": \"The Band\", "
+    + "\"albums\": [\"Hellujah\", \"Rotators\", \"Spinning Top\"]"
+    + "}"
+));
+RequestOptions requestOptions = new RequestOptions();
+requestOptions.setPostTriggerInclude(Arrays.asList("trgPostUpdateMetadata"));
+//toBlocking() blocks the thread until the operation is complete, and is used only for demo.
+asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
 ### Post-triggers - JavaScript
@@ -294,13 +363,27 @@ Call a post-trigger
 Register a post-trigger
 
 ```javascript
-
+const container = client.database("myDatabase").container("myContainer");
+const triggerId = "trgPostUpdateMetadata";
+await container.triggers.create({
+    id: triggerId,
+    body: require(`../js/${triggerId}`),
+    triggerOperation: "create",
+    triggerType: "post"
+});
 ```
 
 Call a post-trigger
 
 ```javascript
-
+const item = {
+    name: "artist_profile_1023",
+    artist: "The Band",
+    albums: ["Hellujah", "Rotators", "Spinning Top"]
+};
+const container = client.database("myDatabase").container("myContainer");
+const triggerId = "trgPostUpdateMetadata";
+await container.items.create(item, {postTriggerInclude: [triggerId]});
 ```
 
 ### Post-triggers - Python
@@ -308,13 +391,24 @@ Call a post-trigger
 Register a post-trigger
 
 ```python
-
+with open('../js/trgPostUpdateMetadata.js') as file:
+    file_contents = file.read()
+container_link = 'dbs/myDatabase/colls/myContainer'
+trigger_definition = {
+            'id': 'trgPostUpdateMetadata',
+            'serverScript': file_contents,
+            'triggerType': documents.TriggerType.Post,
+            'triggerOperation': documents.TriggerOperation.Create
+        }
+trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
 Call a post-trigger
 
 ```python
-
+container_link = 'dbs/myDatabase/colls/myContainer'
+item = { 'name': 'artist_profile_1023', 'artist': 'The Band', 'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
+client.CreateItem(container_link, item, { 'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
 ## <a id="udfs">How to work with user-defined functions</a>
@@ -355,13 +449,37 @@ foreach (var result in results)
 Register a user-defined function
 
 ```java
-
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+String udfId = "udfTax";
+UserDefinedFunction udf = new UserDefinedFunction();
+udf.setId(udfId);
+udf.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", udfId)))));
+//toBlocking() blocks the thread until the operation is complete, and is used only for demo.
+UserDefinedFunction createdUDF = client.createUserDefinedFunction(containerLink, udf, new RequestOptions()).toBlocking().single().getResource();
 ```
 
 Call a user-defined function
 
 ```java
+String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
+Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000", new FeedOptions());
+final CountDownLatch completionLatch = new CountDownLatch(1);
+queryObservable.subscribe(
+        queryResultPage -> {
+            System.out.println("Got a page of query result with " +
+                    queryResultPage.getResults().size());
+        },
+        // terminal error signal
+        e -> {
+            e.printStackTrace();
+            completionLatch.countDown();
+        },
 
+        // terminal completion signal
+        () -> {
+            completionLatch.countDown();
+        });
+completionLatch.await();
 ```
 
 ### User-defined functions - JavaScript
@@ -369,13 +487,19 @@ Call a user-defined function
 Register a user-defined function
 
 ```javascript
-
+const container = client.database("myDatabase").container("myContainer");
+const udfId = "udfTax";
+await container.userDefinedFunctions.create({
+    id: udfId,
+    body: require(`../js/${udfId}`)
 ```
 
 Call a user-defined function
 
 ```javascript
-
+const container = client.database("myDatabase").container("myContainer");
+const sql = "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000";
+const {result} = await container.items.query(sql).toArray();
 ```
 
 ### User-defined functions - Python
@@ -383,13 +507,21 @@ Call a user-defined function
 Register a user-defined function
 
 ```python
-
+with open('../js/udfTax.js') as file:
+    file_contents = file.read()
+container_link = 'dbs/myDatabase/colls/myContainer'
+udf_definition = {
+            'id': 'trgPostUpdateMetadata',
+            'serverScript': file_contents,
+        }
+udf = client.CreateUserDefinedFunction(container_link, udf_definition)
 ```
 
 Call a user-defined function
 
 ```python
-
+container_link = 'dbs/myDatabase/colls/myContainer'
+results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000'))
 ```
 
 ## Next steps
