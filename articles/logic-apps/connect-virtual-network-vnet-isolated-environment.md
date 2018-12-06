@@ -178,7 +178,8 @@ choose **Create**, for example:
 
    ![Check deployment status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   When deployment finishes successfully, Azure shows this notification:
+   If deployment finishes successfully, 
+   Azure shows this notification:
 
    ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
