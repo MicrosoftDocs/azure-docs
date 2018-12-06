@@ -25,7 +25,7 @@ ms.reviewer: guanghu
 > [!Note]  
 > Aure Cognitive Services on Azure Stack is in preview.
 
-You can use container support in Azure Cognitive Services on Azure Stack. Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/), [Face](https://docs.microsoft.com/azure/cognitive-services/face/), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) services.
+You can use container support in Azure Cognitive Services on Azure Stack. Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)(LUIS).
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed. 
 
@@ -47,6 +47,8 @@ With Azure Stack, you can deploy Cognitive Services containers in a Kubernetes c
 
 This article describes how to deploy the Azure Face API on Kubernetes cluster on Azure Stack. You can use follow the same approach to deploy other cognitive services containers on Azure Stack Kubernetes cluster.
 
+For more details on Cognitive Services containers, please go to [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+
 ## Prerequisites
 
 Before you get started, you will need to:
@@ -59,14 +61,14 @@ Before you get started, you will need to:
 
 Create a Cognitive Service resource on Azure to preview the [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) containers, respectively. You will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
 
-1.  Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](http://www.azure.com). `fixlink`
+1.  Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
     >  [!Note]  
     >  The Face or Computer Vision resource must use the F0   pricing tier.
 
-1.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) container for the preview.
+1.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
 
-## Create secrete
+## Create a Kubernetes secret 
 
 Take use of the Kubectl create secret command to access the private container registry. Replace **&lt;username&gt;** with the user name and **&lt;password&gt;** with the password provided in the credential you received from the Azure Cognitive Service team.
 
@@ -79,7 +81,7 @@ Take use of the Kubectl create secret command to access the private container re
 
 ## Prepare a YAML
 
-You are going to leverage the YAML to simplify the overall deployment of the cognitive service on the Kubernetes cluster.
+You are going to leverage the YAML to simplify the deployment of the cognitive service on the Kubernetes cluster.
 
 Here is a sample YAML configure file to deploy the Face service to Azure Stack:
 
@@ -133,7 +135,7 @@ Details about the key fields:
 | Field | Notes |
 | --- | --- |
 | replicaNumber | Defines the initial replicas of instances to create. You can surely scale it later after the deployment. |
-| ImageLocation | Indicates the location of the specific cognitive service container image in ACR. For example, the face service: aicpppe.azurecr.io/microsoft/cognitive-services-face &lt;TBD this needs update after the public ones.&gt; |
+| ImageLocation | Indicates the location of the specific cognitive service container image in ACR. For example, the face service: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |The Endpoint URL noted in step of [Create Azure Resource](#create-azure-resources) |
 | ApiKey | The subscription key noted in step of [Create Azure Resource](#create-azure-resources) |
 | SecretName | The secret name you just noted in step of [Create secrete to access the private container registry](#create-secrete-to-access-the-private-container-registry) |
@@ -150,18 +152,47 @@ Use of the following command to monitor how it deploys:
     Kubectl get pod – watch
 ```
 
-## Check the cognitive service
+## Test the cognitive service
 
 Access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by an instantiated container, from the **/swagger** relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Sentiment Analysis container that was instantiated in the previous example:
 
-```Text  
-http:&lt;External IP&gt;:5000/swagger
+```HTTP  
+http:<External IP>:5000/swagger
 ```
 
 You can get the external IP address from the following command: 
 
 ```bash  
-    Kubectl get svc &lt;LoadBalancerName&gt;
+    Kubectl get svc <LoadBalancerName>
+```
+
+## Try the services with Python scripts
+
+You can try to validate the Cognitive services on your Azure Stack by running some simple Python scripts. There are official Python quickstart samples for Face, Computer Vision and Text Analytics for your reference.
+
+There are two things need to keep in mind to make the Python app run against the services running on containers: 
+1. Cognitive services in container do not need sub keys for authentication, but we still need to input any string as a placeholder to satisfy the SDK. 
+2. Replace the base_URL with the actual service EndPoint IP address 
+
+Here is a sample Python scripts used Face services Python SDK to detect and frame faces in an image. 
+
+```Python  
+import cognitive_face as CF
+
+# Cognitive Services in container do not need sub keys for authentication
+# Keep the invalid key to satisfy the SDK inputs requirement. 
+KEY = '0'  #  (keeping the quotes in place).
+CF.Key.set(KEY)
+
+# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack
+BASE_URL = 'http://<svc IP Address>:5000/face/v1.0/'  
+CF.BaseUrl.set(BASE_URL)
+
+# You can use this example JPG or replace the URL below with your own URL to a JPEG image.
+img_url = 'https://raw.githubusercontent.com/Microsoft/Cognitive-Face-Windows/master/Data/detection1.jpg'
+faces = CF.face.detect(img_url)
+print(faces)
+
 ```
 
 ## Next steps
