@@ -123,6 +123,9 @@ The following settings are configured on the **Advanced settings** blade.
 #### Access Ports
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
+> [!NOTE]
+> SSL access to Redis Cache supports TLS 1.0 by default. The minimum supported TLS version can be raised up to TLS 1.2 if desired by using the **Minimum TLS version** dropdown on the **Advanced settings** blade and then click **Save**.
+
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
