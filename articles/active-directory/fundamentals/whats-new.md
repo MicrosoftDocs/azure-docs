@@ -34,26 +34,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## November/December 2018
 
-### New enhancements added for Azure AD Identity Protection (Public preview)
-
-**Type:** Changed feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-We're excited to announce that we've added the following enhancements to the Azure AD Identity Protection public preview offering, including: 
-
-- An updated and more integrated user interface
-
-- Additional APIs
-
-- Improved risk assessment through machine learning
-
-- Product-wide alignment across risky users and risky sign-ins
-
-For more information, see https://aka.ms/IdentityProtectionRefreshed and share your thoughts through the in-product prompts.
-
----
-
 ### New Azure AD Cloud Device Administrator role (Public preview)
 
 **Type:** New feature
