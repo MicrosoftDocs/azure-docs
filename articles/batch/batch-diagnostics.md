@@ -49,7 +49,7 @@ To view all Batch account metrics:
 
 To retrieve metrics programmatically, use the Azure Monitor APIs. For example, see [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
-### Batch metric reliability
+## Batch metric reliability
 
 Metrics are intended to be used for trending and data analysis. Metric delivery is not guaranteed and is subject to out-of-order delivery, data loss, and/or duplication. Using single events to alert or trigger functions is not recommended. See the Batch metric alerts section for more details on how to set thresholds for alerting.
 
