@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 ms.author: erhopf
 ---
 
