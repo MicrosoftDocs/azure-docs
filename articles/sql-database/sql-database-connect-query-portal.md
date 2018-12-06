@@ -52,7 +52,7 @@ Configuring an Active Directory (AD) administrator enables you to use a single i
 
 > [!NOTE]
 * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
-* Azure AD admin sign-in doesn't work with accounts that have 2-factor authentication enabled.
+* Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
 1. Select **All Resources** from the left-hand menu and then select your SQL Server.
 
@@ -73,12 +73,12 @@ Configuring an Active Directory (AD) administrator enables you to use a single i
 
 1. After you're authenticated, paste the following SQL in the query editor to retrieve the top 20 products by category.
 
-```sql
+   ```sql
     SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
     FROM SalesLT.ProductCategory pc
     JOIN SalesLT.Product p
     ON pc.productcategoryid = p.productcategoryid;
-```
+   ```
 
 2. On the toolbar, select **Run** and then review the output in the **Results** pane.
 
