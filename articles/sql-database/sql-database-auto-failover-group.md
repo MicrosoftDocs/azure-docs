@@ -68,10 +68,10 @@ Auto-failover groups provide group level geo-replication and automatic failover.
 
 - **Failover group read-only listener**
 
-  A DNS CNAME record formed as **&lt;failover-group-name&gt;.secondary.database.windows.net** that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules.
+  A DNS CNAME record formed as `failover-group-name.secondary.database.windows.net`**` that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules.
 
   > [!IMPORTANT]
-  > When a failover group is created on a Managed Instance, the DNS CNAME records for the listeners are **&lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net and &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net. See [Best practices for failover groups with Managed Instances](#best-practices-of-using-failover-groups-for-business-continuity-with-managed-instances) for details of using zone_id with managed instance.
+  > When a failover group is created on a Managed Instance, the DNS CNAME records for the listeners are `failover-group-name.zone_id.database.windows.net` and `failover-group-name;.secondary.zone_id.database.windows.net.` See [Best practices for failover groups with Managed Instances](#best-practices-of-using-failover-groups-for-business-continuity-with-managed-instances) for details of using zone_id with managed instance.
 
 - **Automatic failover policy**
 
