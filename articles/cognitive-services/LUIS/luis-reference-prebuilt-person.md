@@ -1,10 +1,11 @@
 ---
-title: PersonName prebuilt entity - LUIS Reference 
+title: PersonName prebuilt entity
 titleSuffix: Azure Cognitive Services
 description: This article contains personName prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -18,7 +19,7 @@ The prebuilt personName entity detects people names. Because this entity is alre
 ## Resolution for personName entity
 The following example shows the resolution of the **builtin.personName** entity.
 
-```JSON
+```json
 {
   "query": "Is Jill Jones in Cairo?",
   "topScoringIntent": {

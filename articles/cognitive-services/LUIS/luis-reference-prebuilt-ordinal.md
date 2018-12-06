@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities ordinal reference - Azure | Microsoft Docs
+title: Ordinal Prebuilt entity
 titleSuffix: Azure
 description: This article contains ordinal prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -21,7 +22,7 @@ Ordinal is managed from the [Recognizers-text](https://github.com/Microsoft/Reco
 ## Resolution for prebuilt ordinal entity
 The following example shows the resolution of the **builtin.ordinal** entity.
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

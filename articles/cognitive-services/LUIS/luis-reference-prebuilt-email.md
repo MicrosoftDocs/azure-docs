@@ -5,6 +5,7 @@ description: This article contains email prebuilt entity information in Language
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -18,7 +19,7 @@ Email extraction includes the entire email address from an utterance. Because th
 ## Resolution for prebuilt email
 The following example shows the resolution of the **builtin.email** entity.
 
-```JSON
+```json
 {
   "query": "please send the information to patti.owens@microsoft.com",
   "topScoringIntent": {

@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities phone number reference - Azure | Microsoft Docs
+title: Phone number Prebuilt entities
 titleSuffix: Azure
 description: This article contains phone number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -21,7 +22,7 @@ Phonenumber is managed from the [Recognizers-text](https://github.com/Microsoft/
 ## Resolution for prebuilt phonenumber entity
 The following example shows the resolution of the **builtin.phonenumber** entity.
 
-```JSON
+```json
 {
   "query": "my mobile is 00 44 161 1234567",
   "topScoringIntent": {
