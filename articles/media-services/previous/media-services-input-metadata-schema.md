@@ -7,27 +7,27 @@ editor: ''
 services: media-services
 documentationcenter: ''
 
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
 
 ---
 # Input Metadata
+
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks.  Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, manifest, etc. The output asset also contains a file with metadata about the input asset. The name of the metadata XML file has the following format: &lt;asset_id&gt;_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), where &lt;asset_id&gt; is the AssetId value of the input asset.  
+
+Media Services does not pre-emptively scan input Assets to generate metadata. Input metadata is generated only as an artifact when an input Asset is processed in a Job. Hence this artifact is written to the output Asset. Different tools are used to generate metadata for input Assets and output Assets. Therefore, the input metadata has a slightly different schema than the output metadata.
 
 If you want to examine the metadata file, you can create a **SAS** locator and download the file to your local computer. You can find an example on how to create a SAS locator and download a file  [Using the Media Services .NET SDK Extensions](media-services-dotnet-get-started.md).  
 
 This article discusses the elements and types of the XML schema on which the input metada (&lt;asset_id&gt;_metadata.xml) is based.  For information about the file that contains metadata about the output asset, see [Output Metadata](media-services-output-metadata-schema.md).  
 
-> [!NOTE]
-> You can find the [Schema Code](media-services-input-metadata-schema.md#code) an [XML example](media-services-input-metadata-schema.md#xml) at the end of this article.  
-> 
-> 
+You can find the [Schema Code](media-services-input-metadata-schema.md#code) an [XML example](media-services-input-metadata-schema.md#xml) at the end of this article.  
+ 
 
 ## <a name="AssetFiles"></a> AssetFiles element (root element)
 Contains a collection of [AssetFile element](media-services-input-metadata-schema.md#AssetFile)s for the encoding job.  
