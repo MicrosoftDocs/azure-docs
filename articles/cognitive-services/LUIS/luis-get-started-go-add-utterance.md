@@ -15,6 +15,8 @@ ms.author: diberry
 
 # Quickstart: Change model using Go
 
+In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
+
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## Prerequisites

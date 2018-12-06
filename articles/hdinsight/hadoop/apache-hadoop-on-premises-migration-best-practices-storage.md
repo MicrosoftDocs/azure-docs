@@ -14,7 +14,7 @@ ms.author: hrasheed
 
 This article gives recommendations for data storage in Azure HDInsight systems. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-## Choose the right storage system for HDInsight clusters
+## Choose right storage system for HDInsight clusters
 
 The on-premises Apache Hadoop File System (HDFS) directory structure can be re-created in Azure Storage or Azure Data Lake Storage. You can then safely delete HDInsight clusters that are used for computation without losing user data. Both services can be used as both the default file system and an additional file system for an HDInsight cluster. The HDInsight cluster and the storage account must be hosted in the same region.
 
@@ -28,9 +28,12 @@ Azure storage can be geo-replicated. Although geo-replication gives geographic r
 
 One of the following formats can be used to access data that is stored in Azure Storage:
 
-- `wasb:///`: Access default storage using unencrypted communication.
-- `wasbs:///`: Access default storage using encrypted communication.
-- `wasb://<container-name>@<account-name>.blob.core.windows.net/`:    Used when communicating with a non-default storage account. 
+|Data Access Format |Description |
+|---|---|
+|`wasb:///`|Access default storage using unencrypted communication.|
+|`wasbs:///`|Access default storage using encrypted communication.|
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Used when communicating with a non-default storage account. |
+
 
 [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) lists the current limits on Azure storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
 
@@ -90,7 +93,7 @@ A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchi
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. The Key features of Azure Data Lake Storage (ADLS) Gen2 are as follows:
 
-- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
@@ -109,7 +112,7 @@ For more information, see the following articles:
 - [Introduction to Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
 - [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 
-## Protect Azure Storage key visibility within the on-premises Hadoop cluster configuration
+## Secure Azure Storage keys within on-premises Hadoop cluster configuration
 
 The Azure storage keys that are added to the Hadoop configuration files, establish connectivity between on premises HDFS and Azure Blob storage. These keys can be protected by encrypting them with the Hadoop credential provider framework. Once encrypted, they can be stored and accessed securely.
 
@@ -138,7 +141,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## Restrict access to Azure storage data using SAS signatures
+## Restrict Azure storage data access using SAS
 
 HDInsight by default has full access to data in the Azure Storage accounts associated with the cluster. Shared Access Signatures (SAS) on the blob container can be used to restrict access to the data, such as provide users with read-only access to the data.
 
@@ -146,11 +149,14 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 
 1. Open the
     [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) file and change the following values:
-    - policy_name: The name to use for the stored policy to create.
-    - storage_account_name: The name of your storage account.
-    - storage_account_key: The key for the storage account.
-    - storage_container_name: The container in the storage account that you want to restrict access to.
-    - example_file_path: The path to a file that is uploaded to the container
+
+    |Token Property|Description|
+    |---|---|
+    |policy_name|The name to use for the stored policy to create.|
+    |storage_account_name|The name of your storage account.|
+    |storage_account_key|The key for the storage account.|
+    |storage_container_name|The container in the storage account that you want to restrict access to.|
+    |example_file_path|The path to a file that is uploaded to the container.|
 
 2. The SASToken.py file comes with the `ContainerPermissions.READ + ContainerPermissions.LIST` permissions and can be adjusted based on the use case.
 
@@ -179,7 +185,7 @@ There are three important things to remember regarding the use of SAS Tokens in 
 
 3. Unfortunately, the hadoop credential provider and decryption key provider (ShellDecryptionKeyProvider) currently do not work with the SAS tokens and so it currently cannot be protected from visibility.
 
-For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
+For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md).
 
 ## Use data encryption and replication
 
@@ -197,14 +203,13 @@ For more information, see the following articles:
 - [Azure storage replication](../../storage/common/storage-redundancy.md)
 - [Disaster guidance for Azure Data Lake Storage (ADLS)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## Attach additional Azure storage accounts to the cluster
+## Attach additional Azure storage accounts to cluster
 
 During the HDInsight creation process, an Azure Storage account or Azure Data Lake storage account is chosen as the default file system. In addition to this default storage account, additional storage accounts can be added from the same Azure subscription or different Azure subscriptions during the cluster creation process or after a cluster has been created.
 
 Additional storage account can be added in one on the following ways:
 - Ambari HDFS Config Advanced Custom core-site Add the storage Account Name and key Restarting the services
-- Using [Script action](../hdinsight-hadoop-add-storage.md)
-    by passing the storage account name and key
+- Using [Script action](../hdinsight-hadoop-add-storage.md) by passing the storage account name and key
 
 > [!Note]
 > In valid use-cases, the limits on the Azure storage can be increased via a request made to [Azure Support](https://azure.microsoft.com/support/faq/).
