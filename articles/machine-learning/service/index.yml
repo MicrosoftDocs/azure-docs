@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Machine Learning Service Documentation
 metadata:
-  title: Azure Machine Learning Documentation – Tutorials, API reference | Microsoft Docs
-  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
+  title: Azure Machine Learning Service Documentation – Tutorials, API reference | Microsoft Docs
+  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
   manager: jhubbard
@@ -14,6 +14,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/24/2018
   ms.author: jmartens
+  ms.custom: seodec18
 abstract:
   description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how. 
 sections:
