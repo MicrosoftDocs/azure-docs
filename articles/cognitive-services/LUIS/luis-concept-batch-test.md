@@ -5,6 +5,7 @@ description: Use batch testing to continuously work on your application to refin
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

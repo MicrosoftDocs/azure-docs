@@ -5,7 +5,7 @@ description: Learn how utterances can be changed before predictions in Language 
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

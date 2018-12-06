@@ -5,6 +5,7 @@ description: Add entities (key data in your application's domain) in Language Un
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

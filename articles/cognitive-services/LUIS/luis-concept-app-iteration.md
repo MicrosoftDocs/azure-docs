@@ -5,6 +5,7 @@ description: LUIS learns best in an iterative cycle of model changes, utterance 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

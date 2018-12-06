@@ -5,6 +5,7 @@ description: LUIS apps require a single owner and optional collaborators.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

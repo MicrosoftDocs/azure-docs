@@ -5,6 +5,7 @@ description: Learn how data can be changed before predictions in Language Unders
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
