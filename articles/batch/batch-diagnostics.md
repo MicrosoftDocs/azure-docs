@@ -51,7 +51,7 @@ To retrieve metrics programmatically, use the Azure Monitor APIs. For example, s
 
 ## Batch metric reliability
 
-Metrics are intended to be used for trending and data analysis. Metric delivery is not guaranteed and is subject to out-of-order delivery, data loss, and/or duplication. Using single events to alert or trigger functions is not recommended. See the Batch metric alerts section for more details on how to set thresholds for alerting.
+Metrics are intended to be used for trending and data analysis. Metric delivery is not guaranteed and is subject to out-of-order delivery, data loss, and/or duplication. Using single events to alert or trigger functions is not recommended. See the [Batch metric alerts](#batch-metric-alerts) section for more details on how to set thresholds for alerting.
 
 Metrics emitted in the last 3 minutes may still be aggregating. During this time frame, the metric values may be underreported.
 
