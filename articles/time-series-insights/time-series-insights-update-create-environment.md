@@ -31,7 +31,7 @@ This section describes how to create an Azure TSI (Preview) environment using th
 
    ![tutorial-one][1]
 
-1. On the Time Series Insights environment page, fill in the required parameters and click on **Next: Event Source**. For this tutorial, set the **Time Series Id** as `Id`. To learn more about **Time Series IDs**, read [Time Series IDs](./time-series-insights-update-how-to-id.md).
+1. On the Time Series Insights environment page, fill in the required parameters and click on **Next: Event Source**. For this tutorial, set the **Time Series ID** as `Id`. To learn more about **Time Series IDs**, read [Time Series IDs](./time-series-insights-update-how-to-id.md).
 
    ![tutorial-two][2]
 
