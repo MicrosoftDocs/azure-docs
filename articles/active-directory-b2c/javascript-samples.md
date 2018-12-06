@@ -19,7 +19,7 @@ You can add your own JavaScript client-side code to your Azure Active Directory 
 
 ## Prequisites
 
-Create a [page contract](page-contract.md) for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your custom policy.
+Select a [page contract](page-contract.md) for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your custom policy.
 
 ## Add the ScriptExecution element
 

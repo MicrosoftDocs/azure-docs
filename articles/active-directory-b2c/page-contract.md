@@ -1,6 +1,6 @@
 ---
-title: Create a page contract in Azure Active Directory B2C | Microsoft Docs
-description: Learn about the versions of user flows available in Azure Active Directory B2C.
+title: Select a page contract in Azure Active Directory B2C | Microsoft Docs
+description: Learn about how to select a page contract in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -13,11 +13,11 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Create a page contract in Azure Active Directory B2C using custom policies
+# Select a page contract in Azure Active Directory B2C using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can create a page contract in Azure Active Directory (Azure AD) B2C using [custom policies](active-directory-b2c-overview-custom.md). A page contract is an assocation of elements that Azure AD B2C provides and the content that you provide. If you intend to use [Javascript](javascript-samples.md), you need to define a page contract version for all of your content definitions in your custom policy.
+You can select a page contract in Azure Active Directory (Azure AD) B2C by configuring it in a [custom policies](active-directory-b2c-overview-custom.md). A page contract is an assocation of elements that Azure AD B2C provides and the content that you provide. If you intend to use [Javascript](javascript-samples.md), you need to define a page contract version for all of your content definitions in your custom policy.
 
 ## Replace DataUri values
 
@@ -35,7 +35,7 @@ In your custom policies, you may have [ContentDefinitions](contentdefinitions.md
 </ContentDefinition>
 ```
 
-To create a page contract, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page. 
+To select a page contract, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page. 
 
 To set up a page contract, use the following table to find **DataUri** values. 
 
