@@ -56,7 +56,7 @@
 - name: Samples
   items:
   - name: Azure PowerShell
-    href: azure-monitor/platform/powershell-samples.md
+    href: platform/powershell-samples.md
 - name: Concepts
   items:
   - name: Azure management
@@ -436,7 +436,7 @@
     - name: System Center
       items:
       - name: Configuration Manager
-        href: azure-monitor/platform/collect-sccm.md
+        href: platform/collect-sccm.md
       - name: Application Performance Monitoring using SCOM
         href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
     - name: Route data
