@@ -3,7 +3,7 @@ title: Azure Security Center and Azure Virtual Machines with Linux | Microsoft D
 description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 

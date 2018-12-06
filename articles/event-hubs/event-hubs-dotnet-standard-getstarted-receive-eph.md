@@ -1,6 +1,6 @@
 ---
-title: Receive events from Azure Event Hubs using .NET Standard library | Microsoft Docs
-description: Get started receiving messages with the EventProcessorHost in .NET Standard
+title: Receive events from Azure Event Hubs using .NET Core library | Microsoft Docs
+description: Get started receiving messages with the EventProcessorHost in .NET Core
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -18,7 +18,7 @@ ms.author: shvija
 
 ---
 
-# Get started receiving messages with the Event Processor Host in .NET Standard
+# Get started receiving messages with the Event Processor Host in .NET Core
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT). For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This tutorial shows how to write a .NET Core console application that receives messages from an event hub using the [Event Processor Host](event-hubs-event-processor-host.md). The [Event Processor Host](event-hubs-event-processor-host.md) is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the Event Processor Host, you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the Event Processor Host for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the Event Processor Host with multiple receivers.
@@ -203,7 +203,7 @@ Congratulations! You have now received messages from an event hub by using the E
 > This tutorial uses a single instance of [EventProcessorHost](event-hubs-event-processor-host.md). To increase throughput, we recommend that you run multiple instances of [EventProcessorHost](event-hubs-event-processor-host.md), as shown in the [Scaled out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample. In those cases, the multiple instances automatically coordinate with each other to load balance the received events. 
 
 ## Next steps
-In this quickstart, you created .NET Standard application that received messages from an event hub. To learn how to send events to an event hub using .NET Standard, see [Send events from event hub - .NET Standard](event-hubs-dotnet-standard-getstarted-send.md).
+In this quickstart, you created .NET Core application that received messages from an event hub. To learn how to send events to an event hub using .NET Core, see [Send events from event hub - .NET Core](event-hubs-dotnet-standard-getstarted-send.md).
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

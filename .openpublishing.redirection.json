@@ -11606,6 +11606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
             "redirect_document_id": false
@@ -31639,6 +31644,96 @@
         {
             "source_path":  "articles/log-analytics/log-analytics-om-agents.md",
             "redirect_url":  "/azure/azure-monitor/platform/om-agents",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-windows-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-windows-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-cli.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-posh.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-posh",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-service-providers.md",
+            "redirect_url":  "/azure/azure-monitor/platform/service-providers",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-standard-properties.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-standard-properties",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-template-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/template-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-response.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-response",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-viewdata.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-viewdata",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-access.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-access",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-cost-storage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-del-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/platform/delete-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-portal-faq.md",
+            "redirect_url":  "/azure/azure-monitor/platform/oms-portal-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-portal-transition.md",
+            "redirect_url":  "/azure/azure-monitor/platform/oms-portal-transition",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-personal-data-mgmt.md",
+            "redirect_url":  "/azure/azure-monitor/platform/personal-data-mgmt",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-powerbi.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powerbi",
             "redirect_document_id":  true
         },
         {
