@@ -80,8 +80,8 @@ You can also pop out the telemetry panel to get a better vertical view of the el
 
 > [!NOTE]
 > If you see the following message, the instance does not have any data during the time span selected. To resolve the issue, you can increase the time span or confirm that the instance is pushing data.
-
-  ![explorer-seven][7]
+>
+> ![explorer-seven][7]
 
 ## Time Series Insights (preview) chart
 
