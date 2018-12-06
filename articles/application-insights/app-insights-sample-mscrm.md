@@ -26,7 +26,7 @@ This article shows you how to get telemetry data from [Microsoft Dynamics CRM On
 To monitor your application, you add an Application Insights SDK to your application. The SDK sends telemetry to the [Application Insights portal](https://portal.azure.com), where you can use our powerful analysis and diagnostic tools, or export the data to storage.
 
 ### Create an Application Insights resource in Azure
-1. Get [an account in Microsoft Azure](http://azure.com/pricing). 
+1. Get [an account in Microsoft Azure](https://azure.com/pricing). 
 2. Sign into the [Azure portal](https://portal.azure.com) and add a new Application Insights resource. This is where your data will be processed and displayed.
 
     ![Click +, Developer Services, Application Insights.](./media/app-insights-sample-mscrm/01.png)
