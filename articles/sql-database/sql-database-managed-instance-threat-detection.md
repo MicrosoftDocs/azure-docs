@@ -15,9 +15,9 @@ ms.date: 12/06/2018
 ---
 # Azure SQL Database Managed Instance Threat Detection (Preview)
 
-Azure SQL [Threat Detection](sql-database-threat-detection-overview.md) for [SQL Database Managed Instance](sql-database-managed-instance-index.yml) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat Detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [Threat Detection alerts](sql-database-threat-detection.md#azure-sql-database-threat-detection-alerts).
+Azure SQL [Threat Detection](sql-database-threat-detection-overview.md) for [SQL Database Managed Instance](sql-database-managed-instance-index.yml) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat Detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [Threat Detection alerts](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-Azure-portal)
+You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-Azure-portal)
 
 [Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal. Threat detection service is charged 15$/month per Managed Instance, with first 30 days free of charge.
 
@@ -34,6 +34,7 @@ You can receive notifications about the detected threats via [email notification
 
 ## Next steps
 
+- Learn more about [Threat Detection](sql-database-threat-detection-overview.md). 
 - Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md)
 - Learn more about [Managed Instance Auditing](https://go.microsoft.com/fwlink/?linkid=869430) 
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

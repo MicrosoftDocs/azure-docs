@@ -229,15 +229,13 @@
     - name: Advanced Threat Protection
       items:
       - name: Advanced Threat Protection
-        href: sql-advanced-threat-protection-overview.md
+        href: sql-advanced-threat-protection.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
-      - name: Threat detection - SQL Database
-        href: sql-database-threat-detection.md
-      - name: Threat detection - Managed Instance
-        href: sql-database-managed-instance-threat-detection.md
+      - name: Threat detection
+        href: sql-database-threat-detection-overview.md
     - name: Firewall rules
       items:
       - name: Create and manage
