@@ -38,7 +38,7 @@ To complete this quickstart, make sure you have the following:
 ## Create code to query your SQL database 
 
 >[!IMPORTANT]
->The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database uses other data, use the table names from your own database in the SELECT query. 
+>The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use the table names from your own database in the SELECT query. 
 
 1. In a text editor, create a new file named *sqltest.py*.  
 
