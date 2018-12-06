@@ -60,9 +60,9 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and scale Linux VMs on Azure.
+    text: Learn how to use Key Vault in various scenarios
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Get Started with Key Vault from a Web Application</a>
     - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">How to use Azure Key Vault with Azure Linux Virtual Machine</a></li>
