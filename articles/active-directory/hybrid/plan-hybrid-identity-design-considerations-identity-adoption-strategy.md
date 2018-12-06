@@ -86,7 +86,7 @@ You must also be aware of what capabilities will not be available:
 * Transition of Office to passive authentication allows them to support pure SAML 2.0 IdPs, but support will still be on a client-by-client basis
 
 > [!NOTE]
-> For the most updated list read the article https://aka.ms/ssoproviders.
+> For the most updated list read the article [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md).
 > 
 > 
 

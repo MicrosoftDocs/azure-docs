@@ -38,8 +38,8 @@ Before starting, review the following requirements.
 
 * Log Analytics only supports System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json).
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users).  
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Log Analytics for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
