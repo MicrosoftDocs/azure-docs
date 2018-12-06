@@ -27,7 +27,7 @@ such as Azure Storage and Azure Event Hubs.
 
 > [!NOTE]
 > This page might still have references to Microsoft Operations Management Suite (OMS), 
-> which is [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> which is [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > but replaces those steps with Azure Log Analytics where possible. 
 
 ## Prerequisites
@@ -156,7 +156,7 @@ diagnostic data with other Azure services, for example:
 You can then get real-time monitoring by using telemetry 
 and analytics from other services, like 
 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
