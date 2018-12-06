@@ -1,21 +1,20 @@
 ---
-title: Output error policies in Azure Stream Analytics
+title: Output error policies in Azure Stream Analytics | Microsoft Docs
 description: Learn about the output error handling policies available in Azure Stream Analytics.
 services: stream-analytics
-author: sidram
-ms.author: sidram
-manager: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 12/04/2018
 ---
-# Output error policy
+# Azure Stream Analytics output error policy
 This article describes the output data error handling policies that can be configured in Azure Stream Analytics.
 
 Output data error handling policies apply only to data conversion errors that occur when the output event produced by a Stream Analytics job does not conform to the schema of the target sink. You can configure this policy by choosing either **Retry** or **Drop**. In the Azure portal, while in a Stream Analytics job, under **Configure**, select **Error Policy** to make your selection.
 
-![Error Policy - location](./media/stream-analytics-error-policy/stream-analytics-error-policy-locate.PNG)
+![Azure Stream Analytics output error policy location](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
 
 ## Retry
