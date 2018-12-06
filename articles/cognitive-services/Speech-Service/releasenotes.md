@@ -15,6 +15,10 @@ ms.author: wolfma
 
 # Release notes
 
+## Speech Service SDK 1.2.0
+
+* TODO
+
 ## Speech Service SDK 1.1.0
 
 **New Features**
