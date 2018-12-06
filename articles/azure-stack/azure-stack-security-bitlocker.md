@@ -14,7 +14,7 @@ keywords:
 
 # Data at rest encryption in Azure Stack
 
-Azure Stack protects user and infrastructure data at the storage subsystem level using encryption at rest. Azure Stack's storage subsystem is encrypted using BitLocker with 128 bit AES encryption. BitLocker keys are persisted in an internal secret store. The store itself is encrypted and the keys are stored in a hardware Trusted Platform Modules (TPM) 2.0.
+Azure Stack protects user and infrastructure data at the storage subsystem level using encryption at rest. Azure Stack's storage subsystem is encrypted using BitLocker with 128-bit AES encryption. BitLocker keys are persisted in an internal secret store. The store itself is encrypted and the keys are stored in a hardware Trusted Platform Modules (TPM) 2.0.
 
 Beginning with the 1811 release, Azure Stack extends the protection of data at rest encryption to protect infrastructure data stored on local disks of each scale-unit node. For example, if someone gains physical access to one or more hard drives, the data on the hard drives is protected by BitLocker encryption. Data at rest encryption is a common requirement for many of the major compliance standards (for example, PCI-DSS, FedRAMP, HIPAA). Azure Stack enables you to meet those requirements with no extra work or configurations required. For more information on how Azure Stack helps you meet compliance standards, see the [Microsoft Service Trust Portal](https://aka.ms/AzureStackCompliance).
 
