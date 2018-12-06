@@ -1,5 +1,6 @@
 ---
-title: What is Automated Machine Learning - Azure Machine Learning service
+title: What is Automated Machine Learning
+titleSuffix: Azure Machine Learning service
 description: Learn about how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
