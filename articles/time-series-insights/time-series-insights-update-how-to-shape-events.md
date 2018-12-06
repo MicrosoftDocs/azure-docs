@@ -1,6 +1,6 @@
 ---
-title: How to shape events with Azure Time Series Insights (preview) | Microsoft Docs
-description: Understanding how to shape events with Azure Time Series Insights (preview) 
+title: Shape events with Azure Time Series Insights (preview) | Microsoft Docs
+description: Understand how to shape events with Azure Time Series Insights (preview) 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Shaping events with Azure Time Series Insights (Preview)
+# Shape events with Azure Time Series Insights (preview)
 
-This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (TSI) preview queries.
+This article helps you shape your JSON file to maximize the efficiency of your Azure Time Series Insights (preview) queries.
 
 ## Best practices
 
-It's important to think about how you send events to Azure TSI. Namely, you should always:
+It's important to think about how you send events to Time Series Insights (preview). Namely, you should always:
 
-1. Send data over the network as efficiently as possible.
-1. Ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
+* Send data over the network as efficiently as possible.
+* Store your data in a way that helps you aggregate it more suitably for your scenario.
 
-The following guidance helps ensure the best possible query performance:
+For the best possible query performance, do the following:
 
-1. Don't send unnecessary properties. TSI (Preview) will bill you on your usage and it's a best practice to store and process data that you will query.
-1. Use instance fields for static data to avoid sending static data over the network. Instance fields, a component of the time series model, work like reference data in the generally available TSI service. To learn more about instance field, read [Time Series Models](./time-series-insights-update-tsm.md).
-1. Share dimension properties among multiple events, to send data over the network more efficiently.
-1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
-1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.
+* Don't send unnecessary properties. Time Series Insights (preview) bills you on your usage. It's best to store and process the data that you'll query.
+* Use instance fields for static data. This practice helps you to avoid sending static data over the network. Instance fields, a component of the time series model, work like reference data in the generally available Time Series Insights (preview) service. To learn more about instance fields, see [Time Series Models](./time-series-insights-update-tsm.md).
+* Share dimension properties among two or more events. This practice helps you send data over the network more efficiently.
+* Don't use deep array nesting. Time Series Insights (preview) supports up to two levels of nested arrays containing objects. Time Series Insights (preview) flattens arrays in messages into multiple events with property value pairs.
+* If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and, because fewer events need to be processed, the practice might make queries more performant.
 
 ## Example
 
-The example is based on a scenario where multiple devices send measurements or signals. Measurements or signals could be **Flow Rate**, **Engine Oil Pressure**, **Temperature**, and **Humidity**.
+The following example is based on a scenario where two or more devices send measurements or signals. The measurements or signals could be *Flow Rate*, *Engine Oil Pressure*, *Temperature*, and *Humidity*.
 
-In the following example, there is a single IoT Hub message, where the outer array contains a shared section of common dimension values. The outer array uses Time Series Instance data to increase the efficiency of the message. Time Series Instance contains device metadata, that does not change with every event, but provides useful properties for data analysis. Both batching common dimension values, and employing Time Series Instance metadata, saves on bytes sent over the wire, thus making the message more efficient.
+In the following example, there's a single IoT Hub message, where the outer array contains a shared section of common dimension values. The outer array uses Time Series Instance data to increase the efficiency of the message. Time Series Instance contains device metadata, which doesn't change with every event, but it does provide useful properties for data analysis. To save on bytes sent over the wire and make the message more efficient, consider batching common dimension values and employing Time Series Instance metadata.
 
-Example JSON payload:
+### Example JSON payload
 
 ```JSON
 [
@@ -67,7 +67,9 @@ Example JSON payload:
 ]
 ```
 
-Time Series Instance (Note: the **Time Series ID** is *deviceId*):
+### Time Series Instance 
+> [!NOTE]
+> The Time Series ID is *deviceId*.
 
 ```JSON
 {
@@ -100,7 +102,7 @@ Time Series Instance (Note: the **Time Series ID** is *deviceId*):
   },
 ```
 
-TSI joined table (after flattening) during query time. The table will include additional columns such as Type. This example demonstrates how you can [shape](./time-series-insights-send-events.md#json) your telemetry data:
+Time Series Insights (preview) joins a table (after flattening) during query time. The table includes additional columns, such as **Type**. The following example demonstrates how you can [shape](./time-series-insights-send-events.md#json) your telemetry data:
 
 | deviceId	| Type | L1 | L2 | timestamp | series.Flow Rate ft3/s |	series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -108,19 +110,19 @@ TSI joined table (after flattening) during query time. The table will include ad
 | `FXXX` | LINE_DATA	REVOLT | SIMULATOR |	Battery System |	2018-01-17T01:17:00Z | 2.445906400680542 |	49.2 |
 | `FYYY` | LINE_DATA	COMMON | SIMULATOR |	Battery System |	2018-01-17T01:18:00Z | 0.58015072345733643 |	22.2 |
 
-Note the following in the previous example:
+In the preceding example, note the following points:
 
-* Static properties are stored as TSI to optimize data sent over the network.
-* TSI Data is joined at query time by using the *timeSeriesId* defined in the Instance.
-* Two layers of nesting are used, which is the maximum amount of nesting supported by TSI. It's critical to avoid deeply nested arrays.
-* Measures are sent as separate properties within same object, since there are few measures. Here, **series.Flow Rate psi**, series **Engine Oil Pressure**, and **ft3/s** are unique columns.
+* Static properties are stored in Time Series Insights (preview) to optimize data sent over the network.
+* Time Series Insights (preview) data is joined at query time by using the *timeSeriesId* that's defined in the instance.
+* Two layers of nesting are used, which is the most that's supported by Time Series Insights (preview). It's critical to avoid deeply nested arrays.
+* Because there are few measures, they're sent as separate properties within the same object. In the example, **series.Flow Rate psi**, **series.Engine Oil Pressure psi**, and **series.Flow Rate ft3/s** are unique columns.
 
 >[!IMPORTANT]
-> Instance fields are not stored with telemetry, they are stored with metadata in the **TIme Series Model**.
-> The table above represents the query view.
+> Instance fields are not stored with telemetry. They are stored with metadata in the **Time Series Model**.
+> The preceding table represents the query view.
 
 ## Next steps
 
-To put these guidelines into practice, see [Azure TSI query syntax](./time-series-insights-query-data-csharp.md) to learn more about the query syntax for the TSI data access REST API.
+To put these guidelines into practice, see [Azure Time Series Insights (preview) query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights (preview) data access REST API.
 
-Learn about supported JSON shapes by reading [Supported JSON Shapes](./time-series-insights-send-events.md#json).
+To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#json).
