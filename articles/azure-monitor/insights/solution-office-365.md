@@ -26,7 +26,7 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log searches](../../log-analytics/log-analytics-queries.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log searches](../../azure-monitor/log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
@@ -37,7 +37,7 @@ The following is required prior to this solution being installed and configured.
  
 
 ## Management packs
-This solution does not install any management packs in [connected management groups](../../log-analytics/log-analytics-om-agents.md).
+This solution does not install any management packs in [connected management groups](../../azure-monitor/platform/om-agents.md).
   
 ## Install and configure
 Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
@@ -705,6 +705,6 @@ The following table provides sample log searches for update records collected by
 
 
 ## Next steps
-* Use Log Searches in [Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed update data.
+* Use Log Searches in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../../azure-monitor/platform/dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to be proactively notified of important Office 365 activities.  

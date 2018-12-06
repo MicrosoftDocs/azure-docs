@@ -32,7 +32,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 ## Trust the Azure Stack CA root certificate
 
-1. Get the Azure Stack CA root certificate from [your Azure Stack operator](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) and trust it. To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
+1. Get the Azure Stack CA root certificate from [your Azure Stack operator](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) and trust it. To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
 
 1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
 
@@ -264,6 +264,6 @@ There are some known issues that you must be aware of when using CLI in Azure St
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Enable Azure CLI for Azure Stack users (Operator)](..\azure-stack-cli-admin.md)
+[Enable Azure CLI for Azure Stack users (Operator)](../azure-stack-cli-admin.md)
 
 [Manage user permissions](azure-stack-manage-permissions.md)

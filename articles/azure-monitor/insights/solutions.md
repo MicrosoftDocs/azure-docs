@@ -73,7 +73,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 
 ## Log Analytics workspace and Automation account
-All management solutions require a [Log Analytics workspace](../../log-analytics/log-analytics-manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
+All management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
@@ -100,5 +100,5 @@ To remove an installed solution, locate it in the [list of installed solutions](
 
 ## Next steps
 * Get a [list of management solutions from Microsoft](solutions-inventory.md).
-* Learn how to [create queries](../../log-analytics/log-analytics-queries.md) to analyze data collected by management solutions.
+* Learn how to [create queries](../../azure-monitor/log-query/log-query-overview.md) to analyze data collected by management solutions.
 

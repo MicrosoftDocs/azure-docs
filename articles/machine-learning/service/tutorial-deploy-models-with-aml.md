@@ -1,10 +1,11 @@
 ---
-title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) with Azure Machine Learning service"
+title: "Tutorial: Deploy an image classification model with Azure Machine Learning service"
 description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+ms.custom: seodec18
 
 author: hning86
 ms.author: haining
@@ -19,7 +20,7 @@ This tutorial is **part two of a two-part tutorial series**. In the [previous tu
 
 Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
-In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
+In this part of the tutorial, you use Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Set up your testing environment
@@ -32,10 +33,12 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-02). Run the `02.deploy-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.2
 
 ## Prerequisites
 

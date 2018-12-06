@@ -22,7 +22,7 @@ ms.component:
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> With the support of [cross-resource queries](../../log-analytics/log-analytics-cross-workspace-search.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](../../log-analytics/log-analytics-oms-portal-transition.md).
+> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
 The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
@@ -41,7 +41,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 | --- | --- | --- |
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
-| [SCOM management group](../../log-analytics/log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
+| [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collection information from Azure storage. |
 
 ## Prerequisites
@@ -262,4 +262,4 @@ This solution does not have a set of sample log searches shown on the dashboard.
 
 ## Next steps
 
-- Use [Log Search](../../log-analytics/log-analytics-queries.md) to view detailed information for your Application Insights apps.
+- Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information for your Application Insights apps.

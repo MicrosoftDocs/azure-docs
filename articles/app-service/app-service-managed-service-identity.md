@@ -207,7 +207,10 @@ For example, a web app might look like the following:
     "name": "[variables('appName')]",
     "location": "[resourceGroup().location]",
     "identity": {
-        "type": "UserAssigned"
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
+        }
     },
     "properties": {
         "name": "[variables('appName')]",
@@ -217,7 +220,8 @@ For example, a web app might look like the following:
         "alwaysOn": true
     },
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
     ]
 }
 ```
@@ -251,9 +255,9 @@ There is a simple REST protocol for obtaining a token in App Service and Azure F
 
 For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
 
-1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet packages to your application.
+1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and any other necessary NuGet packages to your application. The below example also uses [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Add the following code to your application:
+2.  Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -278,7 +282,7 @@ The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To g
 > [!div class="mx-tdBreakAll"]
 > |Parameter name|In|Description|
 > |-----|-----|-----|
-> |resource|Query|The AAD resource URI of the resource for which a token should be obtained.|
+> |resource|Query|The AAD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.|
 > |api-version|Query|The version of the token API to be used. "2017-09-01" is currently the only version supported.|
 > |secret|Header|The value of the MSI_SECRET environment variable.|
 > |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
@@ -292,7 +296,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |access_token|The requested access token. The calling web service can use this token to authenticate to the receiving web service.|
 > |expires_on|The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens.|
 > |resource|The App ID URI of the receiving web service.|
-> |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

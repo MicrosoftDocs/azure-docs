@@ -17,7 +17,7 @@ ms.component: B2C
 
 ## Create an Amazon application
 
-To use an Amazon account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Amazon account you can get it at [http://www.amazon.com/](http://www.amazon.com/).
+To use an Amazon account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Amazon account you can get it at [https://www.amazon.com/](https://www.amazon.com/).
 
 1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
 2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
