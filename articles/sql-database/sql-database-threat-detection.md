@@ -37,7 +37,8 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 ## Next steps
 
-* Learn more about [Threat Detection](sql-database-threat-detection-overview.md). 
+* Learn more about [Threat Detection](sql-database-threat-detection-overview.md).
+* Learn more about [Threat Detection in Managed Instance](sql-database-managed-instance-threat-detection.md).  
 * Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

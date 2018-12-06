@@ -35,6 +35,7 @@ You can receive notifications about the detected threats via [email notification
 ## Next steps
 
 - Learn more about [Threat Detection](sql-database-threat-detection-overview.md). 
-- Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md)
-- Learn more about [Managed Instance Auditing](https://go.microsoft.com/fwlink/?linkid=869430) 
-- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md). 
+- Learn more about [Threat Detection for Single Database](sql-database-threat-detection.md). 
+- Learn more about [Managed Instance Auditing](https://go.microsoft.com/fwlink/?linkid=869430). 
+- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).

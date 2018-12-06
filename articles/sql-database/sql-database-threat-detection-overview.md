@@ -70,6 +70,8 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
+* Learn more about [Threat Detection in Single Database](sql-database-threat-detection.md). 
+* Learn more about [Threat Detection in Managed Instance](sql-database-managed-intance-threat-detection.md). 
 * Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
