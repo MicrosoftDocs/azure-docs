@@ -19,7 +19,7 @@ This article describes features and options available in the Azure Time Series I
 
 Before you use the Azure Time Series Insights (preview) explorer, you must:
 
-* Have a Time Series Insights environment set up. Learn more about setting up a Time Series Insights environment here.
+* Have a Time Series Insights environment set up. For more information, see [Tutorial: Azure Time Series Insights (preview)](./time-series-insights-update-create-environment.md).
 * Provide data access to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment.
 
