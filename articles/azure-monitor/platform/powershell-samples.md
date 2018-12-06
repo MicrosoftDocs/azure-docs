@@ -24,6 +24,6 @@ The following table includes links to PowerShell scripts samples to perform vari
 | | |
 |---|---|
 |**Create workspace**||
-| [Create a Log Analytics workspace](../scripts/log-analytics-powershell-sample-create-workspace.md) | Creates a workspace in Log Analytics.|
+| [Create a Log Analytics workspace](../scripts/powershell-sample-create-workspace.md) | Creates a workspace in Log Analytics.|
 | | |
 
