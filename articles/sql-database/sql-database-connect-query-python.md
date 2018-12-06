@@ -27,15 +27,18 @@ To complete this quickstart, make sure you have the following:
 
 - Python, the Python Driver for SQL Server, and other required apps for your operating system:
 
-    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. At [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
-    - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. At [Create Python apps using SQL Server on Linux](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
-    - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. At [Create Python apps using SQL Server on Windows](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
+    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
+    - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
+    - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Windows](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
 
 ## Get SQL server connection information
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## Create code to query your SQL database 
+
+>[!IMPORTANT]
+>The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database uses other data, use the table names from your own database in the SELECT query. 
 
 1. In a text editor, create a new file named *sqltest.py*.  
 
@@ -65,9 +68,7 @@ while row:
    python sqltest.py
    ```
 
-1. Verify that the top 20 Category/Product rows are returned from the query. 
-
-1. Close the app window.
+1. Verify that the top 20 Category/Product rows are returned from the query, then close the command window.
 
 ## Next steps
 
