@@ -11,11 +11,11 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ---
 # Quickstart: Use Python to query an Azure SQL database
 
- This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database and use Transact-SQL statements to query data. For further sdk details, checkout our [reference](https://docs.microsoft.com/python/api/overview/azure/sql) documentation, a pyodbc [sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), and the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub repository.
+ This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database and use Transact-SQL statements to query data. For further SDK details, check out our [reference](https://docs.microsoft.com/python/api/overview/azure/sql) documentation, the [pyodbc GitHub repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## Prerequisites
 
@@ -25,28 +25,28 @@ To complete this quickstart, make sure you have the following:
 
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
 
-- You have installed Python and related software for your operating system:
+- Python, the Python Driver for SQL Server, and other required apps for your operating system:
 
-    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
-    - **Ubuntu**:  Install Python and other required packages, and then install the Python Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
-    - **Windows**: Install the newest version of Python (environment variable is now configured for you), install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
+    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. At [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
+    - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. At [Create Python apps using SQL Server on Linux](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
+    - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. At [Create Python apps using SQL Server on Windows](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
 
-## SQL server connection information
+## Get SQL server connection information
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
-## Insert code to query SQL database 
+## Create code to query your SQL database 
 
-1. In your favorite text editor, create a new file, **sqltest.py**.  
+1. In a text editor, create a new file named *sqltest.py*.  
 
-2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
+2. Add the following code, using the values for your \<server>, \<database>, \<username>, and \<password>.
 
 ```Python
 import pyodbc
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
+server = '<server>.database.windows.net'
+database = '<database>'
+username = '<username>'
+password = '<password>'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -59,13 +59,15 @@ while row:
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At a command prompt, run the following command:
 
    ```Python
    python sqltest.py
    ```
 
-2. Verify that the top 20 rows are returned and then close the application window.
+1. Verify that the top 20 Category/Product rows are returned from the query. 
+
+1. Close the app window.
 
 ## Next steps
 
