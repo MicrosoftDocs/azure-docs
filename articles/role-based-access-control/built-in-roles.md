@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -94,7 +94,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
-| [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them. |
+| [Azure Cache for Redis Contributor](#redis-cache-contributor) | Lets you manage Azure Cache for Rediss, but not access to them. |
 | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. |
 | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. |
@@ -110,6 +110,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
 | [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
+| [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for read, write, delete, and POSIX superuser access to Azure Storage blob containers and data |
 | [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
 | [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
 | [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
@@ -1280,15 +1281,15 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 
-## Redis Cache Contributor
+## Azure Cache for Redis Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage Redis caches, but not access to them. |
+> | **Description** | Lets you manage Azure Cache for Rediss, but not access to them. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role Assignments |
-> | Microsoft.Cache/redis/* | Create and manage Redis caches |
+> | Microsoft.Cache/redis/* | Create and manage Azure Cache for Rediss |
 > | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
@@ -1683,6 +1684,21 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Allows for read, write and delete access to Azure Storage blob containers and data |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put or lease blob container |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+
+## Storage Blob Data Owner (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read, write, delete, and POSIX superuser access to Azure Storage blob containers and data |
+> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
