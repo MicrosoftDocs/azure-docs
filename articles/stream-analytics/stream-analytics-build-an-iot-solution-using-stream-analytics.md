@@ -1,14 +1,14 @@
 ---
-title: Build an IoT solution by using Azure Stream Analytics
+title: Build an IoT solution by using Azure Stream Analytics | Microsoft Docs
 description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Build an IoT solution by using Stream Analytics
@@ -31,7 +31,8 @@ You need the following prerequisites to complete this solution:
 ## Scenario introduction: "Hello, Toll!"
 A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
-![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth
+.jpg)
 
 ## Incoming data
 This solution works with two streams of data. Sensors installed in the entrance and exit of the toll stations produce the first stream. The second stream is a static lookup dataset that has vehicle registration data.
@@ -305,7 +306,7 @@ To scale up the streaming job to more streaming units:
 ## Monitor the job
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
 
-![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Azure Stream Analytics job monitoring](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 You can access **Activity Logs** from the job dashboard **Settings** area as well.
 
