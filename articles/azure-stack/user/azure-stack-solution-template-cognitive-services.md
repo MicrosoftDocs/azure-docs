@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/08/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 
@@ -168,7 +168,7 @@ You can get the external IP address from the following command:
     Kubectl get svc <LoadBalancerName>
 ```
 
-## Try the services with Python scripts
+## Try the services with Python
 
 You can try to validate the Cognitive services on your Azure Stack by running some simple Python scripts. There are official Python quickstart samples for [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS) for your reference.
 
@@ -203,6 +203,6 @@ print(faces)
 
 [How to install and run Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#create-a-face-resource-on-azure)
 
-[How to install and run Text Analytics API containers](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) 
+[How to install and run Text Analytics API containers](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
 [How to install and run Language Understanding (LIUS) containers](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-container-howto)
