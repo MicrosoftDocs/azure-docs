@@ -1,5 +1,6 @@
 ---
 title: Automate Azure Analysis Services tasks with service principals  | Microsoft Docs
+description: Learn how to create service principles for automating Azure Analysis Services tasks.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services

@@ -30,7 +30,7 @@ To get all the latest features, and the smoothest experience when connecting to 
 
 
 ### To connect with SSMS
- When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators](#server-administrators) later in this article.
+ When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators and database users](#server-administrators-and-database-users) later in this article.
 
 1. Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    

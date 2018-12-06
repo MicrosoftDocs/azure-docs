@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Configure Azure Analysis Services server administrator and user roles tutorial lesson | Microsoft Docs
+title: Tutorial - Configure Azure Analysis Services administrator and user roles | Microsoft Docs
+description: Learn how to configure Azure Analysis Services roles.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
