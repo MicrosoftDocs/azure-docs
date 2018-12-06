@@ -72,7 +72,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in [Push events](#push-events).
 
 
-    ![Paste the primary key connection string in the Event Hub Connection String box][6]
+  ![Paste the primary key connection string in the Event Hub Connection String box][6]
 
 1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
 
