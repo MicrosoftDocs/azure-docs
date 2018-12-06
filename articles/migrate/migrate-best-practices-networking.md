@@ -106,9 +106,6 @@ Azure adds a DNS server by default when you deploy a VNet. This allows you to ra
 - DNS forwarding also enables DNS resolution between VNets, and allows on-premises machines to resolve host names provided by Azure.
     - To resolve a VM host name, the DNS server VM must reside in the same VNet, and be configured to forward host name queries to Azure.
     - Because the DNS suffix is different in each VNet, you can use conditional forwarding rules to send DNS queries to the correct VNet for resolution.
-
-    ![DNS forwarding](./media/migrate-best-practices-networking/dns1.png)
-    *DNS forwarding*
 - When you use your own DNS servers, you can specify multiple DNS servers for each VNet. You can also specify multiple DNS servers per network interface (for Azure Resource Manager), or per cloud service (for the classic deployment model).
 - DNS servers specified for a network interface or cloud service take precedence over DNS servers specified for the VNet.
 - In the Azure Resource Manager deployment model, you can specify DNS servers for a VNet and a network interface, but the best practice is to use the setting only on VNets.
@@ -135,7 +132,7 @@ Availability zones increase high-availability to protect your apps and data from
     *Availability zone*
 
 - You can plan and build high-availability into your migration architecture by colocating compute, storage, networking, and data resources within a zone, and replicating them in other zones. Azure services that support availability zones fall into two categories:
-    - Zonal services: You associate a resource with a specific zone. For example VMs, managed disks, IP addresses) y
+    - Zonal services: You associate a resource with a specific zone. For example VMs, managed disks, IP addresses).
     - Zone-redundant services: The resource replicates automatically across zones. For example, zone-redundant storage, Azure SQL Database.
 - You can deploy a standard Azure load balanced with internet-facing workloads or app tiers, to provide zonal fault tolerance.
 
