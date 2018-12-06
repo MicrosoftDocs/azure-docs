@@ -589,6 +589,8 @@
           href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Connect to Azure Databricks
       href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+    - name: Connect to Azure SQL Data Warehouse 
+      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-sql-data-warehouse-polybase 
   - name: Reference
     items:
     - name: REST
