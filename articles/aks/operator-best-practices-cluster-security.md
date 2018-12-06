@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/06/2018
 ms.author: iainfou
 ---
 
@@ -28,15 +28,15 @@ You can also read the best practices for [container image management][best-pract
 
 **Best practice guidance** - Use Azure Active Directory integration and Kubernetes role-based access control (RBAC) to control access to the API server.
 
-The Kubernetes API server provides a single connection point for requests to perform actions within a cluster. To secure and audit access to the API server, you should limit access and provide the least privileged access permissions required. This approach isn't unique to Kubernetes, but is especially important when the AKS cluster is logically isolated for multi-tenant use.
+The Kubernetes API server provides a single connection point for requests to perform actions within a cluster. To secure and audit access to the API server, limit access and provide the least privileged access permissions required. This approach isn't unique to Kubernetes, but is especially important when the AKS cluster is logically isolated for multi-tenant use.
 
-Azure Active Directory (AD) provides an enterprise-ready identity management solution that can integrate with AKS clusters. As Kubernetes doesn't provide an identity management solution, it can otherwise be hard to provide a granular way to restrict access to the API server. With Azure AD-integrated clusters in AKS, you can use your existing user and group accounts to authenticate users to the API server.
+Azure Active Directory (AD) provides an enterprise-ready identity management solution that integrates with AKS clusters. As Kubernetes doesn't provide an identity management solution, it can otherwise be hard to provide a granular way to restrict access to the API server. With Azure AD-integrated clusters in AKS, you use your existing user and group accounts to authenticate users to the API server.
 
 ![Azure Active Directory integration for AKS clusters](media/operator-best-practices-cluster-security/aad-integration.png)
 
-Kubernetes role-based access controls (RBAC) should also be used to secure access to the API server. Kubernetes RBAC and Azure AD-integration can work together to provide the least amount of permissions required to a scoped set of resources, such as a single namespace. Different users or groups in Azure AD can be granted different RBAC roles. These granular permissions let you restrict access to the API server, and provide a clear audit trail of actions performed.
+Kubernetes role-based access controls (RBAC) should also be used to secure access to the API server. Kubernetes RBAC and Azure AD-integration can work together to provide the least amount of permissions required. These permissions can be scoped to a set of resources, such as a single namespace. Different users or groups in Azure AD can be granted different RBAC roles. These granular permissions let you restrict access to the API server, and provide a clear audit trail of actions performed.
 
-Use Azure AD *group* membership to bind users to RBAC roles rather than individual *users*. As a user's group membership changes, their access permissions on the AKS cluster would change accordingly. If you bind the user directly to a role, their job function may change and Azure AD group membership update, but permissions on the AKS cluster would not reflect that. This scenario grants more permissions than a user requires.
+Use Azure AD *group* membership to bind users to RBAC roles rather than individual *users*. As a user's group membership changes, their access permissions on the AKS cluster would also change. If you bind the user directly to a role, their job function may change and Azure AD group membership updated. Permissions on the AKS cluster wouldn't reflect that change. This scenario grants more permissions than a user requires.
 
 For more information about Azure AD integration and RBAC, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
 
@@ -73,7 +73,7 @@ AppArmor profiles are added using the `apparmor_parser` command. Add the profile
 sudo apparmor_parser deny-write.profile
 ```
 
-There is no output returned if the profile is correctly parsed and applied to AppArmor. You are returned to the command prompt.
+There's no output returned if the profile is correctly parsed and applied to AppArmor. You're returned to the command prompt.
 
 From your local machine, now create a pod manifest named *aks-apparmor.yaml* and paste the following content. This manifest defines an annotation for `container.apparmor.security.beta.kubernetes` add references the *deny-write* profile created in the previous steps:
 
@@ -97,7 +97,7 @@ Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
 kubectl apply -f aks-apparmor.yaml
 ```
 
-With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command cannot be executed, as shown in the following example output:
+With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command can't be executed, as shown in the following example output:
 
 ```
 $ kubectl exec hello-apparmor touch /tmp/test
@@ -110,7 +110,7 @@ For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-a
 
 ### Secure computing
 
-While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)][seccomp] works at the process level. Seccomp is also a Linux kernel security module, and is natively supported by the Docker runtime used by AKS nodes. With seccomp, the process calls that containers can perform are limited. You create filters that define what actions are allowed or denied, and then use annotations within a pod YAML manifest to associate with the seccomp filter.
+While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)][seccomp] works at the process level. Seccomp is also a Linux kernel security module, and is natively supported by the Docker runtime used by AKS nodes. With seccomp, the process calls that containers can perform are limited. You create filters that define what actions to allow or deny, and then use annotations within a pod YAML manifest to associate with the seccomp filter.
 
 To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod* and paste the following content:
 
@@ -168,7 +168,7 @@ For more information about available filters, see [Seccomp security profiles for
 
 **Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade to the Kubernetes version in your AKS cluster.
 
-Kubernetes release new features at a quicker pace than more traditional infrastructure platforms. Kubernetes updates include new features, and bug or security fixes. New features typically move through an *alpha* and then *beta* status before they are generally available and recommended for production use. This release cycle should allow you to update Kubernetes without regularly encountering breaking changes or adjusting your deployments and templates.
+Kubernetes release new features at a quicker pace than more traditional infrastructure platforms. Kubernetes updates include new features, and bug or security fixes. New features typically move through an *alpha* and then *beta* status before they're generally available and recommended for production use. This release cycle should allow you to update Kubernetes without regularly encountering breaking changes or adjusting your deployments and templates.
 
 In AKS, a defined support policy for Kubernetes version encourages you to regularly update your cluster. You can check for which versions are available for your cluster using the [az aks get-upgrades][az-aks-get-upgrades] command, as shown in the following example:
 
@@ -186,15 +186,15 @@ For more information about upgrades in AKS, see [Supported Kubernetes versions i
 
 ## Process node updates and reboots using kured
 
-**Best practice guidance** - AKS nodes automatically download and install OS updates and security fixes, but don't automatically reboot if required. Use `kured` to watch for pending reboots, then safely cordon and drain the node to allow the node to reboot and apply the updates.
+**Best practice guidance** - AKS nodes automatically download and install OS updates and security fixes, but don't automatically reboot if necessary. Use `kured` to watch for pending reboots, then safely cordon and drain the node to allow the node to reboot and apply the updates.
 
 Each evening, AKS nodes apply updates and security patches through their distro update channel. This behavior is configured automatically as the nodes are deployed in an AKS cluster. To minimize disruption, nodes are not automatically rebooted if a security patch or kernel update requires it.
 
-The open-source [kured (KUbernetes REboot Daemon)][kured] project by Weaveworks watches for pending node reboots. When a node applies updates that require a reboot, the node is safely cordoned and drain to schedule the pods on other nodes in the cluster. Once the node is rebooted, Kubernetes resumes scheduling pods on it. To minimize disruption, only one node at a time is permitted to be rebooted by `kured`.
+The open-source [kured (KUbernetes REboot Daemon)][kured] project by Weaveworks watches for pending node reboots. When a node applies updates that require a reboot, the node is safely cordoned and drain to schedule the pods on other nodes in the cluster. Once the node is rebooted, Kubernetes resumes scheduling pods on it. To minimize disruption, only one node can be rebooted at a time by `kured`.
 
 ![The AKS node reboot process using kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
-`kured` can integrate with Prometheus to prevent reboots if there are other maintenance events or cluster issues in progress. This integration minimizes additional complications by rebooting nodes while you are actively troubleshooting other issues.
+`kured` can integrate with Prometheus to prevent reboots if there are other maintenance events or cluster issues in progress. This integration minimizes additional complications by rebooting nodes while you're actively troubleshooting other issues.
 
 For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
 

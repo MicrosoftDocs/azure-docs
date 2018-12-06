@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/06/2018
 ms.author: iainfou
 ---
 
@@ -45,9 +45,9 @@ For more information about digitally signed images, see [Content trust in Azure 
 
 ## Automatically build new images on base image update
 
-**Best practice guidance** - As you use base images for application images, use automation to build new images when the base image is updated. As those base images typically include security fixes, don't continue to use outdated application images without the incorporated base image update.
+**Best practice guidance** - As you use base images for application images, use automation to build new images when the base image is updated. As those base images typically include security fixes, update any downstream application container images.
 
-Each time a base image is updated, any downstream container images should also be updated. This build process should be integrated into validation and deployment pipelines such as [Azure Pipelines][azure-pipelines] to make sure that your applications continue to run on the updated based images. Once your application container images are validated, the AKS deployments can then be updated to run the latest, secure images.
+Each time a base image is updated, any downstream container images should also be updated. This build process should be integrated into validation and deployment pipelines such as [Azure Pipelines][azure-pipelines] or Jenkins. These pipelines makes sure that your applications continue to run on the updated based images. Once your application container images are validated, the AKS deployments can then be updated to run the latest, secure images.
 
 Azure Container Registry Tasks can also automatically update container images when the base image is updated. This feature allows you to build a small number of base images, and regularly keep them updated with bug and security fixes.
 
