@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Explore the Azure Time Series Insights (preview) demo environment' | Microsoft Docs
-description: Understand the Azure Time Series Insights (preview) demo environment
+title: 'Quickstart: Explore the Azure Time Series Insights Preview demo environment | Microsoft Docs'
+description: Understand the Azure Time Series Insights Preview demo environment
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
@@ -13,15 +13,15 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ---
 
-# Quickstart: Explore the Azure Time Series Insights (preview) demo environment
+# Quickstart: Explore the Azure Time Series Insights Preview demo environment
 
-This quickstart shows you how to use the Azure Time Series Insight (preview) explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data, and you tour the key features of the Time Series Insights (preview) explorer.
+This quickstart shows you how to use the Azure Time Series Insight Preview explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data, and you tour the key features of the Time Series Insights Preview explorer.
 
 Time Series Insights provides an end-to-end platform as a service (PaaS) offering. It can ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for improvised data exploration. It also provides operational analysis. Time Series Insights is a differentiated offering that's tailored to the unique needs of industrial IoT deployments.
 
 The demo environment shows an electricity generation company, Contoso. In the environment, you use Time Series Insights to find actionable insights in Contoso data and conduct a short root-cause analysis. Contoso operates two wind turbine farms, each with 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch and yaw position, generator performance, gearbox behavior, and safety monitors.
 
-You use Time Series Insights (preview) to analyze Contoso's ever-growing dataset from the last two years, which is currently at 40 GB. It can help you to better understand and predict both critical failures and slow-moving maintenance issues.
+You use Time Series Insights Preview to analyze Contoso's ever-growing dataset from the last two years, which is currently at 40 GB. It can help you to better understand and predict both critical failures and slow-moving maintenance issues.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -97,10 +97,10 @@ If you don't have an Azure subscription, create a [free Azure account](https:/
 
 ## Next steps
 
-You're ready to create your own Time Series Insights (preview) environment:
+You're ready to create your own Time Series Insights Preview environment:
 
 > [!div class="nextstepaction"]
-> [Plan your Time Series Insights (preview) environment](time-series-insights-update-plan.md)
+> [Plan your Time Series Insights Preview environment](time-series-insights-update-plan.md)
 
 <!-- Images -->
 [1]: media/v2-update-quickstart/quickstart-one.png
