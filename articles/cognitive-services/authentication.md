@@ -15,13 +15,13 @@ ms.author: erhopf
 
 Each request to an Azure Cognitive Service must include an authentication header. The authentication header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
-* [Authenticate with a subscription key for a single resource](#)
-* [Authenticate with an all-in-one-subscription key](#)
-* [Authenticate with a Bearer token](#)
+* [Authenticate with a subscription key for a single resource](#authenticate-with-a-subscription-key)
+* [Authenticate with an all-in-one-subscription key](#authenticate-with-an-all-in-one-subscription-key)
+* [Authenticate with a Bearer token](#authenticate-with-a-bearer-token)
 
 ## Authentication headers
 
-Before we get to deep into authentication, let's quickly review the authentication headers available for use with Azure Cognitive Services.
+Before we get too deep into authentication, let's quickly review the authentication headers available for use with Azure Cognitive Services.
 
 | Header | Description |
 |--------|-------------|
@@ -48,10 +48,46 @@ This option also uses a subscription key to authenticate requests for a specific
 
 The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header. Additionally, when using all-in-one authentication, you must specify the region for your subscription using the `Ocp-Apim-Subscription-Region` header.
 
+Supported regions for all-in-one authentication: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
+
 >[!WARNING]
 > At this time, these services are **not** supported: QnA Maker, Speech Services, and Custom Vision.
 
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
+-H 'Ocp-Apim-Subscription-Region: YOUR_SUBSCRIPTION_REGION' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
 ## Authenticate with a Bearer token
+
+Both subscription keys for a single service and all-in-one subscription keys can be exchanged for authentication tokens. Authentication tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
+
+When using an all-in-one subscription key, you must use a region specific endpoint for the token exchange. This is illustrated in the sample below using the "West US" region.
+
+### Using a subscription key
+
+```cURL
+curl -v -X POST \
+"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+-H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-Length: 0" \
+-H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+### Using an all-in-one subscription key
+
+Supported regions for all-in-one authentication: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
+
+```cURL
+curl -v -X POST \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+-H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-Length: 0" \
+-H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
 
 ## See also
 

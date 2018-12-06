@@ -54,6 +54,26 @@ ms.topic: hub-page
             </a>
         </li>
         <li>
+            <a href="/azure/cognitive-services/authentication/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Authenticate a request</h3>
+                                <p>Learn how to authenticate a request using a subscription key, all-in-one subscription key, or bearer token.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
                     <div class="cardPadding">
