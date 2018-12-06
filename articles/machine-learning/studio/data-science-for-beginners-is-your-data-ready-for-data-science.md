@@ -5,7 +5,7 @@ keywords: relevant data,evaluate data,prepare data,data criteria,data ready
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund

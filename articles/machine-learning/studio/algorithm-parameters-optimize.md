@@ -4,7 +4,7 @@ description: Explains how to choose the optimal parameter set for an algorithm i
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

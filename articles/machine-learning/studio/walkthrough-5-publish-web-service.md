@@ -4,7 +4,7 @@ description: 'Step 5 of the Develop a predictive solution walkthrough: Deploy a 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

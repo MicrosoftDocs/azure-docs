@@ -4,7 +4,7 @@ description: How to use Azure Machine Learning Web Service Parameters to modify 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

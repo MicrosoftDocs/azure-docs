@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.custom: "(previous ms.author=aashishb, author=aashishb, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ---
 # Azure Machine Learning Studio: Deploy a web service to multiple regions

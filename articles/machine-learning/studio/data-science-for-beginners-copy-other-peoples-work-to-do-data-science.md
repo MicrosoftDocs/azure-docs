@@ -5,7 +5,7 @@ keywords: data science examples,machine learning example,clustering algorithm,cl
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund

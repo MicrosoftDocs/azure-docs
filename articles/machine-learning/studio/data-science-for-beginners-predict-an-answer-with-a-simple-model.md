@@ -5,7 +5,7 @@ keywords: create a model,simple model,price prediction,simple regression model
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund

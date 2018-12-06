@@ -5,7 +5,7 @@ keywords: doing data science,data science beginners,data science for beginners,d
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
