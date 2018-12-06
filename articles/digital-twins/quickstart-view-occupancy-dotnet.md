@@ -67,7 +67,7 @@ This step provisions your Digital Twins spatial graph with:
 - A custom function. 
 - One role assignment.
  
-The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file.
+The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file. 
 
 1. Run `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -85,6 +85,9 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 1. At the end of the execution, copy the `ConnectionString` of the device for use in the device simulator sample. Copy only the string outlined in this image.
 
     ![Provision sample][1]
+
+    >[!TIP]
+    > You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## Send sensor data
 
