@@ -25,9 +25,27 @@ ms.reviewer: guanghu
 > [!Note]  
 > Aure Cognitive Services on Azure Stack is in preview.
 
-You can use Azure Cognitive Services on Azure Stack. Available services include [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/), [Face](https://docs.microsoft.com/azure/cognitive-services/face/), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) services. You can now deploy Azure Cognitive Services on-premises and on the edge with container support. Cognitive Services containers allow you to use the same intelligent APIs that are available in Azure, but with the flexibility that comes with [Docker containers](https://www.docker.com/what-container). For more details, please go to [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+You can use container support in Azure Cognitive Services on Azure Stack. Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/), [Face](https://docs.microsoft.com/azure/cognitive-services/face/), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) services.
 
-With Azure Stack, you can enable Cognitive Services with the ability to scale for high throughput and low latency on containers running in Kubernetes. The service can have close physical proximity of both application logic and data. This article describes how to deploy the Azure Face API. You can use follow the same approach to deploy other cognitive services containers on Azure Stack Kubernetes cluster.
+Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed. 
+
+## Features
+
+- **Control over data**  
+  Allow customers to use Cognitive Services with complete control over their data. This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments – across data, management, identity, and security.
+
+- **Control over model updates**  
+  Provide customers flexibility in versioning and updating of models deployed in their solutions.
+
+- **Portable architecture**  
+  Enable the creation of a portable application architecture that can be deployed in the cloud, on-premises and the edge. Containers can also be deployed directly to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster deployed to Azure Stack. For more information, see Deploy Kubernetes to Azure Stack.
+
+- **High throughput and low latency** 
+   Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
+
+With Azure Stack, you can deploy Cognitive Services containers in a Kubernetes cluster along with your application containers for high availability and elastic scaling. You can develop your application by combining Cognitive services with components built on App Services, Functions, Blob storage or SQL or mySQL databases. 
+
+This article describes how to deploy the Azure Face API on Kubernetes cluster on Azure Stack. You can use follow the same approach to deploy other cognitive services containers on Azure Stack Kubernetes cluster.
 
 ## Prerequisites
 
@@ -39,14 +57,14 @@ Before you get started, you will need to:
 
 ## Create Azure resources
 
-Create a Cognitive Service resource on Azure to preview the [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) containers, respectively. YOu will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
+Create a Cognitive Service resource on Azure to preview the [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) containers, respectively. You will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
 
-1.  Create an Azure resource in the Azure portal. If you want to preview the [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face) containers, you must first create a corresponding Face resource in the Azure portal. For more information, see Quickstart: Create a Cognitive Services account in the Azure portal.
+1.  Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](http://www.azure.com). `fixlink`
 
     >  [!Note]  
     >  The Face or Computer Vision resource must use the F0   pricing tier.
 
-1.  Get the endpoint URL and subscription key for the Azure resource.\ Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) container for the preview.
+1.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) container for the preview.
 
 ## Create secrete
 
