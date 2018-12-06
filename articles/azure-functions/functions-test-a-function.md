@@ -34,7 +34,7 @@ The following example describes how to create a C# Function app in Visual Studio
 
 ### Setup
 
-To set up your environment, create a Function and test app. The following steps help you create the
+To set up your environment, create a Function and test app. The following steps help you create the apps and functions required to support the tests:
 
 1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it *Functions*
 2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpFunction*.
@@ -259,6 +259,13 @@ Next, install Jest by running the following command:
 ```bash
 npm i jest
 ```
+Now update _package.json_ to include a working test command.
+
+```bash
+"scripts": {
+    "test": "jest"
+}
+```
 
 ### Create test modules
 With the project initialized, you can create the modules used to run the automated tests. Begin by creating a new folder named *testing* to hold the support modules.
@@ -342,3 +349,10 @@ To debug your tests, add the following configuration to your *launch.json* file:
 ```
 
 Next, set a break point in your test and press **F5**.
+
+## Next steps
+
+Now that you've learned how to write automated tests for your functions, continue with these resources:
+
+- [Azure Functions error handling](./functions-bindings-error-pages.md)
+- [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)
