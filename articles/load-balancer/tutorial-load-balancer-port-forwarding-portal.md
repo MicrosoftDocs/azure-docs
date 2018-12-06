@@ -108,7 +108,7 @@ Create a virtual network with two virtual machines, and add the VMs to the back-
    
 1. Add the VM to a load balancer back-end pool that you create:
    
-   1. Under **LOAD BALANCING SETTINGS** > **Place this virtual machine behind an existing load balancing solution?**, select **Yes**. 
+   1. Under **LOAD BALANCING** > **Place this virtual machine behind an existing load balancing solution?**, select **Yes**. 
    1. For **Load balancing options**, drop down and select **Azure load balancer**. 
    1. For **Select a load balancer**, drop down and select **MyLoadBalancer**. 
    1. Under **Select a backend pool**, select **Create new**, then type *MyBackendPool*, and select **Create**. 
@@ -183,7 +183,7 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
    
 1. Under **Settings**, select **Health probes**, and then select **Add**.
    
-1. On the **Add a health probe** page, type or select the following values:
+1. On the **Add health probe** page, type or select the following values:
    
    - **Name**: Type *MyHealthProbe*.
    - **Protocol**: Drop down and select **HTTP**. 
@@ -209,7 +209,6 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
 1. On the **Add load balancing rule** page, type or select the following values:
    
    - **Name**: Type *MyLoadBalancerRule*.
-   - **Frontend IP address:** Type *LoadBalancerFrontEnd* if not present.
    - **Protocol**: Select **TCP**.
    - **Port**: Type *80*.
    - **Backend port**: Type *80*.
