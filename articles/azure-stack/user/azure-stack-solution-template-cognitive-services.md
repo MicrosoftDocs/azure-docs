@@ -59,7 +59,7 @@ Before you get started, you will need to:
 
 ## Create Azure resources
 
-Create a Cognitive Service resource on Azure to preview the [Face](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-face), [LUIS](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-luis), or [Recognize Text](vscode-resource://c:/Users/guanghu/Desktop/Cognitive%20Service/readme.md#working-with-recognize-text) containers, respectively. You will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
+Create a Cognitive Service resource on Azure to preview the Face, LUIS, or Recognize Text containers, respectively. You will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
 
 1.  Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
