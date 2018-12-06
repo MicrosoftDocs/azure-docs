@@ -42,7 +42,7 @@ The Speech SDK is available in these regions for **speech recognition** and **tr
 
 ### Intent recognition
 
-**Intent recognition** for the Speech SDK shares regions support with LUIS. For a complete list of available regions, see [Publishing regions and endpoints - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
+**Intent recognition** for the Speech SDK shares regions support with LUIS. For a complete list of available regions, see [Publishing regions and endpoints - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
 
 Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
 
