@@ -63,6 +63,7 @@ True
 >>> r.get('foo')
 b'bar'
 ```
+NOTE: If redis module version is >= 3.0, ssl cert check is enforced, and requires ssl_ca_certs to be explicitly set when connecting to redis. ssl_ca_certs would generally represent the cert/module in "/etc/pki/tls/certs/ca-bundle.crt" in case of RH Linux.
 
 ## Create a Python script
 
