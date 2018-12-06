@@ -80,7 +80,7 @@ The following shows the result of a successful request to train:
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {
