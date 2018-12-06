@@ -9,7 +9,8 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -44,7 +45,7 @@ The first step is to create an App Service ASP.NET application. If you're not fa
 
 Once you create the application, navigate to the newly created web app in the Azure portal (also shown in the how-to), then navigate to the **Managed Service Identity** page, and enable the feature: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Managed Service Identity page](./media/event-hubs-managed-service-identity/msi1.png)
  
 Once you've enabled the feature, a new service identity is created in your Azure Active Directory, and configured into the App Service host.
 
@@ -64,7 +65,7 @@ Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messa
 
 After you make these changes, publish and run the application. You can get the correct publishing data by downloading and then importing a publishing profile in Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Import publishing profile](./media/event-hubs-managed-service-identity/msi3.png)
  
 To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**. 
  
