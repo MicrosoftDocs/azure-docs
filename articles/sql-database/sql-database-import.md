@@ -35,7 +35,7 @@ Select the storage account, container, and BACPAC file you want to import. Speci
 
 ### Monitor import's progress
 
-To monitor an import's progress, open the imported database's logical server page, scroll down to. Settings**, and select **Import/Export history**. When successful, the import has a **Completed** status.
+To monitor an import's progress, open the imported database's logical server page, scroll down to **Settings** and select **Import/Export history**. When successful, the import has a **Completed** status.
 
 To verify the database is live on the server, select **SQL databases** and verify the new database is **Online**.
 
