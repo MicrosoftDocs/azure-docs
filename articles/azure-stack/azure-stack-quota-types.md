@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 
@@ -81,7 +81,7 @@ There are two different ways to view an existing quota:
 
 There are two different ways to edit a quota:
 
-### Edit a plan quota
+### Edit a plan
 
 1.	In the left navigation pane of the administrator portal, select **Plans**.
 2.	Select the plan for which you would like to edit a quota, by clicking on its name.
@@ -97,7 +97,7 @@ Alternatively, you can follow this procedure to edit a quota:
 1. On the default dashboard of the administrator portal, find the **Resource providers** tile.
 2. Select the service with the quota that you want to modify, like **Compute**, **Network**, or **Storage**.
 3. Next, select **Quotas**, and then select the quota you want to change.
-4. On the **Set quotas** pane, edit the values, and then select **Save**.
+4. On the **Set Storage quotas**, **Set Compute quotas**, or **Set Network quotas** pane (depending on the type of quota you've chosen to edit), edit the values, and then select **Save**.
 
 ### Edit original configuration
   
