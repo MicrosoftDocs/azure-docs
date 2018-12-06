@@ -11,6 +11,8 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
+
+ms.custom: seodec18
 ---
 
 # Track experiments and training metrics in Azure Machine Learning
@@ -238,7 +240,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
    RunDetails(run).show()
    ```
 
-  ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+  ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure portal.
@@ -251,8 +253,7 @@ Model training and monitoring occur in the background so that you can run other 
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
-<a name='view-the-experiment-in-the-web-portal'/>
-
+<a name="view-the-experiment-in-the-web-portal"></a>
 ## View the experiment in the Azure portal
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can do access the history in two ways:
@@ -262,7 +263,7 @@ When an experiment has finished running, you can browse to the recorded experime
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
-  ![Screenshot of run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
@@ -298,15 +299,15 @@ Learn more about:
 
 1. Select the experiment you are interested in.
 
-  ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+  ![Experiment list](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. In the table, select the Run Number.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Experiment run](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
 1.	In the table, select the Iteration Number for the model that you would like to explore further.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Experiment model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
 
 

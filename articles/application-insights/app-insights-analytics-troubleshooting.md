@@ -100,7 +100,7 @@ The URL is invalid.
 * Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
 
 ## <a name="cookies"></a>Enable third-party cookies
-  See [how to disable third party cookies](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
+  See [how to disable third party cookies](https://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

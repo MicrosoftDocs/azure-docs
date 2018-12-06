@@ -75,7 +75,7 @@ Learn how to use the SDKs.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Offline Data]: app-service-mobile-offline-data-sync.md
 [Authentication]: app-service-mobile-auth.md
