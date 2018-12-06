@@ -47,5 +47,5 @@ After you've enabled managed identity on an Azure resource, [such as an Azure VM
 
 ## Next steps
 
-- [Managed identity for Azure resources overview](overview.md).
+- [Managed identity for Azure resources overview](overview.md)
 - To enable managed identity on an Azure VM, see [Configure managed identities for Azure resources on an Azure VM using PowerShell](qs-configure-powershell-windows-vm.md).

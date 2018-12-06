@@ -63,7 +63,6 @@ After you've enabled managed identity on an Azure resource, such as an [Azure vi
 
 ## Next steps
 
-- [Managed identities for Azure resources overview](overview.md).
+- [Managed identities for Azure resources overview](overview.md)
 - To enable managed identity on an Azure virtual machine, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md).
-- To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](qs-configure-cli-windows-vmss.md)
-.md)
+- To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](qs-configure-cli-windows-vmss.md).

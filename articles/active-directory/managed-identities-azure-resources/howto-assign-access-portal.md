@@ -42,8 +42,8 @@ After you've enabled managed identity on an Azure resource, such as an [Azure VM
      
 ## Next steps
 
-- [Managed identity for Azure resources overview](overview.md).
+- [Managed identity for Azure resources overview](overview.md)
 - To enable managed identity on an Azure virtual machine, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md).
-- To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal](qs-configure-portal-windows-vmss.md)
+- To enable managed identity on an Azure virtual machine scale set, see [Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal](qs-configure-portal-windows-vmss.md).
 
 
