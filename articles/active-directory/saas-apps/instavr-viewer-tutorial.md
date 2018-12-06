@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
     `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
 	
 	> [!NOTE]
-	> There is no fixed pattern for Sign on URL. It is generated when the InstaVR Viewer cutomer does web packaging. It is unique for every cutomer and package. For getting the exact Sign on URL you need to login to your InstaVR Viewer instance and do web packaging.
+	> There is no fixed pattern for Sign on URL. It is generated when the InstaVR Viewer customer does web packaging. It is unique for every customer and package. For getting the exact Sign on URL you need to login to your InstaVR Viewer instance and do web packaging.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
@@ -116,9 +116,9 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
 	| | |
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. you will get the Identifier value which is explanined later in this tutorial. Contact [InstaVR Viewer Client support team](mailto:contact@instavr.co) to get this values.
+	> The Identifier value is not real. Update this value with the actual Identifier. you will get the Identifier value which is explained later in this tutorial. Contact [InstaVR Viewer Client support team](mailto:contact@instavr.co) to get this value.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and **Federation Metadata File** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -150,9 +150,9 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
 
 	c. In the **Entity ID** textbox, paste the **Azure Ad Identifier** value, which you have copied from the Azure portal.
 
-	d. To upload your downloaded Certificate file, click Choose file.
+	d. To upload your downloaded Certificate file, click **Update**.
 
-	e. To upload your downloaded Federation Metadata file, click Choose file.
+	e. To upload your downloaded Federation Metadata file, click **Update**.
 
 	f. Copy the **Entity ID** value and paste into the **Identifier (Entity ID)** text box on the **Basic SAML Configuration** section in the Azure portal.
 
@@ -223,13 +223,11 @@ In this section, a user called Britta Simon is created in InstaVR Viewer. InstaV
 
 	![InstaVR Viewer configuration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
-4. Select **Open Hosted Page**.
+4. Select **Open Hosted Page** after that it will be redirected to Azure AD for login.
 
 	![InstaVR Viewer configuration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the InstaVR Viewer tile in the Access Panel, you should be automatically signed in to the InstaVR Viewer for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+5. Enter your Azure AD credentials to successfully login to the Azure AD via SSO.
 
 ## Additional Resources
 
