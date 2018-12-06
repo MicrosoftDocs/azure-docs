@@ -59,7 +59,7 @@ A: To view VM Logs, you need to be granted with read permission to the workspace
 
 ### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
 
-A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../log-analytics/log-analytics-oms-portal-transition.md) for more information.
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../azure-monitor/platform/oms-portal-transition.md) for more information.
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
