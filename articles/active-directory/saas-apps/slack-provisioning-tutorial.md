@@ -60,35 +60,35 @@ This section guides you through connecting your Azure AD to Slack's user account
 ### To configure automatic user account provisioning to Slack in Azure AD:
 
 
-1)	In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
 
-2) If you have already configured Slack for single sign-on, search for your instance of Slack using the search field. Otherwise, select **Add** and search for **Slack** in the application gallery. Select Slack from the search results, and add it to your list of applications.
+2. If you have already configured Slack for single sign-on, search for your instance of Slack using the search field. Otherwise, select **Add** and search for **Slack** in the application gallery. Select Slack from the search results, and add it to your list of applications.
 
-3)	Select your instance of Slack, then select the **Provisioning** tab.
+3. Select your instance of Slack, then select the **Provisioning** tab.
 
-4)	Set the **Provisioning Mode** to **Automatic**.
+4. Set the **Provisioning Mode** to **Automatic**.
 
-![Slack Provisioning](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Slack Provisioning](./media/slack-provisioning-tutorial/Slack1.PNG)
 
-5)	Under the **Admin Credentials** section, click **Authorize**. This opens a Slack authorization dialog in a new browser window. 
+5. Under the **Admin Credentials** section, click **Authorize**. This opens a Slack authorization dialog in a new browser window. 
 
-6) In the new window, sign into Slack using your Team Admin account. in the resulting authorization dialog, select the Slack team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
+6. In the new window, sign into Slack using your Team Admin account. in the resulting authorization dialog, select the Slack team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-![Authorization Dialog](./media/slack-provisioning-tutorial/Slack3.PNG)
+   ![Authorization Dialog](./media/slack-provisioning-tutorial/Slack3.PNG)
 
-7) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
+7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
 
-8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
+8. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
-9) Click **Save**. 
+9. Click **Save**. 
 
-10) Under the Mappings section, select **Synchronize Azure Active Directory Users to Slack**.
+10. Under the Mappings section, select **Synchronize Azure Active Directory Users to Slack**.
 
-11) In the **Attribute Mappings** section, review the user attributes that will be synchronized from Azure AD to Slack. Note that the attributes selected as **Matching** properties will be used to match the user accounts in Slack for update operations. Select the Save button to commit any changes.
+11. In the **Attribute Mappings** section, review the user attributes that will be synchronized from Azure AD to Slack. Note that the attributes selected as **Matching** properties will be used to match the user accounts in Slack for update operations. Select the Save button to commit any changes.
 
-12) To enable the Azure AD provisioning service for Slack, change the **Provisioning Status** to **On** in the **Settings** section
+12. To enable the Azure AD provisioning service for Slack, change the **Provisioning Status** to **On** in the **Settings** section
 
-13) Click **Save**. 
+13. Click **Save**. 
 
 This will start the initial synchronization of any users and/or groups assigned to Slack in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 10 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Slack app.
 
@@ -98,13 +98,13 @@ Optionally, you can enable the provisioning of group objects from Azure AD to Sl
 
 ### To enable provisioning of group objects:
 
-1) Under the Mappings section, select **Synchronize Azure Active Directory Groups to Slack**.
+1. Under the Mappings section, select **Synchronize Azure Active Directory Groups to Slack**.
 
-2) In the Attribute Mapping blade, set Enabled to Yes.
+2. In the Attribute Mapping blade, set Enabled to Yes.
 
-3) In the **Attribute Mappings** section, review the group attributes that will be synchronized from Azure AD to Slack. Note that the attributes selected as **Matching** properties will be used to match the groups in Slack for update operations. 
+3. In the **Attribute Mappings** section, review the group attributes that will be synchronized from Azure AD to Slack. Note that the attributes selected as **Matching** properties will be used to match the groups in Slack for update operations. 
 
-4) Click **Save**.
+4. Click **Save**.
 
 This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Slack app.
 
