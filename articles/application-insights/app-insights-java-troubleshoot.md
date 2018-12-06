@@ -150,7 +150,7 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 * [Capture diagnostic logs][javalogs]
 
 ## Get help
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [File an issue on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
