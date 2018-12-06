@@ -22,13 +22,11 @@ Choosing a Time Series ID is like choosing a partition key for a database. It's 
 > [!IMPORTANT]
 > The Time Series ID is case-sensitive and immutable (it can't be changed after it is set).
 
-With that in mind, selecting the appropriate Time Series ID is critical. When you select a Time Series ID, consider the following best practices:
-
-> [!div class="checklist"]
-> * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (for example, hundreds or thousands). For many customers, this will be something like the DeviceID or SensorID in your JSON.
-> * The Time Series ID should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
-> * A Time Series ID property name character string can have up to 128 characters, and Time Series ID property values can have up to 1024 characters.
-> * If some unique Time Series ID property values are missing, they are treated as null values, which take part in the uniqueness constraint.
+With that in mind, selecting the appropriate Time Series ID is critical. When you select a Time Series ID, consider following these best practices:
+* Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (for example, hundreds or thousands). For many customers, this will be something like the DeviceID or SensorID in your JSON.
+* The Time Series ID should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
+* A Time Series ID property name character string can have up to 128 characters, and Time Series ID property values can have up to 1024 characters.
+* If some unique Time Series ID property values are missing, they are treated as null values, which take part in the uniqueness constraint.
 
 Additionally, you can select up to *three* (3) key properties as your Time Series ID.
 
