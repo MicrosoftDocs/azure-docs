@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 12/5/2018
 ms.author: erhopf
 ---
-# Quickstart: Transliterate text with the Translator Text REST API (Go)
+# Quickstart: Use the Translator Text API to transliterate text using Go
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 
