@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Runtime Overview | Microsoft Docs
-description: Overview of the Azure Functions Runtime Preview
+description: Overview of the Azure Functions Runtime
 services: functions
 author: apwestgarth
 manager: stefsch
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ---
-# Azure Functions Runtime Overview (preview)
+# Azure Functions Runtime Overview
 
-The Azure Functions Runtime (preview) provides a new way for you to take advantage of the simplicity and flexibility of the Azure Functions programming model on-premises. Built on the same open source roots as Azure Functions, Azure Functions Runtime is deployed on-premises to provide a nearly identical development experience as the cloud service.
+The Azure Functions Runtime provides a new way for you to take advantage of the simplicity and flexibility of the Azure Functions programming model on-premises. Built on the same open source roots as Azure Functions, Azure Functions Runtime is deployed on-premises to provide a nearly identical development experience as the cloud service.
 
-![Azure Functions Runtime Preview Portal][1]
+![Azure Functions Runtime Portal][1]
 
 The Azure Functions Runtime provides a way for you to experience Azure Functions before committing to the cloud. In this way, the code assets you build can then be taken with you to the cloud when you migrate.  The runtime also opens up new options for you, such as using the spare compute power of your on-premises computers to run batch processes overnight. You can also use devices within your organization to conditionally send data to other systems, both on-premises and in the cloud.
 
@@ -43,7 +43,7 @@ To get started with the Azure Functions Runtime, you must have a machine with Wi
 
 ## Next Steps
 
-Install the [Azure Functions Runtime preview](https://aka.ms/azafrdoc)
+Install the [Azure Functions Runtime](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
