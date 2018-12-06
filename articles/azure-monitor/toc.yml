@@ -26,9 +26,9 @@
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
-      href: ../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-azurevm.md
     - name: Collect - Linux computer
-      href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-linux-computer.md
     - name: Collect - Windows computer
       href: learn/quick-collect-windows-computer.md
 - name: Tutorials
@@ -56,7 +56,7 @@
 - name: Samples
   items:
   - name: Azure PowerShell
-    href: ../log-analytics/powershell-samples.md?toc=/azure/azure-monitor/toc.json
+    href: azure-monitor/platform/powershell-samples.md
 - name: Concepts
   items:
   - name: Azure management
@@ -436,7 +436,7 @@
     - name: System Center
       items:
       - name: Configuration Manager
-        href: ../log-analytics/log-analytics-sccm.md?toc=/azure/azure-monitor/toc.json
+        href: azure-monitor/platform/collect-sccm.md
       - name: Application Performance Monitoring using SCOM
         href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
     - name: Route data
@@ -839,7 +839,7 @@
     - name: Log data volume and retention
       href: platform/manage-cost-storage.md
     - name: Log data monitor usage
-      href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-usage.md
   - name: Automate 
     items:
     - name: PowerShell
@@ -847,7 +847,7 @@
       - name: Azure PowerShell samples
         href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
       - name: PowerShell cmdlets
-        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+        href: platform/powershell-workspace-configuration.md
       - name: Applications
         items:
         - name: Create Application Insights resources 
@@ -867,7 +867,7 @@
       - name: Walkthrough using REST API
         href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
       - name: Alert API
-        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure/monitoring-and-diagnostics/toc.json
+        href: platform/api-alerts.md
     - name: Applications
       items:
       - name: Automate with Microsoft Flow

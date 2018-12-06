@@ -22,7 +22,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **An Azure HDInsight cluster**. Currently, you can use Log Analytics with the following HDInsight cluster types:
 

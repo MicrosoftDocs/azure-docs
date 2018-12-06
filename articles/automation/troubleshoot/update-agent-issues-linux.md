@@ -49,7 +49,7 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 ### OMS agent
 
-This checks ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+This checks ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### OMS Agent status

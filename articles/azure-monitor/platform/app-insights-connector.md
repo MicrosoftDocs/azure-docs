@@ -40,7 +40,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
+| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collection information from Azure storage. |
 

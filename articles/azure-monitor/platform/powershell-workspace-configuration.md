@@ -208,9 +208,9 @@ For agentless monitoring of Azure resources, the resources need to have Azure di
 | Web Sites               |     | Yes |
 | Web Server farms        |     | Yes |
 
-For the details of the available metrics, refer to [supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

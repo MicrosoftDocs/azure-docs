@@ -55,7 +55,7 @@ This section shows the total number of VMs and computers that were initialized f
 ### Unmonitored VMs and computers <a name="unmonitored-vms-and-computers"></a>
 A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the SCOM agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
 
-You can install the extension on the unmonitored VM or computer in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data. See [Enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) for instructions on how to install the Microsoft Monitoring Agent extension.
+You can install the extension on the unmonitored VM or computer in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data. See [Enable the VM extension](../azure-monitor/learn/quick-collect-azurevm.md) for instructions on how to install the Microsoft Monitoring Agent extension.
 
 See [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent) to learn more about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning.
 

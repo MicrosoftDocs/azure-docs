@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Create an alert rule
 > * Configure an Action Group to send an e-mail notification
 
-To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
@@ -71,4 +71,4 @@ In this tutorial, you learned how alert rules can proactively identify and respo
 Follow this link to see pre-built Log Analytics script samples.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics script samples](../../log-analytics/powershell-samples.md)
+> [Log Analytics script samples](../../azure-monitor/platform/powershell-samples.md)
