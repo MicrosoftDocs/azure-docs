@@ -229,7 +229,7 @@ For more information, see [How to configure persistence for a Premium Azure Redi
 
 
 > [!IMPORTANT]
-> Redis data persistence is only available for Premium caches. 
+> Redis data persistence is only available for Premium caches.
 > 
 > 
 
@@ -243,7 +243,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 ![Schedule updates](./media/cache-configure/redis-schedule-updates.png)
 
-To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
+To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. The maintenance window time is in UTC.
 
 > [!IMPORTANT]
 > The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Schedule updates](cache-administration.md#schedule-updates).
@@ -485,7 +485,7 @@ To access the Redis Console, click **Console** from the **Redis Cache** blade.
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
 
-To issue commands against your cache instance, simply type the desired command into the console.
+To issue commands against your cache instance, type the desired command into the console.
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
