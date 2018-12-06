@@ -63,7 +63,7 @@ $ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGro
 $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Run the following command against circuit 1, and then pass in the private peering ID of circuit 2.
+Run the following command against circuit 1, and pass in the private peering ID of circuit 2.
 
 > [!NOTE]
 > The private peering ID looks like the following: 
@@ -76,7 +76,7 @@ Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -Exp
 ```
 
 > [!IMPORTANT]
-> *-AddressPrefix* must be a /29 IPv4 subnet, for example, "10.0.0.0/29". We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You shouldn't use addresses in this subnet, in your Azure virtual networks, or in your on-premises networks.
+> *-AddressPrefix* must be a /29 IPv4 subnet, for example, "10.0.0.0/29". We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You shouldn’t use the addresses in this subnet in your Azure VNets, or in your on-premises network.
 > 
 
 
