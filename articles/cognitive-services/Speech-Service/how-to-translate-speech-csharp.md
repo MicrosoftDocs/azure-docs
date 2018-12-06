@@ -1,7 +1,7 @@
 ---
 title: Translate speech by using the Speech SDK for C#
 titleSuffix: Azure Cognitive Services
-description: Shows how to translate speech using the Speech SDK for C#.
+description: This article includes sample code for translating speech using the Speech SDK in a C# environment.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Translate speech with the Cognitive Services Speech SDK for C#

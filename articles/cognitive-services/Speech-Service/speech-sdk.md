@@ -1,11 +1,10 @@
 ---
 title: About the Speech Service SDK - Speech Services
 titleSuffix: Azure Cognitive Services
-description: An overview of the SDKs available for the Speech Service.
+description: The Speech Service Software Development Kit (SDK) gives your applications native access to the functions of the Speech service, making it easier to develop software. This article provides additional details about the SDK for Windows, Linux, and Android.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual

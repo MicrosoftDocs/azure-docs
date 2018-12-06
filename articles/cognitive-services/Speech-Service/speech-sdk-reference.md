@@ -1,11 +1,10 @@
 ---
 title: Speech SDK API reference - Speech Services
 titleSuffix: Azure Cognitive Services
-description: References for the Speech SDK.
+description: The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to Speech to Text, Speech Translation, and Intent Recognition.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
