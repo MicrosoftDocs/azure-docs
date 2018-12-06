@@ -29,16 +29,16 @@
     href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 8 - Manage networking
+  - name: 8 - Networking for VMs
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
+  - name: 10 - Manage VMs
     href: tutorial-govern-resources.md
     displayName: scope policy RBAC lock tag
   - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 12 - Manage VM security
+  - name: 12 - Security Center for VMs
     href: tutorial-azure-security.md
   - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md

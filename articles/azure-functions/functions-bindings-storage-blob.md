@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, dynamic compute, serverl
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
 ---
 
@@ -25,7 +25,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section.
+> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to reduce latency. For more information, see the [Trigger](#trigger) section.
 
 ## Packages - Functions 1.x
 
@@ -51,7 +51,7 @@ Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
 * Blob storage accounts
 * High scale
-* Minimizing cold-start delay
+* Minimizing latency
 
 ### Blob storage accounts
 
@@ -61,9 +61,9 @@ Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
 High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
 
-### Cold-start delay
+### Latency issues
 
-If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. To avoid this cold-start delay, you can switch to an App Service plan with Always On enabled, or use a different trigger type.
+If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. To avoid this latency, you can switch to an App Service plan with Always On enabled. You can also use an [Event Grid trigger](functions-bindings-event-grid.md) with your Blob storage account. For an example, see the [Event Grid tutorial](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json). 
 
 ### Queue storage trigger
 
