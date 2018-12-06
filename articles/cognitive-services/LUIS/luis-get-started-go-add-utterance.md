@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - change, train app, GO"
+title: "Change, train app, Go"
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry

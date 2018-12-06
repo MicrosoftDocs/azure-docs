@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - change, train app, Java"
+title: "Change, train app, Java"
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this Java quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services

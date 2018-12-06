@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - change, train app, C#"
+title: "Change, train app, C#"
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - change, train app, Python"
+title: "Change, train app, Python"
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this Python quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
