@@ -111,7 +111,7 @@ You need an LRS or GRS storage account. We recommend GRS so that data is resilie
 
 ### How often can I replicate data?
 * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes. If you've set up SAN replication then replication is synchronous.
-* **VMware and physical servers:** A replication frequency isn't relevant here. Replication is continuous.
+* **Azure VMs, VMware and physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
 ### Can I extend replication from existing recovery site to another tertiary site?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
