@@ -74,7 +74,7 @@ To see the **size** of billable events ingested per computer, use
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Use these queries sparingly as scans across data data typres are expensive to execute. This query replaces the old way of querying this with the Usage data type. 
+Use these queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying this with the Usage data type. 
 
 To see the **count** of events ingested per computer, use
 

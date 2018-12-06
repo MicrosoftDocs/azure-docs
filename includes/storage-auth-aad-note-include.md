@@ -19,9 +19,6 @@ ms.custom: "include file"
 >
 > - The Azure portal now supports using Azure AD credentials to read and write blob and queue data, as part of the preview release.
 > 
-> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) currently uses your storage account key to access blob and queue data.
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) currently uses your storage account key to access blob and queue data. OAuth access is supported for blobs.
 >
 > - Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../articles/storage/files/storage-files-active-directory-overview.md).
-
-
-
