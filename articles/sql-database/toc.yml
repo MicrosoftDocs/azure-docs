@@ -140,6 +140,10 @@
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: Scale resources
       href: sql-database-single-database-scale.md
+    - name: Advanced Security
+      items:
+      - name: Threat detection
+        href: sql-database-threat-detection.md
   - name: Managed instances
     items:
     - name: Managed instances
@@ -164,6 +168,10 @@
         href: sql-database-managed-instance-management-endpoint.md   
       - name: Connect applications
         href: sql-database-managed-instance-connect-app.md
+    - name: Advanced Security
+      items:
+      - name: Threat detection
+        href: sql-database-managed-instance-threat-detection.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
@@ -221,7 +229,7 @@
     - name: Advanced Threat Protection
       items:
       - name: Advanced Threat Protection
-        href: sql-advanced-threat-protection.md
+        href: sql-advanced-threat-protection-overview.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
