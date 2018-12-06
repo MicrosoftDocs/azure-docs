@@ -179,7 +179,7 @@ For portal App Setting deployments, the log file is in D:\home\LogFiles. Look fo
 
 ## Can I send email from my Azure web app?
 
-App Service doesn't have a built-in email feature. For some good alternatives for sending email from your app, see this [Stack Overflow discussion](http://stackoverflow.com/questions/17666161/sending-email-from-azure).
+App Service doesn't have a built-in email feature. For some good alternatives for sending email from your app, see this [Stack Overflow discussion](https://stackoverflow.com/questions/17666161/sending-email-from-azure).
 
 ## Why does my WordPress site redirect to another URL?
 

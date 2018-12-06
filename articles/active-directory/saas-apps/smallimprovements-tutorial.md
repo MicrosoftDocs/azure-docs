@@ -213,7 +213,7 @@ To enable Azure AD users to log in to Small Improvements, they must be provision
 
     b. Enter the **Last name** of user like **Simon**.
 
-    c. Enter the **Email** of user like **brittasimon@contoso.com**. 
+    c. Enter the **Email** of user like <strong>brittasimon@contoso.com</strong>. 
 
     d. You can also choose to enter the personal message in the **Send notification email** box. If you do not wish to send the notification, then uncheck this checkbox.
 

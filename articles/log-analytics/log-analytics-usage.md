@@ -20,7 +20,7 @@ ms.component:
 
 > [!NOTE]
 > This article describes how to analyze data usage in Log Analytics.  Refer to the following articles for related information.
-> - [Manage cost by controlling data volume and retention in Log Analytics](log-analytics-manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Manage cost by controlling data volume and retention in Log Analytics](../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period.
 > - [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
 ## Understand usage
@@ -74,7 +74,7 @@ To see the **size** of billable events ingested per computer, use
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Use these queries sparingly as scans across data data typres are expensive to execute. This query replaces the old way of querying this with the Usage data type. 
+Use these queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying this with the Usage data type. 
 
 To see the **count** of events ingested per computer, use
 

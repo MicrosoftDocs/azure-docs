@@ -45,7 +45,7 @@ This region does not currently support the Health feature of Azure Monitor for V
 >Azure virtual machines can be on-boarded from any region and are not limited to the supported regions for the Log Analytics workspace.
 >
 
-If you do not have a workspace, you can create it through [Azure CLI](../../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
+If you do not have a workspace, you can create it through [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), through [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md), in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), or with [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
 
 Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
@@ -167,7 +167,7 @@ The following access needs to be granted to your users in order to enable and ac
 
 - To view the performance, health, and map data, you need to added as a member of the Monitoring Reader role for the Azure VM and the Log Analytics workspace configured with Azure Monitor for VMs.   
 
-For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md).
+For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
@@ -183,7 +183,7 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../log-analytics/log-analytics-quick-create-workspace.md) in one of the supported regions listed earlier.   
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) in one of the supported regions listed earlier.   
 
 After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
 
@@ -195,7 +195,7 @@ In this section instructions on how to perform the at scale deployment of Azure 
 
 Summarized are the steps you need to perform to pre-configure your Log Analytics workspace before you can proceed with onboarding your virtual machines.
 
-1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
 2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
 3. Install and enable the **ServiceMap** and **InfrastructureInsights** solution in your workspace.  
 

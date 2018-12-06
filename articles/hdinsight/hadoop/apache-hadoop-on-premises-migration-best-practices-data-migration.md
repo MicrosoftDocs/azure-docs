@@ -14,7 +14,7 @@ ms.author: hrasheed
 
 This article gives recommendations for data migration to Azure HDInsight. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-## Migrate data from on-premises to Azure
+## Migrate on-premises data to Azure
 
 There are two main options to migrate data from on-premises to Azure environment:
 
@@ -43,7 +43,7 @@ The following table has approximate data transfer duration based on the data vol
 
 Tools native to Azure, like DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Kafka Mirrormaker and Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
 
-## Performance considerations when using Apache DistCp
+## Performance considerations with Apache DistCp
 
 DistCp is an Apache project that uses a MapReduce Map job to transfer data, handle errors, and recover from those errors. It assigns a list of source files to each Map task. The Map task then copies all of its assigned files to the destination. There are several techniques can improve the performance of DistCp.
 
@@ -86,14 +86,14 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 #### Hive metastore migration using scripts
 
-1. Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script].(https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs
-1. Run the updated DDL on the metastore from the HDInsight cluster
-1. Make sure that the Hive metastore version is compatible between on-premises and cloud
+1. Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs.
+1. Run the updated DDL on the metastore from the HDInsight cluster.
+1. Make sure that the Hive metastore version is compatible between on-premises and cloud.
 
 #### Hive metastore migration using DB replication
 
-- Set up Database Replication between on-premises Hive metastore DB and HDInsight metastore DB
+- Set up Database Replication between on-premises Hive metastore DB and HDInsight metastore DB.
 - Use the "Hive MetaTool" to replace HDFS url with WASB/ADLS/ABFS urls, for example:
 
 ```bash
