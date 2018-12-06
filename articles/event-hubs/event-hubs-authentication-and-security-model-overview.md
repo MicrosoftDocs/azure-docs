@@ -18,7 +18,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Event Hubs authentication and security model overview
+# Azure Event Hubs - Authentication and security model
 
 The Azure Event Hubs security model meets the following requirements:
 

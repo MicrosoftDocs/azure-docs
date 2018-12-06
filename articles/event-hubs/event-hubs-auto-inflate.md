@@ -20,7 +20,6 @@ ms.author: shvija
 ---
 
 # Automatically scale up Azure Event Hubs throughput units
-
 Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs usage often increases after starting to use the service. Such usage requires increasing the predetermined [throughput units](event-hubs-features.md#throughput-units) to scale Event Hubs and handle larger transfer rates. The **Auto-inflate** feature of Event Hubs automatically scales up by increasing the number of throughput units, to meet usage needs. Increasing throughput units prevents throttling scenarios, in which:
 
 * Data ingress rates exceed set throughput units.

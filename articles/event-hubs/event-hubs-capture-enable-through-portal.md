@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs Capture enable through portal | Microsoft Docs
+title: Capture streaming events - Azure Event Hubs | Microsoft Docs
 description: Enable the Event Hubs Capture feature using the Azure portal.
 services: event-hubs
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: shvija
 
 ---
 
-# Enable Event Hubs Capture using the Azure portal
+# Enable capturing of events streaming through Azure Event Event Hubs
 
 Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account of your choice.
 
