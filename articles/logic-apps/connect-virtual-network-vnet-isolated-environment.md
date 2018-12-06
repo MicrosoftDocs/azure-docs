@@ -172,7 +172,7 @@ choose **Create**, for example:
    ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
    Azure starts deploying your environment, but this 
-   process might take *up to two hours* before finishing. 
+   process *might* take up to two hours before finishing. 
    To check deployment status, on your Azure toolbar, 
    choose the notifications icon, which opens the notifications pane.
 
@@ -184,9 +184,9 @@ choose **Create**, for example:
 
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
-   > Azure might take some time before releasing 
-   > your subnets. You *might* have to wait up 
-   > to an hour before you can reuse those 
+   > Azure *might* take up to an hour before 
+   > releasing your subnets. So, you might 
+   > have to wait before reusing those 
    > subnets in another ISE.
 
 1. To view your environment, choose **Go to resource** if Azure 
