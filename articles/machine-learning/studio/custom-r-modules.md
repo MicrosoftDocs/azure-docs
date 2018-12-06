@@ -1,6 +1,6 @@
 ---
 title: Define custom R modules - Azure Machine Learning Studio | Microsoft Docs
-description: This topic describes how to author and deploy a custom R module in Azure Machine Learning. It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning Studio workspace.
+description: This topic describes how to author and deploy a custom R module in Azure Machine Learning. It explains what custom R modules are and what files are used to define them. 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding

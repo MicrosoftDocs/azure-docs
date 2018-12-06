@@ -19,7 +19,7 @@ ms.topic: tutorial
 ms.date: 03/20/2017
 ---
 
-# Machine learning tutorial: Create your first data science experiment in Azure Machine Learning Studio
+# Tutorial: Create your first data science experiment in Azure Machine Learning Studio
 
 If you've never used **Azure Machine Learning Studio** before, this tutorial is for you.
 

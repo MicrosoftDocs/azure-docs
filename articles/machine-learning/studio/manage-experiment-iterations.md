@@ -1,10 +1,10 @@
 ---
 title: Manage experiment iterations in Machine Learning Studio - Azure | Microsoft Docs
-description: How to manage experiment iterations in Azure Machine Learning Studio
+description: How to manage experiment iterations in Azure Machine Learning Studio. You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

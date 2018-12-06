@@ -1,10 +1,10 @@
 ---
 title: Azure AI Gallery tutorials - Azure Machine Learning Studio | Microsoft Docs
-description: Discover and share tutorials in Azure AI Gallery.
+description: Discover and share tutorials in Azure AI Gallery. Displays a list of recently added and popular tutorials.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro, seodec18)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
