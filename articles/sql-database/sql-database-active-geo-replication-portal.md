@@ -15,7 +15,7 @@ ms.date: 12/04/2018
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
-This article shows you how to configure [active geo-replication for single and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-capabilities) in SQL Database using the [Azure portal](http://portal.azure.com) and to initiate failover.
+This article shows you how to configure [active geo-replication for single and pooled databases] on a logical server(sql-database-active-geo-replication.md#active-geo-replication-capabilities) in SQL Database using the [Azure portal](http://portal.azure.com) and to initiate failover.
 
 For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-and-pooled-databases). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
