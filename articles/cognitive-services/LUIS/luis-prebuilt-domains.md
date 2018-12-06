@@ -4,6 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: LUIS includes a set of prebuilt domains for quickly adding common, conversational user scenarios. 
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding

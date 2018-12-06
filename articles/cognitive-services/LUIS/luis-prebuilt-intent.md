@@ -5,6 +5,7 @@ description: LUIS includes a set of prebuilt intents for quickly adding common, 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

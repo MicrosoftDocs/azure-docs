@@ -5,7 +5,7 @@ description: Use keyPhrase prebuilt entity to extract key subject matter from ut
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial

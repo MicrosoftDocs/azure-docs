@@ -5,6 +5,7 @@ description: Get data that matches a predefined list of items. Each item on the 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial

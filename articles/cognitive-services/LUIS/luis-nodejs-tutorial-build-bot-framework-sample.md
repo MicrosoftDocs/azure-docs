@@ -5,6 +5,7 @@ description: Build a bot integrated with a LUIS application using the Bot Framew
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

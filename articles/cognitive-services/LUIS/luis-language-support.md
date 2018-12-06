@@ -5,6 +5,7 @@ description: LUIS has a variety of features within the service. Not all features
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
