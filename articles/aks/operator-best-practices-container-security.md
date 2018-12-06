@@ -195,4 +195,4 @@ This article focused on how to secure your containers. To implement some of thes
 [acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
 [aks-ssh]: ssh.md
-[pod-security-contexts]: developer-best-practices-pod-security.md#pod-security-context
+[pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
