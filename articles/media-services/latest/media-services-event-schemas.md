@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
 ---
 
@@ -108,7 +108,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | previousState | string | The state of the job before the event. |
-| state | string | The new state of the job being notified in this event. For example, "Queued: The Job is awaiting resources" or "Scheduled: The job is ready to start".|
+| state | string | The new state of the job being notified in this event. For example, "Scheduled: The job is ready to start" or "Finished: The job is finished" .|
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
