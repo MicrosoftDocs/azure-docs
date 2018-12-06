@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Create container images to be used with Azure Container Service
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-prepare-app.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Prepare an application for Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

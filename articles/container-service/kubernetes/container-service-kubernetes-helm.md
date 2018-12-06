@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Use Helm to deploy containers on a Kubernetes cluster
 
 > [!TIP]
-> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/kubernetes-helm.md)
+> For the updated version this article that uses Azure Kubernetes Service, see [Install applications with Helm in Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

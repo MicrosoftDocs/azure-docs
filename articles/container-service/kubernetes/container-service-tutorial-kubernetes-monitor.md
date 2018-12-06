@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Monitor a Kubernetes cluster with Log Analytics
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../azure-monitor/insights/container-insights-overview.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Azure Monitor for containers (Preview) overview](../../azure-monitor/insights/container-insights-overview.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

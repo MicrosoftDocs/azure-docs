@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Set up an Azure AD service principal for a Kubernetes cluster in Container Service
 
 > [!TIP]
-> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/kubernetes-service-principal.md)
+> For the updated version this article that uses Azure Kubernetes Service, see [Service principals with Azure Kubernetes Service (AKS)](../../aks/kubernetes-service-principal.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

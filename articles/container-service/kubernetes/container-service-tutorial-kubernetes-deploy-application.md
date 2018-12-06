@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Run applications in Kubernetes
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-deploy-application.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Run applications in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

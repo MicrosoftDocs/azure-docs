@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter
 # (DEPRECATED) Deploy Kubernetes cluster for Linux containers
 
 > [!TIP]
-> For the updated version this quickstart that uses Azure Kubernetes Service, see [here](../../aks/kubernetes-walkthrough.md)
+> For the updated version this quickstart that uses Azure Kubernetes Service, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster](../../aks/kubernetes-walkthrough.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

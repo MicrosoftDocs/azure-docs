@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Deploy and use Azure Container Registry
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-prepare-acr.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Deploy and use Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Introduction to Azure Container Service for Kubernetes
 
 > [!TIP]
-> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/intro-kubernetes.md)
+> For the updated version this article that uses Azure Kubernetes Service, see [Azure Kubernetes Service (AKS) overview](../../aks/intro-kubernetes.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

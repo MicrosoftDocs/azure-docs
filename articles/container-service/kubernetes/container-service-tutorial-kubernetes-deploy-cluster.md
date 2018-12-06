@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Deploy a Kubernetes cluster in Azure Container Service
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-deploy-cluster.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

@@ -15,8 +15,6 @@ ms.custom: H1Hack27Feb2017, mvc
 # (DEPRECATED) Scale agent nodes in a Container Service cluster
 
 > [!TIP]
-> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/scale-cluster.md)
-
-[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
+> For the updated version this article that uses Azure Kubernetes Service, see [Scale an Azure Kubernetes Service (AKS) cluster](../../aks/scale-cluster.md).
 
 [!INCLUDE [container-service-scale.md](../../../includes/container-service-scale.md)]

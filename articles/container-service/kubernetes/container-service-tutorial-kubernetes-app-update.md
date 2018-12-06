@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Update an application in Kubernetes
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-app-update.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Update an application in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

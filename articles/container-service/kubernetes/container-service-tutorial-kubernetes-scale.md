@@ -15,7 +15,7 @@ ms.custom: mvc
 # (DEPRECATED) Scale Kubernetes pods and Kubernetes infrastructure
 
 > [!TIP]
-> For the updated version this tutorial that uses Azure Kubernetes Service, see [here](../../aks/tutorial-kubernetes-scale.md)
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Scale applications in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

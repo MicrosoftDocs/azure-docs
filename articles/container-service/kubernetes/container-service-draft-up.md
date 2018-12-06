@@ -14,7 +14,7 @@ ms.custom: mvc
 # (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
 
 > [!TIP]
-> For the updated version this article that uses Azure Kubernetes Service, see [here](../../aks/kubernetes-draft.md).
+> For the updated version this article that uses Azure Kubernetes Service, see [Use Draft with Azure Kubernetes Service (AKS)](../../aks/kubernetes-draft.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
