@@ -20,7 +20,7 @@ The SQL query editor is an Azure portal browser tool providing an easy way to ex
 
 ## Prerequisites
 
-This tutorial uses the resources created in one of these quickstarts:
+This tutorial requires the following.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
