@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -336,7 +336,9 @@ The custom property name can be found in the directory by querying a user's prop
 
 ## Rules for devices
 
-You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The following device attributes can be used.
+You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
+
+The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
@@ -352,9 +354,12 @@ You can also create a rule that selects device objects for membership in a group
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
- organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains “M365Managed”)
+
+> [!Note]  
+> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps
 

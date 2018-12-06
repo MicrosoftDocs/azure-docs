@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -216,7 +216,7 @@ To resolve this problem, redeploy the Point to Site package on all clients.
 
 ## Too many VPN clients connected at once
 
-For each VPN gateway, the maximum number of allowable connections is 128. You can see the total number of connected clients in the Azure portal.
+The maximum number of allowable connections is reached. You can see the total number of connected clients in the Azure portal.
 
 ## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
 
@@ -277,7 +277,7 @@ To resolve the problem, delete the old VPN client configuration files from **C:\
 
 ### Symptom
 
-When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQND of the resources in your local domain.
+When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQDN of the resources in your local domain.
 
 ### Cause
 
@@ -295,7 +295,7 @@ This problem may occur if VPN client does not get the routes from Azure VPN gate
 
 ### Solution
 
-To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md).
+To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
 
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 

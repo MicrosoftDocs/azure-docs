@@ -1,6 +1,6 @@
 ---
-title: Use C# with Hive and Pig on Hadoop in HDInsight - Azure 
-description: Learn how to use C# user-defined functions (UDF) with Hive and Pig streaming in Azure HDInsight.
+title: Use C# with Apache Hive and Apache Pig on Apache Hadoop in HDInsight - Azure 
+description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -12,9 +12,9 @@ ms.date: 02/27/2018
 ms.author: hrasheed
 
 ---
-# Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
+# Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop in HDInsight
 
-Learn how to use C# user-defined functions (UDF) with Apache Hive and Pig on HDInsight.
+Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig on HDInsight.
 
 > [!IMPORTANT]
 > The steps in this document work with both Linux-based and Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](../hdinsight-component-versioning.md).
@@ -41,7 +41,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
 * __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
 
-    For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
+    For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
     To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
 
@@ -56,7 +56,7 @@ For more information on the version of the .NET framework and Mono included with
 1. Open Visual Studio and create a solution. For the project type, select **Console App (.NET Framework)**, and name the new project **HiveCSharp**.
 
     > [!IMPORTANT]
-    > Select __.NET Framework 4.5__ if you are using a Linux-based HDInsight cluster. For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
+    > Select __.NET Framework 4.5__ if you are using a Linux-based HDInsight cluster. For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 2. Replace the contents of **Program.cs** with the following code:
 

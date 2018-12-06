@@ -10,7 +10,7 @@ ms.author: snehaa
 
 # Azure Migrate - Frequently Asked Questions (FAQ)
 
-This article includes frequently asked questions about Azure Migrate. If you have any further queries after reading this article, post them on the [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
+This article includes frequently asked questions about Azure Migrate. If you have any further queries after reading this article, post them on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
 
 ## General
 

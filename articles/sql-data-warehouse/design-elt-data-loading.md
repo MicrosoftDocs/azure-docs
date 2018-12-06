@@ -36,7 +36,7 @@ Although there are many variations for implementing ELT for SQL Data Warehouse, 
 
 For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-For more information, see [Loading patterns blog](http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 ## Options for loading with PolyBase
 

@@ -10,6 +10,7 @@ ms.author: ancav
 ms.component: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
+
 With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
@@ -17,16 +18,14 @@ This article describes the process for sending Guest OS performance metrics for 
 Storing them in this location allows you to access the same actions that you can for platform metrics. Actions include near-real time alerting, charting, routing, access from a REST API, and more.  In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.  
 
 The process that's outlined in this article works only for performance counters in Azure Cloud Services. It doesn't work for other custom metrics. 
-   
 
 ## Prerequisites
 
-- You must be a [service administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
+- You must be a [service administrator or co-administrator](~/articles/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
-
 
 ## Provision a cloud service and storage account 
 
@@ -36,15 +35,13 @@ The process that's outlined in this article works only for performance counters 
 
    ![Storage account keys](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
-
-
 ## Create a service principal 
 
 Create a service principle in your Azure Active Directory tenant by using the instructions at [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Note the following while you're going through this process: 
 
-  - You can put in any URL for the sign-in URL.  
-  - Create new client secret for this app.  
-  - Save the key and the client ID for use in later steps.  
+- You can put in any URL for the sign-in URL.  
+- Create new client secret for this app.  
+- Save the key and the client ID for use in later steps.  
 
 Give the app created in the previous step *Monitoring Metrics Publisher* permissions to the resource you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
 
@@ -130,7 +127,7 @@ Finally, in the private configuration, add an *Azure Monitor Account* section. E
     </AzureMonitorAccount> 
 </PrivateConfig> 
 ```
- 
+
 Save this diagnostics file locally.  
 
 ## Deploy the Diagnostics extension to your cloud service 
@@ -147,19 +144,19 @@ Use the following commands to store the details of the storage account that you 
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
- 
+
 Similarly, set the diagnostics file path to a variable by using the following command:
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
- 
+
 Deploy the Diagnostics extension to your cloud service with the diagnostics file with the Azure Monitor sink configured using the following command:  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
- 
+
 > [!NOTE] 
 > It's still mandatory to provide a storage account as part of the installation of the Diagnostics extension. Any logs or performance counters that are specified in the diagnostics config file are written to the specified storage account.  
 
@@ -184,7 +181,5 @@ You use the dimension filtering and splitting capabilities to view the total mem
  ![Metrics Azure portal](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
 ## Next steps
+
 - Learn more about [custom metrics](metrics-custom-overview.md).
-
-
-

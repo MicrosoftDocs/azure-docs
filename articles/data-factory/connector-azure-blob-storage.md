@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 ms.author: jingwang
 
 ---
@@ -29,8 +29,11 @@ Specifically, this Blob storage connector supports:
 
 - Copying blobs to and from general-purpose Azure storage accounts and hot/cool blob storage. 
 - Copying blobs by using account key, service shared access signature, service principal or managed identities for Azure resources authentications.
-- Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
+- Copying blobs from block, append, or page blobs and copying data to only block blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+
+>[!NOTE]
+>If you enables _"Allow trusted Microsoft services to access this storage account"_ option on Azure Storage firewall settings, using Azure Integration Runtime to connect to Blob storage will fail with forbidden error, as ADF are not treated as trusted Microsoft service. Please use Self-hosted Integration Runtime as connect via instead.
 
 ## Get started
 
@@ -200,7 +203,7 @@ To use managed identities for Azure resources authentication, follow these steps
 
 1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
 
-2. Grant the service principal proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
+2. Grant the managed identity proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
 
     - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
     - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
@@ -243,7 +246,7 @@ To copy data to and from Blob storage, set the type property of the dataset to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to **AzureBlob**. |Yes |
-| folderPath | Path to the container and folder in the blob storage. Wildcard filter is not supported. An example is myblobcontainer/myblobfolder/. |Yes |
+| folderPath | Path to the container and folder in the blob storage. Wildcard filter is not supported. An example is myblobcontainer/myblobfolder/. |Yes for Copy/Lookup activity, No for GetMetadata activity |
 | fileName | **Name or wildcard filter** for the blob(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all blobs in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*". An example is "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |

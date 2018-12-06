@@ -1,6 +1,6 @@
 ---
-title: What is happening to Azure Machine Learning Workbench? | Microsoft Docs
-description: Learn about what is happening to the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
+title: What happened to Azure Machine Learning Workbench?
+description: Learn about what happened to the Workbench application, what changed in Azure Machine Learning service, and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,20 +9,21 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
 ---
-# What is happening to Workbench in Azure Machine Learning (preview)?
+# What is happening to Workbench in Azure Machine Learning service?
 
-The Workbench application and some other early features were replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
+The Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
 
-In this article, you'll learn about what changed and how it affects your pre-existing work with the Azure Machine Learning service.
+In this article, you'll learn about what changed and how it affects your pre-existing work with the Azure Machine Learning Workbench and its APIs.
 
 ## What changed?
 
 The latest release of Azure Machine Learning service includes:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md)
 + [New portal UI](how-to-track-experiments.md) to manage your experiments and compute targets
-+ A new, more comprehensive Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
++ A new, more comprehensive Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>
 + A new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-azure-machine-learning-architecture.md#workspace).  You can create workspaces quickly in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
@@ -39,12 +40,12 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the [Resources section](../desktop-workbench/tutorial-classifying-iris-part-1.md) at the bottom of the table of contents.
 
-|Phase|Support details for earlier features|
+|Retirement&nbsp;phase|Support details for earlier features|
 |:---:|----------------|
-|1|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI ends. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
-|2|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
+|December 4, 2018|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI has ended. The ability to create ML Compute Environments from the CLI has also ended. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
+|January 9, 2019|Support for everything else, including the remaining APIs and the desktop Workbench ends on this date.|
 
-[Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
+[Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
 
 ## What about run histories?
 
@@ -62,9 +63,9 @@ The portal's workspace dashboard is supported on Edge, Chrome and Firefox browse
 
 Your pre-existing data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  
 
-With smaller data sets, you can use the  <a href="http://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a> to quickly prepare your data prior to modeling. 
+With smaller data sets, you can use the  <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a> to quickly prepare your data prior to modeling. 
 
-You can use this same  <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> for larger data sets or use Azure Databricks to prepare big data sets. 
+You can use this same  <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for larger data sets or use Azure Databricks to prepare big data sets. 
 
 ## Will projects persist?
 
@@ -76,7 +77,7 @@ Learn how to get started [in Python with the main SDK](quickstart-get-started.md
 
 ## What about my registers models and images?
  
-The models that you registered in your old model registry must migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
+The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
 
 The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
 
@@ -88,20 +89,20 @@ In the newer version, models are deployed as web services to [Azure Container In
 
 ## What about the old SDK & CLI?
 
-Yes, they will continue to work for a while (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
+Yes, they will continue to work until January (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
 
-In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
+In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
-## What about VS Code Tools for AI?
+## What about Azure Machine Learning for Visual Studio Code?
 
-With this latest release, the Visual Studio (VS) Code Tools for AI extension has been expanded and improved to work with the above new features.
+With this latest release, Azure Machine Learning for Visual Studio (VS) Code has been expanded and improved to work with the above new features.
 
-[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ]
+[ ![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png) ]
 (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
 
-The domain packages for [Computer Vision, Text Analytics, and Forecasting](../desktop-workbench/reference-python-package-overview.md) cannot be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with latest Azure Machine Learning Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>. To learn how to migrate pre-existing models built using the Computer Vision, Text Analytics, and Forecasting packages, contact us at [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
+The domain packages for [Computer Vision, Text Analytics, and Forecasting](../desktop-workbench/reference-python-package-overview.md) cannot be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with latest Azure Machine Learning Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>. To learn how to migrate pre-existing models built using the Computer Vision, Text Analytics, and Forecasting packages, contact us at [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
 
 ## Next steps
 

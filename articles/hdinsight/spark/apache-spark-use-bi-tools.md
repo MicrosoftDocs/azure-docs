@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Analyze Apache Spark data using Power BI in Azure HDInsight '
-description: Use Microsoft Power BI to visualize Spark data stored HDInsight clusters  
+description: Use Microsoft Power BI to visualize Apache Spark data stored HDInsight clusters  
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -14,9 +14,9 @@ ms.date: 05/07/2018
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
 ---
 
-# Tutorial: Analyze Spark data using Power BI in HDInsight 
+# Tutorial: Analyze Apache Spark data using Power BI in HDInsight 
 
-Learn how to use Microsoft Power BI to visualize data in Apache Spark cluster in Azure HDInsight.
+Learn how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an [Apache Spark](https://spark.apache.org/) cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Verify the data
 
-The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
+The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
 
 1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies the existence of the tables.
 
@@ -76,7 +76,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
     ![Get data into Power BI Desktop from HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Get data into Power BI from Apache Spark BI")
 
 
-2. Enter `Spark` in the search box, select **Azure HDInsight Spark (Beta)**, and then click **Connect**.
+2. Enter `Spark` in the search box, select **Azure HDInsight Spark**, and then click **Connect**.
 
     ![Get data into Power BI from Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Get data into Power BI from Apache Spark BI")
 
@@ -162,7 +162,7 @@ The Power BI service allows you to share reports and dashboards across your orga
 
 10. In the report, click **Go to dashboard**. 
 
-Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 <!--
 ## <a name="tableau"></a>Use Tableau Desktop 
@@ -174,14 +174,14 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
 1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 
 1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
 2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
     ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](https://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
 3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
     ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
@@ -212,9 +212,9 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
 In this tutorial, you learned how to:
 
-- Visualize Spark data using Power BI.
+- Visualize Apache Spark data using Power BI.
 
 Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
-> [Run a Spark streaming job](apache-spark-eventhub-streaming.md)
+> [Run an Apache Spark streaming job](apache-spark-eventhub-streaming.md)
 

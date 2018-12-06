@@ -1,5 +1,5 @@
 ---
-title: Create Java MapReduce for Hadoop - Azure HDInsight 
+title: Create Java MapReduce for Apache Hadoop - Azure HDInsight 
 description: Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
@@ -12,21 +12,21 @@ ms.date: 04/23/2018
 ms.author: hrasheed
 
 ---
-# Develop Java MapReduce programs for Hadoop on HDInsight
+# Develop Java MapReduce programs for Apache Hadoop on HDInsight
 
-Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
+Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Apache Hadoop on Azure HDInsight.
 
 > [!NOTE]
 > This example was most recently tested on HDInsight 3.6.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK).
     
     > [!NOTE]
     > HDInsight versions 3.4 and earlier use Java 7. HDInsight 3.5 and greater uses Java 8.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## Configure development environment
 
@@ -59,7 +59,7 @@ The following environment variables may be set when you install Java and the JDK
 
     This command creates a directory with the name specified by the `artifactID` parameter (**wordcountjava** in this example.) This directory contains the following items:
 
-   * `pom.xml` - The [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) that contains information and configuration details used to build the project.
+   * `pom.xml` - The [Project Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) that contains information and configuration details used to build the project.
 
    * `src` - The directory that contains the application.
 
@@ -90,7 +90,7 @@ The following environment variables may be set when you install Java and the JDK
     </dependency>
    ```
 
-    This defines required libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
+    This defines required libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven repository search](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
    
     The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they are provided by the HDInsight cluster at run-time.
 
@@ -134,7 +134,7 @@ The following environment variables may be set when you install Java and the JDK
     </build>
    ```
 
-    The first plugin configures the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
+    The first plugin configures the [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
 
     The second plugin configures the target Java version.
 
@@ -287,9 +287,9 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 
 For more information, see also the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -299,5 +299,5 @@ For more information, see also the [Java Developer Center](https://azure.microso
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

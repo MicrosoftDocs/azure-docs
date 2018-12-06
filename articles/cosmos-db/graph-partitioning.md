@@ -1,21 +1,17 @@
 ---
-title: 'Partitioning in Azure Cosmos DB Gremlin API | Microsoft Docs'
+title: Partitioning in Azure Cosmos DB Gremlin API
 description: Learn how you can use a partitioned Graph in Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
-manager: kfile
-
+ms.author: lbosq
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.author: lbosq
-
 ---
 # Using a partitioned graph in Azure Cosmos DB
 
-One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
+One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
 
 - **Fixed container**: These containers can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed container it isn't necessary to specify a partition key property in the data.
 

@@ -61,7 +61,7 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 > 
 
 1. Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297) and open it.
+2. Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](https://go.microsoft.com/fwlink/p/?linkid=236297) and open it.
 3. Run the following cmdlets:
 
     ```powershell

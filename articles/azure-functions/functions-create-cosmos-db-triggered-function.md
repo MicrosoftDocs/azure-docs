@@ -16,7 +16,7 @@ ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](..\cosmos-db\serverless-computing-database.md).
+Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
 
 ![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -103,7 +103,7 @@ Next, you connect to your Azure Cosmos DB account and create the `Items` collect
     | **Collection ID** | Items | The name for the new collection. This must match the name defined in your function binding.  |
     | **Storage capacity** | Fixed (10 GB)|Use the default value. This value is the storage capacity of the database. |
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |
-    | **[Partition key](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
+    | **[Partition key](../cosmos-db/partition-data.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
 
 1. Click **OK** to create the Items collection. It may take a short time for the collection to get created.
 

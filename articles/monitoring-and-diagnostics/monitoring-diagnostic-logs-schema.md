@@ -41,7 +41,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
-| Azure Active Directory | [Overview](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [Audit log schema](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign Ins schema](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Overview](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign Ins schema](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management Diagnostic Logs](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
@@ -202,4 +202,4 @@ The schema for resource diagnostic logs varies depending on the resource and log
 * [Learn more about diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
 * [Stream resource diagnostic logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analyze logs from Azure storage with Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

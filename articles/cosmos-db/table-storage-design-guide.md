@@ -1,13 +1,11 @@
 ---
-title: Azure Storage Table Design Guide | Microsoft Docs
+title: Azure Storage Table Design Guide
 description: Design Scalable and Performant Tables in Azure Table Storage
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
@@ -118,7 +116,7 @@ The following example shows a simple table design to store employee and departme
 </table>
 
 
-So far, this design looks similar to a table in a relational database with the key differences being the mandatory columns, and the ability to store multiple entity types in the same table. In addition, each of the user-defined properties such as **FirstName** or **Age** has a data type, such as integer or string, just like a column in a relational database. Although unlike in a relational database, the schema-less nature of the Table service means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information about the table service such as supported data types, supported date ranges, naming rules, and size constraints, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+So far, this design looks similar to a table in a relational database with the key differences being the mandatory columns, and the ability to store multiple entity types in the same table. In addition, each of the user-defined properties such as **FirstName** or **Age** has a data type, such as integer or string, just like a column in a relational database. Although unlike in a relational database, the schema-less nature of the Table service means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information about the table service such as supported data types, supported date ranges, naming rules, and size constraints, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 As you will see, your choice of **PartitionKey** and **RowKey** is fundamental to good table design. Every entity stored in a table must have a unique combination of **PartitionKey** and **RowKey**. As with keys in a relational database table, the **PartitionKey** and **RowKey** values are indexed to create a clustered index that enables fast look-ups; however, the Table service does not create any secondary indexes so these are the only two indexed properties (some of the patterns described later show how you can work around this apparent limitation).  
 
@@ -130,7 +128,7 @@ The account name, table name, and **PartitionKey** together identify the partiti
 In the Table service, an individual node services one or more complete partitions and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, the table service can *split* the range of partitions serviced by that node onto different nodes; when traffic subsides, the service can *merge* the partition ranges from quiet nodes back onto a single node.  
 
 For more information about the internal details of the Table service, and in particular how the service manages partitions, see the paper [Microsoft Azure Storage: A Highly Available
-Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### Entity Group Transactions
 In the Table service, Entity Group Transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions* in some documentation. EGTs can only operate on entities stored in the same partition (share the same partition key in a given table), so anytime you need atomic transactional behavior across multiple entities you need to ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition) and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it is important to ensure  those EGTs do not operate on entities that are common across EGTs as otherwise processing can be delayed.
@@ -150,7 +148,7 @@ The following table includes some of the key values to be aware of when you are 
 | Size of the **RowKey** |A string up to 1 KB in size |
 | Size of an Entity Group Transaction |A transaction can include at most 100 entities and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
 
-For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### Cost considerations
 Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses the Table service. However, in many scenarios storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  
@@ -205,7 +203,7 @@ The following examples assume the table service is storing employee entities wit
 | **Age** |Integer |
 | **EmailAddress** |String |
 
-The earlier section [Azure Table service overview](#overview) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+The earlier section [Azure Table service overview](#overview) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
   $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
@@ -441,7 +439,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address starting with the letter 'a' use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  The filter syntax used in the examples above is from the Table service REST API, for more information, see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  The filter syntax used in the examples above is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -497,7 +495,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address that starts with 'a' sorted in email address order use:
   $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Note that the filter syntax used in the examples above is from the Table service REST API, for more information, see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Note that the filter syntax used in the examples above is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -1008,7 +1006,7 @@ An optimal query returns an individual entity based on a **PartitionKey** value 
 
 You should always fully test the performance of your application in such scenarios.  
 
-A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 If you are using the Storage Client Library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the Storage Client Library automatically handles continuation tokens if the table service returns them in a response:  
 

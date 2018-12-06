@@ -47,7 +47,7 @@ The normal app access ports are:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | User configurable |  80, 443 |
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
-|  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
+|  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
@@ -229,10 +229,10 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

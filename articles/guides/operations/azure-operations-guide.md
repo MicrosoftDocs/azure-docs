@@ -103,7 +103,7 @@ Services for storing and managing data:
 
 - Microsoft Azure StorSimple
 
-- Azure Redis Cache
+- Azure Cache for Redis
 
 ### Application services
 
@@ -223,7 +223,7 @@ For more information, see [Gain insights into your Microsoft Azure resource cons
 
 ### Forecast cost with the pricing calculator
 
-The pricing for each service in Azure is different. Many Azure services provide Basic, Standard, and Premium tiers. Usually, each tier has several price and performance levels. By using the [online pricing calculator](http://azure.microsoft.com/pricing/calculator), you can create pricing estimates. The calculator includes flexibility to estimate cost on a single resource or a group of resources.
+The pricing for each service in Azure is different. Many Azure services provide Basic, Standard, and Premium tiers. Usually, each tier has several price and performance levels. By using the [online pricing calculator](https://azure.microsoft.com/pricing/calculator), you can create pricing estimates. The calculator includes flexibility to estimate cost on a single resource or a group of resources.
 
 ## Azure Resource Manager
 

@@ -208,8 +208,6 @@
     href: https://azure.microsoft.com/pricing/details/storage/blobs/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=storage
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer

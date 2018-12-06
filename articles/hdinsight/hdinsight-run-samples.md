@@ -922,7 +922,7 @@ public class TeraSort extends Configured implements Tool {
         splitPoints = readPartitions(fs, partFile, job);
         trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
         } catch (IOException ie) {
-        throw new IllegalArgumentException("can't read paritions file", ie);
+        throw new IllegalArgumentException("can't read partitions file", ie);
         }
     }
 
@@ -989,6 +989,6 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
-[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[streamreader]: https://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: https://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx

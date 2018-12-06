@@ -1,6 +1,13 @@
+---
+author: wesmc7777
+ms.service: redis-cache 
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: wesmc
+---
 
 ### cacheSKUName
-The pricing tier of the new Azure Redis Cache.
+The pricing tier of the new Azure Azure Cache for Redis.
 
     "cacheSKUName": {
       "type": "string",
@@ -10,7 +17,7 @@ The pricing tier of the new Azure Redis Cache.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Azure Cache for Redis."
       }
     },
 
@@ -33,7 +40,7 @@ The family for the sku.
 
 
 ### cacheSKUCapacity
-The size of the new Azure Redis Cache instance. 
+The size of the new Azure Azure Cache for Redis instance. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -48,7 +55,7 @@ The size of the new Azure Redis Cache instance.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Azure Cache for Redis instance. "
       }
     }
 

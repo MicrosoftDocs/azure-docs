@@ -2,28 +2,18 @@
 title: Predict vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-ms.author: deguhath
+author: marktab
+ms.author: tdsp
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Vehicle Telemetry Analytics Solution playbook
-This menu links to the chapters in this playbook: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
-
-## Overview
 Super computers have moved out of the lab and are now parked in garages. These are now being placed in cutting-edge automobiles that contain myriad sensors. These sensors give them the ability to track and monitor millions of events every second. By 2020, most of these vehicles will be connected to the Internet. Tapping into this wealth of data provides greater safety, reliability, and so a better driving experience. Microsoft makes this dream a reality with Cortana Intelligence.
 
 Cortana Intelligence is a fully managed big data and advanced analytics suite that you can use to transform your data into intelligent action. The Cortana Intelligence Vehicle Telemetry Analytics Solution Template demonstrates how car dealerships, automobile manufacturers, and insurance companies are able to obtain real-time and predictive insights on vehicle health and driving habits.
@@ -50,3 +40,8 @@ This solution accesses two different data sources:
 * **Simulated vehicle signals and diagnostics**: A vehicle telematics simulator emits diagnostic information and signals that correspond to the state of the vehicle and the driving pattern at a given point in time. 
 * **Vehicle catalog**: This reference data set maps VIN numbers to models.
 
+## Next Steps
+
+To explore this solution further, see [Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
+
+To learn how to configure the Power BI reports and dashboards for this solution, see [Vehicle Telemetry Analytics Solution Template Power BI dashboard setup instructions](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

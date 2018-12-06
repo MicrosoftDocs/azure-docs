@@ -18,7 +18,7 @@ ms.author: tomsh
 ---
 
 # Azure database security best practices
-Security is a top concern for managing databases, and it has always been a priority for [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
+Security is a top concern for managing databases, and it has always been a priority for [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
 
 In this article, we discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
@@ -118,7 +118,7 @@ Because an authorized user like a security administrator or a database administr
 - Make sure that users and applications use separate accounts to authenticate. This way, you can limit the permissions granted to users and applications and reduce the risk of malicious activity.
 - Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter). Or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
-For other ways to encrypt your data, consider:
+For other ways to secure your data, consider:
 
 - [Cell-level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) to encrypt specific columns or even cells of data with different encryption keys.
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), which allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access).

@@ -188,7 +188,7 @@ As seen in the diagram, Azure Load Balancer distributes traffic across multiple 
 
 ![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) or [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
+Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) or [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
 
 ![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 
@@ -232,7 +232,7 @@ In Azure, you can use Active Directory as a standalone cloud directory for your 
 
 In n-tier hybrid application pattern, you can implement the following workflow in the order specified:
 
-1. Identify enterprise database applications that need to be moved up to cloud by using the [Microsoft Assessment and Planning (MAP) Toolkit](http://microsoft.com/map). The MAP Toolkit gathers inventory and performance data from computers you are considering for virtualization and provides recommendations on capacity and assessment planning.
+1. Identify enterprise database applications that need to be moved up to cloud by using the [Microsoft Assessment and Planning (MAP) Toolkit](https://microsoft.com/map). The MAP Toolkit gathers inventory and performance data from computers you are considering for virtualization and provides recommendations on capacity and assessment planning.
 2. Plan the resources and configuration needed in the Azure platform, such as storage accounts and virtual machines.
 3. Set up network connectivity between the corporate network on-premises and [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). To set up the connection between the corporate network on-premises and a virtual machine in Azure, use one of the following two methods:
    

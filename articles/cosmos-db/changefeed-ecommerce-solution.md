@@ -1,9 +1,8 @@
 ---
-title: Use Azure Cosmos DB change feed to visualize real-time data analytics | Microsoft Docs
+title: Use Azure Cosmos DB change feed to visualize real-time data analytics
 description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: java
@@ -86,7 +85,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
    ```powershell
    .\deploy.ps1
    ```
-5. When prompted, enter your Azure **Subcription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
+5. When prompted, enter your Azure **Subscription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
 
 ## Create a database and the collection
 

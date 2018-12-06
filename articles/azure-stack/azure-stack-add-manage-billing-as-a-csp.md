@@ -30,7 +30,7 @@ The following diagram shows the steps that you will need to choose your shared s
 
 **Steps to add usage tracking as a CSP**
 
-[ ![Process for enabling usage and management as a Cloud Service Provider](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "Process for enabling usage and management as a Cloud Service Provider") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
+[ ![Process for enabling usage and management as a Cloud Service Provider](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Process for enabling usage and management as a Cloud Service Provider") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## Create a CSP or APSS subscription
 

@@ -1,5 +1,5 @@
 ---
-title: Install your own custom Hadoop applications on Azure HDInsight 
+title: Install your own custom Apache Hadoop applications on Azure HDInsight 
 description: Learn how to install HDInsight applications on HDInsight applications.
 services: hdinsight
 author: hrasheed-msft
@@ -12,9 +12,9 @@ ms.date: 05/14/2018
 ms.author: hrasheed
 
 ---
-# Install custom Hadoop applications on Azure HDInsight
+# Install custom Apache Hadoop applications on Azure HDInsight
 
-In this article, you will learn how to install a Hadoop application on Azure HDInsight, which has not been published to the Azure portal. The application you will install in this article is [Hue](http://gethue.com/).
+In this article, you will learn how to install an [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight, which has not been published to the Azure portal. The application you will install in this article is [Hue](http://gethue.com/).
 
 An HDInsight application is an application that users can install on a Linux-based HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
@@ -121,5 +121,5 @@ Using Azure Classic CLI, you can delete the cluster or delete the resource group
 * [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 * [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
-* [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
+* [Create Linux-based Apache Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.

@@ -1,6 +1,6 @@
 ---
-title: Use Hadoop Pig in HDInsight 
-description: Learn how to use Pig with Hadoop on HDInsight.
+title: Use Apache Pig in HDInsight 
+description: Learn how to use Pig with Apache Hadoop on HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,11 +10,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ---
-# Use Pig with Hadoop on HDInsight
+# Use Apache Pig with Apache Hadoop on HDInsight
 
-Learn how to use [Apache Pig](http://pig.apache.org/) with HDInsight.
+Learn how to use [Apache Pig](https://pig.apache.org/) with HDInsight.
 
-Pig is a platform for creating programs for Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
+Apache Pig is a platform for creating programs for Apache Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
 
 | **Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
@@ -63,7 +63,7 @@ Each log inside the file consists of a line of fields that contains a `[LOG LEVE
 In the previous example, the log level is ERROR.
 
 > [!NOTE]
-> You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](../hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+> You can also generate a log4j file by using the [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](../hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Example job
 
@@ -114,12 +114,12 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 * [Use Oozie with HDInsight](../hdinsight-use-oozie.md)
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -130,7 +130,7 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

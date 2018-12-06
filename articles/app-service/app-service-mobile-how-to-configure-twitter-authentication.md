@@ -22,7 +22,7 @@ ms.author: mahender
 
 This topic shows you how to configure Azure App Service to use Twitter as an authentication provider.
 
-To complete the procedure in this topic, you must have a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
+To complete the procedure in this topic, you must have a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to <a href="https://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
 ## <a name="register"> </a>Register your application with Twitter
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Twitter app.
@@ -60,6 +60,6 @@ You are now ready to use Twitter for authentication in your app.
 
 <!-- URLs. -->
 
-[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Twitter Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

@@ -32,7 +32,7 @@ Before continuing, confirm that you have:
 
 - **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 - **Azure PowerShell**, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
-- **An application that can be configured to use Key Vault**. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying **Readme** file.
+- **An application that can be configured to use Key Vault**. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying **Readme** file.
 
 >[!NOTE]
 This article assumes a basic understanding of PowerShell and Azure. For more information on PowerShell, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -219,14 +219,14 @@ To register the application in Azure Active Directory:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, click **App registrations**. If you don't see app registrations, click on **more services**.  
->[!NOTE]
-You must select the same directory that contains the Azure subscription with which you created your key vault. 
+    > [!NOTE]
+    > You must select the same directory that contains the Azure subscription with which you created your key vault. 
 3. Click **New application registration**.
 4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
 
     ![New application registration](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
+    > [!WARNING]
+    > Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
 
 5. Click the **Create** button.
 6. When the app registration is completed, you will see the list of registered apps. Find the app that you registered and click on it.

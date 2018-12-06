@@ -12,7 +12,8 @@ ms.component: alerts
 
 # Supported resources for metric alerts in Azure Monitor
 
-Azure Monitor now supports a new metric alert type, which has significant benefits over the older [classic metric alerts](insights-alerts-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
+Azure Monitor now supports a [new metric alert type](monitoring-overview-alerts.md) which has significant benefits over the older [classic metric alerts](monitoring-overview-alerts-classic.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
+
 
 You can also use newer metric alerts on popular Log Analytics logs extracted as metrics. For more information, view [Metric Alerts for Logs](monitoring-metric-alerts-logs.md).
 
@@ -29,7 +30,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.ApiManagement/service     | Yes        | [API Management](monitoring-supported-metrics.md#microsoftapimanagementservice)|
 |Microsoft.Automation/automationAccounts     |     Yes   | [Automation Accounts](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/A| [Batch Accounts](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis     |    N/A     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Cache/Redis     |    N/A     |[Azure Cache for Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Virtual Machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtual machine scale sets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
@@ -115,6 +116,6 @@ The POST operation contains the following JSON payload and schema for all near n
 
 ## Next steps
 
-* Learn more about the new [Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Alerts experience](monitoring-overview-alerts.md).
 * Learn about [log alerts in Azure](monitor-alerts-unified-log.md).
 * Learn about [alerts in Azure](monitoring-overview-alerts.md).

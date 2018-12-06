@@ -2,12 +2,12 @@
 title: Deploy and manage backups for Resource Manager-deployed VMs using PowerShell
 description: Use PowerShell to deploy and manage backups in Azure for Resource Manager-deployed VMs
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/20/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
 ---
 # Use PowerShell to back up and restore virtual machines
@@ -56,7 +56,7 @@ To begin:
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
+5. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -66,7 +66,7 @@ To begin:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ``` 
-    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet again.
+    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet again.
 
 The following tasks can be automated with PowerShell:
 

@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom:
 ---
 
@@ -21,12 +21,12 @@ Azure Cost Management gives you the tools to plan for, analyze and reduce your s
 Cost management is an organizational problem and should be an ongoing practice that begins before you spend money on cloud resources. To successfully implement cost management and optimize costs, your organization must:
 
 - Be prepared with the proper tools for success
-- Accountable for costs
+- Be accountable for costs
 - Take appropriate action to optimize spending
 
 Three key groups, outlined below, must be aligned in your organization to make sure that you successfully manage costs.
 
-- **Finance** - People responsible for approving budge requests across the organization based on cloud spending forecasts. They pay the corresponding bill and assign costs to various teams to drive accountability.
+- **Finance** - People responsible for approving budget requests across the organization based on cloud spending forecasts. They pay the corresponding bill and assign costs to various teams to drive accountability.
 - **Managers** - Business decision makers in an organization that need to understand cloud spending to find the best spending results.
 - **App teams** - Engineers managing cloud resources on a day-to-day basis, developing services to meet the organization's needs. These teams need the flexibility to deliver the most value in their defined budgets.
 
@@ -41,7 +41,7 @@ Comprehensive, up-front planning allows you to tailor cloud usage to your specif
 - What business problem am I solving?
 - What usage patterns do I expect from my resources?
 
-Your answers will help you select offer that's right for you. They determine the infrastructure to use and how it's used to maximize your Azure efficiency.
+Your answers will help you select the offerings that are right for you. They determine the infrastructure to use and how it's used to maximize your Azure efficiency.
 
 #### Visibility
 
@@ -57,7 +57,7 @@ Act to reduce your spending. Make the most of it based on the findings gathered 
 
 #### Iteration
 
-Everyone in your organization must engage in the cost management lifecycle. They need to stay involved in on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenant of responsible cloud governance in your organization.
+Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
 
 ![Key principles](./media/cost-mgt-best-practices/principles.png)
 
@@ -100,7 +100,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 ## Estimate the cost of your solution
 
-Before you deploy any infrastructure, assess how much your solution will cost. The assessment will help you create a budget for your organization for the workload, up-front. Then you can use budget over time to benchmark the validity of your initial estimation. And you can compare it with the actual cost of your deployed solution.
+Before you deploy any infrastructure, assess how much your solution will cost. The assessment will help you create a budget for your organization for the workload, up-front. Then you can use a budget over time to benchmark the validity of your initial estimation. And you can compare it with the actual cost of your deployed solution.
 
 ### Azure pricing calculator
 
@@ -120,7 +120,7 @@ Keep informed about how your organization's costs evolve over time. Use the foll
 
 ### Organize and tag your resources
 
-Organize your resources with cost in mind. As you create subscriptions and resource groups, think about the teams that are responsible for associated costs. Make sure your reporting keeps your organization in mind. Subscriptions and resource groups provide good buckets to organize and attribute spending across your organization. Tags provide a good way to attribute cost. You can use tags as a filter. And you can use them to group by when you analyze data and investigate costs. Enterprise Agreement customers also can create departments and place subscriptions under them. Cost-based organization in Azure helps keep the relevant people in your organization accountable for reducing their team's spending.
+Organize your resources with cost in mind. As you create subscriptions and resource groups, think about the teams that are responsible for associated costs. Make sure your reporting keeps your organization in mind. Subscriptions and resource groups provide good buckets to organize and attribute spending across your organization. Tags provide a good way to attribute cost. You can use tags as a filter. And you can use them to group by when you analyze data and investigate costs. Enterprise Agreement customers can also create departments and place subscriptions under them. Cost-based organization in Azure helps keep the relevant people in your organization accountable for reducing their team's spending.
 
 ### Use cost analysis
 
@@ -152,7 +152,7 @@ Use the following ways to optimize spending.
 
 ### Cut out waste
 
-After you've deployed your infrastructure in Azure, it's important to make sure it is being used. The easiest way to start saving immediately is to review your resources and remove any that aren't being used. From there, you should determine your resources are being used as efficiently as possible.
+After you've deployed your infrastructure in Azure, it's important to make sure it is being used. The easiest way to start saving immediately is to review your resources and remove any that aren't being used. From there, you should determine if your resources are being used as efficiently as possible.
 
 #### Azure Advisor
 
@@ -172,19 +172,15 @@ Azure has many discounts that your organization should take advantage of to save
 
 #### Azure Reservations
 
-Azure Reservations allow you to you prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reservations provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
+Azure Reservations allow you to prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices with one-year or three-year upfront commitment. Reservations provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
 
 For more information, see [What are Azure Reservations?](../billing/billing-save-compute-costs-reservations.md).
 
 #### Use Azure Hybrid Benefit
 
-If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With the Windows Server benefit, each license covers the cost of the OS (up to two virtual machines), and you only pay for base compute costs. You can use existing SQL Server licenses to save up to 55 percent on vCore-based SQL Database options. options include SQL Server in Azure Virtual Machines and SQL Server Integration Services.
+If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With the Windows Server benefit, each license covers the cost of the OS (up to two virtual machines), and you only pay for base compute costs. You can use existing SQL Server licenses to save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services.
 
 For more information, see [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### Monetary commitment
-
-Customers who sign an Enterprise Agreement can create an up-front monetary commitment to Microsoft. Along with providing a simple way to allocate budgets to cloud resources, monetary commitments enable you to have reduced rates on Azure. Rate reductions can lead to significant cost savings for your organization.
 
 ### Other resources
 

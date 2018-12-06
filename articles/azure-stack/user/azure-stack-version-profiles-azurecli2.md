@@ -32,7 +32,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 ## Trust the Azure Stack CA root certificate
 
-1. Get the Azure Stack CA root certificate from [your Azure Stack operator](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) and trust it. To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
+1. Get the Azure Stack CA root certificate from [your Azure Stack operator](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) and trust it. To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
 
 1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
 
@@ -136,6 +136,18 @@ Use the following steps to connect to Azure Stack:
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    c. To register the *user* in a Multitenancy environment, use:
+
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
 
 1. Set the active environment by using the following commands.
 
@@ -220,13 +232,13 @@ If the resource group is created successfully, the previous command outputs the 
 There are some known issues that you must be aware of when using CLI in Azure Stack:
 
  - The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
- - To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment.
+ - To get the list of virtual machine images available in Azure Stack, use the `az vm image list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment.
  - Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. This URN must match the image specifications as derived from the `az vm images list` command.
 
 ## Next steps
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Enable Azure CLI for Azure Stack users (Operator)](..\azure-stack-cli-admin.md)
+[Enable Azure CLI for Azure Stack users (Operator)](../azure-stack-cli-admin.md)
 
 [Manage user permissions](azure-stack-manage-permissions.md)

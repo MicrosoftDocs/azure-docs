@@ -17,7 +17,7 @@ This article provides troubleshooting guidance to help you diagnose the cause of
 * [The Backup agent is running on an Azure virtual machine (VM).](#cause3)  
 * [You're backing up a large number (millions) of files.](#cause4)
 
-Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent
+Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](https://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
 
 We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.

@@ -1,6 +1,6 @@
 ---
 title: FPGA package for hardware acceleration for Azure Machine Learning
-description: Learn about the python packages available for Azure Machine Learning users. 
+description: This article is deprecated.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,6 +10,7 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+ms.custom: seodec18
 
 ROBOTS: NOINDEX
 ---
@@ -28,7 +29,7 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+1. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 1. An Azure Machine Learning Model Management account. For more information on creating the account, see the [Azure Machine Learning Quickstart and Workbench installation](../desktop-workbench/quickstart-installation.md) document. 
 

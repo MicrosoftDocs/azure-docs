@@ -18,7 +18,7 @@ ms.author: cephalin
 
 ---
 # Operating system functionality on Azure App Service
-This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 
 > [!NOTE] 
 > [Linux apps](containers/app-service-linux-intro.md) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](app-service-web-get-started-windows-container.md), you have administrative access to the container but no access to the host operating system. 
@@ -56,7 +56,12 @@ At its core, App Service is a service running on top of the Azure PaaS (platform
 - An application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers)
 - A "user" drive (the C:\ drive), whose size varies depending on the size of the VM. 
 
-It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application.
+It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application. For example: 
+
+- The app may throw an error indicating not enough space on the disk.
+- You may see disk errors when browsing to the Kudu console.
+- Deployment from VSTS or Visual Studio may fail with `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Your app may suffer slow performance.
 
 <a id="NetworkDrives"></a>
 
@@ -76,7 +81,7 @@ On the local drives attached to the virtual machine that runs an app, App Servic
 
 Two examples of how App Service uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the "Temporary ASP.NET Files" directory as a temporary compilation cache location. IIS uses the "IIS Temporary Compressed Files" directory to store compressed response output. Both of these types of file usage (as well as others) are remapped in App Service to per-app temporary local storage. This remapping ensures that functionality continues as expected.
 
-Each app in App Service runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive). This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
+Each app in App Service runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive). This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
 
 <a name="multipleinstances"></a>
 

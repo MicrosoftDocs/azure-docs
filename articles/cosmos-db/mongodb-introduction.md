@@ -1,14 +1,12 @@
 ---
-title: 'Introduction to Azure Cosmos DB: MongoDB API | Microsoft Docs'
+title: 'Introduction to Azure Cosmos DB: MongoDB API'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB APIs.
 keywords: what is MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
@@ -63,5 +61,4 @@ Information about the Azure Cosmos DB MongoDB API is integrated into the overall
 * Follow the [Use Studio 3T (MongoChef) with Azure Cosmos DB](mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
 * Follow the [Migrate data to Azure Cosmos DB with protocol support for MongoDB](mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
 * Connect to an API for MongoDB account using [Robomongo](mongodb-robomongo.md).
-* Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](set-throughput.md#GetLastRequestStatistics).
 * Learn how to [configure read preferences for globally distributed apps](../cosmos-db/tutorial-global-distribution-mongodb.md).

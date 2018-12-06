@@ -20,7 +20,7 @@ ms.author: msangapu
 
 ## Introduction
 
-This guide shows you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
+This guide shows you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -144,7 +144,7 @@ Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To ena
 
 Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime with Web Apps, following these steps.
 
-1. Obtain a non-thread-safe, VC9 or VC11 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [http://windows.php.net/download/]. Older releases can be found in the archive here: [http://windows.php.net/downloads/releases/archives/].
+1. Obtain a non-thread-safe, VC9 or VC11 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [https://windows.php.net/download/]. Older releases can be found in the archive here: [https://windows.php.net/downloads/releases/archives/].
 1. Modify the `php.ini` file for your runtime. Any configuration settings that are system-level-only directives are ignored by Web Apps. (For information about system-level-only directives, see [List of php.ini directives]).
 1. Optionally, add extensions to your PHP runtime and enable them in the `php.ini` file.
 1. Add a `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
@@ -195,7 +195,7 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 >
 
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [List of php.ini directives]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -205,8 +205,8 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

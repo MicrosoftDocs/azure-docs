@@ -16,10 +16,9 @@
 | [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |200 |200 |
 | [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription <sup>2</sup> |100 |100 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |20 |200 |
-| [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription |10 |500 |
+| [Local networks](https://msdn.microsoft.com/library/jj157100.aspx) per subscription |10 |500 |
 | DNS servers per subscription |9 |100 |
 | Reserved IPs per subscription |20 |100 |
-| Hosted service certificates per subscription |199 |199 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
 
 

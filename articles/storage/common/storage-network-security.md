@@ -1,353 +1,427 @@
 ---
-title: Configure Azure Storage Firewalls and Virtual Networks | Microsoft Docs
+title: Configure Azure Storage firewalls and virtual networks | Microsoft Docs
 description: Configure layered network security for your storage account.
 services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
 ---
-# Configure Azure Storage Firewalls and Virtual Networks
-Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
+# Configure Azure Storage firewalls and virtual networks
+
+Azure Storage provides a layered security model. This model enables you to secure your storage accounts to a specific set of supported networks​. When network rules are configured, only applications requesting data from over the specified set of networks can access a storage account.
+
+An application that accesses a storage account when network rules are in effect requires proper authorization on the request. Authorization is supported with Azure Active Directory (AD) credentials (for blobs and queues) (preview), a valid account access key, or a SAS token.
 
 > [!IMPORTANT]
-> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  Azure services that operate from within a VNet can be granted access by allowing the subnet of the service instance.  Azure services that do not operate from within a VNet will be blocked by the firewall.  A limited number of scenarios can be enabled through the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) mechanism described below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
+> Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests come from a service that is operating within an Azure Virtual Network (VNet). Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
 >
+> You can grant access to Azure services that operate from within a VNet by allowing the subnet of the service instance. Enable a limited number of scenarios through the [Exceptions](#exceptions) mechanism described in the following section. To access the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
 
 ## Scenarios
-Storage accounts can be configured to deny access to traffic from all networks (including internet traffic) by default.  Access can be granted to traffic from specific Azure Virtual networks, allowing you to build a secure network boundary for your applications.  Access can also be granted to public internet IP address ranges, enabling connections from specific internet or on-premises clients.
 
-Network rules are enforced on all network protocols to Azure storage, including REST and SMB.  Access to your data from tools like the Azure portal, Storage Explorer, and AZCopy require explicit network rules granting access when network rules are in force.
+Configure storage accounts to deny access to traffic from all networks (including internet traffic) by default. Then grant access to traffic from specific VNets. This configuration enables you to build a secure network boundary for your applications. You can also grant access to public internet IP address ranges, enabling connections from specific internet or on-premises clients.
 
-Network rules can be applied to existing Storage accounts, or can be applied during the creation of new Storage accounts.
+Network rules are enforced on all network protocols to Azure storage, including REST and SMB. To access the data with tools like Azure portal, Storage Explorer, and AZCopy, explicit network rules are required.
 
-Once network rules are applied, they are enforced for all requests.  SAS tokens that grant access to a specific IP Address service serve to **limit** the access of the token holder, but do not grant new access beyond configured network rules. 
+You can apply network rules to existing storage accounts, or when you create new storage accounts.
 
-Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules.  REST access to page blobs is protected by network rules.
+Once network rules are applied, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but don't grant new access beyond configured network rules.
 
-Classic Storage accounts **do not** support Firewalls and Virtual Networks.
+Virtual machine disk traffic (including mount and unmount operations, and disk IO) is not affected by network rules. REST access to page blobs is protected by network rules.
 
-Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is supported via creating an exception as documented in the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) section of this article.  Firewall exceptions are not applicable with Managed Disks as they are already managed by Azure.
+Classic storage accounts do not support firewalls and virtual networks.
+
+You can use unmanaged disks in storage accounts with network rules applied to backup and restore VMs by creating an exception. This process is documented in the [Exceptions](#exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
 ## Change the default network access rule
-By default, storage accounts accept connections from clients on any network.  To limit access to selected networks, you must first change the default action.
+
+By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
 
 > [!WARNING]
-> Making changes to network rules can impact your applications' ability to connect to Azure Storage.  Setting the default network rule to **deny** blocks all access to the data unless specific network rules *granting* access are also applied.  Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
->
+> Making changes to network rules can impact your applications' ability to connect to Azure Storage. Setting the default network rule to **deny** blocks all access to the data unless specific network rules to **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+
+### Managing default network access rules
+
+You can manage default network access rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
 
 #### Azure portal
-1. Navigate to the storage account you want to secure.  
 
-2. Click on the settings menu called **Firewalls and virtual networks**.
-3. To deny access by default, choose to allow access from 'Selected networks'.  To allow traffic from all networks, choose to allow access from 'All networks'.
-4. Click *Save* to apply your changes.
+1. Go to the storage account you want to secure.
+
+1. Click on the settings menu called **Firewalls and virtual networks**.
+
+1. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
+
+1. Click **Save** to apply your changes.
 
 #### PowerShell
-1. Install the latest [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [Login](/powershell/azure/authenticate-azureps).
 
-2. Display the status of the default rule for the storage account.
-```PowerShell
-(Get-AzureRmStorageAccountNetworkRuleSet  -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
-``` 
+1. Install the [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-3. Set the default rule to deny network access by default.  
-```PowerShell
-Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
-```    
+1. Display the status of the default rule for the storage account.
 
-4. Set the default rule to allow network access by default.
-```PowerShell
-Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
-```    
+    ```PowerShell
+    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
+    ```
+
+1. Set the default rule to deny network access by default.
+
+    ```PowerShell
+    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+    ```
+
+1. Set the default rule to allow network access by default.
+
+    ```PowerShell
+    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+    ```
 
 #### CLIv2
-1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
-2. Display the status of the default rule for the storage account.
-```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
-```
 
-3. Set the default rule to deny network access by default.  
-```azurecli
-az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Deny
-```
+1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-4. Set the default rule to allow network access by default.
-```azurecli
-az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
-```
+1. Display the status of the default rule for the storage account.
 
-## Grant access from a Virtual Network
-Storage accounts can be configured to allow access only from specific Azure Virtual Networks. 
+    ```azurecli
+    az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
+    ```
 
-By enabling a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage within the Virtual Network, traffic is ensured an optimal route to the Azure Storage service. The identities of the virtual network and the subnet are also transmitted with each request.  Administrators can subsequently configure network rules for the Storage account that allow requests to be received from specific subnets in the Virtual Network.  Clients granted access via these network rules must continue to meet the authorization requirements of the Storage account to access the data.
+1. Set the default rule to deny network access by default.
 
-Each storage account can support up to 100 Virtual Network rules which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
+    ```azurecli
+    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
+    ```
 
-### Available Virtual Network regions
-In general, Service Endpoints work between Virtual Networks and service instances in the same Azure region.  When Service Endpoints are used with Azure Storage, this scope is expanded to include the [paired region](/azure/best-practices-availability-paired-regions).  This allows continuity during a regional failover as well as seamless access to read-only geo-redundant storage (RA-GRS) instances.  Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
+1. Set the default rule to allow network access by default.
 
-When planning for disaster recovery during a regional outage, you should provision the Virtual Networks in the paired region in advance. Service Endpoints for Azure Storage should be enabled, and network rules granting access from these alternative Virtual Networks should be applied to your geo-redundant storage accounts.
+    ```azurecli
+    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
+    ```
+
+## Grant access from a virtual network
+
+You can configure storage accounts to allow access only from specific VNets.
+
+Enable a [Service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage within the VNet. This endpoint gives traffic an optimal route to the Azure Storage service. The identities of the virtual network and the subnet are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in the VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
+
+Each storage account supports up to 100 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
+
+### Available virtual network regions
+
+In general, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, this scope grows to include the [paired region](/azure/best-practices-availability-paired-regions). Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
+
+When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
 > [!NOTE]
-> Service Endpoints do not apply to traffic outside the region of the Virtual Network and the designated region pair.  Network rules granting access from Virtual Networks to Storage accounts can only be applied for Virtual Networks in the primary region of a Storage account or in the designated paired region.
->
+> Service endpoints don't apply to traffic outside the region of the virtual network and the designated region pair. You can only apply network rules granting access from virtual networks to storage accounts in the primary region of a storage account or in the designated paired region.
 
 ### Required permissions
-In order to apply a Virtual Network rule to a Storage account, the user must have permission to *Join Service to a Subnet* for the subnets being added.  This permission is included in the *Storage Account Contributor* built-in role and can be added to custom role definitions.
 
-Storage account and the Virtual Networks granted access **may** be in different subscriptions, but those subscriptions must be part of the same Azure Active Directory tenant.
+To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. The permission needed is *Join Service to a Subnet* and is included in the *Storage Account Contributor* built-in role. It can also be added to custom role definitions.
 
-### Managing Virtual Network rules
-Virtual Network rules for storage accounts can be managed through the Azure portal, PowerShell, or CLIv2.
+Storage account and the virtual networks granted access may be in different subscriptions, but those subscriptions must be part of the same Azure AD tenant.
+
+### Managing virtual network rules
+
+You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
 
 #### Azure portal
-1. Navigate to the storage account you want to secure.  
-2. Click on the settings menu called **Firewalls and virtual networks**.
-3. Ensure that you have elected to allow access from 'Selected networks'.
-4. To grant access to a Virtual network with a new network rule, under "Virtual networks", click "Add existing" to select an existing Virtual network and subnets, then click *Add*.  To create a new Virtual network and grant it access, click *Add new*, provide the information necessary to create the new Virtual network, and then click *Create*.
 
-> [!NOTE]
-> If a Service Endpoint for Azure Storage has not been previously configured for the selected Virtual network and subnets, it can be configured as part of this operation.
->
+1. Go to the storage account you want to secure.
 
-5. To remove a Virtual network or subnet rule, click "..." to open the context menu for the Virtual network or the subnet, and click "Remove".
-6. Click *Save* to apply your changes.
+1. Click on the settings menu called **Firewalls and virtual networks**.
+
+1. Check that you've selected to allow access from **Selected networks**.
+
+1. To grant access to a virtual network with a new network rule, under **Virtual networks**, click **Add existing virtual network**, select **Virtual networks** and **Subnets** options, and then click **Add**. To create a new virtual network and grant it access, click **Add new virtual network**. Provide the information necessary to create the new virtual network, and then click **Create**.
+
+    > [!NOTE]
+    > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
+
+1. To remove a virtual network or subnet rule, click **...** to open the context menu for the virtual network or subnet, and click **Remove**.
+
+1. Click **Save** to apply your changes.
 
 #### PowerShell
-1. Install the latest [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [Login](/powershell/azure/authenticate-azureps).
-2. List Virtual Network rules
-```PowerShell
-(Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
-```
 
-3. Enable Service Endpoint for Azure Storage on an existing Virtual Network and Subnet
-```PowerShell
-Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"  -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
-```
+1. Install the [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-4. Add a network rule for a Virtual Network and subnet.  
-```PowerShell
-$subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-Add-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id   
-```    
+1. List virtual network rules.
 
-5. Remove a network rule for a Virtual Network and subnet.  
-```PowerShell
-$subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id   
-```    
+    ```PowerShell
+    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
+    ```
+
+1. Enable service endpoint for Azure Storage on an existing virtual network and subnet.
+
+    ```PowerShell
+    Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
+    ```
+
+1. Add a network rule for a virtual network and subnet.
+
+    ```PowerShell
+    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
+    Add-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    ```
+
+1. Remove a network rule for a virtual network and subnet.
+
+    ```PowerShell
+    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
+    Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    ```
 
 > [!IMPORTANT]
-> Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or network rules will have no effect.
->
+> Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
 #### CLIv2
-1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
-2. List Virtual Network rules
-```azurecli
-az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
-```
 
-2. Enable Service Endpoint for Azure Storage on an existing Virtual Network and Subnet
-```azurecli
-az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
-```
+1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-3. Add a network rule for a Virtual Network and subnet.  
-```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
-az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
-```
+1. List virtual network rules.
 
-4. Remove a network rule for a Virtual Network and subnet. 
-```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
-az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
-```
+    ```azurecli
+    az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
+    ```
+
+1. Enable service endpoint for Azure Storage on an existing virtual network and subnet.
+
+    ```azurecli
+    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+    ```
+
+1. Add a network rule for a virtual network and subnet.
+
+    ```azurecli
+    $subnetid=(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+    az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
+    ```
+
+1. Remove a network rule for a virtual network and subnet.
+
+    ```azurecli
+    $subnetid=(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+    az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
+    ```
 
 > [!IMPORTANT]
-> Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or network rules will have no effect.
->
+> Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
 ## Grant access from an internet IP range
-Storage accounts can be configured to allow access from specific public internet IP address ranges.  This configuration enables specific internet-based services and on-premises networks to be granted access while general internet traffic is blocked.
 
-Allowed internet address ranges can be provided using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19* .
+You can configure storage accounts to allow access from specific public internet IP address ranges. This configuration grants access to specific internet-based services and on-premises networks and blocks general internet traffic.
 
-> [!NOTE]
-> Small address ranges using "/31" or "/32" prefix sizes are not supported.  These ranges should be configured using individual IP address rules.
->
+Provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*.
 
-IP network rules are only allowed for **public internet** IP addresses.  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed in IP rules.  Private networks include addresses that start with *10.\**, *172.16.\** - *172.31.\**, and *192.168.\**.
+   > [!NOTE]
+   > Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules.
 
-> [!NOTE]
-> IP network rules will have no effect on requests originating from the same Azure region as the Storage account.  Use [Virtual Network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
->
+IP network rules are only allowed for **public internet** IP addresses. IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with _10.*_, _172.16.*_ - _172.31.*_, and _192.168.*_.
+
+   > [!NOTE]
+   > IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
 Only IPV4 addresses are supported at this time.
 
-Each storage account can support up to 100 IP network rules which may be combined with [Virtual Network rules](#grant-access-from-a-virtual-network).
+Each storage account supports up to 100 IP network rules, which may be combined with [Virtual network rules](#grant-access-from-a-virtual-network).
 
 ### Configuring access from on-premises networks
-In order to grant access from your on-premises networks to your storage account with an IP network rule, you must identify the internet facing IP addresses used by your network.  Contact your network administrator for help.
 
-If your network is connected to the Azure network using [ExpressRoute](/azure/expressroute/expressroute-introduction), each circuit is configured with two public IP addresses at the Microsoft Edge that are used to connect to Microsoft Services like Azure Storage using [Azure Public Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  To allow communication from your circuit to Azure Storage, you must create IP network rules for the public IP addresses of your circuits.  In order to find your ExpressRoute circuit's public IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.
+To grant access from your on-premises networks to your storage account with an IP network rule, you must identify the internet facing IP addresses used by your network. Contact your network administrator for help.
 
+You can use [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect your network to the Azure network. Here, each circuit is configured with two public IP addresses. They can be found at the Microsoft Edge and use [Azure Public Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) to connect to Microsoft Services like Azure Storage. To allow communication with Azure Storage, create IP network rules for the public IP addresses of your circuits. To find your ExpressRoute circuit's public IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.
 
 ### Managing IP network rules
-IP network rules for storage accounts can be managed through the Azure portal, PowerShell, or CLIv2.
+
+You can manage IP network rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
 
 #### Azure portal
-1. Navigate to the storage account you want to secure.  
-2. Click on the settings menu called **Firewalls and virtual networks**.
-3. Ensure that you have elected to allow access from 'Selected networks'.
-4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under Firewall, Address Ranges.
-5. To remove an IP network rule, click the trash can icon next to the network rule.
-6. Click *Save* to apply your changes.
+
+1. Go to the storage account you want to secure.
+
+1. Click on the settings menu called **Firewalls and virtual networks**.
+
+1. Check that you've selected to allow access from **Selected networks**.
+
+1. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under **Firewall** > **Address Range**.
+
+1. To remove an IP network rule, click the trash can icon next to the address range.
+
+1. Click **Save** to apply your changes.
 
 #### PowerShell
-1. Install the latest [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [Login](/powershell/azure/authenticate-azureps).
-2. List IP network rules.
-```PowerShell
-(Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
-```
 
-3. Add a network rule for an individual IP address.  
-```PowerShell
-Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19" 
-``` 
+1. Install the [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-4. Add a network rule for an IP address range.  
-```PowerShell
-Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24" 
-```    
+1. List IP network rules.
 
-5. Remove a network rule for an individual IP address. 
-```PowerShell
-Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"  
-```
+    ```PowerShell
+    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
+    ```
 
-6. Remove a network rule for an IP address range.  
-```PowerShell
-Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"  
-```    
+1. Add a network rule for an individual IP address.
+
+    ```PowerShell
+    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    ```
+
+1. Add a network rule for an IP address range.
+
+    ```PowerShell
+    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    ```
+
+1. Remove a network rule for an individual IP address.
+
+    ```PowerShell
+    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    ```
+
+1. Remove a network rule for an IP address range.
+
+    ```PowerShell
+    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    ```
 
 > [!IMPORTANT]
-> Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or network rules will have no effect.
->
+> Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
 #### CLIv2
-1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
-2. List IP network rules
-```azurecli
-az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
-```
 
-3. Add a network rule for an individual IP address.
-```azurecli
-az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
-```
+1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-4. Add a network rule for an IP address range.  
-```azurecli
-az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
-```
+1. List IP network rules.
 
-5. Remove a network rule for an individual IP address.  
-```azurecli
-az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
-```
+    ```azurecli
+    az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
+    ```
 
-6. Remove a network rule for an IP address range.  
-```azurecli
-az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
-```
+1. Add a network rule for an individual IP address.
+
+    ```azurecli
+    az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
+    ```
+
+1. Add a network rule for an IP address range.
+
+    ```azurecli
+    az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
+    ```
+
+1. Remove a network rule for an individual IP address.
+
+    ```azurecli
+    az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
+    ```
+
+1. Remove a network rule for an IP address range.
+
+    ```azurecli
+    az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
+    ```
 
 > [!IMPORTANT]
-> Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or network rules will have no effect.
->
+> Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
 ## Exceptions
-While network rules can enable a secure network configuration for most scenarios, there are some cases where exceptions must be granted to enable full functionality.  Storage accounts can be configured with exceptions for Trusted Microsoft services, and for access to Storage analytics data.
 
-### Trusted Microsoft Services
-Some Microsoft services that interact with Storage accounts operate from networks that cannot be granted access through network rules. 
+Network rules can enable a secure network configuration for most scenarios. However, there are some cases where exceptions must be granted to enable full functionality. You can configure storage accounts with exceptions for trusted Microsoft services, and for access to storage analytics data.
 
-To allow this type of service to work as intended, you can permit the set of trusted Microsoft services to bypass the network rules. These services will then use strong authentication to access the Storage account.
+### Trusted Microsoft services
 
-When the "Trusted Microsoft Services" exception is enabled, the following services (when registered in your subscription) are granted access to the Storage account:
+Some Microsoft services that interact with storage accounts operate from networks that can't be granted access through network rules.
+
+To help this type of service work as intended, allow the set of trusted Microsoft services to bypass the network rules. These services will then use strong authentication to access the storage account.
+
+If you enable the **Allow trusted Microsoft services...** exception, the following services (when registered in your subscription), are granted access to the storage account:
 
 |Service|Resource Provider Name|Purpose|
 |:------|:---------------------|:------|
-|Azure Backup|Microsoft.Backup|Perform backups and restores of unmanaged disks in IAAS virtual machines. (not required for managed disks). [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
-|Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation.  [Learn more](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
-|Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| Allows writing of monitoring data to a secured storaage account [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
-|
-
+|Azure Backup|Microsoft.Backup|Run backups and restores of unmanaged disks in IAAS virtual machines. (not required for managed disks). [Learn more](/azure/backup/backup-introduction-to-azure-backup).|
+|Azure Site Recovery|Microsoft.SiteRecovery |Configure disaster recovery by enabling replication for Azure IaaS virtual machines. This is required if you are using firewall enabled cache storage account or source storage account or target storage account.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation. [Learn more](/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing. [Learn more](/azure/event-grid/overview).|
+|Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture. [Learn More](/azure/event-hubs/event-hubs-capture-overview).|
+|Azure Networking|Microsoft.Networking|Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure Monitor|Microsoft.Insights|Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Allows import and export scenarios using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### Storage analytics data access
-In some cases, access to read diagnostic logs and metrics is required from outside the network boundary.  Exceptions to the network rules can be granted to allow read-access to Storage account log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
+
+In some cases, access to read diagnostic logs and metrics is required from outside the network boundary. You can grant exceptions to the network rules to allow read-access to storage account log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
 
 ### Managing exceptions
-Network rule exceptions can be managed through the Azure portal, PowerShell, or Azure CLI v2.
+
+You can manage network rule exceptions through the Azure portal, PowerShell, or Azure CLI v2.
 
 #### Azure portal
-1. Navigate to the storage account you want to secure.  
-2. Click on the settings menu called **Firewalls and virtual networks**.
-3. Ensure that you have elected to allow access from 'Selected networks'.
-4. Under Exceptions, select the exceptions you wish to grant.
-5. Click *Save* to apply your changes.
+
+1. Go to the storage account you want to secure.
+
+1. Click on the settings menu called **Firewalls and virtual networks**.
+
+1. Check that you've selected to allow access from **Selected networks**.
+
+1. Under **Exceptions**, select the exceptions you wish to grant.
+
+1. Click **Save** to apply your changes.
 
 #### PowerShell
-1. Install the latest [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [Login](/powershell/azure/authenticate-azureps).
-2. Display the exceptions for the storage account network rules.
-```PowerShell
-(Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
-```
 
-3. Configure the exceptions to the storage account network rules.
-```PowerShell
-Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount"  -Bypass AzureServices,Metrics,Logging
-```
+1. Install the [Azure PowerShell](/powershell/azure/install-azurerm-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-4. Remove the exceptions to the storage account network rules.
-```PowerShell
-Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount"  -Bypass None
-```
+1. Display the exceptions for the storage account network rules.
+
+    ```PowerShell
+    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
+    ```
+
+1. Configure the exceptions to the storage account network rules.
+
+    ```PowerShell
+    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
+    ```
+
+1. Remove the exceptions to the storage account network rules.
+
+    ```PowerShell
+    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
+    ```
 
 > [!IMPORTANT]
-> Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or removing exceptions will have no effect.
->
+> Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or removing exceptions have no effect.
 
 #### CLIv2
-1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
-2. Display the exceptions for the storage account network rules.
-```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
-```
 
-3. Configure the exceptions to the storage account network rules.
-```azurecli
-az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
-```
+1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-4. Remove the exceptions to the storage account network rules.
-```azurecli
-az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
-```
+1. Display the exceptions for the storage account network rules.
+
+    ```azurecli
+    az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
+    ```
+
+1. Configure the exceptions to the storage account network rules.
+
+    ```azurecli
+    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
+    ```
+
+1. Remove the exceptions to the storage account network rules.
+
+    ```azurecli
+    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
+    ```
 
 > [!IMPORTANT]
-> Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or removing exceptions will have no effect.
->
+> Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or removing exceptions have no effect.
 
 ## Next steps
-Learn more about Azure Network Service Endpoints in [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-Dig deeper into Azure Storage security in [Azure Storage Security Guide](storage-security-guide.md).
+Learn more about Azure Network service endpoints in [Service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+Dig deeper into Azure Storage security in [Azure Storage security guide](storage-security-guide.md).

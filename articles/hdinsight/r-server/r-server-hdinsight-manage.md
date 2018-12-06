@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
@@ -27,7 +27,7 @@ You can enable multiple concurrent users for ML Services cluster on HDInsight by
 
 ![Concurrent user 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Ambari UI, YARN UI, as well as other UI components.
+- **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Apache Ambari UI, Apache Hadoop YARN UI, as well as other UI components.
 - **Secure Shell (SSH) username**: an SSH user to access the cluster through secure shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use secure shell to access any of the nodes in a remote cluster.
 
 The R Studio Server Community version used in the ML Services cluster on HDInsight accepts only Linux username and password as a sign in mechanism. It does not support passing tokens. So, when you try to access R Studio for the first time on an ML Services cluster, you need to sign in twice.
@@ -46,7 +46,7 @@ Because RStudio runs on the cluster’s edge node, there are several steps here:
 
 ### Step 1: Use the created SSH user to sign in to the edge node
 
-Follow the instructions at [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for ML Services cluster on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Follow the instructions at [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for ML Services cluster on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### Step 2: Add more Linux users in edge node
 
@@ -74,7 +74,7 @@ Note also that the newly added users do not have root privileges in Linux system
 
 ## Connect remotely to Microsoft ML Services
 
-You can set up access to the HDInsight Hadoop Spark compute context from a remote instance of ML Client running on your desktop. To do so, you must specify the options (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript) when defining the RxSpark compute context on your desktop: For example:
+You can set up access to the HDInsight Spark compute context from a remote instance of ML Client running on your desktop. To do so, you must specify the options (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript) when defining the RxSpark compute context on your desktop: For example:
 
     myNameNode <- "default"
     myPort <- 0
@@ -98,7 +98,7 @@ You can set up access to the HDInsight Hadoop Spark compute context from a remot
       consoleOutput= TRUE
     )
 
-For more information, see the "Using Microsoft Machine Learning Server as a Hadoop Client" section in [How to use RevoScaleR in a Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+For more information, see the "Using Microsoft Machine Learning Server as an Apache Hadoop Client" section in [How to use RevoScaleR in an Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## Use a compute context
 
@@ -220,16 +220,13 @@ A compute context allows you to control whether computation is performed locally
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md).
-
 ## Distribute R code to multiple nodes
 
 With ML Services on HDInsight, you can take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This function is useful when doing a parameter sweep or simulations. The following code is an example of how to use `rxExec`:
 
 	rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-If you are still using the Spark or MapReduce context, this  command returns the nodename value for the worker nodes that the code `(Sys.info()["nodename"])` is run on. For example, on a four node cluster, you expect to receive output similar to the following snippet:
+If you are still using the Spark context, this  command returns the nodename value for the worker nodes that the code `(Sys.info()["nodename"])` is run on. For example, on a four node cluster, you expect to receive output similar to the following snippet:
 
     $rxElem1
         nodename
@@ -247,7 +244,7 @@ If you are still using the Spark or MapReduce context, this  command returns the
         nodename
     "wn3-mymlser"
 
-## Access data in Hive and Parquet
+## Access data in Apache Hive and Parquet
 
 HDInsight ML Services allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.
 

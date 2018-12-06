@@ -177,6 +177,7 @@
         "articles/batch/**/*.md": "https://feedback.azure.com/forums/269742-batch",
         "articles/billing/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/biztalk-services/**/*.md": "https://feedback.azure.com/forums/216276-biztalk-services",
+        "articles/blockchain/**/*.md": "https://feedback.azure.com/forums/586780-blockchain",
         "articles/cdn/**/*.md": "https://feedback.azure.com/forums/169397-cdn",
         "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/china/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",                
@@ -251,7 +252,7 @@
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
-        "articles/machine-learning/preview/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
+        "articles/machine-learning/service/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/studio/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/team-data-science-process/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/data-science-virtual-machine/*.md": "https://feedback.azure.com/forums/910651-data-science-vms",
@@ -273,7 +274,7 @@
         "articles/postgresql/**/*.md": "https://feedback.azure.com/forums/597976-azure-database-for-postgresql",
         "articles/power-bi-embedded/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/power-bi-workspace-collections/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/redis-cache/**/*.md": "https://feedback.azure.com/forums/169382-cache",
+        "articles/azure-cache-for-redis/**/*.md": "https://feedback.azure.com/forums/169382-cache",
         "articles/resiliency/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/scheduler/**/*.md": "https://feedback.azure.com/forums/230896-scheduler",
         "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",        
@@ -298,7 +299,9 @@
         "articles/virtual-machines/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
         "articles/virtual-network/**/*.md":"https://feedback.azure.com/forums/217313-networking?category_id=77469",
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
-        "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470"
+        "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470",
+        "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
+
         },
         "searchScope": {
           "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],

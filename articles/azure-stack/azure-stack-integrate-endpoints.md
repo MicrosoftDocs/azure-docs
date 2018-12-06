@@ -6,8 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
-
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords:
@@ -72,13 +71,17 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |Registration|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|     |UDP|123|
-|DNS|     |TCP<br>UDP|53|
-|CRL|     |HTTP|80|
+|NTP|(IP of NTP server provided for deployment)|UDP|123|
+|DNS|(IP of DNS server provided for deployment)|TCP<br>UDP|53|
+|CRL|(URL under CRL Distribution Points on your certificate)|HTTP|80|
+|Infrastructure Backup|(IP or FQDN of external target file server)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Outbound URLs are load balanced using Azure traffic manager to provide the best possible connectivity based on geographical location. With load balanced URLs, Microsoft can update and change backend endpoints without impacting customers. Microsoft does not share the list of IP addresses for the load balanced URLs. You should use a device that supports filtering by URL rather than by IP.
+
+> [!Note]  
+> In 1809, the infrastructure backup service communicates to the external file server from the public VIP network. Before 1809, the service communicated over the public infrastructure network. If your environment does not allow access to infrastructure resources from the public VIP network, apply the latest [1809 hotfix](azure-stack-update-1809.md#post-update-steps) for Azure Stack. This hotfix will move the infrastructure backup service back to the public infrastructure network. In 1811, if you apply the 1809 hotfix, the infrastructure backup service remains on the public infrastructure network. If you do not apply the hotfix, the update moves the service back to the public infrastructure network.
 
 ## Next steps
 

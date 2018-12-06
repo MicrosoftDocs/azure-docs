@@ -395,7 +395,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 
-For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](http://aka.ms/kvcertsblog)  
+For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](https://aka.ms/kvcertsblog)  
 
 Key Vault allows for creation of multiple issuer objects with different issuer provider configuration. Once an issuer object is created, its name can be referenced in one or multiple certificate policies. Referencing the issuer object instructs Key Vault to use configuration as specified in the issuer object when requesting the x509 certificate from CA provider during the certificate creation and renewal.  
 

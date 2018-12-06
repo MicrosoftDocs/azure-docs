@@ -173,7 +173,7 @@ Each Traffic Manager profile specifies a single traffic-routing method. However,
 Nested endpoints are configured at the parent profile, using a specific endpoint type, 'NestedEndpoints'. When specifying nested endpoints:
 
 * The endpoint must be specified using the 'targetResourceId' parameter
-* If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a [valid Azure region name](http://azure.microsoft.com/regions/).
+* If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a [valid Azure region name](https://azure.microsoft.com/regions/).
 * The 'Weight' and 'Priority' are optional, as for Azure endpoints.
 * The 'MinChildEndpoints' parameter is optional. The default value is '1'. If the number of available endpoints falls below this threshold, the parent profile considers the child profile 'degraded' and diverts traffic to the other endpoints in the parent profile.
 

@@ -6,8 +6,9 @@ author: tylerfox
 
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 9/21/2018
+ms.date: 09/21/2018
 ms.author: tyfox
+ms.custom: seodec18
 
 ---
 
@@ -138,7 +139,7 @@ A new cluster can be created by calling `client.Create()`.
 
 #### Example
 
-This example demonstrates how to create a Spark cluster with 2 head nodes and 1 worker node.
+This example demonstrates how to create an [Apache Spark](https://spark.apache.org/) cluster with 2 head nodes and 1 worker node.
 
 > [!NOTE]
 > You first need to create a Resource Group and Storage Account, as explained below. If you have already created these, you can skip these steps.

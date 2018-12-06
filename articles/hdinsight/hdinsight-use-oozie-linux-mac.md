@@ -24,12 +24,12 @@ Learn how to use Apache Oozie with Hadoop on Azure HDInsight. Oozie is a workflo
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
 > [!NOTE]
-> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
+> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive]. To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## Prerequisites
 
-* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **A regular HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -747,7 +747,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
@@ -756,13 +755,13 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png

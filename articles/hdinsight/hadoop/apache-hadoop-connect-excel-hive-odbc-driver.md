@@ -1,5 +1,5 @@
 ---
-title: Connect Excel to Hadoop with the Hive ODBC Driver - Azure HDInsight 
+title: Connect Excel to Apache Hadoop with the Hive ODBC Driver - Azure HDInsight 
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ---
-# Connect Excel to Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
+# Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -33,7 +33,7 @@ Download and install Microsoft Hive ODBC Driver from the [Download Center][hive-
 
 This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight. You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
 
-## Create Hive ODBC data source
+## Create Apache Hive ODBC data source
 The following steps show you how to create a Hive ODBC Data Source.
 
 1. From Windows 8 or Windows 10, press the Windows key to open the Start screen, and then type **data sources**.
@@ -101,6 +101,6 @@ In this article, you learned how to use the Microsoft Hive ODBC driver to retrie
 [hdinsight-use-hive]:hdinsight-use-hive.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query.md
-[hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
+[hive-odbc-driver-download]: https://go.microsoft.com/fwlink/?LinkID=286698
 
 

@@ -108,7 +108,6 @@ Azure Backup is a scalable solution that helps protect your application data wit
 Learn more:
 
 * [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
-* [Azure Backup Learning Path](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Azure Backup service FAQ](../backup/backup-azure-backup-faq.md)
 
 ## Azure Site Recovery
@@ -163,7 +162,7 @@ Azure Virtual Machines is certified for FISMA, FedRAMP, HIPAA, PCI DSS Level 1, 
 Learn more:
 
 * [Microsoft Trust Center: Compliance](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## Confidential Computing
 

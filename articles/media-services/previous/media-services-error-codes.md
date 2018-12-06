@@ -113,7 +113,7 @@ To handle this error, we recommend using exponential back-off retry logic. That 
 > 
 
 ## See Also
-[Media Services Management Error Codes](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Media Services Management Error Codes](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

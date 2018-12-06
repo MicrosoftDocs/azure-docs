@@ -3,7 +3,7 @@ title: Managing connected partner solutions in Azure Security Center | Microsoft
 description: This document walks you through how Azure Security Center lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Managing connected partner solutions with Azure Security Center
@@ -61,7 +61,7 @@ In this article, you learned how to manage and monitor connected security soluti
 * [Partner and solutions integration](security-center-partner-integration.md) - Get an overview of integrating other security solutions.
 * [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png

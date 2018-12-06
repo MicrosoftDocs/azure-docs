@@ -219,14 +219,74 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "aml-sdk-samples",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "sdk-codetest",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-qnamaker-go",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-go",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-csharp",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-java",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-java",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-python",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-python",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-dotnet-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-java-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-java-sdk-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
+      "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-face-csharp-sample",
+      "url": "https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-face-android-detect",
+      "url": "https://github.com/Azure-Samples/cognitive-services-face-android-detect",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-web-app",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
       "branch": "master",
       "branch_mapping": {}
     }

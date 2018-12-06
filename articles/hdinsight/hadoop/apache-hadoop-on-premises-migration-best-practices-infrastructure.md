@@ -14,7 +14,7 @@ ms.author: hrasheed
 
 This article gives recommendations for managing the infrastructure of Azure HDInsight clusters. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-## Plan well for the capacity needed for HDInsight clusters
+## Plan for HDInsight cluster capacity
 
 The key choices to make for HDInsight cluster capacity planning are the following:
 
@@ -23,13 +23,13 @@ The key choices to make for HDInsight cluster capacity planning are the followin
 - **Choose the VM size and type (now supports the G-series)** - Each cluster type has a set of node types, and each node type has specific options for their VM size and type. The VM size and type is determined by CPU processing power, RAM size, and network latency. A simulated workload can be used to determine the optimal VM size and type for each node types.
 - **Choose the number of worker nodes** - The initial number of worker nodes can be determined using the simulated workloads. The cluster can be scaled later by adding more worker nodes to meet peak load demands. The cluster can later be scaled back when the additional worker nodes are not required.
 
-For more information, see the article [Capacity planning for HDInsight clusters](../hdinsight-capacity-planning.md)
+For more information, see the article [Capacity planning for HDInsight clusters](../hdinsight-capacity-planning.md).
 
-## Use the recommended virtual machine types for cluster nodes
+## Use recommended virtual machine type for cluster
 
 See [Default node configuration and virtual machine sizes for clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) for recommended virtual machine types for each type of HDInsight cluster.
 
-## Check the availability of Hadoop components in HDInsight
+## Check Hadoop components availability in HDInsight
 
 Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP) and consists of a set of Hadoop eco-system components. See [HDInsight Component Versioning](../hdinsight-component-versioning.md) for details on all HDInsight components and their current versions.
 
@@ -64,7 +64,7 @@ Applications or components that were available in on-premises clusters but aren'
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-For more information, see the article [Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)
+For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
 
 ## Customize HDInsight clusters using script actions
 
@@ -91,7 +91,7 @@ Script actions can also be published to the Azure Marketplace as an HDInsight ap
 
 For more information, see the following articles:
 
-- [Install third-party Hadoop Applications on HDInsight](../hdinsight-apps-install-applications.md)
+- [Install third-party Apache Hadoop Applications on HDInsight](../hdinsight-apps-install-applications.md)
 - [Customize HDInsight clusters using script actions](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publish an HDInsight application in the Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -122,9 +122,9 @@ New—AzureRmHDInsightCluster `
     —Config $config
 ```
 
-For more information, see the article [Customize HDInsight clusters using Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md)
+For more information, see the article [Customize HDInsight clusters using Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## Use edge nodes on Hadoop clusters in HDInsight to access the client tools
+## Access client tools from HDInsight Hadoop cluster edge nodes
 
 An empty edge node is a Linux virtual machine with the same client tools installed and configured as on the head nodes, but with no Hadoop services running. The edge node can be used for the following purposes:
 
@@ -134,9 +134,9 @@ An empty edge node is a Linux virtual machine with the same client tools install
 
 Edge nodes can be created and deleted through the Azure portal and may be used during or after cluster creation. After the edge node has been created, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight. The edge node ssh endpoint is `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
-For more information, see the article [Use empty edge nodes on Hadoop clusters in HDInsight](../hdinsight-apps-use-edge-node.md)
+For more information, see the article [Use empty edge nodes on Apache Hadoop clusters in HDInsight](../hdinsight-apps-use-edge-node.md).
 
-## Use the scale-up and scale-down feature of clusters
+## Use scale-up and scale-down feature of clusters
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This feature allows you to shrink a cluster after hours or on weekends and expand it during peak business demands.
 
@@ -168,7 +168,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 After leaving safe mode, you can manually remove the temporary files, or wait for Hive to eventually clean them up automatically.
 
-For more information, see the article [Scale HDInsight clusters](../hdinsight-scaling-best-practices.md)
+For more information, see the article [Scale HDInsight clusters](../hdinsight-scaling-best-practices.md).
 
 ## Use HDInsight with Azure Virtual Network
 
@@ -180,7 +180,7 @@ Using Azure Virtual Network with HDInsight enables the following scenarios:
 - Connecting HDInsight to data stores in an Azure Virtual network.
 - Directly accessing Hadoop services that aren't available publicly over the internet. For example, Kafka APIs or the HBase Java API.
 
-HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip-1)
+HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)
 in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) which are being used by HDInsight services.
 
 > [!Note]
@@ -191,7 +191,7 @@ For more information, see the following articles:
 - [Azure virtual-networks-overview](../../virtual-network/virtual-networks-overview.md)
 - [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
 
-## Use Azure Virtual Network service endpoints to securely connect to other Azure services
+## Securely connect to Azure services with Azure Virtual Network service endpoints
 
 HDInsight supports [virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) which allow you to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, you can lock down big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
 

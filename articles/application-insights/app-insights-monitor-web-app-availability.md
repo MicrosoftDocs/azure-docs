@@ -1,21 +1,18 @@
-﻿---
+---
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-
 ---
 # Monitor availability and responsiveness of any web site
 After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
@@ -72,7 +69,7 @@ Open the Availability blade and add a test.
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
 > [!NOTE]
-> There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+> There is a charge for multi-step web tests. [Pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
@@ -179,7 +176,7 @@ From an availability test result, you can see the transaction details across all
 
 * Inspect the response received from your server.
 * Diagnose failure with correlated server side telemetry collected while processing the failed availability test.
-* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
 Learn more about the end to end transaction diagnostics experience [here](app-insights-transaction-diagnostics.md).
@@ -211,6 +208,7 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 > [!NOTE]
 > * Configure the action groups to receive notifications when the alert triggers by following the steps above. Without this step, you will only receive in-portal notifications when the rule triggers.
 >
+
 ### Alert on availability metrics
 Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on segmented aggregate availability and test duration metrics as well:
 

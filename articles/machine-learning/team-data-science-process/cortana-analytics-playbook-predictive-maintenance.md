@@ -2,19 +2,15 @@
 title: Azure AI guide for predictive maintenance solutions | Microsoft Docs
 description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
 services: machine-learning
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: fboylu
+ms.author: tdsp
+ms.custom: "(previous author=fboylu, ms.author=fboylu)"
 ---
 # Azure AI guide for predictive maintenance solutions
 
@@ -451,13 +447,13 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 |:-------------------|--------------|
 | [Learning Path for PdM using Trees and Random Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
 | [Learning Path for PdM using Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [AI Developer on Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
-| [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Public |
+| [AI Developer on Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
+| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partners |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partners |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
+| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

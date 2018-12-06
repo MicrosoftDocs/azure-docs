@@ -1,6 +1,6 @@
 ﻿---
 ms.assetid:
-title: Azure Key Vault Storage Account Keys
+title: Azure Key Vault managed storage account - CLI
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
 services: key-vault
@@ -10,7 +10,7 @@ ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
 ---
-# Azure Key Vault Storage Account Keys
+# Azure Key Vault managed storage account - CLI
 
 > [!NOTE]
 > [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys.
@@ -40,7 +40,7 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
     ```
-    az storage account show -n storageaccountname (Copy ID out of the result of this command)
+    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
 2. Get Application ID of Azure Key Vault's service principal 
@@ -52,7 +52,7 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 3. Assign Storage Key Operator role to Azure Key Vault Identity
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Create a Key Vault Managed Storage Account.     <br /><br />

@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Structured Streaming from Kafka to Azure Cosmos DB - Azure HDInsight 
+title: Apache Spark Structured Streaming from Apache Kafka to Azure Cosmos DB - Azure HDInsight 
 description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
 ---
-# Use Spark Structured Streaming with Kafka and Azure Cosmos DB
+# Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB
 
-Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight, and then store the data into Azure Cosmos DB.
+Learn how to use [Apache Spark](https://spark.apache.org/) [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) to read data from [Apache Kafka](https://kafka.apache.org/) on Azure HDInsight, and then store the data into Azure Cosmos DB.
 
-Azure Cosmos DB is a globally distributed, multi-model database. This example uses a SQL API database model. For more information, see the [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md) document.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database. This example uses a SQL API database model. For more information, see the [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md) document.
 
-Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) at Apache.org.
+Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
 > [!IMPORTANT]
 > This example used Spark 2.2 on HDInsight 3.6.
@@ -39,7 +39,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
     The Azure Resource Manager template is located in the GitHub repository for this project ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
@@ -89,7 +89,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
+4. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
 
 > [!IMPORTANT]
 > It may take up to 45 minutes to create the clusters, virtual network, and Cosmos DB account.
@@ -137,7 +137,7 @@ The document endpoint and primary key information is similar to the following te
 > [!IMPORTANT]
 > Save the endpoint and key values, as they are needed in the Jupyter Notebooks.
 
-## Get the Kafka brokers
+## Get the Apache Kafka brokers
 
 The code in this example connects to Kafka broker hosts in the Kafka cluster. To find the addresses of the two Kafka broker hosts, use the following PowerShell or Bash example:
 
@@ -195,12 +195,12 @@ Once the files have been uploaded, select the __Stream-taxi-data-to-kafka.ipynb_
 
 ## Process taxi data using Spark Structured Streaming
 
-From the Jupyter Notebook home page, select the __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ entry. Follow the steps in the notebook to stream data from Kafka and into Azure Cosmos DB using Spark Structured Streaming.
+From the [Jupyter Notebook](https://jupyter.org/) home page, select the __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ entry. Follow the steps in the notebook to stream data from Kafka and into Azure Cosmos DB using Spark Structured Streaming.
 
 ## Next steps
 
-Now that you have learned how to use Spark Structured Streaming, see the following documents to learn more about working with Spark, Kafka, and Azure Cosmos DB:
+Now that you have learned how to use Apache Spark Structured Streaming, see the following documents to learn more about working with Apache Spark, Apache Kafka, and Azure Cosmos DB:
 
-* [How to use Spark streaming (DStream) with Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Start with Jupyter Notebook and Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)
+* [How to use Apache Spark streaming (DStream) with Apache Kafka](hdinsight-apache-spark-with-kafka.md).
+* [Start with Jupyter Notebook and Apache Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)
 * [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md)

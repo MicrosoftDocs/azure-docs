@@ -1,6 +1,6 @@
 ---
-title: Use MapReduce and Curl with Hadoop in HDInsight - Azure 
-description: Learn how to remotely run MapReduce jobs with Hadoop on HDInsight using Curl.
+title: Use MapReduce and Curl with Apache Hadoop in HDInsight - Azure 
+description: Learn how to remotely run MapReduce jobs with Apache Hadoop on HDInsight using Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -12,9 +12,9 @@ ms.date: 02/27/2018
 ms.author: hrasheed
 
 ---
-# Run MapReduce jobs with Hadoop on HDInsight using REST
+# Run MapReduce jobs with Apache Hadoop on HDInsight using REST
 
-Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
+Learn how to use the WebHCat REST API to run MapReduce jobs on a Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see the [What you need to know about Linux-based Hadoop on HDInsight](../hdinsight-hadoop-linux-information.md) document.
@@ -23,14 +23,14 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 ## <a id="prereq"></a>Prerequisites
 
 * A Hadoop on HDInsight cluster
-* Windows PowerShell or [Curl](http://curl.haxx.se/) and [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell or [Curl](https://curl.haxx.se/) and [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Run a MapReduce job
 
 > [!NOTE]
 > When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the HDInsight cluster administrator user name and password. You must use the cluster name as part of the URI that is used to send the requests to the server.
 >
-> The REST API is secured by using [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
+> The REST API is secured by using [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
 1. To set the cluster login that is used by the scripts in this document, use one of the followig commands:
 

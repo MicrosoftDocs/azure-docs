@@ -1,17 +1,17 @@
 ---
 title: Creating Alerts with Dynamic Thresholds in Azure Monitor
 description: Create Alerts with machine learning based Dynamic Thresholds
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi 
+ms.reviewer: mbullwin
 ms.component: alerts
 ---
 
-# Alerts with dynamic thresholds in Azure Monitor (Limited Public Preview)
+# Alerts with dynamic thresholds in Azure Monitor (Limited Private Preview)
 
 Alerts with dynamic thresholds are an enhancement to Azure Metric Alerts in Azure Monitor, which leverage advanced Machine Learning (ML) capabilities to learn metrics' historical behavior to automatically calculate baselines and use them as alert thresholds.
 
@@ -25,7 +25,7 @@ Dynamic threshold-based alerts are available for all Azure monitor based metric 
 
 ## Sign up to access the preview
 
-To take this capability for a spin, [sign up for the preview](http://aka.ms/DynamicThresholdMetricAlerts). As always, we would love to hear your feedback, keep it coming at [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+To take this capability for a spin, [sign up for the preview](https://aka.ms/DynamicThresholdMetricAlerts). As always, we would love to hear your feedback, keep it coming at [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
 
 ## How to configure alerts with dynamic thresholds
 

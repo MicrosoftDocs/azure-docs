@@ -68,7 +68,7 @@ An ASE can be either internet-facing with a public IP address or internal-facing
 
 [Network Security Groups][NSGs] restrict inbound network communications to the subnet where an ASE resides. You can use NSGs to run apps behind upstream devices and services such as WAFs and network SaaS providers.
 
-Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a [site-to-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) or [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN.
+Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a [site-to-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) or [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) VPN.
 
 For more information on how ASEs work with virtual networks and on-premises networks, see [App Service Environment network considerations][ASENetwork].
 
@@ -98,9 +98,9 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md

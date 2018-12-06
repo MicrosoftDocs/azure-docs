@@ -19,7 +19,7 @@ Conversation Learner expects your card definition files to be located in a direc
 
 ## Video
 
-[![Tutorial 14 Preview](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![Tutorial 14 Preview](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

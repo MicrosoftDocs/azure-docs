@@ -29,7 +29,7 @@ The format in which you import an Integration Module package is a compressed fil
 
 If the module should contain an Azure Automation connection type, it must also contain a file with the name `<ModuleName>-Automation.json` that specifies the connection type properties. This is a json file placed within the module folder of your compressed .zip file, and contains the fields of a “connection” that is required to connect to the system or service the module represents. This ends up creating a connection type in Azure Automation. Using this file you can set the field names, types, and whether the fields should be encrypted and / or optional, for the connection type of the module. The following is a template in the json file format:
 
-```
+```json
 { 
    "ConnectionFields": [
    {
@@ -62,14 +62,14 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
 
 1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here’s how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file.<br>  
    
-    ```
+    ```powershell
     <#
         .SYNOPSIS
          Gets all outgoing phone numbers for this Twilio account 
     #>
     function Get-TwilioPhoneNumbers {
     [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-    HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
+    HelpUri='https://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
     param(
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
        [ValidateNotNullOrEmpty()]
@@ -106,7 +106,7 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
     Cmdlets in the module become easier to use in Azure Automation if you allow passing an object with the fields of the connection type as a parameter to the cmdlet. This way users don’t have to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. 
     Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it is mapping the fields of the connection to the parameters of the cmdlet?<br>
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -119,7 +119,7 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
   
     An easier and better way to approach this is directly passing the connection object to the cmdlet -
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -130,10 +130,10 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
    
     You can enable behavior like this for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. Parameter set **SpecifyConnectionFields** below is used to pass the connection field properties one by one. **UseConnectionObject** lets you pass the connection straight through. As you can see, the Send-TwilioSMS cmdlet in the [Twilio PowerShell module](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) allows passing either way: 
    
-    ```
+    ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-      HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
+      HelpUri='https://www.twilio.com/docs/api/rest/sending-sms')]
       param(
          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
          [ValidateNotNullOrEmpty()]
@@ -158,7 +158,7 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
    This is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 1. Cmdlets in the module should not take complex object types for parameters. PowerShell Workflow is different from PowerShell in that it stores complex types in deserialized form. Primitive types stay as primitives, but complex types are converted to their deserialized versions, which are essentially property bags. For example, if you used the **Get-Process** cmdlet in a runbook (or a PowerShell Workflow for that matter), it would return an object of type [Deserialized.System.Diagnostic.Process], not the expected [System.Diagnostic.Process] type. This type has all the same properties as the non-deserialized type, but none of the methods. And if you try to pass this value as a parameter to a cmdlet, where the cmdlet expects a [System.Diagnostic.Process] value for this parameter, you receive the following error: *Cannot process argument transformation on parameter 'process'. Error: "Cannot convert the "System.Diagnostics.Process (CcmExec)" value of type  "Deserialized.System.Diagnostics.Process" to type "System.Diagnostics.Process".*   This is because there is a type mismatch between the expected [System.Diagnostic.Process] type and the given [Deserialized.System.Diagnostic.Process] type. The way around this issue is to ensure the cmdlets of your module do not take complex types for parameters. Here is the wrong way to do it.
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [System.Diagnostic.Process] $process
@@ -169,7 +169,7 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
     <br>
     And here is the right way, taking in a primitive that can be used internally by the cmdlet to grab the complex object and use it. Since cmdlets execute in the context of PowerShell, not PowerShell Workflow, inside the cmdlet $process becomes the correct [System.Diagnostic.Process] type.  
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [String] $processName
@@ -183,7 +183,7 @@ Even though Integration Modules are essentially PowerShell modules, there’s st
    Connection assets in runbooks are hashtables, which are a complex type, and yet these hashtables seem to be able to be passed into cmdlets for their –Connection parameter perfectly, with no cast exception. Technically, some PowerShell types are able to cast properly from their serialized form to their deserialized form, and hence can be passed into cmdlets for parameters accepting the non-deserialized type. Hashtable is one of these. It’s possible for a module author’s defined types to be implemented in a way that they can correctly deserialize as well, but there are some trade-offs to consider. The type needs to have a default constructor, have all of its properties public, and have a PSTypeConverter. However, for already-defined types that the module author does not own, there is no way to “fix” them, hence the recommendation to avoid complex types for parameters all together. Runbook Authoring tip: If for some reason your cmdlets need to take a complex type parameter, or you are using someone else’s module that requires a complex type parameter, the workaround in PowerShell Workflow runbooks and PowerShell Workflows in local PowerShell, is to wrap the cmdlet that generates the complex type and the cmdlet that consumes the complex type in the same InlineScript activity. Since InlineScript executes its contents as PowerShell rather than PowerShell Workflow, the cmdlet generating the complex type would produce that correct type, not the deserialized complex type.
 1. Make all cmdlets in the module stateless. PowerShell Workflow runs every cmdlet called in the workflow in a different session. This means any cmdlets that depend on session state created / modified by other cmdlets in the same module will not work in PowerShell Workflow runbooks.  Here is an example of what not to do.
    
-    ```
+    ```powershell
     $globalNum = 0
     function Set-GlobalNum {
        param(

@@ -12,7 +12,7 @@ metadata:
   ms.date: 09/18/2018
   ms.author: dacoulte
 abstract:
-  description: Azure Governance is a collection of concepts and services that are designed to enable management of your varous Azure resources at scale. These services provide the ability to organize and structure your subscriptions in a logical way, create and deploy re-usable and Azure native packages of resources, to define, audit and remediate your resources, and more. Use this page to find out more about these concepts and services and how to enable and use each in your environment today.
+  description: Azure Governance is a collection of concepts and services that are designed to enable management of your various Azure resources at scale. These services provide the ability to organize and structure your subscriptions in a logical way, create and deploy re-usable and Azure native packages of resources, to define, audit and remediate your resources, and more. Use this page to find out more about these concepts and services and how to enable and use each in your environment today.
   aside:
     image:
       alt: 

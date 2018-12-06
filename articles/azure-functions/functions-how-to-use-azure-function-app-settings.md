@@ -18,7 +18,7 @@ ms.custom: cc996988-fb4f-47
 
 In Azure Functions, a function app provides the execution context for your individual functions. Function app behaviors apply to all functions hosted by a given function app. This topic describes how to configure and manage your function apps in the Azure portal.
 
-To begin, go to the [Azure portal](http://portal.azure.com) and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
+To begin, go to the [Azure portal](https://portal.azure.com) and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
 
 ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -46,7 +46,7 @@ It can sometimes be hard to find your resources in the [Azure portal]. To make i
 
 The **Settings** tab is where you can update the Functions runtime version used by your function app. It is also where you manage the host keys used to restrict HTTP access to all functions hosted by the function app.
 
-Functions supports both Consumption hosting and App Service hosting plans. For more information, see [Choose the correct service plan for Azure Functions](functions-scale.md). For better predictability in the Consumption plan, Functions lets you limit platform usage by setting a daily usage quota, in gigabytes-seconds. Once the daily usage quota is reached, the function app is stopped. A function app stopped as a result of reaching the spending quota can be re-enabled from the same context as establishing the daily spending quota. See the [Azure Functions pricing page](http://azure.microsoft.com/pricing/details/functions/) for details on billing.   
+Functions supports both Consumption hosting and App Service hosting plans. For more information, see [Choose the correct service plan for Azure Functions](functions-scale.md). For better predictability in the Consumption plan, Functions lets you limit platform usage by setting a daily usage quota, in gigabytes-seconds. Once the daily usage quota is reached, the function app is stopped. A function app stopped as a result of reaching the spending quota can be re-enabled from the same context as establishing the daily spending quota. See the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details on billing.   
 
 ## Platform features tab
 

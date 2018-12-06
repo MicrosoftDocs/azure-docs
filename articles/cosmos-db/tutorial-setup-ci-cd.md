@@ -4,10 +4,8 @@ description: Tutorial on how to set up build and release workflow in Azure DevOp
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
 author: deborahc
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
@@ -19,7 +17,7 @@ The Azure Cosmos DB emulator provides a local environment that emulates the Azur
 
 The Azure Cosmos DB emulator build task for Azure DevOps allows you to do the same in a CI environment. With the build task, you can run tests against the emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
 
-This article demonstrates how to set up a CI pipeline in Azure DevOps for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. 
+This article demonstrates how to set up a CI pipeline in Azure DevOps for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. You can use a similar approach to set up a CI pipeline for a Node.js or a Python application. 
 
 ## Install the emulator build task
 
@@ -36,7 +34,7 @@ Next, choose the organization in which to install the extension.
 
 ## Create a build definition
 
-Now that the extension is installed, sign in to your Azure DevOps account and find your project from the projects dashboard. You can add a [build pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
+Now that the extension is installed, sign in to your Azure DevOps account and find your project from the projects dashboard. You can add a [build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
 1. To create a new build definition, navigate to the **Builds** tab in Azure DevOps. Select **+New.** > **New build pipeline**
 
@@ -78,6 +76,8 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
+
+If you are setting up a CI/CD pipeline for an application that uses the Azure Cosmos DB MongoDB API, the MongoDB connection string by default includes the port number 10255. However, this port is not currently open, as an alternate, you should use port 10250 to establish the connection. The MongoDB API connection string remains the same except the supported port number is 10250 instead of 10255.
 
 These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
 

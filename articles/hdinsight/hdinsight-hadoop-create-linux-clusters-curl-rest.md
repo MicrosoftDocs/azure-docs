@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop clusters using Azure REST API - Azure 
+title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 services: hdinsight
 author: hrasheed-msft
@@ -12,7 +12,7 @@ ms.date: 05/02/2018
 ms.author: hrasheed
 
 ---
-# Create Hadoop clusters using the Azure REST API
+# Create Apache Hadoop clusters using the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -349,19 +349,19 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
 
-### Hadoop clusters
+### Apache Hadoop clusters
 
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### HBase clusters
+### Apache HBase clusters
 
-* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### Storm clusters
+### Apache Storm clusters
 
-* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

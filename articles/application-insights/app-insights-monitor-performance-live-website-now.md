@@ -5,21 +5,18 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-
 ---
 # Instrument web apps at runtime with Application Insights
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
-You need a [Microsoft Azure](http://azure.com) subscription.
+You need a [Microsoft Azure](https://azure.com) subscription.
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -75,7 +72,7 @@ The Application Insights JavaScript SDK is now injected into each web page.
 If your app is hosted on an IIS server, enable Application Insights by using Status Monitor.
 
 1. On your IIS web server, sign in with administrator credentials.
-2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648) (or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor).
+2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](https://go.microsoft.com/fwlink/?LinkId=506648) (or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor).
 3. In Status Monitor, select the installed web application or website that you want to monitor. Sign in with your Azure credentials.
 
     Configure the resource where you want to see the results in the Application Insights portal. (Normally, it's best to create a new resource. Select an existing resource if you already have [web tests][availability] or [client monitoring][client] for this app.) 
@@ -241,7 +238,7 @@ For applications already instrumented at compile time:
  * Dependency calls (.NET 4.5); return values in dependency calls (.NET 4.6).
  * Exception stack trace values.
 
-[Learn more](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Learn more](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## Video
 

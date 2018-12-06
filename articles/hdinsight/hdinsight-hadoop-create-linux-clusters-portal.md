@@ -1,6 +1,6 @@
 ---
-title: Create Hadoop clusters using a web browser - Azure HDInsight 
-description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
+title: Create Apache Hadoop clusters using a web browser - Azure HDInsight 
+description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
 
 ---
@@ -24,13 +24,13 @@ The Azure portal is a web-based management tool for services and resources hoste
 * **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ## Create clusters
-The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide many details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide many details. For more information, see [Create Linux-based Apache Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 
 1. Sign in to the [Azure  portal](https://portal.azure.com).
-2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
+2. Click **+ Create a resource**, click **Analytics**, and then click **HDInsight**.
    
     ![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Creating a new cluster in the Azure portal")
 
@@ -43,10 +43,6 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 	* From the **Subscription** drop-down, select the Azure subscription that is used for the cluster.
 
 	* Click **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. For **Operating system**, click **Linux** and then select a version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-
-        For Hadoop, Spark, and Interactive Query cluster types, you can also select to install the **Enterprise Security Package**. Enterprise Security Package enables security features such as Azure Active Directory integration and Apache Ranger for the clusters. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-        ![Enable Enterprise Security Package](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Enable Enterprise Security Package")
      
     	> [!IMPORTANT]
     	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
@@ -65,7 +61,9 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
     * Click **Next**.
 
-4. For **Storage**, specify whether you want Azure Storage (WASB) or Data Lake Storage as your default storage. Look at the table below for more information.
+4. In **Security and Networking**, you can connect your cluster to a virtual network using the provided dropdown. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). If you want to use the **Enterprise Security Package**, you can also follow instructions here: [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+
+5. For **Storage**, specify whether you want Azure Storage (WASB) or Data Lake Storage as your default storage. Look at the table below for more information.
 
 	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
 
@@ -80,7 +78,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 	> [!WARNING]
 	> Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
-5. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
 6. Click **Cluster size** to display information about the nodes that are used for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of running the cluster is also shown.
@@ -96,18 +94,10 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
    
    Click **Next** to save the node pricing configuration.
 
-7. Click **Advanced settings** to configure other optional settings such as using **Script Actions** to customize a cluster to install custom components or joining a **Virtual Network**. Look at the table below for more information.
+8. In **Script Actions**, you can customize a cluster to install custom components.  Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+Click **Next**.
 
-	![Node pricing tiers](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "Specify number of cluster nodes")
-
-	| Option | Description |
-	|--------|-------------|
-	| **Script Actions** | Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). |
-	| **Virtual Network** | Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). |
-
-	Click **Next**.
-
-8. For **Summary**, verify the information you entered earlier and then click **Create**.
+9. For **Summary**, verify the information you entered earlier and then click **Create**.
 
 	![Node pricing tiers](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Specify number of cluster nodes")
     
@@ -115,7 +105,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
     > It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
     > 
     > 
-12. Once the creation process completes, click the tile for the cluster from the Startboard. The cluster window provides the following information.
+10. Once the creation process completes, click the tile for the cluster from the Startboard. The cluster window provides the following information.
     
     ![Cluster interface](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Cluster properties")
     
@@ -142,23 +132,23 @@ If you run into issues with creating HDInsight clusters, see [access control req
 ## Next steps
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster:
 
-### Hadoop clusters
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+### Apache Hadoop clusters
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [UseApache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### HBase clusters
-* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+### Apache HBase clusters
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### Storm clusters
-* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+### Apache Storm clusters
+* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### Spark clusters
+### Apache Spark clusters
 * [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
 

@@ -1,21 +1,21 @@
 ---
-title: Manage Hadoop clusters in HDInsight with PowerShell - Azure 
-description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
+title: Manage Apache Hadoop clusters in HDInsight with PowerShell - Azure 
+description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
-ms.reviewer: jasonh
+ms.reviewer: tyfox
 author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
+ms.date: 11/6/2018
+ms.author: tylerfox
 
 ---
-# Manage Hadoop clusters in HDInsight by using Azure PowerShell
+# Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Prerequisites**
 
@@ -76,12 +76,12 @@ The cluster scaling feature allows you to change the number of worker nodes used
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
-* Hadoop
+* Apache Hadoop
 
     You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
 
     When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. Restarting services causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
-* HBase
+* Apache HBase
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster, and then run the following commands from a command prompt window:
 
@@ -91,7 +91,7 @@ The impact of changing the number of data nodes for each type of cluster support
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
 
@@ -203,25 +203,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## Submit jobs
-**To submit MapReduce jobs**
+**To submit Apache Hadoop MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
+See [Run the Apache Hadoop MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**To submit Hive jobs**
+**To submit Apache Hive jobs**
 
-See [Run Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+See [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**To submit Pig jobs**
+**To submit Apache Pig jobs**
 
-See [Run Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
+See [Run Apache Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**To submit Sqoop jobs**
+**To submit Apache Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hadoop/hdinsight-use-sqoop.md).
+See [Use Apache Sqoop with HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**To submit Oozie jobs**
+**To submit Apache Oozie jobs**
 
-See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie.md).
+See [Use Apache Oozie with Apache Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie.md).
 
 ## Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
@@ -232,12 +232,12 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
+* [Submit Apache Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Get started with Azure HDInsight][hdinsight-get-started]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

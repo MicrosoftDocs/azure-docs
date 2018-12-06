@@ -118,37 +118,11 @@ This sections shows how to use PowerShell commands create, view and manage class
 
     ```PowerShell
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
-
-8. You can use the `Add-AlertRule` cmdlet to create, update, or disable an alert rule. You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these properties as actions to the **Actions** property of the Alert Rule. The following table describes the parameters and values used to create an alert using a metric.
-
-    | parameter | value |
-    | --- | --- |
-    | Name |simpletestdiskwrite |
-    | Location of this alert rule |East US |
-    | ResourceGroup |montest |
-    | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-    | MetricName of the alert that is created |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-    | operator |GreaterThan |
-    | Threshold value (count/sec in for this metric) |1 |
-    | WindowSize (hh:mm:ss format) |00:05:00 |
-    | aggregator (statistic of the metric, which uses Average count, in this case) |Average |
-    | custom emails (string array) |'foo@example.com','bar@example.com' |
-    | send email to owners, contributors and readers |-SendToServiceOwners |
-
-9. Create an Email action
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
     ```
 
-10. Create a Webhook action
-
-    ```PowerShell
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-    ```
+8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) command.
 
 ## Next steps
 
 - [Create a classic metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md).
 - [Have a classic metric alert notify a non-Azure system using a webhook](insights-webhooks-alerts.md).
-
