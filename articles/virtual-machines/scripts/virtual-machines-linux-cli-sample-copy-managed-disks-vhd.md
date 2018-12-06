@@ -1,6 +1,6 @@
 ---
-title: Azure CLI script sample - Export/Copy underlying VHD of managed disks to a Storage account | Microsoft Docs
-description: Azure CLI script sample - Export/Copy underlying VHD of managed disks to a Storage account
+title: Export/Copy a managed disks to a storage account - Azure CLI script sample | Microsoft Docs
+description: Azure CLI script sample - Export/Copy a managed disks to a Storage account.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,10 +16,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc
+ms.custom: "mvc,seodec18"
 ---
 
-# Export/Copy the underlying VHD of a managed disk to a storage account with CLI
+# Export/Copy a managed disk to a storage account using the Azure CLI
 
 This script exports the underlying VHD of a managed disk to a storage account in same or different region. It first generates the SAS URI of the managed disk and then uses it to copy the VHD to a storage account. Use this script to copy your managed disks for regional expansion. 
 
