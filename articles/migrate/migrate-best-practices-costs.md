@@ -32,16 +32,16 @@ The best practices in this section help you to estimate costs, perform right-siz
  
 To forecast your monthly bill for migrated workloads, there are a number of tools you can use.
 
-**Azure pricing calculator**: You select the products you want to estimate, for example VMs and storage. You input costs into the pricing calculator, to build an estimate.
+- **Azure pricing calculator**: You select the products you want to estimate, for example VMs and storage. You input costs into the pricing calculator, to build an estimate.
 
-    ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
+ ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
     *Azure pricing calculator*
 
-**Azure Migrate**: To estimate costs, you need to review and account for all the resources required to run your workloads in Azure. To acquire this data, you create inventory of your assets, including servers, VMs, databases, and storage. You can use Azure Migrate to collect this information.
+- **Azure Migrate**: To estimate costs, you need to review and account for all the resources required to run your workloads in Azure. To acquire this data, you create inventory of your assets, including servers, VMs, databases, and storage. You can use Azure Migrate to collect this information.
 
-- Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
-- Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
-- An Azure Migrate assessment contains estimated cost.
+ - Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
+ - Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
+ - An Azure Migrate assessment contains estimated cost.
     - Compute costs: Using the Azure VM size recommended when you create an assessment, Azure Migrate uses the Billing API to calculate estimated monthly VM costs. The estimation considers the operating system, software assurance, reserved instances, VM uptime, location, and currency settings. It aggregates the cost across all VMs in the assessment, and calculates a total monthly compute cost.
     - Storage cost: Azure Migrate calculates total monthly storage costs by aggregating the storage costs of all VMs in an assessment. You can calculate the monthly storage cost for a specific machine by aggregating the monthly cost of all disks attached to it. 
 
@@ -114,7 +114,7 @@ Azure provides different types of storage accounts and performance tiers.
 **Account type** | **Details** | **Usage**
 --- | --- | ---
 **General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HHD or SSD based.
-****General Purpose v2 Premium** | Supports Blob storage data (page blobs). Supports Hot, Cool, and Archive access tiers. ZRS is supported.<br/><br/> Stored on SSD. | Microsoft recommends using for all VMs.
+**General Purpose v2 Premium** | Supports Blob storage data (page blobs). Supports Hot, Cool, and Archive access tiers. ZRS is supported.<br/><br/> Stored on SSD. | Microsoft recommends using for all VMs.
 **General Purpose v1** | Access tiering isn't supported. Doesn't support ZRS | Use if apps need the Azure classic deployment model.
 **Blob** | Specialized storage account for storing unstructured objects. Provides block blobs and append blobs only (no File, Queue, Table or Disk storage services). Provides the same durability, availability, scalability and performance as General Purpose v2. | you can't store page blobs in these accounts, and therefore can't store VHD files. You can set an access tier to Hot or Cool.
 
