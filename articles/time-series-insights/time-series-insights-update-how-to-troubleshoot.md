@@ -75,7 +75,7 @@ Ensure that the name and value conform to the following rules:
 * The **Timestamp** property name is case sensitive.
 * The **Timestamp** property value that comes from your event source, as a JSON string, has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
 
-The easiest way to ensure that your **Timestamp** property name is captured and working properly is to use the Time Series Insights explorer. Within the Time Series Insights explorer, use the chart to select a period of time after you provided the **Timestamp** property name. Right-click the selection, and select the **explore events** option. The first column header is your **Timestamp** property name. It should have `($ts)` next to the word `Timestamp`, rather than:
+The easiest way to ensure that your **Timestamp** property name is captured and working properly is to use the Time Series Insights Preview explorer. Within the Time Series Insights Preview explorer, use the chart to select a period of time after you provided the **Timestamp** property name. Right-click the selection, and select the **explore events** option. The first column header is your **Timestamp** property name. It should have `($ts)` next to the word `Timestamp`, rather than:
 
 * `(abc)`, which indicates that Time Series Insights reads the data values as strings.
 * Calendar icon, which indicates that Time Series Insights reads the data value as datetime.
@@ -87,7 +87,7 @@ If the **Timestamp** property isn’t explicitly specified, an event’s IoT hub
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
-   Time Series Models are supported only in **PAYG** environments. See this article for more information on how to access your S1/S2 environment from the Time Series Insights Update explorer.
+   Time Series Models are supported only in **PAYG** environments. For more information on how to access your S1/S2 environment from the Time Series Insights Preview explorer, see [Visualize data in the explorer](./time-series-insights-update-explorer.md).
 
    ![Access][5]
 
