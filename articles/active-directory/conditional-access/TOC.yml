@@ -32,7 +32,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Best practices1
+  - name: Best practices
     href: best-practices.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
