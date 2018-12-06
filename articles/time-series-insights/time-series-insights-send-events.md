@@ -1,6 +1,6 @@
 ﻿---
-title: How to send events to an Azure Time Series Insights environment | Microsoft Docs
-description: This tutorial explains how to create and configure event hub and run a sample application to push events to be shown in Azure Time Series Insights.
+title: Send events to an Azure Time Series Insights environment | Microsoft Docs
+description: Learn how to configure an event hub and run a sample application to push events you can view in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -13,64 +13,67 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Send events to a Time Series Insights environment using event hub
+# Send events to a Time Series Insights environment by using an event hub
 
-This article explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+This article explains how to create and configure an event hub in Azure Event Hubs, and then run a sample application to push events. If you have an existing event hub that has events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
-## Configure an Event Hub
+## Configure an event hub
 
-1. For Event Hub creation, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/).
-1. Search for `Event Hub` in the search bar. Click **Event Hubs** in the returned list.
-1. Select your Event Hub by clicking on its name.
-1. When you create an Event Hub, you are really creating an Event Hub Namespace.  If you have yet to create an Event Hub within the Namespace, create one under entities.  
+1. To learn how to create an event hub, see the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
+1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
+1. Select your event hub.
+1. When you create an event hub, you are really creating an event hub namespace. If you haven't yet created an event hub within the namespace, in the menu, under **Entities**, create an event hub.  
 
-    ![updated][1]
+    ![List of event hubs][1]
 
-1. Once you have created an Event Hub, click on its name.
-1. Under **Entities** in the middle configuration window, click **Event Hubs** again.
-1. Select the name of the Event Hub to configure it.
-
-    ![consumer-group][2]
-
+1. After you create an event hub, select it in the list of event hubs.
+1. In the menu, under **Entities**, select **Event Hubs**.
+1. Select the name of the event hub to configure it.
 1. Under **Entities**, select **Consumer groups**.
-1. Make sure you create a consumer group that is used exclusively by your TSI event source.
+
+    ![Create a consumer group][2]
+
+1. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
     > [!IMPORTANT]
-    > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another TSI environment). If the consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using `$Default` as the consumer group, it could lead to potential reuse by other readers.
+    > Make sure this consumer group isn't used by any other service (such as an Azure Stream Analytics job or another Time Series Insights environment). If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
 
-1. Under the **Settings** heading, select **Share access policies**.
-1. On the event hub, create **MySendPolicy** that is used to send events in the C# sample.
+1. In the menu, under **Settings**, select **Shared access policies**.
 
-    ![shared=access-one][3]
+    ![Select Shared access policies, and then select the Add button][3]
 
-    ![shared-access-two][4]
+1. In the **Add new shared access policy** pane, create a shared access named **MySendPolicy**. You'll use this shared access policy to send events in the C# examples later in this article.
 
-## Add Time Series Insights instances
+    ![In the Policy name box, enter MySendPolicy][4]
 
-The TSI update uses instances to add contextual data to incoming telemetry data. The data is joined at query time using a **Time Series ID**. The **Time Series ID** for the sample windmills project is `Id`. To learn more about Time Series Instances and **Time Series IDs**, read [Time Series Models](./time-series-insights-update-tsm.md).
+1. Under **Claim**, select the **Send** checkbox.
 
-### Create Time Series Insights event source
+## Add a Time Series Insights instance
 
-1. If you haven't created an event source, follow [these instructions](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) to create an event source.
-1. Specify the `timeSeriesId` – refer to [Time Series Models](./time-series-insights-update-tsm.md) to learn more about **Time Series IDs**.
+The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is **Id**. To learn more about Time Series Insight instances and **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
 
-### Push events (sample windmills)
+### Create a Time Series Insights event source
 
-1. Search for event hub in the search bar. Click **Event Hubs** in the returned list.
-1. Select your event hub by clicking on its name.
-1. Go to **Shared Access Policies** and then **RootManageSharedAccessKey**. Copy the **Connection sting-primary key**
+1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
 
-   ![connection-string][5]
+### <a name="push-events"></a>Push events (windmills sample)
 
-1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. This runs simulated windmill devices.
-1. Paste the connection string copied from step three in the **Event Hub Connection String**.
+1. In the search bar, search for **Event Hubs**. In the returned list, select **Event Hubs**.
+1. Select your event hub.
+1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection sting-primary key**.
 
-    ![connection-string][6]
+   ![Copy the value for the primary key connection string][5]
 
-1. Click on **Click to Start**. The simulator will also generate an Instance JSON that you can use directly.
-1. Go back to your Event Hub. You should see the new events being received by the hub:
+1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
+1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in [Push events](#push-events).
 
-   ![telemetry][7]
+    ![Paste the primary key connection string in the Event Hub Connection String box][6]
+
+1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
+1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub:
+
+   ![An event hub Overview page that shows metrics for the event hub][7]
 
 <a id="json"></a>
 
@@ -80,7 +83,7 @@ The TSI update uses instances to add contextual data to incoming telemetry data.
 
 #### Input
 
-A simple JSON object.
+A simple JSON object:
 
 ```json
 {
@@ -89,7 +92,7 @@ A simple JSON object.
 }
 ```
 
-#### Output - one event
+#### Output: One event
 
 |id|timestamp|
 |--------|---------------|
@@ -99,7 +102,8 @@ A simple JSON object.
 
 #### Input
 
-A JSON array with two JSON objects. Each JSON object will be converted to an event.
+A JSON array with two JSON objects. Each JSON object is converted to an event.
+
 ```json
 [
     {
@@ -113,7 +117,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 ]
 ```
 
-#### Output - two events
+#### Output: Two events
 
 |id|timestamp|
 |--------|---------------|
@@ -125,6 +129,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 #### Input
 
 A JSON object with a nested JSON array that contains two JSON objects:
+
 ```json
 {
     "location":"WestUs",
@@ -139,12 +144,11 @@ A JSON object with a nested JSON array that contains two JSON objects:
         }
     ]
 }
-
 ```
 
-#### Output - two events
+#### Output: Two events
 
-Notice the property "location" is copied over to each of the event.
+The property **location** is copied over to each event.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -155,7 +159,7 @@ Notice the property "location" is copied over to each of the event.
 
 #### Input
 
-A JSON object with a nested JSON array containing two JSON objects. This input demonstrates that the global properties may be represented by the complex JSON object.
+A JSON object with a nested JSON array that contains two JSON objects. This input demonstrates that global properties can be represented by the complex JSON object.
 
 ```json
 {
@@ -187,7 +191,7 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 }
 ```
 
-#### Output - two events
+#### Output: Two events
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
@@ -197,7 +201,7 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View your environment in Time Series Insights Explorer](https://insights.timeseries.azure.com).
+> [View your environment](https://insights.timeseries.azure.com) in the Time Series Insights explorer.
 
 <!-- Images -->
 [1]: media/send-events/updated.png
