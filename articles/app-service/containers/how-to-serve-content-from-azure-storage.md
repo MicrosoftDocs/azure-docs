@@ -62,7 +62,7 @@ You should do this for any other directories you want to be linked to a storage 
 Once a storage container is linked to a web app, you can verify this by running the following command:
 
 ```azurecli
-az webapp conf storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <group_name> --name <app_name>
 ```
 
 ## Next steps

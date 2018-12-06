@@ -64,7 +64,7 @@ You are now ready to use Google for authentication in your app.
 
 <!-- URLs. -->
 
-[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
+[Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure portal]: https://portal.azure.com/
 

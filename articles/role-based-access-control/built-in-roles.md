@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -110,6 +110,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
 | [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
+| [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for read, write, delete, and POSIX superuser access to Azure Storage blob containers and data |
 | [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
 | [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
 | [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
@@ -1683,6 +1684,21 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Allows for read, write and delete access to Azure Storage blob containers and data |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put or lease blob container |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+
+## Storage Blob Data Owner (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read, write, delete, and POSIX superuser access to Azure Storage blob containers and data |
+> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
