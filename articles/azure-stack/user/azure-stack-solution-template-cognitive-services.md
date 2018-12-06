@@ -25,29 +25,31 @@ ms.reviewer: guanghu
 > [!Note]  
 > Aure Cognitive Services on Azure Stack is in preview.
 
-You can use container support in Azure Cognitive Services on Azure Stack. Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+You can use container support in Azure Cognitive Services on Azure Stack. Container support in Azure Cognitive Services allows you to use the same rich APIs that are available in Azure. Your use of containers enables flexibility in where to deploy and host the services delivered in [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
-Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed. 
+Containerization is an approach to software distribution in which an application or service, including its dependencies and configuration, are packaged as a container image. With little or no modification, you can deploy an image to a container host. Each container is isolated from other containers and from the underlying operating system. The system, itself, only has the components needed to run your image. A container host has a smaller footprint than a virtual machine. In addition, you can create containers from images for short-term tasks, and removed when no longer needed.
 
-## Features
+## Use containers with Cognitive Services on Azure Stack
 
 - **Control over data**  
-  Allow customers to use Cognitive Services with complete control over their data. This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments – across data, management, identity, and security.
+  Allow your app users to have control over their data while using Cognitive Services. You can deliver Cognitive Services to app users who cannot send data to global Azure or the public cloud.
 
 - **Control over model updates**  
-  Provide customers flexibility in versioning and updating of models deployed in their solutions.
+  Provide app users to version and update of the models deployed in their solution.
 
 - **Portable architecture**  
-  Enable the creation of a portable application architecture that can be deployed in the cloud, on-premises and the edge. Containers can also be deployed directly to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster deployed to Azure Stack. For more information, see Deploy Kubernetes to Azure Stack.
+  Enable the creation of a portable app architecture so that you can deploy your solution to the public cloud, to a private cloud on-premesis, or the edge. You can deploy your container to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster in to Azure Stack. For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
-- **High throughput and low latency** 
-   Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
+- **High throughput and low latency**  
+   Provide your app users the ability to scale with spikes in traffic for high throughput and low latency. Enable Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
 
-With Azure Stack, you can deploy Cognitive Services containers in a Kubernetes cluster along with your application containers for high availability and elastic scaling. You can develop your application by combining Cognitive services with components built on App Services, Functions, Blob storage or SQL or mySQL databases. 
+With Azure Stack, deploy Cognitive Services containers in a Kubernetes cluster along with your application containers for high availability and elastic scaling. You can develop your application by combining Cognitive services with components built on App Services, Functions, Blob storage or SQL or mySQL databases. 
 
-This article describes how to deploy the Azure Face API on Kubernetes cluster on Azure Stack. You can use follow the same approach to deploy other cognitive services containers on Azure Stack Kubernetes cluster.
+For more details on Cognitive Services containers, go to [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
 
-For more details on Cognitive Services containers, please go to [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+## Deploy the Azure Face API
+
+This article describes how to deploy the Azure Face API on Kubernetes cluster on Azure Stack. You can use the same approach to deploy other cognitive services containers on Azure Stack Kubernetes cluster.
 
 ## Prerequisites
 
@@ -66,7 +68,7 @@ Create a Cognitive Service resource on Azure to preview the Face, LUIS, or Recog
     >  [!Note]  
     >  The Face or Computer Vision resource must use the F0   pricing tier.
 
-1.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
+2.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
 
 ## Create a Kubernetes secret 
 
@@ -79,9 +81,9 @@ Take use of the Kubectl create secret command to access the private container re
         --docker-password='<password>' 
 ```
 
-## Prepare a YAML
+## Prepare a YAML configure file
 
-You are going to leverage the YAML to simplify the deployment of the cognitive service on the Kubernetes cluster.
+You are going to use the YAML configure file to simplify the deployment of the cognitive service on the Kubernetes cluster.
 
 Here is a sample YAML configure file to deploy the Face service to Azure Stack:
 
@@ -128,7 +130,7 @@ spec:
     app: <appName>
 ```
 
-In this YAML file, use the secret you used to get the cognitive service container images from Azure Container Registry. You and use the secret file to deploy a specific replica of the container. You also create a load balancer to make sure users can access this service externally.
+In this YAML configure file, use the secret you used to get the cognitive service container images from Azure Container Registry. You and use the secret file to deploy a specific replica of the container. You also create a load balancer to make sure users can access this service externally.
 
 Details about the key fields:
 
@@ -174,7 +176,7 @@ There are two things need to keep in mind to make the Python app run against the
 1. Cognitive services in container do not need sub keys for authentication, but we still need to input any string as a placeholder to satisfy the SDK. 
 2. Replace the base_URL with the actual service EndPoint IP address 
 
-Here is a sample Python scripts used Face services Python SDK to detect and frame faces in an image. 
+Here is a sample Python script used Face services Python SDK to detect and frame faces in an image. 
 
 ```Python  
 import cognitive_face as CF
