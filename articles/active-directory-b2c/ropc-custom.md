@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 12/06/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -136,7 +136,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
     </TechnicalProfile>
     ```
 
-    Replace the **DefaultValue** of **client_id** with the Application ID of the ProxyIdentityExperienceFramework application that you previously created.
+    Replace the **DefaultValue** of **client_id** and **resource_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial.
 
 5. Add following **ClaimsProvider** elements with their technical profiles to the **ClaimsProviders** element:
 
@@ -196,7 +196,6 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
-      <AssuranceLevel>LOA1</AssuranceLevel>
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
 	    <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
@@ -213,7 +212,6 @@ Complete the steps in [Get started with custom policies in Azure Active Director
       </OrchestrationSteps>
     </UserJourney>
     <UserJourney Id="ResourceOwnerPasswordCredentials-RedeemRefreshToken">
-      <AssuranceLevel>LOA1</AssuranceLevel>
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
@@ -241,7 +239,7 @@ Next, update the relying party file that initiates the user journey that you cre
 
 1. Make a copy of *SignUpOrSignin.xml* file in your working directory and rename it to *ROPC_Auth.xml*.
 2. Open the new file and change the value of the **PolicyId** attribute for **TrustFrameworkPolicy** to a unique value. The policy ID is the name of your policy. For example, **B2C_1A_ROPC_Auth**.
-3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created.
+3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to `ResourceOwnerPasswordCredentials`.
 4. Change the **OutputClaims** element to only contain the following claims:
     
     ```XML
@@ -346,6 +344,7 @@ Azure AD B2C meets OAuth 2.0 standards for public client resource owner password
 
 ## Next steps
 
-Learn more about the tokens that are used by Azure Active Directory B2C in the [Token reference](active-directory-b2c-reference-tokens.md).
+- See a full example of this scenario in the [Azure Active Directory B2C custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
+- Learn more about the tokens that are used by Azure Active Directory B2C in the [Token reference](active-directory-b2c-reference-tokens.md).
 
 
