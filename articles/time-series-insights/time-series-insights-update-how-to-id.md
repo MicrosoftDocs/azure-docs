@@ -1,6 +1,6 @@
 ---
-title: Best practices for choosing a Time Series ID in Azure Time Series Insights (preview) | Microsoft Docs
-description: Understanding best practices when you choose a Time Series ID in Azure Time Series Insights (preview)
+title: Best practices for choosing a Time Series ID in Azure Time Series Insights Preview | Microsoft Docs
+description: Understanding best practices when you choose a Time Series ID in Azure Time Series Insights Preview
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -13,11 +13,11 @@ ms.date: 12/03/2018
 
 # Best practices for choosing a Time Series ID
 
-This article covers the Azure Time Series Insights (preview) partition key, the Time Series ID, and best practices for choosing one.
+This article covers the Azure Time Series Insights Preview partition key, the Time Series ID, and best practices for choosing one.
 
 ## Choose a Time Series ID
 
-Choosing a Time Series ID is like choosing a partition key for a database. It's an important decision that should be made at design time. You can't update an existing Time Series Insights (preview) environment to use a different Time Series ID. In other words, when an environment is created with a Time Series ID, the policy is an immutable property that can't be changed.
+Choosing a Time Series ID is like choosing a partition key for a database. It's an important decision that should be made at design time. You can't update an existing Time Series Insights Preview environment to use a different Time Series ID. In other words, when an environment is created with a Time Series ID, the policy is an immutable property that can't be changed.
 
 > [!IMPORTANT]
 > The Time Series ID is case-sensitive and immutable (it can't be changed after it is set).
