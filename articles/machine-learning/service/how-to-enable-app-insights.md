@@ -9,6 +9,7 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
+ms.custom: seodec18
 ---
 # Monitor your Azure Machine Learning models with Application Insights
 
@@ -18,9 +19,6 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 * Exceptions.
 
 [Learn more about Application Insights](../../application-insights/app-insights-overview.md). 
-
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
 
 
 ## Prerequisites
@@ -94,7 +92,7 @@ You can enable and disable Application Insights in the Azure portal.
 1. In the [Azure portal](https://portal.azure.com), open your workspace.
 1. Select **Deployments**, select the service, and select **Edit**.
 
-   [![Edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Use the edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. In **Advanced Settings**, clear the **Enable AppInsights diagnostics** check box. 
 
@@ -124,7 +122,7 @@ To learn more about how to use Application Insights, see [What is Application In
 
 ## Example notebook
 
-The [00.Getting Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) notebook demonstrates concepts in this article.  Get this notebook:
+The [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

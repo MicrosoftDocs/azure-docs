@@ -1,6 +1,6 @@
 ---
 title: Known Issues and Troubleshooting for Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -8,7 +8,9 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 10/01/2018 
+ms.date: 12/04/2018 
+ms.custom: seodec18
+
 ---
 # Known issues and troubleshooting Azure Machine Learning service
  
@@ -18,17 +20,17 @@ This article helps you find and correct errors or failures encountered when usin
 
 **Error message: Cannot uninstall 'PyYAML'** 
 
-PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it in the event of a partial uninstall. To continue installing the SDK while ignoring this error, use:
+Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it in the event of a partial uninstall. To continue installing the SDK while ignoring this error, use:
 ```Python 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
+## Azure Machine Learning Compute usage issue
+There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately. 
+
 ## Image building failure
 
 Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.  
-
-## Pipelines
-An error occurs when calling PythonScriptStep multiple times in a row without changing the script or parameters. Workaround is to rebuild the PipelineData object.
 
 ## FPGAs
 You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
@@ -41,12 +43,20 @@ Databricks and Azure Machine Learning issues.
    
    Create your Azure Databricks cluster as v4.x with Python 3. We recommend a high concurrency cluster.
  
-1. AML SDK install failure on Databricks when more packages are installed.
+2. AML SDK install failure on Databricks when more packages are installed.
 
-   Some packages, such as `psutil upgrade libs`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not related to AML SDK. Example:
+   Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not related to Azure ML SDK - you may face it with other libs too. Example:
    ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
+   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
+   Alternatively, you can use init scripts if you keep facing install issues with Python libs. This approach is not an officially supported approach. You can refer to [this doc](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+3. When using Automated Machine Learning on Databricks, if you see `Import error: numpy.core.multiarray failed to import`
+
+   Workaround: import Python library `numpy==1.14.5` to your Databricks cluster using Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+
+## Azure portal
+If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another worksapce, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. 

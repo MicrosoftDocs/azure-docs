@@ -32,7 +32,7 @@ Here are the steps to create an instance of a Linux Terraform virtual machine:
 
 3. On the Terraform details tab on the lower right, select the **Create** button.
 
-    ![Create a Terraform virtual machine](media\terraformmsi.png)
+    ![Create a Terraform virtual machine](media/terraformmsi.png)
 
 4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux virtual machine. The following section lists the inputs that are needed to configure each of these steps.
 

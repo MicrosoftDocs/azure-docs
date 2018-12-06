@@ -117,7 +117,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-If you don't have an existing workspace, you can create one using the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
+If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
 
 If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

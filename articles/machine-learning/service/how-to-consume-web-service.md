@@ -1,6 +1,6 @@
 ---
-title: How to consume web service deployments - Azure Machine Learning
-description: Learn how to consume a web service created by deploying an Azure Machine Learning model. Deploying an Azure Machine Learning model creates a web service that exposes a REST API. You can create clients for this API using the programming language of your choice. In this document, learn how to access the API using Python and C#.
+title: How to consume web service deployments - Azure Machine Learning service
+description: Learn how to consume a web service that was generated when a model was deployed with Azure Machine Learning model.The web service that exposes a REST API. Create clients for this API using the programming language of your choice. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,7 +8,10 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
-ms.date: 10/30/2018
+ms.date: 12/03/2018
+ms.custom: seodec18
+
+
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
@@ -96,7 +99,7 @@ The REST API expects the body of the request to be a JSON document with the foll
 > [!IMPORTANT]
 > The structure of the data needs to match what the scoring script and model in the service expect. The scoring script might modify the data before passing it to the model.
 
-For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request and passes it to the model. The following example shows the data this service expects:
+For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request and passes it to the model. The following example shows the data this service expects:
 
 ```json
 {
@@ -122,7 +125,7 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 ## Call the service (C#)
 
-This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example:
+This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
 
 ```csharp
 using System;
@@ -211,7 +214,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Go)
 
-This example demonstrates how to use Go to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example:
+This example demonstrates how to use Go to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
 
 ```go
 package main
@@ -303,7 +306,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Java)
 
-This example demonstrates how to use Java to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example:
+This example demonstrates how to use Java to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
 
 ```java
 import java.io.IOException;
@@ -383,7 +386,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Python)
 
-This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example:
+This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
 
 ```python
 import requests

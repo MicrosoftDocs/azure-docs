@@ -6,7 +6,7 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
 ---
@@ -76,48 +76,24 @@ Click anywhere else on the update to open the **Log Search** pane for the select
 
 ## Configure alerts
 
-In this step, you learn to set up an alert to let you know when updates have been successfully deployed through a Log Analytics query or by tracking the master runbook for Update Management for deployments that failed.
+In this step, you learn to set up an alert to let you know the status of an update deployment.
 
 ### Alert conditions
 
-For each type of alert, there are different alert conditions that need to be defined.
+In your Automation Account, under **Monitoring** go to **Alerts**, and then click **+ New alert rule**.
 
-#### Log Analytics query alert
+Your Automation Account is already selected as the resource. If you want to change it you can click **Select** and on the **Select a resource** page, select **Automation Accounts** in the **Filter by resource type** dropdown. Select your Automation Account, and then select **Done**.
 
-For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments, you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrates update deployments fails. You can write a custom query for additional alerts to cover many different scenarios.
+Click **Add condition** to select the signal that is appropriate for your update deployment. The following table shows the details of the two available signals for update deployments:
 
-In the Azure portal, go to **Monitor**, and then select **Create Alert**.
+|Signal Name|Dimensions|Description|
+|---|---|---|
+|**Total Update Deployment Runs**|- Update Deployment Name</br>- Status|This signal is used to alert on the overall status of an update deployment.|
+|**Total Update Deployment Machine Runs**|- Update Deployment Name</br>- Status</br>- Target Computer</br>- Update Deployment Run Id|This signal is used to alert on the status of an update deployment targeted at specific machines|
 
-Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
-
-![Create alert](./media/automation-tutorial-update-management/create-alert.png)
-
-Select **Add criteria**.
-
-Under **Configure signal logic**, in the table, select **Custom log search**. Enter the following query in the **Search query** text box:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-This query returns the computers and the update run name that completed in the specified timeframe.
-
-Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, select **Done**.
+For the dimension values, select a valid value from the list. If the value you are looking for is not in the list, click the **\+** sign next to the dimension and type in the custom name. You can then select the value you want to look for. If you want to select all values from a dimension, click the **Select \*** button. If you do not choose a value for a dimension, that dimension will be ignored during evaluation.
 
 ![Configure signal logic](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### Runbook alert
-
-For failed deployments you must alert on the failure of the master runbook.
-In the Azure portal, go to **Monitor**, and then select **Create Alert**.
-
-Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
-
-For **Runbook Name**, click the **\+** sign and enter **Patch-MicrosoftOMSComputers** as a custom name. For **Status**, choose **Failed** or click the **\+** sign to enter **Failed**.
-
-![Configure signal logic for runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, select **Done**.
 
@@ -127,7 +103,7 @@ Under **2. Define alert details**, enter a name and description for the alert. S
 
 ![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Action groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
 In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
 
@@ -153,7 +129,7 @@ Under **New update deployment**, specify the following information:
 
 * **Operating system**: Select the OS to target for the update deployment.
 
-* **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
+* **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
 
 * **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md)
 
@@ -168,7 +144,7 @@ Under **New update deployment**, specify the following information:
 
    For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
 
-* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
+* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
 
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 

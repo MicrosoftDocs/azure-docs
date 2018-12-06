@@ -15,7 +15,7 @@ The "Secure transfer required" option enhances the security of your storage acco
 
 When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios that use SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
 
-By default, the "Secure transfer required" option is disabled.
+By default, the "Secure transfer required" option is disabled when you create a storage account with SDK. And it's enabled by default when you create a storage account in Azure Portal.
 
 > [!NOTE]
 > Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name. And classic storage accounts are not supported.

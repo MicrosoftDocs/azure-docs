@@ -1,4 +1,4 @@
-Ôªø---
+---
 title: "Troubleshooting log alerts in Azure Monitor"
 description: Common issues, errors and resolution for log alert rules in Azure.
 author: msvijayn
@@ -13,7 +13,7 @@ ms.component: alerts
 ## Overview
 This article shows you how to resolve common issues seen when setting up log alerts in Azure monitor. It also provides solutions to frequently asked questions regarding functionality or configuration of log alerts. 
 
-The term **Log Alerts** describes alerts that fire based on a custom query in [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](monitor-alerts-unified-log.md).
+The term **Log Alerts** describes alerts that fire based on a custom query in [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](monitor-alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases when the Azure portal shows and alert rule triggered and a notification performed by an associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](monitoring-action-groups.md).
@@ -24,7 +24,7 @@ The term **Log Alerts** describes alerts that fire based on a custom query in [L
 Here are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
 
 ### Data Ingestion time for Logs
-Log alert periodically runs your query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Log alert periodically runs your query based on [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 To mitigate data ingestion delay, the system waits and retries the alert query multiple times if it finds the needed data is not yet ingested. The system has an exponentially increasing wait time set. The log alert only triggers after the data is available so they delay could be due to slow log data ingestion. 
 
@@ -50,17 +50,17 @@ For example, suppose a metric measurement log alert rule was configured as:
 - alert logic of three consecutive breaches
 - Aggregate Upon chosen as $table
 
-Since the command includes *summarize ‚Ä¶ by* and provided two variables (timestamp & $table), the system chooses $table to ‚ÄúAggregate Upon‚Äù. It sorts the result table by the field *$table* as shown below and then looks at the multiple AggregatedValue for each table type (like availabilityResults) to see if there was consecutive breaches of 3 or more.
+Since the command includes *summarize Ö by* and provided two variables (timestamp & $table), the system chooses $table to ìAggregate Uponî. It sorts the result table by the field *$table* as shown below and then looks at the multiple AggregatedValue for each table type (like availabilityResults) to see if there was consecutive breaches of 3 or more.
 
 ![Metric Measurement query execution with multiple values](./media/monitor-alerts-unified/LogMMQuery.png)
 
-As ‚ÄúAggregate Upon‚Äù is $table ‚Äì the data is sorted on $table column (as in RED); then we group and look for types of ‚ÄúAggregate Upon‚Äù field (that is) $table ‚Äì for example: values for availabilityResults will be considered as one plot/entity (as highlighted in Orange). In this value plot/entity ‚Äì alert service checks for three consecutive breaches occurring (as shown in Green) for which alert will get triggered for table value 'availabilityResults'. Similarly, if for any other value of $table if three consecutive breaches are seen - another alert notification will be triggered for the same thing; with alert service automatically sorting the values in one plot/entity (as in Orange) by time.
+As ìAggregate Uponî is $table ñ the data is sorted on $table column (as in RED); then we group and look for types of ìAggregate Uponî field (that is) $table ñ for example: values for availabilityResults will be considered as one plot/entity (as highlighted in Orange). In this value plot/entity ñ alert service checks for three consecutive breaches occurring (as shown in Green) for which alert will get triggered for table value 'availabilityResults'. Similarly, if for any other value of $table if three consecutive breaches are seen - another alert notification will be triggered for the same thing; with alert service automatically sorting the values in one plot/entity (as in Orange) by time.
 
-Now suppose, metric measurement log alert rule was modified and query was `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` with rest of the config remaining same as before including alert logic for three consecutive breaches. "Aggregate Upon" option in this case will be by default: timestamp. Since only one value is provided in query for summarize‚Ä¶by (that is) timestamp; similar to earlier example, at end of execution the output would be as illustrated below. 
+Now suppose, metric measurement log alert rule was modified and query was `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` with rest of the config remaining same as before including alert logic for three consecutive breaches. "Aggregate Upon" option in this case will be by default: timestamp. Since only one value is provided in query for summarizeÖby (that is) timestamp; similar to earlier example, at end of execution the output would be as illustrated below. 
 
    ![Metric Measurement query execution with singular value](./media/monitor-alerts-unified/LogMMtimestamp.png)
 
-As ‚ÄúAggregate Upon‚Äù is timestamp ‚Äì the data is sorted on timestamp column (as in RED); then we group by timestamp ‚Äì for example: values for `2018-10-17T06:00:00Z` will be considered as one plot/entity (as highlighted in Orange). In this value plot/entity ‚Äì alert service will find no consecutive breaches occurring (as each timestamp value has only one entry) and hence alert will never get triggered. Hence in such case, user must either -
+As ìAggregate Uponî is timestamp ñ the data is sorted on timestamp column (as in RED); then we group by timestamp ñ for example: values for `2018-10-17T06:00:00Z` will be considered as one plot/entity (as highlighted in Orange). In this value plot/entity ñ alert service will find no consecutive breaches occurring (as each timestamp value has only one entry) and hence alert will never get triggered. Hence in such case, user must either -
 - Add a dummy variable or an existing variable (like $table) to correctly sorting done using "Aggregate Upon" field configured
 - (Or) reconfigure alert rule to use alert logic based on *total breach* instead appropriately
  
@@ -68,7 +68,7 @@ As ‚ÄúAggregate Upon‚Äù is timestamp ‚Äì the data is sorted on timestamp column 
 Detailed next are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) may be triggered when viewed in [Azure Alerts](monitoring-alerts-managing-alert-states.md), when you don't expect it to be fired.
 
 ### Alert triggered by partial data
-Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Data ingestion time in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 Depending on how the alert rule is configured, there may be mis-firing if there is no or partial data in logs at the time of alert execution. In such cases, we advise you to change the alert query or config. 
 
@@ -78,7 +78,7 @@ For example, if the log alert rule is configured to trigger when number of resul
 You provide the logic for log alerts in an analytics query. The analytics query may use various big data and mathematical functions.  The alerting service executes your query at intervals specified with data for time period specified. The alerting service makes subtle changes to query provided based on the alert type chosen. This can be seen in the "Query to be executed" section in *Configure signal logic* screen, as shown below:
     ![Query to be executed](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-What is shown in the **query to be executed** box is what the log alert service runs. You can run the stated query as well as timespan via [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) or the [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) if you want to understand what the alert query output may be before you actually create the alert.
+What is shown in the **query to be executed** box is what the log alert service runs. You can run the stated query as well as timespan via [Analytics portal](../azure-monitor/log-query/portals.md) or the [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) if you want to understand what the alert query output may be before you actually create the alert.
  
 ## Next steps
 

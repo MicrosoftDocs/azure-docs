@@ -184,7 +184,7 @@ or the PNS.  The PNS could ban your traffic as a result of such attacks.
 
 ## More information
 
-You can find detailed API details in our [API documentation](http://azure.github.io/azure-mobile-apps-js-client/).
+You can find detailed API details in our [API documentation](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com
@@ -193,7 +193,7 @@ You can find detailed API details in our [API documentation](http://azure.github
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
+[your first Apache Cordova app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

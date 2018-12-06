@@ -175,14 +175,14 @@ For more information, see [How to: Monitor web endpoint status].
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [Enable HTTPS for an app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[How to: Monitor web endpoint status]: http://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
-[pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale a web app in Azure App Service]: ./web-sites-scale.md
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 

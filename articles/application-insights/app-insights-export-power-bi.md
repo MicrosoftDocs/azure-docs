@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 
 # Feed Power BI from Application Insights
-[Power BI](http://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
 
 There are three methods of exporting Application Insights data to Power BI:
 
@@ -36,7 +36,7 @@ To import your Application Insights query, you use the desktop version of Power 
 Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### Export an Analytics query
-1. [Open Analytics and write your query](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Open Analytics and write your query](../azure-monitor/log-query/get-started-portal.md).
 2. Test and refine the query until you're happy with the results. Make sure that the query runs correctly in Analytics before you export it.
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
    
@@ -148,6 +148,6 @@ You can edit the dashboard, combining the Application Insights charts with those
 After the initial import, the dashboard and the reports continue to update daily. You can control the refresh schedule on the dataset.
 
 ## Next steps
-* [Power BI - Learn](http://www.powerbi.com/learning/)
-* [Analytics tutorial](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI - Learn](https://www.powerbi.com/learning/)
+* [Analytics tutorial](../azure-monitor/log-query/get-started-portal.md)
 

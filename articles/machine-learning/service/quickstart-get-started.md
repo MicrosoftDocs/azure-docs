@@ -1,14 +1,16 @@
 ---
-title: "Quickstart: Create a machine learning service workspace in the Azure portal - Azure Machine Learning"
-description: Use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Azure Machine Learning.  
+title: "Quickstart:  Use Azure portal to start with Azure Machine Learning service"
+description: Get started with Azure Machine Learning service. Use Azure portal to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
-ms.date: 09/24/2018
+author: hning86
+ms.author: haining
+ms.date: 12/04/2018
+ms.custom: seodec12
+
 ---
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
@@ -30,7 +32,7 @@ The following Azure resources are added automatically to your workspace when the
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is Azure Batch AI cluster size. For information on default limits and how to increase your quota, see [this article](how-to-manage-quotas.md).
+The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning, such as compute cluster size. Learn more about [the default limits and how to increase your quota](how-to-manage-quotas.md).
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
@@ -64,7 +66,7 @@ Select `Open Azure Notebooks` to try your first experiment.
 
 Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
-After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`
+After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`.
 
 
 ### Run the notebook

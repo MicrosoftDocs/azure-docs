@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Train a classification model with automated machine learning - Azure Machine Learning service"
-description: Learn how to generate a machine learning model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
+title: "Regression model tutorial - Automatically train model with Azure Machine Learning service"
+description: Learn how to generate a ML model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,50 +8,46 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-# As an app developer or data scientist I can generate a  machine learning model using Automated ML.
+ms.date: 12/04/2018
+ms.custom: seodec12
 ---
 
-# Tutorial: Train a classification model with automated machine learning in Azure Machine Learning service
+# Tutorial (part 2): Use automated machine learning to build and train a regression model
 
-In this tutorial, you'll learn how to generate a  machine learning model using automated machine learning (automated ML).  Azure Machine Learning service can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [prepared the NYC taxi data for regression modeling](tutorial-data-prep.md).
+
+Now, you're ready to start building your model with Azure Machine Learning service. In this part of the tutorial, you will use the prepared data and automatically generate a regression model to predict taxi fare prices. Using the automated ML capabilities of the service, you define your machine learning goals and constraints, launch the automated machine learning process and then allow the algorithm selection and hyperparameter-tuning to happen for you. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
 ![flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. But this time you don't to specify an algorithm or tune hyperparameters. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
-
-You'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your development environment
-> * Access and examine the data
-> * Train using an automated classifier on your local computer
+> * Setup a Python environment and import the SDK packages
+> * Configure an Azure Machine Learning service workspace
+> * Auto-train a regression model
+> * Run the model locally with custom parameters
 > * Explore the results
-> * Review training results
 > * Register the best model
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.79
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.0
+
+
+## Prerequisites
+
+> * [Run the data preparation tutorial](tutorial-data-prep.md).
+> * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](samples-notebooks.md) automated machine learning.
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://aka.ms/aml-notebook-tut-03). Run the `03.auto-train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
-
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
-
-## Set up your development environment
-
-All the setup for your development work can be accomplished in the Python notebook.  Setup includes:
-
-* Import Python packages
-* Configure a workspace to enable communication between your local computer and remote resources
-* Create a directory to store training scripts
-
-### Import packages
+## Import packages
 Import Python packages you need in this tutorial.
 
 
@@ -62,27 +58,22 @@ from azureml.core.workspace import Workspace
 from azureml.train.automl.run import AutoMLRun
 import time
 import logging
-from sklearn import datasets
-from matplotlib import pyplot as plt
-from matplotlib.pyplot import imshow
-import random
-import numpy as np
+import os
 ```
 
-### Configure workspace
+## Configure workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information, and creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment and in [Azure portal](https://portal.azure.com).
+
 
 ```python
 ws = Workspace.from_config()
-# project folder to save your local files
-project_folder = './sample_projects/automl-local-classification'
 # choose a name for the run history container in the workspace
-experiment_name = 'automl-classifier'
-
-import os
+experiment_name = 'automated-ml-regression'
+# project folder
+project_folder = './automated-ml-regression'
 
 output = {}
 output['SDK version'] = azureml.core.VERSION
@@ -97,134 +88,635 @@ pd.DataFrame(data=output, index=['']).T
 
 ## Explore data
 
-The initial training tutorial used a high-resolution version  of the MNIST dataset (28x28 pixels).  Since automated ML training requires many iterations, this tutorial uses a smaller resolution version  of the images (8x8 pixels) to demonstrate the concepts while speeding up the time needed for each iteration.  
+Utilize the data flow object created in the previous tutorial. Open and execute the data flow and review the results.
+
 
 ```python
-from sklearn import datasets
+import azureml.dataprep as dprep
 
-digits = datasets.load_digits()
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-# Exclude the first 100 rows from training so that they can be used for test.
-X_train = digits.data[100:,:]
-y_train = digits.target[100:]
+package_saved = dprep.Package.open(file_path)
+dflow_prepared = package_saved.dataflows[0]
+dflow_prepared.get_profile()
 ```
 
-### Display some sample images
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type</th>
+      <th>Min</th>
+      <th>Max</th>
+      <th>Count</th>
+      <th>Missing Count</th>
+      <th>Not Missing Count</th>
+      <th>Percent missing</th>
+      <th>Error Count</th>
+      <th>Empty count</th>
+      <th>0.1% Quantile</th>
+      <th>1% Quantile</th>
+      <th>5% Quantile</th>
+      <th>25% Quantile</th>
+      <th>50% Quantile</th>
+      <th>75% Quantile</th>
+      <th>95% Quantile</th>
+      <th>99% Quantile</th>
+      <th>99.9% Quantile</th>
+      <th>Mean</th>
+      <th>Standard Deviation</th>
+      <th>Variance</th>
+      <th>Skewness</th>
+      <th>Kurtosis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>vendor</th>
+      <td>FieldType.STRING</td>
+      <td>1</td>
+      <td>VTS</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>pickup_weekday</th>
+      <td>FieldType.STRING</td>
+      <td>Friday</td>
+      <td>Wednesday</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>pickup_hour</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0</td>
+      <td>23</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.90047</td>
+      <td>2.69355</td>
+      <td>9.72889</td>
+      <td>16</td>
+      <td>19.3713</td>
+      <td>22.6974</td>
+      <td>23</td>
+      <td>23</td>
+      <td>14.2731</td>
+      <td>6.59242</td>
+      <td>43.46</td>
+      <td>-0.693723</td>
+      <td>-0.570403</td>
+    </tr>
+    <tr>
+      <th>pickup_minute</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0</td>
+      <td>59</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>4.99701</td>
+      <td>4.95833</td>
+      <td>14.1528</td>
+      <td>29.3832</td>
+      <td>44.6825</td>
+      <td>56.4444</td>
+      <td>58.9909</td>
+      <td>59</td>
+      <td>29.427</td>
+      <td>17.4333</td>
+      <td>303.921</td>
+      <td>0.0120999</td>
+      <td>-1.20981</td>
+    </tr>
+    <tr>
+      <th>pickup_second</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0</td>
+      <td>59</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>5.28131</td>
+      <td>5</td>
+      <td>14.7832</td>
+      <td>29.9293</td>
+      <td>44.725</td>
+      <td>56.7573</td>
+      <td>59</td>
+      <td>59</td>
+      <td>29.7443</td>
+      <td>17.3595</td>
+      <td>301.351</td>
+      <td>-0.0252399</td>
+      <td>-1.19616</td>
+    </tr>
+    <tr>
+      <th>dropoff_weekday</th>
+      <td>FieldType.STRING</td>
+      <td>Friday</td>
+      <td>Wednesday</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>dropoff_hour</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0</td>
+      <td>23</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.57153</td>
+      <td>2</td>
+      <td>9.58795</td>
+      <td>15.9994</td>
+      <td>19.6184</td>
+      <td>22.8317</td>
+      <td>23</td>
+      <td>23</td>
+      <td>14.2105</td>
+      <td>6.71093</td>
+      <td>45.0365</td>
+      <td>-0.687292</td>
+      <td>-0.61951</td>
+    </tr>
+    <tr>
+      <th>dropoff_minute</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0</td>
+      <td>59</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>5.44383</td>
+      <td>4.84694</td>
+      <td>14.1036</td>
+      <td>28.8365</td>
+      <td>44.3102</td>
+      <td>56.6892</td>
+      <td>59</td>
+      <td>59</td>
+      <td>29.2907</td>
+      <td>17.4108</td>
+      <td>303.136</td>
+      <td>0.0222514</td>
+      <td>-1.2181</td>
+    </tr>
+    <tr>
+      <th>dropoff_second</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0</td>
+      <td>59</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>5.07801</td>
+      <td>5</td>
+      <td>14.5751</td>
+      <td>29.5972</td>
+      <td>45.4649</td>
+      <td>56.2729</td>
+      <td>59</td>
+      <td>59</td>
+      <td>29.772</td>
+      <td>17.5337</td>
+      <td>307.429</td>
+      <td>-0.0212575</td>
+      <td>-1.226</td>
+    </tr>
+    <tr>
+      <th>store_forward</th>
+      <td>FieldType.STRING</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>pickup_longitude</th>
+      <td>FieldType.DECIMAL</td>
+      <td>-74.0781</td>
+      <td>-73.7459</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-74.0578</td>
+      <td>-73.9639</td>
+      <td>-73.9656</td>
+      <td>-73.9508</td>
+      <td>-73.9255</td>
+      <td>-73.8529</td>
+      <td>-73.8302</td>
+      <td>-73.8238</td>
+      <td>-73.7697</td>
+      <td>-73.9123</td>
+      <td>0.0503757</td>
+      <td>0.00253771</td>
+      <td>0.352172</td>
+      <td>-0.923743</td>
+    </tr>
+    <tr>
+      <th>pickup_latitude</th>
+      <td>FieldType.DECIMAL</td>
+      <td>40.5755</td>
+      <td>40.8799</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40.632</td>
+      <td>40.7117</td>
+      <td>40.7115</td>
+      <td>40.7213</td>
+      <td>40.7565</td>
+      <td>40.8058</td>
+      <td>40.8478</td>
+      <td>40.8676</td>
+      <td>40.8778</td>
+      <td>40.7649</td>
+      <td>0.0494674</td>
+      <td>0.00244702</td>
+      <td>0.205972</td>
+      <td>-0.777945</td>
+    </tr>
+    <tr>
+      <th>dropoff_longitude</th>
+      <td>FieldType.DECIMAL</td>
+      <td>-74.0857</td>
+      <td>-73.7209</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-74.0775</td>
+      <td>-73.9875</td>
+      <td>-73.9882</td>
+      <td>-73.9638</td>
+      <td>-73.935</td>
+      <td>-73.8755</td>
+      <td>-73.8125</td>
+      <td>-73.7759</td>
+      <td>-73.7327</td>
+      <td>-73.9202</td>
+      <td>0.0584627</td>
+      <td>0.00341789</td>
+      <td>0.623622</td>
+      <td>-0.262603</td>
+    </tr>
+    <tr>
+      <th>dropoff_latitude</th>
+      <td>FieldType.DECIMAL</td>
+      <td>40.5835</td>
+      <td>40.8797</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40.5973</td>
+      <td>40.6928</td>
+      <td>40.6911</td>
+      <td>40.7226</td>
+      <td>40.7567</td>
+      <td>40.7918</td>
+      <td>40.8495</td>
+      <td>40.868</td>
+      <td>40.8787</td>
+      <td>40.7583</td>
+      <td>0.0517399</td>
+      <td>0.00267701</td>
+      <td>0.0390404</td>
+      <td>-0.203525</td>
+    </tr>
+    <tr>
+      <th>passengers</th>
+      <td>FieldType.DECIMAL</td>
+      <td>1</td>
+      <td>6</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>6</td>
+      <td>6</td>
+      <td>2.39249</td>
+      <td>1.83197</td>
+      <td>3.3561</td>
+      <td>0.763144</td>
+      <td>-1.23467</td>
+    </tr>
+    <tr>
+      <th>distance</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0.01</td>
+      <td>32.34</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0108744</td>
+      <td>0.743898</td>
+      <td>0.738194</td>
+      <td>1.243</td>
+      <td>2.40168</td>
+      <td>4.74478</td>
+      <td>10.5136</td>
+      <td>14.9011</td>
+      <td>21.8035</td>
+      <td>3.5447</td>
+      <td>3.2943</td>
+      <td>10.8524</td>
+      <td>1.91556</td>
+      <td>4.99898</td>
+    </tr>
+    <tr>
+      <th>cost</th>
+      <td>FieldType.DECIMAL</td>
+      <td>0.1</td>
+      <td>88</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>6148.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.33837</td>
+      <td>5.00491</td>
+      <td>5</td>
+      <td>6.93129</td>
+      <td>10.524</td>
+      <td>17.4811</td>
+      <td>33.2343</td>
+      <td>50.0093</td>
+      <td>63.1753</td>
+      <td>13.6843</td>
+      <td>9.66571</td>
+      <td>93.426</td>
+      <td>1.78518</td>
+      <td>4.13972</td>
+    </tr>
+  </tbody>
+</table>
 
-Load the data into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them.
+You prepare the data for the experiment by adding columns to `dflow_x` to be features for our model creation. You define `dflow_y` to be our prediction value; cost.
 
 ```python
-count = 0
-sample_size = 30
-plt.figure(figsize = (16, 6))
-for i in np.random.permutation(X_train.shape[0])[:sample_size]:
-    count = count + 1
-    plt.subplot(1, sample_size, count)
-    plt.axhline('')
-    plt.axvline('')
-    plt.text(x = 2, y = -2, s = y_train[i], fontsize = 18)
-    plt.imshow(X_train[i].reshape(8, 8), cmap = plt.cm.Greys)
-plt.show()
+dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
+dflow_y = dflow_prepared.keep_columns('cost')
 ```
-A random sample of images displays:
 
-![digits](./media/tutorial-auto-train-models/digits.png)
+### Split data into train and test sets
 
+Now you split the data into training and test sets using the `train_test_split` function in the `sklearn` library. This function segregates the data into the x (features) data set for model training and the y (values to predict) data set for testing. The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic.
 
-You now have the necessary packages and data ready for auto training for your model. 
+```python
+from sklearn.model_selection import train_test_split
 
-## Train a model
+x_df = dflow_X.to_pandas_dataframe()
+y_df = dflow_y.to_pandas_dataframe()
 
-To automatically train a model, first define configuration settings for the experiment and then run the experiment.
+x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=123)
+# flatten y_train to 1d array
+y_train.values.flatten()
+```
 
+You now have the necessary packages and data ready for auto training for your model.
 
-### Define settings
+## Automatically train a model
 
-Define the experiment settings and model settings.
+To automatically train a model:
+1. Define settings for the experiment run
+1. Submit the experiment for model tuning
+
+### Define settings for autogeneration and tuning
+
+Define the experiment parameters and models settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md).
+
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
-|**primary_metric**|AUC Weighted | Metric that you want to optimize.|
-|**max_time_sec**|12,000|Time limit in seconds for each iteration|
-|**iterations**|20|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
-|**n_cross_validations**|3|Number of cross validation splits|
-|**preprocess**|False| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
-|**exit_score**|0.9985|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
-|**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
-|
+|**iteration_timeout_minutes**|10|Time limit in minutes for each iteration|
+|**iterations**|30|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
+|**primary_metric**| spearman_correlation | Metric that you want to optimize.|
+|**preprocess**| True | True enables experiment to perform preprocessing on the input.|
+|**verbosity**| logging.INFO | Controls the level of logging.|
+|**n_cross_validationss**|5|Number of cross validation splits
+
+
+
+```python
+automl_settings = {
+    "iteration_timeout_minutes" : 10,
+    "iterations" : 30,
+    "primary_metric" : 'spearman_correlation',
+    "preprocess" : True,
+    "verbosity" : logging.INFO,
+    "n_cross_validations": 5
+}
+```
+
 
 ```python
 from azureml.train.automl import AutoMLConfig
 
-##Local compute 
-Automl_config = AutoMLConfig(task = 'classification',
-                             primary_metric = 'AUC_weighted',
-                             max_time_sec = 12000,
-                             iterations = 20,
-                             n_cross_validations = 3,
-                             preprocess = False,
-                             exit_score = 0.9985,
-                             blacklist_algos = ['kNN','LinearSVM'],
-                             X = X_train,
-                             y = y_train,
-                             path=project_folder)
+# local compute
+automated_ml_config = AutoMLConfig(task = 'regression',
+                             debug_log = 'automated_ml_errors.log',
+                             path = project_folder,
+                             X = x_train.values,
+                             y = y_train.values.flatten(),
+                             **automl_settings)
 ```
 
-### Run the experiment
+### Train the automatic regression model
 
-Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
+Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment, and set the output to `true` to view progress during the experiment.
 
 
 ```python
 from azureml.core.experiment import Experiment
 experiment=Experiment(ws, experiment_name)
-local_run = experiment.submit(Automl_config, show_output=True)
+local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
-Output such as the following appears one line at a time as each iteration progresses.  You will see a new line every **10-15 seconds**.
-
-    Running locally
-    Parent Run ID: AutoML_ca0c807b-b7bf-4809-a963-61c6feb73ea1
-    ***********************************************************************************************
+    Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
+    *******************************************************************************************
     ITERATION: The iteration being evaluated.
-    PIPELINE:  A summary description of the pipeline being evaluated.
+    PIPELINE: A summary description of the pipeline being evaluated.
     DURATION: Time taken for the current iteration.
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
-    ***********************************************************************************************
+    *******************************************************************************************
     
-     ITERATION     PIPELINE                               DURATION                METRIC      BEST
-             0      Normalizer extra trees                0:00:15.955367           0.988     0.988
-             1      Normalizer extra trees                0:00:14.203088           0.952     0.988
-             2      Normalizer lgbm_classifier            0:00:15.089057           0.994     0.994
-             3      Normalizer SGD classifier             0:00:14.866700           0.500     0.994
-             4      Normalizer SGD classifier             0:00:13.740577           0.983     0.994
-             5      Normalizer DT                         0:00:13.879204           0.937     0.994
-             6      Normalizer SGD classifier             0:00:13.379975           0.980     0.994
-             7      Normalizer lgbm_classifier            0:00:15.953293           0.997     0.997
-    Stopping criteria reached. Ending experiment.
+     ITERATION   PIPELINE                                       DURATION      METRIC      BEST
+             0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
+             1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
+             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.8580    0.9536
+             3   StandardScalerWrapper RandomForest             0:00:08       0.9147    0.9536
+             4   StandardScalerWrapper ExtremeRandomTrees       0:00:45       0.9398    0.9536
+             5   MaxAbsScaler LightGBM                          0:00:08       0.9562    0.9562
+             6   StandardScalerWrapper ExtremeRandomTrees       0:00:27       0.8282    0.9562
+             7   StandardScalerWrapper LightGBM                 0:00:07       0.9421    0.9562
+             8   MaxAbsScaler DecisionTree                      0:00:08       0.9526    0.9562
+             9   MaxAbsScaler RandomForest                      0:00:09       0.9355    0.9562
+            10   MaxAbsScaler SGD                               0:00:09       0.9602    0.9602
+            11   MaxAbsScaler LightGBM                          0:00:09       0.9553    0.9602
+            12   MaxAbsScaler DecisionTree                      0:00:07       0.9484    0.9602
+            13   MaxAbsScaler LightGBM                          0:00:08       0.9540    0.9602
+            14   MaxAbsScaler RandomForest                      0:00:10       0.9365    0.9602
+            15   MaxAbsScaler SGD                               0:00:09       0.9602    0.9602
+            16   StandardScalerWrapper ExtremeRandomTrees       0:00:49       0.9171    0.9602
+            17   SparseNormalizer LightGBM                      0:00:08       0.9191    0.9602
+            18   MaxAbsScaler DecisionTree                      0:00:08       0.9402    0.9602
+            19   StandardScalerWrapper ElasticNet               0:00:08       0.9603    0.9603
+            20   MaxAbsScaler DecisionTree                      0:00:08       0.9513    0.9603
+            21   MaxAbsScaler SGD                               0:00:08       0.9603    0.9603
+            22   MaxAbsScaler SGD                               0:00:10       0.9602    0.9603
+            23   StandardScalerWrapper ElasticNet               0:00:09       0.9603    0.9603
+            24   StandardScalerWrapper ElasticNet               0:00:09       0.9603    0.9603
+            25   MaxAbsScaler SGD                               0:00:09       0.9603    0.9603
+            26   TruncatedSVDWrapper ElasticNet                 0:00:09       0.9602    0.9603
+            27   MaxAbsScaler SGD                               0:00:12       0.9413    0.9603
+            28   StandardScalerWrapper ElasticNet               0:00:07       0.9603    0.9603
+            29    Ensemble                                      0:00:38       0.9622    0.9622
 
 ## Explore the results
 
-Explore the results of experiment with a Jupyter widget or by examining the experiment history.
+Explore the results of automatic training with a Jupyter widget or by examining the experiment history.
 
-### Jupyter widget
+### Option 1: Add a Jupyter widget to see results
 
-Use the Jupyter notebook widget to see a graph and a table of all results.
+If you are using a Juypter notebook, use this Jupyter notebook widget to see a graph and a table of all results.
+
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-Here is a static image of the widget.  In the notebook, you can use the dropdown above the graph to view a graph of each available metric for each iteration.
+![Jupyter Widget run details](./media/tutorial-auto-train-models/jup-widget-auto.png)
 
-![widget table](./media/tutorial-auto-train-models/table.png)
-![widget plot](./media/tutorial-auto-train-models/graph.png)
+### Option 2: Get and examine all run iterations in Python
 
-### Retrieve all iterations
-
-View the experiment history and see individual metrics for each iteration run.
+Alternatively, you can retrieve the history of each experiment and explore the individual metrics for each iteration run.
 
 ```python
 children = list(local_run.get_children())
@@ -239,308 +731,424 @@ rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
 
-This table shows the results:
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<!-- hello world -->
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+      <th>25</th>
+      <th>26</th>
+      <th>27</th>
+      <th>28</th>
+      <th>29</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>explained_variance</th>
+      <td>0.811037</td>
+      <td>0.880553</td>
+      <td>0.398582</td>
+      <td>0.776040</td>
+      <td>0.663869</td>
+      <td>0.875911</td>
+      <td>0.115632</td>
+      <td>0.586905</td>
+      <td>0.851911</td>
+      <td>0.793964</td>
+      <td>...</td>
+      <td>0.850023</td>
+      <td>0.883603</td>
+      <td>0.883704</td>
+      <td>0.880797</td>
+      <td>0.881564</td>
+      <td>0.883708</td>
+      <td>0.881826</td>
+      <td>0.585377</td>
+      <td>0.883123</td>
+      <td>0.886817</td>
+    </tr>
+    <tr>
+      <th>mean_absolute_error</th>
+      <td>2.189444</td>
+      <td>1.500412</td>
+      <td>5.480531</td>
+      <td>2.626316</td>
+      <td>2.973026</td>
+      <td>1.550199</td>
+      <td>6.383868</td>
+      <td>4.414241</td>
+      <td>1.743328</td>
+      <td>2.294601</td>
+      <td>...</td>
+      <td>1.797402</td>
+      <td>1.415815</td>
+      <td>1.418167</td>
+      <td>1.578617</td>
+      <td>1.559427</td>
+      <td>1.413042</td>
+      <td>1.551698</td>
+      <td>4.069196</td>
+      <td>1.505795</td>
+      <td>1.430957</td>
+    </tr>
+    <tr>
+      <th>median_absolute_error</th>
+      <td>1.438417</td>
+      <td>0.850899</td>
+      <td>4.579662</td>
+      <td>1.765210</td>
+      <td>1.594600</td>
+      <td>0.869883</td>
+      <td>4.266450</td>
+      <td>3.627355</td>
+      <td>0.954992</td>
+      <td>1.361014</td>
+      <td>...</td>
+      <td>0.973634</td>
+      <td>0.774814</td>
+      <td>0.797269</td>
+      <td>1.147234</td>
+      <td>1.116424</td>
+      <td>0.783958</td>
+      <td>1.098464</td>
+      <td>2.709027</td>
+      <td>1.003728</td>
+      <td>0.851724</td>
+    </tr>
+    <tr>
+      <th>normalized_mean_absolute_error</th>
+      <td>0.024908</td>
+      <td>0.017070</td>
+      <td>0.062350</td>
+      <td>0.029878</td>
+      <td>0.033823</td>
+      <td>0.017636</td>
+      <td>0.072626</td>
+      <td>0.050219</td>
+      <td>0.019833</td>
+      <td>0.026105</td>
+      <td>...</td>
+      <td>0.020448</td>
+      <td>0.016107</td>
+      <td>0.016134</td>
+      <td>0.017959</td>
+      <td>0.017741</td>
+      <td>0.016076</td>
+      <td>0.017653</td>
+      <td>0.046293</td>
+      <td>0.017131</td>
+      <td>0.016279</td>
+    </tr>
+    <tr>
+      <th>normalized_median_absolute_error</th>
+      <td>0.016364</td>
+      <td>0.009680</td>
+      <td>0.052101</td>
+      <td>0.020082</td>
+      <td>0.018141</td>
+      <td>0.009896</td>
+      <td>0.048538</td>
+      <td>0.041267</td>
+      <td>0.010865</td>
+      <td>0.015484</td>
+      <td>...</td>
+      <td>0.011077</td>
+      <td>0.008815</td>
+      <td>0.009070</td>
+      <td>0.013052</td>
+      <td>0.012701</td>
+      <td>0.008919</td>
+      <td>0.012497</td>
+      <td>0.030819</td>
+      <td>0.011419</td>
+      <td>0.009690</td>
+    </tr>
+    <tr>
+      <th>normalized_root_mean_squared_error</th>
+      <td>0.047968</td>
+      <td>0.037882</td>
+      <td>0.085572</td>
+      <td>0.052282</td>
+      <td>0.065809</td>
+      <td>0.038664</td>
+      <td>0.109401</td>
+      <td>0.071104</td>
+      <td>0.042294</td>
+      <td>0.049967</td>
+      <td>...</td>
+      <td>0.042565</td>
+      <td>0.037685</td>
+      <td>0.037557</td>
+      <td>0.037643</td>
+      <td>0.037513</td>
+      <td>0.037560</td>
+      <td>0.037465</td>
+      <td>0.072077</td>
+      <td>0.037249</td>
+      <td>0.036716</td>
+    </tr>
+    <tr>
+      <th>normalized_root_mean_squared_log_error</th>
+      <td>0.055353</td>
+      <td>0.045000</td>
+      <td>0.110219</td>
+      <td>0.065633</td>
+      <td>0.063589</td>
+      <td>0.044412</td>
+      <td>0.123433</td>
+      <td>0.092312</td>
+      <td>0.046130</td>
+      <td>0.055243</td>
+      <td>...</td>
+      <td>0.046540</td>
+      <td>0.041804</td>
+      <td>0.041771</td>
+      <td>0.045175</td>
+      <td>0.044628</td>
+      <td>0.041617</td>
+      <td>0.044405</td>
+      <td>0.079651</td>
+      <td>0.042799</td>
+      <td>0.041530</td>
+    </tr>
+    <tr>
+      <th>r2_score</th>
+      <td>0.810900</td>
+      <td>0.880328</td>
+      <td>0.398076</td>
+      <td>0.775957</td>
+      <td>0.642812</td>
+      <td>0.875719</td>
+      <td>0.021603</td>
+      <td>0.586514</td>
+      <td>0.851767</td>
+      <td>0.793671</td>
+      <td>...</td>
+      <td>0.849809</td>
+      <td>0.880142</td>
+      <td>0.880952</td>
+      <td>0.880586</td>
+      <td>0.881347</td>
+      <td>0.880887</td>
+      <td>0.881613</td>
+      <td>0.548121</td>
+      <td>0.882883</td>
+      <td>0.886321</td>
+    </tr>
+    <tr>
+      <th>root_mean_squared_error</th>
+      <td>4.216362</td>
+      <td>3.329810</td>
+      <td>7.521765</td>
+      <td>4.595604</td>
+      <td>5.784601</td>
+      <td>3.398540</td>
+      <td>9.616354</td>
+      <td>6.250011</td>
+      <td>3.717661</td>
+      <td>4.392072</td>
+      <td>...</td>
+      <td>3.741447</td>
+      <td>3.312533</td>
+      <td>3.301242</td>
+      <td>3.308795</td>
+      <td>3.297389</td>
+      <td>3.301485</td>
+      <td>3.293182</td>
+      <td>6.335581</td>
+      <td>3.274209</td>
+      <td>3.227365</td>
+    </tr>
+    <tr>
+      <th>root_mean_squared_log_error</th>
+      <td>0.243184</td>
+      <td>0.197702</td>
+      <td>0.484227</td>
+      <td>0.288349</td>
+      <td>0.279367</td>
+      <td>0.195116</td>
+      <td>0.542281</td>
+      <td>0.405559</td>
+      <td>0.202666</td>
+      <td>0.242702</td>
+      <td>...</td>
+      <td>0.204464</td>
+      <td>0.183658</td>
+      <td>0.183514</td>
+      <td>0.198468</td>
+      <td>0.196067</td>
+      <td>0.182836</td>
+      <td>0.195087</td>
+      <td>0.349935</td>
+      <td>0.188031</td>
+      <td>0.182455</td>
+    </tr>
+    <tr>
+      <th>spearman_correlation</th>
+      <td>0.944743</td>
+      <td>0.953618</td>
+      <td>0.857965</td>
+      <td>0.914703</td>
+      <td>0.939846</td>
+      <td>0.956159</td>
+      <td>0.828187</td>
+      <td>0.942069</td>
+      <td>0.952581</td>
+      <td>0.935477</td>
+      <td>...</td>
+      <td>0.951287</td>
+      <td>0.960335</td>
+      <td>0.960195</td>
+      <td>0.960279</td>
+      <td>0.960288</td>
+      <td>0.960323</td>
+      <td>0.960161</td>
+      <td>0.941254</td>
+      <td>0.960293</td>
+      <td>0.962158</td>
+    </tr>
+    <tr>
+      <th>spearman_correlation_max</th>
+      <td>0.944743</td>
+      <td>0.953618</td>
+      <td>0.953618</td>
+      <td>0.953618</td>
+      <td>0.953618</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>0.956159</td>
+      <td>...</td>
+      <td>0.960303</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.960335</td>
+      <td>0.962158</td>
+    </tr>
+  </tbody>
+</table>
+<p>12 rows × 30 columns</p>
+</div>
 
-<table><thead><tr>
-        <th></th>
-        <th>0</th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-    </tr></thead>
-<tbody>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row0" class="row_heading level0 row0" >AUC_macro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col0" class="data row0 col0" >0.988094</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col1" class="data row0 col1" >0.951981</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col2" class="data row0 col2" >0.993606</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col3" class="data row0 col3" >0.5</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col4" class="data row0 col4" >0.982724</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col5" class="data row0 col5" >0.936998</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col6" class="data row0 col6" >0.979978</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row0_col7" class="data row0 col7" >0.996639</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row1" class="row_heading level0 row1" >AUC_micro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col0" class="data row1 col0" >0.988104</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col1" class="data row1 col1" >0.948402</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col2" class="data row1 col2" >0.99413</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col3" class="data row1 col3" >0.463035</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col4" class="data row1 col4" >0.976078</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col5" class="data row1 col5" >0.945169</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col6" class="data row1 col6" >0.968913</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row1_col7" class="data row1 col7" >0.997027</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row2" class="row_heading level0 row2" >AUC_weighted</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col0" class="data row2 col0" >0.987943</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col1" class="data row2 col1" >0.952255</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col2" class="data row2 col2" >0.993513</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col3" class="data row2 col3" >0.5</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col4" class="data row2 col4" >0.982801</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col5" class="data row2 col5" >0.937292</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col6" class="data row2 col6" >0.979973</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row2_col7" class="data row2 col7" >0.99656</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row3" class="row_heading level0 row3" >AUC_weighted_max</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col0" class="data row3 col0" >0.987943</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col1" class="data row3 col1" >0.987943</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col2" class="data row3 col2" >0.993513</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col3" class="data row3 col3" >0.993513</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col4" class="data row3 col4" >0.993513</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col5" class="data row3 col5" >0.993513</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col6" class="data row3 col6" >0.993513</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row3_col7" class="data row3 col7" >0.99656</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row4" class="row_heading level0 row4" >accuracy</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col0" class="data row4 col0" >0.852093</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col1" class="data row4 col1" >0.666464</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col2" class="data row4 col2" >0.898057</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col3" class="data row4 col3" >0.0701284</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col4" class="data row4 col4" >0.832662</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col5" class="data row4 col5" >0.701827</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col6" class="data row4 col6" >0.83325</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row4_col7" class="data row4 col7" >0.925752</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row5" class="row_heading level0 row5" >average_precision_score_macro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col0" class="data row5 col0" >0.929167</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col1" class="data row5 col1" >0.786258</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col2" class="data row5 col2" >0.961497</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col3" class="data row5 col3" >0.1</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col4" class="data row5 col4" >0.917486</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col5" class="data row5 col5" >0.685547</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col6" class="data row5 col6" >0.906611</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row5_col7" class="data row5 col7" >0.977775</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row6" class="row_heading level0 row6" >average_precision_score_micro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col0" class="data row6 col0" >0.932596</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col1" class="data row6 col1" >0.728331</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col2" class="data row6 col2" >0.964138</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col3" class="data row6 col3" >0.0909031</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col4" class="data row6 col4" >0.880136</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col5" class="data row6 col5" >0.757538</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col6" class="data row6 col6" >0.859813</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row6_col7" class="data row6 col7" >0.980408</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row7" class="row_heading level0 row7" >average_precision_score_weighted</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col0" class="data row7 col0" >0.930681</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col1" class="data row7 col1" >0.788964</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col2" class="data row7 col2" >0.962007</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col3" class="data row7 col3" >0.102123</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col4" class="data row7 col4" >0.918785</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col5" class="data row7 col5" >0.692041</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col6" class="data row7 col6" >0.908293</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row7_col7" class="data row7 col7" >0.977699</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row8" class="row_heading level0 row8" >balanced_accuracy</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col0" class="data row8 col0" >0.917902</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col1" class="data row8 col1" >0.814509</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col2" class="data row8 col2" >0.94491</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col3" class="data row8 col3" >0.5</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col4" class="data row8 col4" >0.909248</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col5" class="data row8 col5" >0.833428</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col6" class="data row8 col6" >0.907412</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row8_col7" class="data row8 col7" >0.959351</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row9" class="row_heading level0 row9" >f1_score_macro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col0" class="data row9 col0" >0.850511</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col1" class="data row9 col1" >0.643116</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col2" class="data row9 col2" >0.899262</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col3" class="data row9 col3" >0.013092</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col4" class="data row9 col4" >0.825054</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col5" class="data row9 col5" >0.691712</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col6" class="data row9 col6" >0.819627</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row9_col7" class="data row9 col7" >0.926081</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row10" class="row_heading level0 row10" >f1_score_micro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col0" class="data row10 col0" >0.852093</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col1" class="data row10 col1" >0.666464</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col2" class="data row10 col2" >0.898057</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col3" class="data row10 col3" >0.0701284</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col4" class="data row10 col4" >0.832662</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col5" class="data row10 col5" >0.701827</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col6" class="data row10 col6" >0.83325</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row10_col7" class="data row10 col7" >0.925752</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row11" class="row_heading level0 row11" >f1_score_weighted</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col0" class="data row11 col0" >0.852134</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col1" class="data row11 col1" >0.646049</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col2" class="data row11 col2" >0.898705</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col3" class="data row11 col3" >0.00933691</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col4" class="data row11 col4" >0.830731</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col5" class="data row11 col5" >0.696538</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col6" class="data row11 col6" >0.824547</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row11_col7" class="data row11 col7" >0.925778</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row12" class="row_heading level0 row12" >log_loss</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col0" class="data row12 col0" >0.554364</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col1" class="data row12 col1" >1.15728</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col2" class="data row12 col2" >0.51741</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col3" class="data row12 col3" >2.30397</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col4" class="data row12 col4" >1.94009</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col5" class="data row12 col5" >1.57663</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col6" class="data row12 col6" >2.1848</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row12_col7" class="data row12 col7" >0.250725</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row13" class="row_heading level0 row13" >norm_macro_recall</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col0" class="data row13 col0" >0.835815</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col1" class="data row13 col1" >0.629003</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col2" class="data row13 col2" >0.890167</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col3" class="data row13 col3" >0</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col4" class="data row13 col4" >0.818755</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col5" class="data row13 col5" >0.666629</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col6" class="data row13 col6" >0.814739</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row13_col7" class="data row13 col7" >0.918851</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row14" class="row_heading level0 row14" >precision_score_macro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col0" class="data row14 col0" >0.855892</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col1" class="data row14 col1" >0.707715</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col2" class="data row14 col2" >0.90195</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col3" class="data row14 col3" >0.00701284</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col4" class="data row14 col4" >0.84882</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col5" class="data row14 col5" >0.729611</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col6" class="data row14 col6" >0.855384</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row14_col7" class="data row14 col7" >0.927881</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row15" class="row_heading level0 row15" >precision_score_micro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col0" class="data row15 col0" >0.852093</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col1" class="data row15 col1" >0.666464</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col2" class="data row15 col2" >0.898057</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col3" class="data row15 col3" >0.0701284</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col4" class="data row15 col4" >0.832662</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col5" class="data row15 col5" >0.701827</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col6" class="data row15 col6" >0.83325</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row15_col7" class="data row15 col7" >0.925752</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row16" class="row_heading level0 row16" >precision_score_weighted</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col0" class="data row16 col0" >0.859204</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col1" class="data row16 col1" >0.711918</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col2" class="data row16 col2" >0.903523</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col3" class="data row16 col3" >0.00500676</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col4" class="data row16 col4" >0.861209</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col5" class="data row16 col5" >0.737586</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col6" class="data row16 col6" >0.863524</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row16_col7" class="data row16 col7" >0.928403</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row17" class="row_heading level0 row17" >recall_score_macro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col0" class="data row17 col0" >0.852234</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col1" class="data row17 col1" >0.666102</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col2" class="data row17 col2" >0.901151</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col3" class="data row17 col3" >0.1</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col4" class="data row17 col4" >0.83688</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col5" class="data row17 col5" >0.699966</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col6" class="data row17 col6" >0.833265</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row17_col7" class="data row17 col7" >0.926966</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row18" class="row_heading level0 row18" >recall_score_micro</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col0" class="data row18 col0" >0.852093</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col1" class="data row18 col1" >0.666464</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col2" class="data row18 col2" >0.898057</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col3" class="data row18 col3" >0.0701284</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col4" class="data row18 col4" >0.832662</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col5" class="data row18 col5" >0.701827</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col6" class="data row18 col6" >0.83325</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row18_col7" class="data row18 col7" >0.925752</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row19" class="row_heading level0 row19" >recall_score_weighted</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col0" class="data row19 col0" >0.852093</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col1" class="data row19 col1" >0.666464</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col2" class="data row19 col2" >0.898057</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col3" class="data row19 col3" >0.0701284</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col4" class="data row19 col4" >0.832662</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col5" class="data row19 col5" >0.701827</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col6" class="data row19 col6" >0.83325</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row19_col7" class="data row19 col7" >0.925752</td> 
-    </tr>    <tr> 
-        <th id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180level0_row20" class="row_heading level0 row20" >weighted_accuracy</th> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col0" class="data row20 col0" >0.851054</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col1" class="data row20 col1" >0.66639</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col2" class="data row20 col2" >0.895428</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col3" class="data row20 col3" >0.049121</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col4" class="data row20 col4" >0.829247</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col5" class="data row20 col5" >0.702754</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col6" class="data row20 col6" >0.833464</td> 
-        <td id="T_32497c5c_a5a9_11e8_a10f_c49ded1c6180row20_col7" class="data row20 col7" >0.924723</td> 
-    </tr></tbody> 
-</table> 
-<!-- hello world -->
+## Retrieve the best model
 
-## Register the best model 
-
-Use the `local_run` object to get the best model and register it into the workspace. 
+Select the best pipeline from our iterations. The `get_output` method on `automl_classifier` returns the best run and the fitted model for the last fit invocation. There are overloads on `get_output` that allow you to retrieve the best run and fitted model for any logged metric or a particular iteration.
 
 ```python
-# find the run with the highest accuracy value.
 best_run, fitted_model = local_run.get_output()
+print(best_run)
+print(fitted_model)
+```
 
-# register model in workspace
+## Register the model
+
+Register the model in your Azure Machine Learning service workspace.
+
+
+```python
 description = 'Automated Machine Learning Model'
 tags = None
 local_run.register_model(description=description, tags=tags)
 local_run.model_id # Use this id to deploy the model as a web service in Azure
 ```
 
-## Test the best model
+## Test the best model accuracy
 
-Use the model to predict a few random digits.  Display the predicted value and the image.  Red font and inverse image (white on black) is used to highlight the misclassified samples.
-
-Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
+Use the best model to run predictions on the test data set. The function `predict` uses the best model, and predicts the values of y (trip cost) from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
 
 ```python
-# find 30 random samples from test set
-n = 30
-X_test = digits.data[:100, :]
-y_test = digits.target[:100]
-sample_indices = np.random.permutation(X_test.shape[0])[0:n]
-test_samples = X_test[sample_indices]
-
-
-# predict using the  model
-result = fitted_model.predict(test_samples)
-
-# compare actual value vs. the predicted values:
-i = 0
-plt.figure(figsize = (20, 1))
-
-for s in sample_indices:
-    plt.subplot(1, n, i + 1)
-    plt.axhline('')
-    plt.axvline('')
-    
-    # use different color for misclassified sample
-    font_color = 'red' if y_test[s] != result[i] else 'black'
-    clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
-    
-    plt.text(x = 2, y = -2, s = result[i], fontsize = 18, color = font_color)
-    plt.imshow(X_test[s].reshape(8, 8), cmap = clr_map)
-    
-    i = i + 1
-plt.show()
+y_predict = fitted_model.predict(x_test.values)
+print(y_predict[:10])
 ```
 
+Compare the predicted cost values with the actual cost values. Use the `y_test` dataframe, and convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values, and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable (cost), and indicates roughly how far your predictions are from the actual value.
 
-![results](./media/tutorial-auto-train-models/results.png)
+```python
+from sklearn.metrics import mean_squared_error
+from math import sqrt
+
+y_actual = y_test.values.flatten().tolist()
+rmse = sqrt(mean_squared_error(y_actual, y_predict))
+rmse
+```
+
+    4.0317375193408544
+
+Run the following code to calculate MAPE (mean absolute percent error) using the full `y_actual` and `y_predict` data sets. This metric calculates an absolute difference between each predicted and actual value, sums all the differences, and then expresses that sum as a percent of the total of the actual values.
+
+```python
+sum_actuals = sum_errors = 0
+
+for actual_val, predict_val in zip(y_actual, y_predict):
+    abs_error = actual_val - predict_val
+    if abs_error < 0:
+        abs_error = abs_error * -1
+
+    sum_errors = sum_errors + abs_error
+    sum_actuals = sum_actuals + actual_val
+
+mean_abs_percent_error = sum_errors / sum_actuals
+print("Model MAPE:")
+print(mean_abs_percent_error)
+print()
+print("Model Accuracy:")
+print(1 - mean_abs_percent_error)
+```
+
+    Model MAPE:
+    0.11334441225861108
+    
+    Model Accuracy:
+    0.8866555877413889
 
 ## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-
 ## Next steps
 
-In this Azure Machine Learning service tutorial, you used Python to:
+In this automated machine learning tutorial, you:
 
 > [!div class="checklist"]
-> * Set up your development environment
-> * Access and examine the data
-> * Train using an automated classifier locally with custom parameters
-> * Explore the results
-> * Review training results
-> * Register the best model
+> * Configured a workspace and prepared data for an experiment
+> * Trained using an automated regression model locally with custom parameters
+> * Explored and reviewed training results
+> * Registered the best model
 
-Learn more about [how to configure settings for automatic training](how-to-configure-auto-train.md) or [how to use automatic training on a remote resource](how-to-auto-train-remote.md).  
-
+[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.

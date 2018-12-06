@@ -24,7 +24,7 @@ This table provides details about alert related fields.
 | AlertUniqueId_s |Text |Unique identifier of the generated alert |
 | AlertType_s |Text |Type of alert, for example, Backup |
 | AlertStatus_s |Text |Status of the alert, for example, Active |
-| AlertOccurenceDateTime_s |Date/Time |Date and time when alert was created |
+| AlertOccurrenceDateTime_s |Date/Time |Date and time when alert was created |
 | AlertSeverity_s |Text |Severity of the alert, for example, Critical |
 | EventName_s |Text |Name of the event. Always AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Unique identifier of the backup item associated with the alert |

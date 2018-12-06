@@ -137,7 +137,7 @@ Provide a unique resource name for any resource type that has a data access endp
 * Web Apps feature of Azure App Service
 * SQL Server
 * Azure Key Vault
-* Azure Redis Cache
+* Azure Cache for Redis
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
