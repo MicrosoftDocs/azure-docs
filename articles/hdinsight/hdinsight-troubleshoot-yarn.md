@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
+ms.date: 12/06/2018
 ---
 
 # Troubleshoot YARN by using Azure HDInsight
