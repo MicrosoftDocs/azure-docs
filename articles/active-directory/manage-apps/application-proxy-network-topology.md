@@ -36,7 +36,7 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 When you sign up for an Azure AD tenant, the region of your tenant is determined by the country you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
 
-For example, if your Azure AD tenant’s region is the European Union (EU), all your Application Proxy connectors use service instances in Azure datacenters in the EU. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
+For example, if your Azure AD tenant’s country or region is the United Kingdom, all your Application Proxy connectors use service instances in EU data centers. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
 
 ## Considerations for reducing latency
 

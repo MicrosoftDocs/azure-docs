@@ -13,18 +13,25 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/04/2018
 ms.author: pbutlerm
 ---
 
 # Virtual machine offer
 
-This section outlines the elements of publishing a Virtual Machine (VM), and is intended as a guide for the publisher to the [Azure Marketplace](https://azuremarketplace.microsoft.com).  From this viewpoint, it is divided into the following main parts:
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| This section explains how to publish a new virtual machine offer to the [Azure Marketplace](https://azuremarketplace.microsoft.com). Support is provided for both Windows-based and Linux-based virtual machines, containing an operating system virtual hard disk (VHD) and zero or more data VHDs. | ![virtual machine icon](./media/virtual-machine-icon.png)  |
 
-- [Prerequisites](./cpp-prerequisites.md) - lists the technical and business requirements before creating or publishing a VM offer
-- [Create VM offer](./cpp-create-offer.md) - lists the steps required to create a new VM offer entry using the [Cloud Partner Portal](https://cloudpartner.azure.com)
-- [Create VM technical assets](./cpp-create-technical-assets.md) - how to create the technical assets for a VM solution and how to configure this package as a VM offer on the Azure Marketplace
-- [Publish VM offer](./cpp-publish-offer.md) - how to submit the offer for publishing to the Azure Marketplace
+
+## Publishing overview
+
+The following video, [Optimize Your Azure Marketplace Offer](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), presents
+a broad overview of the Azure Marketplace, including how to publish on this marketplace (using a virtual machine solution), how to optimize the user
+experience with your product page and optional Test Drive experience, how user leads are generated and how you can consume them, and optimize customer
+engagement.
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
 
 
 ## VM Publishing process flow

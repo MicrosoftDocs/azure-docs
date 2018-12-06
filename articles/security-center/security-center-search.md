@@ -3,7 +3,7 @@ title: Azure Security Center search | Microsoft Docs
 description: Learn how Azure Security Center uses Log Analytics search to retrieve and analyze your security data.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Azure Security Center search

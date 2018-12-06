@@ -171,7 +171,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebDocumentationTemplatesDeveloperKey|Specify your subscription key|  
 |WebDocumentationTemplatesJavaApache|This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Specify values for optional parameters, as needed|  
-|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (for more information: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (for more information: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Specify values for path parameters (shown as {...}) and request body if needed|  
 |WebDocumentationTemplatesRequestBody|Specify request body|  
 |WebDocumentationTemplatesRequiredParams|Specify values for the following required parameters|  
@@ -566,13 +566,13 @@ Azure API Management provides the following types of resources for use in the de
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. Please upgrade to a higher pricing tier.|  
   
 ##  <a name="glyphs"></a> Glyph resources  
- API Management developer portal templates can use the glyphs from [Glyphicons from Bootstrap](http://getbootstrap.com/components/#glyphicons). This set of glyphs includes over 250 glyphs in font format from the [Glyphicon](http://glyphicons.com/) Halflings set. To use a glyph from this set, use the following syntax.  
+ API Management developer portal templates can use the glyphs from [Glyphicons from Bootstrap](https://getbootstrap.com/components/#glyphicons). This set of glyphs includes over 250 glyphs in font format from the [Glyphicon](https://glyphicons.com/) Halflings set. To use a glyph from this set, use the following syntax.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- For the complete list of glyphs, see [Glyphicons from Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ For the complete list of glyphs, see [Glyphicons from Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## Next steps
 For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).
