@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 # Connecting Azure VMs to HANA Large Instances
 
-As already mentioned in [SAP HANA (Large Instances) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), the minimal deployment of HANA Large Instances with the SAP application layer in Azure looks like the following:
+The article [What is SAP HANA on Azure (Large Instances)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) mentions that the minimal deployment of HANA Large Instances with the SAP application layer in Azure looks like the following:
 
 ![Azure VNet connected to SAP HANA on Azure (Large Instances) and on-premises](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
 
@@ -51,9 +51,9 @@ We look at a virtual network with a first VM subnet (here called "default") and 
 
 In the following section, we refer to the IP address range of the subnet (called "default" in the graphics) as **the subnet IP address range of the Azure VM**. We'll refer to the IP address range of the gateway subnet as the **the subnet IP address range for the virtual network gateway**. 
 
-In the two previous graphics, the **virtual network address space** covers both the **the subnet IP address range of the Azure VM** and the the subnet IP address range for the virtual network gateway.
+In the two previous graphics, the **virtual network address space** covers both the **the subnet IP address range of the Azure VM** and that of the virtual network gateway.
 
-You can restrict the **virtual network address space** of a virtual network to the specific ranges used by each subnet. You can also define the **virtual network address space** of a virtual network as multiple specific ranges, as shown here:
+You can restrict the **virtual network address space** to the specific ranges used by each subnet. You can also define the **virtual network address space** of a virtual network as multiple specific ranges, as shown here:
 
 ![Azure virtual network address space with two spaces](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
 
@@ -82,7 +82,7 @@ Following is a summary of the important facts about an Azure virtual network tha
 
 We already introduced some of the IP address ranges that are necessary for deploying HANA Large Instances. But there are more IP address ranges that are also important. Let's go through some more  details. The following IP addresses don't all need to be submitted to Microsoft. However, you do need to define them before sending a request for initial deployment:
 
-- **Virtual network address space**: The **virtual network address space** is the IP address range (or ranges) that you've assigned (or plan to assign) to your address space parameter in the Azure virtual network(s) that connect to the SAP HANA Large Instance environment.
+- **Virtual network address space**: The **virtual network address space** is the IP address ranges that you've assigned (or plan to assign) to your address space parameter in the Azure virtual networks that connect to the SAP HANA Large Instance environment.
 
  We recommend that this address space parameter is a multi-line value that's comprised of the subnet range of the Azure VM and the subnet range(s) of the Azure gateway. This subnet range was shown in the previous graphics. It must NOT overlap with your on-premises or server IP pool or ER-P2P address ranges. 
  
