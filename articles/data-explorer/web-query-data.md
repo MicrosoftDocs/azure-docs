@@ -131,7 +131,7 @@ Now you've seen how basic queries work, let's look at how you can use the table 
 
 1. Run the following query.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
