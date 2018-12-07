@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: diberry
+ms.author: diberry 
 ---
 
 # Use a list entity to increase entity detection 
