@@ -1,6 +1,6 @@
 ---
 title: Send events using the .NET Framework - Azure Event Hubs | Microsoft Docs
-description: Get started sending events to Event Hubs using the .NET Framework
+description: This article provides a walkthrough for creating a .NET Fraemwork application that sends events to Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy

@@ -124,6 +124,43 @@ For example, the model in the [Train within notebook](https://github.com/Azure/M
 
 The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
 
+### Binary data
+
+If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data and returns the reversed bytes for POST requests. For GET requests it returns the full URL in the response body:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Things in the `azureml.contrib` namespace change frequently as we work to improve the service. As such, anything in this namespace should be considered as a preview and not fully supported by Microsoft.
+>
+> If you need to test this on your local development environment, you can install the components in the contrib namespace using the following command:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
 ## Call the service (C#)
 
 This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
@@ -446,7 +483,3 @@ The results returned are similar to the following JSON document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## Next steps
-
-Now that you have learned how to create a client for a deployed model, learn how to [Deploy a model to an IoT Edge device](how-to-deploy-to-iot.md).
